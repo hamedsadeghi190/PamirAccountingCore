@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Forms\Agencies\AgencyCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Agencies\AgencyListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Banks\CreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Banks\FrmBankList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Currencies\CurrencyCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Currencies\CurrencyListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\CurrencyAgencies\CurrencyAgenciesCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\CurrencyAgencies\FrmCurrencyAgenciesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Customers\CustomerCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Customers\FrmCustomerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Customers\ViewCustomerAccountFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GeneralLedger\ContactsCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GeneralLedger\ContactsListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GeneralLedger\DebitListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GeneralLedger\ShowDebitListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Groups\GroupCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Groups\GroupListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Header\HeaderCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Settings\SettingCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SplashScreenFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transactions\PayAndReciveCashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transaction\BalanceFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transaction\BankPaymentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transaction\BankReceiveFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transaction\CreateNewCustomerAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transaction\PayCashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transaction\ReceiveCashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transaction\RegisterNewTransactionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transaction\TransferAccountFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Users\LoginFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Users\UsersCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Users\UsersListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
