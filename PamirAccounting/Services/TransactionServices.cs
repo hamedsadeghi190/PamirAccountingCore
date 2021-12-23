@@ -65,7 +65,7 @@ namespace PamirAccounting.Services
                     CurrenyName = x.CurrenyName,
                     UserId = x.UserId,
                     UserName = x.UserName,
-                    Status = (x.WithdrawAmount != null) ? "بدهکار" : "طلبکار"
+                    Status = (x.WithdrawAmount.Value == 0 && x.DepositAmount.Value == 0) ? "" : (x.WithdrawAmount.Value > 0) ? "بدهکار" : "طلبکار"
 
                 }).ToList();
                 return dataList;
@@ -75,6 +75,17 @@ namespace PamirAccounting.Services
                 return null;
             }
 
+        }
+
+        public Transaction FindLastTransaction(int SourceCustomerId, int TransactionType, int CurrenyId)
+        {
+            var transaction = _context.Transactions.OrderBy(x => x.Id).LastOrDefault(x => x.SourceCustomerId == SourceCustomerId && x.TransactionType == TransactionType && x.CurrenyId == CurrenyId);
+            return transaction;
+        }
+        public Transaction FindLastTransaction(int SourceCustomerId, int CurrenyId)
+        {
+            var transaction = _context.Transactions.OrderBy(x => x.Id).LastOrDefault(x => x.SourceCustomerId == SourceCustomerId && x.CurrenyId == CurrenyId);
+            return transaction;
         }
     }
 }

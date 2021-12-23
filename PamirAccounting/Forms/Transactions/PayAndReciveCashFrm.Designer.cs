@@ -32,10 +32,6 @@ namespace PamirAccounting.Forms.Transactions
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayAndReciveCashFrm));
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtwithdraw = new DevExpress.XtraEditors.TextEdit();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtdeposit = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.txtdesc = new DevExpress.XtraEditors.TextEdit();
             this.cmbCurrencies = new System.Windows.Forms.ComboBox();
@@ -43,10 +39,12 @@ namespace PamirAccounting.Forms.Transactions
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCustomers = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.cmbRemainType = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtAmount = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtwithdraw.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtdeposit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdesc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnsavebank
@@ -76,63 +74,12 @@ namespace PamirAccounting.Forms.Transactions
             this.txtDate.Size = new System.Drawing.Size(138, 38);
             this.txtDate.TabIndex = 91;
             // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(271, 163);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(75, 23);
-            this.label5.TabIndex = 90;
-            this.label5.Text = "طلبکار(آمد) :";
-            // 
-            // txtwithdraw
-            // 
-            this.txtwithdraw.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtwithdraw.Location = new System.Drawing.Point(364, 156);
-            this.txtwithdraw.Name = "txtwithdraw";
-            this.txtwithdraw.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtwithdraw.Properties.Appearance.Options.UseFont = true;
-            this.txtwithdraw.Properties.AutoHeight = false;
-            this.txtwithdraw.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtwithdraw.Properties.MaskSettings.Set("mask", "n");
-            this.txtwithdraw.Size = new System.Drawing.Size(140, 38);
-            this.txtwithdraw.TabIndex = 89;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(519, 171);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(82, 23);
-            this.label4.TabIndex = 88;
-            this.label4.Text = "بدهکار (رفت ):";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtdeposit
-            // 
-            this.txtdeposit.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtdeposit.Location = new System.Drawing.Point(139, 154);
-            this.txtdeposit.Name = "txtdeposit";
-            this.txtdeposit.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtdeposit.Properties.Appearance.Options.UseFont = true;
-            this.txtdeposit.Properties.AutoHeight = false;
-            this.txtdeposit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtdeposit.Properties.MaskSettings.Set("mask", "n");
-            this.txtdeposit.Size = new System.Drawing.Size(126, 38);
-            this.txtdeposit.TabIndex = 87;
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(271, 105);
+            this.label2.Location = new System.Drawing.Point(510, 167);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(39, 23);
@@ -142,13 +89,13 @@ namespace PamirAccounting.Forms.Transactions
             // txtdesc
             // 
             this.txtdesc.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtdesc.Location = new System.Drawing.Point(13, 98);
+            this.txtdesc.Location = new System.Drawing.Point(12, 160);
             this.txtdesc.Name = "txtdesc";
             this.txtdesc.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtdesc.Properties.Appearance.Options.UseFont = true;
             this.txtdesc.Properties.AutoHeight = false;
             this.txtdesc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtdesc.Size = new System.Drawing.Size(252, 38);
+            this.txtdesc.Size = new System.Drawing.Size(492, 38);
             this.txtdesc.TabIndex = 85;
             // 
             // cmbCurrencies
@@ -190,6 +137,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCustomers.FormattingEnabled = true;
             this.cmbCustomers.Location = new System.Drawing.Point(13, 36);
             this.cmbCustomers.Name = "cmbCustomers";
+            this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCustomers.Size = new System.Drawing.Size(252, 39);
             this.cmbCustomers.TabIndex = 93;
             // 
@@ -205,18 +153,53 @@ namespace PamirAccounting.Forms.Transactions
             this.label6.TabIndex = 92;
             this.label6.Text = "صاحب حساب :";
             // 
+            // cmbRemainType
+            // 
+            this.cmbRemainType.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbRemainType.FormattingEnabled = true;
+            this.cmbRemainType.Location = new System.Drawing.Point(12, 102);
+            this.cmbRemainType.Name = "cmbRemainType";
+            this.cmbRemainType.Size = new System.Drawing.Size(109, 36);
+            this.cmbRemainType.TabIndex = 111;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(274, 109);
+            this.label7.Name = "label7";
+            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label7.Size = new System.Drawing.Size(70, 23);
+            this.label7.TabIndex = 114;
+            this.label7.Text = "مانده از قبل:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtAmount.Location = new System.Drawing.Point(128, 100);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAmount.Properties.Appearance.Options.UseFont = true;
+            this.txtAmount.Properties.AutoHeight = false;
+            this.txtAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtAmount.Properties.MaskSettings.Set("mask", "n0");
+            this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtAmount.Size = new System.Drawing.Size(137, 38);
+            this.txtAmount.TabIndex = 110;
+            // 
             // PayAndReciveCashFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 294);
+            this.Controls.Add(this.cmbRemainType);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.cmbCustomers);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDate);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtwithdraw);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtdeposit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtdesc);
             this.Controls.Add(this.cmbCurrencies);
@@ -226,12 +209,12 @@ namespace PamirAccounting.Forms.Transactions
             this.MaximizeBox = false;
             this.Name = "PayAndReciveCashFrm";
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "دریافت و پرداخت نقدی";
             this.Load += new System.EventHandler(this.PayAndReciveCashFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtwithdraw.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtdeposit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdesc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,10 +224,6 @@ namespace PamirAccounting.Forms.Transactions
 
         private DevExpress.XtraEditors.SimpleButton btnsavebank;
         private DevExpress.XtraEditors.TextEdit txtDate;
-        private System.Windows.Forms.Label label5;
-        private DevExpress.XtraEditors.TextEdit txtwithdraw;
-        private System.Windows.Forms.Label label4;
-        private DevExpress.XtraEditors.TextEdit txtdeposit;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit txtdesc;
         private System.Windows.Forms.ComboBox cmbCurrencies;
@@ -252,5 +231,8 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbCustomers;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbRemainType;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.TextEdit txtAmount;
     }
 }

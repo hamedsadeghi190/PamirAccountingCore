@@ -56,7 +56,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.grdTotals = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +67,7 @@ namespace PamirAccounting.UI.Forms.Customers
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTotals)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxViewAccountCustomer
@@ -280,14 +280,14 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "DepositAmount";
+            this.Column4.DataPropertyName = "WithdrawAmount";
             this.Column4.HeaderText = "بدهکار";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // GroupName
             // 
-            this.GroupName.DataPropertyName = "WithdrawAmount";
+            this.GroupName.DataPropertyName = "DepositAmount";
             this.GroupName.HeaderText = "طلبکار";
             this.GroupName.Name = "GroupName";
             this.GroupName.ReadOnly = true;
@@ -349,32 +349,32 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnRowDelete.UseColumnTextForButtonValue = true;
             this.btnRowDelete.Width = 70;
             // 
-            // dataGridView2
+            // grdTotals
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdTotals.AllowUserToAddRows = false;
+            this.grdTotals.AllowUserToDeleteRows = false;
+            this.grdTotals.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grdTotals.BackgroundColor = System.Drawing.Color.White;
+            this.grdTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdTotals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.Column10,
             this.Column11});
-            this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView2.Location = new System.Drawing.Point(0, 456);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridView2.ShowEditingIcon = false;
-            this.dataGridView2.Size = new System.Drawing.Size(1335, 125);
-            this.dataGridView2.TabIndex = 16;
+            this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grdTotals.Location = new System.Drawing.Point(0, 456);
+            this.grdTotals.Name = "grdTotals";
+            this.grdTotals.ReadOnly = true;
+            this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.grdTotals.ShowEditingIcon = false;
+            this.grdTotals.Size = new System.Drawing.Size(1335, 125);
+            this.grdTotals.TabIndex = 16;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FullName";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Description";
             this.dataGridViewTextBoxColumn2.FillWeight = 610F;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "شرح";
@@ -384,7 +384,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Phone";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TotalWithdrawAmount";
             this.dataGridViewTextBoxColumn3.FillWeight = 150F;
             this.dataGridViewTextBoxColumn3.HeaderText = "جمع بدهکار";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -393,7 +393,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Mobile";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "TotalDepositAmount";
             this.dataGridViewTextBoxColumn4.FillWeight = 150F;
             this.dataGridViewTextBoxColumn4.HeaderText = "جمع طلبکار";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -402,7 +402,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "GroupName";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "CurrenyName";
             this.dataGridViewTextBoxColumn5.FillWeight = 130F;
             this.dataGridViewTextBoxColumn5.HeaderText = "نوع ارز";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -411,6 +411,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // Column10
             // 
+            this.Column10.DataPropertyName = "RemainigAmount";
             this.Column10.FillWeight = 150F;
             this.Column10.HeaderText = "باقیمانده";
             this.Column10.Name = "Column10";
@@ -419,6 +420,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // Column11
             // 
+            this.Column11.DataPropertyName = "Status";
             this.Column11.HeaderText = "وضعیت";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
@@ -428,7 +430,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 584);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.grdTotals);
             this.Controls.Add(this.grdTransactions);
             this.Controls.Add(this.groupBoxViewAccountCustomer);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -443,7 +445,7 @@ namespace PamirAccounting.UI.Forms.Customers
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTotals)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -461,13 +463,7 @@ namespace PamirAccounting.UI.Forms.Customers
         private System.Windows.Forms.ComboBox cmbCurrencies;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grdTransactions;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridView grdTotals;
         private DevExpress.XtraEditors.TextEdit txtSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -481,5 +477,11 @@ namespace PamirAccounting.UI.Forms.Customers
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }

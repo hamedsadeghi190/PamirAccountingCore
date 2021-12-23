@@ -99,7 +99,7 @@ namespace PamirAccounting.Infrastructures
             }
             Local.AddRange(entities);
         }
-
+  
         public virtual T FindFirst(Expression<Func<T, bool>> where = null, string includes = "")
         {
             return FindAll(where, includes).First();

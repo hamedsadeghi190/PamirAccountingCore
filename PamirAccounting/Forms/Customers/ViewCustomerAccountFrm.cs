@@ -20,8 +20,10 @@ namespace PamirAccounting.UI.Forms.Customers
     {
         private UnitOfWork unitOfWork;
         private int? _Id;
+        private Domains.Customer _Customer;
         private List<ComboBoxModel> _Actions = new List<ComboBoxModel>();
         private List<TransactionModel> _dataList;
+        private List<TransactionsGroupModel> _GroupedDataList;
         public ViewCustomerAccountFrm()
         {
             InitializeComponent();
@@ -58,6 +60,12 @@ namespace PamirAccounting.UI.Forms.Customers
             cmbActions.ValueMember = "Id";
             cmbActions.DisplayMember = "Title";
             cmbActions.SelectedValueChanged += new System.EventHandler(cmbActions_SelectedValueChanged);
+
+            if (_Id != null)
+            {
+              _Customer =  unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+                this.Text = "نمایش حساب - " + $"{_Customer.FirstName} {_Customer.LastName}";
+            }
 
         }
 
@@ -137,6 +145,32 @@ namespace PamirAccounting.UI.Forms.Customers
             _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value);
             grdTransactions.AutoGenerateColumns = false;
             grdTransactions.DataSource = _dataList;
+
+            var grouped = _dataList.GroupBy(x => x.CurrenyId);
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in grouped)
+            {
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw += item.WithdrawAmount.Value;
+                    totalDeposit += item.DepositAmount.Value;
+                    curenncySummery.CurrenyName = item.CurrenyName;
+                }
+                curenncySummery.TotalDepositAmount = totalDeposit;
+                curenncySummery.TotalWithdrawAmount = totalWithDraw;
+
+                remaining = totalDeposit - totalWithDraw;
+
+                curenncySummery.RemainigAmount = remaining;
+                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
+                _GroupedDataList.Add(curenncySummery);
+            }
+
+            grdTotals.AutoGenerateColumns = false;
+            grdTotals.DataSource = _GroupedDataList;
         }
 
         private void groupBoxViewAccountCustomer_Enter(object sender, EventArgs e)
