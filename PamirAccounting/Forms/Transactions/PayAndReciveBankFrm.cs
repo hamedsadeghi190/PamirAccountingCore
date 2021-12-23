@@ -151,11 +151,6 @@ namespace PamirAccounting.Forms.Transactions
 
         private void CreateWithDraw()
         {
-            throw new NotImplementedException();
-        }
-
-        private void CreateDeposit()
-        {
             Domains.Transaction customerlastTransAction = null;
             Domains.Transaction BanklastTransAction = null;
             Domains.Transaction customerAccount = null;
@@ -169,18 +164,12 @@ namespace PamirAccounting.Forms.Transactions
 
             var bankTransaction = new Domains.Transaction();
 
-            if ((int)cmbVarizType.SelectedValue == (int)DepostType.Unkown)
-            {
-                bankTransaction.TransactionType = 4;
-                bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-            }
-            else
-            {
-                bankTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
-                bankTransaction.TransactionType = 3;
-            }
 
-            bankTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
+            bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+            bankTransaction.TransactionType = 3;
+
+
+            bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
 
             bankTransaction.Description = txtdesc.Text;
 
@@ -224,7 +213,89 @@ namespace PamirAccounting.Forms.Transactions
                 var cDate = txtDate.Text.Split('/');
 
                 PersianCalendar pc = new PersianCalendar();
-                 TransactionDateTime = p.ToDateTime(int.Parse(cDate[0]), int.Parse(cDate[1]), int.Parse(cDate[2]), 0, 0, 0, 0);
+                TransactionDateTime = p.ToDateTime(int.Parse(cDate[0]), int.Parse(cDate[1]), int.Parse(cDate[2]), 0, 0, 0, 0);
+                customerTransaction.Date = DateTime.Now;
+                customerTransaction.TransactionDateTime = TransactionDateTime;
+                customerTransaction.UserId = CurrentUser.UserID;
+                var cRemainigAmount = (customerTransaction.DepositAmount.Value != 0) ? customerTransaction.DepositAmount.Value : customerTransaction.WithdrawAmount.Value * -1;
+                customerTransaction.RemainigAmount = customerlastTransAction.RemainigAmount + cRemainigAmount;
+                unitOfWork.TransactionServices.Insert(customerTransaction);
+
+            }
+            unitOfWork.SaveChanges();
+        }
+
+        private void CreateDeposit()
+        {
+            Domains.Transaction customerlastTransAction = null;
+            Domains.Transaction BanklastTransAction = null;
+            Domains.Transaction customerAccount = null;
+
+            var bankAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbBanks.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
+            if (bankAccount == null)
+            {
+                createAccount((int)cmbBanks.SelectedValue, (int)cmbCurrencies.SelectedValue);
+            }
+            BanklastTransAction = unitOfWork.TransactionServices.FindLastTransaction((int)cmbBanks.SelectedValue, (int)cmbCurrencies.SelectedValue);
+
+            var bankTransaction = new Domains.Transaction();
+
+            if ((int)cmbVarizType.SelectedValue == (int)DepostType.Unkown)
+            {
+                bankTransaction.TransactionType = 4;
+                bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            }
+            else
+            {
+                bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+                bankTransaction.TransactionType = 3;
+            }
+
+            bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
+
+            bankTransaction.Description = txtdesc.Text;
+
+            bankTransaction.DepositAmount = 0;
+            bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+
+
+            bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            var dDate = txtDate.Text.Split('/');
+
+            PersianCalendar p = new PersianCalendar();
+            var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+            bankTransaction.Date = DateTime.Now;
+            bankTransaction.TransactionDateTime = TransactionDateTime;
+            bankTransaction.UserId = CurrentUser.UserID;
+            var RemainigAmount = (bankTransaction.DepositAmount.Value != 0) ? bankTransaction.DepositAmount.Value : bankTransaction.WithdrawAmount.Value * -1;
+            bankTransaction.RemainigAmount = BanklastTransAction.RemainigAmount + RemainigAmount;
+            unitOfWork.TransactionServices.Insert(bankTransaction);
+
+
+            //ثبت واریز برای مشتری
+            if ((int)cmbVarizType.SelectedValue == (int)DepostType.known)
+            {
+                customerAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbCustomers.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
+                if (customerAccount == null)
+                {
+                    createAccount((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
+                }
+                customerlastTransAction = unitOfWork.TransactionServices.FindLastTransaction((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
+
+                var customerTransaction = new Domains.Transaction();
+                customerTransaction.TransactionType = 3;
+                customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+                customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
+                customerTransaction.Description = txtdesc.Text;
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.WithdrawAmount = 0;
+
+
+                customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+                var cDate = txtDate.Text.Split('/');
+
+                PersianCalendar pc = new PersianCalendar();
+                TransactionDateTime = p.ToDateTime(int.Parse(cDate[0]), int.Parse(cDate[1]), int.Parse(cDate[2]), 0, 0, 0, 0);
                 customerTransaction.Date = DateTime.Now;
                 customerTransaction.TransactionDateTime = TransactionDateTime;
                 customerTransaction.UserId = CurrentUser.UserID;
