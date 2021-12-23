@@ -22,6 +22,7 @@ namespace PamirAccounting.Domains
         public bool? WithdrawType { get; set; }
         public string BranchCode { get; set; }
         public string ReceiptNumber { get; set; }
+        public long? UnkownAmount { get; set; }
 
         public virtual Currency Curreny { get; set; }
         public virtual Customer DestinitionCustomer { get; set; }

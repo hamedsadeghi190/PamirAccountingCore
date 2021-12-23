@@ -23,5 +23,15 @@ namespace PamirAccounting.Commons.Enums
             Admin = 1,
             Users = 2,
         }
+
+        public enum DepostType
+        {
+            [Description("نامعلوم")]
+            Unkown = 1,
+            [Description("معلوم")]
+            known = 2,
+          
+        }
+
     }
 }

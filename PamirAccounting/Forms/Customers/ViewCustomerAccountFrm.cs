@@ -88,6 +88,11 @@ namespace PamirAccounting.UI.Forms.Customers
                     var frmCash = new PayAndReciveCashFrm(_Id.Value);
                     frmCash.ShowDialog();
                     LoadData();
+                    break;     
+                case 3:
+                    var frmbank = new PayAndReciveBankFrm(_Id.Value);
+                    frmbank.ShowDialog();
+                    LoadData();
                     break;
                 default:
                     break;

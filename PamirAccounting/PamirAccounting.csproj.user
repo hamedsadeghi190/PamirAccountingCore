@@ -65,6 +65,9 @@
     <Compile Update="Forms\SplashScreenFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Transactions\PayAndReciveBankFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Transactions\PayAndReciveCashFrm.cs">
       <SubType>Form</SubType>
     </Compile>

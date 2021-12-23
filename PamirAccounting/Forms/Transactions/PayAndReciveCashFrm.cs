@@ -85,7 +85,6 @@ namespace PamirAccounting.Forms.Transactions
             if (sAccount == null)
             {
                 createAccount((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
-                createAccount((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
             }
 
 

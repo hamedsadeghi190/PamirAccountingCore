@@ -215,6 +215,8 @@ namespace PamirAccounting.Domains
 
                 entity.HasIndex(e => e.UserId, "IX_Transactions_UserId");
 
+                entity.Property(e => e.UnkownAmount).HasDefaultValueSql("((0))");
+
                 entity.HasOne(d => d.Curreny)
                     .WithMany(p => p.Transactions)
                     .HasForeignKey(d => d.CurrenyId);
