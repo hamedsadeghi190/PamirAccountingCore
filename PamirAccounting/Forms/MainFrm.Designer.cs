@@ -77,6 +77,13 @@ namespace PamirAccounting.UI
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barBtnshippingOrder = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnWarrantsPayable = new DevExpress.XtraBars.BarButtonItem();
+            this.btnshippingOrder = new DevExpress.XtraBars.BarButtonItem();
+            this.btnWarrantsPayable = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDraftsList = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRate = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -91,6 +98,8 @@ namespace PamirAccounting.UI
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -158,11 +167,18 @@ namespace PamirAccounting.UI
             this.barButtonItem18,
             this.barButtonItem19,
             this.barButtonItem20,
-            this.barStaticItem1});
+            this.barStaticItem1,
+            this.barBtnshippingOrder,
+            this.barBtnWarrantsPayable,
+            this.btnshippingOrder,
+            this.btnWarrantsPayable,
+            this.btnDraftsList,
+            this.btnRate,
+            this.barButtonItem11});
             this.ribbonControl1.ItemsVertAlign = DevExpress.Utils.VertAlignment.Center;
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbonControl1.MaxItemId = 56;
+            this.ribbonControl1.MaxItemId = 64;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 630;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -171,7 +187,8 @@ namespace PamirAccounting.UI
             this.ribbonPage3,
             this.ribbonPageGeneralLedger,
             this.settingRibonMenu,
-            this.ribbonPage5});
+            this.ribbonPage5,
+            this.ribbonPage4});
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHypertextLabel1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
@@ -927,6 +944,59 @@ namespace PamirAccounting.UI
             this.barStaticItem1.Id = 53;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
+            // barBtnshippingOrder
+            // 
+            this.barBtnshippingOrder.Caption = "حواله فروش";
+            this.barBtnshippingOrder.Id = 56;
+            this.barBtnshippingOrder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnshippingOrder.ImageOptions.SvgImage")));
+            this.barBtnshippingOrder.Name = "barBtnshippingOrder";
+            this.barBtnshippingOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnshippingOrder_ItemClick);
+            // 
+            // barBtnWarrantsPayable
+            // 
+            this.barBtnWarrantsPayable.Caption = "حواله آمد";
+            this.barBtnWarrantsPayable.Id = 57;
+            this.barBtnWarrantsPayable.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnWarrantsPayable.ImageOptions.SvgImage")));
+            this.barBtnWarrantsPayable.Name = "barBtnWarrantsPayable";
+            this.barBtnWarrantsPayable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnWarrantsPayable_ItemClick);
+            // 
+            // btnshippingOrder
+            // 
+            this.btnshippingOrder.Caption = "حواله فروش";
+            this.btnshippingOrder.Id = 59;
+            this.btnshippingOrder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnshippingOrder.ImageOptions.SvgImage")));
+            this.btnshippingOrder.Name = "btnshippingOrder";
+            // 
+            // btnWarrantsPayable
+            // 
+            this.btnWarrantsPayable.Caption = "حواله آمد";
+            this.btnWarrantsPayable.Id = 60;
+            this.btnWarrantsPayable.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnWarrantsPayable.ImageOptions.SvgImage")));
+            this.btnWarrantsPayable.Name = "btnWarrantsPayable";
+            // 
+            // btnDraftsList
+            // 
+            this.btnDraftsList.Caption = "لیست حواله";
+            this.btnDraftsList.Id = 61;
+            this.btnDraftsList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDraftsList.ImageOptions.SvgImage")));
+            this.btnDraftsList.Name = "btnDraftsList";
+            this.btnDraftsList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDraftsList_ItemClick);
+            // 
+            // btnRate
+            // 
+            this.btnRate.Caption = "ثبت نرخ های معیار";
+            this.btnRate.Id = 62;
+            this.btnRate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRate.ImageOptions.SvgImage")));
+            this.btnRate.Name = "btnRate";
+            this.btnRate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRate_ItemClick);
+            // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "مفاد و زیان نمایندگی ها";
+            this.barButtonItem11.Id = 63;
+            this.barButtonItem11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem11.ImageOptions.SvgImage")));
+            this.barButtonItem11.Name = "barButtonItem11";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Appearance.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -1052,7 +1122,26 @@ namespace PamirAccounting.UI
             this.ribbonPageGroup13.ItemLinks.Add(this.barBtnTransferAccount);
             this.ribbonPageGroup13.ItemLinks.Add(this.barBnBankDeposit);
             this.ribbonPageGroup13.ItemLinks.Add(this.barBtnBankPayment);
+            this.ribbonPageGroup13.ItemLinks.Add(this.barBtnshippingOrder);
+            this.ribbonPageGroup13.ItemLinks.Add(this.barBtnWarrantsPayable);
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            // 
+            // ribbonPage4
+            // 
+            this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup3});
+            this.ribbonPage4.Name = "ribbonPage4";
+            this.ribbonPage4.Text = "حواله ";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnshippingOrder);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnWarrantsPayable);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnDraftsList);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnRate);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem11);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
             // repositoryItemHypertextLabel1
             // 
@@ -1218,6 +1307,15 @@ namespace PamirAccounting.UI
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage8;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel1;
+        private DevExpress.XtraBars.BarButtonItem barBtnshippingOrder;
+        private DevExpress.XtraBars.BarButtonItem barBtnWarrantsPayable;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem btnshippingOrder;
+        private DevExpress.XtraBars.BarButtonItem btnWarrantsPayable;
+        private DevExpress.XtraBars.BarButtonItem btnDraftsList;
+        private DevExpress.XtraBars.BarButtonItem btnRate;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
     }
 }
 

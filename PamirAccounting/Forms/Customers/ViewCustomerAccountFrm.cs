@@ -182,5 +182,10 @@ namespace PamirAccounting.UI.Forms.Customers
         {
 
         }
+
+        private void grdTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

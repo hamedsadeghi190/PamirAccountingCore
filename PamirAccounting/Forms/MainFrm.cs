@@ -1,4 +1,5 @@
 ﻿using PamirAccounting.Forms.Customers;
+using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.Users;
 using PamirAccounting.UI.Forms.Agencies;
 using PamirAccounting.UI.Forms.Banks;
@@ -261,6 +262,31 @@ namespace PamirAccounting.UI
         {
             var frm = new FrmCustomerList();
             frm.ShowDialog();
+        }
+
+        private void barBtnshippingOrder_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var FrmshippingOrder = new shippingOrderFrm();
+            FrmshippingOrder.ShowDialog();
+        }
+
+        private void barBtnWarrantsPayable_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var FrmWarrantsPayable = new WarrantsPayableFrm();
+            FrmWarrantsPayable.ShowDialog();
+            
+        }
+
+        private void btnRate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var RateListFrm = new RateListFrm();
+            RateListFrm.ShowDialog(); 
+        }
+
+        private void btnDraftsList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var DraftsListFrm = new DraftsListFrm();
+            DraftsListFrm.ShowDialog();
         }
     }
 
