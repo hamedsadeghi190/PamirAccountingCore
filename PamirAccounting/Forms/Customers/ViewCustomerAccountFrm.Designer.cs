@@ -248,6 +248,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.ShowEditingIcon = false;
             this.grdTransactions.Size = new System.Drawing.Size(1335, 357);
             this.grdTransactions.TabIndex = 15;
+            this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
             // 
             // Column1
             // 

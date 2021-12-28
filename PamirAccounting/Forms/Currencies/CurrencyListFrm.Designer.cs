@@ -34,10 +34,10 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.CreateNewCurrencyBtn = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -48,7 +48,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.groupBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxSearch.Controls.Add(this.txtSearch);
             this.groupBoxSearch.Controls.Add(this.CreateNewCurrencyBtn);
-            this.groupBoxSearch.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.groupBoxSearch.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxSearch.Location = new System.Drawing.Point(13, 1);
             this.groupBoxSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxSearch.Name = "groupBoxSearch";
@@ -65,9 +65,9 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.txtSearch.Location = new System.Drawing.Point(346, 29);
             this.txtSearch.MinimumSize = new System.Drawing.Size(0, 38);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
-            this.txtSearch.Size = new System.Drawing.Size(297, 38);
+            this.txtSearch.Size = new System.Drawing.Size(297, 20);
             this.txtSearch.TabIndex = 2;
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
@@ -75,7 +75,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             // CreateNewCurrencyBtn
             // 
             this.CreateNewCurrencyBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CreateNewCurrencyBtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.CreateNewCurrencyBtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CreateNewCurrencyBtn.Appearance.ForeColor = System.Drawing.Color.DarkGreen;
             this.CreateNewCurrencyBtn.Appearance.Options.UseFont = true;
             this.CreateNewCurrencyBtn.Appearance.Options.UseForeColor = true;
@@ -109,24 +109,15 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // Column1
+            // btnRowDelete
             // 
-            this.Column1.DataPropertyName = "Id";
-            this.Column1.FillWeight = 60F;
-            this.Column1.HeaderText = "ردیف";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 60;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Name";
-            this.Column2.FillWeight = 440F;
-            this.Column2.HeaderText = "نام ارز";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 440;
+            this.btnRowDelete.FillWeight = 60F;
+            this.btnRowDelete.HeaderText = "حذف";
+            this.btnRowDelete.Name = "btnRowDelete";
+            this.btnRowDelete.ReadOnly = true;
+            this.btnRowDelete.Text = "حذف";
+            this.btnRowDelete.UseColumnTextForButtonValue = true;
+            this.btnRowDelete.Width = 60;
             // 
             // btnRowEdit
             // 
@@ -138,15 +129,24 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.btnRowEdit.UseColumnTextForButtonValue = true;
             this.btnRowEdit.Width = 60;
             // 
-            // btnRowDelete
+            // Column2
             // 
-            this.btnRowDelete.FillWeight = 60F;
-            this.btnRowDelete.HeaderText = "حذف";
-            this.btnRowDelete.Name = "btnRowDelete";
-            this.btnRowDelete.ReadOnly = true;
-            this.btnRowDelete.Text = "حذف";
-            this.btnRowDelete.UseColumnTextForButtonValue = true;
-            this.btnRowDelete.Width = 60;
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.FillWeight = 440F;
+            this.Column2.HeaderText = "نام ارز";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 440;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.FillWeight = 60F;
+            this.Column1.HeaderText = "ردیف";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.Width = 60;
             // 
             // CurrencyListFrm
             // 

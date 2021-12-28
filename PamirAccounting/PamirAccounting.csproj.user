@@ -35,6 +35,21 @@
     <Compile Update="Forms\Customers\ViewCustomerAccountFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Drafts\DraftsListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Drafts\RateCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Drafts\RateListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Drafts\shippingOrderFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Drafts\WarrantsPayableFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\GeneralLedger\ContactsCreateUpdateFrm.cs">
       <SubType>Form</SubType>
     </Compile>
