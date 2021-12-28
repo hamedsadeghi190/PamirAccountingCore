@@ -29,28 +29,53 @@ namespace PamirAccounting.Services
         #endregion
 
 
-        public List<TransactionModel> GetAll(int userId)
+        public List<TransactionModel> GetAll(int userId, int? currencyId)
         {
             try
             {
-                var dataList = FindAllReadonly(x => x.SourceCustomerId == userId)
-                .Include(x => x.Curreny)
-                .Include(x => x.User)
-               .Select(x => new TransactionModel
-               {
-                   Id = x.Id,
-                   Description = x.Description,
-                   DepositAmount = x.DepositAmount,
-                   WithdrawAmount = x.WithdrawAmount,
-                   RemainigAmount = x.RemainigAmount,
-                   Date = x.Date.ToString(),
-                   TransactionDateTime = x.TransactionDateTime.ToString(),
-                   CurrenyId = x.CurrenyId,
-                   CurrenyName = x.Curreny.Name,
-                   UserId = x.UserId,
-                   UserName = x.User.UserName,
+                var dataList = new List<TransactionModel>();
+                if (currencyId == null)
+                {
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == userId)
+                    .Include(x => x.Curreny)
+                    .Include(x => x.User)
+                   .Select(x => new TransactionModel
+                   {
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       RemainigAmount = x.RemainigAmount,
+                       Date = x.Date.ToString(),
+                       TransactionDateTime = x.TransactionDateTime.ToString(),
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       UserId = x.UserId,
+                       UserName = x.User.UserName,
 
-               }).ToList();
+                   }).ToList();
+                }
+                else
+                {
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == userId && x.CurrenyId == currencyId)
+                                 .Include(x => x.Curreny)
+                                 .Include(x => x.User)
+                                 .Select(x => new TransactionModel
+                                 {
+                                     Id = x.Id,
+                                     Description = x.Description,
+                                     DepositAmount = x.DepositAmount,
+                                     WithdrawAmount = x.WithdrawAmount,
+                                     RemainigAmount = x.RemainigAmount,
+                                     Date = x.Date.ToString(),
+                                     TransactionDateTime = x.TransactionDateTime.ToString(),
+                                     CurrenyId = x.CurrenyId,
+                                     CurrenyName = x.Curreny.Name,
+                                     UserId = x.UserId,
+                                     UserName = x.User.UserName,
+
+                                 }).ToList();
+                }
 
                 dataList = dataList.Select(x => new TransactionModel
                 {

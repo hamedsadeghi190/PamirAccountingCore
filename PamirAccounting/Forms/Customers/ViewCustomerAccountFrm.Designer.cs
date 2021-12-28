@@ -134,6 +134,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(198, 32);
             this.cmbCurrencies.TabIndex = 108;
+            this.cmbCurrencies.SelectedValueChanged += new System.EventHandler(this.cmbCurrencies_SelectedValueChanged);
             // 
             // label1
             // 

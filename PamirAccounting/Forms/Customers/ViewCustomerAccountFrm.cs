@@ -1,17 +1,12 @@
-﻿using DevExpress.XtraEditors;
-using PamirAccounting.Forms.Transaction;
+﻿using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using PamirAccounting.UI.Forms.Transaction;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PamirAccounting.UI.Forms.Customers
@@ -24,6 +19,8 @@ namespace PamirAccounting.UI.Forms.Customers
         private List<ComboBoxModel> _Actions = new List<ComboBoxModel>();
         private List<TransactionModel> _dataList;
         private List<TransactionsGroupModel> _GroupedDataList;
+
+        private List<ComboBoxModel> _Currencies = new List<ComboBoxModel>();
         public ViewCustomerAccountFrm()
         {
             InitializeComponent();
@@ -53,7 +50,7 @@ namespace PamirAccounting.UI.Forms.Customers
             _Actions.Add(new ComboBoxModel() { Id = 1, Title = "ثبت حساب جدید " });
             _Actions.Add(new ComboBoxModel() { Id = 2, Title = "دریافت و پرداخت نقدی " });
             _Actions.Add(new ComboBoxModel() { Id = 3, Title = "دریافت و پرداخت بانکی " });
-            _Actions.Add(new ComboBoxModel() { Id = 3, Title = "انتقال حساب به حساب " });
+            _Actions.Add(new ComboBoxModel() { Id = 4, Title = "انتقال حساب به حساب " });
 
             cmbActions.SelectedValueChanged -= new System.EventHandler(cmbActions_SelectedValueChanged);
             cmbActions.DataSource = _Actions;
@@ -61,9 +58,19 @@ namespace PamirAccounting.UI.Forms.Customers
             cmbActions.DisplayMember = "Title";
             cmbActions.SelectedValueChanged += new System.EventHandler(cmbActions_SelectedValueChanged);
 
+
+            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
+            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
+
+            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.DataSource = _Currencies;
+            cmbCurrencies.ValueMember = "Id";
+            cmbCurrencies.DisplayMember = "Title";
+            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+
             if (_Id != null)
             {
-              _Customer =  unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+                _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
                 this.Text = "نمایش حساب - " + $"{_Customer.FirstName} {_Customer.LastName}";
             }
 
@@ -88,10 +95,15 @@ namespace PamirAccounting.UI.Forms.Customers
                     var frmCash = new PayAndReciveCashFrm(_Id.Value);
                     frmCash.ShowDialog();
                     LoadData();
-                    break;     
+                    break;
                 case 3:
                     var frmbank = new PayAndReciveBankFrm(_Id.Value);
                     frmbank.ShowDialog();
+                    LoadData();
+                    break;
+                case 4:
+                    var frmtransfer = new TransferAccountFrm(_Id.Value);
+                    frmtransfer.ShowDialog();
                     LoadData();
                     break;
                 default:
@@ -147,7 +159,16 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void LoadData()
         {
-            _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value);
+            if ((int)cmbCurrencies.SelectedValue == 0)
+            {
+
+                _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
+            }
+            else
+            {
+                _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, (int)cmbCurrencies.SelectedValue);
+            }
+
             grdTransactions.AutoGenerateColumns = false;
             grdTransactions.DataSource = _dataList;
 
@@ -179,6 +200,11 @@ namespace PamirAccounting.UI.Forms.Customers
         }
 
         private void groupBoxViewAccountCustomer_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
         {
 
         }
