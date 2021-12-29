@@ -25,5 +25,10 @@ namespace PamirAccounting.Forms.Drafts
             var RateCreateUpdateFrm = new RateCreateUpdateFrm();
             RateCreateUpdateFrm.ShowDialog();
         }
+
+        private void rategrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

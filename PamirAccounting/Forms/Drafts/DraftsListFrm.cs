@@ -33,5 +33,21 @@ namespace PamirAccounting.Forms.Drafts
         {
             groupBoxSearch.Visible = true;
         }
+
+        private void simpleButton12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgencystatus_Click(object sender, EventArgs e)
+        {
+            var AgencyStatusFrm = new AgencyStatusFrm();
+            AgencyStatusFrm.ShowDialog();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

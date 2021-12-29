@@ -31,6 +31,8 @@ namespace PamirAccounting.Forms.Drafts
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WarrantsPayableFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
@@ -66,12 +68,12 @@ namespace PamirAccounting.Forms.Drafts
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.simpleButton1);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.btnClose);
@@ -108,21 +110,43 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(6, 12);
+            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(12, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(766, 495);
+            this.groupBox1.Size = new System.Drawing.Size(855, 563);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "حواله آمد";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.simpleButton1.Location = new System.Drawing.Point(31, 290);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(26, 23);
+            this.simpleButton1.TabIndex = 62;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(330, 221);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 23);
+            this.label11.TabIndex = 61;
+            this.label11.Text = "نرخ تبدیل";
             // 
             // btnSave
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
-            this.btnSave.Location = new System.Drawing.Point(33, 420);
+            this.btnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnSave.Location = new System.Drawing.Point(63, 476);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(110, 38);
+            this.btnSave.Size = new System.Drawing.Size(74, 31);
             this.btnSave.TabIndex = 60;
             this.btnSave.Text = "ثبت";
             // 
@@ -131,9 +155,10 @@ namespace PamirAccounting.Forms.Drafts
             this.btnClose.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.Location = new System.Drawing.Point(161, 420);
+            this.btnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnClose.Location = new System.Drawing.Point(144, 476);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(110, 38);
+            this.btnClose.Size = new System.Drawing.Size(74, 31);
             this.btnClose.TabIndex = 59;
             this.btnClose.Text = "بازگشت";
             // 
@@ -141,7 +166,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.comboBox5.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(33, 248);
+            this.comboBox5.Location = new System.Drawing.Point(63, 287);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(265, 31);
             this.comboBox5.TabIndex = 58;
@@ -150,7 +175,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.comboBox4.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(405, 214);
+            this.comboBox4.Location = new System.Drawing.Point(479, 253);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(265, 31);
             this.comboBox4.TabIndex = 57;
@@ -159,7 +184,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.comboBox3.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(405, 73);
+            this.comboBox3.Location = new System.Drawing.Point(479, 112);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(265, 31);
             this.comboBox3.TabIndex = 56;
@@ -167,9 +192,9 @@ namespace PamirAccounting.Forms.Drafts
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBox1.Location = new System.Drawing.Point(33, 322);
+            this.richTextBox1.Location = new System.Drawing.Point(63, 361);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(637, 69);
+            this.richTextBox1.Size = new System.Drawing.Size(681, 69);
             this.richTextBox1.TabIndex = 33;
             this.richTextBox1.Text = "";
             // 
@@ -177,7 +202,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(676, 327);
+            this.label17.Location = new System.Drawing.Point(751, 366);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(57, 23);
             this.label17.TabIndex = 32;
@@ -186,7 +211,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox13
             // 
             this.textBox13.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox13.Location = new System.Drawing.Point(33, 109);
+            this.textBox13.Location = new System.Drawing.Point(63, 148);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(265, 29);
             this.textBox13.TabIndex = 29;
@@ -195,7 +220,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.comboBox2.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(33, 144);
+            this.comboBox2.Location = new System.Drawing.Point(63, 183);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(265, 31);
             this.comboBox2.TabIndex = 26;
@@ -203,7 +228,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox9.Location = new System.Drawing.Point(33, 215);
+            this.textBox9.Location = new System.Drawing.Point(63, 254);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(265, 29);
             this.textBox9.TabIndex = 25;
@@ -211,7 +236,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox10.Location = new System.Drawing.Point(33, 180);
+            this.textBox10.Location = new System.Drawing.Point(63, 219);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(265, 29);
             this.textBox10.TabIndex = 23;
@@ -219,7 +244,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox11
             // 
             this.textBox11.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox11.Location = new System.Drawing.Point(405, 251);
+            this.textBox11.Location = new System.Drawing.Point(479, 290);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(265, 29);
             this.textBox11.TabIndex = 21;
@@ -227,7 +252,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox8.Location = new System.Drawing.Point(33, 74);
+            this.textBox8.Location = new System.Drawing.Point(63, 113);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(265, 29);
             this.textBox8.TabIndex = 17;
@@ -235,7 +260,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(405, 286);
+            this.textBox7.Location = new System.Drawing.Point(479, 325);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(265, 29);
             this.textBox7.TabIndex = 15;
@@ -243,7 +268,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(33, 39);
+            this.textBox6.Location = new System.Drawing.Point(63, 78);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(265, 29);
             this.textBox6.TabIndex = 13;
@@ -251,7 +276,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(405, 179);
+            this.textBox5.Location = new System.Drawing.Point(479, 218);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(265, 29);
             this.textBox5.TabIndex = 11;
@@ -259,7 +284,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(405, 144);
+            this.textBox4.Location = new System.Drawing.Point(479, 183);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(265, 29);
             this.textBox4.TabIndex = 9;
@@ -268,7 +293,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.comboBox1.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(33, 285);
+            this.comboBox1.Location = new System.Drawing.Point(63, 324);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(265, 31);
             this.comboBox1.TabIndex = 6;
@@ -276,7 +301,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(405, 109);
+            this.textBox3.Location = new System.Drawing.Point(479, 148);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(265, 29);
             this.textBox3.TabIndex = 5;
@@ -284,7 +309,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(405, 39);
+            this.textBox1.Location = new System.Drawing.Point(479, 78);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(265, 29);
             this.textBox1.TabIndex = 1;
@@ -293,7 +318,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(297, 74);
+            this.label9.Location = new System.Drawing.Point(327, 113);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 23);
             this.label9.TabIndex = 16;
@@ -303,7 +328,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(669, 289);
+            this.label8.Location = new System.Drawing.Point(743, 328);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 23);
             this.label8.TabIndex = 14;
@@ -313,7 +338,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(297, 39);
+            this.label7.Location = new System.Drawing.Point(327, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(25, 23);
             this.label7.TabIndex = 12;
@@ -323,7 +348,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(669, 182);
+            this.label6.Location = new System.Drawing.Point(743, 221);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 23);
             this.label6.TabIndex = 10;
@@ -333,7 +358,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(669, 147);
+            this.label5.Location = new System.Drawing.Point(743, 186);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 23);
             this.label5.TabIndex = 8;
@@ -343,7 +368,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(669, 112);
+            this.label3.Location = new System.Drawing.Point(743, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 23);
             this.label3.TabIndex = 4;
@@ -353,7 +378,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(669, 77);
+            this.label2.Location = new System.Drawing.Point(743, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 23);
             this.label2.TabIndex = 2;
@@ -363,7 +388,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(669, 42);
+            this.label1.Location = new System.Drawing.Point(743, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 23);
             this.label1.TabIndex = 0;
@@ -373,7 +398,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(300, 249);
+            this.label16.Location = new System.Drawing.Point(330, 288);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(69, 23);
             this.label16.TabIndex = 30;
@@ -383,7 +408,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(298, 109);
+            this.label14.Location = new System.Drawing.Point(329, 148);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 23);
             this.label14.TabIndex = 28;
@@ -393,7 +418,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(298, 144);
+            this.label15.Location = new System.Drawing.Point(329, 183);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(84, 23);
             this.label15.TabIndex = 27;
@@ -403,7 +428,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(298, 215);
+            this.label10.Location = new System.Drawing.Point(329, 254);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 23);
             this.label10.TabIndex = 24;
@@ -413,7 +438,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(670, 252);
+            this.label12.Location = new System.Drawing.Point(745, 291);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(61, 23);
             this.label12.TabIndex = 20;
@@ -423,7 +448,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(670, 221);
+            this.label13.Location = new System.Drawing.Point(745, 260);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 23);
             this.label13.TabIndex = 18;
@@ -433,33 +458,25 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(298, 293);
+            this.label4.Location = new System.Drawing.Point(329, 332);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 23);
             this.label4.TabIndex = 7;
             this.label4.Text = "وضعیت";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(300, 182);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 23);
-            this.label11.TabIndex = 61;
-            this.label11.Text = "نرخ تبدیل";
-            // 
             // WarrantsPayableFrm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 510);
+            this.ClientSize = new System.Drawing.Size(880, 587);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "WarrantsPayableFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "حواله آمد";
+            this.Text = "ثبت / ویرایش حواله آمد";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -505,5 +522,6 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label11;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

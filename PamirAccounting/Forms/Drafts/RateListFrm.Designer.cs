@@ -48,11 +48,11 @@ namespace PamirAccounting.Forms.Drafts
             this.rate.Controls.Add(this.btnNew);
             this.rate.Controls.Add(this.textBox1);
             this.rate.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rate.Location = new System.Drawing.Point(3, 24);
+            this.rate.Location = new System.Drawing.Point(3, 12);
             this.rate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rate.Name = "rate";
             this.rate.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.rate.Size = new System.Drawing.Size(610, 74);
+            this.rate.Size = new System.Drawing.Size(610, 110);
             this.rate.TabIndex = 0;
             this.rate.TabStop = false;
             this.rate.Text = "جستجو";
@@ -62,10 +62,11 @@ namespace PamirAccounting.Forms.Drafts
             this.btnNew.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNew.Appearance.Options.UseFont = true;
             this.btnNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNew.ImageOptions.SvgImage")));
-            this.btnNew.Location = new System.Drawing.Point(7, 25);
+            this.btnNew.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnNew.Location = new System.Drawing.Point(25, 32);
             this.btnNew.Margin = new System.Windows.Forms.Padding(2);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 38);
+            this.btnNew.Size = new System.Drawing.Size(67, 38);
             this.btnNew.TabIndex = 1;
             this.btnNew.Text = "جدید";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -73,7 +74,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(313, 29);
+            this.textBox1.Location = new System.Drawing.Point(294, 42);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(251, 27);
@@ -98,39 +99,35 @@ namespace PamirAccounting.Forms.Drafts
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.rategrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.rategrid.Location = new System.Drawing.Point(0, 104);
+            this.rategrid.Location = new System.Drawing.Point(3, 128);
             this.rategrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rategrid.Name = "rategrid";
-            this.rategrid.ReadOnly = true;
             this.rategrid.RowTemplate.Height = 25;
-            this.rategrid.Size = new System.Drawing.Size(614, 344);
+            this.rategrid.Size = new System.Drawing.Size(610, 336);
             this.rategrid.TabIndex = 1;
+            this.rategrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rategrid_CellContentClick);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "ردیف";
             this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "نام ارز";
             this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             this.Column2.Width = 200;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "نرخ";
             this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             this.Column3.Width = 200;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "ویرایش";
             this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column4.Text = "ویرایش";
@@ -138,9 +135,11 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // RateListFrm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 447);
+            this.ClientSize = new System.Drawing.Size(616, 465);
             this.Controls.Add(this.rategrid);
             this.Controls.Add(this.rate);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
