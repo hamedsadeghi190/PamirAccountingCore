@@ -53,6 +53,9 @@
     <Compile Update="Forms\Drafts\DraftsListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Drafts\ExecuteDaraftFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Drafts\RateCreateUpdateFrm.cs">
       <SubType>Form</SubType>
     </Compile>

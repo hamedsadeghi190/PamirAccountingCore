@@ -49,5 +49,11 @@ namespace PamirAccounting.Forms.Drafts
         {
 
         }
+
+        private void btnExecuteDaraft_Click(object sender, EventArgs e)
+        {
+             var ExecuteDaraftFrm = new ExecuteDaraftFrm();
+            ExecuteDaraftFrm.ShowDialog();
+        }
     }
 }
