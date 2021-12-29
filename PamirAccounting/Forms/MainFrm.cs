@@ -288,6 +288,18 @@ namespace PamirAccounting.UI
             var DraftsListFrm = new DraftsListFrm();
             DraftsListFrm.ShowDialog();
         }
+
+        private void btnshippingOrder_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var FrmshippingOrder = new shippingOrderFrm();
+            FrmshippingOrder.ShowDialog();
+        }
+
+        private void btnWarrantsPayable_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var FrmWarrantsPayable = new WarrantsPayableFrm();
+            FrmWarrantsPayable.ShowDialog();
+        }
     }
 
 }
