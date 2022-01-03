@@ -30,195 +30,203 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactsListFrm));
-            this.gridContacts = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBoxContacts = new System.Windows.Forms.GroupBox();
-            this.searchbank = new DevExpress.XtraEditors.SearchControl();
+            this.txtsearch = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.CreateContactsBtn = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.gridContacts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBoxContacts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchbank.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gridContacts
-            // 
-            this.gridContacts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridContacts.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.gridContacts.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.gridContacts.Location = new System.Drawing.Point(0, 130);
-            this.gridContacts.MainView = this.gridView1;
-            this.gridContacts.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.gridContacts.Name = "gridContacts";
-            this.gridContacts.Size = new System.Drawing.Size(1381, 564);
-            this.gridContacts.TabIndex = 6;
-            this.gridContacts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn7,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4,
-            this.gridColumn5});
-            this.gridView1.DetailHeight = 647;
-            this.gridView1.GridControl = this.gridContacts;
-            this.gridView1.Name = "gridView1";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "ردیف";
-            this.gridColumn1.MinWidth = 33;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 68;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "نام";
-            this.gridColumn7.MinWidth = 30;
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 1;
-            this.gridColumn7.Width = 175;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "نام خانوادگی";
-            this.gridColumn2.MinWidth = 30;
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
-            this.gridColumn2.Width = 282;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = " تلفن";
-            this.gridColumn3.MinWidth = 33;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
-            this.gridColumn3.Width = 467;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "موبایل";
-            this.gridColumn4.MinWidth = 33;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
-            this.gridColumn4.Width = 278;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "عملیات";
-            this.gridColumn5.MinWidth = 33;
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
             // 
             // groupBoxContacts
             // 
-            this.groupBoxContacts.Controls.Add(this.searchbank);
+            this.groupBoxContacts.Controls.Add(this.txtsearch);
             this.groupBoxContacts.Controls.Add(this.simpleButton1);
             this.groupBoxContacts.Controls.Add(this.CreateContactsBtn);
             this.groupBoxContacts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBoxContacts.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.groupBoxContacts.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBoxContacts.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxContacts.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.groupBoxContacts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxContacts.Name = "groupBoxContacts";
-            this.groupBoxContacts.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.groupBoxContacts.Size = new System.Drawing.Size(1381, 130);
+            this.groupBoxContacts.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxContacts.Size = new System.Drawing.Size(921, 89);
             this.groupBoxContacts.TabIndex = 5;
             this.groupBoxContacts.TabStop = false;
             this.groupBoxContacts.Text = "جستجو";
             // 
-            // searchbank
+            // txtsearch
             // 
-            this.searchbank.Location = new System.Drawing.Point(754, 47);
-            this.searchbank.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.searchbank.Name = "searchbank";
-            this.searchbank.Properties.AutoHeight = false;
-            this.searchbank.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Repository.ClearButton(),
-            new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.searchbank.Size = new System.Drawing.Size(562, 48);
-            this.searchbank.TabIndex = 0;
+            this.txtsearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtsearch.Location = new System.Drawing.Point(410, 37);
+            this.txtsearch.MinimumSize = new System.Drawing.Size(0, 38);
+            this.txtsearch.Name = "txtsearch";
+            this.txtsearch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtsearch.Properties.Appearance.Options.UseFont = true;
+            this.txtsearch.Size = new System.Drawing.Size(482, 20);
+            this.txtsearch.TabIndex = 3;
+            this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.DarkGreen;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(132, 34);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButton1.Location = new System.Drawing.Point(88, 23);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(126, 66);
+            this.simpleButton1.Size = new System.Drawing.Size(84, 45);
             this.simpleButton1.TabIndex = 2;
             this.simpleButton1.Text = "چاپ";
             // 
             // CreateContactsBtn
             // 
-            this.CreateContactsBtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.CreateContactsBtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CreateContactsBtn.Appearance.ForeColor = System.Drawing.Color.DarkGreen;
             this.CreateContactsBtn.Appearance.Options.UseFont = true;
             this.CreateContactsBtn.Appearance.Options.UseForeColor = true;
             this.CreateContactsBtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("CreateContactsBtn.ImageOptions.SvgImage")));
-            this.CreateContactsBtn.Location = new System.Drawing.Point(7, 34);
-            this.CreateContactsBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CreateContactsBtn.Location = new System.Drawing.Point(5, 23);
+            this.CreateContactsBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CreateContactsBtn.Name = "CreateContactsBtn";
-            this.CreateContactsBtn.Size = new System.Drawing.Size(119, 66);
+            this.CreateContactsBtn.Size = new System.Drawing.Size(79, 45);
             this.CreateContactsBtn.TabIndex = 1;
             this.CreateContactsBtn.Text = " جدید";
             this.CreateContactsBtn.Click += new System.EventHandler(this.CreateContactsBtn_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.btnRowEdit,
+            this.btnRowDelete});
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.Location = new System.Drawing.Point(0, 95);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.ShowEditingIcon = false;
+            this.dataGridView1.Size = new System.Drawing.Size(916, 272);
+            this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.FillWeight = 60F;
+            this.Column1.HeaderText = "ردیف";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "FirstName";
+            this.Column2.FillWeight = 440F;
+            this.Column2.HeaderText = "نام";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "LastName";
+            this.Column3.HeaderText = "نام خانوادگی";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Phone";
+            this.Column4.HeaderText = "تلفن";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 130;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Mobile";
+            this.Column5.HeaderText = "موبایل";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 130;
+            // 
+            // btnRowEdit
+            // 
+            this.btnRowEdit.FillWeight = 60F;
+            this.btnRowEdit.HeaderText = "ویرایش";
+            this.btnRowEdit.Name = "btnRowEdit";
+            this.btnRowEdit.ReadOnly = true;
+            this.btnRowEdit.Text = "ویرایش";
+            this.btnRowEdit.UseColumnTextForButtonValue = true;
+            this.btnRowEdit.Width = 60;
+            // 
+            // btnRowDelete
+            // 
+            this.btnRowDelete.FillWeight = 60F;
+            this.btnRowDelete.HeaderText = "حذف";
+            this.btnRowDelete.Name = "btnRowDelete";
+            this.btnRowDelete.ReadOnly = true;
+            this.btnRowDelete.Text = "حذف";
+            this.btnRowDelete.UseColumnTextForButtonValue = true;
+            this.btnRowDelete.Width = 60;
+            // 
             // ContactsListFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.Appearance.Options.UseBackColor = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 694);
-            this.Controls.Add(this.gridContacts);
+            this.ClientSize = new System.Drawing.Size(921, 475);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBoxContacts);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "ContactsListFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "لیست مخاطبین";
-            ((System.ComponentModel.ISupportInitialize)(this.gridContacts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ContactsListFrm_Load);
             this.groupBoxContacts.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.searchbank.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraGrid.GridControl gridContacts;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private System.Windows.Forms.GroupBox groupBoxContacts;
-        private DevExpress.XtraEditors.SearchControl searchbank;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton CreateContactsBtn;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private DevExpress.XtraEditors.TextEdit txtsearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
     }
 }

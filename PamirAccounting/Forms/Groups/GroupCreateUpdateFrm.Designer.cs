@@ -46,7 +46,7 @@ namespace PamirAccounting.UI.Forms.Groups
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControlCreateUpdate.Appearance.Options.UseFont = true;
-            this.groupControlCreateUpdate.AppearanceCaption.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.groupControlCreateUpdate.AppearanceCaption.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupControlCreateUpdate.AppearanceCaption.Options.UseFont = true;
             this.groupControlCreateUpdate.Controls.Add(this.exitbtn);
             this.groupControlCreateUpdate.Controls.Add(this.insertbtn);
@@ -63,7 +63,7 @@ namespace PamirAccounting.UI.Forms.Groups
             // exitbtn
             // 
             this.exitbtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.exitbtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.exitbtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.exitbtn.Appearance.Options.UseFont = true;
             this.exitbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("exitbtn.ImageOptions.SvgImage")));
             this.exitbtn.Location = new System.Drawing.Point(136, 134);
@@ -76,7 +76,7 @@ namespace PamirAccounting.UI.Forms.Groups
             // insertbtn
             // 
             this.insertbtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.insertbtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
+            this.insertbtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.insertbtn.Appearance.Options.UseFont = true;
             this.insertbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("insertbtn.ImageOptions.SvgImage")));
             this.insertbtn.Location = new System.Drawing.Point(20, 134);
@@ -90,7 +90,7 @@ namespace PamirAccounting.UI.Forms.Groups
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(304, 72);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -104,7 +104,7 @@ namespace PamirAccounting.UI.Forms.Groups
             this.txtName.Location = new System.Drawing.Point(20, 65);
             this.txtName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtName.Name = "txtName";
-            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtName.Properties.Appearance.Options.UseFont = true;
             this.txtName.Properties.AutoHeight = false;
             this.txtName.Size = new System.Drawing.Size(280, 39);
@@ -116,7 +116,7 @@ namespace PamirAccounting.UI.Forms.Groups
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 186);
             this.Controls.Add(this.groupControlCreateUpdate);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GroupCreateUpdateFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

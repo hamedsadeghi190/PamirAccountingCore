@@ -19,6 +19,7 @@ namespace PamirAccounting.Domains
 
         public virtual DbSet<Agency> Agencies { get; set; }
         public virtual DbSet<Bank> Banks { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Currency> Currencies { get; set; }
         public virtual DbSet<CurrencyAgency> CurrencyAgencies { get; set; }
@@ -40,7 +41,7 @@ namespace PamirAccounting.Domains
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AS_SC_UTF8");
+            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AI");
 
             modelBuilder.Entity<Agency>(entity =>
             {
@@ -85,6 +86,25 @@ namespace PamirAccounting.Domains
                     .WithMany(p => p.Banks)
                     .HasForeignKey(d => d.CountryId)
                     .HasConstraintName("FK_Banks_Countries");
+            });
+
+            modelBuilder.Entity<Contact>(entity =>
+            {
+                entity.ToTable("Contact");
+
+                entity.Property(e => e.Address).HasMaxLength(200);
+
+                entity.Property(e => e.Dsc).HasMaxLength(1000);
+
+                entity.Property(e => e.FatherName).HasMaxLength(200);
+
+                entity.Property(e => e.FirstName).HasMaxLength(200);
+
+                entity.Property(e => e.LastName).HasMaxLength(200);
+
+                entity.Property(e => e.Mobile).HasMaxLength(20);
+
+                entity.Property(e => e.Phone).HasMaxLength(20);
             });
 
             modelBuilder.Entity<Country>(entity =>

@@ -166,5 +166,17 @@ namespace PamirAccounting.Services
         }
         public TransactionServices TransactionServices => (TransactionServices)Transactions;
         #endregion
+
+
+        #region ContactServices
+
+        private IRepository<Contact> _Contacts;
+
+        public IRepository<Contact> Contacts
+        {
+            get { return _Contacts = _Contacts ?? new ContactServices(_context, this, _mapper); }
+        }
+        public ContactServices ContactServices => (ContactServices)Contacts;
+        #endregion
     }
 }

@@ -30,120 +30,312 @@ namespace PamirAccounting.Forms.Users
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginFrm));
-            this.txtusername = new DevExpress.XtraEditors.TextEdit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnexitbank = new DevExpress.XtraEditors.SimpleButton();
-            this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnexit = new System.Windows.Forms.Button();
+            this.btnsave = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.txtusername = new DevExpress.XtraEditors.TextEdit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnclose = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtusername.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(300, 530);
+            this.panel1.TabIndex = 99;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Uighur", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(197, 482);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 22);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Develop by:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Uighur", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(197, 449);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 22);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Develop by:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(49, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(197, 33);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "نرم افزار حسابداری پامیر";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(95, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.linkLabel1);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.btnexit);
+            this.panel2.Controls.Add(this.btnsave);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.btnclose);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(300, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(450, 530);
+            this.panel2.TabIndex = 100;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.linkLabel1.Location = new System.Drawing.Point(57, 482);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(102, 16);
+            this.linkLabel1.TabIndex = 114;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "www.pamir.com";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Uighur", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.Silver;
+            this.label8.Location = new System.Drawing.Point(15, 481);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 23);
+            this.label8.TabIndex = 113;
+            this.label8.Text = "Support";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Uighur", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.Silver;
+            this.label7.Location = new System.Drawing.Point(15, 501);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 23);
+            this.label7.TabIndex = 112;
+            this.label7.Text = "copy right 2022";
+            // 
+            // btnexit
+            // 
+            this.btnexit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnexit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnexit.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnexit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnexit.Location = new System.Drawing.Point(206, 331);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(148, 51);
+            this.btnexit.TabIndex = 111;
+            this.btnexit.Text = "خروج";
+            this.btnexit.UseVisualStyleBackColor = false;
+            // 
+            // btnsave
+            // 
+            this.btnsave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnsave.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsave.ForeColor = System.Drawing.Color.White;
+            this.btnsave.Location = new System.Drawing.Point(52, 331);
+            this.btnsave.Name = "btnsave";
+            this.btnsave.Size = new System.Drawing.Size(148, 51);
+            this.btnsave.TabIndex = 110;
+            this.btnsave.Text = "ورود";
+            this.btnsave.UseVisualStyleBackColor = false;
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.txtPassword);
+            this.panel4.Controls.Add(this.pictureBox2);
+            this.panel4.Location = new System.Drawing.Point(0, 236);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(450, 45);
+            this.panel4.TabIndex = 5;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.txtPassword.Location = new System.Drawing.Point(46, 10);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(370, 26);
+            this.txtPassword.TabIndex = 110;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(15, 11);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Controls.Add(this.txtusername);
+            this.panel3.Location = new System.Drawing.Point(0, 185);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(450, 45);
+            this.panel3.TabIndex = 4;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(15, 11);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
             // 
             // txtusername
             // 
             this.txtusername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtusername.Location = new System.Drawing.Point(81, 41);
+            this.txtusername.Location = new System.Drawing.Point(46, 9);
             this.txtusername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtusername.Name = "txtusername";
-            this.txtusername.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtusername.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtusername.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.txtusername.Properties.Appearance.Options.UseFont = true;
+            this.txtusername.Properties.Appearance.Options.UseForeColor = true;
             this.txtusername.Properties.AutoHeight = false;
-            this.txtusername.Size = new System.Drawing.Size(223, 38);
-            this.txtusername.TabIndex = 87;
+            this.txtusername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtusername.Size = new System.Drawing.Size(370, 27);
+            this.txtusername.TabIndex = 108;
+            this.txtusername.EditValueChanged += new System.EventHandler(this.txtusername_EditValueChanged);
             // 
-            // label4
+            // label6
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(341, 50);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(65, 23);
-            this.label4.TabIndex = 88;
-            this.label4.Text = "نام کاربری :";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.label6.Location = new System.Drawing.Point(118, 122);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(196, 38);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "ورود به حساب کاربری";
             // 
-            // label1
+            // btnclose
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(341, 112);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(63, 23);
-            this.label1.TabIndex = 86;
-            this.label1.Text = "کلمه عبور :";
-            // 
-            // btnexitbank
-            // 
-            this.btnexitbank.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnexitbank.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnexitbank.Appearance.Options.UseFont = true;
-            this.btnexitbank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexitbank.ImageOptions.SvgImage")));
-            this.btnexitbank.Location = new System.Drawing.Point(81, 185);
-            this.btnexitbank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnexitbank.Name = "btnexitbank";
-            this.btnexitbank.Size = new System.Drawing.Size(140, 38);
-            this.btnexitbank.TabIndex = 84;
-            this.btnexitbank.Text = "خروج";
-            this.btnexitbank.Click += new System.EventHandler(this.btnexitbank_Click);
-            // 
-            // btnsavebank
-            // 
-            this.btnsavebank.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnsavebank.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnsavebank.Appearance.Options.UseFont = true;
-            this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
-            this.btnsavebank.Location = new System.Drawing.Point(229, 185);
-            this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnsavebank.Name = "btnsavebank";
-            this.btnsavebank.Size = new System.Drawing.Size(140, 38);
-            this.btnsavebank.TabIndex = 83;
-            this.btnsavebank.Text = "ورود";
-            this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPassword.Location = new System.Drawing.Point(81, 102);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(226, 39);
-            this.txtPassword.TabIndex = 92;
+            this.btnclose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnclose.FlatAppearance.BorderSize = 0;
+            this.btnclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnclose.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnclose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnclose.Location = new System.Drawing.Point(410, 0);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(40, 40);
+            this.btnclose.TabIndex = 0;
+            this.btnclose.Text = "X";
+            this.btnclose.UseVisualStyleBackColor = true;
+            this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
             // 
             // LoginFrm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 265);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtusername);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnexitbank);
-            this.Controls.Add(this.btnsavebank);
+            this.ClientSize = new System.Drawing.Size(750, 530);
+            this.ControlBox = false;
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginFrm";
             this.RightToLeftLayout = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ورود به نرم افزار";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtusername.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.TextEdit txtusername;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton btnexitbank;
-        private DevExpress.XtraEditors.SimpleButton btnsavebank;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnclose;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPassword;
+        private DevExpress.XtraEditors.TextEdit txtusername;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnexit;
+        private System.Windows.Forms.Button btnsave;
     }
 }

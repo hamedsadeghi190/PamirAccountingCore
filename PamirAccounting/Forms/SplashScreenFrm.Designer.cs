@@ -46,28 +46,26 @@ namespace PamirAccounting.Forms
             this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarControl.EditValue = 0;
-            this.progressBarControl.Location = new System.Drawing.Point(26, 539);
-            this.progressBarControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBarControl.Location = new System.Drawing.Point(22, 438);
             this.progressBarControl.Name = "progressBarControl";
-            this.progressBarControl.Size = new System.Drawing.Size(906, 15);
+            this.progressBarControl.Size = new System.Drawing.Size(777, 12);
             this.progressBarControl.TabIndex = 5;
             // 
             // labelCopyright
             // 
             this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelCopyright.Location = new System.Drawing.Point(26, 622);
-            this.labelCopyright.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelCopyright.Location = new System.Drawing.Point(22, 505);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(54, 16);
+            this.labelCopyright.Size = new System.Drawing.Size(47, 13);
             this.labelCopyright.TabIndex = 6;
             this.labelCopyright.Text = "Copyright";
             // 
             // labelStatus
             // 
-            this.labelStatus.Location = new System.Drawing.Point(870, 518);
-            this.labelStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
+            this.labelStatus.Location = new System.Drawing.Point(746, 421);
+            this.labelStatus.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(61, 16);
+            this.labelStatus.Size = new System.Drawing.Size(53, 13);
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Text = "... بارگذاری";
             // 
@@ -76,8 +74,7 @@ namespace PamirAccounting.Forms
             this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
-            this.peLogo.Location = new System.Drawing.Point(718, 586);
-            this.peLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.peLogo.Location = new System.Drawing.Point(615, 476);
             this.peLogo.Name = "peLogo";
             this.peLogo.Properties.AllowFocused = false;
             this.peLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -85,31 +82,29 @@ namespace PamirAccounting.Forms
             this.peLogo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.peLogo.Properties.ShowMenu = false;
             this.peLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.peLogo.Size = new System.Drawing.Size(215, 52);
+            this.peLogo.Size = new System.Drawing.Size(184, 42);
             this.peLogo.TabIndex = 8;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(122, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(105, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(730, 481);
+            this.pictureBox1.Size = new System.Drawing.Size(626, 391);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
             // SplashScreenFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 667);
+            this.ClientSize = new System.Drawing.Size(825, 542);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.peLogo);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.progressBarControl);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SplashScreenFrm";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "SplashScreenFrm";

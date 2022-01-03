@@ -108,7 +108,7 @@ namespace PamirAccounting.UI.Forms.Groups
             this.groupBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBoxSearch.Controls.Add(this.txtSearch);
             this.groupBoxSearch.Controls.Add(this.BtnCreateNew);
-            this.groupBoxSearch.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.groupBoxSearch.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxSearch.Location = new System.Drawing.Point(4, 4);
             this.groupBoxSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxSearch.Name = "groupBoxSearch";
@@ -122,19 +122,19 @@ namespace PamirAccounting.UI.Forms.Groups
             // txtSearch
             // 
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSearch.Location = new System.Drawing.Point(161, 29);
+            this.txtSearch.Location = new System.Drawing.Point(155, 26);
             this.txtSearch.MinimumSize = new System.Drawing.Size(0, 38);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
-            this.txtSearch.Size = new System.Drawing.Size(482, 20);
+            this.txtSearch.Size = new System.Drawing.Size(482, 38);
             this.txtSearch.TabIndex = 2;
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // BtnCreateNew
             // 
             this.BtnCreateNew.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnCreateNew.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.BtnCreateNew.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCreateNew.Appearance.ForeColor = System.Drawing.Color.DarkGreen;
             this.BtnCreateNew.Appearance.Options.UseFont = true;
             this.BtnCreateNew.Appearance.Options.UseForeColor = true;
