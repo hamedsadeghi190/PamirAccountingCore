@@ -271,7 +271,7 @@ namespace PamirAccounting.UI
             this.barBtnCustomerList.ItemInMenuAppearance.Normal.Options.UseFont = true;
             this.barBtnCustomerList.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.barBtnCustomerList.ItemInMenuAppearance.Pressed.Options.UseFont = true;
-            this.barBtnCustomerList.LargeWidth = 125;
+            this.barBtnCustomerList.LargeWidth = 100;
             this.barBtnCustomerList.Name = "barBtnCustomerList";
             this.barBtnCustomerList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCustomerList_ItemClick_1);
             // 
