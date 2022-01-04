@@ -109,8 +109,38 @@ namespace PamirAccounting.UI
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage8 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem38 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem40 = new DevExpress.XtraBars.BarButtonItem();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.barButtonItem41 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -174,11 +204,36 @@ namespace PamirAccounting.UI
             this.btnWarrantsPayable,
             this.btnDraftsList,
             this.btnRate,
-            this.barButtonItem11});
+            this.barButtonItem11,
+            this.barButtonItem1,
+            this.barButtonItem2,
+            this.barButtonItem7,
+            this.barButtonItem10,
+            this.barButtonItem21,
+            this.barButtonItem22,
+            this.barButtonItem23,
+            this.barButtonItem24,
+            this.barButtonItem25,
+            this.barButtonItem26,
+            this.barButtonItem27,
+            this.barButtonItem28,
+            this.barButtonItem29,
+            this.barButtonItem30,
+            this.barButtonItem31,
+            this.barButtonItem32,
+            this.barButtonItem33,
+            this.barButtonItem34,
+            this.barButtonItem35,
+            this.barButtonItem36,
+            this.barButtonItem37,
+            this.barButtonItem38,
+            this.barButtonItem39,
+            this.barButtonItem40,
+            this.barButtonItem41});
             this.ribbonControl1.ItemsVertAlign = DevExpress.Utils.VertAlignment.Center;
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbonControl1.MaxItemId = 65;
+            this.ribbonControl1.MaxItemId = 93;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 1000;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -188,9 +243,11 @@ namespace PamirAccounting.UI
             this.ribbonPageGeneralLedger,
             this.settingRibonMenu,
             this.ribbonPage5,
-            this.ribbonPage4});
+            this.ribbonPage4,
+            this.ribbonPage6});
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemHypertextLabel1});
+            this.repositoryItemHypertextLabel1,
+            this.repositoryItemSpinEdit1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
             this.ribbonControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
@@ -1293,6 +1350,213 @@ namespace PamirAccounting.UI
             this.ribbonPage8.Name = "ribbonPage8";
             this.ribbonPage8.Text = "ribbonPage8";
             // 
+            // ribbonPage6
+            // 
+            this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup7});
+            this.ribbonPage6.Name = "ribbonPage6";
+            this.ribbonPage6.Text = "چکها";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem21);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem22);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem23);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem24);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem25);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem26);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem41);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "عملیات چک";
+            // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem27);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem28);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem29);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem30);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem31);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem32);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem33);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem34);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem35);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem36);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem37);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem38);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem39);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem40);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "گزارش چکها";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "سر حساب گذاشتن چکها";
+            this.barButtonItem1.Id = 65;
+            this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "وصول چک دریافتنی";
+            this.barButtonItem2.Id = 66;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "واگذاری اسناد دریافتنی";
+            this.barButtonItem7.Id = 67;
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "عودت چکهای واگذارشده";
+            this.barButtonItem10.Id = 68;
+            this.barButtonItem10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem10.ImageOptions.SvgImage")));
+            this.barButtonItem10.Name = "barButtonItem10";
+            // 
+            // barButtonItem21
+            // 
+            this.barButtonItem21.Caption = "برگشت چک دریافتنی";
+            this.barButtonItem21.Id = 69;
+            this.barButtonItem21.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem21.ImageOptions.SvgImage")));
+            this.barButtonItem21.Name = "barButtonItem21";
+            // 
+            // barButtonItem22
+            // 
+            this.barButtonItem22.Caption = "عودت چکهای سر حساب گذاشته";
+            this.barButtonItem22.Id = 70;
+            this.barButtonItem22.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem22.ImageOptions.SvgImage")));
+            this.barButtonItem22.Name = "barButtonItem22";
+            // 
+            // barButtonItem23
+            // 
+            this.barButtonItem23.Caption = "عودت چکهای دریافتنی";
+            this.barButtonItem23.Id = 71;
+            this.barButtonItem23.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem23.ImageOptions.SvgImage")));
+            this.barButtonItem23.Name = "barButtonItem23";
+            // 
+            // barButtonItem24
+            // 
+            this.barButtonItem24.Caption = "وصول چکهای سر حساب به تفکیک بانک";
+            this.barButtonItem24.Id = 72;
+            this.barButtonItem24.Name = "barButtonItem24";
+            // 
+            // barButtonItem25
+            // 
+            this.barButtonItem25.Caption = "پاس چک پرداختی";
+            this.barButtonItem25.Id = 73;
+            this.barButtonItem25.Name = "barButtonItem25";
+            // 
+            // barButtonItem26
+            // 
+            this.barButtonItem26.Caption = "برگشت چک پراختی";
+            this.barButtonItem26.Id = 74;
+            this.barButtonItem26.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem26.ImageOptions.SvgImage")));
+            this.barButtonItem26.Name = "barButtonItem26";
+            // 
+            // barButtonItem27
+            // 
+            this.barButtonItem27.Caption = "barButtonItem27";
+            this.barButtonItem27.Id = 75;
+            this.barButtonItem27.Name = "barButtonItem27";
+            // 
+            // barButtonItem28
+            // 
+            this.barButtonItem28.Caption = "barButtonItem28";
+            this.barButtonItem28.Id = 76;
+            this.barButtonItem28.Name = "barButtonItem28";
+            // 
+            // barButtonItem29
+            // 
+            this.barButtonItem29.Caption = "barButtonItem29";
+            this.barButtonItem29.Id = 77;
+            this.barButtonItem29.Name = "barButtonItem29";
+            // 
+            // barButtonItem30
+            // 
+            this.barButtonItem30.Caption = "barButtonItem30";
+            this.barButtonItem30.Id = 78;
+            this.barButtonItem30.Name = "barButtonItem30";
+            // 
+            // barButtonItem31
+            // 
+            this.barButtonItem31.Caption = "barButtonItem31";
+            this.barButtonItem31.Id = 79;
+            this.barButtonItem31.Name = "barButtonItem31";
+            // 
+            // barButtonItem32
+            // 
+            this.barButtonItem32.Caption = "barButtonItem32";
+            this.barButtonItem32.Id = 80;
+            this.barButtonItem32.Name = "barButtonItem32";
+            // 
+            // barButtonItem33
+            // 
+            this.barButtonItem33.Caption = "barButtonItem33";
+            this.barButtonItem33.Id = 82;
+            this.barButtonItem33.Name = "barButtonItem33";
+            // 
+            // barButtonItem34
+            // 
+            this.barButtonItem34.Caption = "barButtonItem34";
+            this.barButtonItem34.Id = 83;
+            this.barButtonItem34.Name = "barButtonItem34";
+            // 
+            // barButtonItem35
+            // 
+            this.barButtonItem35.Caption = "barButtonItem35";
+            this.barButtonItem35.Id = 84;
+            this.barButtonItem35.Name = "barButtonItem35";
+            // 
+            // barButtonItem36
+            // 
+            this.barButtonItem36.Caption = "barButtonItem36";
+            this.barButtonItem36.Id = 86;
+            this.barButtonItem36.Name = "barButtonItem36";
+            // 
+            // barButtonItem37
+            // 
+            this.barButtonItem37.Caption = "barButtonItem37";
+            this.barButtonItem37.Id = 87;
+            this.barButtonItem37.Name = "barButtonItem37";
+            // 
+            // barButtonItem38
+            // 
+            this.barButtonItem38.Caption = "barButtonItem38";
+            this.barButtonItem38.Id = 88;
+            this.barButtonItem38.Name = "barButtonItem38";
+            // 
+            // barButtonItem39
+            // 
+            this.barButtonItem39.Caption = "barButtonItem39";
+            this.barButtonItem39.Id = 89;
+            this.barButtonItem39.Name = "barButtonItem39";
+            // 
+            // barButtonItem40
+            // 
+            this.barButtonItem40.Caption = "barButtonItem40";
+            this.barButtonItem40.Id = 90;
+            this.barButtonItem40.Name = "barButtonItem40";
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            // 
+            // barButtonItem41
+            // 
+            this.barButtonItem41.Caption = "عودت چکهای پرداختی";
+            this.barButtonItem41.Id = 92;
+            this.barButtonItem41.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem41.ImageOptions.SvgImage")));
+            this.barButtonItem41.Name = "barButtonItem41";
+            // 
             // MainFrm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -1315,6 +1579,7 @@ namespace PamirAccounting.UI
             this.Load += new System.EventHandler(this.MainFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1400,6 +1665,35 @@ namespace PamirAccounting.UI
         private DevExpress.XtraBars.BarButtonItem btnDraftsList;
         private DevExpress.XtraBars.BarButtonItem btnRate;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem21;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem22;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem23;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem24;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem25;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem26;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem27;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem28;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem29;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem30;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem31;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem32;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem33;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem34;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem35;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem36;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem37;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem38;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem39;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem40;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem41;
     }
 }
 
