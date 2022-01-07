@@ -38,6 +38,9 @@ namespace PamirAccounting.UI.Forms.Groups
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.BtnCreateNew = new DevExpress.XtraEditors.SimpleButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
@@ -55,12 +58,12 @@ namespace PamirAccounting.UI.Forms.Groups
             this.btnRowEdit,
             this.btnRowDelete});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(2, 91);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 139);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(663, 272);
+            this.dataGridView1.Size = new System.Drawing.Size(663, 278);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -106,28 +109,31 @@ namespace PamirAccounting.UI.Forms.Groups
             // groupBoxSearch
             // 
             this.groupBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBoxSearch.Controls.Add(this.label7);
+            this.groupBoxSearch.Controls.Add(this.simpleButton4);
+            this.groupBoxSearch.Controls.Add(this.simpleButton3);
             this.groupBoxSearch.Controls.Add(this.txtSearch);
             this.groupBoxSearch.Controls.Add(this.BtnCreateNew);
-            this.groupBoxSearch.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxSearch.Location = new System.Drawing.Point(4, 4);
+            this.groupBoxSearch.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxSearch.Location = new System.Drawing.Point(5, 10);
             this.groupBoxSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxSearch.Name = "groupBoxSearch";
             this.groupBoxSearch.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBoxSearch.Size = new System.Drawing.Size(661, 81);
+            this.groupBoxSearch.Size = new System.Drawing.Size(654, 124);
             this.groupBoxSearch.TabIndex = 7;
             this.groupBoxSearch.TabStop = false;
-            this.groupBoxSearch.Text = "جستجو";
+            this.groupBoxSearch.Text = "مدیریت گروه ها";
             // 
             // txtSearch
             // 
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSearch.Location = new System.Drawing.Point(155, 26);
+            this.txtSearch.Location = new System.Drawing.Point(276, 55);
             this.txtSearch.MinimumSize = new System.Drawing.Size(0, 38);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
-            this.txtSearch.Size = new System.Drawing.Size(482, 38);
+            this.txtSearch.Size = new System.Drawing.Size(301, 38);
             this.txtSearch.TabIndex = 2;
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
@@ -139,30 +145,63 @@ namespace PamirAccounting.UI.Forms.Groups
             this.BtnCreateNew.Appearance.Options.UseFont = true;
             this.BtnCreateNew.Appearance.Options.UseForeColor = true;
             this.BtnCreateNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnCreateNew.ImageOptions.SvgImage")));
-            this.BtnCreateNew.Location = new System.Drawing.Point(7, 29);
+            this.BtnCreateNew.Location = new System.Drawing.Point(97, 52);
             this.BtnCreateNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnCreateNew.Name = "BtnCreateNew";
-            this.BtnCreateNew.Size = new System.Drawing.Size(119, 38);
-            this.BtnCreateNew.TabIndex = 1;
-            this.BtnCreateNew.Text = "گروه جدید";
+            this.BtnCreateNew.Size = new System.Drawing.Size(39, 41);
+            this.BtnCreateNew.TabIndex = 3;
             this.BtnCreateNew.Click += new System.EventHandler(this.BtnCreateNew_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(582, 62);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 26);
+            this.label7.TabIndex = 102;
+            this.label7.Text = "جستجو";
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
+            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
+            this.simpleButton4.Location = new System.Drawing.Point(51, 52);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton4.TabIndex = 4;
+            this.simpleButton4.Text = "چاپ";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.simpleButton3.Location = new System.Drawing.Point(7, 52);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton3.TabIndex = 5;
+            this.simpleButton3.Text = "راهنما";
             // 
             // GroupListFrm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 366);
+            this.ClientSize = new System.Drawing.Size(664, 414);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBoxSearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.IconOptions.ShowIcon = false;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GroupListFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "مدیریت گروه ها";
             this.Load += new System.EventHandler(this.GroupListFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxSearch.ResumeLayout(false);
+            this.groupBoxSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -178,5 +217,8 @@ namespace PamirAccounting.UI.Forms.Groups
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }

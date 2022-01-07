@@ -28,22 +28,11 @@ namespace PamirAccounting.UI.Forms.Banks
             InitializeComponent();
             unitOfWork = new UnitOfWork();
         }
-        private void btnsavebank_Click(object sender, EventArgs e)
-        {
+      
 
-        }
+      
 
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnexitbank_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
-
+    
         private void CreateUpdateFrm_Load(object sender, EventArgs e)
         {
             initData();
@@ -87,7 +76,7 @@ namespace PamirAccounting.UI.Forms.Banks
 
         }
 
-        private void btnsavebank_Click_1(object sender, EventArgs e)
+        private void btnsavebank_Click(object sender, EventArgs e)
         {
             try
             {
@@ -164,7 +153,11 @@ namespace PamirAccounting.UI.Forms.Banks
             {
                 MessageBox.Show("ذخیره تغییرات با شکست مواجه شد");
             }
+        }
 
+        private void btnexitbank_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

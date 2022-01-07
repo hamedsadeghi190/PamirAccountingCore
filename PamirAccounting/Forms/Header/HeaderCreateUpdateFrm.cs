@@ -14,10 +14,7 @@ namespace PamirAccounting.UI.Forms.Header
             unitOfWork = new UnitOfWork();
         }
 
-        private void btnexitbank_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+      
 
         private void HeaderCreateUpdateFrm_Load(object sender, EventArgs e)
         {
@@ -31,14 +28,18 @@ namespace PamirAccounting.UI.Forms.Header
             }
         }
 
-        private void btnsavebank_Click(object sender, EventArgs e)
+        private void btnexit_Click(object sender, EventArgs e)
         {
+            Close();
+        }
 
+        private void btnsave_Click(object sender, EventArgs e)
+        {
             try
             {
                 if (header != null)
                 {
-                   
+
                     header.Name = txtname.Text;
                     header.Phone = txtphone.Text;
                     header.Mobile = txtMobile.Text;
@@ -62,7 +63,10 @@ namespace PamirAccounting.UI.Forms.Header
                 MessageBox.Show("ذخییره تغییرات با شکست مواجه شد");
             }
 
-    
         }
+
+     
+
+
     }
 }

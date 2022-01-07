@@ -56,15 +56,12 @@ namespace PamirAccounting.UI.Forms.Agencies
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
 
-
-
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
                 var frmCurrencies = new AgencyCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
                 frmCurrencies.ShowDialog();
                 loadData();
             }
-
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
@@ -96,6 +93,17 @@ namespace PamirAccounting.UI.Forms.Agencies
             loadData();
         }
 
-     
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtSearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.Agencies.FindAll(y => y.Name.Contains(txtSearch.Text)).Select(x => new AgencyModel { Id = x.Id, Name = x.Name }).ToList();
+                dataGridView1.DataSource = dataList;
+            }
+            else
+            {
+                loadData();
+            }
+        }
     }
 }

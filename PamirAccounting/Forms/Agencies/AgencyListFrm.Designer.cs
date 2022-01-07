@@ -61,8 +61,7 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.groupBox1.Size = new System.Drawing.Size(675, 124);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "لیست نمایندگی ها";
-         
+            this.groupBox1.Text = "مدیریت نمایندگی ها";
             // 
             // label7
             // 
@@ -82,6 +81,7 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(300, 33);
             this.txtSearch.TabIndex = 98;
+            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // simpleButton4
             // 
@@ -110,7 +110,7 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.BtnCreateNew.Appearance.Options.UseFont = true;
             this.BtnCreateNew.Appearance.Options.UseForeColor = true;
             this.BtnCreateNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnCreateNew.ImageOptions.SvgImage")));
-            this.BtnCreateNew.Location = new System.Drawing.Point(107, 40);
+            this.BtnCreateNew.Location = new System.Drawing.Point(105, 44);
             this.BtnCreateNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnCreateNew.Name = "BtnCreateNew";
             this.BtnCreateNew.Size = new System.Drawing.Size(39, 41);
@@ -137,7 +137,7 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(674, 392);
+            this.dataGridView1.Size = new System.Drawing.Size(674, 398);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 

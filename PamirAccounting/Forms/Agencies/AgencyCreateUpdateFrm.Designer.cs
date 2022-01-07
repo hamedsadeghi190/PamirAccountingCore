@@ -31,9 +31,6 @@ namespace PamirAccounting.UI.Forms.Agencies
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgencyCreateUpdateFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnexitbank = new DevExpress.XtraEditors.SimpleButton();
-            this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDesc = new DevExpress.XtraEditors.TextEdit();
@@ -44,12 +41,15 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnexitbank = new DevExpress.XtraEditors.SimpleButton();
+            this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,44 +71,6 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ثبت / ویرایش نمایندگی";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnexitbank);
-            this.groupBox2.Controls.Add(this.btnsavebank);
-            this.groupBox2.Location = new System.Drawing.Point(12, 268);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(664, 100);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            // 
-            // btnexitbank
-            // 
-            this.btnexitbank.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnexitbank.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnexitbank.Appearance.Options.UseFont = true;
-            this.btnexitbank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexitbank.ImageOptions.SvgImage")));
-            this.btnexitbank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnexitbank.Location = new System.Drawing.Point(112, 35);
-            this.btnexitbank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnexitbank.Name = "btnexitbank";
-            this.btnexitbank.Size = new System.Drawing.Size(83, 38);
-            this.btnexitbank.TabIndex = 33;
-            this.btnexitbank.Text = "بازگشت";
-            // 
-            // btnsavebank
-            // 
-            this.btnsavebank.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnsavebank.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnsavebank.Appearance.Options.UseFont = true;
-            this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
-            this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnsavebank.Location = new System.Drawing.Point(21, 35);
-            this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnsavebank.Name = "btnsavebank";
-            this.btnsavebank.Size = new System.Drawing.Size(83, 38);
-            this.btnsavebank.TabIndex = 32;
-            this.btnsavebank.Text = "ثبت";
             // 
             // cmbCurrencies
             // 
@@ -218,6 +180,46 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.label5.TabIndex = 70;
             this.label5.Text = "توضیحات ";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnexitbank);
+            this.groupBox2.Controls.Add(this.btnsavebank);
+            this.groupBox2.Location = new System.Drawing.Point(12, 268);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(664, 100);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            // 
+            // btnexitbank
+            // 
+            this.btnexitbank.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnexitbank.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnexitbank.Appearance.Options.UseFont = true;
+            this.btnexitbank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexitbank.ImageOptions.SvgImage")));
+            this.btnexitbank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnexitbank.Location = new System.Drawing.Point(112, 35);
+            this.btnexitbank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnexitbank.Name = "btnexitbank";
+            this.btnexitbank.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnexitbank.Size = new System.Drawing.Size(83, 38);
+            this.btnexitbank.TabIndex = 33;
+            this.btnexitbank.Text = "بازگشت";
+            // 
+            // btnsavebank
+            // 
+            this.btnsavebank.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnsavebank.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsavebank.Appearance.Options.UseFont = true;
+            this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
+            this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnsavebank.Location = new System.Drawing.Point(21, 35);
+            this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnsavebank.Name = "btnsavebank";
+            this.btnsavebank.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnsavebank.Size = new System.Drawing.Size(83, 38);
+            this.btnsavebank.TabIndex = 32;
+            this.btnsavebank.Text = "ثبت";
+            // 
             // AgencyCreateUpdateFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -239,11 +241,11 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.Load += new System.EventHandler(this.AgencyCreateUpdateFrm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtDesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

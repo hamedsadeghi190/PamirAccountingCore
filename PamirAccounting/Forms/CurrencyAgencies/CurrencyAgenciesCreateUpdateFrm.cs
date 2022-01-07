@@ -100,6 +100,13 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             cmbExchangeRate.SelectedValue = _CurrencyAgency.ExchangeRate;
         }
 
+      
+
+        private void btnexitAgencyCurrency_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void btnSaveAgencyCurrency_Click(object sender, EventArgs e)
         {
             try
@@ -132,7 +139,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
                 unitOfWork.SaveChanges();
                 Close();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("ذخییره تغییرات با شکست مواجه شد");
             }
