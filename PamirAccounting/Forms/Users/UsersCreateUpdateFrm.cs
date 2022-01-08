@@ -92,7 +92,12 @@ namespace PamirAccounting.UI.Forms.Users
             CmbSandogh.DisplayMember = "Title";
         }
 
-        private void btnsavebank_Click(object sender, EventArgs e)
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnsave_Click(object sender, EventArgs e)
         {
             if (_user != null)
             {
@@ -123,11 +128,10 @@ namespace PamirAccounting.UI.Forms.Users
 
             unitOfWork.SaveChanges();
             Close();
+
         }
 
-        private void btnexitbank_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+
+
     }
 }

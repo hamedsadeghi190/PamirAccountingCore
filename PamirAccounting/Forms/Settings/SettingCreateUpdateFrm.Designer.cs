@@ -30,15 +30,16 @@ namespace PamirAccounting.UI.Forms.Settings
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingCreateUpdateFrm));
-            this.groupControlCreateUpdate = new DevExpress.XtraEditors.GroupControl();
+            this.BackupFBD = new System.Windows.Forms.FolderBrowserDialog();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.CmbCalenderType = new System.Windows.Forms.ComboBox();
             this.cmbConstsAccount = new System.Windows.Forms.ComboBox();
             this.CmbRemittanceAccount = new System.Windows.Forms.ComboBox();
             this.cmbBaseCurenccy = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chkPassRequerid = new DevExpress.XtraEditors.CheckEdit();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.txtBackupPath = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,140 +49,130 @@ namespace PamirAccounting.UI.Forms.Settings
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnexitbank = new DevExpress.XtraEditors.SimpleButton();
-            this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
-            this.BackupFBD = new System.Windows.Forms.FolderBrowserDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlCreateUpdate)).BeginInit();
-            this.groupControlCreateUpdate.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkPassRequerid.Properties)).BeginInit();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnsave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnexit = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPassRequerid.Properties)).BeginInit();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBackupPath.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfitPercent.Properties)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupControlCreateUpdate
+            // groupBox1
             // 
-            this.groupControlCreateUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControlCreateUpdate.Appearance.Options.UseFont = true;
-            this.groupControlCreateUpdate.AppearanceCaption.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupControlCreateUpdate.AppearanceCaption.Options.UseFont = true;
-            this.groupControlCreateUpdate.Controls.Add(this.comboBox4);
-            this.groupControlCreateUpdate.Controls.Add(this.CmbCalenderType);
-            this.groupControlCreateUpdate.Controls.Add(this.cmbConstsAccount);
-            this.groupControlCreateUpdate.Controls.Add(this.CmbRemittanceAccount);
-            this.groupControlCreateUpdate.Controls.Add(this.cmbBaseCurenccy);
-            this.groupControlCreateUpdate.Controls.Add(this.groupBox2);
-            this.groupControlCreateUpdate.Controls.Add(this.groupBox1);
-            this.groupControlCreateUpdate.Controls.Add(this.label1);
-            this.groupControlCreateUpdate.Controls.Add(this.label7);
-            this.groupControlCreateUpdate.Controls.Add(this.txtProfitPercent);
-            this.groupControlCreateUpdate.Controls.Add(this.label5);
-            this.groupControlCreateUpdate.Controls.Add(this.label4);
-            this.groupControlCreateUpdate.Controls.Add(this.label3);
-            this.groupControlCreateUpdate.Controls.Add(this.label2);
-            this.groupControlCreateUpdate.Controls.Add(this.btnexitbank);
-            this.groupControlCreateUpdate.Controls.Add(this.btnsavebank);
-            this.groupControlCreateUpdate.Location = new System.Drawing.Point(18, 4);
-            this.groupControlCreateUpdate.Name = "groupControlCreateUpdate";
-            this.groupControlCreateUpdate.Size = new System.Drawing.Size(602, 476);
-            this.groupControlCreateUpdate.TabIndex = 4;
-            this.groupControlCreateUpdate.Text = "اطلاعات";
+            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.CmbCalenderType);
+            this.groupBox1.Controls.Add(this.cmbConstsAccount);
+            this.groupBox1.Controls.Add(this.CmbRemittanceAccount);
+            this.groupBox1.Controls.Add(this.cmbBaseCurenccy);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.txtProfitPercent);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(13, 26);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(709, 476);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "تنظیمات";
             // 
             // comboBox4
             // 
-            this.comboBox4.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(334, 89);
+            this.comboBox4.Location = new System.Drawing.Point(418, 107);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(177, 36);
-            this.comboBox4.TabIndex = 93;
+            this.comboBox4.Size = new System.Drawing.Size(177, 34);
+            this.comboBox4.TabIndex = 109;
             // 
             // CmbCalenderType
             // 
-            this.CmbCalenderType.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CmbCalenderType.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CmbCalenderType.FormattingEnabled = true;
-            this.CmbCalenderType.Location = new System.Drawing.Point(333, 135);
+            this.CmbCalenderType.Location = new System.Drawing.Point(418, 147);
             this.CmbCalenderType.Name = "CmbCalenderType";
-            this.CmbCalenderType.Size = new System.Drawing.Size(177, 36);
-            this.CmbCalenderType.TabIndex = 92;
+            this.CmbCalenderType.Size = new System.Drawing.Size(177, 34);
+            this.CmbCalenderType.TabIndex = 108;
             // 
             // cmbConstsAccount
             // 
-            this.cmbConstsAccount.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbConstsAccount.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbConstsAccount.FormattingEnabled = true;
-            this.cmbConstsAccount.Location = new System.Drawing.Point(8, 37);
+            this.cmbConstsAccount.Location = new System.Drawing.Point(36, 62);
             this.cmbConstsAccount.Name = "cmbConstsAccount";
-            this.cmbConstsAccount.Size = new System.Drawing.Size(177, 36);
-            this.cmbConstsAccount.TabIndex = 91;
+            this.cmbConstsAccount.Size = new System.Drawing.Size(177, 34);
+            this.cmbConstsAccount.TabIndex = 107;
             // 
             // CmbRemittanceAccount
             // 
-            this.CmbRemittanceAccount.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CmbRemittanceAccount.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CmbRemittanceAccount.FormattingEnabled = true;
-            this.CmbRemittanceAccount.Location = new System.Drawing.Point(8, 84);
+            this.CmbRemittanceAccount.Location = new System.Drawing.Point(36, 102);
             this.CmbRemittanceAccount.Name = "CmbRemittanceAccount";
-            this.CmbRemittanceAccount.Size = new System.Drawing.Size(177, 36);
-            this.CmbRemittanceAccount.TabIndex = 90;
+            this.CmbRemittanceAccount.Size = new System.Drawing.Size(177, 34);
+            this.CmbRemittanceAccount.TabIndex = 106;
             // 
             // cmbBaseCurenccy
             // 
-            this.cmbBaseCurenccy.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbBaseCurenccy.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbBaseCurenccy.FormattingEnabled = true;
-            this.cmbBaseCurenccy.Location = new System.Drawing.Point(335, 43);
+            this.cmbBaseCurenccy.Location = new System.Drawing.Point(418, 67);
             this.cmbBaseCurenccy.Name = "cmbBaseCurenccy";
-            this.cmbBaseCurenccy.Size = new System.Drawing.Size(177, 36);
-            this.cmbBaseCurenccy.TabIndex = 89;
+            this.cmbBaseCurenccy.Size = new System.Drawing.Size(177, 34);
+            this.cmbBaseCurenccy.TabIndex = 105;
             // 
-            // groupBox2
+            // groupBox3
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.chkPassRequerid);
-            this.groupBox2.Location = new System.Drawing.Point(11, 315);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(580, 71);
-            this.groupBox2.TabIndex = 88;
-            this.groupBox2.TabStop = false;
+            this.groupBox3.Controls.Add(this.chkPassRequerid);
+            this.groupBox3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox3.Location = new System.Drawing.Point(5, 369);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(699, 71);
+            this.groupBox3.TabIndex = 104;
+            this.groupBox3.TabStop = false;
             // 
             // chkPassRequerid
             // 
             this.chkPassRequerid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkPassRequerid.Location = new System.Drawing.Point(247, 24);
+            this.chkPassRequerid.Location = new System.Drawing.Point(212, 30);
             this.chkPassRequerid.Margin = new System.Windows.Forms.Padding(2);
             this.chkPassRequerid.Name = "chkPassRequerid";
             this.chkPassRequerid.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chkPassRequerid.Properties.Appearance.Options.UseFont = true;
             this.chkPassRequerid.Properties.Caption = "رمز برای عملیات داشته باشد";
-            this.chkPassRequerid.Size = new System.Drawing.Size(317, 27);
+            this.chkPassRequerid.Size = new System.Drawing.Size(473, 27);
             this.chkPassRequerid.TabIndex = 25;
             // 
-            // groupBox1
+            // groupBox4
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.simpleButton1);
-            this.groupBox1.Controls.Add(this.txtBackupPath);
-            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(8, 177);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(580, 136);
-            this.groupBox1.TabIndex = 87;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "کپی فایل بکاپ ";
+            this.groupBox4.Controls.Add(this.simpleButton1);
+            this.groupBox4.Controls.Add(this.txtBackupPath);
+            this.groupBox4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox4.Location = new System.Drawing.Point(5, 195);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(699, 158);
+            this.groupBox4.TabIndex = 103;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "کپی فایل بکاپ ";
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("B Nazanin", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.simpleButton1.AppearanceDisabled.Options.UseFont = true;
@@ -190,174 +181,187 @@ namespace PamirAccounting.UI.Forms.Settings
             this.simpleButton1.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.simpleButton1.AppearancePressed.Options.UseFont = true;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(10, 84);
+            this.simpleButton1.Location = new System.Drawing.Point(5, 107);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(130, 37);
+            this.simpleButton1.Size = new System.Drawing.Size(118, 38);
             this.simpleButton1.TabIndex = 19;
             this.simpleButton1.Text = "انتخاب مسیر";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // txtBackupPath
             // 
             this.txtBackupPath.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBackupPath.Enabled = false;
-            this.txtBackupPath.Location = new System.Drawing.Point(10, 37);
+            this.txtBackupPath.Location = new System.Drawing.Point(47, 51);
             this.txtBackupPath.Margin = new System.Windows.Forms.Padding(2);
             this.txtBackupPath.Name = "txtBackupPath";
             this.txtBackupPath.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBackupPath.Properties.Appearance.Options.UseFont = true;
             this.txtBackupPath.Properties.AutoHeight = false;
             this.txtBackupPath.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtBackupPath.Size = new System.Drawing.Size(542, 34);
+            this.txtBackupPath.Size = new System.Drawing.Size(559, 34);
             this.txtBackupPath.TabIndex = 18;
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(226, 45);
+            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(213, 65);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 23);
-            this.label1.TabIndex = 85;
+            this.label1.Size = new System.Drawing.Size(110, 26);
+            this.label1.TabIndex = 102;
             this.label1.Text = "کد حساب مصارف";
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(204, 139);
+            this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(214, 145);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 23);
-            this.label7.TabIndex = 84;
+            this.label7.Size = new System.Drawing.Size(109, 26);
+            this.label7.TabIndex = 101;
             this.label7.Text = "درصد سود یا ضرر";
             // 
             // txtProfitPercent
             // 
-            this.txtProfitPercent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtProfitPercent.Location = new System.Drawing.Point(11, 134);
+            this.txtProfitPercent.Location = new System.Drawing.Point(36, 141);
             this.txtProfitPercent.Margin = new System.Windows.Forms.Padding(2);
             this.txtProfitPercent.Name = "txtProfitPercent";
-            this.txtProfitPercent.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtProfitPercent.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtProfitPercent.Properties.Appearance.Options.UseFont = true;
             this.txtProfitPercent.Properties.AutoHeight = false;
             this.txtProfitPercent.Size = new System.Drawing.Size(177, 34);
-            this.txtProfitPercent.TabIndex = 83;
+            this.txtProfitPercent.TabIndex = 100;
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(523, 141);
+            this.label5.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(595, 150);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 23);
-            this.label5.TabIndex = 82;
+            this.label5.Size = new System.Drawing.Size(68, 26);
+            this.label5.TabIndex = 99;
             this.label5.Text = "ثبت تاریخ";
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(195, 91);
+            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(213, 105);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 23);
-            this.label4.TabIndex = 78;
+            this.label4.Size = new System.Drawing.Size(143, 26);
+            this.label4.TabIndex = 97;
             this.label4.Text = "کد حواله های اجرا نشده";
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(527, 45);
+            this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(593, 70);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 23);
-            this.label3.TabIndex = 76;
+            this.label3.Size = new System.Drawing.Size(59, 26);
+            this.label3.TabIndex = 96;
             this.label3.Text = "ارز اصلی";
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(520, 95);
+            this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(594, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 23);
-            this.label2.TabIndex = 80;
+            this.label2.Size = new System.Drawing.Size(78, 26);
+            this.label2.TabIndex = 98;
             this.label2.Text = "ارسال حواله";
             // 
-            // btnexitbank
+            // groupBox2
             // 
-            this.btnexitbank.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnexitbank.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnexitbank.Appearance.Options.UseFont = true;
-            this.btnexitbank.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnexitbank.AppearanceDisabled.Options.UseFont = true;
-            this.btnexitbank.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnexitbank.AppearanceHovered.Options.UseFont = true;
-            this.btnexitbank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexitbank.ImageOptions.SvgImage")));
-            this.btnexitbank.Location = new System.Drawing.Point(149, 411);
-            this.btnexitbank.Name = "btnexitbank";
-            this.btnexitbank.Size = new System.Drawing.Size(110, 38);
-            this.btnexitbank.TabIndex = 60;
-            this.btnexitbank.Text = "بازگشت";
+            this.groupBox2.Controls.Add(this.btnsave);
+            this.groupBox2.Controls.Add(this.btnexit);
+            this.groupBox2.Location = new System.Drawing.Point(13, 508);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(709, 102);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
             // 
-            // btnsavebank
+            // btnsave
             // 
-            this.btnsavebank.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnsavebank.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnsavebank.Appearance.Options.UseFont = true;
-            this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
-            this.btnsavebank.Location = new System.Drawing.Point(23, 411);
-            this.btnsavebank.Name = "btnsavebank";
-            this.btnsavebank.Size = new System.Drawing.Size(110, 38);
-            this.btnsavebank.TabIndex = 59;
-            this.btnsavebank.Text = "ثبت";
-            this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
+            this.btnsave.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsave.Appearance.Options.UseFont = true;
+            this.btnsave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsave.ImageOptions.SvgImage")));
+            this.btnsave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnsave.Location = new System.Drawing.Point(10, 34);
+            this.btnsave.Name = "btnsave";
+            this.btnsave.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnsave.Size = new System.Drawing.Size(83, 38);
+            this.btnsave.TabIndex = 94;
+            this.btnsave.Text = "ثبت";
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
+            // 
+            // btnexit
+            // 
+            this.btnexit.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnexit.Appearance.Options.UseFont = true;
+            this.btnexit.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnexit.AppearanceDisabled.Options.UseFont = true;
+            this.btnexit.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnexit.AppearanceHovered.Options.UseFont = true;
+            this.btnexit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexit.ImageOptions.SvgImage")));
+            this.btnexit.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnexit.Location = new System.Drawing.Point(99, 34);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnexit.Size = new System.Drawing.Size(83, 38);
+            this.btnexit.TabIndex = 95;
+            this.btnexit.Text = "بازگشت";
+            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
             // 
             // SettingCreateUpdateFrm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 487);
-            this.Controls.Add(this.groupControlCreateUpdate);
+            this.ClientSize = new System.Drawing.Size(734, 635);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.IconOptions.ShowIcon = false;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "SettingCreateUpdateFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "تنظیمات ";
             this.Load += new System.EventHandler(this.SettingCreateUpdateFrm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlCreateUpdate)).EndInit();
-            this.groupControlCreateUpdate.ResumeLayout(false);
-            this.groupControlCreateUpdate.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chkPassRequerid.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkPassRequerid.Properties)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtBackupPath.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfitPercent.Properties)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.GroupControl groupControlCreateUpdate;
-        private DevExpress.XtraEditors.SimpleButton btnexitbank;
-        private DevExpress.XtraEditors.SimpleButton btnsavebank;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private DevExpress.XtraEditors.CheckEdit chkPassRequerid;
+        private System.Windows.Forms.FolderBrowserDialog BackupFBD;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox CmbCalenderType;
+        private System.Windows.Forms.ComboBox cmbConstsAccount;
+        private System.Windows.Forms.ComboBox CmbRemittanceAccount;
+        private System.Windows.Forms.ComboBox cmbBaseCurenccy;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private DevExpress.XtraEditors.CheckEdit chkPassRequerid;
+        private System.Windows.Forms.GroupBox groupBox4;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.TextEdit txtBackupPath;
         private System.Windows.Forms.Label label1;
@@ -367,11 +371,8 @@ namespace PamirAccounting.UI.Forms.Settings
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox CmbCalenderType;
-        private System.Windows.Forms.ComboBox cmbConstsAccount;
-        private System.Windows.Forms.ComboBox CmbRemittanceAccount;
-        private System.Windows.Forms.ComboBox cmbBaseCurenccy;
-        private System.Windows.Forms.FolderBrowserDialog BackupFBD;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.SimpleButton btnsave;
+        private DevExpress.XtraEditors.SimpleButton btnexit;
     }
 }

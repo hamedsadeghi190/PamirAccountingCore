@@ -69,7 +69,14 @@ namespace PamirAccounting.UI.Forms.Settings
             }
         }
 
-        private void btnsavebank_Click(object sender, EventArgs e)
+      
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnsave_Click(object sender, EventArgs e)
         {
             if (_Settings == null)
             {
@@ -79,7 +86,7 @@ namespace PamirAccounting.UI.Forms.Settings
                     BaseCurencyId = (int)cmbBaseCurenccy.SelectedValue,
                     CostsAccountId = (int)cmbConstsAccount.SelectedValue,
                     NotRunnedRemittanceId = (int)CmbRemittanceAccount.SelectedValue,
-                    DateCalenderType = byte.Parse( CmbCalenderType.SelectedValue.ToString()),
+                    DateCalenderType = byte.Parse(CmbCalenderType.SelectedValue.ToString()),
                     PasswordRequired = chkPassRequerid.Checked,
                     ProfitPercent = String.IsNullOrEmpty(txtProfitPercent.Text) ? 0 : double.Parse(txtProfitPercent.Text)
                 };
