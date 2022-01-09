@@ -23,6 +23,8 @@ namespace PamirAccounting.Forms.Transaction
             unitOfWork = new UnitOfWork();
         }
 
+      
+
         private void CreateNewCustomerAccount_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -85,6 +87,9 @@ namespace PamirAccounting.Forms.Transaction
             Close();
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

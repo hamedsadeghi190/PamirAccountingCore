@@ -135,6 +135,16 @@ namespace PamirAccounting.Forms.Transactions
 
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnsavebank_Click(object sender, EventArgs e)
         {
             if ((int)cmbAction.SelectedValue == 1)

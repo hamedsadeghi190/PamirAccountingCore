@@ -85,6 +85,16 @@ namespace PamirAccounting.UI.Forms.Transaction
 
         }
 
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void CreateTransfer()
         {
             Domains.Transaction customerlastTransAction = null;

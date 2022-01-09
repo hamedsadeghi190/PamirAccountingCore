@@ -1,5 +1,7 @@
 ﻿using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
+using PamirAccounting.Forms.Transaction;
+using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
 using PamirAccounting.UI.Forms.Agencies;
 using PamirAccounting.UI.Forms.Banks;
@@ -168,21 +170,17 @@ namespace PamirAccounting.UI
 
         private void barBtnReceiveCash_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var FrmeRceiveCash = new ReceiveCashFrm();
+            var FrmeRceiveCash = new PayAndReciveCashFrm();
             FrmeRceiveCash.ShowDialog();
         }
 
         private void barBntPayCash_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var FrmPayCash = new PayCashFrm();
+            var FrmPayCash = new PayAndReciveBankFrm();
             FrmPayCash.ShowDialog();
         }
 
-        private void barbtnNewTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            var FrmRegisterNewTransaction = new RegisterNewTransactionFrm();
-            FrmRegisterNewTransaction.ShowDialog();
-        }
+       
 
         private void barBtnTransferAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -193,14 +191,14 @@ namespace PamirAccounting.UI
         private void barBnBankDeposit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            var FrmBankReceiveFrm = new BankReceiveFrm();
+            var FrmBankReceiveFrm = new PayAndReciveBankFrm();
             FrmBankReceiveFrm.ShowDialog();
 
         }
 
         private void barBtnBankPayment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var FrmBankPayment = new BankPaymentFrm();
+            var FrmBankPayment = new PayAndReciveBankFrm();
             FrmBankPayment.ShowDialog();
         }
 
@@ -299,6 +297,13 @@ namespace PamirAccounting.UI
         {
             var FrmWarrantsPayable = new WarrantsPayableFrm();
             FrmWarrantsPayable.ShowDialog();
+        }
+
+        private void barbtnNewTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+       
+            //var FrmBalance = new CreateNewCustomerAccount();
+            //FrmBalance.ShowDialog();
         }
     }
 

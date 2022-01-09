@@ -52,6 +52,8 @@ namespace PamirAccounting.Services
                        CurrenyName = x.Curreny.Name,
                        UserId = x.UserId,
                        UserName = x.User.UserName,
+                       TransactionType=x.TransactionType,
+                   
 
                    }).ToList();
                 }

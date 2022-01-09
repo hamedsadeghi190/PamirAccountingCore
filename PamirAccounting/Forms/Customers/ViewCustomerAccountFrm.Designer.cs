@@ -32,16 +32,18 @@ namespace PamirAccounting.UI.Forms.Customers
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewCustomerAccountFrm));
             this.groupBoxViewAccountCustomer = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbActions = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbActions = new System.Windows.Forms.ComboBox();
             this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.CreatBankBtn = new DevExpress.XtraEditors.SimpleButton();
-            this.label3 = new System.Windows.Forms.Label();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.grdTransactions = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +66,8 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxViewAccountCustomer.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactions)).BeginInit();
@@ -72,94 +76,101 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // groupBoxViewAccountCustomer
             // 
-            this.groupBoxViewAccountCustomer.Controls.Add(this.txtSearch);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.label4);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.cmbActions);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.cmbCurrencies);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.label1);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton4);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton2);
+            this.groupBoxViewAccountCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBoxViewAccountCustomer.Controls.Add(this.groupBox2);
+            this.groupBoxViewAccountCustomer.Controls.Add(this.groupBox1);
+            this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton1);
+            this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton5);
             this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton3);
             this.groupBoxViewAccountCustomer.Controls.Add(this.CreatBankBtn);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.label3);
-            this.groupBoxViewAccountCustomer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(4, 13);
             this.groupBoxViewAccountCustomer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.Name = "groupBoxViewAccountCustomer";
             this.groupBoxViewAccountCustomer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(1335, 88);
+            this.groupBoxViewAccountCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(1323, 179);
             this.groupBoxViewAccountCustomer.TabIndex = 9;
             this.groupBoxViewAccountCustomer.TabStop = false;
+            this.groupBoxViewAccountCustomer.Text = "نمایش اطلاعات حساب";
             this.groupBoxViewAccountCustomer.Enter += new System.EventHandler(this.groupBoxViewAccountCustomer_Enter);
             // 
-            // txtSearch
+            // groupBox2
             // 
-            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtSearch.Location = new System.Drawing.Point(745, 29);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Properties.Appearance.Options.UseFont = true;
-            this.txtSearch.Properties.AutoHeight = false;
-            this.txtSearch.Size = new System.Drawing.Size(187, 33);
-            this.txtSearch.TabIndex = 109;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(938, 33);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(53, 23);
-            this.label4.TabIndex = 72;
-            this.label4.Text = "جستجو :";
+            this.groupBox2.Controls.Add(this.cmbActions);
+            this.groupBox2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(995, 47);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(311, 97);
+            this.groupBox2.TabIndex = 113;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "عملیات حساب";
             // 
             // cmbActions
             // 
-            this.cmbActions.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbActions.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbActions.FormattingEnabled = true;
-            this.cmbActions.Location = new System.Drawing.Point(1008, 28);
+            this.cmbActions.Location = new System.Drawing.Point(50, 40);
             this.cmbActions.Name = "cmbActions";
-            this.cmbActions.Size = new System.Drawing.Size(202, 32);
-            this.cmbActions.TabIndex = 75;
-            this.cmbActions.SelectedValueChanged += new System.EventHandler(this.cmbActions_SelectedValueChanged);
+            this.cmbActions.Size = new System.Drawing.Size(202, 34);
+            this.cmbActions.TabIndex = 102;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cmbCurrencies);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.simpleButton2);
+            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(352, 47);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(608, 97);
+            this.groupBox1.TabIndex = 112;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "جستجو";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(366, 40);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Properties.Appearance.Options.UseFont = true;
+            this.txtSearch.Properties.AutoHeight = false;
+            this.txtSearch.Size = new System.Drawing.Size(187, 33);
+            this.txtSearch.TabIndex = 113;
+            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(556, 44);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(46, 26);
+            this.label4.TabIndex = 110;
+            this.label4.Text = "شماره";
             // 
             // cmbCurrencies
             // 
-            this.cmbCurrencies.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbCurrencies.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(474, 30);
+            this.cmbCurrencies.Location = new System.Drawing.Point(100, 42);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(198, 32);
-            this.cmbCurrencies.TabIndex = 108;
-            this.cmbCurrencies.SelectedValueChanged += new System.EventHandler(this.cmbCurrencies_SelectedValueChanged);
+            this.cmbCurrencies.Size = new System.Drawing.Size(198, 34);
+            this.cmbCurrencies.TabIndex = 112;
+            this.cmbCurrencies.TextChanged += new System.EventHandler(this.cmbCurrencies_TextChanged);
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(686, 33);
+            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(300, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 23);
-            this.label1.TabIndex = 107;
+            this.label1.Size = new System.Drawing.Size(49, 26);
+            this.label1.TabIndex = 111;
             this.label1.Text = "نوع ارز";
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(11, 28);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(90, 38);
-            this.simpleButton4.TabIndex = 106;
-            this.simpleButton4.Text = "چاپ";
             // 
             // simpleButton2
             // 
@@ -168,12 +179,30 @@ namespace PamirAccounting.UI.Forms.Customers
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.Appearance.Options.UseForeColor = true;
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(318, 28);
+            this.simpleButton2.Location = new System.Drawing.Point(14, 36);
             this.simpleButton2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(135, 38);
+            this.simpleButton2.Size = new System.Drawing.Size(39, 41);
             this.simpleButton2.TabIndex = 105;
-            this.simpleButton2.Text = "نمایش محدوده";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.AppearanceHovered.Options.UseTextOptions = true;
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.Location = new System.Drawing.Point(54, 77);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton1.TabIndex = 110;
+            this.simpleButton1.Text = "چاپ";
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
+            this.simpleButton5.Location = new System.Drawing.Point(9, 77);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton5.TabIndex = 111;
+            this.simpleButton5.Text = "راهنما";
             // 
             // simpleButton3
             // 
@@ -182,10 +211,10 @@ namespace PamirAccounting.UI.Forms.Customers
             this.simpleButton3.Appearance.Options.UseFont = true;
             this.simpleButton3.Appearance.Options.UseForeColor = true;
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(224, 28);
+            this.simpleButton3.Location = new System.Drawing.Point(218, 77);
             this.simpleButton3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(90, 38);
+            this.simpleButton3.Size = new System.Drawing.Size(90, 41);
             this.simpleButton3.TabIndex = 104;
             this.simpleButton3.Text = "رسید";
             // 
@@ -196,24 +225,12 @@ namespace PamirAccounting.UI.Forms.Customers
             this.CreatBankBtn.Appearance.Options.UseFont = true;
             this.CreatBankBtn.Appearance.Options.UseForeColor = true;
             this.CreatBankBtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("CreatBankBtn.ImageOptions.SvgImage")));
-            this.CreatBankBtn.Location = new System.Drawing.Point(105, 28);
+            this.CreatBankBtn.Location = new System.Drawing.Point(99, 77);
             this.CreatBankBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CreatBankBtn.Name = "CreatBankBtn";
-            this.CreatBankBtn.Size = new System.Drawing.Size(115, 38);
+            this.CreatBankBtn.Size = new System.Drawing.Size(115, 41);
             this.CreatBankBtn.TabIndex = 99;
             this.CreatBankBtn.Text = "تسویه حساب";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1215, 33);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(52, 23);
-            this.label3.TabIndex = 101;
-            this.label3.Text = "عملیات :";
             // 
             // galleryDropDown1
             // 
@@ -241,13 +258,14 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnRowEdit,
             this.btnRowDelete});
             this.grdTransactions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTransactions.Location = new System.Drawing.Point(0, 93);
+            this.grdTransactions.Location = new System.Drawing.Point(-1, 201);
             this.grdTransactions.Name = "grdTransactions";
             this.grdTransactions.ReadOnly = true;
             this.grdTransactions.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdTransactions.ShowEditingIcon = false;
-            this.grdTransactions.Size = new System.Drawing.Size(1335, 357);
+            this.grdTransactions.Size = new System.Drawing.Size(1335, 340);
             this.grdTransactions.TabIndex = 15;
+            this.grdTransactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
             // 
             // Column1
@@ -366,7 +384,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column10,
             this.Column11});
             this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(0, 456);
+            this.grdTotals.Location = new System.Drawing.Point(-1, 541);
             this.grdTotals.Name = "grdTotals";
             this.grdTotals.ReadOnly = true;
             this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -429,21 +447,26 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // ViewCustomerAccountFrm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1335, 584);
+            this.ClientSize = new System.Drawing.Size(1333, 667);
             this.Controls.Add(this.grdTotals);
             this.Controls.Add(this.grdTransactions);
             this.Controls.Add(this.groupBoxViewAccountCustomer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.IconOptions.ShowIcon = false;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "ViewCustomerAccountFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "نمایش اطلاعات حساب";
             this.Load += new System.EventHandler(this.ViewCustomerAccountFrm_Load);
             this.groupBoxViewAccountCustomer.ResumeLayout(false);
-            this.groupBoxViewAccountCustomer.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactions)).EndInit();
@@ -454,19 +477,12 @@ namespace PamirAccounting.UI.Forms.Customers
 
         #endregion
         private System.Windows.Forms.GroupBox groupBoxViewAccountCustomer;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton CreatBankBtn;
-        private System.Windows.Forms.Label label3;
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbActions;
-        private System.Windows.Forms.ComboBox cmbCurrencies;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grdTransactions;
         private System.Windows.Forms.DataGridView grdTotals;
-        private DevExpress.XtraEditors.TextEdit txtSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -485,5 +501,14 @@ namespace PamirAccounting.UI.Forms.Customers
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cmbActions;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private DevExpress.XtraEditors.TextEdit txtSearch;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbCurrencies;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
     }
 }
