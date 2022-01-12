@@ -5,6 +5,7 @@ using PamirAccounting.UI.Forms.Users;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -20,11 +21,12 @@ namespace PamirAccounting.Forms.Users
             unitOfWork = new UnitOfWork();
         }
 
-
-        private void FrmBankList_Load(object sender, EventArgs e)
+        private void loadData()
         {
-            loadData();
+            dataList = unitOfWork.UserServices.GetAll();
+            dataGridView1.DataSource = dataList.Select(x => new { x.Id,x.FirstName, x.LastName, x.UserName }).ToList();
         }
+    
 
         private void BtnCreateNew_Click(object sender, EventArgs e)
         {
@@ -33,16 +35,27 @@ namespace PamirAccounting.Forms.Users
             loadData();
         }
 
-        private void loadData()
-        {
-            dataList = unitOfWork.UserServices.GetAll();
-            dataGridView1.DataSource = dataList.Select(x=> new {x.FirstName,x.LastName,x.UserName }).ToList();
-        }
+    
   
 
         private void UsersListFrm_Load(object sender, EventArgs e)
         {
             loadData();
+            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
+            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            for (int i = 0; i < 6; i++)
+            {
+                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
+            }
+            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
+            c.FlatStyle = FlatStyle.Standard;
+            c.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            c.DefaultCellStyle.BackColor = Color.Lavender;
+            DataGridViewButtonColumn d = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowDelete"];
+            d.FlatStyle = FlatStyle.Standard;
+            d.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            d.DefaultCellStyle.BackColor = Color.Lavender;
         }
 
 
@@ -84,11 +97,26 @@ namespace PamirAccounting.Forms.Users
             }
         }
 
-        private void BtnCreateNew_Click_1(object sender, EventArgs e)
+     
+
+        private void BtnCreateNew_Click_(object sender, EventArgs e)
         {
             var frmCurrencies = new UsersCreateUpdateFrm();
             frmCurrencies.ShowDialog();
             loadData();
+        }
+
+        private void txtsearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtsearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.Users.FindAll(y => y.FirstName.Contains(txtsearch.Text)).Select(x => new UserModel { Id = x.Id, FirstName = x.FirstName }).ToList();
+                dataGridView1.DataSource = dataList;
+            }
+            else
+            {
+                loadData();
+            }
         }
     }
 }

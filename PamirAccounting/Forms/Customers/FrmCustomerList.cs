@@ -29,14 +29,29 @@ namespace PamirAccounting.Forms.Customers
         private void FrmCustomerList_Load(object sender, EventArgs e)
         {
             loadData();
+            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
+            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            for (int i = 0; i < 8; i++)
+            {
+                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
+            }
+            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
+            c.FlatStyle = FlatStyle.Standard;
+            c.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            c.DefaultCellStyle.BackColor = Color.Lavender;
+            DataGridViewButtonColumn d = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowDelete"];
+            d.FlatStyle = FlatStyle.Standard;
+            d.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            d.DefaultCellStyle.BackColor = Color.Lavender;
         }
 
         private void loadData()
         {
             _Groups = unitOfWork.CustomerGroupServices.GetAll();
-            cmbGroups.DataSource = _Groups;
-            cmbGroups.ValueMember = "Id";
-            cmbGroups.DisplayMember = "Name";
+            cmbGroupsSearch.DataSource = _Groups;
+            cmbGroupsSearch.ValueMember = "Id";
+            cmbGroupsSearch.DisplayMember = "Name";
 
             dataList = unitOfWork.CustomerServices.GetAll();
             dataGridView1.DataSource = dataList.Select(x => new
@@ -100,6 +115,84 @@ namespace PamirAccounting.Forms.Customers
             var frmCurrencies = new CustomerCreateUpdateFrm();
             frmCurrencies.ShowDialog();
             loadData();
+        }
+
+        private void txtphoneSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNameSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtNameSearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.Customers.FindAll(y => y.FirstName.Contains(txtNameSearch.Text) || y.LastName.Contains(txtNameSearch.Text)).Select(x => new CustomerModel { Id = x.Id,FullName=x.FirstName+" "+x.LastName,Phone=x.Phone,Mobile=x.Mobile,GroupName=x.Group.Name }).ToList();
+                dataGridView1.DataSource = dataList;
+            }
+            else
+            {
+                loadData();
+            }
+        }
+
+        private void cmbGroupsSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (cmbGroupsSearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.Customers.FindAll(y => y.Group.Name.Contains(cmbGroupsSearch.Text) ).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
+                dataGridView1.DataSource = dataList;
+            }
+            else
+            {
+                loadData();
+            }
+        }
+
+        private void txtNumberSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            if (txtNumberSearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.Customers.FindAll(y => y.Id==int.Parse(txtNumberSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
+                dataGridView1.DataSource = dataList;
+            }
+            else
+            {
+                loadData();
+            }
+        }
+
+        private void txtphoneSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            if (txtphoneSearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.Customers.FindAll(y => y.Phone.Contains(txtphoneSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
+                dataGridView1.DataSource = dataList;
+            }
+            else
+            {
+                loadData();
+            }
+        }
+
+        private void cmbGroupsSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (cmbGroupsSearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.Customers.FindAll(y => y.Group.Name.Contains(cmbGroupsSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
+                dataGridView1.DataSource = dataList;
+            }
+            else
+            {
+                loadData();
+            }
+
         }
     }
 }

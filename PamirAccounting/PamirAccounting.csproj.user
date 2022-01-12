@@ -32,6 +32,9 @@
     <Compile Update="Forms\Customers\FrmCustomerList.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Customers\SearchDateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Customers\ViewCustomerAccountFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +129,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Transaction\ReceiveCashFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Transaction\RegisterNewTransactionFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Transaction\TransferAccountFrm.cs">

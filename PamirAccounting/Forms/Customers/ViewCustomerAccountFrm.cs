@@ -1,4 +1,6 @@
-﻿using PamirAccounting.Forms.Transaction;
+﻿using Microsoft.EntityFrameworkCore;
+using PamirAccounting.Forms.Customers;
+using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
@@ -6,6 +8,7 @@ using PamirAccounting.UI.Forms.Transaction;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -43,6 +46,30 @@ namespace PamirAccounting.UI.Forms.Customers
         {
             InitForm();
             LoadData();
+            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
+            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            for (int i = 0; i < 12; i++)
+            {
+                grdTransactions.Columns[i].HeaderCell.Style = HeaderStyle;
+            }
+            this.grdTransactions.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)grdTransactions.Columns["btnRowEdit"];
+            c.FlatStyle = FlatStyle.Standard;
+            c.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            c.DefaultCellStyle.BackColor = Color.Lavender;
+            DataGridViewButtonColumn d = (DataGridViewButtonColumn)grdTransactions.Columns["btnRowDelete"];
+            d.FlatStyle = FlatStyle.Standard;
+            d.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            d.DefaultCellStyle.BackColor = Color.Lavender;
+            ////////***************/////////////////
+            DataGridViewCellStyle HeaderStyle1 = new DataGridViewCellStyle();
+            HeaderStyle1.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            for (int i = 0; i < 6; i++)
+            {
+                grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
+            }
+            this.grdTotals.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+
         }
 
         private void InitForm()
@@ -156,6 +183,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void LoadData()
         {
+          
             if ((int)cmbCurrencies.SelectedValue == 0)
             {
 
@@ -189,7 +217,8 @@ namespace PamirAccounting.UI.Forms.Customers
 
                 curenncySummery.RemainigAmount = remaining;
                 curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
-                _GroupedDataList.Add(curenncySummery);
+                _GroupedDataList.Add(curenncySummery); 
+        
             }
 
             grdTotals.AutoGenerateColumns = false;
@@ -209,6 +238,123 @@ namespace PamirAccounting.UI.Forms.Customers
         private void grdTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cmbCurrencies_TextChanged(object sender, EventArgs e)
+        {
+            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
+            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
+
+            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.DataSource = _Currencies;
+            cmbCurrencies.ValueMember = "Id";
+            cmbCurrencies.DisplayMember = "Title";
+            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+            if ((int)cmbCurrencies.SelectedValue ==0)
+            {
+                _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
+            }
+
+             if ((int)cmbCurrencies.SelectedValue > 0)
+            {
+                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name==(cmbCurrencies.Text) && x.SourceCustomerId==_Id)
+                      .Include(x => x.Curreny)
+                    .Include(x => x.User)
+                   .Select(x => new TransactionModel
+                   {
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       RemainigAmount = x.RemainigAmount,
+                       Date = x.Date.ToString(),
+                       TransactionDateTime = x.TransactionDateTime.ToString(),
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       UserId = x.UserId,
+                       UserName = x.User.UserName,
+
+                   }).ToList();
+                grdTransactions.DataSource = _dataList;
+            }
+            else
+            {
+                LoadData();
+            }
+        }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtSearch.Text.Length > 0)
+            {
+                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Id == int.Parse(txtSearch.Text))
+                       .Include(x => x.Curreny)
+                     .Include(x => x.User)
+                    .Select(x => new TransactionModel
+                    {
+                        Id = x.Id,
+                        Description = x.Description,
+                        DepositAmount = x.DepositAmount,
+                        WithdrawAmount = x.WithdrawAmount,
+                        RemainigAmount = x.RemainigAmount,
+                        Date = x.Date.ToString(),
+                        TransactionDateTime = x.TransactionDateTime.ToString(),
+                        CurrenyId = x.CurrenyId,
+                        CurrenyName = x.Curreny.Name,
+                        UserId = x.UserId,
+                        UserName = x.User.UserName,
+
+                    }).ToList();
+                grdTransactions.DataSource = _dataList;
+            }
+            else
+            {
+                LoadData();
+            }
+
+        }
+
+        private void grdTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.ColumnIndex == grdTransactions.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
+            //{
+            //    var destForm = new ViewCustomerAccountFrm(_dataList.ElementAt(e.RowIndex).Id);
+            //    destForm.ShowDialog();
+            //}
+            if (e.ColumnIndex == grdTransactions.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
+            {
+
+                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var transaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
+                        unitOfWork.TransactionServices.Delete(transaction);
+                        unitOfWork.SaveChanges();
+                        LoadData();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("حذف امکانپذیر نمیباشد");
+                    }
+
+                }
+            }
+        
+            if (e.ColumnIndex == grdTransactions.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
+            {
+                var frmCurrencies = new CustomerCreateUpdateFrm(_dataList.ElementAt(e.RowIndex).Id);
+                frmCurrencies.ShowDialog();
+                LoadData();
+            }
+        }
+
+        private void btnsearchdate_Click(object sender, EventArgs e)
+        {
+             var SearchDateFrm1 = new SearchDateFrm();
+            SearchDateFrm1.ShowDialog();
         }
     }
 }

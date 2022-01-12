@@ -1,5 +1,6 @@
 ﻿using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
+using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
 using PamirAccounting.UI.Forms.Agencies;
@@ -14,6 +15,7 @@ using PamirAccounting.UI.Forms.Settings;
 using PamirAccounting.UI.Forms.Transaction;
 using PamirAccounting.UI.Forms.Users;
 using System;
+using System.Globalization;
 
 namespace PamirAccounting.UI
 {
@@ -37,7 +39,38 @@ namespace PamirAccounting.UI
 
         private void MainFrm_Load(object sender, EventArgs e)
         {
-            barStaticItem1.Caption = " کاربر جاری  : " + CurrentUser.FullName;
+
+            barStaticItemUser.Caption = " کاربر جاری  : " + CurrentUser.FullName;
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string DayName = "";
+            switch (dt.DayOfWeek)
+            {
+                case DayOfWeek.Saturday:
+                    DayName = " شنبه ";
+                    break;
+                case DayOfWeek.Sunday:
+                    DayName = " یکشنبه ";
+                    break;
+                case DayOfWeek.Monday:
+                    DayName = " دوشنبه ";
+                    break;
+                case DayOfWeek.Tuesday:
+                    DayName = " سه شنبه ";
+                    break;
+                case DayOfWeek.Wednesday:
+                    DayName = " چهارشنبه ";
+                    break;
+                case DayOfWeek.Thursday:
+                    DayName = " پنج شنبه ";
+                    break;
+                case DayOfWeek.Friday:
+                    DayName = " جمـــعه ";
+                    break;
+            }
+
+            string PersianDate = string.Format("{0} {1}/{2}/{3}", DayName, pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            barStaticItemDate.Caption =PersianDate;
         }
 
         private void barButtonItemListCurrency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -134,7 +167,7 @@ namespace PamirAccounting.UI
 
         private void barButtonItemNewTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var FrmNewTransaction = new RegisterNewTransactionFrm();
+            var FrmNewTransaction = new CreateNewCustomerAccount();
             FrmNewTransaction.ShowDialog();
         }
 
@@ -146,7 +179,7 @@ namespace PamirAccounting.UI
 
         private void barBtnCustomerList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           
+
         }
 
         private void BtnCustomerList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -169,21 +202,17 @@ namespace PamirAccounting.UI
 
         private void barBtnReceiveCash_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var FrmeRceiveCash = new ReceiveCashFrm();
+            var FrmeRceiveCash = new PayAndReciveCashFrm();
             FrmeRceiveCash.ShowDialog();
         }
 
         private void barBntPayCash_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var FrmPayCash = new PayCashFrm();
+            var FrmPayCash = new PayAndReciveBankFrm();
             FrmPayCash.ShowDialog();
         }
 
-        private void barbtnNewTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            var FrmRegisterNewTransaction = new RegisterNewTransactionFrm();
-            FrmRegisterNewTransaction.ShowDialog();
-        }
+
 
         private void barBtnTransferAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -194,14 +223,14 @@ namespace PamirAccounting.UI
         private void barBnBankDeposit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            var FrmBankReceiveFrm = new BankReceiveFrm();
+            var FrmBankReceiveFrm = new PayAndReciveBankFrm();
             FrmBankReceiveFrm.ShowDialog();
 
         }
 
         private void barBtnBankPayment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var FrmBankPayment = new BankPaymentFrm();
+            var FrmBankPayment = new PayAndReciveBankFrm();
             FrmBankPayment.ShowDialog();
         }
 
@@ -275,13 +304,13 @@ namespace PamirAccounting.UI
         {
             var FrmWarrantsPayable = new WarrantsPayableFrm();
             FrmWarrantsPayable.ShowDialog();
-            
+
         }
 
         private void btnRate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var RateListFrm = new RateListFrm();
-            RateListFrm.ShowDialog(); 
+            RateListFrm.ShowDialog();
         }
 
         private void btnDraftsList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -302,10 +331,28 @@ namespace PamirAccounting.UI
             FrmWarrantsPayable.ShowDialog();
         }
 
-        private void barButtonItem42_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barbtnNewTransaction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var targetFrm = new UnkwonDepositFrm();
-            targetFrm.ShowDialog();
+
+            var FrmCustomers = new ViewCustomerAccountFrm();
+            FrmCustomers.ShowDialog();
+        }
+
+
+
+        private void barStaticItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            barStaticItemTime.Caption = DateTime.Now.ToShortTimeString();
+        }
+
+        private void barStaticItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 
