@@ -135,6 +135,11 @@ namespace PamirAccounting.Forms.Transactions
 
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void btnsavebank_Click(object sender, EventArgs e)
         {
             if ((int)cmbAction.SelectedValue == 1)
@@ -247,7 +252,8 @@ namespace PamirAccounting.Forms.Transactions
 
             bankTransaction.DepositAmount = 0;
             bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-
+            bankTransaction.ReceiptNumber = txtReceiptNumber.Text;
+            bankTransaction.BranchCode = txtBranchCode.Text;
 
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
@@ -280,6 +286,8 @@ namespace PamirAccounting.Forms.Transactions
                 customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 customerTransaction.WithdrawAmount = 0;
 
+                customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
+                customerTransaction.BranchCode = txtBranchCode.Text;
 
                 customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
                 var cDate = txtDate.Text.Split('/');

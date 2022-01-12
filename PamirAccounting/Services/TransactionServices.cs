@@ -112,5 +112,48 @@ namespace PamirAccounting.Services
             var transaction = _context.Transactions.OrderBy(x => x.Id).LastOrDefault(x => x.SourceCustomerId == SourceCustomerId && x.CurrenyId == CurrenyId);
             return transaction;
         }
+
+        public List<UnKownTransactionModel> GetAllUnkowns()
+        {
+            try
+            {
+                var dataList = new List<UnKownTransactionModel>();
+
+                dataList = FindAllReadonly(x => x.TransactionType == 4)
+                             .Include(x => x.Curreny)
+                             .Include(x => x.SourceCustomer)
+                             .Select(x => new UnKownTransactionModel
+                             {
+                                 Id = x.Id,
+                                 Date = x.Date.ToString(),
+                                 BankName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                                 BranchCode = x.BranchCode,
+                                 ReceiptNumber = x.ReceiptNumber,
+                                 Amount = x.WithdrawAmount.Value,
+                                 CurrenyName = x.Curreny.Name,
+                                 Description = x.Description,
+
+                             }).ToList();
+
+                dataList = dataList.Select(x => new UnKownTransactionModel
+                {
+                    Id = x.Id,
+                    Date = (DateTime.Parse(x.Date.ToString())).ToShortPersianDateString(),
+                    BankName = x.BankName,
+                    BranchCode = x.BranchCode,
+                    ReceiptNumber = x.ReceiptNumber,
+                    Amount = x.Amount,
+                    CurrenyName = x.CurrenyName,
+                    Description = x.Description,
+
+                }).ToList();
+                return dataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
     }
 }

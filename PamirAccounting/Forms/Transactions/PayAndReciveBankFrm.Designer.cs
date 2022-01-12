@@ -31,15 +31,12 @@ namespace PamirAccounting.Forms.Transactions
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayAndReciveBankFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.cmbCustomers = new System.Windows.Forms.ComboBox();
             this.lblCustomers = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtReceiptNumber = new DevExpress.XtraEditors.TextEdit();
             this.label8 = new System.Windows.Forms.Label();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtBranchCode = new DevExpress.XtraEditors.TextEdit();
             this.cmbVarizType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,13 +51,16 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReceiptNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBranchCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdesc.Properties)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -68,9 +68,9 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.Controls.Add(this.cmbCustomers);
             this.groupBox1.Controls.Add(this.lblCustomers);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textEdit2);
+            this.groupBox1.Controls.Add(this.txtReceiptNumber);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textEdit1);
+            this.groupBox1.Controls.Add(this.txtBranchCode);
             this.groupBox1.Controls.Add(this.cmbVarizType);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -93,47 +93,6 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "دریافت و پرداخت بانکی";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnClose);
-            this.groupBox2.Controls.Add(this.btnsavebank);
-            this.groupBox2.Location = new System.Drawing.Point(12, 309);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(631, 79);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
-            // 
-            // btnsavebank
-            // 
-            this.btnsavebank.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnsavebank.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnsavebank.Appearance.Options.UseFont = true;
-            this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
-            this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnsavebank.Location = new System.Drawing.Point(25, 23);
-            this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnsavebank.Name = "btnsavebank";
-            this.btnsavebank.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnsavebank.Size = new System.Drawing.Size(81, 38);
-            this.btnsavebank.TabIndex = 11;
-            this.btnsavebank.Text = "ثبت";
-            this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnClose.Appearance.Options.UseFont = true;
-            this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
-            this.btnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnClose.Location = new System.Drawing.Point(109, 22);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnClose.Size = new System.Drawing.Size(81, 38);
-            this.btnClose.TabIndex = 12;
-            this.btnClose.Text = "بازگشت";
             // 
             // cmbCustomers
             // 
@@ -171,17 +130,17 @@ namespace PamirAccounting.Forms.Transactions
             this.label9.TabIndex = 211;
             this.label9.Text = "شماره فیش :";
             // 
-            // textEdit2
+            // txtReceiptNumber
             // 
-            this.textEdit2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.textEdit2.Location = new System.Drawing.Point(384, 218);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Properties.AutoHeight = false;
-            this.textEdit2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEdit2.Size = new System.Drawing.Size(149, 38);
-            this.textEdit2.TabIndex = 5;
+            this.txtReceiptNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtReceiptNumber.Location = new System.Drawing.Point(384, 218);
+            this.txtReceiptNumber.Name = "txtReceiptNumber";
+            this.txtReceiptNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtReceiptNumber.Properties.Appearance.Options.UseFont = true;
+            this.txtReceiptNumber.Properties.AutoHeight = false;
+            this.txtReceiptNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtReceiptNumber.Size = new System.Drawing.Size(149, 38);
+            this.txtReceiptNumber.TabIndex = 5;
             // 
             // label8
             // 
@@ -195,17 +154,17 @@ namespace PamirAccounting.Forms.Transactions
             this.label8.TabIndex = 209;
             this.label8.Text = "کد شعبه :";
             // 
-            // textEdit1
+            // txtBranchCode
             // 
-            this.textEdit1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.textEdit1.Location = new System.Drawing.Point(384, 175);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Properties.AutoHeight = false;
-            this.textEdit1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEdit1.Size = new System.Drawing.Size(149, 38);
-            this.textEdit1.TabIndex = 4;
+            this.txtBranchCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtBranchCode.Location = new System.Drawing.Point(384, 175);
+            this.txtBranchCode.Name = "txtBranchCode";
+            this.txtBranchCode.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBranchCode.Properties.Appearance.Options.UseFont = true;
+            this.txtBranchCode.Properties.AutoHeight = false;
+            this.txtBranchCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtBranchCode.Size = new System.Drawing.Size(149, 38);
+            this.txtBranchCode.TabIndex = 4;
             // 
             // cmbVarizType
             // 
@@ -369,6 +328,48 @@ namespace PamirAccounting.Forms.Transactions
             this.label1.TabIndex = 194;
             this.label1.Text = "تاریخ :";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnClose);
+            this.groupBox2.Controls.Add(this.btnsavebank);
+            this.groupBox2.Location = new System.Drawing.Point(12, 309);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox2.Size = new System.Drawing.Size(631, 79);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Appearance.Options.UseFont = true;
+            this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
+            this.btnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnClose.Location = new System.Drawing.Point(110, 24);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnClose.Size = new System.Drawing.Size(81, 38);
+            this.btnClose.TabIndex = 12;
+            this.btnClose.Text = "بازگشت";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnsavebank
+            // 
+            this.btnsavebank.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnsavebank.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsavebank.Appearance.Options.UseFont = true;
+            this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
+            this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnsavebank.Location = new System.Drawing.Point(25, 23);
+            this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnsavebank.Name = "btnsavebank";
+            this.btnsavebank.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnsavebank.Size = new System.Drawing.Size(81, 38);
+            this.btnsavebank.TabIndex = 11;
+            this.btnsavebank.Text = "ثبت";
+            this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
+            // 
             // PayAndReciveBankFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -387,12 +388,12 @@ namespace PamirAccounting.Forms.Transactions
             this.Load += new System.EventHandler(this.PayAndReciveBankFrm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReceiptNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBranchCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdesc.Properties)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -405,9 +406,9 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.ComboBox cmbCustomers;
         private System.Windows.Forms.Label lblCustomers;
         private System.Windows.Forms.Label label9;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit txtReceiptNumber;
         private System.Windows.Forms.Label label8;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtBranchCode;
         private System.Windows.Forms.ComboBox cmbVarizType;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

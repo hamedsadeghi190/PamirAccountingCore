@@ -1,5 +1,6 @@
 ﻿using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
+using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
 using PamirAccounting.UI.Forms.Agencies;
 using PamirAccounting.UI.Forms.Banks;
@@ -299,6 +300,12 @@ namespace PamirAccounting.UI
         {
             var FrmWarrantsPayable = new WarrantsPayableFrm();
             FrmWarrantsPayable.ShowDialog();
+        }
+
+        private void barButtonItem42_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var targetFrm = new UnkwonDepositFrm();
+            targetFrm.ShowDialog();
         }
     }
 

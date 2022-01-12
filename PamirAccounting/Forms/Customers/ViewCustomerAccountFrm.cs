@@ -115,11 +115,8 @@ namespace PamirAccounting.UI.Forms.Customers
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
 
-
-
             if (e.ColumnIndex == grdTransactions.Columns["btnView"].Index && e.RowIndex >= 0)
             {
-
                 //var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(e.RowIndex).Id);
                 //destForm.ShowDialog();
             }
