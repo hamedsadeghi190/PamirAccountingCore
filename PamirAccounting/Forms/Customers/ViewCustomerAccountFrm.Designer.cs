@@ -39,7 +39,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label4 = new System.Windows.Forms.Label();
             this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnsearchdate = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -121,7 +121,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cmbCurrencies);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.simpleButton2);
+            this.groupBox1.Controls.Add(this.btnsearchdate);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(352, 47);
             this.groupBox1.Name = "groupBox1";
@@ -172,18 +172,19 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label1.TabIndex = 111;
             this.label1.Text = "نوع ارز";
             // 
-            // simpleButton2
+            // btnsearchdate
             // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(14, 36);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton2.TabIndex = 105;
+            this.btnsearchdate.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsearchdate.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.btnsearchdate.Appearance.Options.UseFont = true;
+            this.btnsearchdate.Appearance.Options.UseForeColor = true;
+            this.btnsearchdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.btnsearchdate.Location = new System.Drawing.Point(14, 36);
+            this.btnsearchdate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnsearchdate.Name = "btnsearchdate";
+            this.btnsearchdate.Size = new System.Drawing.Size(39, 41);
+            this.btnsearchdate.TabIndex = 105;
+            this.btnsearchdate.Click += new System.EventHandler(this.btnsearchdate_Click);
             // 
             // simpleButton1
             // 
@@ -477,7 +478,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         #endregion
         private System.Windows.Forms.GroupBox groupBoxViewAccountCustomer;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btnsearchdate;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton CreatBankBtn;
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;

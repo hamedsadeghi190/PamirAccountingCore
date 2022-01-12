@@ -23,7 +23,11 @@ namespace PamirAccounting.Forms.Transaction
             unitOfWork = new UnitOfWork();
         }
 
-      
+        public CreateNewCustomerAccount()
+        {
+            InitializeComponent();
+            unitOfWork = new UnitOfWork();
+        }
 
         private void CreateNewCustomerAccount_Load(object sender, EventArgs e)
         {

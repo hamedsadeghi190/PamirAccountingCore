@@ -63,6 +63,16 @@ namespace PamirAccounting.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap background {
+            get {
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap couple_professionals_analyzing_graphs_74855_4393 {
             get {
                 object obj = ResourceManager.GetObject("couple-professionals-analyzing-graphs_74855-4393", resourceCulture);

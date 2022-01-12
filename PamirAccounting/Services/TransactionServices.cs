@@ -114,5 +114,7 @@ namespace PamirAccounting.Services
             var transaction = _context.Transactions.OrderBy(x => x.Id).LastOrDefault(x => x.SourceCustomerId == SourceCustomerId && x.CurrenyId == CurrenyId);
             return transaction;
         }
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
@@ -185,6 +186,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void LoadData()
         {
+          
             if ((int)cmbCurrencies.SelectedValue == 0)
             {
 
@@ -218,7 +220,8 @@ namespace PamirAccounting.UI.Forms.Customers
 
                 curenncySummery.RemainigAmount = remaining;
                 curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
-                _GroupedDataList.Add(curenncySummery);
+                _GroupedDataList.Add(curenncySummery); 
+        
             }
 
             grdTotals.AutoGenerateColumns = false;
@@ -242,41 +245,75 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
-            //if (cmbCurrencies.SelectedText=="همه")
-            //{
-            //    _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
-            //}
+            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
+            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
 
-            //else if ((int)cmbCurrencies.SelectedValue > 0)
-            //{
-            //    _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name.Contains(cmbCurrencies.Text))
-            //          .Include(x => x.Curreny)
-            //        .Include(x => x.User)
-            //       .Select(x => new TransactionModel
-            //       {
-            //           Id = x.Id,
-            //           Description = x.Description,
-            //           DepositAmount = x.DepositAmount,
-            //           WithdrawAmount = x.WithdrawAmount,
-            //           RemainigAmount = x.RemainigAmount,
-            //           Date = x.Date.ToString(),
-            //           TransactionDateTime = x.TransactionDateTime.ToString(),
-            //           CurrenyId = x.CurrenyId,
-            //           CurrenyName = x.Curreny.Name,
-            //           UserId = x.UserId,
-            //           UserName = x.User.UserName,
+            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.DataSource = _Currencies;
+            cmbCurrencies.ValueMember = "Id";
+            cmbCurrencies.DisplayMember = "Title";
+            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+            if ((int)cmbCurrencies.SelectedValue ==0)
+            {
+                _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
+            }
 
-            //       }).ToList();
-            //    grdTransactions.DataSource = _dataList;
-            //}
-            //else
-            //{
-            //    LoadData();
-            //}
+             if ((int)cmbCurrencies.SelectedValue > 0)
+            {
+                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name==(cmbCurrencies.Text) && x.SourceCustomerId==_Id)
+                      .Include(x => x.Curreny)
+                    .Include(x => x.User)
+                   .Select(x => new TransactionModel
+                   {
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       RemainigAmount = x.RemainigAmount,
+                       Date = x.Date.ToString(),
+                       TransactionDateTime = x.TransactionDateTime.ToString(),
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       UserId = x.UserId,
+                       UserName = x.User.UserName,
+
+                   }).ToList();
+                grdTransactions.DataSource = _dataList;
+            }
+            else
+            {
+                LoadData();
+            }
         }
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
+            if (txtSearch.Text.Length > 0)
+            {
+                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Id == int.Parse(txtSearch.Text))
+                       .Include(x => x.Curreny)
+                     .Include(x => x.User)
+                    .Select(x => new TransactionModel
+                    {
+                        Id = x.Id,
+                        Description = x.Description,
+                        DepositAmount = x.DepositAmount,
+                        WithdrawAmount = x.WithdrawAmount,
+                        RemainigAmount = x.RemainigAmount,
+                        Date = x.Date.ToString(),
+                        TransactionDateTime = x.TransactionDateTime.ToString(),
+                        CurrenyId = x.CurrenyId,
+                        CurrenyName = x.Curreny.Name,
+                        UserId = x.UserId,
+                        UserName = x.User.UserName,
+
+                    }).ToList();
+                grdTransactions.DataSource = _dataList;
+            }
+            else
+            {
+                LoadData();
+            }
 
         }
 
@@ -315,6 +352,12 @@ namespace PamirAccounting.UI.Forms.Customers
                 frmCurrencies.ShowDialog();
                 LoadData();
             }
+        }
+
+        private void btnsearchdate_Click(object sender, EventArgs e)
+        {
+             var SearchDateFrm1 = new SearchDateFrm();
+            SearchDateFrm1.ShowDialog();
         }
     }
 }

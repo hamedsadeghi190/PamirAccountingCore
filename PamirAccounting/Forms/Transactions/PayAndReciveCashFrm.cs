@@ -111,7 +111,6 @@ namespace PamirAccounting.Forms.Transactions
 
             sTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
-
             PersianCalendar p = new PersianCalendar();
             var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
             sTransaction.Date = DateTime.Now;
