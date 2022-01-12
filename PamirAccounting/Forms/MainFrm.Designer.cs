@@ -142,10 +142,11 @@ namespace PamirAccounting.UI
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.barButtonItem43 = new DevExpress.XtraBars.BarButtonItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
@@ -247,13 +248,13 @@ namespace PamirAccounting.UI
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 1000;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage2,
-            this.ribbonPage3,
-            this.ribbonPageGeneralLedger,
             this.settingRibonMenu,
+            this.ribbonPage2,
             this.ribbonPage5,
             this.ribbonPage4,
-            this.ribbonPage6});
+            this.ribbonPage6,
+            this.ribbonPageGeneralLedger,
+            this.ribbonPage3});
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHypertextLabel1,
             this.repositoryItemSpinEdit1});
@@ -564,12 +565,20 @@ namespace PamirAccounting.UI
             this.barButtonItemCustomerList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItemCustomerList.ImageOptions.SvgImage")));
             this.barButtonItemCustomerList.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.barButtonItemCustomerList.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItemCustomerList.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemCustomerList.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.barButtonItemCustomerList.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItemCustomerList.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemCustomerList.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.barButtonItemCustomerList.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItemCustomerList.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemCustomerList.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.barButtonItemCustomerList.ItemAppearance.Pressed.Options.UseFont = true;
+            this.barButtonItemCustomerList.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemCustomerList.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.barButtonItemCustomerList.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemCustomerList.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.barButtonItemCustomerList.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemCustomerList.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.barButtonItemCustomerList.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemCustomerList.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.barButtonItemCustomerList.LargeWidth = 150;
             this.barButtonItemCustomerList.Name = "barButtonItemCustomerList";
             this.barButtonItemCustomerList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCustomerList_ItemClick);
@@ -581,12 +590,20 @@ namespace PamirAccounting.UI
             this.barButtonItemNewCustomer.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItemNewCustomer.ImageOptions.SvgImage")));
             this.barButtonItemNewCustomer.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.barButtonItemNewCustomer.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItemNewCustomer.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemNewCustomer.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.barButtonItemNewCustomer.ItemAppearance.Hovered.Options.UseFont = true;
             this.barButtonItemNewCustomer.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.barButtonItemNewCustomer.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItemNewCustomer.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemNewCustomer.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.barButtonItemNewCustomer.ItemAppearance.Pressed.Options.UseFont = true;
+            this.barButtonItemNewCustomer.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemNewCustomer.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.barButtonItemNewCustomer.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemNewCustomer.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.barButtonItemNewCustomer.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemNewCustomer.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.barButtonItemNewCustomer.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barButtonItemNewCustomer.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.barButtonItemNewCustomer.LargeWidth = 150;
             this.barButtonItemNewCustomer.Name = "barButtonItemNewCustomer";
             this.barButtonItemNewCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewCustomer_ItemClick);
@@ -1605,80 +1622,68 @@ namespace PamirAccounting.UI
             // 
             // btncustomerslist
             // 
-            this.btncustomerslist.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(0)))), ((int)(((byte)(234)))));
-            this.btncustomerslist.Appearance.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btncustomerslist.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
+            this.btncustomerslist.Appearance.Font = new System.Drawing.Font("B Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btncustomerslist.Appearance.Options.UseBackColor = true;
             this.btncustomerslist.Appearance.Options.UseFont = true;
-            this.btncustomerslist.Location = new System.Drawing.Point(186, 196);
+            this.btncustomerslist.Location = new System.Drawing.Point(12, 481);
             this.btncustomerslist.Name = "btncustomerslist";
-            this.btncustomerslist.Size = new System.Drawing.Size(172, 105);
+            this.btncustomerslist.Size = new System.Drawing.Size(130, 89);
             this.btncustomerslist.TabIndex = 2;
             this.btncustomerslist.Text = "دفتر تلفن";
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("B Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.White;
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.Location = new System.Drawing.Point(8, 307);
+            this.simpleButton2.Location = new System.Drawing.Point(12, 291);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(172, 105);
+            this.simpleButton2.Size = new System.Drawing.Size(268, 89);
             this.simpleButton2.TabIndex = 4;
             this.simpleButton2.Text = "گزارش موجودی کل";
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
+            this.simpleButton3.Appearance.Font = new System.Drawing.Font("B Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.simpleButton3.Appearance.Options.UseBackColor = true;
             this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.Location = new System.Drawing.Point(8, 196);
+            this.simpleButton3.Location = new System.Drawing.Point(12, 196);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(172, 105);
+            this.simpleButton3.Size = new System.Drawing.Size(130, 89);
             this.simpleButton3.TabIndex = 5;
             this.simpleButton3.Text = "لیست مشتریان";
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+            this.simpleButton4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
             this.simpleButton4.Appearance.BackColor2 = System.Drawing.Color.White;
-            this.simpleButton4.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-            this.simpleButton4.Appearance.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton4.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
+            this.simpleButton4.Appearance.Font = new System.Drawing.Font("B Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.White;
             this.simpleButton4.Appearance.Options.UseBackColor = true;
             this.simpleButton4.Appearance.Options.UseBorderColor = true;
             this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.Location = new System.Drawing.Point(8, 418);
+            this.simpleButton4.Location = new System.Drawing.Point(12, 386);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(172, 105);
+            this.simpleButton4.Size = new System.Drawing.Size(130, 89);
             this.simpleButton4.TabIndex = 6;
             this.simpleButton4.Text = "لیست بستانکاران";
             // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton5.Appearance.Options.UseBackColor = true;
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.Location = new System.Drawing.Point(186, 307);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(172, 105);
-            this.simpleButton5.TabIndex = 7;
-            this.simpleButton5.Text = "ثبت تراکنش جدید";
-            // 
             // simpleButton7
             // 
-            this.simpleButton7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(71)))), ((int)(((byte)(161)))));
-            this.simpleButton7.Appearance.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
+            this.simpleButton7.Appearance.Font = new System.Drawing.Font("B Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.simpleButton7.Appearance.Options.UseBackColor = true;
             this.simpleButton7.Appearance.Options.UseFont = true;
-            this.simpleButton7.Location = new System.Drawing.Point(186, 418);
+            this.simpleButton7.Location = new System.Drawing.Point(150, 386);
             this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(172, 105);
+            this.simpleButton7.Size = new System.Drawing.Size(130, 89);
             this.simpleButton7.TabIndex = 9;
             this.simpleButton7.Text = "لیست بدهکاران";
             // 
@@ -1698,6 +1703,30 @@ namespace PamirAccounting.UI
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(111)))), ((int)(((byte)(239)))));
+            this.simpleButton5.Appearance.Font = new System.Drawing.Font("B Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton5.Appearance.Options.UseBackColor = true;
+            this.simpleButton5.Appearance.Options.UseFont = true;
+            this.simpleButton5.Location = new System.Drawing.Point(150, 196);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(130, 89);
+            this.simpleButton5.TabIndex = 7;
+            this.simpleButton5.Text = "ثبت تراکنش جدید";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("B Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(150, 481);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(130, 89);
+            this.simpleButton1.TabIndex = 12;
+            this.simpleButton1.Text = "لیست حواله ها";
+            // 
             // MainFrm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -1710,6 +1739,7 @@ namespace PamirAccounting.UI
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
             this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
             this.ClientSize = new System.Drawing.Size(1298, 799);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.simpleButton7);
             this.Controls.Add(this.simpleButton5);
             this.Controls.Add(this.simpleButton4);
@@ -1844,7 +1874,6 @@ namespace PamirAccounting.UI
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem43;
         private System.Windows.Forms.Timer timer1;
@@ -1852,6 +1881,8 @@ namespace PamirAccounting.UI
         private DevExpress.XtraBars.BarStaticItem barStaticItemUser;
         private DevExpress.XtraBars.BarStaticItem barStaticItemDate;
         private DevExpress.XtraBars.BarStaticItem barStaticItemTime;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
 
