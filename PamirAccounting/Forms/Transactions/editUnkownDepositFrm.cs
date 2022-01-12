@@ -32,7 +32,6 @@ namespace PamirAccounting.Forms.Transactions
             if(transaction==null)
             {
                 Close();
-
             }
 
             txtradif.Text = transaction.Id.ToString();
@@ -47,6 +46,17 @@ namespace PamirAccounting.Forms.Transactions
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnsavebank_Click(object sender, EventArgs e)
+        {
+            var frm = new addDepositCustomerFrm();
+            frm.ShowDialog();
         }
     }
 }

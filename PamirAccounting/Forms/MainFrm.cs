@@ -354,6 +354,13 @@ namespace PamirAccounting.UI
         {
 
         }
+
+        private void barButtonItem42_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            var targetForm = new UnkwonDepositFrm();
+            targetForm.ShowDialog();
+        }
     }
 
 }

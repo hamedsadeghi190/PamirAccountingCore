@@ -60,7 +60,7 @@ namespace PamirAccounting.UI.Forms.Agencies
 
         }
 
-        private void btnsavebank_Click_1(object sender, EventArgs e)
+        private void btnsavebank_Click(object sender, EventArgs e)
         {
             try
             {
@@ -101,5 +101,7 @@ namespace PamirAccounting.UI.Forms.Agencies
         {
             Close();
         }
+
+     
     }
 }

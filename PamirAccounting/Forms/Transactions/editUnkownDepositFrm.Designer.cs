@@ -53,6 +53,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label4 = new System.Windows.Forms.Label();
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtReceiptNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBranchCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
@@ -338,6 +339,7 @@ namespace PamirAccounting.Forms.Transactions
             this.btnsavebank.Size = new System.Drawing.Size(135, 38);
             this.btnsavebank.TabIndex = 229;
             this.btnsavebank.Text = "واریز کننده جدید";
+            this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
             // 
             // simpleButton1
             // 
@@ -354,11 +356,27 @@ namespace PamirAccounting.Forms.Transactions
             this.simpleButton1.Text = "ذخیره";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCancel.ImageOptions.SvgImage")));
+            this.btnCancel.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnCancel.Location = new System.Drawing.Point(131, 419);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCancel.Size = new System.Drawing.Size(98, 38);
+            this.btnCancel.TabIndex = 231;
+            this.btnCancel.Text = "انصراف";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // editUnkownDepositFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 464);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnsavebank);
             this.Controls.Add(this.label4);
@@ -421,5 +439,6 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.SimpleButton btnsavebank;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
     }
 }
