@@ -265,12 +265,13 @@ namespace PamirAccounting.Forms.Transactions
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(439, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(474, 150);
             this.dataGridView1.TabIndex = 227;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "Id";
+            this.Column1.DataPropertyName = "CustomerId";
             this.Column1.FillWeight = 60F;
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "ردیف";
@@ -281,7 +282,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "BankName";
+            this.Column2.DataPropertyName = "FullName";
             this.Column2.FillWeight = 130F;
             this.Column2.HeaderText = "مشتری";
             this.Column2.Name = "Column2";
@@ -290,6 +291,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "Amount";
             this.Column3.HeaderText = "مبلغ";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -319,7 +321,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(470, 255);
+            this.label4.Location = new System.Drawing.Point(428, 232);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(70, 23);
@@ -398,6 +400,7 @@ namespace PamirAccounting.Forms.Transactions
             this.MaximizeBox = false;
             this.Name = "editUnkownDepositFrm";
             this.RightToLeftLayout = true;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ویرایش واریزی نامعلوم";
             this.Load += new System.EventHandler(this.editUnkownDepositFrm_Load);
@@ -431,14 +434,14 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.TextEdit txtBankName;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.SimpleButton btnsavebank;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
-        private System.Windows.Forms.Label label4;
-        private DevExpress.XtraEditors.SimpleButton btnsavebank;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton btnCancel;
     }
 }

@@ -9,8 +9,9 @@ namespace PamirAccounting.Models.ViewModels
     public class CurrenciesViewModel
     {
         public int? Id { get; set; }
-
         public string Name { get; set; }
+        public double? BaseRate { get; set; }
+        public byte? Action { get; set; }
 
     }
 }

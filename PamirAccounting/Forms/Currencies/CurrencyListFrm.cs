@@ -79,6 +79,7 @@ namespace PamirAccounting.UI.Forms.Currencies
 
         private void loadData()
         {
+            dataGridView1.AutoGenerateColumns = false;
             dataList = unitOfWork.Currencies.FindAll().Select(x => new CurrenciesViewModel { Id = x.Id, Name = x.Name }).ToList();
             dataGridView1.DataSource = dataList;
         }

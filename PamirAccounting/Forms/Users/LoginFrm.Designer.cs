@@ -213,6 +213,7 @@ namespace PamirAccounting.Forms.Users
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(370, 26);
             this.txtPassword.TabIndex = 110;
+            this.txtPassword.Text = "123";
             // 
             // pictureBox2
             // 
@@ -245,6 +246,7 @@ namespace PamirAccounting.Forms.Users
             // txtusername
             // 
             this.txtusername.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtusername.EditValue = "admin";
             this.txtusername.Location = new System.Drawing.Point(46, 9);
             this.txtusername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtusername.Name = "txtusername";

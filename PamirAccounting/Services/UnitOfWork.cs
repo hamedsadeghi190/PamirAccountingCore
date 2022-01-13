@@ -178,5 +178,16 @@ namespace PamirAccounting.Services
         }
         public ContactServices ContactServices => (ContactServices)Contacts;
         #endregion
+
+        #region DraftsServices
+
+        private IRepository<Draft> _Drafts;
+
+        public IRepository<Draft> Drafts
+        {
+            get { return _Drafts = _Drafts ?? new DraftsServices(_context, this, _mapper); }
+        }
+        public DraftsServices DraftsServices => (DraftsServices)Drafts;
+        #endregion
     }
 }

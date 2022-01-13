@@ -127,6 +127,7 @@ namespace PamirAccounting.Forms.Transactions
             this.MinimizeBox = false;
             this.Name = "addDepositCustomerFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "واریز کننده";
             this.Load += new System.EventHandler(this.addDepositCustomerFrm_Load);

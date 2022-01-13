@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Forms.Customers;
+﻿using PamirAccounting.Forms.Currencies;
+using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
@@ -309,7 +310,7 @@ namespace PamirAccounting.UI
 
         private void btnRate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var RateListFrm = new RateListFrm();
+            var RateListFrm = new updateCurrencyBaseRateFrm();
             RateListFrm.ShowDialog();
         }
 
@@ -358,6 +359,11 @@ namespace PamirAccounting.UI
         private void barButtonItem42_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        
+        }
+
+        private void barButtonItem27_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
             var targetForm = new UnkwonDepositFrm();
             targetForm.ShowDialog();
         }

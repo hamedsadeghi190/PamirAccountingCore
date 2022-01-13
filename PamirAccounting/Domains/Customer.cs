@@ -9,6 +9,7 @@ namespace PamirAccounting.Domains
     {
         public Customer()
         {
+            Drafts = new HashSet<Draft>();
             SettingCostsAccounts = new HashSet<Setting>();
             SettingNotRunnedRemittances = new HashSet<Setting>();
             TransactionDestinitionCustomers = new HashSet<Transaction>();
@@ -35,6 +36,7 @@ namespace PamirAccounting.Domains
         public virtual Country Country { get; set; }
         public virtual Currency CreditCurrency { get; set; }
         public virtual CustomerGroup Group { get; set; }
+        public virtual ICollection<Draft> Drafts { get; set; }
         public virtual ICollection<Setting> SettingCostsAccounts { get; set; }
         public virtual ICollection<Setting> SettingNotRunnedRemittances { get; set; }
         public virtual ICollection<Transaction> TransactionDestinitionCustomers { get; set; }

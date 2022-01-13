@@ -20,6 +20,9 @@
     <Compile Update="Forms\Currencies\CurrencyListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Currencies\updateCurrencyBaseRateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\CurrencyAgencies\CurrencyAgenciesCreateUpdateFrm.cs">
       <SubType>Form</SubType>
     </Compile>

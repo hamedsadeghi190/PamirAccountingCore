@@ -132,6 +132,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(138, 34);
             this.cmbCurrencies.TabIndex = 3;
+            this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -215,6 +216,7 @@ namespace PamirAccounting.Forms.Transactions
             this.btnsavebank.Size = new System.Drawing.Size(80, 38);
             this.btnsavebank.TabIndex = 7;
             this.btnsavebank.Text = "ثبت";
+            this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click_1);
             // 
             // groupBox2
             // 

@@ -69,6 +69,16 @@ namespace PamirAccounting.Forms.Transactions
             }
         }
 
+        private void btnsavebank_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnsavebank_Click(object sender, EventArgs e)
         {
 

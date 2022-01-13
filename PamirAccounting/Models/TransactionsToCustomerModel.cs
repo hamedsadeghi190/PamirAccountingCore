@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace PamirAccounting.Models
 {
-    public class ComboBoxModel
+    public class TransactionsToCustomerModel
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-    }
-    public class ComboBoxBoolModel
-    {
-        public Boolean value { get; set; }
-        public string Title { get; set; }
+        public int CustomerId { get; set; }
+        public long? Amount { get; set; }
+        public string FullName { get; set; }
+
     }
 }

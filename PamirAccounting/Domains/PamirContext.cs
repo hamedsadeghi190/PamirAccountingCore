@@ -25,6 +25,7 @@ namespace PamirAccounting.Domains
         public virtual DbSet<CurrencyAgency> CurrencyAgencies { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerGroup> CustomerGroups { get; set; }
+        public virtual DbSet<Draft> Drafts { get; set; }
         public virtual DbSet<Header> Headers { get; set; }
         public virtual DbSet<Setting> Settings { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
@@ -34,13 +35,14 @@ namespace PamirAccounting.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AI");
+            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AS_SC_UTF8");
 
             modelBuilder.Entity<Agency>(entity =>
             {
@@ -193,6 +195,41 @@ namespace PamirAccounting.Domains
             modelBuilder.Entity<CustomerGroup>(entity =>
             {
                 entity.Property(e => e.Name).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<Draft>(entity =>
+            {
+                entity.Property(e => e.Description).HasMaxLength(500);
+
+                entity.Property(e => e.FatherName).HasMaxLength(250);
+
+                entity.Property(e => e.OtherNumber).HasMaxLength(50);
+
+                entity.Property(e => e.PayPlace).HasMaxLength(150);
+
+                entity.Property(e => e.Reciver).HasMaxLength(250);
+
+                entity.Property(e => e.Sender).HasMaxLength(250);
+
+                entity.Property(e => e.Status)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Drafts)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_Drafts_Customers");
+
+                entity.HasOne(d => d.DepositCurrency)
+                    .WithMany(p => p.DraftDepositCurrencies)
+                    .HasForeignKey(d => d.DepositCurrencyId)
+                    .HasConstraintName("FK_Drafts_Currencies_DepositCurreny");
+
+                entity.HasOne(d => d.TypeCurrency)
+                    .WithMany(p => p.DraftTypeCurrencies)
+                    .HasForeignKey(d => d.TypeCurrencyId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Drafts_Currencies_typeCurrency");
             });
 
             modelBuilder.Entity<Header>(entity =>
