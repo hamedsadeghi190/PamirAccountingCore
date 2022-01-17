@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Forms.Currencies;
+﻿using PamirAccounting.Forms.Checks;
+using PamirAccounting.Forms.Currencies;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.Transaction;
@@ -71,7 +72,7 @@ namespace PamirAccounting.UI
             }
 
             string PersianDate = string.Format("{0} {1}/{2}/{3}", DayName, pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-            barStaticItemDate.Caption =PersianDate;
+            barStaticItemDate.Caption = PersianDate;
         }
 
         private void barButtonItemListCurrency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -359,13 +360,68 @@ namespace PamirAccounting.UI
         private void barButtonItem42_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-        
+
         }
 
         private void barButtonItem27_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var targetForm = new UnkwonDepositFrm();
             targetForm.ShowDialog();
+        }
+
+        private void btnRecivecheck_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var ReceiveCheck = new DetailsReceiveCheckFrm();
+            ReceiveCheck.ShowDialog();
+        }
+
+        private void btnBuyAndSellCurrency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var BuyAndSellCurrency = new BuyAndSellCurrencyFrm();
+            BuyAndSellCurrency.ShowDialog();
+        }
+
+        private void btnsarehesabgozashtan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var SareHesabGozashtan = new SareHesabGozashtanListFrm();
+            SareHesabGozashtan.ShowDialog();
+        }
+
+        private void btnodat_daryaftani_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var Odat = new OdatCheckDaryaftaniListFrm();
+            Odat.ShowDialog();
+        }
+
+        private void btnvosool_daryaftani_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var vosool = new VosoolCheckDaryaftaniListFrm();
+            vosool.ShowDialog();
+        }
+
+        private void btnvagoozariasand_daryafti_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            var VagozariAsnadDaryaftani = new VagozariAsnadDaryaftaniListFrm();
+            VagozariAsnadDaryaftani.ShowDialog();
+        }
+
+        private void btnodatcheck_vagozarshode_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+             var Vagozari= new OdatAsnadDaryaftaniVagozarShodeListFrm();
+            Vagozari.ShowDialog();
+        }
+
+        private void btnbargashtcheck_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var bargasht = new BargashtCheckDaryaftanilistFrm();
+            bargasht.ShowDialog();
+        }
+
+        private void btnodatsarehesabgozashte_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var odatsarehesab = new OdatCheckSareHesabListFrm();
+            odatsarehesab.ShowDialog();
         }
     }
 
