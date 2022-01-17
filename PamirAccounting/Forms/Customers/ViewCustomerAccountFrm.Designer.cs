@@ -46,6 +46,13 @@ namespace PamirAccounting.UI.Forms.Customers
             this.CreatBankBtn = new DevExpress.XtraEditors.SimpleButton();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.grdTransactions = new System.Windows.Forms.DataGridView();
+            this.grdTotals = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,13 +65,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.grdTotals = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxViewAccountCustomer.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -89,7 +89,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBoxViewAccountCustomer.Name = "groupBoxViewAccountCustomer";
             this.groupBoxViewAccountCustomer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(1323, 154);
+            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(1323, 118);
             this.groupBoxViewAccountCustomer.TabIndex = 9;
             this.groupBoxViewAccountCustomer.TabStop = false;
             this.groupBoxViewAccountCustomer.Text = "نمایش اطلاعات حساب";
@@ -99,9 +99,9 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.groupBox2.Controls.Add(this.cmbActions);
             this.groupBox2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(995, 47);
+            this.groupBox2.Location = new System.Drawing.Point(995, 32);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(311, 97);
+            this.groupBox2.Size = new System.Drawing.Size(311, 80);
             this.groupBox2.TabIndex = 113;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "عملیات حساب";
@@ -110,9 +110,9 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.cmbActions.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbActions.FormattingEnabled = true;
-            this.cmbActions.Location = new System.Drawing.Point(50, 40);
+            this.cmbActions.Location = new System.Drawing.Point(6, 30);
             this.cmbActions.Name = "cmbActions";
-            this.cmbActions.Size = new System.Drawing.Size(202, 34);
+            this.cmbActions.Size = new System.Drawing.Size(289, 34);
             this.cmbActions.TabIndex = 102;
             // 
             // groupBox1
@@ -123,16 +123,16 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnsearchdate);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(352, 47);
+            this.groupBox1.Location = new System.Drawing.Point(352, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(608, 97);
+            this.groupBox1.Size = new System.Drawing.Size(608, 80);
             this.groupBox1.TabIndex = 112;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "جستجو";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(366, 40);
+            this.txtSearch.Location = new System.Drawing.Point(362, 30);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
@@ -145,7 +145,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(556, 44);
+            this.label4.Location = new System.Drawing.Point(552, 34);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(46, 26);
@@ -156,7 +156,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.cmbCurrencies.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(100, 42);
+            this.cmbCurrencies.Location = new System.Drawing.Point(96, 32);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(198, 34);
             this.cmbCurrencies.TabIndex = 112;
@@ -166,7 +166,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(300, 45);
+            this.label1.Location = new System.Drawing.Point(296, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 26);
             this.label1.TabIndex = 111;
@@ -179,7 +179,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnsearchdate.Appearance.Options.UseFont = true;
             this.btnsearchdate.Appearance.Options.UseForeColor = true;
             this.btnsearchdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsearchdate.ImageOptions.SvgImage")));
-            this.btnsearchdate.Location = new System.Drawing.Point(14, 36);
+            this.btnsearchdate.Location = new System.Drawing.Point(10, 26);
             this.btnsearchdate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnsearchdate.Name = "btnsearchdate";
             this.btnsearchdate.Size = new System.Drawing.Size(39, 41);
@@ -190,7 +190,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.simpleButton1.AppearanceHovered.Options.UseTextOptions = true;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(54, 77);
+            this.simpleButton1.Location = new System.Drawing.Point(54, 62);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(39, 41);
             this.simpleButton1.TabIndex = 110;
@@ -199,7 +199,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // simpleButton5
             // 
             this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
-            this.simpleButton5.Location = new System.Drawing.Point(9, 77);
+            this.simpleButton5.Location = new System.Drawing.Point(9, 62);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(39, 41);
             this.simpleButton5.TabIndex = 111;
@@ -212,7 +212,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.simpleButton3.Appearance.Options.UseFont = true;
             this.simpleButton3.Appearance.Options.UseForeColor = true;
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(218, 77);
+            this.simpleButton3.Location = new System.Drawing.Point(218, 62);
             this.simpleButton3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(90, 41);
@@ -226,7 +226,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.CreatBankBtn.Appearance.Options.UseFont = true;
             this.CreatBankBtn.Appearance.Options.UseForeColor = true;
             this.CreatBankBtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("CreatBankBtn.ImageOptions.SvgImage")));
-            this.CreatBankBtn.Location = new System.Drawing.Point(99, 77);
+            this.CreatBankBtn.Location = new System.Drawing.Point(99, 62);
             this.CreatBankBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CreatBankBtn.Name = "CreatBankBtn";
             this.CreatBankBtn.Size = new System.Drawing.Size(115, 41);
@@ -259,116 +259,15 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnRowEdit,
             this.btnRowDelete});
             this.grdTransactions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTransactions.Location = new System.Drawing.Point(-1, 173);
+            this.grdTransactions.Location = new System.Drawing.Point(-1, 137);
             this.grdTransactions.Name = "grdTransactions";
             this.grdTransactions.ReadOnly = true;
             this.grdTransactions.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdTransactions.ShowEditingIcon = false;
-            this.grdTransactions.Size = new System.Drawing.Size(1335, 368);
+            this.grdTransactions.Size = new System.Drawing.Size(1335, 404);
             this.grdTransactions.TabIndex = 15;
             this.grdTransactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Id";
-            this.Column1.FillWeight = 60F;
-            this.Column1.Frozen = true;
-            this.Column1.HeaderText = "ردیف";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 60;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "TransactionDateTime";
-            this.Column3.FillWeight = 110F;
-            this.Column3.Frozen = true;
-            this.Column3.HeaderText = "تاریخ";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 110;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Description";
-            this.Column2.FillWeight = 310F;
-            this.Column2.HeaderText = "شرح";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 310;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "WithdrawAmount";
-            this.Column4.HeaderText = "بدهکار";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // GroupName
-            // 
-            this.GroupName.DataPropertyName = "DepositAmount";
-            this.GroupName.HeaderText = "طلبکار";
-            this.GroupName.Name = "GroupName";
-            this.GroupName.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "CurrenyName";
-            this.Column5.FillWeight = 70F;
-            this.Column5.HeaderText = "نوع ارز";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 70;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "RemainigAmount";
-            this.Column6.HeaderText = "باقیمانده";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "Status";
-            this.Column7.HeaderText = "وضعیت";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "UserName";
-            this.Column8.HeaderText = "کابر عامل";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "Date";
-            this.Column9.HeaderText = "زمان";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // btnRowEdit
-            // 
-            this.btnRowEdit.FillWeight = 70F;
-            this.btnRowEdit.HeaderText = "ویرایش";
-            this.btnRowEdit.Name = "btnRowEdit";
-            this.btnRowEdit.ReadOnly = true;
-            this.btnRowEdit.Text = "ویرایش";
-            this.btnRowEdit.UseColumnTextForButtonValue = true;
-            this.btnRowEdit.Width = 70;
-            // 
-            // btnRowDelete
-            // 
-            this.btnRowDelete.FillWeight = 70F;
-            this.btnRowDelete.HeaderText = "حذف";
-            this.btnRowDelete.Name = "btnRowDelete";
-            this.btnRowDelete.ReadOnly = true;
-            this.btnRowDelete.Text = "حذف";
-            this.btnRowDelete.UseColumnTextForButtonValue = true;
-            this.btnRowDelete.Width = 70;
             // 
             // grdTotals
             // 
@@ -446,6 +345,107 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.FillWeight = 70F;
+            this.Column1.Frozen = true;
+            this.Column1.HeaderText = "ردیف";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.Width = 70;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "TransactionDateTime";
+            this.Column3.FillWeight = 110F;
+            this.Column3.Frozen = true;
+            this.Column3.HeaderText = "تاریخ";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 110;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Description";
+            this.Column2.FillWeight = 300F;
+            this.Column2.HeaderText = "شرح";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 300;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "WithdrawAmount";
+            this.Column4.HeaderText = "بدهکار";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // GroupName
+            // 
+            this.GroupName.DataPropertyName = "DepositAmount";
+            this.GroupName.HeaderText = "طلبکار";
+            this.GroupName.Name = "GroupName";
+            this.GroupName.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "CurrenyName";
+            this.Column5.FillWeight = 70F;
+            this.Column5.HeaderText = "نوع ارز";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 70;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "RemainigAmount";
+            this.Column6.HeaderText = "باقیمانده";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "Status";
+            this.Column7.HeaderText = "وضعیت";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "UserName";
+            this.Column8.HeaderText = "کابر عامل";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "Date";
+            this.Column9.HeaderText = "زمان";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // btnRowEdit
+            // 
+            this.btnRowEdit.FillWeight = 70F;
+            this.btnRowEdit.HeaderText = "ویرایش";
+            this.btnRowEdit.Name = "btnRowEdit";
+            this.btnRowEdit.ReadOnly = true;
+            this.btnRowEdit.Text = "ویرایش";
+            this.btnRowEdit.UseColumnTextForButtonValue = true;
+            this.btnRowEdit.Width = 70;
+            // 
+            // btnRowDelete
+            // 
+            this.btnRowDelete.FillWeight = 70F;
+            this.btnRowDelete.HeaderText = "حذف";
+            this.btnRowDelete.Name = "btnRowDelete";
+            this.btnRowDelete.ReadOnly = true;
+            this.btnRowDelete.Text = "حذف";
+            this.btnRowDelete.UseColumnTextForButtonValue = true;
+            this.btnRowDelete.Width = 70;
+            // 
             // ViewCustomerAccountFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -484,18 +484,6 @@ namespace PamirAccounting.UI.Forms.Customers
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
         private System.Windows.Forms.DataGridView grdTransactions;
         private System.Windows.Forms.DataGridView grdTotals;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -511,5 +499,17 @@ namespace PamirAccounting.UI.Forms.Customers
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
     }
 }

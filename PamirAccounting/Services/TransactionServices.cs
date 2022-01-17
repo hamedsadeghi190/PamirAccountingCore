@@ -45,15 +45,14 @@ namespace PamirAccounting.Services
                        Description = x.Description,
                        DepositAmount = x.DepositAmount,
                        WithdrawAmount = x.WithdrawAmount,
-                       RemainigAmount = x.RemainigAmount,
                        Date = x.Date.ToString(),
                        TransactionDateTime = x.TransactionDateTime.ToString(),
                        CurrenyId = x.CurrenyId,
                        CurrenyName = x.Curreny.Name,
                        UserId = x.UserId,
                        UserName = x.User.UserName,
-                       TransactionType=x.TransactionType,
-                   
+                       TransactionType = x.TransactionType,
+
 
                    }).ToList();
                 }
@@ -68,7 +67,6 @@ namespace PamirAccounting.Services
                                      Description = x.Description,
                                      DepositAmount = x.DepositAmount,
                                      WithdrawAmount = x.WithdrawAmount,
-                                     RemainigAmount = x.RemainigAmount,
                                      Date = x.Date.ToString(),
                                      TransactionDateTime = x.TransactionDateTime.ToString(),
                                      CurrenyId = x.CurrenyId,

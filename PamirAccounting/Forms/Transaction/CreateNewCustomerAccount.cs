@@ -85,8 +85,6 @@ namespace PamirAccounting.Forms.Transaction
             newTransaction.Date = DateTime.Now;
             newTransaction.TransactionDateTime = TransactionDateTime;
             newTransaction.UserId = CurrentUser.UserID;
-            newTransaction.RemainigAmount = (newTransaction.DepositAmount.Value != 0) ? newTransaction.DepositAmount.Value : newTransaction.WithdrawAmount.Value * -1;
-            unitOfWork.TransactionServices.Insert(newTransaction);
             unitOfWork.SaveChanges();
             Close();
         }

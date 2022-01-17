@@ -20,7 +20,7 @@ namespace PamirAccounting.UI.Forms.Customers
         private int? _Id;
         private Domains.Customer _Customer;
         private List<ComboBoxModel> _Actions = new List<ComboBoxModel>();
-        private List<TransactionModel> _dataList;
+        private List<TransactionModel> _dataList = new List<TransactionModel>();
         private List<TransactionsGroupModel> _GroupedDataList;
 
         private List<ComboBoxModel> _Currencies = new List<ComboBoxModel>();
@@ -184,32 +184,26 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void LoadData()
         {
-          
-            if ((int)cmbCurrencies.SelectedValue == 0)
-            {
 
-                _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
-            }
-            else
-            {
-                _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, (int)cmbCurrencies.SelectedValue);
-            }
+            var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
 
-            grdTransactions.AutoGenerateColumns = false;
-            grdTransactions.DataSource = _dataList;
+            var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
 
-            var grouped = _dataList.GroupBy(x => x.CurrenyId);
             _GroupedDataList = new List<TransactionsGroupModel>();
             foreach (var currency in grouped)
             {
                 var curenncySummery = new TransactionsGroupModel();
                 curenncySummery.Description = "جمع";
                 long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
+
                 foreach (var item in currency.OrderBy(x => x.Id).ToList())
                 {
                     totalWithDraw += item.WithdrawAmount.Value;
                     totalDeposit += item.DepositAmount.Value;
                     curenncySummery.CurrenyName = item.CurrenyName;
+                    item.RemainigAmount = totalDeposit - totalWithDraw;
+                    _dataList.Add(item);
+
                 }
                 curenncySummery.TotalDepositAmount = totalDeposit;
                 curenncySummery.TotalWithdrawAmount = totalWithDraw;
@@ -218,12 +212,16 @@ namespace PamirAccounting.UI.Forms.Customers
 
                 curenncySummery.RemainigAmount = remaining;
                 curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
-                _GroupedDataList.Add(curenncySummery); 
-        
+                _GroupedDataList.Add(curenncySummery);
+
             }
 
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _GroupedDataList;
+
+            _dataList = _dataList.OrderBy(x => x.Id).ToList();
+            grdTransactions.AutoGenerateColumns = false;
+            grdTransactions.DataSource = tmpDataList;
         }
 
         private void groupBoxViewAccountCustomer_Enter(object sender, EventArgs e)
@@ -251,14 +249,14 @@ namespace PamirAccounting.UI.Forms.Customers
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
             cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
-            if ((int)cmbCurrencies.SelectedValue ==0)
+            if ((int)cmbCurrencies.SelectedValue == 0)
             {
                 _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
             }
 
-             if ((int)cmbCurrencies.SelectedValue > 0)
+            if ((int)cmbCurrencies.SelectedValue > 0)
             {
-                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name==(cmbCurrencies.Text) && x.SourceCustomerId==_Id)
+                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name == (cmbCurrencies.Text) && x.SourceCustomerId == _Id)
                       .Include(x => x.Curreny)
                     .Include(x => x.User)
                    .Select(x => new TransactionModel
@@ -341,7 +339,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
                 }
             }
-        
+
             if (e.ColumnIndex == grdTransactions.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
                 var frmCurrencies = new CustomerCreateUpdateFrm(_dataList.ElementAt(e.RowIndex).Id);
@@ -352,7 +350,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void btnsearchdate_Click(object sender, EventArgs e)
         {
-             var SearchDateFrm1 = new SearchDateFrm();
+            var SearchDateFrm1 = new SearchDateFrm();
             SearchDateFrm1.ShowDialog();
         }
     }

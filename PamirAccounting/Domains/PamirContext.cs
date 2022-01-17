@@ -271,6 +271,8 @@ namespace PamirAccounting.Domains
 
                 entity.HasIndex(e => e.UserId, "IX_Transactions_UserId");
 
+                entity.Property(e => e.DoubleTransactionId).HasColumnName("DoubleTransactionID");
+
                 entity.Property(e => e.UnkownAmount).HasDefaultValueSql("((0))");
 
                 entity.HasOne(d => d.Curreny)
@@ -280,7 +282,12 @@ namespace PamirAccounting.Domains
                 entity.HasOne(d => d.DestinitionCustomer)
                     .WithMany(p => p.TransactionDestinitionCustomers)
                     .HasForeignKey(d => d.DestinitionCustomerId)
-                    .HasConstraintName("FK_Transactions_Customers_dest");
+                    .HasConstraintName("FK_Transactions_Customers_DestinitionCustomer");
+
+                entity.HasOne(d => d.DoubleTransaction)
+                    .WithMany(p => p.InverseDoubleTransaction)
+                    .HasForeignKey(d => d.DoubleTransactionId)
+                    .HasConstraintName("FK_Transactions_Transactions_Double");
 
                 entity.HasOne(d => d.SourceCustomer)
                     .WithMany(p => p.TransactionSourceCustomers)

@@ -15,10 +15,10 @@ namespace PamirAccounting.Forms.Transactions
 
         private UnitOfWork unitOfWork;
         private Domains.Transaction transaction;
-        private int Id;
+        private long Id;
         private List<TransactionsToCustomerModel> _dataList = new List<TransactionsToCustomerModel>();
 
-        public editUnkownDepositFrm(int id)
+        public editUnkownDepositFrm(long id)
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
@@ -96,8 +96,7 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.Date = dateTime;
             customerTransaction.TransactionDateTime = dateTime;
             customerTransaction.UserId = CurrentUser.UserID;
-            var cRemainigAmount = (customerTransaction.DepositAmount.Value != 0) ? customerTransaction.DepositAmount.Value : customerTransaction.WithdrawAmount.Value * -1;
-            customerTransaction.RemainigAmount = customerlastTransAction.RemainigAmount + cRemainigAmount;
+
             unitOfWork.TransactionServices.Insert(customerTransaction);
             unitOfWork.SaveChanges();
         }
@@ -110,7 +109,6 @@ namespace PamirAccounting.Forms.Transactions
             newTransaction.Description = "حساب جدید";
             newTransaction.WithdrawAmount = 0;
             newTransaction.DepositAmount = 0;
-            newTransaction.RemainigAmount = 0;
             newTransaction.CurrenyId = CurrenyId;
             newTransaction.Date = DateTime.Now;
             newTransaction.TransactionDateTime = DateTime.Now;
@@ -151,8 +149,6 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.Date = DateTime.Now;
             bankTransaction.TransactionDateTime = TransactionDateTime;
             bankTransaction.UserId = CurrentUser.UserID;
-            var RemainigAmount = (bankTransaction.DepositAmount.Value != 0) ? bankTransaction.DepositAmount.Value : bankTransaction.WithdrawAmount.Value * -1;
-            bankTransaction.RemainigAmount = banklastTransAction.RemainigAmount + RemainigAmount;
             unitOfWork.TransactionServices.Insert(bankTransaction);
             unitOfWork.SaveChanges();
         }

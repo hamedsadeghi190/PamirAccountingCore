@@ -11,6 +11,7 @@
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="DevExpress.Win.Design" Version="21.2.*-*" />
     <PackageReference Include="DNTPersianUtils.Core" Version="5.4.0" />
+    <PackageReference Include="LinqKit.Microsoft.EntityFrameworkCore" Version="5.0.27" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
       <PrivateAssets>all</PrivateAssets>

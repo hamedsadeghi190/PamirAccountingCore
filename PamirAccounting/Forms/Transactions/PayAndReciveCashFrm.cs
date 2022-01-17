@@ -126,8 +126,7 @@ namespace PamirAccounting.Forms.Transactions
             sTransaction.Date = DateTime.Now;
             sTransaction.TransactionDateTime = TransactionDateTime;
             sTransaction.UserId = CurrentUser.UserID;
-            var RemainigAmount = (sTransaction.DepositAmount.Value != 0) ? sTransaction.DepositAmount.Value : sTransaction.WithdrawAmount.Value * -1;
-            sTransaction.RemainigAmount = SourcelastTransAction.RemainigAmount + RemainigAmount;
+
             unitOfWork.TransactionServices.Insert(sTransaction);
 
             var dTransaction2 = new Domains.Transaction();
@@ -158,11 +157,7 @@ namespace PamirAccounting.Forms.Transactions
             dTransaction2.Date = DateTime.Now;
             dTransaction2.TransactionDateTime = TransactionDateTime;
             dTransaction2.UserId = CurrentUser.UserID;
-
-            var RemainigAmount2 = (dTransaction2.DepositAmount.Value != 0) ? dTransaction2.DepositAmount.Value : dTransaction2.WithdrawAmount.Value * -1;
-            dTransaction2.RemainigAmount = DestlastTransAction.RemainigAmount + RemainigAmount2;
-
-            unitOfWork.TransactionServices.Insert(dTransaction2);
+                        unitOfWork.TransactionServices.Insert(dTransaction2);
             unitOfWork.SaveChanges();
             Close();
         }
@@ -175,7 +170,6 @@ namespace PamirAccounting.Forms.Transactions
             newTransaction.Description = "حساب جدید";
             newTransaction.WithdrawAmount = 0;
             newTransaction.DepositAmount = 0;
-            newTransaction.RemainigAmount = 0;
             newTransaction.CurrenyId = CurrenyId;
             newTransaction.Date = DateTime.Now;
             newTransaction.TransactionDateTime = DateTime.Now;
