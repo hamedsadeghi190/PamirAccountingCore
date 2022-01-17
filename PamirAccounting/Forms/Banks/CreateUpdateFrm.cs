@@ -28,11 +28,11 @@ namespace PamirAccounting.UI.Forms.Banks
             InitializeComponent();
             unitOfWork = new UnitOfWork();
         }
-      
 
-      
 
-    
+
+
+
         private void CreateUpdateFrm_Load(object sender, EventArgs e)
         {
             initData();
@@ -80,6 +80,11 @@ namespace PamirAccounting.UI.Forms.Banks
         {
             try
             {
+                if (txtbalance.Text.Length == 0)
+                {
+                    txtbalance.Text = "0";
+                }
+
                 if (_Id != null)
                 {
                     _bank.Name = txtBankName.Text;
@@ -136,7 +141,7 @@ namespace PamirAccounting.UI.Forms.Banks
                     {
                         var newCustomer = new Customer()
                         {
-                            FirstName = txtBankName.Name,
+                            FirstName = txtBankName.Text,
                             CreditCurrencyId = (int)cmbCurrencies.SelectedValue,
                             CountryId = (int)cmbCountries.SelectedValue,
                             GroupId = bankGroup.Id,

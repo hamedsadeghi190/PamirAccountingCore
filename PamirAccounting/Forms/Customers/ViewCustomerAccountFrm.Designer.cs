@@ -89,7 +89,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBoxViewAccountCustomer.Name = "groupBoxViewAccountCustomer";
             this.groupBoxViewAccountCustomer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(1323, 179);
+            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(1323, 154);
             this.groupBoxViewAccountCustomer.TabIndex = 9;
             this.groupBoxViewAccountCustomer.TabStop = false;
             this.groupBoxViewAccountCustomer.Text = "نمایش اطلاعات حساب";
@@ -178,7 +178,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnsearchdate.Appearance.ForeColor = System.Drawing.Color.Black;
             this.btnsearchdate.Appearance.Options.UseFont = true;
             this.btnsearchdate.Appearance.Options.UseForeColor = true;
-            this.btnsearchdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.btnsearchdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsearchdate.ImageOptions.SvgImage")));
             this.btnsearchdate.Location = new System.Drawing.Point(14, 36);
             this.btnsearchdate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnsearchdate.Name = "btnsearchdate";
@@ -259,12 +259,12 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnRowEdit,
             this.btnRowDelete});
             this.grdTransactions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTransactions.Location = new System.Drawing.Point(-1, 201);
+            this.grdTransactions.Location = new System.Drawing.Point(-1, 173);
             this.grdTransactions.Name = "grdTransactions";
             this.grdTransactions.ReadOnly = true;
             this.grdTransactions.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdTransactions.ShowEditingIcon = false;
-            this.grdTransactions.Size = new System.Drawing.Size(1335, 340);
+            this.grdTransactions.Size = new System.Drawing.Size(1335, 368);
             this.grdTransactions.TabIndex = 15;
             this.grdTransactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);

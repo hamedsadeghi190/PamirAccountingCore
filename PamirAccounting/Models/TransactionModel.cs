@@ -8,7 +8,7 @@ namespace PamirAccounting.Models
 {
    public class TransactionModel
     {
-        public int Id { get; set; }
+        public Int64 Id { get; set; }
         public int SourceCustomerId { get; set; }
         public int TransactionType { get; set; }
         public string TransactionTypeName { get; set; }

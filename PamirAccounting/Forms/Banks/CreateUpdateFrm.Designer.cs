@@ -54,11 +54,11 @@ namespace PamirAccounting.UI.Forms.Banks
             this.btnexitbank.Appearance.Options.UseFont = true;
             this.btnexitbank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexitbank.ImageOptions.SvgImage")));
             this.btnexitbank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnexitbank.Location = new System.Drawing.Point(118, 35);
+            this.btnexitbank.Location = new System.Drawing.Point(125, 16);
             this.btnexitbank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnexitbank.Name = "btnexitbank";
             this.btnexitbank.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnexitbank.Size = new System.Drawing.Size(83, 38);
+            this.btnexitbank.Size = new System.Drawing.Size(110, 38);
             this.btnexitbank.TabIndex = 67;
             this.btnexitbank.Text = "بازگشت";
             this.btnexitbank.Click += new System.EventHandler(this.btnexitbank_Click);
@@ -69,11 +69,11 @@ namespace PamirAccounting.UI.Forms.Banks
             this.btnsavebank.Appearance.Options.UseFont = true;
             this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
             this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnsavebank.Location = new System.Drawing.Point(27, 35);
+            this.btnsavebank.Location = new System.Drawing.Point(7, 16);
             this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnsavebank.Name = "btnsavebank";
             this.btnsavebank.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnsavebank.Size = new System.Drawing.Size(83, 38);
+            this.btnsavebank.Size = new System.Drawing.Size(110, 38);
             this.btnsavebank.TabIndex = 66;
             this.btnsavebank.Text = "ثبت";
             this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
@@ -163,6 +163,7 @@ namespace PamirAccounting.UI.Forms.Banks
             // txtbalance
             // 
             this.txtbalance.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtbalance.EditValue = "0";
             this.txtbalance.Location = new System.Drawing.Point(267, 108);
             this.txtbalance.Name = "txtbalance";
             this.txtbalance.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -188,7 +189,7 @@ namespace PamirAccounting.UI.Forms.Banks
             this.groupBox2.Controls.Add(this.btnexitbank);
             this.groupBox2.Location = new System.Drawing.Point(12, 191);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(526, 98);
+            this.groupBox2.Size = new System.Drawing.Size(526, 67);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
@@ -199,7 +200,7 @@ namespace PamirAccounting.UI.Forms.Banks
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 299);
+            this.ClientSize = new System.Drawing.Size(548, 263);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

@@ -16,7 +16,7 @@ namespace PamirAccounting.UI.Forms.Customers
     public partial class CustomerCreateUpdateFrm : DevExpress.XtraEditors.XtraForm
     {
         private UnitOfWork unitOfWork;
-        private int? _Id;
+        private Int64? _Id;
         private List<ComboBoxModel> _Groups;
         private List<ComboBoxModel> _Currencies;
         private Domains.Customer _Customer;
@@ -25,7 +25,7 @@ namespace PamirAccounting.UI.Forms.Customers
             InitializeComponent();
             unitOfWork = new UnitOfWork();
         }
-        public CustomerCreateUpdateFrm(int id)
+        public CustomerCreateUpdateFrm(Int64 id)
         {
             _Id = id;
             InitializeComponent();

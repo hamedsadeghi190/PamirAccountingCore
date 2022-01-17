@@ -231,6 +231,7 @@ namespace PamirAccounting.Forms.Customers
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1155, 679);
             this.dataGridView1.TabIndex = 98;
@@ -239,23 +240,23 @@ namespace PamirAccounting.Forms.Customers
             // Column1
             // 
             this.Column1.DataPropertyName = "Id";
-            this.Column1.FillWeight = 60F;
+            this.Column1.FillWeight = 70F;
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "شماره";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 60;
+            this.Column1.Width = 70;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "FullName";
-            this.Column3.FillWeight = 450F;
+            this.Column3.FillWeight = 440F;
             this.Column3.Frozen = true;
             this.Column3.HeaderText = "نام";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 450;
+            this.Column3.Width = 440;
             // 
             // Column2
             // 
@@ -350,6 +351,8 @@ namespace PamirAccounting.Forms.Customers
         private System.Windows.Forms.TextBox txtNameSearch;
         private System.Windows.Forms.TextBox txtphoneSearch;
         private System.Windows.Forms.TextBox txtNumberSearch;
+        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -358,7 +361,5 @@ namespace PamirAccounting.Forms.Customers
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
         private System.Windows.Forms.DataGridViewButtonColumn btnView;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }

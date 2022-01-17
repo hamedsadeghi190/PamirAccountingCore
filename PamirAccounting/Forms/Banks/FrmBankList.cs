@@ -84,12 +84,12 @@ namespace PamirAccounting.UI.Forms.Banks
                 {
                     try
                     {
-                    
-                        unitOfWork.BankServices.Delete(new Bank() { Id = dataList.ElementAt(e.RowIndex).Id.Value });
+                        var bank = unitOfWork.BankServices.FindFirst(x => x.Id == dataList.ElementAt(e.RowIndex).Id.Value);
+                        unitOfWork.BankServices.Delete(bank);
                         unitOfWork.SaveChanges();
                         loadData();
                     }
-                    catch 
+                    catch (Exception ex)
                     {
                         MessageBox.Show("حذف امکانپذیر نمیباشد");
                     }

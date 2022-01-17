@@ -47,12 +47,12 @@ namespace PamirAccounting.UI.Forms.Customers
             InitForm();
             LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
             for (int i = 0; i < 12; i++)
             {
                 grdTransactions.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.grdTransactions.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            this.grdTransactions.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)grdTransactions.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -98,7 +98,8 @@ namespace PamirAccounting.UI.Forms.Customers
             if (_Id != null)
             {
                 _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
-                this.Text = "نمایش حساب - " + $"{_Customer.FirstName} {_Customer.LastName}";
+                this.Text = "کارت حساب - " + $"{_Customer.FirstName} {_Customer.LastName}";
+                groupBoxViewAccountCustomer.Text = "کارت حساب - " + $"{_Customer.FirstName} {_Customer.LastName}";
             }
 
         }
@@ -266,7 +267,6 @@ namespace PamirAccounting.UI.Forms.Customers
                        Description = x.Description,
                        DepositAmount = x.DepositAmount,
                        WithdrawAmount = x.WithdrawAmount,
-                       RemainigAmount = x.RemainigAmount,
                        Date = x.Date.ToString(),
                        TransactionDateTime = x.TransactionDateTime.ToString(),
                        CurrenyId = x.CurrenyId,
@@ -296,7 +296,6 @@ namespace PamirAccounting.UI.Forms.Customers
                         Description = x.Description,
                         DepositAmount = x.DepositAmount,
                         WithdrawAmount = x.WithdrawAmount,
-                        RemainigAmount = x.RemainigAmount,
                         Date = x.Date.ToString(),
                         TransactionDateTime = x.TransactionDateTime.ToString(),
                         CurrenyId = x.CurrenyId,
