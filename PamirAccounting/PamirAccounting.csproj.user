@@ -20,6 +20,12 @@
     <Compile Update="Forms\Checks\BargashtCheckDaryaftanilistFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Checks\BargashtCheckPardakhtaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\BargashtCheckPardakhtaniListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Checks\DetailsPaymentCheckFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -35,10 +41,22 @@
     <Compile Update="Forms\Checks\OdatCheckDaryaftaniListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Checks\OdatCheckPardakhtaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\OdatCheckPardakhtaniListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Checks\OdatCheckSareHesabFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Checks\OdatCheckSareHesabListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\PasCheckPardakhtaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\PasCheckPardakhtaniListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Checks\SareHesabGozashtanFrm.cs">

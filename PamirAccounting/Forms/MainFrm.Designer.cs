@@ -88,9 +88,9 @@ namespace PamirAccounting.UI
             this.btnodatsarehesabgozashte = new DevExpress.XtraBars.BarButtonItem();
             this.btnodat_daryaftani = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem41 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnpascheckpardakhtii = new DevExpress.XtraBars.BarButtonItem();
+            this.btnbargashtcheckpadakhtani = new DevExpress.XtraBars.BarButtonItem();
+            this.btnodatpardakhtani = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItemUser = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItemDate = new DevExpress.XtraBars.BarStaticItem();
@@ -139,7 +139,6 @@ namespace PamirAccounting.UI
             // ribbonControl1
             // 
             this.ribbonControl1.AutoHideEmptyItems = true;
-            this.ribbonControl1.AutoSizeItems = true;
             this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(55, 60, 55, 60);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -202,9 +201,9 @@ namespace PamirAccounting.UI
             this.btnodatsarehesabgozashte,
             this.btnodat_daryaftani,
             this.barButtonItem24,
-            this.barButtonItem25,
-            this.barButtonItem26,
-            this.barButtonItem41,
+            this.btnpascheckpardakhtii,
+            this.btnbargashtcheckpadakhtani,
+            this.btnodatpardakhtani,
             this.barStaticItem2,
             this.barStaticItemUser,
             this.barStaticItemDate,
@@ -227,6 +226,7 @@ namespace PamirAccounting.UI
             this.ribbonPage6,
             this.ribbonPageGeneralLedger,
             this.ribbonPage3});
+            this.ribbonControl1.RibbonCaptionAlignment = DevExpress.XtraBars.Ribbon.RibbonCaptionAlignment.Center;
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
             this.ribbonControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
@@ -1100,23 +1100,23 @@ namespace PamirAccounting.UI
             this.btnsarehesabgozashtan.Caption = "سر حساب گذاشتن چکها";
             this.btnsarehesabgozashtan.Id = 65;
             this.btnsarehesabgozashtan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsarehesabgozashtan.ImageOptions.SvgImage")));
-            this.btnsarehesabgozashtan.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesabgozashtan.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesabgozashtan.ItemAppearance.Disabled.Options.UseFont = true;
-            this.btnsarehesabgozashtan.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesabgozashtan.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesabgozashtan.ItemAppearance.Hovered.Options.UseFont = true;
-            this.btnsarehesabgozashtan.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesabgozashtan.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesabgozashtan.ItemAppearance.Normal.Options.UseFont = true;
-            this.btnsarehesabgozashtan.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesabgozashtan.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesabgozashtan.ItemAppearance.Pressed.Options.UseFont = true;
-            this.btnsarehesabgozashtan.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesabgozashtan.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesabgozashtan.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.btnsarehesabgozashtan.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesabgozashtan.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesabgozashtan.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.btnsarehesabgozashtan.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesabgozashtan.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesabgozashtan.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.btnsarehesabgozashtan.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesabgozashtan.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesabgozashtan.ItemInMenuAppearance.Pressed.Options.UseFont = true;
-            this.btnsarehesabgozashtan.LargeWidth = 100;
+            this.btnsarehesabgozashtan.LargeWidth = 150;
             this.btnsarehesabgozashtan.Name = "btnsarehesabgozashtan";
             this.btnsarehesabgozashtan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnsarehesabgozashtan_ItemClick);
             // 
@@ -1125,22 +1125,23 @@ namespace PamirAccounting.UI
             this.btnvosool_daryaftani.Caption = "وصول چک دریافتنی";
             this.btnvosool_daryaftani.Id = 66;
             this.btnvosool_daryaftani.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnvosool_daryaftani.ImageOptions.SvgImage")));
-            this.btnvosool_daryaftani.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvosool_daryaftani.ItemAppearance.Disabled.Options.UseFont = true;
-            this.btnvosool_daryaftani.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvosool_daryaftani.ItemAppearance.Hovered.Options.UseFont = true;
-            this.btnvosool_daryaftani.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvosool_daryaftani.ItemAppearance.Normal.Options.UseFont = true;
-            this.btnvosool_daryaftani.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvosool_daryaftani.ItemAppearance.Pressed.Options.UseFont = true;
-            this.btnvosool_daryaftani.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvosool_daryaftani.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.btnvosool_daryaftani.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvosool_daryaftani.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.btnvosool_daryaftani.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvosool_daryaftani.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.btnvosool_daryaftani.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvosool_daryaftani.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnvosool_daryaftani.LargeWidth = 150;
             this.btnvosool_daryaftani.Name = "btnvosool_daryaftani";
             this.btnvosool_daryaftani.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnvosool_daryaftani_ItemClick);
             // 
@@ -1149,23 +1150,25 @@ namespace PamirAccounting.UI
             this.btnvagoozariasand_daryafti.Caption = "واگذاری اسناد دریافتنی";
             this.btnvagoozariasand_daryafti.Id = 67;
             this.btnvagoozariasand_daryafti.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnvagoozariasand_daryafti.ImageOptions.SvgImage")));
-            this.btnvagoozariasand_daryafti.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagoozariasand_daryafti.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagoozariasand_daryafti.ItemAppearance.Disabled.Options.UseFont = true;
-            this.btnvagoozariasand_daryafti.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagoozariasand_daryafti.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagoozariasand_daryafti.ItemAppearance.Hovered.Options.UseFont = true;
-            this.btnvagoozariasand_daryafti.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagoozariasand_daryafti.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagoozariasand_daryafti.ItemAppearance.Normal.Options.UseFont = true;
-            this.btnvagoozariasand_daryafti.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagoozariasand_daryafti.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagoozariasand_daryafti.ItemAppearance.Pressed.Options.UseFont = true;
-            this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagoozariasand_daryafti.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnvagoozariasand_daryafti.LargeWidth = 150;
             this.btnvagoozariasand_daryafti.Name = "btnvagoozariasand_daryafti";
+            this.btnvagoozariasand_daryafti.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnvagoozariasand_daryafti.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnvagoozariasand_daryafti_ItemClick);
             // 
             // btnodatcheck_vagozarshode
@@ -1173,22 +1176,23 @@ namespace PamirAccounting.UI
             this.btnodatcheck_vagozarshode.Caption = "عودت چکهای واگذارشده";
             this.btnodatcheck_vagozarshode.Id = 68;
             this.btnodatcheck_vagozarshode.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnodatcheck_vagozarshode.ImageOptions.SvgImage")));
-            this.btnodatcheck_vagozarshode.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatcheck_vagozarshode.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatcheck_vagozarshode.ItemAppearance.Disabled.Options.UseFont = true;
-            this.btnodatcheck_vagozarshode.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatcheck_vagozarshode.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatcheck_vagozarshode.ItemAppearance.Hovered.Options.UseFont = true;
-            this.btnodatcheck_vagozarshode.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatcheck_vagozarshode.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatcheck_vagozarshode.ItemAppearance.Normal.Options.UseFont = true;
-            this.btnodatcheck_vagozarshode.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatcheck_vagozarshode.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatcheck_vagozarshode.ItemAppearance.Pressed.Options.UseFont = true;
-            this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatcheck_vagozarshode.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnodatcheck_vagozarshode.LargeWidth = 150;
             this.btnodatcheck_vagozarshode.Name = "btnodatcheck_vagozarshode";
             this.btnodatcheck_vagozarshode.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnodatcheck_vagozarshode_ItemClick);
             // 
@@ -1197,22 +1201,23 @@ namespace PamirAccounting.UI
             this.btnbargashtcheck.Caption = "برگشت چک دریافتنی";
             this.btnbargashtcheck.Id = 69;
             this.btnbargashtcheck.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnbargashtcheck.ImageOptions.SvgImage")));
-            this.btnbargashtcheck.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheck.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargashtcheck.ItemAppearance.Disabled.Options.UseFont = true;
-            this.btnbargashtcheck.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheck.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargashtcheck.ItemAppearance.Hovered.Options.UseFont = true;
-            this.btnbargashtcheck.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheck.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargashtcheck.ItemAppearance.Normal.Options.UseFont = true;
-            this.btnbargashtcheck.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheck.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargashtcheck.ItemAppearance.Pressed.Options.UseFont = true;
-            this.btnbargashtcheck.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheck.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargashtcheck.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.btnbargashtcheck.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheck.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargashtcheck.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.btnbargashtcheck.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheck.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargashtcheck.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.btnbargashtcheck.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheck.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargashtcheck.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnbargashtcheck.LargeWidth = 150;
             this.btnbargashtcheck.Name = "btnbargashtcheck";
             this.btnbargashtcheck.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnbargashtcheck_ItemClick);
             // 
@@ -1220,22 +1225,22 @@ namespace PamirAccounting.UI
             // 
             this.btnodatsarehesabgozashte.Caption = "عودت چکهای سر حساب گذاشته";
             this.btnodatsarehesabgozashte.Id = 70;
-            this.btnodatsarehesabgozashte.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem22.ImageOptions.SvgImage")));
-            this.btnodatsarehesabgozashte.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatsarehesabgozashte.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnodatsarehesabgozashte.ImageOptions.SvgImage")));
+            this.btnodatsarehesabgozashte.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatsarehesabgozashte.ItemAppearance.Disabled.Options.UseFont = true;
-            this.btnodatsarehesabgozashte.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatsarehesabgozashte.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatsarehesabgozashte.ItemAppearance.Hovered.Options.UseFont = true;
-            this.btnodatsarehesabgozashte.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatsarehesabgozashte.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatsarehesabgozashte.ItemAppearance.Normal.Options.UseFont = true;
-            this.btnodatsarehesabgozashte.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatsarehesabgozashte.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatsarehesabgozashte.ItemAppearance.Pressed.Options.UseFont = true;
-            this.btnodatsarehesabgozashte.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatsarehesabgozashte.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatsarehesabgozashte.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.btnodatsarehesabgozashte.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatsarehesabgozashte.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatsarehesabgozashte.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.btnodatsarehesabgozashte.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatsarehesabgozashte.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatsarehesabgozashte.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.btnodatsarehesabgozashte.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatsarehesabgozashte.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodatsarehesabgozashte.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.btnodatsarehesabgozashte.Name = "btnodatsarehesabgozashte";
             this.btnodatsarehesabgozashte.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnodatsarehesabgozashte_ItemClick);
@@ -1287,74 +1292,77 @@ namespace PamirAccounting.UI
             this.barButtonItem24.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.barButtonItem24.Name = "barButtonItem24";
             // 
-            // barButtonItem25
+            // btnpascheckpardakhtii
             // 
-            this.barButtonItem25.Caption = "پاس چک پرداختی";
-            this.barButtonItem25.Id = 73;
-            this.barButtonItem25.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem25.ImageOptions.SvgImage")));
-            this.barButtonItem25.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem25.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem25.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem25.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem25.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem25.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem25.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem25.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem25.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem25.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem25.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem25.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem25.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem25.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem25.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem25.ItemInMenuAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem25.Name = "barButtonItem25";
+            this.btnpascheckpardakhtii.Caption = "پاس چک پرداختی";
+            this.btnpascheckpardakhtii.Id = 73;
+            this.btnpascheckpardakhtii.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnpascheckpardakhtii.ImageOptions.SvgImage")));
+            this.btnpascheckpardakhtii.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheckpardakhtii.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnpascheckpardakhtii.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheckpardakhtii.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnpascheckpardakhtii.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheckpardakhtii.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnpascheckpardakhtii.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheckpardakhtii.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnpascheckpardakhtii.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheckpardakhtii.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnpascheckpardakhtii.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheckpardakhtii.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnpascheckpardakhtii.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheckpardakhtii.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnpascheckpardakhtii.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheckpardakhtii.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnpascheckpardakhtii.Name = "btnpascheckpardakhtii";
+            this.btnpascheckpardakhtii.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnpascheckpardakhtii_ItemClick);
             // 
-            // barButtonItem26
+            // btnbargashtcheckpadakhtani
             // 
-            this.barButtonItem26.Caption = "برگشت چک پراختی";
-            this.barButtonItem26.Id = 74;
-            this.barButtonItem26.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem26.ImageOptions.SvgImage")));
-            this.barButtonItem26.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem26.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem26.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem26.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem26.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem26.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem26.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem26.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem26.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem26.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem26.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem26.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem26.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem26.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem26.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem26.ItemInMenuAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem26.Name = "barButtonItem26";
+            this.btnbargashtcheckpadakhtani.Caption = "برگشت چک پراختی";
+            this.btnbargashtcheckpadakhtani.Id = 74;
+            this.btnbargashtcheckpadakhtani.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnbargashtcheckpadakhtani.ImageOptions.SvgImage")));
+            this.btnbargashtcheckpadakhtani.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheckpadakhtani.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnbargashtcheckpadakhtani.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheckpadakhtani.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnbargashtcheckpadakhtani.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheckpadakhtani.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnbargashtcheckpadakhtani.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheckpadakhtani.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnbargashtcheckpadakhtani.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheckpadakhtani.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnbargashtcheckpadakhtani.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheckpadakhtani.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnbargashtcheckpadakhtani.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheckpadakhtani.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnbargashtcheckpadakhtani.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargashtcheckpadakhtani.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnbargashtcheckpadakhtani.Name = "btnbargashtcheckpadakhtani";
+            this.btnbargashtcheckpadakhtani.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnbargashtcheckpadakhtani_ItemClick);
             // 
-            // barButtonItem41
+            // btnodatpardakhtani
             // 
-            this.barButtonItem41.Caption = "عودت چکهای پرداختی";
-            this.barButtonItem41.Id = 92;
-            this.barButtonItem41.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem41.ImageOptions.SvgImage")));
-            this.barButtonItem41.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem41.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem41.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem41.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem41.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem41.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem41.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem41.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem41.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem41.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem41.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem41.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem41.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem41.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem41.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem41.ItemInMenuAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem41.Name = "barButtonItem41";
+            this.btnodatpardakhtani.Caption = "عودت چکهای پرداختی";
+            this.btnodatpardakhtani.Id = 92;
+            this.btnodatpardakhtani.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnodatpardakhtani.ImageOptions.SvgImage")));
+            this.btnodatpardakhtani.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatpardakhtani.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnodatpardakhtani.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatpardakhtani.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnodatpardakhtani.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatpardakhtani.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnodatpardakhtani.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatpardakhtani.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnodatpardakhtani.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatpardakhtani.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnodatpardakhtani.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatpardakhtani.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnodatpardakhtani.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatpardakhtani.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnodatpardakhtani.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodatpardakhtani.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnodatpardakhtani.Name = "btnodatpardakhtani";
+            this.btnodatpardakhtani.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnodatpardakhtani_ItemClick);
             // 
             // barStaticItem2
             // 
@@ -1615,6 +1623,8 @@ namespace PamirAccounting.UI
             // 
             this.ribbonPage6.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ribbonPage6.Appearance.Options.UseFont = true;
+            this.ribbonPage6.Appearance.Options.UseTextOptions = true;
+            this.ribbonPage6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup6,
             this.ribbonPageGroup7});
@@ -1632,9 +1642,9 @@ namespace PamirAccounting.UI
             this.ribbonPageGroup6.ItemLinks.Add(this.btnodatsarehesabgozashte);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnodat_daryaftani);
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem24);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem25);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem26);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem41);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnpascheckpardakhtii);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnbargashtcheckpadakhtani);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnodatpardakhtani);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "عملیات چک";
             // 
@@ -1973,9 +1983,9 @@ namespace PamirAccounting.UI
         private DevExpress.XtraBars.BarButtonItem btnodatsarehesabgozashte;
         private DevExpress.XtraBars.BarButtonItem btnodat_daryaftani;
         private DevExpress.XtraBars.BarButtonItem barButtonItem24;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem25;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem26;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem41;
+        private DevExpress.XtraBars.BarButtonItem btnpascheckpardakhtii;
+        private DevExpress.XtraBars.BarButtonItem btnbargashtcheckpadakhtani;
+        private DevExpress.XtraBars.BarButtonItem btnodatpardakhtani;
         private DevExpress.XtraEditors.SimpleButton btncustomerslist;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;

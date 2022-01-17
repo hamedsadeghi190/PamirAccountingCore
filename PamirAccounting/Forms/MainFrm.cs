@@ -423,6 +423,25 @@ namespace PamirAccounting.UI
             var odatsarehesab = new OdatCheckSareHesabListFrm();
             odatsarehesab.ShowDialog();
         }
+
+        private void btnpascheckpardakhtii_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var pas1 = new PasCheckPardakhtaniListFrm();
+            pas1.ShowDialog();
+        }
+
+        private void btnbargashtcheckpadakhtani_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+            var bargasht = new BargashtCheckPardakhtaniListFrm();
+            bargasht.ShowDialog();
+        }
+
+        private void btnodatpardakhtani_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+             var odat = new OdatCheckPardakhtaniListFrm();
+            odat.ShowDialog();
+        }
     }
 
 }
