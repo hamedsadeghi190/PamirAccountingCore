@@ -5,6 +5,7 @@ using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
+using PamirAccounting.Services;
 using PamirAccounting.UI.Forms.Agencies;
 using PamirAccounting.UI.Forms.Banks;
 using PamirAccounting.UI.Forms.Currencies;
@@ -16,6 +17,7 @@ using PamirAccounting.UI.Forms.Header;
 using PamirAccounting.UI.Forms.Settings;
 using PamirAccounting.UI.Forms.Transaction;
 using PamirAccounting.UI.Forms.Users;
+using Stimulsoft.Report;
 using System;
 using System.Globalization;
 
@@ -441,6 +443,19 @@ namespace PamirAccounting.UI
         {
              var odat = new OdatCheckPardakhtaniListFrm();
             odat.ShowDialog();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var data = new UnitOfWork().BankServices.GetAll();
+            var report = StiReport.CreateNewReport();
+            report.Load("Reports\\Report.mrt");
+            report.RegData("test", data);
+           // report.Render();
+            report.Design();
+
+            // report.Render();
+            //report.Show();
         }
     }
 

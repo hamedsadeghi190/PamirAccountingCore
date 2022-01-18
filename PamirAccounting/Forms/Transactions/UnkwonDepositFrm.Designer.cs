@@ -139,7 +139,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(1219, 87);
+            this.groupBox1.Size = new System.Drawing.Size(1218, 87);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "جستجو";
@@ -196,7 +196,7 @@ namespace PamirAccounting.Forms.Transactions
             this.btnRowDelete,
             this.btnAction});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(11, 88);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 88);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -310,7 +310,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 581);
+            this.ClientSize = new System.Drawing.Size(1249, 581);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.MaximizeBox = false;

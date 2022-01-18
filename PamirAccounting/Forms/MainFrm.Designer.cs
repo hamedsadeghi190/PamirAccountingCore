@@ -99,6 +99,7 @@ namespace PamirAccounting.UI
             this.btnRecivecheck = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
             this.btnBuyAndSellCurrency = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.settingRibonMenu = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -211,11 +212,12 @@ namespace PamirAccounting.UI
             this.barButtonItem27,
             this.btnRecivecheck,
             this.barButtonItem28,
-            this.btnBuyAndSellCurrency});
+            this.btnBuyAndSellCurrency,
+            this.barButtonItem1});
             this.ribbonControl1.ItemsVertAlign = DevExpress.Utils.VertAlignment.Center;
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbonControl1.MaxItemId = 105;
+            this.ribbonControl1.MaxItemId = 106;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 1000;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -1524,6 +1526,13 @@ namespace PamirAccounting.UI
             this.btnBuyAndSellCurrency.Name = "btnBuyAndSellCurrency";
             this.btnBuyAndSellCurrency.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBuyAndSellCurrency_ItemClick);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 105;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // settingRibonMenu
             // 
             this.settingRibonMenu.Appearance.Font = new System.Drawing.Font("B Nazanin", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -1689,6 +1698,7 @@ namespace PamirAccounting.UI
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPageGroup5.ImageOptions.SvgImage")));
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "گزارشات";
             // 
@@ -2003,6 +2013,7 @@ namespace PamirAccounting.UI
         private DevExpress.XtraBars.BarButtonItem btnRecivecheck;
         private DevExpress.XtraBars.BarButtonItem barButtonItem28;
         private DevExpress.XtraBars.BarButtonItem btnBuyAndSellCurrency;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
 
