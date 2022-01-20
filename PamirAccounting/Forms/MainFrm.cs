@@ -1,10 +1,12 @@
-﻿using PamirAccounting.Commons;
+﻿using PamirAccounting.Forms.Checks;
+using PamirAccounting.Commons;
 using PamirAccounting.Forms.Currencies;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
+using PamirAccounting.Services;
 using PamirAccounting.UI.Forms.Agencies;
 using PamirAccounting.UI.Forms.Banks;
 using PamirAccounting.UI.Forms.Currencies;
@@ -16,6 +18,7 @@ using PamirAccounting.UI.Forms.Header;
 using PamirAccounting.UI.Forms.Settings;
 using PamirAccounting.UI.Forms.Transaction;
 using PamirAccounting.UI.Forms.Users;
+using Stimulsoft.Report;
 using System;
 using System.Globalization;
 
@@ -73,7 +76,7 @@ namespace PamirAccounting.UI
             }
 
             string PersianDate = string.Format("{0} {1}/{2}/{3}", DayName, pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-            barStaticItemDate.Caption =PersianDate;
+            barStaticItemDate.Caption = PersianDate;
         }
 
         private void barButtonItemListCurrency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -361,13 +364,100 @@ namespace PamirAccounting.UI
         private void barButtonItem42_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-        
+
         }
 
         private void barButtonItem27_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var targetForm = new UnkwonDepositFrm();
             targetForm.ShowDialog();
+        }
+
+        private void btnRecivecheck_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var ReceiveCheck = new DetailsReceiveCheckFrm();
+            ReceiveCheck.ShowDialog();
+        }
+
+        private void btnBuyAndSellCurrency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var BuyAndSellCurrency = new BuyAndSellCurrencyFrm();
+            BuyAndSellCurrency.ShowDialog();
+        }
+
+        private void btnsarehesabgozashtan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var SareHesabGozashtan = new SareHesabGozashtanListFrm();
+            SareHesabGozashtan.ShowDialog();
+        }
+
+        private void btnodat_daryaftani_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var Odat = new OdatCheckDaryaftaniListFrm();
+            Odat.ShowDialog();
+        }
+
+        private void btnvosool_daryaftani_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var vosool = new VosoolCheckDaryaftaniListFrm();
+            vosool.ShowDialog();
+        }
+
+        private void btnvagoozariasand_daryafti_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            var VagozariAsnadDaryaftani = new VagozariAsnadDaryaftaniListFrm();
+            VagozariAsnadDaryaftani.ShowDialog();
+        }
+
+        private void btnodatcheck_vagozarshode_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+             var Vagozari= new OdatAsnadDaryaftaniVagozarShodeListFrm();
+            Vagozari.ShowDialog();
+        }
+
+        private void btnbargashtcheck_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var bargasht = new BargashtCheckDaryaftanilistFrm();
+            bargasht.ShowDialog();
+        }
+
+        private void btnodatsarehesabgozashte_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var odatsarehesab = new OdatCheckSareHesabListFrm();
+            odatsarehesab.ShowDialog();
+        }
+
+        private void btnpascheckpardakhtii_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var pas1 = new PasCheckPardakhtaniListFrm();
+            pas1.ShowDialog();
+        }
+
+        private void btnbargashtcheckpadakhtani_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+            var bargasht = new BargashtCheckPardakhtaniListFrm();
+            bargasht.ShowDialog();
+        }
+
+        private void btnodatpardakhtani_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+             var odat = new OdatCheckPardakhtaniListFrm();
+            odat.ShowDialog();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var data = new UnitOfWork().BankServices.GetAll();
+            var report = StiReport.CreateNewReport();
+            report.Load("Reports\\Report.mrt");
+            report.RegData("test", data);
+           // report.Render();
+            report.Design();
+
+            // report.Render();
+            //report.Show();
         }
     }
 

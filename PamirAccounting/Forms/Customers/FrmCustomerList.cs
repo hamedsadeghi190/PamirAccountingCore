@@ -67,9 +67,6 @@ namespace PamirAccounting.Forms.Customers
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-
-
-
             if (e.ColumnIndex == dataGridView1.Columns["btnView"].Index && e.RowIndex >= 0)
             {
 

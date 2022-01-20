@@ -326,6 +326,7 @@ namespace PamirAccounting.Forms.Customers
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "FrmCustomerList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

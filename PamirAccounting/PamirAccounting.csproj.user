@@ -14,6 +14,69 @@
     <Compile Update="Forms\Banks\FrmBankList.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Checks\BargashtCheckDaryaftaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\BargashtCheckDaryaftanilistFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\BargashtCheckPardakhtaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\BargashtCheckPardakhtaniListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\DetailsPaymentCheckFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\DetailsReceiveCheckFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\OdatAsnadDaryaftaniVagozarShodeListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\OdatCheckDaryaftaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\OdatCheckDaryaftaniListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\OdatCheckPardakhtaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\OdatCheckPardakhtaniListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\OdatCheckSareHesabFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\OdatCheckSareHesabListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\PasCheckPardakhtaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\PasCheckPardakhtaniListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\SareHesabGozashtanFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\SareHesabGozashtanListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\VagozariAsnadDaryaftaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\VagozariAsnadDaryaftaniListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\VosoolCheckDaryaftaniFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\VosoolCheckDaryaftaniListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Currencies\CurrencyCreateUpdateFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -33,6 +96,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Customers\FrmCustomerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Customers\SearchAllCustomersFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Customers\SearchDateFrm.cs">
@@ -105,6 +171,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Transactions\addDepositCustomerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Transactions\BuyAndSellCurrencyFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Transactions\editUnkownDepositFrm.cs">
