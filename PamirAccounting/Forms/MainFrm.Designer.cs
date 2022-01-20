@@ -1531,7 +1531,7 @@ namespace PamirAccounting.UI
             this.barButtonItem1.Caption = "barButtonItem1";
             this.barButtonItem1.Id = 105;
             this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+        
             // 
             // settingRibonMenu
             // 

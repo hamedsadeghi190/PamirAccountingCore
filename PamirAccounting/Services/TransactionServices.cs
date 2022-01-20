@@ -184,5 +184,95 @@ namespace PamirAccounting.Services
             }
 
         }
+        public List<TransactionModel> GetAllReport(int userId, int? currencyId)
+        {
+            try
+            {
+                var dataList = new List<TransactionModel>();
+                if (currencyId == null)
+                {
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == userId)
+                    .Include(x => x.Curreny)
+                    .Include(x => x.User)
+                   .Select(x => new TransactionModel
+                   {
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       Date = x.Date.ToString(),
+                       TransactionDateTime = x.TransactionDateTime.ToString(),
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       UserId = x.UserId,
+                       UserName = x.User.UserName,
+                       TransactionType = x.TransactionType,
+
+
+                   }).ToList();
+                }
+                else
+                {
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == userId && x.CurrenyId == currencyId)
+                                 .Include(x => x.Curreny)
+                                 .Include(x => x.User)
+                                 .Select(x => new TransactionModel
+                                 {
+                                     Id = x.Id,
+                                     Description = x.Description,
+                                     DepositAmount = x.DepositAmount,
+                                     WithdrawAmount = x.WithdrawAmount,
+                                     Date = x.Date.ToString(),
+                                     TransactionDateTime = x.TransactionDateTime.ToString(),
+                                     CurrenyId = x.CurrenyId,
+                                     CurrenyName = x.Curreny.Name,
+                                     UserId = x.UserId,
+                                     UserName = x.User.UserName,
+                                     TransactionType = x.TransactionType,
+                                 }).ToList();
+                }
+
+                dataList = dataList.Select(x => new TransactionModel
+                {
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    RemainigAmount = x.RemainigAmount,
+                    Date = (DateTime.Parse(x.Date.ToString())).ToShortPersianDateString(),
+                    TransactionDateTime = (DateTime.Parse(x.TransactionDateTime.ToString()).ToShortPersianDateString()),
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    UserId = x.UserId,
+                    UserName = x.UserName,
+                    TransactionType = x.TransactionType,
+                    Status = (x.WithdrawAmount.Value == 0 && x.DepositAmount.Value == 0) ? "" : (x.WithdrawAmount.Value > 0) ? "بدهکار" : "طلبکار"
+
+                }).ToList();
+                return dataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public List<TransactionModel> FindUserName(int SourceCustomerId)
+        {
+            try
+            {
+                var dataList = new List<TransactionModel>();
+                dataList = _context.Transactions.Where(x => x.SourceCustomerId == SourceCustomerId).Include(x => x.SourceCustomer)
+                 .Select(x => new TransactionModel
+                 {
+                     FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                 }).ToList();
+                return dataList;
+            }
+
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

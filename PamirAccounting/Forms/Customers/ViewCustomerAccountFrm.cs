@@ -5,10 +5,12 @@ using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using PamirAccounting.UI.Forms.Transaction;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
@@ -373,6 +375,28 @@ namespace PamirAccounting.UI.Forms.Customers
         {
             var SearchDateFrm1 = new SearchDateFrm();
             SearchDateFrm1.ShowDialog();
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var data = new UnitOfWork().TransactionServices.GetAllReport(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+          //  var name = new UnitOfWork().TransactionServices.FindUserName(_Id.Value);
+            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "CustomerAccount.mrt");
+            report.RegData("myData", data);
+            report.RegData("basedata", basedata);
+            //report.Design();
+            report.Render();
+            report.Show();
+        }
+        public class reportbaseDAta
+        {
+            public string CustomerName { get; set; }
+            public string Date { get; set; }
         }
     }
 }
