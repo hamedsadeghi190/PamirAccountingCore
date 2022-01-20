@@ -200,7 +200,6 @@ namespace PamirAccounting.Forms.Transactions
             sandoghTransAction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             sandoghTransAction.SourceCustomerId = AppSetting.SandoghCustomerId;
             sandoghTransAction.TransactionType = (int)TransaActionType.PayAndReciveCash;
-            sandoghTransAction.Description = txtdesc.Text;
 
             sandoghTransAction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             sandoghTransAction.Date = DateTime.Now;
