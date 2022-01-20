@@ -30,6 +30,7 @@ namespace PamirAccounting.UI
         {
             InitializeComponent();
             AppSetting.SandoghCustomerId = 4;
+            AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
         }
 
         private void BtnBanksMenuItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -451,8 +452,8 @@ namespace PamirAccounting.UI
         {
             var data = new UnitOfWork().BankServices.GetAll();
             var report = StiReport.CreateNewReport();
-            report.Load("Reports\\Report.mrt");
-            report.RegData("test", data);
+            report.Load(AppSetting.ReportPath +"Bank.mrt");
+            report.RegData("myData", data);
            // report.Render();
             report.Design();
 
