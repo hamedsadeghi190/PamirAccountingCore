@@ -41,8 +41,10 @@ namespace PamirAccounting.Commons.Enums
             PayAndReciveCash = 2,
             [Description("واریز و برداشت بانکی")]
             PayAndReciveBank = 3,
+            [Description("واریز نامعلوم بانکی")]
+            UnkwonReciveBank = 4,
             [Description("انتقال حساب")]
-            Transfer = 4
+            Transfer = 5
         }
     }
 }

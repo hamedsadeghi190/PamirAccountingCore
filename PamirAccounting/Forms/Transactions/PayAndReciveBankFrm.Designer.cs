@@ -54,6 +54,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
+            this.lblNumberString = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtReceiptNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBranchCode.Properties)).BeginInit();
@@ -65,6 +66,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblNumberString);
             this.groupBox1.Controls.Add(this.cmbCustomers);
             this.groupBox1.Controls.Add(this.lblCustomers);
             this.groupBox1.Controls.Add(this.label9);
@@ -235,6 +237,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtAmount.Size = new System.Drawing.Size(147, 38);
             this.txtAmount.TabIndex = 3;
+            this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
             // cmbBanks
             // 
@@ -304,6 +307,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(149, 39);
             this.cmbCurrencies.TabIndex = 7;
+            this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -371,6 +375,17 @@ namespace PamirAccounting.Forms.Transactions
             this.btnsavebank.Text = "ثبت";
             this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
             // 
+            // lblNumberString
+            // 
+            this.lblNumberString.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNumberString.Location = new System.Drawing.Point(133, 259);
+            this.lblNumberString.Name = "lblNumberString";
+            this.lblNumberString.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblNumberString.Size = new System.Drawing.Size(398, 26);
+            this.lblNumberString.TabIndex = 213;
+            this.lblNumberString.Tag = "";
+            this.lblNumberString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // PayAndReciveBankFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -425,5 +440,6 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnClose;
+        private System.Windows.Forms.Label lblNumberString;
     }
 }

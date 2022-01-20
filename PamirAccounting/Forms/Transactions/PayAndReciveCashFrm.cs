@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Transactions
@@ -103,10 +104,7 @@ namespace PamirAccounting.Forms.Transactions
             txtDate.Text = PDate;
         }
 
-        private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -283,6 +281,31 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.TransactionServices.Insert(newTransaction);
             unitOfWork.SaveChanges();
 
+        }
+
+
+        private void txtAmount_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtAmount.Text += "000";
+            }
+
+            ShowChars();
+        }
+
+        private void ShowChars()
+        {
+            if (txtAmount.Text.Length > 0)
+            {
+                var currencyName = cmbCurrencies.Text;
+                lblNumberString.Text = $"{ NumberUtility.GetString(txtAmount.Text.Replace(",", "")) } {currencyName}";
+            }
+        }
+
+        private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowChars();
         }
     }
 }
