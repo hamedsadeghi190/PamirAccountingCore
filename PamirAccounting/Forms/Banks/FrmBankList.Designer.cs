@@ -39,7 +39,6 @@ namespace PamirAccounting.UI.Forms.Banks
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.BtnCreateNew = new DevExpress.XtraEditors.SimpleButton();
@@ -134,7 +133,6 @@ namespace PamirAccounting.UI.Forms.Banks
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.simpleButton4);
             this.groupBox1.Controls.Add(this.simpleButton3);
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.BtnCreateNew);
@@ -158,16 +156,6 @@ namespace PamirAccounting.UI.Forms.Banks
             this.label7.Size = new System.Drawing.Size(55, 26);
             this.label7.TabIndex = 102;
             this.label7.Text = "جستجو";
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(60, 29);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton4.TabIndex = 101;
-            this.simpleButton4.Text = "چاپ";
             // 
             // simpleButton3
             // 
@@ -195,7 +183,7 @@ namespace PamirAccounting.UI.Forms.Banks
             this.BtnCreateNew.Appearance.Options.UseFont = true;
             this.BtnCreateNew.Appearance.Options.UseForeColor = true;
             this.BtnCreateNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnCreateNew.ImageOptions.SvgImage")));
-            this.BtnCreateNew.Location = new System.Drawing.Point(104, 30);
+            this.BtnCreateNew.Location = new System.Drawing.Point(61, 30);
             this.BtnCreateNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnCreateNew.Name = "BtnCreateNew";
             this.BtnCreateNew.Size = new System.Drawing.Size(39, 41);
@@ -236,7 +224,6 @@ namespace PamirAccounting.UI.Forms.Banks
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
         private System.Windows.Forms.TextBox txtSearch;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.Label label7;
     }

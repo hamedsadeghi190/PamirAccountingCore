@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -195,14 +196,24 @@ namespace PamirAccounting.Forms.Customers
 
         private void btnprint_Click(object sender, EventArgs e)
         {
-            var data = new UnitOfWork().CustomerServices.GetAll();
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var data = new UnitOfWork().CustomerServices.GetAllReport();
+            var basedata = new reportbaseDAta() { Date=PersianDate };
             var report = StiReport.CreateNewReport();
-            report.Load("Reports\\Customers.mrt");
+            report.Load(AppSetting.ReportPath + "Customers.mrt");
             report.RegData("myData", data);
+            report.RegData("basedata", basedata);
+            // report.Design();
             report.Render();
             report.Show();
-            //  report.Design();
-
         }
     }
+}
+
+public class reportbaseDAta
+{
+    public string Date { get; set; }
+
 }
