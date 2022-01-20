@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.UI.Forms.Transaction
 {
@@ -97,27 +98,26 @@ namespace PamirAccounting.UI.Forms.Transaction
 
         private void CreateTransfer()
         {
-            Domains.Transaction customerlastTransAction = null;
-            Domains.Transaction banklastTransAction = null;
-            Domains.Transaction customerAccount = null;
-
+  
             var bankAccount = unitOfWork.TransactionServices.FindLastTransaction((int)CmbSource.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
             if (bankAccount == null)
             {
                 createAccount((int)CmbSource.SelectedValue, (int)cmbCurrencies.SelectedValue);
             }
-            banklastTransAction = unitOfWork.TransactionServices.FindLastTransaction((int)CmbSource.SelectedValue, (int)cmbCurrencies.SelectedValue);
+            var customerAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbDestiniation.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
+            if (customerAccount == null)
+            {
+                createAccount((int)cmbDestiniation.SelectedValue, (int)cmbCurrencies.SelectedValue);
+            }
 
             var bankTransaction = new Domains.Transaction();
-
-            bankTransaction.TransactionType = 5;
+            bankTransaction.DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
+            bankTransaction.TransactionType = (int)TransaActionType.Transfer; 
             bankTransaction.DestinitionCustomerId = (int)cmbDestiniation.SelectedValue;
             bankTransaction.SourceCustomerId = (int)CmbSource.SelectedValue;
-            bankTransaction.Description = txtDesc.Text;
+            bankTransaction.Description = txtDesc.Text.Length > 0 ? txtDesc.Text : " انتقال از حساب " + CmbSource.Text + " به " + cmbDestiniation.Text;
             bankTransaction.DepositAmount = 0;
             bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-
-
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
 
@@ -127,27 +127,21 @@ namespace PamirAccounting.UI.Forms.Transaction
             bankTransaction.TransactionDateTime = TransactionDateTime;
             bankTransaction.UserId = CurrentUser.UserID;
             unitOfWork.TransactionServices.Insert(bankTransaction);
+            unitOfWork.SaveChanges();
 
-
-            customerAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbDestiniation.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
-            if (customerAccount == null)
-            {
-                createAccount((int)cmbDestiniation.SelectedValue, (int)cmbCurrencies.SelectedValue);
-            }
-            customerlastTransAction = unitOfWork.TransactionServices.FindLastTransaction((int)cmbDestiniation.SelectedValue, (int)cmbCurrencies.SelectedValue);
 
             var customerTransaction = new Domains.Transaction();
-            customerTransaction.TransactionType = 3;
+            customerTransaction.DoubleTransactionId = bankTransaction.Id;
+            customerTransaction.DocumentId = bankTransaction.DocumentId;
             customerTransaction.SourceCustomerId = (int)cmbDestiniation.SelectedValue;
             customerTransaction.DestinitionCustomerId = (int)CmbSource.SelectedValue;
-            customerTransaction.Description = txtDesc.Text;
+            customerTransaction.Description = txtDesc.Text.Length>0 ? txtDesc.Text :" انتقال از حساب " + CmbSource.Text + " به " + cmbDestiniation.Text;
             customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             customerTransaction.WithdrawAmount = 0;
-
-
+            customerTransaction.TransactionType = (int)TransaActionType.Transfer;
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
-            var cDate = txtDate.Text.Split('/');
 
+            var cDate = txtDate.Text.Split('/');
             PersianCalendar pc = new PersianCalendar();
             TransactionDateTime = p.ToDateTime(int.Parse(cDate[0]), int.Parse(cDate[1]), int.Parse(cDate[2]), 0, 0, 0, 0);
             customerTransaction.Date = DateTime.Now;
@@ -155,13 +149,17 @@ namespace PamirAccounting.UI.Forms.Transaction
             customerTransaction.UserId = CurrentUser.UserID;
 
             unitOfWork.TransactionServices.Insert(customerTransaction);
+            unitOfWork.SaveChanges();
 
+            bankTransaction.DoubleTransactionId = customerTransaction.Id;
+            unitOfWork.TransactionServices.Update(bankTransaction);
             unitOfWork.SaveChanges();
         }
 
         private void createAccount(int SourceCustomerId, int CurrenyId)
         {
             var newTransaction = new Domains.Transaction();
+            newTransaction.DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
             newTransaction.SourceCustomerId = SourceCustomerId;
             newTransaction.TransactionType = 1;
             newTransaction.Description = "حساب جدید";

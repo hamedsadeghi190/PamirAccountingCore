@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DNTPersianUtils.Core;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Services
 {
@@ -147,7 +148,7 @@ namespace PamirAccounting.Services
             {
                 var dataList = new List<UnKownTransactionModel>();
 
-                dataList = FindAllReadonly(x => x.TransactionType == 4)
+                dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.UnkwonReciveBank)
                              .Include(x => x.Curreny)
                              .Include(x => x.SourceCustomer)
                              .Select(x => new UnKownTransactionModel
