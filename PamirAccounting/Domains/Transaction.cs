@@ -28,6 +28,7 @@ namespace PamirAccounting.Domains
         public long? UnkownAmount { get; set; }
         public long? DoubleTransactionId { get; set; }
         public int? DestinitionCustomerId { get; set; }
+        public int DocumentId { get; set; }
 
         public virtual Currency Curreny { get; set; }
         public virtual Customer DestinitionCustomer { get; set; }

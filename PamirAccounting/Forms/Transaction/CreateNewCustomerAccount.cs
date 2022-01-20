@@ -89,7 +89,7 @@ namespace PamirAccounting.Forms.Transaction
         private void btnsavebank_Click(object sender, EventArgs e)
         {
 
-            if(transaction!=null)
+            if (transaction != null)
             {
                 transaction.Description = txtdesc.Text;
 
@@ -172,6 +172,15 @@ namespace PamirAccounting.Forms.Transaction
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtAmount_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtAmount.Text.Length > 0)
+            {
+                var currencyName = cmbCurrencies.Text;
+                lblNumberString.Text = $"{ NumberUtility.GetString(txtAmount.Text.Replace(",", "")) } {currencyName}";
+            }
         }
     }
 }

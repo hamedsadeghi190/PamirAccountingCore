@@ -31,6 +31,7 @@ namespace PamirAccounting.Forms.Transaction
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateNewCustomerAccount));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNumberString = new System.Windows.Forms.Label();
             this.cmbRemainType = new System.Windows.Forms.ComboBox();
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.txtAmount = new DevExpress.XtraEditors.TextEdit();
@@ -52,6 +53,7 @@ namespace PamirAccounting.Forms.Transaction
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblNumberString);
             this.groupBox1.Controls.Add(this.cmbRemainType);
             this.groupBox1.Controls.Add(this.txtDate);
             this.groupBox1.Controls.Add(this.txtAmount);
@@ -65,10 +67,21 @@ namespace PamirAccounting.Forms.Transaction
             this.groupBox1.Location = new System.Drawing.Point(7, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(621, 176);
+            this.groupBox1.Size = new System.Drawing.Size(621, 191);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ثبت حساب جدید";
+            // 
+            // lblNumberString
+            // 
+            this.lblNumberString.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNumberString.Location = new System.Drawing.Point(23, 149);
+            this.lblNumberString.Name = "lblNumberString";
+            this.lblNumberString.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblNumberString.Size = new System.Drawing.Size(518, 26);
+            this.lblNumberString.TabIndex = 110;
+            this.lblNumberString.Tag = "";
+            this.lblNumberString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmbRemainType
             // 
@@ -105,6 +118,7 @@ namespace PamirAccounting.Forms.Transaction
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtAmount.Size = new System.Drawing.Size(171, 35);
             this.txtAmount.TabIndex = 2;
+            this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
             // txtdesc
             // 
@@ -119,6 +133,7 @@ namespace PamirAccounting.Forms.Transaction
             // 
             // cmbCurrencies
             // 
+            this.cmbCurrencies.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCurrencies.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(23, 108);
@@ -192,7 +207,7 @@ namespace PamirAccounting.Forms.Transaction
             // 
             this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.btnsavebank);
-            this.groupBox2.Location = new System.Drawing.Point(7, 182);
+            this.groupBox2.Location = new System.Drawing.Point(7, 194);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox2.Size = new System.Drawing.Size(621, 63);
@@ -219,7 +234,7 @@ namespace PamirAccounting.Forms.Transaction
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 251);
+            this.ClientSize = new System.Drawing.Size(636, 262);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -254,5 +269,6 @@ namespace PamirAccounting.Forms.Transaction
         private DevExpress.XtraEditors.SimpleButton btnsavebank;
         private System.Windows.Forms.GroupBox groupBox2;
         private DevExpress.XtraEditors.SimpleButton btnClose;
+        private System.Windows.Forms.Label lblNumberString;
     }
 }

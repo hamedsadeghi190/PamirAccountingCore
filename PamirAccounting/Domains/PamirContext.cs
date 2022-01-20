@@ -271,6 +271,12 @@ namespace PamirAccounting.Domains
 
                 entity.HasIndex(e => e.UserId, "IX_Transactions_UserId");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.DocumentId)
+                    .HasColumnName("DocumentID")
+                    .HasComment("شماره سند");
+
                 entity.Property(e => e.DoubleTransactionId).HasColumnName("DoubleTransactionID");
 
                 entity.Property(e => e.UnkownAmount).HasDefaultValueSql("((0))");
