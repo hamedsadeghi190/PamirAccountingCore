@@ -9,5 +9,6 @@ namespace PamirAccounting
     public static class AppSetting
     {
         public static int  SandoghCustomerId { get; set; }
+        public static string  ReportPath { get; set; }
     }
 }

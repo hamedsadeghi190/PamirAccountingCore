@@ -3,7 +3,25 @@
   <Dictionary Ref="1" type="Dictionary" isKey="true">
     <BusinessObjects isList="true" count="0" />
     <Databases isList="true" count="0" />
-    <DataSources isList="true" count="0" />
+    <DataSources isList="true" count="1">
+      <myData Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObjectSource" isKey="true">
+        <Alias>myData</Alias>
+        <Columns isList="true" count="8">
+          <value>Id,System.Int32</value>
+          <value>Name,System.String</value>
+          <value>CountryName,System.String</value>
+          <value>BaseCurrencyName,System.String</value>
+          <value>CountryId,System.Int32</value>
+          <value>BaseCurrencyId,System.Int32</value>
+          <value>_ID,System.Int32</value>
+          <value>_Current,System.Object</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>649a500b55d34a18b4c900d247c403a5</Key>
+        <Name>myData</Name>
+        <NameInSource>myData</NameInSource>
+      </myData>
+    </DataSources>
     <Relations isList="true" count="0" />
     <Report isRef="0" />
     <Resources isList="true" count="0" />
@@ -14,21 +32,21 @@
   <Key>4b227ae04a8742659d254cb7ff65b508</Key>
   <MetaTags isList="true" count="0" />
   <Pages isList="true" count="1">
-    <Page1 Ref="2" type="Page" isKey="true">
+    <Page1 Ref="3" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
       <Components isList="true" count="1">
-        <Text1 Ref="3" type="Text" isKey="true">
+        <Text1 Ref="4" type="Text" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0.1,1.2,5.4,3.1</ClientRectangle>
+          <ClientRectangle>0.1,1.2,3.5,3.1</ClientRectangle>
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
           <Font>Arial,72</Font>
           <Margins>0,0,0,0</Margins>
           <Name>Text1</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-          <Text>dsfsdfsdfsdfs</Text>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Text>hamed</Text>
           <TextBrush>Black</TextBrush>
           <Type>Expression</Type>
         </Text1>
@@ -55,13 +73,13 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/18/2022 8:13:29 PM</ReportChanged>
+  <ReportChanged>1/20/2022 12:20:30 PM</ReportChanged>
   <ReportCreated>1/18/2022 8:13:04 PM</ReportCreated>
-  <ReportFile>C:\Users\Parnian\Desktop\Report.mrt</ReportFile>
-  <ReportGuid>47ce308389ac4ca89e33b0dfddb07a88</ReportGuid>
+  <ReportFile>D:\PamirAccountingCore\PamirAccounting\Reports\Bank.mrt</ReportFile>
+  <ReportGuid>884dbc662d1b42a1934f30966997baef</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
-  <ReportVersion>2022.1.1.0</ReportVersion>
+  <ReportVersion>2022.1.4.0</ReportVersion>
   <Script>using System;
 using System.Drawing;
 using System.Windows.Forms;

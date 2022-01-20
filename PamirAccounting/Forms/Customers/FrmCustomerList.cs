@@ -129,7 +129,7 @@ namespace PamirAccounting.Forms.Customers
         {
             if (txtNameSearch.Text.Length > 0)
             {
-                dataList = unitOfWork.Customers.FindAll(y => y.FirstName.Contains(txtNameSearch.Text) || y.LastName.Contains(txtNameSearch.Text)).Select(x => new CustomerModel { Id = x.Id,FullName=x.FirstName+" "+x.LastName,Phone=x.Phone,Mobile=x.Mobile,GroupName=x.Group.Name }).ToList();
+                dataList = unitOfWork.Customers.FindAll(y => y.FirstName.Contains(txtNameSearch.Text) || y.LastName.Contains(txtNameSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
                 dataGridView1.DataSource = dataList;
             }
             else
@@ -142,7 +142,7 @@ namespace PamirAccounting.Forms.Customers
         {
             if (cmbGroupsSearch.Text.Length > 0)
             {
-                dataList = unitOfWork.Customers.FindAll(y => y.Group.Name.Contains(cmbGroupsSearch.Text) ).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
+                dataList = unitOfWork.Customers.FindAll(y => y.Group.Name.Contains(cmbGroupsSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
                 dataGridView1.DataSource = dataList;
             }
             else
@@ -156,7 +156,7 @@ namespace PamirAccounting.Forms.Customers
 
             if (txtNumberSearch.Text.Length > 0)
             {
-                dataList = unitOfWork.Customers.FindAll(y => y.Id==int.Parse(txtNumberSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
+                dataList = unitOfWork.Customers.FindAll(y => y.Id == int.Parse(txtNumberSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
                 dataGridView1.DataSource = dataList;
             }
             else
@@ -198,7 +198,7 @@ namespace PamirAccounting.Forms.Customers
             var data = new UnitOfWork().CustomerServices.GetAll();
             var report = StiReport.CreateNewReport();
             report.Load("Reports\\Customers.mrt");
-             report.RegData("myData", data);
+            report.RegData("myData", data);
             report.Render();
             report.Show();
             //  report.Design();
