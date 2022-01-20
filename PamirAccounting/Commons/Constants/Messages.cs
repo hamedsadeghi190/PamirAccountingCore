@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PamirAccounting.Commons.Constants
+namespace PamirAccounting
 {
     public static class Messages
     {
         public const string SaveSuccess = "اطلاعات با موفقیت ثبت شد.";
+
+
+        public const string CreateNewAcount = "ایجاد حساب جدید ";
+        public const string DepostitCash = "دریافت وجه ";
+        public const string WithdrawCash = "پرداخت وجه ";
     }
 }

@@ -91,7 +91,7 @@ namespace PamirAccounting.Forms.Transaction
 
             if (transaction != null)
             {
-                transaction.Description = txtdesc.Text;
+                transaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.CreateNewAcount + cmbCurrencies.SelectedText;
 
                 if ((int)cmbRemainType.SelectedValue == 1)
                 {
@@ -127,9 +127,10 @@ namespace PamirAccounting.Forms.Transaction
                 }
 
                 var newTransaction = new Domains.Transaction();
+                newTransaction.DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
                 newTransaction.SourceCustomerId = _Id;
                 newTransaction.TransactionType = (int)TransaActionType.NewAccount;
-                newTransaction.Description = txtdesc.Text;
+                newTransaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.CreateNewAcount + cmbCurrencies.Text;
 
                 if ((int)cmbRemainType.SelectedValue == 1)
                 {
@@ -176,11 +177,26 @@ namespace PamirAccounting.Forms.Transaction
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtAmount.Text += "000";
+            }
+
+            ShowChars();
+        }
+
+        private void ShowChars()
+        {
             if (txtAmount.Text.Length > 0)
             {
                 var currencyName = cmbCurrencies.Text;
                 lblNumberString.Text = $"{ NumberUtility.GetString(txtAmount.Text.Replace(",", "")) } {currencyName}";
             }
+        }
+
+        private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowChars();
         }
     }
 }

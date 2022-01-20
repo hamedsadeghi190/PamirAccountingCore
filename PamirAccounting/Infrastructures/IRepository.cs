@@ -20,6 +20,7 @@ namespace PamirAccounting.Infrastructures
         void Delete(object id);
         Task InsertRangeAsync(IEnumerable<T> entities);
         T FindFirst(Expression<Func<T, bool>> where = null, string includes = "");
+        T FindLast(Expression<Func<T, bool>> where = null, string includes = "");
         Task<T> FindFirstAsync(Expression<Func<T, bool>> where = null, string includes = "");
         T FindFirstOrDefault(Expression<Func<T, bool>> where = null, string includes = "");
         Task<T> FindFirstOrDefaultAsync(Expression<Func<T, bool>> where = null, string includes = "");

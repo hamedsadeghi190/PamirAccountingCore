@@ -8,8 +8,10 @@ namespace PamirAccounting.Models
 {
    public class TransactionModel
     {
+        public Int64 RowId { get; set; }
         public Int64 Id { get; set; }
         public int SourceCustomerId { get; set; }
+        public long DocumentId { get; set; }
         public int TransactionType { get; set; }
         public string TransactionTypeName { get; set; }
         public string TransactionDateTime { get; set; }
@@ -23,6 +25,11 @@ namespace PamirAccounting.Models
         public int UserId{ get; set; }
         public string UserName{ get; set; }
         public string Status { get; set; }
+
+        public static implicit operator long(TransactionModel v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class UnKownTransactionModel

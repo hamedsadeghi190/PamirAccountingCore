@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace PamirAccounting
@@ -163,4 +164,15 @@ namespace PamirAccounting
             return RET;
         }
     }
-}
+
+    static class PersianDate
+    {
+
+        public static string ToPersian( this  DateTime dateTime)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            string PDate = pc.GetYear(dateTime).ToString() + "/" + pc.GetMonth(dateTime).ToString() + "/" + pc.GetDayOfMonth(dateTime).ToString();
+            return PDate;
+        }
+    }
+    }

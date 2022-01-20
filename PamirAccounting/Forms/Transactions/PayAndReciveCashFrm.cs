@@ -124,12 +124,12 @@ namespace PamirAccounting.Forms.Transactions
                 SaveNew();
             }
 
-
             Close();
         }
 
         private void SaveNew()
         {
+          
             var sandoghAccount = unitOfWork.TransactionServices.FindLastTransaction(AppSetting.SandoghCustomerId, (int)TransaActionType.NewAccount, (int)cmbCurrencies.SelectedValue);
             var customerAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbCustomers.SelectedValue, (int)TransaActionType.NewAccount, (int)cmbCurrencies.SelectedValue);
 
@@ -142,23 +142,26 @@ namespace PamirAccounting.Forms.Transactions
             {
                 createAccount((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
             }
-
+            var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             // trakonesh moshtari //
             var customerTransaction = new Domains.Transaction();
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = AppSetting.SandoghCustomerId;
             customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveCash;
-            customerTransaction.Description = txtdesc.Text;
+           
+            customerTransaction.DocumentId = documentId;
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
                 customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 customerTransaction.DepositAmount = 0;
+                customerTransaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.WithdrawCash + " به شماره سند -" + documentId ; 
             }
             else
             {
                 customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 customerTransaction.WithdrawAmount = 0;
+                customerTransaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.DepostitCash + " به شماره سند " + documentId;
             }
 
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
@@ -176,17 +179,21 @@ namespace PamirAccounting.Forms.Transactions
             //tarakonesh sandogh//
             var sandoghTransAction = new Domains.Transaction();
             sandoghTransAction.DoubleTransactionId = customerTransaction.Id;
+            sandoghTransAction.DocumentId = documentId;
+
             if ((int)cmbRemainType.SelectedValue == 1)
             {
 
 
                 sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 sandoghTransAction.WithdrawAmount = 0;
+                sandoghTransAction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.DepostitCash + " به شماره سند -" + documentId;
             }
             else
             {
                 sandoghTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 sandoghTransAction.DepositAmount = 0;
+                sandoghTransAction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.WithdrawCash + " به شماره سند -" + documentId;
             }
 
 
@@ -217,6 +224,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 customerTransaction.DepositAmount = 0;
+
             }
             else
             {
@@ -265,14 +273,14 @@ namespace PamirAccounting.Forms.Transactions
             var newTransaction = new Domains.Transaction();
             newTransaction.SourceCustomerId = SourceCustomerId;
             newTransaction.TransactionType = 1;
-            newTransaction.Description = "حساب جدید";
+            newTransaction.Description = Messages.CreateNewAcount;
             newTransaction.WithdrawAmount = 0;
             newTransaction.DepositAmount = 0;
             newTransaction.CurrenyId = CurrenyId;
             newTransaction.Date = DateTime.Now;
             newTransaction.TransactionDateTime = DateTime.Now;
             newTransaction.UserId = CurrentUser.UserID;
-
+            newTransaction.DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
             unitOfWork.TransactionServices.Insert(newTransaction);
             unitOfWork.SaveChanges();
 

@@ -6,8 +6,6 @@ using PamirAccounting.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DNTPersianUtils.Core;
 
 namespace PamirAccounting.Services
@@ -28,6 +26,31 @@ namespace PamirAccounting.Services
         }
         #endregion
 
+        public long GetLatestDocumentId()
+        {
+            try
+            {
+                var DocumentId = _context.Transactions.Max(x => x.DocumentId);
+                return DocumentId;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public long GetNewDocumentId()
+        {
+            try
+            {
+                var DocumentId = _context.Transactions.Max(x => x.DocumentId);
+                return DocumentId + 1;
+            }
+            catch (Exception)
+            {
+                return 1;
+            }
+           
+        }
 
         public List<TransactionModel> GetAll(int userId, int? currencyId)
         {
@@ -41,6 +64,7 @@ namespace PamirAccounting.Services
                     .Include(x => x.User)
                    .Select(x => new TransactionModel
                    {
+
                        Id = x.Id,
                        Description = x.Description,
                        DepositAmount = x.DepositAmount,
@@ -52,7 +76,7 @@ namespace PamirAccounting.Services
                        UserId = x.UserId,
                        UserName = x.User.UserName,
                        TransactionType = x.TransactionType,
-
+                       DocumentId = x.DocumentId
 
                    }).ToList();
                 }
@@ -74,27 +98,30 @@ namespace PamirAccounting.Services
                                      UserId = x.UserId,
                                      UserName = x.User.UserName,
                                      TransactionType = x.TransactionType,
+                                     DocumentId = x.DocumentId
                                  }).ToList();
                 }
-
-                dataList = dataList.Select(x => new TransactionModel
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
                 {
+                    RowId = row++,
                     Id = x.Id,
                     Description = x.Description,
                     DepositAmount = x.DepositAmount,
                     WithdrawAmount = x.WithdrawAmount,
                     RemainigAmount = x.RemainigAmount,
-                    Date = (DateTime.Parse(x.Date.ToString())).ToShortPersianDateString(),
-                    TransactionDateTime = (DateTime.Parse(x.TransactionDateTime.ToString()).ToShortPersianDateString()),
+                    Date = (DateTime.Parse(x.Date.ToString())).ToPersian(),
+                    TransactionDateTime = (DateTime.Parse(x.TransactionDateTime.ToString())).ToPersian(),
                     CurrenyId = x.CurrenyId,
                     CurrenyName = x.CurrenyName,
                     UserId = x.UserId,
                     UserName = x.UserName,
+                    DocumentId = x.DocumentId,
                     TransactionType = x.TransactionType,
                     Status = (x.WithdrawAmount.Value == 0 && x.DepositAmount.Value == 0) ? "" : (x.WithdrawAmount.Value > 0) ? "بدهکار" : "طلبکار"
 
                 }).ToList();
-                return dataList;
+                return tmpdataList;
             }
             catch (Exception ex)
             {

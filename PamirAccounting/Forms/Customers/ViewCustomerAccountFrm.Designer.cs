@@ -54,6 +54,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocumentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -247,6 +248,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.DocumentId,
             this.Column3,
             this.Column2,
             this.Column4,
@@ -347,7 +349,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "Id";
+            this.Column1.DataPropertyName = "RowId";
             this.Column1.FillWeight = 70F;
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "ردیف";
@@ -355,6 +357,16 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Column1.Width = 70;
+            // 
+            // DocumentId
+            // 
+            this.DocumentId.DataPropertyName = "DocumentId";
+            this.DocumentId.FillWeight = 70F;
+            this.DocumentId.Frozen = true;
+            this.DocumentId.HeaderText = "سند";
+            this.DocumentId.Name = "DocumentId";
+            this.DocumentId.ReadOnly = true;
+            this.DocumentId.Width = 70;
             // 
             // Column3
             // 
@@ -369,11 +381,11 @@ namespace PamirAccounting.UI.Forms.Customers
             // Column2
             // 
             this.Column2.DataPropertyName = "Description";
-            this.Column2.FillWeight = 300F;
+            this.Column2.FillWeight = 250F;
             this.Column2.HeaderText = "شرح";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 300;
+            this.Column2.Width = 250;
             // 
             // Column4
             // 
@@ -500,6 +512,7 @@ namespace PamirAccounting.UI.Forms.Customers
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocumentId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;

@@ -140,6 +140,7 @@ namespace PamirAccounting.Forms.Transaction
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(140, 34);
             this.cmbCurrencies.TabIndex = 4;
+            this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             // 
             // label3
             // 

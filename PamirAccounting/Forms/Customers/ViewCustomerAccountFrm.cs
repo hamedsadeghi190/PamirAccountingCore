@@ -224,7 +224,7 @@ namespace PamirAccounting.UI.Forms.Customers
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _GroupedDataList;
 
-            _dataList.OrderBy(x => x.Id).ToList();
+            _dataList = _dataList.OrderBy(x => x.RowId).ToList();
             grdTransactions.AutoGenerateColumns = false;
             grdTransactions.DataSource = _dataList;
         }

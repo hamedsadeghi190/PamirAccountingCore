@@ -122,5 +122,12 @@ namespace PamirAccounting.Infrastructures
         {
             throw new NotImplementedException();
         }
+
+        public T FindLast(Expression<Func<T, bool>> where = null, string includes = "")
+        {
+            return  FindAll(where, includes).Last();
+        }
+
+    
     }
 }
