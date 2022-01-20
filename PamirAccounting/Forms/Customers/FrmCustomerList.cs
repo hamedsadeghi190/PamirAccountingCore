@@ -3,6 +3,7 @@ using PamirAccounting.Domains;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using PamirAccounting.UI.Forms.Customers;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -189,6 +190,18 @@ namespace PamirAccounting.Forms.Customers
             {
                 loadData();
             }
+
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            var data = new UnitOfWork().CustomerServices.GetAll();
+            var report = StiReport.CreateNewReport();
+            report.Load("Reports\\Customers.mrt");
+             report.RegData("myData", data);
+            report.Render();
+            report.Show();
+            //  report.Design();
 
         }
     }

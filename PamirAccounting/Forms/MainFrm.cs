@@ -451,8 +451,8 @@ namespace PamirAccounting.UI
         {
             var data = new UnitOfWork().BankServices.GetAll();
             var report = StiReport.CreateNewReport();
-            report.Load("Reports\\Report.mrt");
-            report.RegData("test", data);
+            report.Load("Reports\\Bank.mrt");
+            report.RegData("myData", data);
            // report.Render();
             report.Design();
 

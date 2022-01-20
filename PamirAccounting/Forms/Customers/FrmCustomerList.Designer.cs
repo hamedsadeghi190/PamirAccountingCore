@@ -31,7 +31,7 @@ namespace PamirAccounting.Forms.Customers
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomerList));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.txtphoneSearch = new System.Windows.Forms.TextBox();
             this.txtNumberSearch = new System.Windows.Forms.TextBox();
@@ -58,7 +58,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.simpleButton4);
+            this.groupBox1.Controls.Add(this.btnprint);
             this.groupBox1.Controls.Add(this.simpleButton3);
             this.groupBox1.Controls.Add(this.txtphoneSearch);
             this.groupBox1.Controls.Add(this.txtNumberSearch);
@@ -81,15 +81,16 @@ namespace PamirAccounting.Forms.Customers
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "لیست مشتریان";
             // 
-            // simpleButton4
+            // btnprint
             // 
-            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(52, 47);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton4.TabIndex = 96;
-            this.simpleButton4.Text = "چاپ";
+            this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
+            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
+            this.btnprint.Location = new System.Drawing.Point(52, 47);
+            this.btnprint.Name = "btnprint";
+            this.btnprint.Size = new System.Drawing.Size(39, 41);
+            this.btnprint.TabIndex = 96;
+            this.btnprint.Text = "چاپ";
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // simpleButton3
             // 
@@ -352,7 +353,7 @@ namespace PamirAccounting.Forms.Customers
         private System.Windows.Forms.TextBox txtNameSearch;
         private System.Windows.Forms.TextBox txtphoneSearch;
         private System.Windows.Forms.TextBox txtNumberSearch;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton btnprint;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
