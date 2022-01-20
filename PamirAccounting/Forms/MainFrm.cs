@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Forms.Currencies;
+﻿using PamirAccounting.Commons;
+using PamirAccounting.Forms.Currencies;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.Transaction;
@@ -25,6 +26,7 @@ namespace PamirAccounting.UI
         public MainFrm()
         {
             InitializeComponent();
+            AppSetting.SandoghCustomerId = 4;
         }
 
         private void BtnBanksMenuItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

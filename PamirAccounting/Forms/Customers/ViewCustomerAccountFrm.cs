@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.UI.Forms.Customers
 {
@@ -46,6 +47,10 @@ namespace PamirAccounting.UI.Forms.Customers
         {
             InitForm();
             LoadData();
+            initGrid();
+        }
+        private void initGrid()
+        {
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
             for (int i = 0; i < 12; i++)
@@ -68,8 +73,7 @@ namespace PamirAccounting.UI.Forms.Customers
             {
                 grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
             }
-            this.grdTotals.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
-
+            this.grdTotals.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
         }
 
         private void InitForm()
@@ -79,21 +83,20 @@ namespace PamirAccounting.UI.Forms.Customers
             _Actions.Add(new ComboBoxModel() { Id = 3, Title = "دریافت و پرداخت بانکی " });
             _Actions.Add(new ComboBoxModel() { Id = 4, Title = "انتقال حساب به حساب " });
 
-            cmbActions.SelectedValueChanged -= new System.EventHandler(cmbActions_SelectedValueChanged);
+            cmbActions.SelectedValueChanged -= new EventHandler(cmbActions_SelectedValueChanged);
             cmbActions.DataSource = _Actions;
             cmbActions.ValueMember = "Id";
             cmbActions.DisplayMember = "Title";
-            cmbActions.SelectedValueChanged += new System.EventHandler(cmbActions_SelectedValueChanged);
-
+            cmbActions.SelectedValueChanged += new EventHandler(cmbActions_SelectedValueChanged);
 
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
 
-            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
             cmbCurrencies.DataSource = _Currencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.SelectedValueChanged += new EventHandler(cmbCurrencies_SelectedValueChanged);
 
             if (_Id != null)
             {
@@ -115,17 +118,17 @@ namespace PamirAccounting.UI.Forms.Customers
             switch ((int)cmbActions.SelectedValue)
             {
                 case 1:
-                    var FrmBalance = new CreateNewCustomerAccount(_Id.Value);
+                    var FrmBalance = new CreateNewCustomerAccount(_Id.Value, null);
                     FrmBalance.ShowDialog();
                     LoadData();
                     break;
                 case 2:
-                    var frmCash = new PayAndReciveCashFrm(_Id.Value);
+                    var frmCash = new PayAndReciveCashFrm(_Id.Value, null);
                     frmCash.ShowDialog();
                     LoadData();
                     break;
                 case 3:
-                    var frmbank = new PayAndReciveBankFrm(_Id.Value);
+                    var frmbank = new PayAndReciveBankFrm(_Id.Value,null);
                     frmbank.ShowDialog();
                     LoadData();
                     break;
@@ -189,6 +192,8 @@ namespace PamirAccounting.UI.Forms.Customers
 
             var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
 
+            _dataList = new List<TransactionModel>();
+
             _GroupedDataList = new List<TransactionsGroupModel>();
             foreach (var currency in grouped)
             {
@@ -203,8 +208,8 @@ namespace PamirAccounting.UI.Forms.Customers
                     curenncySummery.CurrenyName = item.CurrenyName;
                     item.RemainigAmount = totalDeposit - totalWithDraw;
                     _dataList.Add(item);
-
                 }
+
                 curenncySummery.TotalDepositAmount = totalDeposit;
                 curenncySummery.TotalWithdrawAmount = totalWithDraw;
 
@@ -219,9 +224,9 @@ namespace PamirAccounting.UI.Forms.Customers
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _GroupedDataList;
 
-            _dataList = _dataList.OrderBy(x => x.Id).ToList();
+            _dataList.OrderBy(x => x.Id).ToList();
             grdTransactions.AutoGenerateColumns = false;
-            grdTransactions.DataSource = tmpDataList;
+            grdTransactions.DataSource = _dataList;
         }
 
         private void groupBoxViewAccountCustomer_Enter(object sender, EventArgs e)
@@ -231,24 +236,15 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void grdTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void cmbCurrencies_TextChanged(object sender, EventArgs e)
-        {
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
 
-            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
             cmbCurrencies.DataSource = _Currencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged -= new System.EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
+
             if ((int)cmbCurrencies.SelectedValue == 0)
             {
                 _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
@@ -258,27 +254,36 @@ namespace PamirAccounting.UI.Forms.Customers
             {
                 _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name == (cmbCurrencies.Text) && x.SourceCustomerId == _Id)
                       .Include(x => x.Curreny)
-                    .Include(x => x.User)
-                   .Select(x => new TransactionModel
-                   {
-                       Id = x.Id,
-                       Description = x.Description,
-                       DepositAmount = x.DepositAmount,
-                       WithdrawAmount = x.WithdrawAmount,
-                       Date = x.Date.ToString(),
-                       TransactionDateTime = x.TransactionDateTime.ToString(),
-                       CurrenyId = x.CurrenyId,
-                       CurrenyName = x.Curreny.Name,
-                       UserId = x.UserId,
-                       UserName = x.User.UserName,
-
-                   }).ToList();
+                      .Include(x => x.User)
+                       .Select(x => new TransactionModel
+                       {
+                           Id = x.Id,
+                           Description = x.Description,
+                           DepositAmount = x.DepositAmount,
+                           WithdrawAmount = x.WithdrawAmount,
+                           Date = x.Date.ToString(),
+                           TransactionDateTime = x.TransactionDateTime.ToString(),
+                           CurrenyId = x.CurrenyId,
+                           CurrenyName = x.Curreny.Name,
+                           UserId = x.UserId,
+                           UserName = x.User.UserName,
+                       }).ToList();
                 grdTransactions.DataSource = _dataList;
             }
             else
             {
                 LoadData();
             }
+        }
+
+        private void grdTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cmbCurrencies_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
@@ -313,11 +318,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void grdTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == grdTransactions.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
-            //{
-            //    var destForm = new ViewCustomerAccountFrm(_dataList.ElementAt(e.RowIndex).Id);
-            //    destForm.ShowDialog();
-            //}
+   
             if (e.ColumnIndex == grdTransactions.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
 
@@ -342,9 +343,29 @@ namespace PamirAccounting.UI.Forms.Customers
 
             if (e.ColumnIndex == grdTransactions.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frmCurrencies = new CustomerCreateUpdateFrm(_dataList.ElementAt(e.RowIndex).Id);
-                frmCurrencies.ShowDialog();
-                LoadData();
+                var tranaction = _dataList.ElementAt(e.RowIndex);
+   
+                switch (tranaction.TransactionType)
+                {
+                    case (int)TransaActionType.NewAccount:
+                        var FrmBalance = new CreateNewCustomerAccount(_Id.Value, tranaction.Id);
+                        FrmBalance.ShowDialog();
+                        LoadData();
+                        break;
+                    case (int)TransaActionType.PayAndReciveCash:
+                        var frmCash = new PayAndReciveCashFrm(_Id.Value, tranaction.Id);
+                        frmCash.ShowDialog();
+                        LoadData();
+                        break;
+
+                    case (int)TransaActionType.PayAndReciveBank:
+                        var frmbank = new PayAndReciveBankFrm(_Id.Value, tranaction.Id);
+                        frmbank.ShowDialog();
+                        LoadData();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 

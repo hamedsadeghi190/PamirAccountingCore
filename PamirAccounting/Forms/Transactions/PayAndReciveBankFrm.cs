@@ -12,16 +12,19 @@ namespace PamirAccounting.Forms.Transactions
     public partial class PayAndReciveBankFrm : DevExpress.XtraEditors.XtraForm
     {
         private UnitOfWork unitOfWork;
-        private int? _Id;
         private List<ComboBoxModel> _Currencies, _varizType, _RemainType, _Customers, _Banks;
+        private int? _Id;
+        private long? _TransActionId;
+        public Domains.Transaction sandoghTransAction;
+        public Domains.Transaction customerTransaction;
 
-
-        public PayAndReciveBankFrm(int Id)
+        public PayAndReciveBankFrm(int Id, long? transActionId)
         {
-            _Id = Id;
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-            LoadData();
+            _Id = Id;
+            _TransActionId = transActionId;
+           
         }
 
 
@@ -29,7 +32,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-            LoadData();
+         
         }
 
         private void LoadData()
@@ -86,7 +89,12 @@ namespace PamirAccounting.Forms.Transactions
 
         private void PayAndReciveBankFrm_Load(object sender, EventArgs e)
         {
+            LoadData();
 
+            PersianCalendar pc = new PersianCalendar();
+            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+            txtDate.Text = PDate;
+            
         }
 
 

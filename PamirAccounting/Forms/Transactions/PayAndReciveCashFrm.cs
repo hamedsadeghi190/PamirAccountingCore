@@ -1,16 +1,11 @@
-﻿using DevExpress.XtraEditors;
-using PamirAccounting.Models;
+﻿using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Transactions
 {
@@ -18,16 +13,19 @@ namespace PamirAccounting.Forms.Transactions
     {
 
         private UnitOfWork unitOfWork;
-        private int? _Id;
         private List<ComboBoxModel> _Currencies, _RemainType, _Customers;
+        private int? _Id;
+        private long? _TransActionId;
+        public Domains.Transaction sandoghTransAction;
+        public Domains.Transaction customerTransaction;
 
-        public PayAndReciveCashFrm(int Id)
+        public PayAndReciveCashFrm(int Id, long? transActionId)
         {
             InitializeComponent();
-            _Id = Id;
             unitOfWork = new UnitOfWork();
+            _Id = Id;
+            _TransActionId = transActionId;
         }
-
 
         public PayAndReciveCashFrm()
         {
@@ -63,15 +61,46 @@ namespace PamirAccounting.Forms.Transactions
         private void PayAndReciveCashFrm_Load(object sender, EventArgs e)
         {
             LoadData();
-            if (_Id != null)
+
+            if (_TransActionId.HasValue)
             {
+                cmbCustomers.SelectedValue = _Id;
+                cmbCustomers.Enabled = false;
+                loadTransActionInfo(_TransActionId);
+            }
+            else
+            {
+                PersianCalendar pc = new PersianCalendar();
+                string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+                txtDate.Text = PDate;
                 cmbCustomers.SelectedValue = _Id;
             }
         }
 
-        private void btnsavebank_Click_1(object sender, EventArgs e)
+        private void loadTransActionInfo(long? transActionId)
         {
+            customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
+            sandoghTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
 
+            if (customerTransaction.WithdrawAmount.Value != 0)
+            {
+                txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
+                cmbRemainType.SelectedValue = 1;
+            }
+            else
+            {
+                txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
+                cmbRemainType.SelectedValue = 2;
+            }
+            txtdesc.Text = customerTransaction.Description;
+            cmbCurrencies.SelectedValue = customerTransaction.CurrenyId;
+            cmbCurrencies.Enabled = false;
+            cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
+            cmbCustomers.Enabled = false;
+
+            PersianCalendar pc = new PersianCalendar();
+            string PDate = pc.GetYear(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+            txtDate.Text = PDate;
         }
 
         private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,87 +108,156 @@ namespace PamirAccounting.Forms.Transactions
 
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void btnsavebank_Click(object sender, EventArgs e)
         {
-
-            var desctAccount = unitOfWork.TransactionServices.FindLastTransaction(4, 1, (int)cmbCurrencies.SelectedValue);
-            var sAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbCustomers.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
-            Domains.Transaction SourcelastTransAction = null;
-            Domains.Transaction DestlastTransAction = null;
-
-            if (desctAccount == null)
+            if (_TransActionId.HasValue)
             {
-                createAccount(4, (int)cmbCurrencies.SelectedValue);
+                SaveEdit();
+            }
+            else
+            {
+                SaveNew();
             }
 
-            if (sAccount == null)
+
+            Close();
+        }
+
+        private void SaveNew()
+        {
+            var sandoghAccount = unitOfWork.TransactionServices.FindLastTransaction(AppSetting.SandoghCustomerId, (int)TransaActionType.NewAccount, (int)cmbCurrencies.SelectedValue);
+            var customerAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbCustomers.SelectedValue, (int)TransaActionType.NewAccount, (int)cmbCurrencies.SelectedValue);
+
+            if (sandoghAccount == null)
+            {
+                createAccount(AppSetting.SandoghCustomerId, (int)cmbCurrencies.SelectedValue);
+            }
+
+            if (customerAccount == null)
             {
                 createAccount((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
             }
 
-
-            DestlastTransAction = unitOfWork.TransactionServices.FindLastTransaction(4, (int)cmbCurrencies.SelectedValue);
-            SourcelastTransAction = unitOfWork.TransactionServices.FindLastTransaction((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
-
-            var sTransaction = new Domains.Transaction();
-            sTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
-            sTransaction.DestinitionCustomerId = 4;
-            sTransaction.TransactionType = 2;
-            sTransaction.Description = txtdesc.Text;
-
+            // trakonesh moshtari //
+            var customerTransaction = new Domains.Transaction();
+            customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+            customerTransaction.DestinitionCustomerId = AppSetting.SandoghCustomerId;
+            customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveCash;
+            customerTransaction.Description = txtdesc.Text;
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
-                sTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-                sTransaction.DepositAmount = 0;
+                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.DepositAmount = 0;
             }
             else
             {
-                sTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-                sTransaction.WithdrawAmount = 0;
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.WithdrawAmount = 0;
             }
 
-            sTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
-            sTransaction.Date = DateTime.Now;
-            sTransaction.TransactionDateTime = TransactionDateTime;
-            sTransaction.UserId = CurrentUser.UserID;
+            customerTransaction.Date = DateTime.Now;
+            customerTransaction.TransactionDateTime = TransactionDateTime;
+            customerTransaction.UserId = CurrentUser.UserID;
 
-            unitOfWork.TransactionServices.Insert(sTransaction);
+            unitOfWork.TransactionServices.Insert(customerTransaction);
+            unitOfWork.SaveChanges();
+            //end moshtari ///
 
-            var dTransaction2 = new Domains.Transaction();
+            //tarakonesh sandogh//
+            var sandoghTransAction = new Domains.Transaction();
+            sandoghTransAction.DoubleTransactionId = customerTransaction.Id;
             if ((int)cmbRemainType.SelectedValue == 1)
             {
 
 
-                dTransaction2.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-                dTransaction2.WithdrawAmount = 0;
+                sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                sandoghTransAction.WithdrawAmount = 0;
             }
             else
             {
-                dTransaction2.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-                dTransaction2.DepositAmount = 0;
+                sandoghTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                sandoghTransAction.DepositAmount = 0;
             }
 
 
-            dTransaction2.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
-            dTransaction2.SourceCustomerId = 4;
-            dTransaction2.TransactionType = 2;
-            dTransaction2.Description = txtdesc.Text;
+            sandoghTransAction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+            sandoghTransAction.SourceCustomerId = AppSetting.SandoghCustomerId;
+            sandoghTransAction.TransactionType = (int)TransaActionType.PayAndReciveCash;
+            sandoghTransAction.Description = txtdesc.Text;
 
-            dTransaction2.CurrenyId = (int)cmbCurrencies.SelectedValue;
-            var dDate2 = txtDate.Text.Split('/');
-
-            PersianCalendar p2 = new PersianCalendar();
-            var TransactionDateTime2 = p2.ToDateTime(int.Parse(dDate2[0]), int.Parse(dDate2[1]), int.Parse(dDate2[2]), 0, 0, 0, 0);
-            dTransaction2.Date = DateTime.Now;
-            dTransaction2.TransactionDateTime = TransactionDateTime;
-            dTransaction2.UserId = CurrentUser.UserID;
-                        unitOfWork.TransactionServices.Insert(dTransaction2);
+            sandoghTransAction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            sandoghTransAction.Date = DateTime.Now;
+            sandoghTransAction.TransactionDateTime = TransactionDateTime;
+            sandoghTransAction.UserId = CurrentUser.UserID;
+            unitOfWork.TransactionServices.Insert(sandoghTransAction);
             unitOfWork.SaveChanges();
-            Close();
+            // end trakonesh sandogh///
+
+            customerTransaction.DoubleTransactionId = sandoghTransAction.Id;
+            unitOfWork.TransactionServices.Update(customerTransaction);
+            unitOfWork.SaveChanges();
+        }
+
+        private void SaveEdit()
+        {
+            // trakonesh moshtari //
+            customerTransaction.Description = txtdesc.Text;
+
+            if ((int)cmbRemainType.SelectedValue == 1)
+            {
+                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.DepositAmount = 0;
+            }
+            else
+            {
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.WithdrawAmount = 0;
+            }
+
+            customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            var dDate = txtDate.Text.Split('/');
+            PersianCalendar p = new PersianCalendar();
+            var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+            customerTransaction.Date = DateTime.Now;
+            customerTransaction.TransactionDateTime = TransactionDateTime;
+            customerTransaction.UserId = CurrentUser.UserID;
+
+            unitOfWork.TransactionServices.Update(customerTransaction);
+            unitOfWork.SaveChanges();
+            //end moshtari ///
+
+            //tarakonesh sandogh//
+    
+            if ((int)cmbRemainType.SelectedValue == 1)
+            {
+                sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                sandoghTransAction.WithdrawAmount = 0;
+            }
+            else
+            {
+                sandoghTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                sandoghTransAction.DepositAmount = 0;
+            }
+
+
+            sandoghTransAction.Description = txtdesc.Text;
+            sandoghTransAction.Date = DateTime.Now;
+            sandoghTransAction.TransactionDateTime = TransactionDateTime;
+            sandoghTransAction.UserId = CurrentUser.UserID;
+            unitOfWork.TransactionServices.Update(sandoghTransAction);
+            unitOfWork.SaveChanges();
+            // end trakonesh sandogh///
+
         }
 
         private void createAccount(int SourceCustomerId, int CurrenyId)

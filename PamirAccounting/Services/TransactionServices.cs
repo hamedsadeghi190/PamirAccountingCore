@@ -73,7 +73,7 @@ namespace PamirAccounting.Services
                                      CurrenyName = x.Curreny.Name,
                                      UserId = x.UserId,
                                      UserName = x.User.UserName,
-
+                                     TransactionType = x.TransactionType,
                                  }).ToList();
                 }
 
@@ -90,6 +90,7 @@ namespace PamirAccounting.Services
                     CurrenyName = x.CurrenyName,
                     UserId = x.UserId,
                     UserName = x.UserName,
+                    TransactionType = x.TransactionType,
                     Status = (x.WithdrawAmount.Value == 0 && x.DepositAmount.Value == 0) ? "" : (x.WithdrawAmount.Value > 0) ? "بدهکار" : "طلبکار"
 
                 }).ToList();

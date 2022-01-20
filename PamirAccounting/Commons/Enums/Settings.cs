@@ -30,8 +30,19 @@ namespace PamirAccounting.Commons.Enums
             Unkown = 1,
             [Description("معلوم")]
             known = 2,
-          
+
         }
 
+        public enum TransaActionType
+        {
+            [Description("حساب جدید")]
+            NewAccount = 1,
+            [Description("واریز و برداشت نقدی")]
+            PayAndReciveCash = 2,
+            [Description("واریز و برداشت بانکی")]
+            PayAndReciveBank = 3,
+            [Description("انتقال حساب")]
+            Transfer = 4
+        }
     }
 }

@@ -224,15 +224,16 @@ namespace PamirAccounting.Forms.Transactions
             // txtAmount
             // 
             this.txtAmount.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtAmount.EditValue = "0";
             this.txtAmount.Location = new System.Drawing.Point(384, 132);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
             this.txtAmount.Properties.AutoHeight = false;
             this.txtAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtAmount.Size = new System.Drawing.Size(149, 38);
+            this.txtAmount.Size = new System.Drawing.Size(147, 38);
             this.txtAmount.TabIndex = 3;
             // 
             // cmbBanks
@@ -346,10 +347,10 @@ namespace PamirAccounting.Forms.Transactions
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
             this.btnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnClose.Location = new System.Drawing.Point(110, 24);
+            this.btnClose.Location = new System.Drawing.Point(124, 22);
             this.btnClose.Name = "btnClose";
             this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnClose.Size = new System.Drawing.Size(81, 38);
+            this.btnClose.Size = new System.Drawing.Size(110, 38);
             this.btnClose.TabIndex = 12;
             this.btnClose.Text = "بازگشت";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -361,11 +362,11 @@ namespace PamirAccounting.Forms.Transactions
             this.btnsavebank.Appearance.Options.UseFont = true;
             this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
             this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnsavebank.Location = new System.Drawing.Point(25, 23);
+            this.btnsavebank.Location = new System.Drawing.Point(7, 22);
             this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnsavebank.Name = "btnsavebank";
             this.btnsavebank.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnsavebank.Size = new System.Drawing.Size(81, 38);
+            this.btnsavebank.Size = new System.Drawing.Size(110, 38);
             this.btnsavebank.TabIndex = 11;
             this.btnsavebank.Text = "ثبت";
             this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
