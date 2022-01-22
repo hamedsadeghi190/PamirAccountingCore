@@ -76,6 +76,54 @@ namespace PamirAccounting.UI.Forms.Customers
                 grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
             }
             this.grdTotals.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+
+
+            foreach (DataGridViewRow row in grdTransactions.Rows)
+            {
+
+                int quantity;
+                if (int.TryParse(row.Cells[5].Value.ToString(), out quantity))
+                {
+                    if (quantity > 0)
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            row.Cells[i].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                        }
+                    }
+                }
+                //if (int.TryParse(row.Cells[5].Value.ToString(), out quantity))
+                //{
+                //    if (quantity > 0)
+                //    {
+                //        for (int i = 0; i < 10; i++)
+                //        {
+                //            row.Cells[i].Style.BackColor = System.Drawing.Color.LightSteelBlue;
+                //        }
+                //    }
+                //}
+            }
+
+            foreach (DataGridViewRow row in grdTotals.Rows)
+            {
+
+                int quantity1;
+                if (int.TryParse(row.Cells[1].Value.ToString(), out quantity1))
+                {
+                    if (quantity1 > 0)
+                        row.Cells[1].Style.BackColor = System.Drawing.Color.Lavender;
+
+                }
+                if (int.TryParse(row.Cells[2].Value.ToString(), out quantity1))
+                {
+                    if (quantity1 > 0)
+                        row.Cells[2].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+
+                }
+            }
+
+
+
         }
 
         private void InitForm()
@@ -130,7 +178,7 @@ namespace PamirAccounting.UI.Forms.Customers
                     LoadData();
                     break;
                 case 3:
-                    var frmbank = new PayAndReciveBankFrm(_Id.Value,null);
+                    var frmbank = new PayAndReciveBankFrm(_Id.Value, null);
                     frmbank.ShowDialog();
                     LoadData();
                     break;
@@ -238,44 +286,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
         {
-            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbCurrencies.DataSource = _Currencies;
-            cmbCurrencies.ValueMember = "Id";
-            cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-
-            if ((int)cmbCurrencies.SelectedValue == 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
-            }
-
-            if ((int)cmbCurrencies.SelectedValue > 0)
-            {
-                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name == (cmbCurrencies.Text) && x.SourceCustomerId == _Id)
-                      .Include(x => x.Curreny)
-                      .Include(x => x.User)
-                       .Select(x => new TransactionModel
-                       {
-                           Id = x.Id,
-                           Description = x.Description,
-                           DepositAmount = x.DepositAmount,
-                           WithdrawAmount = x.WithdrawAmount,
-                           Date = x.Date.ToString(),
-                           TransactionDateTime = x.TransactionDateTime.ToString(),
-                           CurrenyId = x.CurrenyId,
-                           CurrenyName = x.Curreny.Name,
-                           UserId = x.UserId,
-                           UserName = x.User.UserName,
-                       }).ToList();
-                grdTransactions.DataSource = _dataList;
-            }
-            else
-            {
-                LoadData();
-            }
+            
         }
 
         private void grdTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -283,10 +294,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         }
 
-        private void cmbCurrencies_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
@@ -320,7 +328,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void grdTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-   
+
             if (e.ColumnIndex == grdTransactions.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
 
@@ -346,7 +354,7 @@ namespace PamirAccounting.UI.Forms.Customers
             if (e.ColumnIndex == grdTransactions.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
                 var tranaction = _dataList.ElementAt(e.RowIndex);
-   
+
                 switch (tranaction.TransactionType)
                 {
                     case (int)TransaActionType.NewAccount:
@@ -383,7 +391,7 @@ namespace PamirAccounting.UI.Forms.Customers
             DateTime dt = DateTime.Now;
             string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
             var data = new UnitOfWork().TransactionServices.GetAllReport(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
-          //  var name = new UnitOfWork().TransactionServices.FindUserName(_Id.Value);
+            //  var name = new UnitOfWork().TransactionServices.FindUserName(_Id.Value);
             var basedata = new reportbaseDAta() { Date = PersianDate };
             var report = StiReport.CreateNewReport();
             report.Load(AppSetting.ReportPath + "CustomerAccount.mrt");
@@ -398,5 +406,90 @@ namespace PamirAccounting.UI.Forms.Customers
             public string CustomerName { get; set; }
             public string Date { get; set; }
         }
+
+        private void grdTransactions_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grdTransactions.Columns[e.ColumnIndex].Name == "DepositAmount")
+            {
+                grdTransactions.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.AliceBlue;
+            }
+        }
+
+        private void cmbCurrencies_TextChanged(object sender, EventArgs e)
+        {
+
+            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
+            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
+            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.DataSource = _Currencies;
+            cmbCurrencies.ValueMember = "Id";
+            cmbCurrencies.DisplayMember = "Title";
+            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
+            if ((int)cmbCurrencies.SelectedValue == 0)
+            {
+                _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
+            }
+
+            if ((int)cmbCurrencies.SelectedValue > 0)
+            {
+                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name == (cmbCurrencies.Text) && x.SourceCustomerId == _Id)
+                      .Include(x => x.Curreny)
+                      .Include(x => x.User)
+                       .Select(x => new TransactionModel
+                       {
+                           Id = x.Id,
+                           Description = x.Description,
+                           DepositAmount = x.DepositAmount,
+                           WithdrawAmount = x.WithdrawAmount,
+                           Date = x.Date.ToString(),
+                           TransactionDateTime = x.TransactionDateTime.ToString(),
+                           CurrenyId = x.CurrenyId,
+                           CurrenyName = x.Curreny.Name,
+                           UserId = x.UserId,
+                           UserName = x.User.UserName,
+                       }).ToList();
+                grdTransactions.DataSource = _dataList;
+            }
+            else
+            {
+                LoadData();
+            }
+            foreach (DataGridViewRow row in grdTransactions.Rows)
+            {
+                int quantity;
+                if (int.TryParse(row.Cells[5].Value.ToString(), out quantity))
+                {
+                    if (quantity > 0)
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            row.Cells[i].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                        }
+                    }
+                }
+            }
+            foreach (DataGridViewRow row in grdTotals.Rows)
+            {
+
+                int quantity1;
+                if (int.TryParse(row.Cells[1].Value.ToString(), out quantity1))
+                {
+                    if (quantity1 > 0)
+                        row.Cells[1].Style.BackColor = System.Drawing.Color.Lavender;
+
+                }
+                if (int.TryParse(row.Cells[2].Value.ToString(), out quantity1))
+                {
+                    if (quantity1 > 0)
+                        row.Cells[2].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+
+                }
+            }
+
+
+
+        }
+
+
     }
 }

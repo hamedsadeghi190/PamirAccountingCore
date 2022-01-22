@@ -94,7 +94,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBoxViewAccountCustomer.TabIndex = 9;
             this.groupBoxViewAccountCustomer.TabStop = false;
             this.groupBoxViewAccountCustomer.Text = "نمایش اطلاعات حساب";
-            this.groupBoxViewAccountCustomer.Enter += new System.EventHandler(this.groupBoxViewAccountCustomer_Enter);
             // 
             // groupBox2
             // 
@@ -140,7 +139,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.txtSearch.Properties.AutoHeight = false;
             this.txtSearch.Size = new System.Drawing.Size(187, 33);
             this.txtSearch.TabIndex = 113;
-            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // label4
             // 
@@ -190,7 +188,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // btnprint
             // 
             this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
-            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
             this.btnprint.Location = new System.Drawing.Point(54, 62);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(39, 41);
@@ -271,6 +269,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.TabIndex = 15;
             this.grdTransactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
+            this.grdTransactions.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellValueChanged);
             // 
             // Column1
             // 

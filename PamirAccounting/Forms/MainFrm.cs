@@ -30,8 +30,9 @@ namespace PamirAccounting.UI
         {
             InitializeComponent();
             AppSetting.SandoghCustomerId = 4;
-            AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
+            AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
         }
+       
 
         private void BtnBanksMenuItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
