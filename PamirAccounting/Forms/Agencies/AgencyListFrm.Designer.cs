@@ -33,7 +33,6 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.BtnCreateNew = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -51,7 +50,6 @@ namespace PamirAccounting.UI.Forms.Agencies
             // 
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Controls.Add(this.simpleButton4);
             this.groupBox1.Controls.Add(this.simpleButton3);
             this.groupBox1.Controls.Add(this.BtnCreateNew);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -83,16 +81,6 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.txtSearch.TabIndex = 98;
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
-            // simpleButton4
-            // 
-            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(61, 43);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton4.TabIndex = 10;
-            this.simpleButton4.Text = "چاپ";
-            // 
             // simpleButton3
             // 
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
@@ -110,7 +98,7 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.BtnCreateNew.Appearance.Options.UseFont = true;
             this.BtnCreateNew.Appearance.Options.UseForeColor = true;
             this.BtnCreateNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnCreateNew.ImageOptions.SvgImage")));
-            this.BtnCreateNew.Location = new System.Drawing.Point(105, 44);
+            this.BtnCreateNew.Location = new System.Drawing.Point(60, 43);
             this.BtnCreateNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnCreateNew.Name = "BtnCreateNew";
             this.BtnCreateNew.Size = new System.Drawing.Size(39, 41);
@@ -228,7 +216,6 @@ namespace PamirAccounting.UI.Forms.Agencies
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton BtnCreateNew;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtSearch;

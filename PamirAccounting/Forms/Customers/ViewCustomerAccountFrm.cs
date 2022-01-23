@@ -239,9 +239,7 @@ namespace PamirAccounting.UI.Forms.Customers
         {
 
             var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
-
             var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
-
             _dataList = new List<TransactionModel>();
 
             _GroupedDataList = new List<TransactionsGroupModel>();
@@ -250,7 +248,6 @@ namespace PamirAccounting.UI.Forms.Customers
                 var curenncySummery = new TransactionsGroupModel();
                 curenncySummery.Description = "جمع";
                 long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
-
                 foreach (var item in currency.OrderBy(x => x.Id).ToList())
                 {
                     totalWithDraw += item.WithdrawAmount.Value;
@@ -273,7 +270,6 @@ namespace PamirAccounting.UI.Forms.Customers
 
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _GroupedDataList;
-
             _dataList = _dataList.OrderBy(x => x.RowId).ToList();
             grdTransactions.AutoGenerateColumns = false;
             grdTransactions.DataSource = _dataList;
@@ -387,12 +383,14 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void btnprint_Click(object sender, EventArgs e)
         {
+            _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+            var name = _Customer.FirstName + " " + _Customer.LastName;
             PersianCalendar pc = new PersianCalendar();
             DateTime dt = DateTime.Now;
             string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
             var data = new UnitOfWork().TransactionServices.GetAllReport(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             //  var name = new UnitOfWork().TransactionServices.FindUserName(_Id.Value);
-            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var basedata = new reportbaseDAta() { Date = PersianDate ,CustomerName=name};
             var report = StiReport.CreateNewReport();
             report.Load(AppSetting.ReportPath + "CustomerAccount.mrt");
             report.RegData("myData", data);
@@ -490,6 +488,53 @@ namespace PamirAccounting.UI.Forms.Customers
 
         }
 
+        private void btnprintResid_Click(object sender, EventArgs e)
+        {
 
+            {
+
+                var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+                var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
+                _dataList = new List<TransactionModel>();
+                _GroupedDataList = new List<TransactionsGroupModel>();
+                foreach (var currency in grouped)
+                {
+                    var curenncySummery = new TransactionsGroupModel();
+                    curenncySummery.Description = "جمع";
+                    long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
+                    foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                    {
+                        totalWithDraw += item.WithdrawAmount.Value;
+                        totalDeposit += item.DepositAmount.Value;
+                        curenncySummery.CurrenyName = item.CurrenyName;
+                        item.RemainigAmount = totalDeposit - totalWithDraw;
+                        _dataList.Add(item);
+                    }
+                    curenncySummery.TotalDepositAmount = totalDeposit;
+                    curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                    remaining = totalDeposit - totalWithDraw;
+                    curenncySummery.RemainigAmount = remaining;
+                    curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
+                    _GroupedDataList.Add(curenncySummery);
+                }
+             
+          
+
+                _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+                var name = _Customer.FirstName + " " + _Customer.LastName;
+                PersianCalendar pc = new PersianCalendar();
+                DateTime dt = DateTime.Now;
+                string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                var data = _GroupedDataList;
+                var basedata = new reportbaseDAta() { Date = PersianDate,CustomerName=name };
+                var report = StiReport.CreateNewReport();
+                report.Load(AppSetting.ReportPath + "RemainigAmount.mrt");
+                report.RegData("myData", data);
+                report.RegData("basedata", basedata);
+                //report.Design();
+                report.Render();
+                report.Show();
+            }
+        }
     }
 }

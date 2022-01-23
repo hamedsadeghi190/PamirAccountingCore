@@ -41,11 +41,10 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.BtnCreateNew = new DevExpress.XtraEditors.SimpleButton();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -162,7 +161,6 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             // 
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.simpleButton4);
             this.groupBox1.Controls.Add(this.simpleButton3);
             this.groupBox1.Controls.Add(this.BtnCreateNew);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -172,6 +170,15 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "مدیریت عملیات رمز ارز نمایندگی";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(764, 59);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(300, 33);
+            this.txtSearch.TabIndex = 103;
+            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // label7
             // 
@@ -183,16 +190,6 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.label7.Size = new System.Drawing.Size(55, 26);
             this.label7.TabIndex = 102;
             this.label7.Text = "جستجو";
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(56, 56);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton4.TabIndex = 101;
-            this.simpleButton4.Text = "چاپ";
             // 
             // simpleButton3
             // 
@@ -211,21 +208,12 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.BtnCreateNew.Appearance.Options.UseFont = true;
             this.BtnCreateNew.Appearance.Options.UseForeColor = true;
             this.BtnCreateNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnCreateNew.ImageOptions.SvgImage")));
-            this.BtnCreateNew.Location = new System.Drawing.Point(101, 56);
+            this.BtnCreateNew.Location = new System.Drawing.Point(53, 56);
             this.BtnCreateNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnCreateNew.Name = "BtnCreateNew";
             this.BtnCreateNew.Size = new System.Drawing.Size(39, 41);
             this.BtnCreateNew.TabIndex = 4;
             this.BtnCreateNew.Click += new System.EventHandler(this.BtnCreateNew_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(764, 59);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(300, 33);
-            this.txtSearch.TabIndex = 103;
-            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // FrmCurrencyAgenciesList
             // 
@@ -265,7 +253,6 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
         private System.Windows.Forms.Label label7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.TextBox txtSearch;
     }

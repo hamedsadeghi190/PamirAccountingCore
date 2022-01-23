@@ -37,7 +37,6 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.txtsearch = new System.Windows.Forms.TextBox();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.label7 = new System.Windows.Forms.Label();
             this.CreateNewCurrencyBtn = new DevExpress.XtraEditors.SimpleButton();
@@ -109,7 +108,6 @@ namespace PamirAccounting.UI.Forms.Currencies
             // 
             this.groupBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBoxSearch.Controls.Add(this.txtsearch);
-            this.groupBoxSearch.Controls.Add(this.simpleButton4);
             this.groupBoxSearch.Controls.Add(this.simpleButton3);
             this.groupBoxSearch.Controls.Add(this.label7);
             this.groupBoxSearch.Controls.Add(this.CreateNewCurrencyBtn);
@@ -132,16 +130,6 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.txtsearch.Size = new System.Drawing.Size(300, 33);
             this.txtsearch.TabIndex = 108;
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(52, 44);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton4.TabIndex = 107;
-            this.simpleButton4.Text = "چاپ";
             // 
             // simpleButton3
             // 
@@ -171,7 +159,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.CreateNewCurrencyBtn.Appearance.Options.UseFont = true;
             this.CreateNewCurrencyBtn.Appearance.Options.UseForeColor = true;
             this.CreateNewCurrencyBtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("CreateNewCurrencyBtn.ImageOptions.SvgImage")));
-            this.CreateNewCurrencyBtn.Location = new System.Drawing.Point(96, 44);
+            this.CreateNewCurrencyBtn.Location = new System.Drawing.Point(50, 44);
             this.CreateNewCurrencyBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CreateNewCurrencyBtn.Name = "CreateNewCurrencyBtn";
             this.CreateNewCurrencyBtn.Size = new System.Drawing.Size(39, 41);
@@ -207,7 +195,6 @@ namespace PamirAccounting.UI.Forms.Currencies
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
         private System.Windows.Forms.GroupBox groupBoxSearch;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.Label label7;
         private DevExpress.XtraEditors.SimpleButton CreateNewCurrencyBtn;

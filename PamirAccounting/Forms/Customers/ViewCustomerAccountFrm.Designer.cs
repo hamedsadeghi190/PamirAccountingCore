@@ -42,7 +42,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnsearchdate = new DevExpress.XtraEditors.SimpleButton();
             this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnprintResid = new DevExpress.XtraEditors.SimpleButton();
             this.CreatBankBtn = new DevExpress.XtraEditors.SimpleButton();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.grdTransactions = new System.Windows.Forms.DataGridView();
@@ -82,7 +82,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBoxViewAccountCustomer.Controls.Add(this.groupBox1);
             this.groupBoxViewAccountCustomer.Controls.Add(this.btnprint);
             this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton5);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton3);
+            this.groupBoxViewAccountCustomer.Controls.Add(this.btnprintResid);
             this.groupBoxViewAccountCustomer.Controls.Add(this.CreatBankBtn);
             this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(4, 13);
@@ -205,19 +205,20 @@ namespace PamirAccounting.UI.Forms.Customers
             this.simpleButton5.TabIndex = 111;
             this.simpleButton5.Text = "راهنما";
             // 
-            // simpleButton3
+            // btnprintResid
             // 
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(218, 62);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(90, 41);
-            this.simpleButton3.TabIndex = 104;
-            this.simpleButton3.Text = "رسید";
+            this.btnprintResid.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnprintResid.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.btnprintResid.Appearance.Options.UseFont = true;
+            this.btnprintResid.Appearance.Options.UseForeColor = true;
+            this.btnprintResid.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.btnprintResid.Location = new System.Drawing.Point(218, 62);
+            this.btnprintResid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnprintResid.Name = "btnprintResid";
+            this.btnprintResid.Size = new System.Drawing.Size(90, 41);
+            this.btnprintResid.TabIndex = 104;
+            this.btnprintResid.Text = "رسید";
+            this.btnprintResid.Click += new System.EventHandler(this.btnprintResid_Click);
             // 
             // CreatBankBtn
             // 
@@ -491,7 +492,7 @@ namespace PamirAccounting.UI.Forms.Customers
         #endregion
         private System.Windows.Forms.GroupBox groupBoxViewAccountCustomer;
         private DevExpress.XtraEditors.SimpleButton btnsearchdate;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton btnprintResid;
         private DevExpress.XtraEditors.SimpleButton CreatBankBtn;
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
         private System.Windows.Forms.DataGridView grdTransactions;

@@ -32,7 +32,6 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactsListFrm));
             this.groupBoxContacts = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.CreateContactsBtn = new DevExpress.XtraEditors.SimpleButton();
@@ -52,7 +51,6 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
             // 
             this.groupBoxContacts.BackColor = System.Drawing.Color.Lavender;
             this.groupBoxContacts.Controls.Add(this.label7);
-            this.groupBoxContacts.Controls.Add(this.simpleButton4);
             this.groupBoxContacts.Controls.Add(this.simpleButton3);
             this.groupBoxContacts.Controls.Add(this.txtsearch);
             this.groupBoxContacts.Controls.Add(this.CreateContactsBtn);
@@ -76,16 +74,6 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
             this.label7.Size = new System.Drawing.Size(55, 26);
             this.label7.TabIndex = 97;
             this.label7.Text = "جستجو";
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(65, 37);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton4.TabIndex = 8;
-            this.simpleButton4.Text = "چاپ";
             // 
             // simpleButton3
             // 
@@ -111,7 +99,7 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
             this.CreateContactsBtn.Appearance.Options.UseFont = true;
             this.CreateContactsBtn.Appearance.Options.UseForeColor = true;
             this.CreateContactsBtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("CreateContactsBtn.ImageOptions.SvgImage")));
-            this.CreateContactsBtn.Location = new System.Drawing.Point(109, 37);
+            this.CreateContactsBtn.Location = new System.Drawing.Point(61, 37);
             this.CreateContactsBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CreateContactsBtn.Name = "CreateContactsBtn";
             this.CreateContactsBtn.Size = new System.Drawing.Size(39, 41);
@@ -244,7 +232,6 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
         private System.Windows.Forms.TextBox txtsearch;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private System.Windows.Forms.Label label7;
     }
 }
