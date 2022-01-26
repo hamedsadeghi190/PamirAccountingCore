@@ -188,14 +188,17 @@ namespace PamirAccounting.Services
         {
             try
             {
+                
                 var dataList = new List<TransactionModel>();
                 if (currencyId == null)
                 {
+                    
                     dataList = FindAllReadonly(x => x.SourceCustomerId == userId)
                     .Include(x => x.Curreny)
                     .Include(x => x.User)
                    .Select(x => new TransactionModel
                    {
+                
                        Id = x.Id,
                        Description = x.Description,
                        DepositAmount = x.DepositAmount,
@@ -231,9 +234,10 @@ namespace PamirAccounting.Services
                                      TransactionType = x.TransactionType,
                                  }).ToList();
                 }
-
+                int row = 1;
                 dataList = dataList.Select(x => new TransactionModel
                 {
+                    RowId = row++,
                     Id = x.Id,
                     Description = x.Description,
                     DepositAmount = x.DepositAmount,

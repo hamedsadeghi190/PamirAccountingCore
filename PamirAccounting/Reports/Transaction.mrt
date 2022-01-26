@@ -6,60 +6,49 @@
     <DataSources isList="true" count="2">
       <myData Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObjectSource" isKey="true">
         <Alias>myData</Alias>
-        <Columns isList="true" count="35">
+        <Columns isList="true" count="22">
           <value>Id,System.Int32</value>
-          <value>FirstName,System.String</value>
-          <value>LastName,System.String</value>
-          <value>FullName,System.String</value>
-          <value>NationalCode,System.String</value>
-          <value>Phone,System.String</value>
-          <value>Mobile,System.String</value>
-          <value>Address,System.String</value>
-          <value>GroupName,System.String</value>
-          <value>GroupId,System.Int32</value>
-          <value>CreditLimit,System.Int32</value>
-          <value>Dsc,System.String</value>
-          <value>CreditCurrencyId,System.Int32</value>
-          <value>CountryId,System.Int32</value>
-          <value>BankId,System.Int32</value>
-          <value>IsDeleted,System.Boolean</value>
-          <value>Date,System.String</value>
-          <value>Radif,System.Int32</value>
+          <value>TotalWithdrawAmount,System.Int64</value>
+          <value>TotalDepositAmount,System.Int64</value>
+          <value>RemainigAmount,System.Int64</value>
+          <value>Description,System.String</value>
+          <value>CurrenyName,System.String</value>
+          <value>Status,System.String</value>
           <value>_ID,System.Int32</value>
           <value>_Current,System.Object</value>
+          <value>RowId,System.Int64</value>
           <value>SourceCustomerId,System.Int32</value>
+          <value>DocumentId,System.Int64</value>
           <value>TransactionType,System.Int32</value>
           <value>TransactionTypeName,System.String</value>
           <value>TransactionDateTime,System.String</value>
+          <value>Date,System.String</value>
           <value>WithdrawAmount,System.Int64</value>
           <value>DepositAmount,System.Int64</value>
-          <value>RemainigAmount,System.Int64</value>
-          <value>Description,System.String</value>
           <value>CurrenyId,System.Int32</value>
-          <value>CurrenyName,System.String</value>
           <value>UserId,System.Int32</value>
           <value>UserName,System.String</value>
-          <value>Status,System.String</value>
-          <value>RowId,System.Int64</value>
-          <value>DocumentId,System.Int64</value>
+          <value>FullName,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>68e149a9c409411b8a3b056a6eca6c88</Key>
+        <Key>a1f9f0bdd49c49ef90d5e5f848d0fe1e</Key>
         <Name>myData</Name>
         <NameInSource>myData</NameInSource>
       </myData>
       <basedata Ref="3" type="Stimulsoft.Report.Dictionary.StiBusinessObjectSource" isKey="true">
         <Alias>basedata</Alias>
-        <Columns isList="true" count="6">
+        <Columns isList="true" count="8">
+          <value>CustomerName,System.String</value>
           <value>Date,System.String</value>
           <value>_ID,System.Int32</value>
           <value>_Current,System.Object</value>
-          <value>CustomerName,System.String</value>
+          <value>Deposit,System.String</value>
+          <value>Withdraw,System.String</value>
           <value>Price,System.String</value>
           <value>Status,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Key>7fa27a0c99e146dc923c4964fe7fd4d5</Key>
+        <Key>f260105b29e44be0bcb221dcbdb826a0</Key>
         <Name>basedata</Name>
         <NameInSource>basedata</NameInSource>
       </basedata>
@@ -71,123 +60,18 @@
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
   <GlobalizationStrings isList="true" count="0" />
-  <Key>38eebb8a39d74b96acc114a4399a5992</Key>
+  <Key>53ea76c5bbf24bd8ba8934855ae96692</Key>
   <MetaTags isList="true" count="0" />
   <Pages isList="true" count="1">
     <Page1 Ref="4" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="9">
-        <TableCell1 Ref="5" type="TableCell" isKey="true">
-          <Border>All;Black;2;Solid;False;2;Black</Border>
-          <Brush>White</Brush>
-          <ClientRectangle>9.3,9.8,2.1,0.3</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Enabled>False</Enabled>
-          <Expressions isList="true" count="0" />
-          <Font>B Nazanin,12,Bold</Font>
-          <HorAlignment>Center</HorAlignment>
-          <ID>0</ID>
-          <JoinCells isList="true" count="0" />
-          <Margins>0,0,0,0</Margins>
-          <Name>TableCell1</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
-          <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-          <Text>{myData.Address}</Text>
-          <TextBrush>Black</TextBrush>
-          <Type>Expression</Type>
-          <VertAlignment>Center</VertAlignment>
-        </TableCell1>
-        <TableCell2 Ref="6" type="TableCell" isKey="true">
-          <Border>All;Black;2;Solid;False;2;Black</Border>
-          <Brush>White</Brush>
-          <ClientRectangle>11.4,9.8,1.4,0.3</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Enabled>False</Enabled>
-          <Expressions isList="true" count="0" />
-          <Font>B Nazanin,12,Bold</Font>
-          <HorAlignment>Center</HorAlignment>
-          <ID>1</ID>
-          <JoinCells isList="true" count="0" />
-          <Margins>0,0,0,0</Margins>
-          <Name>TableCell2</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
-          <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-          <Text>{myData.Mobile}</Text>
-          <TextBrush>Black</TextBrush>
-          <Type>DataColumn</Type>
-          <VertAlignment>Center</VertAlignment>
-        </TableCell2>
-        <TableCell3 Ref="7" type="TableCell" isKey="true">
-          <Border>All;Black;2;Solid;False;2;Black</Border>
-          <Brush>White</Brush>
-          <ClientRectangle>12.8,9.8,1.4,0.3</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Enabled>False</Enabled>
-          <Expressions isList="true" count="0" />
-          <Font>B Nazanin,12,Bold</Font>
-          <HorAlignment>Center</HorAlignment>
-          <ID>2</ID>
-          <JoinCells isList="true" count="0" />
-          <Margins>0,0,0,0</Margins>
-          <Name>TableCell3</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
-          <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-          <Text>{myData.Phone}</Text>
-          <TextBrush>Black</TextBrush>
-          <Type>DataColumn</Type>
-          <VertAlignment>Center</VertAlignment>
-        </TableCell3>
-        <TableCell4 Ref="8" type="TableCell" isKey="true">
-          <Border>All;Black;2;Solid;False;2;Black</Border>
-          <Brush>White</Brush>
-          <ClientRectangle>14.2,9.8,1.8,0.3</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Enabled>False</Enabled>
-          <Expressions isList="true" count="0" />
-          <Font>B Nazanin,12,Bold</Font>
-          <HorAlignment>Center</HorAlignment>
-          <ID>3</ID>
-          <JoinCells isList="true" count="0" />
-          <Margins>0,0,0,0</Margins>
-          <Name>TableCell4</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
-          <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-          <Text>{myData.FullName}</Text>
-          <TextBrush>Black</TextBrush>
-          <Type>DataColumn</Type>
-          <VertAlignment>Center</VertAlignment>
-        </TableCell4>
-        <TableCell5 Ref="9" type="TableCell" isKey="true">
-          <Border>All;Black;2;Solid;False;2;Black</Border>
-          <Brush>White</Brush>
-          <ClientRectangle>16,9.8,1.02,0.3</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Enabled>False</Enabled>
-          <Expressions isList="true" count="0" />
-          <Font>B Nazanin,12,Bold</Font>
-          <HorAlignment>Center</HorAlignment>
-          <ID>4</ID>
-          <JoinCells isList="true" count="0" />
-          <Margins>0,0,0,0</Margins>
-          <Name>TableCell5</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
-          <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-          <Text>{myData.Radif}</Text>
-          <TextBrush>Black</TextBrush>
-          <Type>DataColumn</Type>
-          <VertAlignment>Center</VertAlignment>
-        </TableCell5>
-        <ReportTitleBand1 Ref="10" type="ReportTitleBand" isKey="true">
+      <Components isList="true" count="2">
+        <ReportTitleBand1 Ref="5" type="ReportTitleBand" isKey="true">
           <Brush>[219:229:241]</Brush>
           <ClientRectangle>0,0.2,7.72,1</ClientRectangle>
           <Components isList="true" count="4">
-            <Image1 Ref="11" type="Image" isKey="true">
+            <Image1 Ref="6" type="Image" isKey="true">
               <Border>None;[219:229:241];1;Solid;False;4;Black</Border>
               <Brush>[219:229:241]</Brush>
               <ClientRectangle>6.6,0,1.2,1</ClientRectangle>
@@ -378,12 +262,12 @@ jET/2Q==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Image1</Name>
               <Page isRef="4" />
-              <Parent isRef="10" />
+              <Parent isRef="5" />
               <VertAlignment>Center</VertAlignment>
             </Image1>
-            <Text1 Ref="12" type="Text" isKey="true">
+            <Text1 Ref="7" type="Text" isKey="true">
               <Brush>[219:229:241]</Brush>
-              <ClientRectangle>2.4,0.3,2.9,0.5</ClientRectangle>
+              <ClientRectangle>2.6,0.2,2.9,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>B Nazanin,21,Bold</Font>
@@ -391,14 +275,14 @@ jET/2Q==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
               <Page isRef="4" />
-              <Parent isRef="10" />
+              <Parent isRef="5" />
               <Text>نرم افزار صرافی پامیر</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </Text1>
-            <Text8 Ref="13" type="Text" isKey="true">
+            <Text8 Ref="8" type="Text" isKey="true">
               <Brush>[219:229:241]</Brush>
-              <ClientRectangle>0.7,0.1,0.3,0.2</ClientRectangle>
+              <ClientRectangle>0.8,0,0.3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
@@ -406,16 +290,16 @@ jET/2Q==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
               <Page isRef="4" />
-              <Parent isRef="10" />
+              <Parent isRef="5" />
               <Text>تاریخ</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text8>
-            <Text7 Ref="14" type="Text" isKey="true">
+            <Text7 Ref="9" type="Text" isKey="true">
               <Border>None;[219:229:241];1;Solid;False;4;Black</Border>
               <Brush>[219:229:241]</Brush>
-              <ClientRectangle>0,0.1,0.7,0.2</ClientRectangle>
+              <ClientRectangle>0.1,0,0.7,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>B Nazanin,11,Bold</Font>
@@ -423,10 +307,10 @@ jET/2Q==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
               <Page isRef="4" />
-              <Parent isRef="10" />
+              <Parent isRef="5" />
               <Text>{basedata.Date}</Text>
               <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
           </Components>
@@ -436,44 +320,124 @@ jET/2Q==</ImageBytes>
           <Page isRef="4" />
           <Parent isRef="4" />
         </ReportTitleBand1>
-        <ReportTitleBand2 Ref="15" type="ReportTitleBand" isKey="true">
+        <ReportTitleBand2 Ref="10" type="ReportTitleBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,1.6,7.72,1</ClientRectangle>
-          <Components isList="true" count="2">
-            <Text2 Ref="16" type="Text" isKey="true">
-              <Border>None;[255:255:255];1;Solid;False;4;Black</Border>
+          <ClientRectangle>0,1.6,7.72,3.2</ClientRectangle>
+          <Components isList="true" count="7">
+            <Text2 Ref="11" type="Text" isKey="true">
               <Brush>[255:255:255]</Brush>
-              <ClientRectangle>4.2,0.5,1.2,0.4</ClientRectangle>
+              <ClientRectangle>0.1,0.5,7.5,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,17,Bold</Font>
+              <Font>B Nazanin,13,Bold</Font>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="4" />
-              <Parent isRef="15" />
-              <Text> صورت حساب</Text>
+              <Parent isRef="10" />
+              <Text>تایید می گردد  {basedata.CustomerName} مبلغ {basedata.Price} {myData.CurrenyName} {basedata.Status}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text2>
-            <Text5 Ref="17" type="Text" isKey="true">
-              <Border>None;[255:255:255];1;Solid;False;4;Black</Border>
+            <Text10 Ref="12" type="Text" isKey="true">
               <Brush>[255:255:255]</Brush>
-              <ClientRectangle>1.5,0.5,2.7,0.4</ClientRectangle>
+              <ClientRectangle>0.1,0.9,7.5,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,17,Bold</Font>
+              <Font>B Nazanin,13,Bold</Font>
               <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4" />
+              <Parent isRef="10" />
+              <Text> به شرح : {myData.Description}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text3 Ref="13" type="Text" isKey="true">
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>1,2.7,0.3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4" />
+              <Parent isRef="10" />
+              <Text>تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text4 Ref="14" type="Text" isKey="true">
+              <Border>None;[219:229:241];1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>0.3,2.7,0.7,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4" />
+              <Parent isRef="10" />
+              <Text>{basedata.Date}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="15" type="Text" isKey="true">
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>1,2.7,0.3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
               <Page isRef="4" />
-              <Parent isRef="15" />
-              <Text>{basedata.CustomerName}</Text>
+              <Parent isRef="10" />
+              <Text>تاریخ</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
+            <Text6 Ref="16" type="Text" isKey="true">
+              <Border>None;[219:229:241];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>0.3,2.7,0.7,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4" />
+              <Parent isRef="10" />
+              <Text>{basedata.Date}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text9 Ref="17" type="Text" isKey="true">
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>1.7,2.7,0.3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4" />
+              <Parent isRef="10" />
+              <Text>امضا</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
           </Components>
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
@@ -481,299 +445,10 @@ jET/2Q==</ImageBytes>
           <Page isRef="4" />
           <Parent isRef="4" />
         </ReportTitleBand2>
-        <ReportTitleBand3 Ref="18" type="ReportTitleBand" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>0,3,7.72,0.3</ClientRectangle>
-          <Components isList="true" count="7">
-            <Text10 Ref="19" type="Text" isKey="true">
-              <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>6.5,0,0.72,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text10</Name>
-              <Page isRef="4" />
-              <Parent isRef="18" />
-              <Text>تاریخ</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text10>
-            <Text11 Ref="20" type="Text" isKey="true">
-              <Border>All;Black;2;Solid;False;2;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>5.5,0,1,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text11</Name>
-              <Page isRef="4" />
-              <Parent isRef="18" />
-              <Text>بدهکار</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text11>
-            <Text12 Ref="21" type="Text" isKey="true">
-              <Border>All;Black;2;Solid;False;2;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>4.4,0,1.1,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text12</Name>
-              <Page isRef="4" />
-              <Parent isRef="18" />
-              <Text>طلبکار </Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text12>
-            <Text13 Ref="22" type="Text" isKey="true">
-              <Border>All;Black;2;Solid;False;2;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>3.9,0,0.5,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text13</Name>
-              <Page isRef="4" />
-              <Parent isRef="18" />
-              <Text>ارز</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text13>
-            <Text3 Ref="23" type="Text" isKey="true">
-              <Border>All;Black;2;Solid;False;2;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>3,0,0.9,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text3</Name>
-              <Page isRef="4" />
-              <Parent isRef="18" />
-              <Text>باقیمانده</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text3>
-            <Text4 Ref="24" type="Text" isKey="true">
-              <Border>All;Black;2;Solid;False;2;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,3,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text4</Name>
-              <Page isRef="4" />
-              <Parent isRef="18" />
-              <Text>شرح</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text4>
-            <Text6 Ref="25" type="Text" isKey="true">
-              <Border>All;Black;2;Solid;False;2;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>7.2,0,0.52,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text6</Name>
-              <Page isRef="4" />
-              <Parent isRef="18" />
-              <Text>ردیف</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text6>
-          </Components>
-          <Conditions isList="true" count="0" />
-          <Expressions isList="true" count="0" />
-          <Name>ReportTitleBand3</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
-        </ReportTitleBand3>
-        <Table1 Ref="26" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
-          <Brush>Transparent</Brush>
-          <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,3.7,7.72,0.4</ClientRectangle>
-          <ColumnCount>7</ColumnCount>
-          <Components isList="true" count="7">
-            <Table1_Cell1 Ref="27" type="TableCell" isKey="true">
-              <Border>All;Black;2;Solid;False;4;Black</Border>
-              <Brush>White</Brush>
-              <ClientRectangle>0,0,3,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <ID>25</ID>
-              <JoinCells isList="true" count="0" />
-              <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell1</Name>
-              <Page isRef="4" />
-              <Parent isRef="26" />
-              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.Description}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Table1_Cell1>
-            <Table1_Cell2 Ref="28" type="TableCell" isKey="true">
-              <Border>All;Black;2;Solid;False;4;Black</Border>
-              <Brush>White</Brush>
-              <ClientRectangle>3,0,0.9,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <ID>0</ID>
-              <JoinCells isList="true" count="0" />
-              <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell2</Name>
-              <Page isRef="4" />
-              <Parent isRef="26" />
-              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.RemainigAmount}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Table1_Cell2>
-            <Table1_Cell3 Ref="29" type="TableCell" isKey="true">
-              <Border>All;Black;2;Solid;False;4;Black</Border>
-              <Brush>White</Brush>
-              <ClientRectangle>3.9,0,0.5,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <ID>1</ID>
-              <JoinCells isList="true" count="0" />
-              <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell3</Name>
-              <Page isRef="4" />
-              <Parent isRef="26" />
-              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.CurrenyName}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Table1_Cell3>
-            <Table1_Cell4 Ref="30" type="TableCell" isKey="true">
-              <Border>All;Black;2;Solid;False;4;Black</Border>
-              <Brush>White</Brush>
-              <ClientRectangle>4.4,0,1.1,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <ID>2</ID>
-              <JoinCells isList="true" count="0" />
-              <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell4</Name>
-              <Page isRef="4" />
-              <Parent isRef="26" />
-              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.DepositAmount}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Table1_Cell4>
-            <Table1_Cell5 Ref="31" type="TableCell" isKey="true">
-              <Border>All;Black;2;Solid;False;4;Black</Border>
-              <Brush>White</Brush>
-              <ClientRectangle>5.5,0,1,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <ID>3</ID>
-              <JoinCells isList="true" count="0" />
-              <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell5</Name>
-              <Page isRef="4" />
-              <Parent isRef="26" />
-              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.WithdrawAmount}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Table1_Cell5>
-            <Table1_Cell6 Ref="32" type="TableCell" isKey="true">
-              <Border>All;Black;2;Solid;False;4;Black</Border>
-              <Brush>White</Brush>
-              <ClientRectangle>6.5,0,0.7,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <ID>4</ID>
-              <JoinCells isList="true" count="0" />
-              <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell6</Name>
-              <Page isRef="4" />
-              <Parent isRef="26" />
-              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.TransactionDateTime}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Table1_Cell6>
-            <Table1_Cell7 Ref="33" type="TableCell" isKey="true">
-              <Border>All;Black;2;Solid;False;4;Black</Border>
-              <Brush>White</Brush>
-              <ClientRectangle>7.2,0,0.52,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <ID>30</ID>
-              <JoinCells isList="true" count="0" />
-              <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell7</Name>
-              <Page isRef="4" />
-              <Parent isRef="26" />
-              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.RowId}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Table1_Cell7>
-          </Components>
-          <Conditions isList="true" count="0" />
-          <DataRelationName isNull="true" />
-          <DataSourceName>myData</DataSourceName>
-          <Expressions isList="true" count="0" />
-          <Filters isList="true" count="0" />
-          <Name>Table1</Name>
-          <NumberID>31</NumberID>
-          <Page isRef="4" />
-          <Parent isRef="4" />
-          <RowCount>1</RowCount>
-          <Sort isList="true" count="0" />
-        </Table1>
       </Components>
       <Conditions isList="true" count="0" />
       <Expressions isList="true" count="0" />
-      <Guid>82a8a404dee648d68fff7b0a0e377900</Guid>
+      <Guid>1e5e67e347c64177986258f7889ba68b</Guid>
       <Margins>0.39,0.39,0.39,0.39</Margins>
       <Name>Page1</Name>
       <PageHeight>11</PageHeight>
@@ -793,10 +468,10 @@ jET/2Q==</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/25/2022 6:20:58 PM</ReportChanged>
-  <ReportCreated>1/20/2022 1:49:09 PM</ReportCreated>
-  <ReportFile>D:\PamirAccountingCore\PamirAccounting\Reports\CustomerAccount.mrt</ReportFile>
-  <ReportGuid>e73d889ce94b49d7997cb0e8d3ea000e</ReportGuid>
+  <ReportChanged>1/25/2022 6:02:56 PM</ReportChanged>
+  <ReportCreated>1/23/2022 12:40:14 PM</ReportCreated>
+  <ReportFile>D:\PamirAccountingCore\PamirAccounting\Reports\Transaction.mrt</ReportFile>
+  <ReportGuid>66d227ac72474a88a5faacf1f06d11b8</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2022.1.4.0</ReportVersion>

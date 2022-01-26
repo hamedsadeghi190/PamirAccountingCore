@@ -4,6 +4,7 @@ using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -27,7 +28,22 @@ namespace PamirAccounting.Forms.Transactions
         }
         private void editUnkownDepositFrm_Load(object sender, EventArgs e)
         {
-            transaction = unitOfWork.Transactions.FindAll(x => x.Id == Id).Include(x => x.SourceCustomer).FirstOrDefault();
+            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
+            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            for (int i = 0; i < 5; i++)
+            {
+                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
+            }
+            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
+            c.FlatStyle = FlatStyle.Standard;
+            c.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            c.DefaultCellStyle.BackColor = Color.Lavender;
+            DataGridViewButtonColumn d = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowDelete"];
+            d.FlatStyle = FlatStyle.Standard;
+            d.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            d.DefaultCellStyle.BackColor = Color.Lavender;
+          
             if (transaction == null)
             {
                 Close();

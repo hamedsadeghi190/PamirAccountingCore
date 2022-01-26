@@ -34,6 +34,25 @@ namespace PamirAccounting.Forms.Transactions
         private void UnkwonDepositFrm_Load(object sender, EventArgs e)
         {
             LoadData();
+            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
+            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            for (int i = 0; i < 11; i++)
+            {
+                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
+            }
+            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
+            c.FlatStyle = FlatStyle.Standard;
+            c.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            c.DefaultCellStyle.BackColor = Color.Lavender;
+            DataGridViewButtonColumn d = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowDelete"];
+            d.FlatStyle = FlatStyle.Standard;
+            d.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            d.DefaultCellStyle.BackColor = Color.Lavender;
+            DataGridViewButtonColumn f= (DataGridViewButtonColumn)dataGridView1.Columns["btnAction"];
+            f.FlatStyle = FlatStyle.Standard;
+            f.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            f.DefaultCellStyle.BackColor = Color.Lavender;
         }
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
@@ -77,5 +96,9 @@ namespace PamirAccounting.Forms.Transactions
             }
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

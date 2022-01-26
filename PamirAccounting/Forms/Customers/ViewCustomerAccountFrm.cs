@@ -241,7 +241,6 @@ namespace PamirAccounting.UI.Forms.Customers
             var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
             _dataList = new List<TransactionModel>();
-
             _GroupedDataList = new List<TransactionsGroupModel>();
             foreach (var currency in grouped)
             {
@@ -256,18 +255,14 @@ namespace PamirAccounting.UI.Forms.Customers
                     item.RemainigAmount = totalDeposit - totalWithDraw;
                     _dataList.Add(item);
                 }
-
                 curenncySummery.TotalDepositAmount = totalDeposit;
                 curenncySummery.TotalWithdrawAmount = totalWithDraw;
-
                 remaining = totalDeposit - totalWithDraw;
-
                 curenncySummery.RemainigAmount = remaining;
                 curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
                 _GroupedDataList.Add(curenncySummery);
 
             }
-
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _GroupedDataList;
             _dataList = _dataList.OrderBy(x => x.RowId).ToList();
@@ -282,7 +277,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void grdTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -290,7 +285,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         }
 
-      
+
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
@@ -390,7 +385,7 @@ namespace PamirAccounting.UI.Forms.Customers
             string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
             var data = new UnitOfWork().TransactionServices.GetAllReport(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             //  var name = new UnitOfWork().TransactionServices.FindUserName(_Id.Value);
-            var basedata = new reportbaseDAta() { Date = PersianDate ,CustomerName=name};
+            var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name };
             var report = StiReport.CreateNewReport();
             report.Load(AppSetting.ReportPath + "CustomerAccount.mrt");
             report.RegData("myData", data);
@@ -399,11 +394,7 @@ namespace PamirAccounting.UI.Forms.Customers
             report.Render();
             report.Show();
         }
-        public class reportbaseDAta
-        {
-            public string CustomerName { get; set; }
-            public string Date { get; set; }
-        }
+    
 
         private void grdTransactions_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -517,8 +508,8 @@ namespace PamirAccounting.UI.Forms.Customers
                     curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
                     _GroupedDataList.Add(curenncySummery);
                 }
-             
-          
+
+
 
                 _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
                 var name = _Customer.FirstName + " " + _Customer.LastName;
@@ -526,7 +517,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 DateTime dt = DateTime.Now;
                 string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
                 var data = _GroupedDataList;
-                var basedata = new reportbaseDAta() { Date = PersianDate,CustomerName=name };
+                var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name };
                 var report = StiReport.CreateNewReport();
                 report.Load(AppSetting.ReportPath + "RemainigAmount.mrt");
                 report.RegData("myData", data);
@@ -535,6 +526,79 @@ namespace PamirAccounting.UI.Forms.Customers
                 report.Render();
                 report.Show();
             }
+        }
+
+        private void grdTransactions_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (Char)Keys.Enter)
+            {
+                int i = grdTransactions.CurrentRow.Index;
+                var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+
+                tmpDataList = tmpDataList.Where(p=>p.RowId==i).Select(x => new TransactionModel
+                {
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    Date = x.Date.ToString(),
+                    TransactionDateTime = x.TransactionDateTime.ToString(),
+                    CurrenyId = x.CurrenyId,
+                    UserId = x.UserId,
+                    TransactionType = x.TransactionType,
+                    DocumentId = x.DocumentId,
+                    CurrenyName=x.CurrenyName
+                }).ToList();
+                var  Deposit=0;
+                var  Withdraw=0;
+                foreach (var item in tmpDataList)
+                {
+                    Deposit = (int)(long)item.DepositAmount;
+                    Withdraw = (int)(long)item.WithdrawAmount;
+                }
+                if (Deposit > 0)
+                {
+                    var data = tmpDataList;
+                    _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+                    var name = _Customer.FirstName + " " + _Customer.LastName;
+                    PersianCalendar pc = new PersianCalendar();
+                    DateTime dt = DateTime.Now;
+                    string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                    var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Deposit.ToString(), Status= "نزد برنامه طلبکار است" };
+                    var report = StiReport.CreateNewReport();
+                    report.Load(AppSetting.ReportPath + "Transaction.mrt");
+                    report.RegData("myData", data);
+                    report.RegData("basedata", basedata);
+                    report.Render();
+                    report.Show();
+                }
+                if (Withdraw > 0)
+                {
+                    var data = tmpDataList;
+                    _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+                    var name = _Customer.FirstName + " " + _Customer.LastName;
+                    PersianCalendar pc = new PersianCalendar();
+                    DateTime dt = DateTime.Now;
+                    string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                    var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Withdraw.ToString(),Status= " نزد برنامه بدهکار است" };
+                    var report = StiReport.CreateNewReport();
+                    report.Load(AppSetting.ReportPath + "Transaction.mrt");
+                    report.RegData("myData", data);
+                    report.RegData("basedata", basedata);
+                    report.Render();
+                    report.Show();
+                }
+
+                
+            }
+        }
+
+        public class reportbaseDAta
+        {
+            public string CustomerName { get; set; }
+            public string Date { get; set; }
+            public string Price { get; set; }
+            public string Status { get; set; }
         }
     }
 }

@@ -211,7 +211,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnprintResid.Appearance.ForeColor = System.Drawing.Color.Black;
             this.btnprintResid.Appearance.Options.UseFont = true;
             this.btnprintResid.Appearance.Options.UseForeColor = true;
-            this.btnprintResid.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.btnprintResid.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprintResid.ImageOptions.SvgImage")));
             this.btnprintResid.Location = new System.Drawing.Point(218, 62);
             this.btnprintResid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnprintResid.Name = "btnprintResid";
@@ -271,6 +271,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
             this.grdTransactions.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellValueChanged);
+            this.grdTransactions.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.grdTransactions_KeyPress);
             // 
             // Column1
             // 
