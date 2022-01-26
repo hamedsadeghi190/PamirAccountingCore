@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Forms.Checks;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -18,6 +19,7 @@ namespace PamirAccounting.Forms.Customers
         private UnitOfWork unitOfWork;
         private List<CustomerModel> dataList;
         private List<CustomerGroupModel> _Groups;
+        public int? CustomerId;
         public SearchAllCustomersFrm()
         {
             InitializeComponent();
@@ -44,7 +46,7 @@ namespace PamirAccounting.Forms.Customers
             }
             this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
             txtsearch.Focus();
-       
+
 
         }
 
@@ -59,6 +61,8 @@ namespace PamirAccounting.Forms.Customers
             {
                 loadData();
             }
+
+           
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -70,6 +74,19 @@ namespace PamirAccounting.Forms.Customers
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+        }
+
+        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (dataGridView1.CurrentRow !=null )
+                {
+                    CustomerId =(int) dataGridView1.CurrentRow.Cells[0].Value;
+                    int x = 0;
+                }
+                Close();
+            }
         }
     }
 }

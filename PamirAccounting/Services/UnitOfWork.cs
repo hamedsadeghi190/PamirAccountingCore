@@ -189,5 +189,27 @@ namespace PamirAccounting.Services
         }
         public DraftsServices DraftsServices => (DraftsServices)Drafts;
         #endregion
+
+        #region RealBankServices
+
+        private IRepository<RealBank> _RealBanks;
+
+        public IRepository<RealBank> RealBanks
+        {
+            get { return _RealBanks = _RealBanks ?? new RealBankServices(_context, this, _mapper); }
+        }
+        public RealBankServices RealBankServices => (RealBankServices)RealBanks;
+        #endregion
+
+        #region ChequeServices
+
+        private IRepository<Cheque> _Cheque;
+
+        public IRepository<Cheque> Cheque
+        {
+            get { return _Cheque = _Cheque ?? new ChequeServices(_context, this, _mapper); }
+        }
+        public ChequeServices ChequeServices => (ChequeServices)Cheque;
+        #endregion
     }
 }
