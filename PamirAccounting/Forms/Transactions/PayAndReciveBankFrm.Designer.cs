@@ -31,6 +31,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayAndReciveBankFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNumberString = new System.Windows.Forms.Label();
             this.cmbCustomers = new System.Windows.Forms.ComboBox();
             this.lblCustomers = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
-            this.lblNumberString = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtReceiptNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBranchCode.Properties)).BeginInit();
@@ -95,6 +95,17 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "دریافت و پرداخت بانکی";
+            // 
+            // lblNumberString
+            // 
+            this.lblNumberString.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNumberString.Location = new System.Drawing.Point(133, 259);
+            this.lblNumberString.Name = "lblNumberString";
+            this.lblNumberString.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblNumberString.Size = new System.Drawing.Size(398, 26);
+            this.lblNumberString.TabIndex = 213;
+            this.lblNumberString.Tag = "";
+            this.lblNumberString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmbCustomers
             // 
@@ -351,7 +362,7 @@ namespace PamirAccounting.Forms.Transactions
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
             this.btnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnClose.Location = new System.Drawing.Point(124, 22);
+            this.btnClose.Location = new System.Drawing.Point(124, 18);
             this.btnClose.Name = "btnClose";
             this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnClose.Size = new System.Drawing.Size(110, 38);
@@ -366,7 +377,7 @@ namespace PamirAccounting.Forms.Transactions
             this.btnsavebank.Appearance.Options.UseFont = true;
             this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
             this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnsavebank.Location = new System.Drawing.Point(7, 22);
+            this.btnsavebank.Location = new System.Drawing.Point(7, 18);
             this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnsavebank.Name = "btnsavebank";
             this.btnsavebank.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -374,17 +385,6 @@ namespace PamirAccounting.Forms.Transactions
             this.btnsavebank.TabIndex = 11;
             this.btnsavebank.Text = "ثبت";
             this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
-            // 
-            // lblNumberString
-            // 
-            this.lblNumberString.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNumberString.Location = new System.Drawing.Point(133, 259);
-            this.lblNumberString.Name = "lblNumberString";
-            this.lblNumberString.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblNumberString.Size = new System.Drawing.Size(398, 26);
-            this.lblNumberString.TabIndex = 213;
-            this.lblNumberString.Tag = "";
-            this.lblNumberString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PayAndReciveBankFrm
             // 

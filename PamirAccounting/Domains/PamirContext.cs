@@ -93,8 +93,6 @@ namespace PamirAccounting.Domains
 
             modelBuilder.Entity<Cheque>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.BankAccountNumber)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -288,6 +286,8 @@ namespace PamirAccounting.Domains
 
             modelBuilder.Entity<RealBank>(entity =>
             {
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(200);

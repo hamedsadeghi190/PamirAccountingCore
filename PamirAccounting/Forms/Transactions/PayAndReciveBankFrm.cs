@@ -212,7 +212,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void SaveEdit()
         {
-            // throw new NotImplementedException();
+             throw new NotImplementedException();
         }
 
         private void CreateWithDraw()
@@ -314,7 +314,6 @@ namespace PamirAccounting.Forms.Transactions
             }
 
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
-
             bankTransaction.DepositAmount = 0;
             bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             bankTransaction.ReceiptNumber = txtReceiptNumber.Text;
