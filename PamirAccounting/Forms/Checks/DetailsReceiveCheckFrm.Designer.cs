@@ -34,8 +34,9 @@ namespace PamirAccounting.Forms.Checks
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailsReceiveCheckFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbCustomers = new System.Windows.Forms.ComboBox();
+            this.lblNumberString = new System.Windows.Forms.Label();
             this.btnshowcustomer = new DevExpress.XtraEditors.SimpleButton();
-            this.txtCustomerId = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
             this.txtAmount = new DevExpress.XtraEditors.TextEdit();
             this.label9 = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
             this.BtnClose = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCustomerId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankAccountNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChequeNumber.Properties)).BeginInit();
@@ -73,8 +73,9 @@ namespace PamirAccounting.Forms.Checks
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbCustomers);
+            this.groupBox1.Controls.Add(this.lblNumberString);
             this.groupBox1.Controls.Add(this.btnshowcustomer);
-            this.groupBox1.Controls.Add(this.txtCustomerId);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.label9);
@@ -103,6 +104,26 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ثبت / ویرایش مشخصات چک دریافتی";
             // 
+            // cmbCustomers
+            // 
+            this.cmbCustomers.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbCustomers.FormattingEnabled = true;
+            this.cmbCustomers.Location = new System.Drawing.Point(338, 276);
+            this.cmbCustomers.Name = "cmbCustomers";
+            this.cmbCustomers.Size = new System.Drawing.Size(140, 34);
+            this.cmbCustomers.TabIndex = 130;
+            // 
+            // lblNumberString
+            // 
+            this.lblNumberString.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNumberString.Location = new System.Drawing.Point(78, 240);
+            this.lblNumberString.Name = "lblNumberString";
+            this.lblNumberString.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblNumberString.Size = new System.Drawing.Size(254, 26);
+            this.lblNumberString.TabIndex = 129;
+            this.lblNumberString.Tag = "";
+            this.lblNumberString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnshowcustomer
             // 
             this.btnshowcustomer.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -110,24 +131,13 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnshowcustomer.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnshowcustomer.ImageOptions.SvgImage")));
             this.btnshowcustomer.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnshowcustomer.Location = new System.Drawing.Point(230, 276);
+            this.btnshowcustomer.Location = new System.Drawing.Point(294, 276);
             this.btnshowcustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnshowcustomer.Name = "btnshowcustomer";
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnshowcustomer.Size = new System.Drawing.Size(38, 38);
+            this.btnshowcustomer.Size = new System.Drawing.Size(38, 34);
             this.btnshowcustomer.TabIndex = 111;
             this.btnshowcustomer.Click += new System.EventHandler(this.btnshowcustomer_Click);
-            // 
-            // txtCustomerId
-            // 
-            this.txtCustomerId.Location = new System.Drawing.Point(265, 276);
-            this.txtCustomerId.Name = "txtCustomerId";
-            this.txtCustomerId.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtCustomerId.Properties.Appearance.Options.UseFont = true;
-            this.txtCustomerId.Properties.AutoHeight = false;
-            this.txtCustomerId.Size = new System.Drawing.Size(213, 38);
-            this.txtCustomerId.TabIndex = 107;
-            this.txtCustomerId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit5_KeyDown);
             // 
             // label12
             // 
@@ -142,14 +152,15 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtAmount
             // 
+            this.txtAmount.EditValue = "0";
             this.txtAmount.Location = new System.Drawing.Point(338, 234);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
             this.txtAmount.Properties.AutoHeight = false;
             this.txtAmount.Size = new System.Drawing.Size(140, 38);
             this.txtAmount.TabIndex = 103;
-            this.txtAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit5_KeyDown);
+            this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
             // label9
             // 
@@ -181,7 +192,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtChequeNumber.Properties.AutoHeight = false;
             this.txtChequeNumber.Size = new System.Drawing.Size(140, 38);
             this.txtChequeNumber.TabIndex = 101;
-            this.txtChequeNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit5_KeyDown);
+
             // 
             // label11
             // 
@@ -335,7 +346,7 @@ namespace PamirAccounting.Forms.Checks
             this.label14.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(275, 240);
+            this.label14.Location = new System.Drawing.Point(144, 387);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(68, 24);
             this.label14.TabIndex = 113;
@@ -364,6 +375,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave.Size = new System.Drawing.Size(110, 38);
             this.BtnSave.TabIndex = 89;
             this.BtnSave.Text = "ثبت";
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnClose
             // 
@@ -378,6 +390,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose.Size = new System.Drawing.Size(110, 38);
             this.BtnClose.TabIndex = 90;
             this.BtnClose.Text = "بازگشت";
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // DetailsReceiveCheckFrm
             // 
@@ -387,7 +400,7 @@ namespace PamirAccounting.Forms.Checks
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 559);
+            this.ClientSize = new System.Drawing.Size(610, 559);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.IconOptions.ShowIcon = false;
@@ -398,7 +411,6 @@ namespace PamirAccounting.Forms.Checks
             this.Load += new System.EventHandler(this.DetailsReceiveCheckFrm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCustomerId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankAccountNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChequeNumber.Properties)).EndInit();
@@ -411,15 +423,11 @@ namespace PamirAccounting.Forms.Checks
 
         }
 
-        private void textEdit5_KeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.TextEdit txtCustomerId;
         private System.Windows.Forms.Label label12;
         private DevExpress.XtraEditors.TextEdit txtAmount;
         private System.Windows.Forms.Label label9;
@@ -443,6 +451,8 @@ namespace PamirAccounting.Forms.Checks
         private DevExpress.XtraEditors.SimpleButton BtnSave;
         private DevExpress.XtraEditors.SimpleButton BtnClose;
         private DevExpress.XtraEditors.SimpleButton btnshowcustomer;
+        private Label lblNumberString;
         private Label label14;
+        private ComboBox cmbCustomers;
     }
 }
