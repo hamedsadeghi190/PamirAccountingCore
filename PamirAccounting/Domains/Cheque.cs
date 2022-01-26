@@ -18,8 +18,12 @@ namespace PamirAccounting.Domains
         public int CustomerId { get; set; }
         public string Description { get; set; }
         public long DocumentId { get; set; }
+        public int Type { get; set; }
+        public string BranchName { get; set; }
+        public int UserId { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual RealBank RealBank { get; set; }
+        public virtual User User { get; set; }
     }
 }
