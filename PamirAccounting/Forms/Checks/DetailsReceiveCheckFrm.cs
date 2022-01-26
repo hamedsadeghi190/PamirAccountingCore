@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Checks
 {
@@ -126,6 +127,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
+            Cheque.Type= (int)DocumentType.RecivedDocument;
             unitOfWork.ChequeServices.Insert(Cheque);
             unitOfWork.SaveChanges();
         }
