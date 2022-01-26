@@ -28,6 +28,7 @@ namespace PamirAccounting.UI
     {
         public MainFrm()
         {
+       
             InitializeComponent();
             AppSetting.SandoghCustomerId = 4;
             AppSetting.RecivedDocumentCustomerId = 16;
