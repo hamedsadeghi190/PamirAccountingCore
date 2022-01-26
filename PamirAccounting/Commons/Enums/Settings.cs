@@ -44,7 +44,21 @@ namespace PamirAccounting.Commons.Enums
             [Description("واریز نامعلوم بانکی")]
             UnkwonReciveBank = 4,
             [Description("انتقال حساب")]
-            Transfer = 5
+            Transfer = 5,
+            [Description("اسناد دریافتنی")]
+            RecivedDocument = 6,
+            [Description("اسناد پرداختنی")]
+            DepositDocument = 7,
+        }
+
+        public enum DocumentType
+        {
+            [Description("اسناد دریافتنی")]
+            RecivedDocument = 1,
+            [Description("اسناد پرداختنی")]
+            DepositDocument = 2,
+
+
         }
     }
 }
