@@ -126,7 +126,6 @@ namespace PamirAccounting.UI
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage8 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.btncustomerslist = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
@@ -134,6 +133,7 @@ namespace PamirAccounting.UI
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1531,7 +1531,6 @@ namespace PamirAccounting.UI
             this.barButtonItem1.Caption = "barButtonItem1";
             this.barButtonItem1.Id = 105;
             this.barButtonItem1.Name = "barButtonItem1";
-        
             // 
             // settingRibonMenu
             // 
@@ -1778,33 +1777,19 @@ namespace PamirAccounting.UI
             this.btncustomerslist.Name = "btncustomerslist";
             this.btncustomerslist.Size = new System.Drawing.Size(130, 89);
             this.btncustomerslist.TabIndex = 2;
-            this.btncustomerslist.Text = "دفتر تلفن";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.Location = new System.Drawing.Point(12, 291);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(268, 89);
-            this.simpleButton2.TabIndex = 4;
-            this.simpleButton2.Text = "گزارش موجودی کل";
+            this.btncustomerslist.Text = "حواله فروش";
             // 
             // simpleButton3
             // 
             this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton3.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.simpleButton3.Appearance.Options.UseBackColor = true;
             this.simpleButton3.Appearance.Options.UseFont = true;
             this.simpleButton3.Location = new System.Drawing.Point(12, 196);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(130, 89);
             this.simpleButton3.TabIndex = 5;
-            this.simpleButton3.Text = "لیست مشتریان";
+            this.simpleButton3.Text = "تنظیمات نمایندگی ها";
             // 
             // simpleButton4
             // 
@@ -1861,7 +1846,7 @@ namespace PamirAccounting.UI
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(130, 89);
             this.simpleButton5.TabIndex = 7;
-            this.simpleButton5.Text = "ثبت تراکنش جدید";
+            this.simpleButton5.Text = "ثبت حساب جدید";
             // 
             // simpleButton1
             // 
@@ -1873,7 +1858,21 @@ namespace PamirAccounting.UI
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(130, 89);
             this.simpleButton1.TabIndex = 12;
-            this.simpleButton1.Text = "لیست حواله ها";
+            this.simpleButton1.Text = "حواله خرید";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton2.Appearance.Options.UseBackColor = true;
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.Appearance.Options.UseForeColor = true;
+            this.simpleButton2.Location = new System.Drawing.Point(12, 291);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(268, 89);
+            this.simpleButton2.TabIndex = 4;
+            this.simpleButton2.Text = "دریافت و پرداخت بانکی";
             // 
             // MainFrm
             // 
@@ -1997,7 +1996,6 @@ namespace PamirAccounting.UI
         private DevExpress.XtraBars.BarButtonItem btnbargashtcheckpadakhtani;
         private DevExpress.XtraBars.BarButtonItem btnodatpardakhtani;
         private DevExpress.XtraEditors.SimpleButton btncustomerslist;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
@@ -2014,6 +2012,7 @@ namespace PamirAccounting.UI
         private DevExpress.XtraBars.BarButtonItem barButtonItem28;
         private DevExpress.XtraBars.BarButtonItem btnBuyAndSellCurrency;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }
 
