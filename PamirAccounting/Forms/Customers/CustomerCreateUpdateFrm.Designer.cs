@@ -163,7 +163,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(551, 270);
+            this.label7.Location = new System.Drawing.Point(553, 266);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 26);
             this.label7.TabIndex = 99;

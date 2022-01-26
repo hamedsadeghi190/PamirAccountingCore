@@ -8,6 +8,8 @@ namespace PamirAccounting
 {
     public static class AppSetting
     {
+        public static int  RecivedDocumentCustomerId { get; set; }
+        public static int  SendDocumentCustomerId { get; set; }
         public static int  SandoghCustomerId { get; set; }
         public static string  ReportPath { get; set; }
     }

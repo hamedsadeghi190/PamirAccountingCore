@@ -91,7 +91,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 {
                     _Customer.FirstName = txtFirstname.Text;
                     _Customer.LastName = txtLastName.Text;
-                    _Customer.CreditLimit = String.IsNullOrEmpty(txtCreditLimit.Text.Trim()) ? int.Parse(txtCreditLimit.Text) : 0;
+                    _Customer.CreditLimit = String.IsNullOrEmpty(txtCreditLimit.Text.Trim()) ?  0: int.Parse(txtCreditLimit.Text);
                     _Customer.Dsc = txtDesc.Text;
                     _Customer.Phone = txtPhone.Text;
                     _Customer.Mobile = txtMobile.Text;
@@ -107,7 +107,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
                     _Customer.FirstName = txtFirstname.Text;
                     _Customer.LastName = txtLastName.Text;
-                    _Customer.CreditLimit = String.IsNullOrEmpty(txtCreditLimit.Text.Trim()) ? int.Parse(txtCreditLimit.Text) : 0;
+                    _Customer.CreditLimit = String.IsNullOrEmpty(txtCreditLimit.Text.Trim()) ? 0 : int.Parse(txtCreditLimit.Text);
                     _Customer.Dsc = txtDesc.Text;
                     _Customer.Phone = txtPhone.Text;
                     _Customer.Mobile = txtMobile.Text;
@@ -119,7 +119,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 }
                 Close();
             }
-            catch
+            catch (Exception ex)
             {
                 MessageBox.Show("ذخیره تغییرات با شکست مواجه شد");
             }

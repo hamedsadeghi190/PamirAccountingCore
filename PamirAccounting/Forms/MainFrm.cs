@@ -30,6 +30,8 @@ namespace PamirAccounting.UI
         {
             InitializeComponent();
             AppSetting.SandoghCustomerId = 4;
+            AppSetting.RecivedDocumentCustomerId = 16;
+            AppSetting.SendDocumentCustomerId = 17;
             // AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
             AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
         }

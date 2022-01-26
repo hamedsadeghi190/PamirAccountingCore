@@ -19,6 +19,7 @@ namespace PamirAccounting.Domains
 
         public virtual DbSet<Agency> Agencies { get; set; }
         public virtual DbSet<Bank> Banks { get; set; }
+        public virtual DbSet<Cheque> Cheques { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Currency> Currencies { get; set; }
@@ -27,6 +28,7 @@ namespace PamirAccounting.Domains
         public virtual DbSet<CustomerGroup> CustomerGroups { get; set; }
         public virtual DbSet<Draft> Drafts { get; set; }
         public virtual DbSet<Header> Headers { get; set; }
+        public virtual DbSet<RealBank> RealBanks { get; set; }
         public virtual DbSet<Setting> Settings { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -35,8 +37,7 @@ namespace PamirAccounting.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.\\SQL2019;Database=PamirAccounting;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
 
@@ -87,6 +88,41 @@ namespace PamirAccounting.Domains
                     .WithMany(p => p.Banks)
                     .HasForeignKey(d => d.CountryId)
                     .HasConstraintName("FK_Banks_Countries");
+            });
+
+            modelBuilder.Entity<Cheque>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.BankAccountNumber)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.ChequeNumber)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Description).HasMaxLength(1000);
+
+                entity.Property(e => e.DocumentId).HasColumnName("DocumentID");
+
+                entity.Property(e => e.DueDate).HasColumnType("datetime");
+
+                entity.Property(e => e.IssueDate).HasColumnType("datetime");
+
+                entity.Property(e => e.RegisterDateTime).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Cheques)
+                    .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Cheques_Customers");
+
+                entity.HasOne(d => d.RealBank)
+                    .WithMany(p => p.Cheques)
+                    .HasForeignKey(d => d.RealBankId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Cheques_RealBanks");
             });
 
             modelBuilder.Entity<Contact>(entity =>
@@ -239,6 +275,13 @@ namespace PamirAccounting.Domains
                 entity.Property(e => e.Mobile).HasMaxLength(200);
 
                 entity.Property(e => e.Phone).HasMaxLength(30);
+            });
+
+            modelBuilder.Entity<RealBank>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(200);
             });
 
             modelBuilder.Entity<Setting>(entity =>
