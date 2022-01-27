@@ -205,9 +205,6 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.SaveChanges();
             // end trakonesh sandogh///
 
-            customerTransaction.DoubleTransactionId = sandoghTransAction.Id;
-            unitOfWork.TransactionServices.Update(customerTransaction);
-            unitOfWork.SaveChanges();
         }
 
         private void SaveEdit()

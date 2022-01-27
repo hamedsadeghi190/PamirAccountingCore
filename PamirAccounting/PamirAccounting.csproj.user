@@ -59,6 +59,12 @@
     <Compile Update="Forms\Checks\PasCheckPardakhtaniListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Checks\PaymentCheckList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\ReceiveCheckListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Checks\SareHesabGozashtanFrm.cs">
       <SubType>Form</SubType>
     </Compile>

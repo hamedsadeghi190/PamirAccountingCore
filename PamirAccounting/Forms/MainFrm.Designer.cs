@@ -97,9 +97,10 @@ namespace PamirAccounting.UI
             this.barStaticItemTime = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
             this.btnRecivecheck = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPaymentCheck = new DevExpress.XtraBars.BarButtonItem();
             this.btnBuyAndSellCurrency = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnReceiveCheckList = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPaymentCheckList = new DevExpress.XtraBars.BarButtonItem();
             this.settingRibonMenu = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -112,7 +113,6 @@ namespace PamirAccounting.UI
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGeneralLedger = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -134,6 +134,7 @@ namespace PamirAccounting.UI
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,13 +212,15 @@ namespace PamirAccounting.UI
             this.barStaticItemTime,
             this.barButtonItem27,
             this.btnRecivecheck,
-            this.barButtonItem28,
+            this.btnPaymentCheck,
             this.btnBuyAndSellCurrency,
+            this.btnReceiveCheckList,
+            this.btnPaymentCheckList,
             this.barButtonItem1});
             this.ribbonControl1.ItemsVertAlign = DevExpress.Utils.VertAlignment.Center;
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbonControl1.MaxItemId = 106;
+            this.ribbonControl1.MaxItemId = 108;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 1000;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -1477,29 +1480,30 @@ namespace PamirAccounting.UI
             this.btnRecivecheck.Name = "btnRecivecheck";
             this.btnRecivecheck.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRecivecheck_ItemClick);
             // 
-            // barButtonItem28
+            // btnPaymentCheck
             // 
-            this.barButtonItem28.Caption = "پرداخت چک";
-            this.barButtonItem28.Id = 103;
-            this.barButtonItem28.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem28.ImageOptions.SvgImage")));
-            this.barButtonItem28.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem28.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem28.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem28.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem28.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem28.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem28.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem28.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem28.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem28.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem28.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem28.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem28.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem28.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem28.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barButtonItem28.ItemInMenuAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem28.LargeWidth = 100;
-            this.barButtonItem28.Name = "barButtonItem28";
+            this.btnPaymentCheck.Caption = "پرداخت چک";
+            this.btnPaymentCheck.Id = 103;
+            this.btnPaymentCheck.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem28.ImageOptions.SvgImage")));
+            this.btnPaymentCheck.ItemAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPaymentCheck.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnPaymentCheck.ItemAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPaymentCheck.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnPaymentCheck.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPaymentCheck.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnPaymentCheck.ItemAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPaymentCheck.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnPaymentCheck.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPaymentCheck.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnPaymentCheck.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPaymentCheck.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnPaymentCheck.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPaymentCheck.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnPaymentCheck.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPaymentCheck.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnPaymentCheck.LargeWidth = 100;
+            this.btnPaymentCheck.Name = "btnPaymentCheck";
+            this.btnPaymentCheck.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPaymentCheck_ItemClick);
             // 
             // btnBuyAndSellCurrency
             // 
@@ -1526,11 +1530,19 @@ namespace PamirAccounting.UI
             this.btnBuyAndSellCurrency.Name = "btnBuyAndSellCurrency";
             this.btnBuyAndSellCurrency.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBuyAndSellCurrency_ItemClick);
             // 
-            // barButtonItem1
+            // btnReceiveCheckList
             // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Id = 105;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnReceiveCheckList.Caption = "لیست چک های دربافتنی";
+            this.btnReceiveCheckList.Id = 105;
+            this.btnReceiveCheckList.Name = "btnReceiveCheckList";
+            this.btnReceiveCheckList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReceiveCheckList_ItemClick);
+            // 
+            // btnPaymentCheckList
+            // 
+            this.btnPaymentCheckList.Caption = "لیست چک های پرداختنی";
+            this.btnPaymentCheckList.Id = 106;
+            this.btnPaymentCheckList.Name = "btnPaymentCheckList";
+            this.btnPaymentCheckList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPaymentCheckList_ItemClick);
             // 
             // settingRibonMenu
             // 
@@ -1604,7 +1616,7 @@ namespace PamirAccounting.UI
             this.ribbonPageGroup13.ItemLinks.Add(this.barBtnshippingOrder);
             this.ribbonPageGroup13.ItemLinks.Add(this.barBtnWarrantsPayable);
             this.ribbonPageGroup13.ItemLinks.Add(this.btnRecivecheck);
-            this.ribbonPageGroup13.ItemLinks.Add(this.barButtonItem28);
+            this.ribbonPageGroup13.ItemLinks.Add(this.btnPaymentCheck);
             this.ribbonPageGroup13.ItemLinks.Add(this.btnBuyAndSellCurrency);
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
             // 
@@ -1634,8 +1646,7 @@ namespace PamirAccounting.UI
             this.ribbonPage6.Appearance.Options.UseTextOptions = true;
             this.ribbonPage6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup6,
-            this.ribbonPageGroup7});
+            this.ribbonPageGroup6});
             this.ribbonPage6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPage6.ImageOptions.SvgImage")));
             this.ribbonPage6.Name = "ribbonPage6";
             this.ribbonPage6.Text = "چکها";
@@ -1655,11 +1666,6 @@ namespace PamirAccounting.UI
             this.ribbonPageGroup6.ItemLinks.Add(this.btnodatpardakhtani);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "عملیات چک";
-            // 
-            // ribbonPageGroup7
-            // 
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "گزارش چکها";
             // 
             // ribbonPageGeneralLedger
             // 
@@ -1697,6 +1703,8 @@ namespace PamirAccounting.UI
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPageGroup5.ImageOptions.SvgImage")));
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnReceiveCheckList);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnPaymentCheckList);
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "گزارشات";
@@ -1874,6 +1882,12 @@ namespace PamirAccounting.UI
             this.simpleButton2.TabIndex = 4;
             this.simpleButton2.Text = "دریافت و پرداخت بانکی";
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 107;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // MainFrm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -1983,7 +1997,6 @@ namespace PamirAccounting.UI
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnsarehesabgozashtan;
         private DevExpress.XtraBars.BarButtonItem btnvosool_daryaftani;
         private DevExpress.XtraBars.BarButtonItem btnvagoozariasand_daryafti;
@@ -2009,10 +2022,12 @@ namespace PamirAccounting.UI
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem27;
         private DevExpress.XtraBars.BarButtonItem btnRecivecheck;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem28;
+        private DevExpress.XtraBars.BarButtonItem btnPaymentCheck;
         private DevExpress.XtraBars.BarButtonItem btnBuyAndSellCurrency;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnReceiveCheckList;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraBars.BarButtonItem btnPaymentCheckList;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
 

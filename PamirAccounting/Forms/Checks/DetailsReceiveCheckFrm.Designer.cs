@@ -56,7 +56,6 @@ namespace PamirAccounting.Forms.Checks
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
             this.BtnClose = new DevExpress.XtraEditors.SimpleButton();
@@ -95,7 +94,6 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -152,6 +150,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtAmount
             // 
+            this.txtAmount.AllowDrop = true;
             this.txtAmount.EditValue = "0";
             this.txtAmount.Location = new System.Drawing.Point(338, 234);
             this.txtAmount.Name = "txtAmount";
@@ -192,7 +191,6 @@ namespace PamirAccounting.Forms.Checks
             this.txtChequeNumber.Properties.AutoHeight = false;
             this.txtChequeNumber.Size = new System.Drawing.Size(140, 38);
             this.txtChequeNumber.TabIndex = 101;
-
             // 
             // label11
             // 
@@ -340,18 +338,6 @@ namespace PamirAccounting.Forms.Checks
             this.label10.TabIndex = 105;
             this.label10.Text = "شماره حساب";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(144, 387);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(68, 24);
-            this.label14.TabIndex = 113;
-            this.label14.Text = "یک میلیون";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.BtnSave);
@@ -452,7 +438,6 @@ namespace PamirAccounting.Forms.Checks
         private DevExpress.XtraEditors.SimpleButton BtnClose;
         private DevExpress.XtraEditors.SimpleButton btnshowcustomer;
         private Label lblNumberString;
-        private Label label14;
         private ComboBox cmbCustomers;
     }
 }

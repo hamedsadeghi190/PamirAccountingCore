@@ -465,6 +465,24 @@ namespace PamirAccounting.UI
             // report.Render();
             //report.Show();
         }
+
+        private void btnReceiveCheckList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var checklist = new ReceiveCheckListFrm();
+            checklist.ShowDialog();
+        }
+
+        private void btnPaymentCheckList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var checklist = new PaymentCheckList();
+            checklist.ShowDialog();
+        }
+
+        private void btnPaymentCheck_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var checklist1 = new DetailsPaymentCheckFrm(); 
+            checklist1.ShowDialog();
+        }
     }
 
 }

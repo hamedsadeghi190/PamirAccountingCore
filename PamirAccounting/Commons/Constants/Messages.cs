@@ -14,5 +14,7 @@ namespace PamirAccounting
         public const string CreateNewAcount = "ایجاد حساب جدید ";
         public const string DepostitCash = "دریافت وجه ";
         public const string WithdrawCash = "پرداخت وجه ";
+        public const string DepostitCheck = "دریافت چک ";
+        public const string WithdrawCheck = "پرداخت چک ";
     }
 }

@@ -11,6 +11,7 @@ namespace PamirAccounting.Models
     {
         public long Id { get; set; }
         public byte RealBankId { get; set; }
+        public string RealBankName { get; set; }
         public DateTime RegisterDateTime { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime DueDate { get; set; }
@@ -18,6 +19,7 @@ namespace PamirAccounting.Models
         public string BankAccountNumber { get; set; }
         public long Amount { get; set; }
         public int CustomerId { get; set; }
+        public string CustomerName { get; set; }
         public string Description { get; set; }
         public long DocumentId { get; set; }
         public int Type { get; set; }
