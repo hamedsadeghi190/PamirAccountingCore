@@ -33,33 +33,6 @@ namespace PamirAccounting.Forms.Checks
             unitOfWork = new UnitOfWork();
             _ChequeNumber = chequeNumber;
         }
-        public DetailsPaymentCheckFrm()
-        {
-        
-
-        }
-        private void LoadData()
-        {
-            _RealBank = unitOfWork.RealBankServices.FindAll(x => x.Id > 0).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.Name}" }).ToList();
-            cmbRealBankId.DataSource = _RealBank;
-            cmbRealBankId.ValueMember = "Id";
-            cmbRealBankId.DisplayMember = "Title";
-            _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
-            cmbCustomers.DataSource = _Customers;
-            cmbCustomers.ValueMember = "Id";
-            cmbCustomers.DisplayMember = "Title"; ;
-
-        }
-       
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnClose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void DetailsPaymentCheckFrm_Load(object sender, EventArgs e)
         {
@@ -80,12 +53,39 @@ namespace PamirAccounting.Forms.Checks
             }
         }
 
+        public DetailsPaymentCheckFrm()
+        {
+
+            InitializeComponent();
+            unitOfWork = new UnitOfWork();
+
+        }
+        private void LoadData()
+        {
+            _RealBank = unitOfWork.RealBankServices.FindAll(x => x.Id > 0).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.Name}" }).ToList();
+            cmbRealBankId.DataSource = _RealBank;
+            cmbRealBankId.ValueMember = "Id";
+            cmbRealBankId.DisplayMember = "Title";
+            _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+            cmbCustomers.DataSource = _Customers;
+            cmbCustomers.ValueMember = "Id";
+            cmbCustomers.DisplayMember = "Title"; ;
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+      
+
 
         private void ChequeActionInfo(long? _ChequeNumber)
         {
             Cheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumber.Value);
-            //customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
-            //receiveTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
             prevCustomerId = Cheque.CustomerId;
             PersianCalendar pc = new PersianCalendar();
             string IssueDateDateTime = pc.GetYear(Cheque.IssueDate).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
@@ -134,7 +134,7 @@ namespace PamirAccounting.Forms.Checks
             }
             Close();
         }
-         private void SaveNew()
+        private void SaveNew()
         {
             Cheque = new Domains.Cheque();
             var dIssueDate = txtIssueDate.Text.Split('/');
@@ -158,7 +158,7 @@ namespace PamirAccounting.Forms.Checks
             unitOfWork.ChequeServices.Insert(Cheque);
             unitOfWork.SaveChanges();
             ////////Customer transaction
-    
+
             var customerTransaction = new Domains.Transaction();
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = AppSetting.SendDocumentCustomerId;
@@ -178,7 +178,7 @@ namespace PamirAccounting.Forms.Checks
             //PaymentDocuments transaction
             var receivedDocuments = new Domains.Transaction();
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
-            receivedDocuments.WithdrawAmount =0;
+            receivedDocuments.WithdrawAmount = 0;
             receivedDocuments.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text); ;
             receivedDocuments.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCash + " به شماره چک -" + DocumentId;
             receivedDocuments.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
@@ -197,10 +197,10 @@ namespace PamirAccounting.Forms.Checks
             unitOfWork.SaveChanges();
 
         }
-       
+
         private void SaveEdit()
         {
-            
+
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
@@ -211,7 +211,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.DueDate = DueDateDateTime;
             Cheque.BranchName = txtBranchName.Text;
             Cheque.ChequeNumber = txtChequeNumber.Text;
-            Cheque.DocumentId = DocumentId;
+           // Cheque.DocumentId = DocumentId;
             Cheque.Description = txtDescription.Text;
             Cheque.Amount = long.Parse(txtAmount.Text);
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
@@ -227,8 +227,8 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = AppSetting.SendDocumentCustomerId;
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
-            customerTransaction.WithdrawAmount = 0;
-            customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text); ;
+            customerTransaction.DepositAmount = 0;
             customerTransaction.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.DepostitCash + " به شماره چک -" + DocumentId;
             customerTransaction.CurrenyId = 2;
             customerTransaction.Date = DateTime.Now;
@@ -242,8 +242,8 @@ namespace PamirAccounting.Forms.Checks
             //ReceivedDocuments transaction
             var receivedDocuments = unitOfWork.Transactions.FindFirst(x => x.DocumentId == Cheque.DocumentId && x.SourceCustomerId == AppSetting.SendDocumentCustomerId);
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
-            receivedDocuments.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-            receivedDocuments.DepositAmount = 0;
+            receivedDocuments.WithdrawAmount = 0;
+            receivedDocuments.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             receivedDocuments.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCash + " به شماره چک -" + DocumentId;
             receivedDocuments.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             receivedDocuments.SourceCustomerId = AppSetting.SendDocumentCustomerId;
@@ -252,11 +252,11 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.Date = DateTime.Now;
             receivedDocuments.TransactionDateTime = DateTime.Now;
             receivedDocuments.UserId = CurrentUser.UserID;
-            receivedDocuments.DocumentId = Cheque.DocumentId; 
+            receivedDocuments.DocumentId = Cheque.DocumentId;
             unitOfWork.TransactionServices.Update(receivedDocuments);
             unitOfWork.SaveChanges();
             //ReceivedDocuments transaction End
-       
+
 
 
         }
@@ -277,6 +277,12 @@ namespace PamirAccounting.Forms.Checks
             unitOfWork.SaveChanges();
 
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void btnshowcustomer_Click(object sender, EventArgs e)
         {
             var AllCustomersFrm = new SearchAllCustomersFrm();

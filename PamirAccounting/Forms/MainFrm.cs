@@ -483,6 +483,14 @@ namespace PamirAccounting.UI
             var checklist1 = new DetailsPaymentCheckFrm(); 
             checklist1.ShowDialog();
         }
+
+        private void btnPaymentCheck_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var checklist1 = new DetailsPaymentCheckFrm();
+            checklist1.ShowDialog();
+
+
+        }
     }
 
 }

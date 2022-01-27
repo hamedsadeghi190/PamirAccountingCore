@@ -70,7 +70,7 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frm = new DetailsReceiveCheckFrm(dataList.ElementAt(e.RowIndex).Id);
+                var frm = new DetailsPaymentCheckFrm(dataList.ElementAt(e.RowIndex).Id);
                 frm.ShowDialog();
                 LoadData();
             }
