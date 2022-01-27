@@ -132,6 +132,7 @@ namespace PamirAccounting.UI.Forms.Customers
             _Actions.Add(new ComboBoxModel() { Id = 2, Title = "دریافت و پرداخت نقدی " });
             _Actions.Add(new ComboBoxModel() { Id = 3, Title = "دریافت و پرداخت بانکی " });
             _Actions.Add(new ComboBoxModel() { Id = 4, Title = "انتقال حساب به حساب " });
+            _Actions.Add(new ComboBoxModel() { Id = 5, Title = "خرید و فروش ارز " });
 
             cmbActions.SelectedValueChanged -= new EventHandler(cmbActions_SelectedValueChanged);
             cmbActions.DataSource = _Actions;
@@ -159,8 +160,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void BalanceBtn_Click(object sender, EventArgs e)
         {
-            var FrmBalance = new BalanceFrm();
-            FrmBalance.ShowDialog();
+       
         }
 
         private void cmbActions_SelectedValueChanged(object sender, EventArgs e)
@@ -185,6 +185,11 @@ namespace PamirAccounting.UI.Forms.Customers
                 case 4:
                     var frmtransfer = new TransferAccountFrm(_Id.Value);
                     frmtransfer.ShowDialog();
+                    LoadData();
+                    break;
+                case 5:
+                    var frmCellAndBuy = new BuyAndSellCurrencyFrm(_Id.Value, null);
+                    frmCellAndBuy.ShowDialog();
                     LoadData();
                     break;
                 default:

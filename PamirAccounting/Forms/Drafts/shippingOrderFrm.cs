@@ -152,7 +152,17 @@ namespace PamirAccounting.Forms.Drafts
         {
             if (txtDraftAmount.Text.Length > 0 && txtRate.Text.Length>0)
             {
-                txtDepositAmount.Text =  (double.Parse(txtDraftAmount.Text) / double.Parse(txtRate.Text)).ToString("00.00");
+                double rate;
+                if (double.TryParse(txtRate.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out rate))
+                {
+                    txtDepositAmount.Text = (double.Parse(txtDraftAmount.Text) / rate).ToString();
+                }
+                else
+                {
+                    // TODO: tell the user to enter a correct number
+                }
+
+               
             }
         }
 

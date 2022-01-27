@@ -120,6 +120,7 @@ namespace PamirAccounting.Forms.Transactions
                 txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
                 //   cmbRemainType.SelectedValue = 2;
             }
+
             txtdesc.Text = customerTransaction.Description;
             cmbCurrencies.SelectedValue = customerTransaction.CurrenyId;
             cmbCurrencies.Enabled = false;
@@ -212,7 +213,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void SaveEdit()
         {
-             throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         private void CreateWithDraw()
@@ -314,6 +315,7 @@ namespace PamirAccounting.Forms.Transactions
             }
 
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
+
             bankTransaction.DepositAmount = 0;
             bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             bankTransaction.ReceiptNumber = txtReceiptNumber.Text;

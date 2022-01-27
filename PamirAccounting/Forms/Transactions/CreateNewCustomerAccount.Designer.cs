@@ -243,6 +243,7 @@ namespace PamirAccounting.Forms.Transaction
             this.MaximizeBox = false;
             this.Name = "CreateNewCustomerAccount";
             this.RightToLeftLayout = true;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.CreateNewCustomerAccount_Load);
             this.groupBox1.ResumeLayout(false);

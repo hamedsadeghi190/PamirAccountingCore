@@ -37,8 +37,9 @@ namespace PamirAccounting.Forms.Transactions
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +53,6 @@ namespace PamirAccounting.Forms.Transactions
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAction = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -147,6 +147,23 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.Text = "واریزهای نامعلوم";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.simpleButton3.Location = new System.Drawing.Point(7, 41);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton3.TabIndex = 96;
+            this.simpleButton3.Text = "راهنما";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(487, 53);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(153, 33);
+            this.textBox1.TabIndex = 94;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -157,14 +174,6 @@ namespace PamirAccounting.Forms.Transactions
             this.label7.Size = new System.Drawing.Size(79, 26);
             this.label7.TabIndex = 95;
             this.label7.Text = "شماره فیش ";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(487, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 33);
-            this.textBox1.TabIndex = 94;
             // 
             // label6
             // 
@@ -307,15 +316,6 @@ namespace PamirAccounting.Forms.Transactions
             this.btnAction.Text = "عملیات";
             this.btnAction.UseColumnTextForButtonValue = true;
             // 
-            // simpleButton3
-            // 
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(7, 41);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton3.TabIndex = 96;
-            this.simpleButton3.Text = "راهنما";
-            // 
             // UnkwonDepositFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -331,6 +331,7 @@ namespace PamirAccounting.Forms.Transactions
             this.MaximizeBox = false;
             this.Name = "UnkwonDepositFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.UnkwonDepositFrm_Load);
             this.groupBox1.ResumeLayout(false);

@@ -31,6 +31,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayAndReciveCashFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNumberString = new System.Windows.Forms.Label();
             this.txtAmount = new DevExpress.XtraEditors.TextEdit();
             this.cmbCustomers = new System.Windows.Forms.ComboBox();
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
@@ -45,7 +46,6 @@ namespace PamirAccounting.Forms.Transactions
             this.label1 = new System.Windows.Forms.Label();
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblNumberString = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
@@ -70,6 +70,17 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "دریافت و  پرداخت نقدی";
+            // 
+            // lblNumberString
+            // 
+            this.lblNumberString.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNumberString.Location = new System.Drawing.Point(20, 115);
+            this.lblNumberString.Name = "lblNumberString";
+            this.lblNumberString.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblNumberString.Size = new System.Drawing.Size(254, 26);
+            this.lblNumberString.TabIndex = 128;
+            this.lblNumberString.Tag = "";
+            this.lblNumberString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtAmount
             // 
@@ -234,17 +245,6 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox2.TabIndex = 125;
             this.groupBox2.TabStop = false;
             // 
-            // lblNumberString
-            // 
-            this.lblNumberString.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNumberString.Location = new System.Drawing.Point(20, 115);
-            this.lblNumberString.Name = "lblNumberString";
-            this.lblNumberString.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblNumberString.Size = new System.Drawing.Size(254, 26);
-            this.lblNumberString.TabIndex = 128;
-            this.lblNumberString.Tag = "";
-            this.lblNumberString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // PayAndReciveCashFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -263,6 +263,7 @@ namespace PamirAccounting.Forms.Transactions
             this.MaximizeBox = false;
             this.Name = "PayAndReciveCashFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.PayAndReciveCashFrm_Load);
             this.groupBox1.ResumeLayout(false);

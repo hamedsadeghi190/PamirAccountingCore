@@ -31,6 +31,9 @@ namespace PamirAccounting.Forms.Drafts
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(shippingOrderFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDepositAmount = new DevExpress.XtraEditors.TextEdit();
+            this.txtDraftAmount = new DevExpress.XtraEditors.TextEdit();
+            this.txtRate = new DevExpress.XtraEditors.TextEdit();
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
@@ -40,11 +43,8 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbAgency = new System.Windows.Forms.ComboBox();
             this.txtDesc = new System.Windows.Forms.RichTextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtDepositAmount = new System.Windows.Forms.TextBox();
             this.cmbDepositCurreny = new System.Windows.Forms.ComboBox();
             this.txtRent = new System.Windows.Forms.TextBox();
-            this.txtRate = new System.Windows.Forms.TextBox();
-            this.txtDraftAmount = new System.Windows.Forms.TextBox();
             this.txtPayPlace = new System.Windows.Forms.TextBox();
             this.txtReciver = new System.Windows.Forms.TextBox();
             this.txtFatherName = new System.Windows.Forms.TextBox();
@@ -69,11 +69,17 @@ namespace PamirAccounting.Forms.Drafts
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepositAmount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDraftAmount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtDepositAmount);
+            this.groupBox1.Controls.Add(this.txtDraftAmount);
+            this.groupBox1.Controls.Add(this.txtRate);
             this.groupBox1.Controls.Add(this.txtDate);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.btnClose);
@@ -83,11 +89,8 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBox1.Controls.Add(this.cmbAgency);
             this.groupBox1.Controls.Add(this.txtDesc);
             this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.txtDepositAmount);
             this.groupBox1.Controls.Add(this.cmbDepositCurreny);
             this.groupBox1.Controls.Add(this.txtRent);
-            this.groupBox1.Controls.Add(this.txtRate);
-            this.groupBox1.Controls.Add(this.txtDraftAmount);
             this.groupBox1.Controls.Add(this.txtPayPlace);
             this.groupBox1.Controls.Add(this.txtReciver);
             this.groupBox1.Controls.Add(this.txtFatherName);
@@ -118,6 +121,50 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "حواله فروش";
+            // 
+            // txtDepositAmount
+            // 
+            this.txtDepositAmount.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtDepositAmount.EditValue = "0";
+            this.txtDepositAmount.Location = new System.Drawing.Point(74, 181);
+            this.txtDepositAmount.Name = "txtDepositAmount";
+            this.txtDepositAmount.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtDepositAmount.Properties.Appearance.Options.UseFont = true;
+            this.txtDepositAmount.Properties.AutoHeight = false;
+            this.txtDepositAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtDepositAmount.Properties.MaskSettings.Set("mask", "f");
+            this.txtDepositAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtDepositAmount.Size = new System.Drawing.Size(265, 29);
+            this.txtDepositAmount.TabIndex = 67;
+            // 
+            // txtDraftAmount
+            // 
+            this.txtDraftAmount.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtDraftAmount.EditValue = "0";
+            this.txtDraftAmount.Location = new System.Drawing.Point(74, 73);
+            this.txtDraftAmount.Name = "txtDraftAmount";
+            this.txtDraftAmount.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtDraftAmount.Properties.Appearance.Options.UseFont = true;
+            this.txtDraftAmount.Properties.AutoHeight = false;
+            this.txtDraftAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtDraftAmount.Properties.MaskSettings.Set("mask", "n0");
+            this.txtDraftAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtDraftAmount.Size = new System.Drawing.Size(265, 29);
+            this.txtDraftAmount.TabIndex = 66;
+            // 
+            // txtRate
+            // 
+            this.txtRate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtRate.EditValue = "0";
+            this.txtRate.Location = new System.Drawing.Point(74, 110);
+            this.txtRate.Name = "txtRate";
+            this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtRate.Properties.Appearance.Options.UseFont = true;
+            this.txtRate.Properties.AutoHeight = false;
+            this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtRate.Size = new System.Drawing.Size(265, 29);
+            this.txtRate.TabIndex = 65;
+            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
             // 
             // txtDate
             // 
@@ -166,14 +213,14 @@ namespace PamirAccounting.Forms.Drafts
             this.simpleButton1.Location = new System.Drawing.Point(42, 253);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(26, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(26, 30);
             this.simpleButton1.TabIndex = 63;
             // 
             // cmbCustomer
             // 
             this.cmbCustomer.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomer.FormattingEnabled = true;
-            this.cmbCustomer.Location = new System.Drawing.Point(74, 249);
+            this.cmbCustomer.Location = new System.Drawing.Point(74, 252);
             this.cmbCustomer.Name = "cmbCustomer";
             this.cmbCustomer.Size = new System.Drawing.Size(265, 31);
             this.cmbCustomer.TabIndex = 58;
@@ -210,19 +257,11 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(752, 328);
+            this.label17.Location = new System.Drawing.Point(752, 323);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(57, 23);
             this.label17.TabIndex = 32;
             this.label17.Text = "توضیحات";
-            // 
-            // txtDepositAmount
-            // 
-            this.txtDepositAmount.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDepositAmount.Location = new System.Drawing.Point(74, 184);
-            this.txtDepositAmount.Name = "txtDepositAmount";
-            this.txtDepositAmount.Size = new System.Drawing.Size(265, 29);
-            this.txtDepositAmount.TabIndex = 29;
             // 
             // cmbDepositCurreny
             // 
@@ -236,29 +275,11 @@ namespace PamirAccounting.Forms.Drafts
             // txtRent
             // 
             this.txtRent.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtRent.Location = new System.Drawing.Point(74, 148);
+            this.txtRent.Location = new System.Drawing.Point(74, 146);
             this.txtRent.Name = "txtRent";
             this.txtRent.Size = new System.Drawing.Size(265, 29);
             this.txtRent.TabIndex = 25;
             this.txtRent.TextChanged += new System.EventHandler(this.txtRent_TextChanged);
-            // 
-            // txtRate
-            // 
-            this.txtRate.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtRate.Location = new System.Drawing.Point(74, 110);
-            this.txtRate.Name = "txtRate";
-            this.txtRate.Size = new System.Drawing.Size(265, 29);
-            this.txtRate.TabIndex = 23;
-            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
-            // 
-            // txtDraftAmount
-            // 
-            this.txtDraftAmount.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDraftAmount.Location = new System.Drawing.Point(74, 72);
-            this.txtDraftAmount.Name = "txtDraftAmount";
-            this.txtDraftAmount.Size = new System.Drawing.Size(265, 29);
-            this.txtDraftAmount.TabIndex = 21;
-            this.txtDraftAmount.TextChanged += new System.EventHandler(this.txtDraftAmount_TextChanged);
             // 
             // txtPayPlace
             // 
@@ -321,7 +342,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(748, 288);
+            this.label9.Location = new System.Drawing.Point(752, 286);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 23);
             this.label9.TabIndex = 16;
@@ -331,7 +352,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(745, 218);
+            this.label8.Location = new System.Drawing.Point(752, 220);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 23);
             this.label8.TabIndex = 14;
@@ -341,7 +362,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(752, 251);
+            this.label7.Location = new System.Drawing.Point(752, 256);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(25, 23);
             this.label7.TabIndex = 12;
@@ -351,7 +372,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(745, 183);
+            this.label6.Location = new System.Drawing.Point(752, 185);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 23);
             this.label6.TabIndex = 10;
@@ -361,7 +382,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(745, 148);
+            this.label5.Location = new System.Drawing.Point(752, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 23);
             this.label5.TabIndex = 8;
@@ -371,7 +392,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(745, 113);
+            this.label3.Location = new System.Drawing.Point(752, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 23);
             this.label3.TabIndex = 4;
@@ -381,7 +402,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(745, 78);
+            this.label2.Location = new System.Drawing.Point(752, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 23);
             this.label2.TabIndex = 2;
@@ -391,7 +412,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(745, 43);
+            this.label1.Location = new System.Drawing.Point(752, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 23);
             this.label1.TabIndex = 0;
@@ -401,7 +422,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(341, 250);
+            this.label16.Location = new System.Drawing.Point(344, 256);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(43, 23);
             this.label16.TabIndex = 30;
@@ -411,7 +432,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(339, 184);
+            this.label14.Location = new System.Drawing.Point(339, 186);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 23);
             this.label14.TabIndex = 28;
@@ -493,6 +514,9 @@ namespace PamirAccounting.Forms.Drafts
             this.Load += new System.EventHandler(this.shippingOrderFrm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepositAmount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDraftAmount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -508,15 +532,12 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtDepositAmount;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cmbDepositCurreny;
         private System.Windows.Forms.TextBox txtRent;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtRate;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtDraftAmount;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtPayPlace;
@@ -538,5 +559,8 @@ namespace PamirAccounting.Forms.Drafts
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraEditors.TextEdit txtDate;
+        private DevExpress.XtraEditors.TextEdit txtRate;
+        private DevExpress.XtraEditors.TextEdit txtDepositAmount;
+        private DevExpress.XtraEditors.TextEdit txtDraftAmount;
     }
 }

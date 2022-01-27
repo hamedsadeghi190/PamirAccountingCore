@@ -298,6 +298,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.MaximizeBox = false;
             this.Name = "CustomerCreateUpdateFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.CustomerCreateUpdateFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtFirstname.Properties)).EndInit();

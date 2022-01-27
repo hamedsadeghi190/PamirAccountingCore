@@ -396,6 +396,7 @@ namespace PamirAccounting.Forms.Transactions
             this.MaximizeBox = false;
             this.Name = "editUnkownDepositFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.editUnkownDepositFrm_Load);
             this.groupBox1.ResumeLayout(false);

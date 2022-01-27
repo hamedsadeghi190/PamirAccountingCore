@@ -106,7 +106,7 @@ namespace PamirAccounting.Forms.Customers
             this.btnsearch.Appearance.ForeColor = System.Drawing.Color.Black;
             this.btnsearch.Appearance.Options.UseFont = true;
             this.btnsearch.Appearance.Options.UseForeColor = true;
-            this.btnsearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.btnsearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsearch.ImageOptions.SvgImage")));
             this.btnsearch.Location = new System.Drawing.Point(20, 38);
             this.btnsearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnsearch.Name = "btnsearch";
@@ -127,6 +127,7 @@ namespace PamirAccounting.Forms.Customers
             this.MaximizeBox = false;
             this.Name = "SearchDateFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.SearchDateFrm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -16,4 +16,14 @@ namespace PamirAccounting.Models
         public Boolean value { get; set; }
         public string Title { get; set; }
     }
+
+    public class CurrencyViewModel
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public double? BaseRate { get; set; }
+        public byte? Action { get; set; }
+
+
+    }
 }

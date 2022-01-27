@@ -194,25 +194,10 @@
     <Compile Update="Forms\Transactions\UnkwonDepositFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Transaction\BalanceFrm.cs">
+    <Compile Update="Forms\Transactions\CreateNewCustomerAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Transaction\BankPaymentFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Transaction\BankReceiveFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Transaction\CreateNewCustomerAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Transaction\PayCashFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Transaction\ReceiveCashFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Transaction\TransferAccountFrm.cs">
+    <Compile Update="Forms\Transactions\TransferAccountFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Users\LoginFrm.cs">
