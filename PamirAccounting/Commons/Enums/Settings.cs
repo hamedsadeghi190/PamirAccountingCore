@@ -60,5 +60,16 @@ namespace PamirAccounting.Commons.Enums
 
 
         }
+
+        public enum ChequeStatus
+        {
+            [Description("جدید")]
+            New = 1,
+            [Description("در جریان وصول")]
+            DarJaryanVosol = 2,
+
+
+
+        }
     }
 }

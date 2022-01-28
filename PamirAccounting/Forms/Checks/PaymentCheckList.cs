@@ -88,9 +88,7 @@ namespace PamirAccounting.Forms.Checks
                     {
                         var cheque = unitOfWork.Cheque.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
                         unitOfWork.ChequeServices.Delete(cheque);
-
                         var transactions = unitOfWork.Transactions.FindAll(x => x.DocumentId == cheque.DocumentId).ToList();
-
                         foreach (var item in transactions)
                         {
                             item.DoubleTransactionId = null;

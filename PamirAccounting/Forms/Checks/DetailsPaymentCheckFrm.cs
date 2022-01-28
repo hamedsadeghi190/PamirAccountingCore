@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Commons.Enums;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
@@ -155,6 +156,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
             Cheque.Type = (int)DocumentType.DepositDocument;
+            Cheque.Status = (int)Settings.ChequeStatus.New;
             unitOfWork.ChequeServices.Insert(Cheque);
             unitOfWork.SaveChanges();
             ////////Customer transaction
@@ -219,6 +221,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
             Cheque.Type = (int)DocumentType.DepositDocument;
+            Cheque.Status = (int)Settings.ChequeStatus.New;
             unitOfWork.ChequeServices.Update(Cheque);
             unitOfWork.SaveChanges();
             ////////Customer transaction
@@ -227,7 +230,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = AppSetting.SendDocumentCustomerId;
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
-            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text); ;
+            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text); 
             customerTransaction.DepositAmount = 0;
             customerTransaction.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.DepostitCash + " به شماره چک -" + DocumentId;
             customerTransaction.CurrenyId = 2;

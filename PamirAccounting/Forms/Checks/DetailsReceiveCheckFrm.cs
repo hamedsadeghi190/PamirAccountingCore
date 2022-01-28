@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Commons.Enums;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
@@ -171,6 +172,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
             Cheque.Type = (int)DocumentType.RecivedDocument;
+            Cheque.Status = (int)Settings.ChequeStatus.New;
             unitOfWork.ChequeServices.Insert(Cheque);
             unitOfWork.SaveChanges();
             ////////Customer transaction
@@ -236,6 +238,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
             Cheque.Type = (int)DocumentType.RecivedDocument;
+            Cheque.Status = (int)Settings.ChequeStatus.New;
             unitOfWork.ChequeServices.Update(Cheque);
             unitOfWork.SaveChanges();
             ////////Customer transaction

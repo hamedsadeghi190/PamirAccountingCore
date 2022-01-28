@@ -40,8 +40,6 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer = new DevExpress.XtraEditors.SimpleButton();
             this.txtDesc = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -111,15 +109,13 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox2.Controls.Add(this.btnshowcustomer);
             this.groupBox2.Controls.Add(this.txtDesc);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(8, 83);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(704, 248);
+            this.groupBox2.Size = new System.Drawing.Size(704, 223);
             this.groupBox2.TabIndex = 110;
             this.groupBox2.TabStop = false;
             // 
@@ -153,7 +149,7 @@ namespace PamirAccounting.Forms.Checks
             // txtDesc
             // 
             this.txtDesc.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtDesc.Location = new System.Drawing.Point(160, 161);
+            this.txtDesc.Location = new System.Drawing.Point(160, 119);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(448, 39);
             this.txtDesc.TabIndex = 113;
@@ -164,30 +160,11 @@ namespace PamirAccounting.Forms.Checks
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(608, 164);
+            this.label8.Location = new System.Drawing.Point(608, 122);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 26);
             this.label8.TabIndex = 114;
             this.label8.Text = "شرح سند";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(388, 117);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(220, 38);
-            this.textBox4.TabIndex = 111;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(608, 123);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 26);
-            this.label4.TabIndex = 110;
-            this.label4.Text = "شماره برات";
             // 
             // textBox2
             // 
@@ -231,7 +208,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.groupBox3.Controls.Add(this.BtnSave);
             this.groupBox3.Controls.Add(this.BtnClose);
-            this.groupBox3.Location = new System.Drawing.Point(8, 331);
+            this.groupBox3.Location = new System.Drawing.Point(12, 306);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(704, 102);
             this.groupBox3.TabIndex = 111;
@@ -271,7 +248,7 @@ namespace PamirAccounting.Forms.Checks
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 440);
+            this.ClientSize = new System.Drawing.Size(718, 415);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -306,8 +283,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.SimpleButton btnshowcustomer;
         private System.Windows.Forms.RichTextBox txtDesc;
