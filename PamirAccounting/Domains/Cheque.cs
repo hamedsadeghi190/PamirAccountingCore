@@ -21,6 +21,7 @@ namespace PamirAccounting.Domains
         public int Type { get; set; }
         public string BranchName { get; set; }
         public int UserId { get; set; }
+        public byte Status { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual RealBank RealBank { get; set; }
