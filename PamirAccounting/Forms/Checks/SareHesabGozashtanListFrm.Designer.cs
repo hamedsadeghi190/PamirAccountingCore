@@ -55,11 +55,8 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -321,22 +318,22 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
-            this.Column11,
             this.Column6,
             this.Column10,
             this.Column9});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 152);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1182, 428);
             this.dataGridView1.TabIndex = 104;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -350,7 +347,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FullName";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ChequeNumber";
             this.dataGridViewTextBoxColumn2.FillWeight = 450F;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "شماره چک";
@@ -360,7 +357,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Phone";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "IssueDate";
             this.dataGridViewTextBoxColumn3.FillWeight = 130F;
             this.dataGridViewTextBoxColumn3.HeaderText = "صدور";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -369,50 +366,33 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Mobile";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DueDate";
             this.dataGridViewTextBoxColumn4.FillWeight = 130F;
             this.dataGridViewTextBoxColumn4.HeaderText = "سررسید";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 130;
             // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "برات";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "GroupName";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Amount";
             this.dataGridViewTextBoxColumn6.FillWeight = 130F;
             this.dataGridViewTextBoxColumn6.HeaderText = "مبلغ";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 130;
             // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "ارز";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn8
             // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "CustomerName";
             this.dataGridViewTextBoxColumn8.HeaderText = "صاحب چک";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Width = 150;
             // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "انتخاب";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 70;
-            // 
             // Column6
             // 
+            this.Column6.DataPropertyName = "DocumentID";
             this.Column6.HeaderText = "سند";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -420,6 +400,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column10
             // 
+            this.Column10.DataPropertyName = "BankAccountNumber";
             this.Column10.HeaderText = "شماره حساب";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
@@ -427,6 +408,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column9
             // 
+            this.Column9.DataPropertyName = "RealBankName";
             this.Column9.HeaderText = "بانک";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -489,11 +471,8 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;

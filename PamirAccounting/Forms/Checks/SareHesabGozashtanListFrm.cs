@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Models;
+using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,21 +14,49 @@ using System.Windows.Forms;
 namespace PamirAccounting.Forms.Checks
 {
     public partial class SareHesabGozashtanListFrm : DevExpress.XtraEditors.XtraForm
+
     {
+        private UnitOfWork unitOfWork;
+        private List<ChequeModel> dataList;
+    
         public SareHesabGozashtanListFrm()
         {
             InitializeComponent();
+            unitOfWork = new UnitOfWork();
         }
+        private void LoadData()
+        {
+            dataList = unitOfWork.ChequeServices.GetAllDaryaftani();
+            dataGridView1.DataSource = dataList.Select(x => new
+            {
+                x.Id,
+                x.IssueDate,
+                x.Description,
+                x.DocumentId,
+                x.ChequeNumber,
+                x.Amount,
+                x.BranchName,
+                x.BankAccountNumber,
+                x.CustomerName,
+                x.RealBankName,
 
+
+
+            }).ToList();
+
+        }
         private void SareHesabGozashtanFrm_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoGenerateColumns = false;
+            LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 9; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
             this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -42,8 +72,20 @@ namespace PamirAccounting.Forms.Checks
 
         private void btnsarehesab_Click(object sender, EventArgs e)
         {
-             var SareHesabGozashtan = new SareHesabGozashtanFrm();
-            SareHesabGozashtan.ShowDialog();
+            if(dataGridView1.SelectedRows.Count > 0)
+            {
+               
+                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                var SareHesabGozashtan = new SareHesabGozashtanFrm(ChequeNumber);
+                SareHesabGozashtan.ShowDialog();
+                LoadData();
+            }
+          
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+         
         }
     }
 }
