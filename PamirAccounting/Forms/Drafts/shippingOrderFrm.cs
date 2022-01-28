@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Drafts
 {
@@ -34,6 +35,9 @@ namespace PamirAccounting.Forms.Drafts
         {
             unitOfWork = new UnitOfWork();
             initData();
+            PersianCalendar pc = new PersianCalendar();
+            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + (pc.GetMonth(DateTime.Now) < 10 ? "0" + pc.GetMonth(DateTime.Now).ToString() : pc.GetMonth(DateTime.Now).ToString()) + "/" + (pc.GetDayOfMonth(DateTime.Now)<10?"0" + pc.GetDayOfMonth(DateTime.Now).ToString() : pc.GetDayOfMonth(DateTime.Now).ToString());
+            txtDate.Text = PDate;
         }
         private void initData()
         {
@@ -67,6 +71,7 @@ namespace PamirAccounting.Forms.Drafts
             cmbStatus.DataSource = _status;
             cmbStatus.ValueMember = "value";
             cmbStatus.DisplayMember = "Title";
+            calcNumber((int)cmbAgency.SelectedValue);
         }
 
 
@@ -74,9 +79,9 @@ namespace PamirAccounting.Forms.Drafts
         {
             try
             {
+                var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
 
                 var draft = new Domains.Draft();
-
 
                 var dDate = txtDate.Text.Split('/');
                 PersianCalendar p = new PersianCalendar();
@@ -91,7 +96,6 @@ namespace PamirAccounting.Forms.Drafts
                 draft.FatherName = txtFatherName.Text;
                 draft.Description = txtDesc.Text;
                 draft.PayPlace = txtPayPlace.Text;
-
                 draft.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
                 draft.DraftAmount = long.Parse(txtDraftAmount.Text);
                 draft.Rate = long.Parse(txtRate.Text);
@@ -103,6 +107,29 @@ namespace PamirAccounting.Forms.Drafts
 
                 unitOfWork.DraftsServices.Insert(draft);
                 unitOfWork.SaveChanges();
+
+
+                // trakonesh moshtari //
+                var customerTransaction = new Domains.Transaction();
+                customerTransaction.SourceCustomerId = (int)cmbCustomer.SelectedValue;
+                // customerTransaction.DestinitionCustomerId = AppSetting.SandoghCustomerId;
+                customerTransaction.TransactionType = (int)TransaActionType.HavaleRaft;
+                customerTransaction.DocumentId = documentId;
+                customerTransaction.DepositAmount = 0;
+                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtDepositAmount.Text.Trim())) ? 0 : long.Parse(txtDepositAmount.Text);
+                customerTransaction.Description = $"شماره  {txtNumber.Text} {cmbAgency.Text} , {txtSender.Text} برای " +
+                    $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDepositCurreny.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text}  **{txtDesc.Text}";
+
+                customerTransaction.CurrenyId = (int)cmbDepositCurreny.SelectedValue;
+                var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                customerTransaction.Date = DateTime.Now;
+                customerTransaction.TransactionDateTime = TransactionDateTime;
+                customerTransaction.UserId = CurrentUser.UserID;
+
+                unitOfWork.TransactionServices.Insert(customerTransaction);
+                unitOfWork.SaveChanges();
+                //end moshtari ///
+
                 MessageBox.Show(" حواله با موفقیت ثبت شد");
             }
             catch (Exception ex)
@@ -113,7 +140,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void txtRent_TextChanged(object sender, EventArgs e)
         {
-            if(txtRent.Text.Length>0)
+            if (txtRent.Text.Length > 0)
             {
                 CalculateDeposit();
                 var deposit = txtDepositAmount.Text.Length > 0 ? double.Parse(txtDepositAmount.Text) : 0;
@@ -131,15 +158,20 @@ namespace PamirAccounting.Forms.Drafts
         {
             if (cmbAgency.SelectedIndex >= 0)
             {
-                var lastDraft = unitOfWork.Drafts.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue).OrderByDescending(x => x.Id).FirstOrDefault();
-                if (lastDraft != null)
-                {
-                    txtNumber.Text = (lastDraft.Number + 1).ToString();
-                }
-                else
-                {
-                    txtNumber.Text = ((int)cmbAgency.SelectedValue*100 + 1).ToString();
-                }
+                calcNumber((int)cmbAgency.SelectedValue);
+            }
+        }
+
+        private void calcNumber(int agenyId)
+        {
+            var lastDraft = unitOfWork.Drafts.FindAll(x => x.AgencyId == agenyId).OrderByDescending(x => x.Id).FirstOrDefault();
+            if (lastDraft != null)
+            {
+                txtNumber.Text = (lastDraft.Number + 1).ToString();
+            }
+            else
+            {
+                txtNumber.Text = ((int)cmbAgency.SelectedValue * 100 + 1).ToString();
             }
         }
 
@@ -150,7 +182,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void CalculateDeposit()
         {
-            if (txtDraftAmount.Text.Length > 0 && txtRate.Text.Length>0)
+            if (txtDraftAmount.Text.Length > 0 && txtRate.Text.Length > 0)
             {
                 double rate;
                 if (double.TryParse(txtRate.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out rate))
@@ -162,7 +194,6 @@ namespace PamirAccounting.Forms.Drafts
                     // TODO: tell the user to enter a correct number
                 }
 
-               
             }
         }
 

@@ -135,7 +135,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDepositAmount.Properties.MaskSettings.Set("mask", "f");
             this.txtDepositAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDepositAmount.Size = new System.Drawing.Size(265, 29);
-            this.txtDepositAmount.TabIndex = 67;
+            this.txtDepositAmount.TabIndex = 13;
             // 
             // txtDraftAmount
             // 
@@ -150,7 +150,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDraftAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtDraftAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDraftAmount.Size = new System.Drawing.Size(265, 29);
-            this.txtDraftAmount.TabIndex = 66;
+            this.txtDraftAmount.TabIndex = 10;
             // 
             // txtRate
             // 
@@ -163,7 +163,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRate.Properties.AutoHeight = false;
             this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRate.Size = new System.Drawing.Size(265, 29);
-            this.txtRate.TabIndex = 65;
+            this.txtRate.TabIndex = 11;
             this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
             // 
             // txtDate
@@ -171,14 +171,14 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtDate.Location = new System.Drawing.Point(481, 35);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDate.Properties.Appearance.Options.UseFont = true;
             this.txtDate.Properties.AutoHeight = false;
             this.txtDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.txtDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDate.Size = new System.Drawing.Size(265, 33);
-            this.txtDate.TabIndex = 64;
+            this.txtDate.TabIndex = 0;
             // 
             // btnSave
             // 
@@ -189,7 +189,7 @@ namespace PamirAccounting.Forms.Drafts
             this.btnSave.Location = new System.Drawing.Point(74, 410);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 38);
-            this.btnSave.TabIndex = 62;
+            this.btnSave.TabIndex = 19;
             this.btnSave.Text = "ثبت";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -202,7 +202,7 @@ namespace PamirAccounting.Forms.Drafts
             this.btnClose.Location = new System.Drawing.Point(190, 410);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(110, 38);
-            this.btnClose.TabIndex = 61;
+            this.btnClose.TabIndex = 20;
             this.btnClose.Text = "بازگشت";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -214,7 +214,7 @@ namespace PamirAccounting.Forms.Drafts
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(26, 30);
-            this.simpleButton1.TabIndex = 63;
+            this.simpleButton1.TabIndex = 16;
             // 
             // cmbCustomer
             // 
@@ -223,7 +223,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbCustomer.Location = new System.Drawing.Point(74, 252);
             this.cmbCustomer.Name = "cmbCustomer";
             this.cmbCustomer.Size = new System.Drawing.Size(265, 31);
-            this.cmbCustomer.TabIndex = 58;
+            this.cmbCustomer.TabIndex = 15;
             // 
             // cmbDraftCurrency
             // 
@@ -232,7 +232,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbDraftCurrency.Location = new System.Drawing.Point(74, 30);
             this.cmbDraftCurrency.Name = "cmbDraftCurrency";
             this.cmbDraftCurrency.Size = new System.Drawing.Size(265, 31);
-            this.cmbDraftCurrency.TabIndex = 57;
+            this.cmbDraftCurrency.TabIndex = 8;
             // 
             // cmbAgency
             // 
@@ -241,7 +241,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbAgency.Location = new System.Drawing.Point(481, 74);
             this.cmbAgency.Name = "cmbAgency";
             this.cmbAgency.Size = new System.Drawing.Size(265, 31);
-            this.cmbAgency.TabIndex = 56;
+            this.cmbAgency.TabIndex = 1;
             this.cmbAgency.SelectedIndexChanged += new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
             // 
             // txtDesc
@@ -250,7 +250,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDesc.Location = new System.Drawing.Point(74, 323);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(672, 69);
-            this.txtDesc.TabIndex = 33;
+            this.txtDesc.TabIndex = 18;
             this.txtDesc.Text = "";
             // 
             // label17
@@ -270,7 +270,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbDepositCurreny.Location = new System.Drawing.Point(74, 216);
             this.cmbDepositCurreny.Name = "cmbDepositCurreny";
             this.cmbDepositCurreny.Size = new System.Drawing.Size(265, 31);
-            this.cmbDepositCurreny.TabIndex = 26;
+            this.cmbDepositCurreny.TabIndex = 14;
             // 
             // txtRent
             // 
@@ -278,7 +278,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRent.Location = new System.Drawing.Point(74, 146);
             this.txtRent.Name = "txtRent";
             this.txtRent.Size = new System.Drawing.Size(265, 29);
-            this.txtRent.TabIndex = 25;
+            this.txtRent.TabIndex = 12;
             this.txtRent.TextChanged += new System.EventHandler(this.txtRent_TextChanged);
             // 
             // txtPayPlace
@@ -287,7 +287,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtPayPlace.Location = new System.Drawing.Point(481, 285);
             this.txtPayPlace.Name = "txtPayPlace";
             this.txtPayPlace.Size = new System.Drawing.Size(265, 29);
-            this.txtPayPlace.TabIndex = 17;
+            this.txtPayPlace.TabIndex = 7;
             // 
             // txtReciver
             // 
@@ -295,7 +295,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtReciver.Location = new System.Drawing.Point(481, 215);
             this.txtReciver.Name = "txtReciver";
             this.txtReciver.Size = new System.Drawing.Size(265, 29);
-            this.txtReciver.TabIndex = 15;
+            this.txtReciver.TabIndex = 5;
             // 
             // txtFatherName
             // 
@@ -303,7 +303,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtFatherName.Location = new System.Drawing.Point(481, 251);
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(265, 29);
-            this.txtFatherName.TabIndex = 13;
+            this.txtFatherName.TabIndex = 6;
             // 
             // txtSender
             // 
@@ -311,7 +311,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtSender.Location = new System.Drawing.Point(481, 180);
             this.txtSender.Name = "txtSender";
             this.txtSender.Size = new System.Drawing.Size(265, 29);
-            this.txtSender.TabIndex = 11;
+            this.txtSender.TabIndex = 4;
             // 
             // txtOtherNumber
             // 
@@ -319,7 +319,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtOtherNumber.Location = new System.Drawing.Point(481, 145);
             this.txtOtherNumber.Name = "txtOtherNumber";
             this.txtOtherNumber.Size = new System.Drawing.Size(265, 29);
-            this.txtOtherNumber.TabIndex = 9;
+            this.txtOtherNumber.TabIndex = 3;
             // 
             // cmbStatus
             // 
@@ -328,7 +328,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbStatus.Location = new System.Drawing.Point(74, 286);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(265, 31);
-            this.cmbStatus.TabIndex = 6;
+            this.cmbStatus.TabIndex = 17;
             // 
             // txtNumber
             // 
@@ -336,7 +336,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtNumber.Location = new System.Drawing.Point(481, 110);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(265, 29);
-            this.txtNumber.TabIndex = 5;
+            this.txtNumber.TabIndex = 2;
             // 
             // label9
             // 

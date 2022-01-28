@@ -49,6 +49,10 @@ namespace PamirAccounting.Commons.Enums
             RecivedDocument = 6,
             [Description("اسناد پرداختنی")]
             DepositDocument = 7,
+            [Description("حواله رفت")]
+            HavaleRaft = 8,
+            [Description("حواله آمد")]
+            HavaleAmad =9,
         }
 
         public enum DocumentType
