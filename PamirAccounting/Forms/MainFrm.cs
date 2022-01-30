@@ -493,6 +493,11 @@ namespace PamirAccounting.UI
 
 
         }
+
+        private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 
 }

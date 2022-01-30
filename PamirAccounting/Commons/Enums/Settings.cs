@@ -67,7 +67,8 @@ namespace PamirAccounting.Commons.Enums
             New = 1,
             [Description("در جریان وصول")]
             DarJaryanVosol = 2,
-
+            [Description("وصول شده")]
+            Vosol = 3,
 
 
         }

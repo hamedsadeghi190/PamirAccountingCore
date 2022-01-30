@@ -21,7 +21,7 @@ namespace PamirAccounting
 
             var loginFrm = new LoginFrm();
             loginFrm.ShowDialog();
-            Application.Run(new MainFrm());
+            Application.Run(new LandingPageFrm());
         }
     }
 }

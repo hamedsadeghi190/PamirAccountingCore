@@ -34,11 +34,6 @@ namespace PamirAccounting.Forms.Checks
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.btnsarehesab = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtCreditLimit = new DevExpress.XtraEditors.TextEdit();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtLastName = new DevExpress.XtraEditors.TextEdit();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,9 +56,6 @@ namespace PamirAccounting.Forms.Checks
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCreditLimit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -115,104 +107,6 @@ namespace PamirAccounting.Forms.Checks
             this.btnsarehesab.TabIndex = 0;
             this.btnsarehesab.Text = "سرحساب گذاشتن";
             this.btnsarehesab.Click += new System.EventHandler(this.btnsarehesab_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtCreditLimit);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.txtLastName);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(4, 585);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1171, 74);
-            this.groupBox2.TabIndex = 100;
-            this.groupBox2.TabStop = false;
-            // 
-            // txtCreditLimit
-            // 
-            this.txtCreditLimit.EditValue = "ملت آرادی";
-            this.txtCreditLimit.Enabled = false;
-            this.txtCreditLimit.Location = new System.Drawing.Point(690, 24);
-            this.txtCreditLimit.Name = "txtCreditLimit";
-            this.txtCreditLimit.Properties.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCreditLimit.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtCreditLimit.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.txtCreditLimit.Properties.Appearance.Options.UseBackColor = true;
-            this.txtCreditLimit.Properties.Appearance.Options.UseFont = true;
-            this.txtCreditLimit.Properties.Appearance.Options.UseForeColor = true;
-            this.txtCreditLimit.Properties.AppearanceDisabled.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.txtCreditLimit.Properties.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtCreditLimit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.White;
-            this.txtCreditLimit.Properties.AppearanceDisabled.Options.UseBackColor = true;
-            this.txtCreditLimit.Properties.AppearanceDisabled.Options.UseFont = true;
-            this.txtCreditLimit.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtCreditLimit.Properties.AppearanceFocused.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.txtCreditLimit.Properties.AppearanceFocused.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtCreditLimit.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.White;
-            this.txtCreditLimit.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.txtCreditLimit.Properties.AppearanceFocused.Options.UseFont = true;
-            this.txtCreditLimit.Properties.AppearanceFocused.Options.UseForeColor = true;
-            this.txtCreditLimit.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.txtCreditLimit.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtCreditLimit.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.White;
-            this.txtCreditLimit.Properties.AppearanceReadOnly.Options.UseBackColor = true;
-            this.txtCreditLimit.Properties.AppearanceReadOnly.Options.UseFont = true;
-            this.txtCreditLimit.Properties.AppearanceReadOnly.Options.UseForeColor = true;
-            this.txtCreditLimit.Properties.AutoHeight = false;
-            this.txtCreditLimit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtCreditLimit.Size = new System.Drawing.Size(357, 38);
-            this.txtCreditLimit.TabIndex = 101;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(1053, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 26);
-            this.label7.TabIndex = 103;
-            this.label7.Text = "بانک شعبه /شهر";
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.EditValue = "پرنیان کیانی";
-            this.txtLastName.Enabled = false;
-            this.txtLastName.Location = new System.Drawing.Point(15, 18);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Properties.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtLastName.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtLastName.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.txtLastName.Properties.Appearance.Options.UseBackColor = true;
-            this.txtLastName.Properties.Appearance.Options.UseFont = true;
-            this.txtLastName.Properties.Appearance.Options.UseForeColor = true;
-            this.txtLastName.Properties.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtLastName.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.White;
-            this.txtLastName.Properties.AppearanceDisabled.Options.UseFont = true;
-            this.txtLastName.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.txtLastName.Properties.AppearanceFocused.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtLastName.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.White;
-            this.txtLastName.Properties.AppearanceFocused.Options.UseFont = true;
-            this.txtLastName.Properties.AppearanceFocused.Options.UseForeColor = true;
-            this.txtLastName.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtLastName.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.White;
-            this.txtLastName.Properties.AppearanceReadOnly.Options.UseFont = true;
-            this.txtLastName.Properties.AppearanceReadOnly.Options.UseForeColor = true;
-            this.txtLastName.Properties.AutoHeight = false;
-            this.txtLastName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtLastName.Size = new System.Drawing.Size(350, 38);
-            this.txtLastName.TabIndex = 100;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(371, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 26);
-            this.label4.TabIndex = 102;
-            this.label4.Text = "صاحب چک";
             // 
             // groupBox3
             // 
@@ -331,7 +225,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1182, 428);
+            this.dataGridView1.Size = new System.Drawing.Size(1182, 501);
             this.dataGridView1.TabIndex = 104;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -422,7 +316,6 @@ namespace PamirAccounting.Forms.Checks
             this.ClientSize = new System.Drawing.Size(1180, 732);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
@@ -433,10 +326,6 @@ namespace PamirAccounting.Forms.Checks
             this.Load += new System.EventHandler(this.SareHesabGozashtanFrm_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SareHesabGozashtanListFrm_KeyUp);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCreditLimit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -450,11 +339,6 @@ namespace PamirAccounting.Forms.Checks
         private DevExpress.XtraEditors.SimpleButton btnsarehesab;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private DevExpress.XtraEditors.TextEdit txtCreditLimit;
-        private System.Windows.Forms.Label label7;
-        private DevExpress.XtraEditors.TextEdit txtLastName;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtsearch;
         private System.Windows.Forms.Label label1;

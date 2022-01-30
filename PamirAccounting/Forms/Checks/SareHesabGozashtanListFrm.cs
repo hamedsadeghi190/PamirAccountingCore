@@ -39,6 +39,7 @@ namespace PamirAccounting.Forms.Checks
                 x.BankAccountNumber,
                 x.CustomerName,
                 x.RealBankName,
+                x.DueDate
 
 
 
@@ -76,7 +77,7 @@ namespace PamirAccounting.Forms.Checks
             {
                
                 long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
-                var SareHesabGozashtan = new SareHesabGozashtanFrm(ChequeNumber);
+                var SareHesabGozashtan = new SareHesabGozashtanFrm(ChequeNumber,0);
                 SareHesabGozashtan.ShowDialog();
                 LoadData();
             }

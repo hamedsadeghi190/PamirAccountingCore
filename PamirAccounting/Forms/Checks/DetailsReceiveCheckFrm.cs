@@ -49,7 +49,7 @@ namespace PamirAccounting.Forms.Checks
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomers.DataSource = _Customers;
             cmbCustomers.ValueMember = "Id";
-            cmbCustomers.DisplayMember = "Title"; ;
+            cmbCustomers.DisplayMember = "Title"; 
 
         }
 

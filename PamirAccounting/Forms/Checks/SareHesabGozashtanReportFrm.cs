@@ -13,20 +13,19 @@ using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.Checks
 {
-    public partial class PaymentCheckList : DevExpress.XtraEditors.XtraForm
+  
+    public partial class SareHesabGozashtanReportFrm : DevExpress.XtraEditors.XtraForm
     {
         private UnitOfWork unitOfWork;
         private List<ChequeModel> dataList;
-
-
-        public PaymentCheckList()
+        public SareHesabGozashtanReportFrm()
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
         }
         private void LoadData()
         {
-            dataList = unitOfWork.ChequeServices.GetAll();
+            dataList = unitOfWork.ChequeServices.GetAllSareHesab();
             dataGridView1.DataSource = dataList.Select(x => new
             {
                 x.Id,
@@ -39,23 +38,24 @@ namespace PamirAccounting.Forms.Checks
                 x.BankAccountNumber,
                 x.CustomerName,
                 x.RealBankName,
-
+                x.DueDate
 
 
             }).ToList();
 
         }
-        private void PaymentCheckList_Load(object sender, EventArgs e)
+
+        private void SareHesabGozashtanReportFrm_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
             LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
-            for (int i = 0; i < 12; i++)
+            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            for (int i = 0; i < 11; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -70,7 +70,7 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frm = new DetailsPaymentCheckFrm(dataList.ElementAt(e.RowIndex).Id);
+                var frm = new SareHesabGozashtanFrm(0,dataList.ElementAt(e.RowIndex).Id);
                 frm.ShowDialog();
                 LoadData();
             }

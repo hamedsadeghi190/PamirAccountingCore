@@ -62,7 +62,7 @@ namespace PamirAccounting.UI
             this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnReceiveCash = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnTransferAccount = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnc = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnBankPayment = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnCurencyList = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnBankList = new DevExpress.XtraBars.BarButtonItem();
@@ -177,7 +177,7 @@ namespace PamirAccounting.UI
             this.barButtonItem14,
             this.barButtonItem15,
             this.barBtnReceiveCash,
-            this.barBtnTransferAccount,
+            this.barBtnc,
             this.barBtnBankPayment,
             this.barBtnCurencyList,
             this.barBtnBankList,
@@ -527,6 +527,7 @@ namespace PamirAccounting.UI
             // 
             // barButtonItemCustomerList
             // 
+            this.barButtonItemCustomerList.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemCustomerList.Caption = "لسیت مشتریان";
             this.barButtonItemCustomerList.Id = 20;
             this.barButtonItemCustomerList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItemCustomerList.ImageOptions.SvgImage")));
@@ -851,16 +852,16 @@ namespace PamirAccounting.UI
             this.barBtnReceiveCash.Name = "barBtnReceiveCash";
             this.barBtnReceiveCash.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnReceiveCash_ItemClick);
             // 
-            // barBtnTransferAccount
+            // barBtnc
             // 
-            this.barBtnTransferAccount.Caption = "انتقال حساب به حساب";
-            this.barBtnTransferAccount.Id = 37;
-            this.barBtnTransferAccount.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnTransferAccount.ImageOptions.SvgImage")));
-            this.barBtnTransferAccount.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.barBtnTransferAccount.ItemAppearance.Normal.Options.UseFont = true;
-            this.barBtnTransferAccount.LargeWidth = 140;
-            this.barBtnTransferAccount.Name = "barBtnTransferAccount";
-            this.barBtnTransferAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTransferAccount_ItemClick);
+            this.barBtnc.Caption = "انتقال حساب به حساب";
+            this.barBtnc.Id = 37;
+            this.barBtnc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnc.ImageOptions.SvgImage")));
+            this.barBtnc.ItemAppearance.Normal.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.barBtnc.ItemAppearance.Normal.Options.UseFont = true;
+            this.barBtnc.LargeWidth = 140;
+            this.barBtnc.Name = "barBtnc";
+            this.barBtnc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTransferAccount_ItemClick);
             // 
             // barBtnBankPayment
             // 
@@ -1099,6 +1100,7 @@ namespace PamirAccounting.UI
             this.barButtonItem11.ItemAppearance.Normal.Options.UseFont = true;
             this.barButtonItem11.LargeWidth = 100;
             this.barButtonItem11.Name = "barButtonItem11";
+            this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
             // 
             // btnsarehesabgozashtan
             // 
@@ -1617,7 +1619,7 @@ namespace PamirAccounting.UI
             // ribbonPageGroup13
             // 
             this.ribbonPageGroup13.ItemLinks.Add(this.barBtnReceiveCash);
-            this.ribbonPageGroup13.ItemLinks.Add(this.barBtnTransferAccount);
+            this.ribbonPageGroup13.ItemLinks.Add(this.barBtnc);
             this.ribbonPageGroup13.ItemLinks.Add(this.barBtnBankPayment);
             this.ribbonPageGroup13.ItemLinks.Add(this.barBtnshippingOrder);
             this.ribbonPageGroup13.ItemLinks.Add(this.barBtnWarrantsPayable);
@@ -1970,7 +1972,7 @@ namespace PamirAccounting.UI
         private DevExpress.XtraBars.BarButtonItem barBtnReceiveCash;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
-        private DevExpress.XtraBars.BarButtonItem barBtnTransferAccount;
+        private DevExpress.XtraBars.BarButtonItem barBtnc;
         private DevExpress.XtraBars.BarButtonItem barBtnBankPayment;
         private DevExpress.XtraBars.BarButtonItem barBtnCurencyList;
         private DevExpress.XtraBars.BarButtonItem barBtnBankList;

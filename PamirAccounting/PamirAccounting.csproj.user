@@ -71,6 +71,9 @@
     <Compile Update="Forms\Checks\SareHesabGozashtanListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Checks\SareHesabGozashtanReportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Checks\VagozariAsnadDaryaftaniFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +168,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Header\HeaderCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\LandingPageFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MainFrm.cs">

@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Models;
+using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +15,35 @@ namespace PamirAccounting.Forms.Checks
 {
     public partial class VosoolCheckDaryaftaniListFrm : DevExpress.XtraEditors.XtraForm
     {
+        private UnitOfWork unitOfWork;
+        private List<ChequeModel> dataList;
         public VosoolCheckDaryaftaniListFrm()
         {
             InitializeComponent();
+            unitOfWork = new UnitOfWork();
         }
+        private void LoadData()
+        {
+            dataList = unitOfWork.ChequeServices.GetAllSareHesab();
+            dataGridView1.DataSource = dataList.Select(x => new
+            {
+                x.Id,
+                x.IssueDate,
+                x.Description,
+                x.DocumentId,
+                x.ChequeNumber,
+                x.Amount,
+                x.BranchName,
+                x.BankAccountNumber,
+                x.CustomerName,
+                x.RealBankName,
+                x.DueDate
 
+
+
+            }).ToList();
+
+        }
         private void VosoolCheckDaryaftaniListFrm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -26,19 +52,29 @@ namespace PamirAccounting.Forms.Checks
 
         private void btnvosool_daryaftani_Click(object sender, EventArgs e)
         {
-            var vosool = new VosoolCheckDaryaftaniFrm();
-            vosool.ShowDialog();
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+
+                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                var vosool = new VosoolCheckDaryaftaniFrm(ChequeNumber);
+                vosool.ShowDialog();
+                LoadData();
+            }
+          
         }
 
         private void VosoolCheckDaryaftaniListFrm_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoGenerateColumns = false;
+            LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 9; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
             this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+
         }
     }
 }
