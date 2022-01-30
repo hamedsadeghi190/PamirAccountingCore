@@ -56,6 +56,8 @@ namespace PamirAccounting.Forms
             this.ReceiveChequeList = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequePaymentList = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_SareHesabList = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChequeMenu_VosoolShode = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChequeMenu_Vagozari = new System.Windows.Forms.ToolStripMenuItem();
             this.عملیاتچکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_SareHesabGozashtan = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_VosoolDaryaftani = new System.Windows.Forms.ToolStripMenuItem();
@@ -358,12 +360,14 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ReceiveChequeList,
             this.ChequePaymentList,
-            this.ChequeMenu_SareHesabList});
+            this.ChequeMenu_SareHesabList,
+            this.ChequeMenu_VosoolShode,
+            this.ChequeMenu_Vagozari});
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
@@ -387,6 +391,20 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_SareHesabList.Text = "لیست چک های سر حساب گداشته";
             this.ChequeMenu_SareHesabList.Click += new System.EventHandler(this.ChequeMenu_SareHesabList_Click);
             // 
+            // ChequeMenu_VosoolShode
+            // 
+            this.ChequeMenu_VosoolShode.Name = "ChequeMenu_VosoolShode";
+            this.ChequeMenu_VosoolShode.Size = new System.Drawing.Size(259, 28);
+            this.ChequeMenu_VosoolShode.Text = "لیست چک های وصول شده";
+            this.ChequeMenu_VosoolShode.Click += new System.EventHandler(this.ChequeMenu_VosoolShode_Click);
+            // 
+            // ChequeMenu_Vagozari
+            // 
+            this.ChequeMenu_Vagozari.Name = "ChequeMenu_Vagozari";
+            this.ChequeMenu_Vagozari.Size = new System.Drawing.Size(259, 28);
+            this.ChequeMenu_Vagozari.Text = "لیست چک های واگذاری اسناد";
+            this.ChequeMenu_Vagozari.Click += new System.EventHandler(this.ChequeMenu_Vagozari_Click);
+            // 
             // عملیاتچکToolStripMenuItem
             // 
             this.عملیاتچکToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -404,7 +422,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("عملیاتچکToolStripMenuItem.Image")));
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan
@@ -988,5 +1006,7 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.Label lblTimee;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem ChequeMenu_SareHesabList;
+        private System.Windows.Forms.ToolStripMenuItem ChequeMenu_VosoolShode;
+        private System.Windows.Forms.ToolStripMenuItem ChequeMenu_Vagozari;
     }
 }

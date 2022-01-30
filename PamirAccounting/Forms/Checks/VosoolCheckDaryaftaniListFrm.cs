@@ -39,8 +39,6 @@ namespace PamirAccounting.Forms.Checks
                 x.RealBankName,
                 x.DueDate
 
-
-
             }).ToList();
 
         }
@@ -56,7 +54,7 @@ namespace PamirAccounting.Forms.Checks
             {
 
                 long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
-                var vosool = new VosoolCheckDaryaftaniFrm(ChequeNumber);
+                var vosool = new VosoolCheckDaryaftaniFrm(ChequeNumber,0);
                 vosool.ShowDialog();
                 LoadData();
             }

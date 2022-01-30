@@ -69,7 +69,8 @@ namespace PamirAccounting.Commons.Enums
             DarJaryanVosol = 2,
             [Description("وصول شده")]
             Vosol = 3,
-
+            [Description("واگذاری اسناد دریافتنی")]
+            VagozariAsnadDaryaftani = 4,
 
         }
     }

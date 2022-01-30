@@ -22,7 +22,6 @@ namespace PamirAccounting.Forms.Checks
         private UnitOfWork unitOfWork;
         long DocumentId;
         private List<ComboBoxModel> _RealBank, _Customers;
-       
         public int? CustomerId;
         private long? _ChequeNumber;
         private long? _ChequeNumberEdit;
@@ -191,7 +190,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Cheque.Description; ;
             Cheque.Amount = Cheque.Amount;
             Cheque.RealBankId = Cheque.RealBankId;
-            Cheque.RegisterDateTime = DateDateTime;
+            Cheque.RegisterDateTime = Cheque.RegisterDateTime;
             Cheque.CustomerId = Cheque.CustomerId;
             Cheque.BankAccountNumber = Cheque.BankAccountNumber;
             Cheque.Type = Cheque.Type;

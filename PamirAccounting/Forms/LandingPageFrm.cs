@@ -313,5 +313,19 @@ namespace PamirAccounting.Forms
             var frm = new FrmCustomerList();
             frm.ShowDialog();
         }
+
+        private void ChequeMenu_VosoolShode_Click(object sender, EventArgs e)
+        {
+            var frm = new VosoolCheckDaryaftaniReportFrm();
+            frm.ShowDialog();
+            
+        }
+
+        private void ChequeMenu_Vagozari_Click(object sender, EventArgs e)
+        {
+            var frm = new VagozariAsnadDaryaftaniReportFrm();
+            frm.ShowDialog(); 
+
+        }
     }
 }

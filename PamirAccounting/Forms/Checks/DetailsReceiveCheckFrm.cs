@@ -165,7 +165,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.BranchName = txtBranchName.Text;
             Cheque.ChequeNumber = txtChequeNumber.Text;
             Cheque.DocumentId = long.Parse(txtDocumentId.Text);
-            Cheque.Description = txtDescription.Text;
+            Cheque.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.DepostitCheck + " به شماره چک -" + txtDocumentId.Text;
             Cheque.Amount = long.Parse(txtAmount.Text);
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
