@@ -59,6 +59,9 @@
     <Compile Update="Forms\Checks\OdatCheckSareHesabListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Checks\OdatCheckSareHesabReportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Checks\PasCheckPardakhtaniFrm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -334,5 +334,11 @@ namespace PamirAccounting.Forms
             frm.ShowDialog();
             
         }
+
+        private void ChequeMenu_OdatSare_Click(object sender, EventArgs e)
+        {
+            var frm = new OdatCheckSareHesabReportFrm();
+            frm.ShowDialog();
+        }
     }
 }

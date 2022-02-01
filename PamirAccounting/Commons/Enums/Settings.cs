@@ -73,6 +73,8 @@ namespace PamirAccounting.Commons.Enums
             VagozariAsnadDaryaftani = 4,
             [Description(" عودت دریافتنی")]
             OdatDaryaftani = 5,
+            [Description(" عودت سر حساب")]
+            OdatSareHesab = 6,
         }
     }
 }
