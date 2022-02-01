@@ -327,5 +327,12 @@ namespace PamirAccounting.Forms
             frm.ShowDialog(); 
 
         }
+
+        private void ChequeMenu_ReceveOdat_Click(object sender, EventArgs e)
+        {
+            var frm = new OdatCheckDaryaftaniReportFrm();
+            frm.ShowDialog();
+            
+        }
     }
 }

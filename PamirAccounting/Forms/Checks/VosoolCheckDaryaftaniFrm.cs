@@ -25,6 +25,7 @@ namespace PamirAccounting.Forms.Checks
         private long? _ChequeNumber;
         private long? _ChequeNumberEdit;
         public int? prevCustomerId;
+        public int? Status;
         public Domains.Transaction receiveTransAction;
         public Domains.Transaction customerTransaction;
         public Domains.Cheque currentCheque;
@@ -74,10 +75,11 @@ namespace PamirAccounting.Forms.Checks
             {
                 ChequeActionInfo(_ChequeNumberEdit);
             }
-            if (_ChequeNumber>0)
+            if (_ChequeNumber > 0)
             {
                 currentCheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumber);
                 txtDocumentId.Text = currentCheque.DocumentId.ToString();
+                Status = currentCheque.Status;
                 PersianCalendar pc = new PersianCalendar();
                 string PDate = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
                 txtDate.Text = PDate;
@@ -92,10 +94,11 @@ namespace PamirAccounting.Forms.Checks
             //customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
             //receiveTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
             prevCustomerId = Cheque.CustomerId;
+            Status = Cheque.Status;
             PersianCalendar pc = new PersianCalendar();
-           // string VosoolDateTime = pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
+            // string VosoolDateTime = pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
             string DateTime = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
-          //  txtVosoolDate.Text = VosoolDateTime;
+            //  txtVosoolDate.Text = VosoolDateTime;
             txtDate.Text = DateTime;
             txtDesc.Text = Cheque.Description;
             txtDocumentId.Text = Cheque.DocumentId.ToString();
@@ -104,134 +107,264 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
+            ///////////////// //Check Status New/////////////
+            if (Status == (int)Settings.ChequeStatus.New)
+            {
+                PersianCalendar p = new PersianCalendar();
+                var VosoolDate1 = txtVosoolDate.Text.Split('/');
+                var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
+                currentCheque.UserId = CurrentUser.UserID;
+                currentCheque.IssueDate = currentCheque.IssueDate;
+                currentCheque.DueDate = currentCheque.DueDate;
+                currentCheque.BranchName = currentCheque.BranchName;
+                currentCheque.ChequeNumber = currentCheque.ChequeNumber;
+                currentCheque.DocumentId = currentCheque.DocumentId;
+                currentCheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                currentCheque.Amount = currentCheque.Amount;
+                currentCheque.RealBankId = currentCheque.RealBankId;
+                currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
+                currentCheque.CustomerId = (int)cmbCustomers.SelectedValue;
+                currentCheque.BankAccountNumber = currentCheque.BankAccountNumber;
+                currentCheque.Type = currentCheque.Type;
+                currentCheque.Status = (int)Settings.ChequeStatus.Vosol;
+                // currentCheque.VosoolDate = VosoolDate;
+                unitOfWork.ChequeServices.Update(currentCheque);
+                unitOfWork.SaveChanges();
 
+                ////////Customer transaction
+                var customerTransaction = new Domains.Transaction();
+                customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+                customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
+                customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
+                customerTransaction.WithdrawAmount = currentCheque.Amount;
+                customerTransaction.DepositAmount = 0;
+                customerTransaction.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
+                customerTransaction.Date = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.UserId = CurrentUser.UserID;
+                customerTransaction.DocumentId = DocumentId;
+                unitOfWork.TransactionServices.Insert(customerTransaction);
+                unitOfWork.SaveChanges();
+                //customer transaction end///
+                var DarJaryanVosool = new Domains.Transaction();
+                DarJaryanVosool.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;
+                DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
+                DarJaryanVosool.WithdrawAmount = 0;
+                DarJaryanVosool.DepositAmount = currentCheque.Amount;
+                DarJaryanVosool.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+                DarJaryanVosool.TransactionType = (int)TransaActionType.RecivedDocument;
+                DarJaryanVosool.CurrenyId = AppSetting.TomanCurrencyID;
+                DarJaryanVosool.Date = DateTime.Now;
+                DarJaryanVosool.TransactionDateTime = DateTime.Now;
+                DarJaryanVosool.UserId = CurrentUser.UserID;
+                DarJaryanVosool.DocumentId = DocumentId;
+                unitOfWork.TransactionServices.Insert(DarJaryanVosool);
+                unitOfWork.SaveChanges();
+                //ReceivedDocuments transaction End
+                customerTransaction.DoubleTransactionId = DarJaryanVosool.Id;
+                unitOfWork.TransactionServices.Update(customerTransaction);
+                unitOfWork.SaveChanges();
 
-            PersianCalendar p = new PersianCalendar();
-            var VosoolDate1 = txtVosoolDate.Text.Split('/');
-            var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
-            currentCheque.UserId = CurrentUser.UserID;
-            currentCheque.IssueDate = currentCheque.IssueDate;
-            currentCheque.DueDate = currentCheque.DueDate;
-            currentCheque.BranchName = currentCheque.BranchName;
-            currentCheque.ChequeNumber = currentCheque.ChequeNumber;
-            currentCheque.DocumentId = currentCheque.DocumentId;
-            currentCheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId+"از مشتری"+ cmbCustomers.SelectedText;
-            currentCheque.Amount = currentCheque.Amount;
-            currentCheque.RealBankId = currentCheque.RealBankId;
-            currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
-            currentCheque.CustomerId = (int)cmbCustomers.SelectedValue;
-            currentCheque.BankAccountNumber = currentCheque.BankAccountNumber;
-            currentCheque.Type = currentCheque.Type;
-            currentCheque.Status = (int)Settings.ChequeStatus.Vosol;
-          //  currentCheque.VosoolDate = VosoolDate;
-            unitOfWork.ChequeServices.Update(currentCheque);
-            unitOfWork.SaveChanges();
+            }
+            ///////////////////Check Status New End/////////////
+            ////////////////////Check Status DarJaryanVosol/////////////////
+            if (Status == (int)Settings.ChequeStatus.DarJaryanVosol)
+            {
+                PersianCalendar p = new PersianCalendar();
+                var VosoolDate1 = txtVosoolDate.Text.Split('/');
+                var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
+                currentCheque.UserId = CurrentUser.UserID;
+                currentCheque.IssueDate = currentCheque.IssueDate;
+                currentCheque.DueDate = currentCheque.DueDate;
+                currentCheque.BranchName = currentCheque.BranchName;
+                currentCheque.ChequeNumber = currentCheque.ChequeNumber;
+                currentCheque.DocumentId = currentCheque.DocumentId;
+                currentCheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                currentCheque.Amount = currentCheque.Amount;
+                currentCheque.RealBankId = currentCheque.RealBankId;
+                currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
+                currentCheque.CustomerId = (int)cmbCustomers.SelectedValue;
+                currentCheque.BankAccountNumber = currentCheque.BankAccountNumber;
+                currentCheque.Type = currentCheque.Type;
+                currentCheque.Status = (int)Settings.ChequeStatus.Vosol;
+                // currentCheque.VosoolDate = VosoolDate;
+                unitOfWork.ChequeServices.Update(currentCheque);
+                unitOfWork.SaveChanges();
 
-            ////////Customer transaction
-            var customerTransaction = new Domains.Transaction();
-            customerTransaction.SourceCustomerId =(int)cmbCustomers.SelectedValue;
-            customerTransaction.DestinitionCustomerId = AppSetting.AsnadDarJaryanVoslId;
-            customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
-            customerTransaction.WithdrawAmount = currentCheque.Amount;
-            customerTransaction.DepositAmount = 0;
-            customerTransaction.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId+"از مشتری" + cmbCustomers.SelectedText; 
-            customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
-            customerTransaction.Date = DateTime.Now;
-            customerTransaction.TransactionDateTime = DateTime.Now;
-            customerTransaction.UserId = CurrentUser.UserID;
-            customerTransaction.DocumentId = DocumentId;
-            unitOfWork.TransactionServices.Insert(customerTransaction);
-            unitOfWork.SaveChanges();
-            //customer transaction end///
+                ////////Customer transaction
+                var customerTransaction = new Domains.Transaction();
+                customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+                customerTransaction.DestinitionCustomerId = AppSetting.AsnadDarJaryanVoslId;
+                customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
+                customerTransaction.WithdrawAmount = currentCheque.Amount;
+                customerTransaction.DepositAmount = 0;
+                customerTransaction.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
+                customerTransaction.Date = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.UserId = CurrentUser.UserID;
+                customerTransaction.DocumentId = DocumentId;
+                unitOfWork.TransactionServices.Insert(customerTransaction);
+                unitOfWork.SaveChanges();
+                //customer transaction end///
 
-            //DarJaryanVosool transaction
-            var DarJaryanVosool = new Domains.Transaction();
-            DarJaryanVosool.SourceCustomerId = AppSetting.AsnadDarJaryanVoslId;
-            DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
-            DarJaryanVosool.WithdrawAmount = 0;
-            DarJaryanVosool.DepositAmount = currentCheque.Amount;
-            DarJaryanVosool.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText; 
-            DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
-            DarJaryanVosool.TransactionType = (int)TransaActionType.RecivedDocument;
-            DarJaryanVosool.CurrenyId = AppSetting.TomanCurrencyID;
-            DarJaryanVosool.Date = DateTime.Now;
-            DarJaryanVosool.TransactionDateTime = DateTime.Now;
-            DarJaryanVosool.UserId = CurrentUser.UserID;
-            DarJaryanVosool.DocumentId = DocumentId;
-            unitOfWork.TransactionServices.Insert(DarJaryanVosool);
-            unitOfWork.SaveChanges();
-            //ReceivedDocuments transaction End
-            customerTransaction.DoubleTransactionId = DarJaryanVosool.Id;
-            unitOfWork.TransactionServices.Update(customerTransaction);
-            unitOfWork.SaveChanges();
-
+                //DarJaryanVosool transaction
+                var DarJaryanVosool = new Domains.Transaction();
+                DarJaryanVosool.SourceCustomerId = AppSetting.AsnadDarJaryanVoslId;
+                DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
+                DarJaryanVosool.WithdrawAmount = 0;
+                DarJaryanVosool.DepositAmount = currentCheque.Amount;
+                DarJaryanVosool.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+                DarJaryanVosool.TransactionType = (int)TransaActionType.RecivedDocument;
+                DarJaryanVosool.CurrenyId = AppSetting.TomanCurrencyID;
+                DarJaryanVosool.Date = DateTime.Now;
+                DarJaryanVosool.TransactionDateTime = DateTime.Now;
+                DarJaryanVosool.UserId = CurrentUser.UserID;
+                DarJaryanVosool.DocumentId = DocumentId;
+                unitOfWork.TransactionServices.Insert(DarJaryanVosool);
+                unitOfWork.SaveChanges();
+                //ReceivedDocuments transaction End
+                customerTransaction.DoubleTransactionId = DarJaryanVosool.Id;
+                unitOfWork.TransactionServices.Update(customerTransaction);
+                unitOfWork.SaveChanges();
+            }
+            ///////////////// //Check Status New DarJaryanVosol/////////////
         }
         private void SaveEdit()
         {
-            PersianCalendar p = new PersianCalendar();
-            var Date = txtDate.Text.Split('/');
-            var DateDateTime = p.ToDateTime(int.Parse(Date[0]), int.Parse(Date[1]), int.Parse(Date[2]), 0, 0, 0, 0);
-            //var VosoolDate1 = txtVosoolDate.Text.Split('/');
-            //var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
-            Cheque.UserId = CurrentUser.UserID;
-            Cheque.IssueDate = Cheque.IssueDate;
-            Cheque.DueDate = Cheque.DueDate;
-            Cheque.BranchName = Cheque.BranchName;
-            Cheque.ChequeNumber = Cheque.ChequeNumber;
-            Cheque.DocumentId = Cheque.DocumentId;
-            Cheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + Cheque.DocumentId + "از مشتری" + cmbCustomers.SelectedText;
-            Cheque.Amount = Cheque.Amount;
-            Cheque.RealBankId = Cheque.RealBankId;
-            Cheque.RegisterDateTime = Cheque.RegisterDateTime;
-            Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
-            Cheque.BankAccountNumber = Cheque.BankAccountNumber;
-            Cheque.Type = Cheque.Type;
-            Cheque.Status = Cheque.Status;
-          //  Cheque.VosoolDate = VosoolDate;
-            unitOfWork.ChequeServices.Update(Cheque);
-            unitOfWork.SaveChanges();
+            ///////////////// //Check Status New/////////////
+            if (Status == (int)Settings.ChequeStatus.New)
+            {
+                PersianCalendar p = new PersianCalendar();
+                var Date = txtDate.Text.Split('/');
+                var DateDateTime = p.ToDateTime(int.Parse(Date[0]), int.Parse(Date[1]), int.Parse(Date[2]), 0, 0, 0, 0);
+                //var VosoolDate1 = txtVosoolDate.Text.Split('/');
+                //var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
+                Cheque.UserId = CurrentUser.UserID;
+                Cheque.IssueDate = Cheque.IssueDate;
+                Cheque.DueDate = Cheque.DueDate;
+                Cheque.BranchName = Cheque.BranchName;
+                Cheque.ChequeNumber = Cheque.ChequeNumber;
+                Cheque.DocumentId = Cheque.DocumentId;
+                Cheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + Cheque.DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                Cheque.Amount = Cheque.Amount;
+                Cheque.RealBankId = Cheque.RealBankId;
+                Cheque.RegisterDateTime = Cheque.RegisterDateTime;
+                Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
+                Cheque.BankAccountNumber = Cheque.BankAccountNumber;
+                Cheque.Type = Cheque.Type;
+                Cheque.Status = Cheque.Status;
+                //  Cheque.VosoolDate = VosoolDate;
+                unitOfWork.ChequeServices.Update(Cheque);
+                unitOfWork.SaveChanges();
+                ////////Customer transaction
+                var customerTransaction = unitOfWork.Transactions.FindFirst(x => x.DocumentId == Cheque.DocumentId && x.SourceCustomerId == prevCustomerId);
+                customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+                customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
+                customerTransaction.TransactionType = customerTransaction.TransactionType;
+                customerTransaction.WithdrawAmount = customerTransaction.WithdrawAmount;
+                customerTransaction.DepositAmount = customerTransaction.DepositAmount;
+                customerTransaction.Description = Cheque.Description;
+                customerTransaction.CurrenyId = customerTransaction.CurrenyId;
+                customerTransaction.Date = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.UserId = CurrentUser.UserID;
+                customerTransaction.DocumentId = customerTransaction.DocumentId;
+                unitOfWork.TransactionServices.Update(customerTransaction);
+                unitOfWork.SaveChanges();
+                //customer transaction end///
 
-            ////////Customer transaction
-            var customerTransaction = unitOfWork.Transactions.FindFirst(x => x.DocumentId == Cheque.DocumentId && x.SourceCustomerId == prevCustomerId);
-            customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
-            customerTransaction.DestinitionCustomerId =customerTransaction.DestinitionCustomerId;
-            customerTransaction.TransactionType = customerTransaction.TransactionType;
-            customerTransaction.WithdrawAmount = customerTransaction.WithdrawAmount;
-            customerTransaction.DepositAmount = customerTransaction.DepositAmount;
-            customerTransaction.Description =Cheque.Description;
-            customerTransaction.CurrenyId = customerTransaction.CurrenyId;
-            customerTransaction.Date = DateTime.Now;
-            customerTransaction.TransactionDateTime = DateTime.Now;
-            customerTransaction.UserId = CurrentUser.UserID;
-            customerTransaction.DocumentId = customerTransaction.DocumentId;
-            unitOfWork.TransactionServices.Update(customerTransaction);
-            unitOfWork.SaveChanges();
-            //customer transaction end///
+                //DarJaryanVosool transaction
+                var DarJaryanVosool = unitOfWork.Transactions.FindFirst(x => x.DocumentId == Cheque.DocumentId && x.SourceCustomerId == AppSetting.AsnadDarJaryanVoslId);
+                DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
+                DarJaryanVosool.WithdrawAmount = DarJaryanVosool.WithdrawAmount;
+                DarJaryanVosool.DepositAmount = DarJaryanVosool.DepositAmount;
+                DarJaryanVosool.Description = Cheque.Description;
+                DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+                DarJaryanVosool.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;
+                DarJaryanVosool.TransactionType = DarJaryanVosool.TransactionType;
+                DarJaryanVosool.CurrenyId = DarJaryanVosool.CurrenyId;
+                DarJaryanVosool.Date = DateTime.Now;
+                DarJaryanVosool.TransactionDateTime = DateTime.Now;
+                DarJaryanVosool.UserId = CurrentUser.UserID;
+                DarJaryanVosool.DocumentId = DarJaryanVosool.DocumentId;
+                unitOfWork.TransactionServices.Update(DarJaryanVosool);
+                unitOfWork.SaveChanges();
+                //DarJaryanVosool transaction
+            }
+            ///////////////////Check Status New End/////////////
+            ////////////////////Check Status DarJaryanVosol/////////////////
+            if (Status == (int)Settings.ChequeStatus.DarJaryanVosol)
+            {
+                PersianCalendar p = new PersianCalendar();
+                var Date = txtDate.Text.Split('/');
+                var DateDateTime = p.ToDateTime(int.Parse(Date[0]), int.Parse(Date[1]), int.Parse(Date[2]), 0, 0, 0, 0);
+                //var VosoolDate1 = txtVosoolDate.Text.Split('/');
+                //var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
+                Cheque.UserId = CurrentUser.UserID;
+                Cheque.IssueDate = Cheque.IssueDate;
+                Cheque.DueDate = Cheque.DueDate;
+                Cheque.BranchName = Cheque.BranchName;
+                Cheque.ChequeNumber = Cheque.ChequeNumber;
+                Cheque.DocumentId = Cheque.DocumentId;
+                Cheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + Cheque.DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                Cheque.Amount = Cheque.Amount;
+                Cheque.RealBankId = Cheque.RealBankId;
+                Cheque.RegisterDateTime = Cheque.RegisterDateTime;
+                Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
+                Cheque.BankAccountNumber = Cheque.BankAccountNumber;
+                Cheque.Type = Cheque.Type;
+                Cheque.Status = Cheque.Status;
+                //  Cheque.VosoolDate = VosoolDate;
+                unitOfWork.ChequeServices.Update(Cheque);
+                unitOfWork.SaveChanges();
+                ////////Customer transaction
+                var customerTransaction = unitOfWork.Transactions.FindFirst(x => x.DocumentId == Cheque.DocumentId && x.SourceCustomerId == prevCustomerId);
+                customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+                customerTransaction.DestinitionCustomerId = customerTransaction.DestinitionCustomerId;
+                customerTransaction.TransactionType = customerTransaction.TransactionType;
+                customerTransaction.WithdrawAmount = customerTransaction.WithdrawAmount;
+                customerTransaction.DepositAmount = customerTransaction.DepositAmount;
+                customerTransaction.Description = Cheque.Description;
+                customerTransaction.CurrenyId = customerTransaction.CurrenyId;
+                customerTransaction.Date = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.UserId = CurrentUser.UserID;
+                customerTransaction.DocumentId = customerTransaction.DocumentId;
+                unitOfWork.TransactionServices.Update(customerTransaction);
+                unitOfWork.SaveChanges();
+                //customer transaction end///
 
-            //DarJaryanVosool transaction
-            var DarJaryanVosool = unitOfWork.Transactions.FindFirst(x => x.DocumentId == Cheque.DocumentId && x.SourceCustomerId == AppSetting.AsnadDarJaryanVoslId);
-            DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
-            DarJaryanVosool.WithdrawAmount = DarJaryanVosool.WithdrawAmount;
-            DarJaryanVosool.DepositAmount = DarJaryanVosool.DepositAmount;
-            DarJaryanVosool.Description = Cheque.Description;
-            DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
-            DarJaryanVosool.SourceCustomerId = DarJaryanVosool.SourceCustomerId;
-            DarJaryanVosool.TransactionType = DarJaryanVosool.TransactionType;
-            DarJaryanVosool.CurrenyId = DarJaryanVosool.CurrenyId;
-            DarJaryanVosool.Date = DateTime.Now;
-            DarJaryanVosool.TransactionDateTime = DateTime.Now;
-            DarJaryanVosool.UserId = CurrentUser.UserID;
-            DarJaryanVosool.DocumentId = DarJaryanVosool.DocumentId;
-            unitOfWork.TransactionServices.Update(DarJaryanVosool);
-            unitOfWork.SaveChanges();
-            //DarJaryanVosool transaction
+                //DarJaryanVosool transaction
+                var DarJaryanVosool = unitOfWork.Transactions.FindFirst(x => x.DocumentId == Cheque.DocumentId && x.SourceCustomerId == AppSetting.AsnadDarJaryanVoslId);
+                DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
+                DarJaryanVosool.WithdrawAmount = DarJaryanVosool.WithdrawAmount;
+                DarJaryanVosool.DepositAmount = DarJaryanVosool.DepositAmount;
+                DarJaryanVosool.Description = Cheque.Description;
+                DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+                DarJaryanVosool.SourceCustomerId = DarJaryanVosool.SourceCustomerId;
+                DarJaryanVosool.TransactionType = DarJaryanVosool.TransactionType;
+                DarJaryanVosool.CurrenyId = DarJaryanVosool.CurrenyId;
+                DarJaryanVosool.Date = DateTime.Now;
+                DarJaryanVosool.TransactionDateTime = DateTime.Now;
+                DarJaryanVosool.UserId = CurrentUser.UserID;
+                DarJaryanVosool.DocumentId = DarJaryanVosool.DocumentId;
+                unitOfWork.TransactionServices.Update(DarJaryanVosool);
+                unitOfWork.SaveChanges();
+                //DarJaryanVosool transaction
 
-
+            }
+            ///////////////// //Check Status New DarJaryanVosol/////////////
 
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
-
+        }
 
         private void VosoolCheckFrm_KeyUp(object sender, KeyEventArgs e)
         {

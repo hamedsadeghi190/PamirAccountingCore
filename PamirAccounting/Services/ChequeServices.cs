@@ -99,12 +99,49 @@ namespace PamirAccounting.Services
 
         }
 
-        public List<ChequeModel> GetAllSareHesab()
+        public List<ChequeModel> GetAllSareHesabAndReceive()
         {
             try
             {
 
-                var cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.DarJaryanVosol).Select(x => new ChequeModel
+                var cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.DarJaryanVosol || x.Status == (int)Settings.ChequeStatus.New).Select(x => new ChequeModel
+                {
+                    Id = x.Id,
+                    Amount = x.Amount,
+                    BankAccountNumber = x.BankAccountNumber,
+                    Description = x.Description,
+                    BranchName = x.BranchName,
+                    ChequeNumber = x.ChequeNumber,
+                    CustomerId = x.CustomerId,
+                    DocumentId = x.DocumentId,
+                    DueDate = x.DueDate,
+                    IssueDate = x.IssueDate,
+                    RealBankId = x.RealBankId,
+                    RegisterDateTime = x.RegisterDateTime,
+                    Type = x.Type,
+                    UserId = x.UserId,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+
+
+
+                }).ToList();
+
+                return cheque;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        
+  public List<ChequeModel> GetAllSareHesab()
+        {
+            try
+            {
+
+                var cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.DarJaryanVosol ).Select(x => new ChequeModel
                 {
                     Id = x.Id,
                     Amount = x.Amount,
@@ -179,6 +216,43 @@ namespace PamirAccounting.Services
             {
 
                 var cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.VagozariAsnadDaryaftani).Select(x => new ChequeModel
+                {
+                    Id = x.Id,
+                    Amount = x.Amount,
+                    BankAccountNumber = x.BankAccountNumber,
+                    Description = x.Description,
+                    BranchName = x.BranchName,
+                    ChequeNumber = x.ChequeNumber,
+                    CustomerId = x.CustomerId,
+                    DocumentId = x.DocumentId,
+                    DueDate = x.DueDate,
+                    IssueDate = x.IssueDate,
+                    RealBankId = x.RealBankId,
+                    RegisterDateTime = x.RegisterDateTime,
+                    Type = x.Type,
+                    UserId = x.UserId,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+
+
+
+                }).ToList();
+
+                return cheque;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        public List<ChequeModel> GetAllReceivOdat()
+        {
+            try
+            {
+
+                var cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.OdatDaryaftani).Select(x => new ChequeModel
                 {
                     Id = x.Id,
                     Amount = x.Amount,

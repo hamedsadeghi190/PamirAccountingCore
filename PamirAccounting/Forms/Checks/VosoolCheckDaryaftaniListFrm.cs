@@ -24,7 +24,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
-            dataList = unitOfWork.ChequeServices.GetAllSareHesab();
+            dataList = unitOfWork.ChequeServices.GetAllSareHesabAndReceive();
             dataGridView1.DataSource = dataList.Select(x => new
             {
                 x.Id,

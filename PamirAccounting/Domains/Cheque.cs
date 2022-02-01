@@ -23,6 +23,7 @@ namespace PamirAccounting.Domains
         public int UserId { get; set; }
         public byte Status { get; set; }
         public DateTime? AssignmentDate { get; set; }
+        public DateTime? OdatDate { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual RealBank RealBank { get; set; }

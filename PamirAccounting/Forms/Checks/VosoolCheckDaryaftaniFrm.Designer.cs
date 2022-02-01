@@ -34,6 +34,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
             this.BtnClose = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbCustomers = new System.Windows.Forms.ComboBox();
             this.btnshowcustomer = new DevExpress.XtraEditors.SimpleButton();
             this.txtDesc = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@ namespace PamirAccounting.Forms.Checks
             this.label1 = new System.Windows.Forms.Label();
             this.txtDocumentId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbCustomers = new System.Windows.Forms.ComboBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -105,6 +105,15 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox2.Size = new System.Drawing.Size(704, 248);
             this.groupBox2.TabIndex = 113;
             this.groupBox2.TabStop = false;
+            // 
+            // cmbCustomers
+            // 
+            this.cmbCustomers.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbCustomers.FormattingEnabled = true;
+            this.cmbCustomers.Location = new System.Drawing.Point(385, 73);
+            this.cmbCustomers.Name = "cmbCustomers";
+            this.cmbCustomers.Size = new System.Drawing.Size(220, 34);
+            this.cmbCustomers.TabIndex = 131;
             // 
             // btnshowcustomer
             // 
@@ -182,6 +191,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Size = new System.Drawing.Size(724, 92);
             this.groupBox1.TabIndex = 112;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtDate
             // 
@@ -220,15 +230,6 @@ namespace PamirAccounting.Forms.Checks
             this.label7.Size = new System.Drawing.Size(74, 26);
             this.label7.TabIndex = 101;
             this.label7.Text = "شماره سند";
-            // 
-            // cmbCustomers
-            // 
-            this.cmbCustomers.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cmbCustomers.FormattingEnabled = true;
-            this.cmbCustomers.Location = new System.Drawing.Point(385, 73);
-            this.cmbCustomers.Name = "cmbCustomers";
-            this.cmbCustomers.Size = new System.Drawing.Size(220, 34);
-            this.cmbCustomers.TabIndex = 131;
             // 
             // VosoolCheckDaryaftaniFrm
             // 

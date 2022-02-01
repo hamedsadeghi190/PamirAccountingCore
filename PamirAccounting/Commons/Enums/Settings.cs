@@ -71,7 +71,8 @@ namespace PamirAccounting.Commons.Enums
             Vosol = 3,
             [Description("واگذاری اسناد دریافتنی")]
             VagozariAsnadDaryaftani = 4,
-
+            [Description(" عودت دریافتنی")]
+            OdatDaryaftani = 5,
         }
     }
 }
