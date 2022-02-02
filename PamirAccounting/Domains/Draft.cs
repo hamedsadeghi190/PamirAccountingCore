@@ -29,7 +29,6 @@ namespace PamirAccounting.Domains
         public DateTime? Date { get; set; }
         public DateTime? OdatDate { get; set; }
         public DateTime? AssignmentDate { get; set; }
-
         public virtual Customer Customer { get; set; }
         public virtual Currency DepositCurrency { get; set; }
         public virtual Currency TypeCurrency { get; set; }

@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Models;
+using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +15,35 @@ namespace PamirAccounting.Forms.Checks
 {
     public partial class BargashtCheckDaryaftanilistFrm : DevExpress.XtraEditors.XtraForm
     {
+        private UnitOfWork unitOfWork;
+        private List<ChequeModel> dataList;
+
         public BargashtCheckDaryaftanilistFrm()
         {
             InitializeComponent();
+            unitOfWork = new UnitOfWork();
+        }
+        private void LoadData()
+        {
+            dataList = unitOfWork.ChequeServices.GetAllBargasht();
+            dataGridView1.DataSource = dataList.Select(x => new
+            {
+                x.Id,
+                x.IssueDate,
+                x.Description,
+                x.DocumentId,
+                x.ChequeNumber,
+                x.Amount,
+                x.BranchName,
+                x.BankAccountNumber,
+                x.CustomerName,
+                x.RealBankName,
+                x.DueDate
+
+            }).ToList();
+
         }
 
-      
 
         private void BargashtCheckDaryaftanilistFrm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -28,9 +53,11 @@ namespace PamirAccounting.Forms.Checks
 
         private void BargashtCheckDaryaftanilistFrm_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoGenerateColumns = false;
+            LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 9; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
@@ -39,8 +66,15 @@ namespace PamirAccounting.Forms.Checks
 
         private void btnbargasht_Click(object sender, EventArgs e)
         {
-            var bargasht = new BargashtCheckDaryaftaniFrm();
-            bargasht.ShowDialog();
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+
+                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                var frm= new BargashtCheckDaryaftaniFrm(ChequeNumber, 0);
+                frm.ShowDialog();
+                LoadData();
+            }
+          
         }
     }
 }

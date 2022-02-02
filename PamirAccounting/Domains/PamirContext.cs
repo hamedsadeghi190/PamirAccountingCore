@@ -93,13 +93,15 @@ namespace PamirAccounting.Domains
 
             modelBuilder.Entity<Cheque>(entity =>
             {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.AssignmentDate).HasColumnType("datetime");
 
                 entity.Property(e => e.BankAccountNumber)
                     .IsRequired()
                     .HasMaxLength(50);
-
                 entity.Property(e => e.BranchName).HasMaxLength(100);
+                entity.Property(e => e.BargashtDate).HasColumnType("datetime");
 
                 entity.Property(e => e.ChequeNumber)
                     .IsRequired()

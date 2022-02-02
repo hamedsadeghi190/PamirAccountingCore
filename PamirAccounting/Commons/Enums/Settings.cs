@@ -75,6 +75,8 @@ namespace PamirAccounting.Commons.Enums
             OdatDaryaftani = 5,
             [Description(" عودت سر حساب")]
             OdatSareHesab = 6,
+            [Description(" برگشت چک")]
+            Bargasht = 7,
         }
     }
 }

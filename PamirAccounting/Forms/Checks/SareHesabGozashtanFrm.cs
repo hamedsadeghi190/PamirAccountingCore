@@ -128,6 +128,7 @@ namespace PamirAccounting.Forms.Checks
             currentCheque.BankAccountNumber = currentCheque.BankAccountNumber;
             currentCheque.Type = currentCheque.Type;
             currentCheque.Status = (int)Settings.ChequeStatus.DarJaryanVosol;
+           //currentCheque
             currentCheque.AssignmentDate = AssignmentDate;
             unitOfWork.ChequeServices.Update(currentCheque);
             unitOfWork.SaveChanges();
