@@ -93,15 +93,15 @@ namespace PamirAccounting.Domains
 
             modelBuilder.Entity<Cheque>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.AssignmentDate).HasColumnType("datetime");
 
                 entity.Property(e => e.BankAccountNumber)
                     .IsRequired()
                     .HasMaxLength(50);
-                entity.Property(e => e.BranchName).HasMaxLength(100);
+
                 entity.Property(e => e.BargashtDate).HasColumnType("datetime");
+
+                entity.Property(e => e.BranchName).HasMaxLength(1000);
 
                 entity.Property(e => e.ChequeNumber)
                     .IsRequired()
@@ -130,12 +130,6 @@ namespace PamirAccounting.Domains
                     .HasForeignKey(d => d.RealBankId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Cheques_RealBanks");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Cheques)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Cheques_Users");
             });
 
             modelBuilder.Entity<Contact>(entity =>

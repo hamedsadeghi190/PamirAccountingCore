@@ -47,8 +47,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    //RealBankName = x.RealBank.Name,
-                    //CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
 
 
 
@@ -83,8 +83,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    //RealBankName = x.RealBank.Name,
-                    //CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
 
 
 
@@ -120,8 +120,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    //RealBankName = x.RealBank.Name,
-                    //CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
 
 
 
@@ -157,8 +157,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    //RealBankName = x.RealBank.Name,
-                    //CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
 
 
 
@@ -194,8 +194,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    //RealBankName = x.RealBank.Name,
-                    //CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
 
 
 
@@ -231,8 +231,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    //RealBankName = x.RealBank.Name,
-                    //CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
 
 
 
@@ -268,8 +268,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    //RealBankName = x.RealBank.Name,
-                    //CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
 
 
 
@@ -305,8 +305,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    //RealBankName = x.RealBank.Name,
-                    //CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
 
 
 
@@ -342,8 +342,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    //RealBankName = x.RealBank.Name,
-                    //CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
 
                 }).ToList();
 
