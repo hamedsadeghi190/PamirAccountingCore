@@ -25,6 +25,7 @@ namespace PamirAccounting.Forms.Checks
         private long? _ChequeNumber;
         private long? _ChequeNumberEdit;
         public int? prevCustomerId;
+        public int? orginalCustomerId;
         public int? Status;
         public Domains.Transaction receiveTransAction;
         public Domains.Transaction customerTransaction;
@@ -79,6 +80,7 @@ namespace PamirAccounting.Forms.Checks
             {
                 currentCheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumber);
                 txtDocumentId.Text = currentCheque.DocumentId.ToString();
+                orginalCustomerId = currentCheque.OrginalCustomerIde;
                 Status = currentCheque.Status;
                 PersianCalendar pc = new PersianCalendar();
                 string PDate = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
@@ -91,8 +93,7 @@ namespace PamirAccounting.Forms.Checks
         private void ChequeActionInfo(long? _ChequeNumberEdit)
         {
             Cheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumberEdit.Value);
-            //customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
-            //receiveTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
+            orginalCustomerId = Cheque.OrginalCustomerIde;
             prevCustomerId = Cheque.CustomerId;
             Status = Cheque.Status;
             PersianCalendar pc = new PersianCalendar();
@@ -127,7 +128,8 @@ namespace PamirAccounting.Forms.Checks
                 currentCheque.BankAccountNumber = currentCheque.BankAccountNumber;
                 currentCheque.Type = currentCheque.Type;
                 currentCheque.Status = (int)Settings.ChequeStatus.Vosol;
-                // currentCheque.VosoolDate = VosoolDate;
+                currentCheque.OrginalCustomerIde = orginalCustomerId;
+                //currentCheque.VosoolDate = VosoolDate;
                 unitOfWork.ChequeServices.Update(currentCheque);
                 unitOfWork.SaveChanges();
 
@@ -189,6 +191,7 @@ namespace PamirAccounting.Forms.Checks
                 currentCheque.BankAccountNumber = currentCheque.BankAccountNumber;
                 currentCheque.Type = currentCheque.Type;
                 currentCheque.Status = (int)Settings.ChequeStatus.Vosol;
+                currentCheque.OrginalCustomerIde = orginalCustomerId;
                 // currentCheque.VosoolDate = VosoolDate;
                 unitOfWork.ChequeServices.Update(currentCheque);
                 unitOfWork.SaveChanges();
@@ -258,6 +261,7 @@ namespace PamirAccounting.Forms.Checks
                 Cheque.Type = Cheque.Type;
                 Cheque.Status = Cheque.Status;
                 //  Cheque.VosoolDate = VosoolDate;
+                Cheque.OrginalCustomerIde = orginalCustomerId;
                 unitOfWork.ChequeServices.Update(Cheque);
                 unitOfWork.SaveChanges();
                 ////////Customer transaction
@@ -318,6 +322,7 @@ namespace PamirAccounting.Forms.Checks
                 Cheque.BankAccountNumber = Cheque.BankAccountNumber;
                 Cheque.Type = Cheque.Type;
                 Cheque.Status = Cheque.Status;
+                Cheque.OrginalCustomerIde = orginalCustomerId;
                 //  Cheque.VosoolDate = VosoolDate;
                 unitOfWork.ChequeServices.Update(Cheque);
                 unitOfWork.SaveChanges();

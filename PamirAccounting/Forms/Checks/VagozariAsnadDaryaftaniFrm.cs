@@ -25,6 +25,7 @@ namespace PamirAccounting.Forms.Checks
         private long? _ChequeNumber;
         private long? _ChequeNumberEdit;
         public int? prevCustomerId;
+        public int? orginalCustomerId;
         public Domains.Transaction receiveTransAction;
         public Domains.Transaction customerTransaction;
         public Domains.Cheque currentCheque;
@@ -79,6 +80,7 @@ namespace PamirAccounting.Forms.Checks
             if (_ChequeNumber > 0)
             {
                 currentCheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumber);
+                orginalCustomerId = currentCheque.OrginalCustomerIde;
                 txtDocumentId.Text = currentCheque.DocumentId.ToString();
                 PersianCalendar pc = new PersianCalendar();
                 string PDate = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
@@ -92,8 +94,7 @@ namespace PamirAccounting.Forms.Checks
         private void ChequeActionInfo(long? _ChequeNumberEdit)
         {
             Cheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumberEdit.Value);
-            //customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
-            //receiveTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
+            orginalCustomerId = Cheque.OrginalCustomerIde;
             prevCustomerId = Cheque.CustomerId;
             PersianCalendar pc = new PersianCalendar();
             string AssignmentDateTime = pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
@@ -126,6 +127,7 @@ namespace PamirAccounting.Forms.Checks
             currentCheque.Type = currentCheque.Type;
             currentCheque.Status = (int)Settings.ChequeStatus.VagozariAsnadDaryaftani;
             currentCheque.AssignmentDate = AssignmentDate;
+            currentCheque.OrginalCustomerIde = orginalCustomerId;
             unitOfWork.ChequeServices.Update(currentCheque);
             unitOfWork.SaveChanges();
 
@@ -189,7 +191,9 @@ namespace PamirAccounting.Forms.Checks
             Cheque.BankAccountNumber = Cheque.BankAccountNumber;
             Cheque.Type = Cheque.Type;
             Cheque.Status = Cheque.Status;
+            Cheque.OrginalCustomerIde = orginalCustomerId;
             Cheque.AssignmentDate = AssignmentDate;
+            Cheque.OrginalCustomerIde = orginalCustomerId;
             unitOfWork.ChequeServices.Update(Cheque);
             unitOfWork.SaveChanges();
 

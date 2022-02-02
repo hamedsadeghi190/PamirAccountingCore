@@ -129,7 +129,7 @@ namespace PamirAccounting.Forms.Checks
             currentCheque.Type = currentCheque.Type;
             currentCheque.Status = (int)Settings.ChequeStatus.DarJaryanVosol;
            //currentCheque
-            currentCheque.AssignmentDate = AssignmentDate;
+            currentCheque.AssignmentDate = AssignmentDate;  
             unitOfWork.ChequeServices.Update(currentCheque);
             unitOfWork.SaveChanges();
             ////////AsnadDarJaryanVos transaction

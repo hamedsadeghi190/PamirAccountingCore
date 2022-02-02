@@ -173,6 +173,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
             Cheque.Type = (int)DocumentType.RecivedDocument;
             Cheque.Status = (int)Settings.ChequeStatus.New;
+            Cheque.OrginalCustomerIde = (int)cmbCustomers.SelectedValue;
             unitOfWork.ChequeServices.Insert(Cheque);
             unitOfWork.SaveChanges();
             ////////Customer transaction

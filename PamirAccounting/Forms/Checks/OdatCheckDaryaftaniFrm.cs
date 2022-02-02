@@ -25,6 +25,7 @@ namespace PamirAccounting.Forms.Checks
         private long? _ChequeNumber;
         private long? _ChequeNumberEdit;
         public int? prevCustomerId;
+        public int? orginalCustomerId;
         public Domains.Transaction receiveTransAction;
         public Domains.Transaction customerTransaction;
         public Domains.Cheque currentCheque;
@@ -77,6 +78,7 @@ namespace PamirAccounting.Forms.Checks
             {
                 currentCheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumber);
                 prevCustomerId = currentCheque.CustomerId;
+                orginalCustomerId = currentCheque.OrginalCustomerIde;
                 txtDocumentId.Text = currentCheque.DocumentId.ToString();
                 PersianCalendar pc = new PersianCalendar();
                 string PDate = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
@@ -90,6 +92,7 @@ namespace PamirAccounting.Forms.Checks
         {
             Cheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumberEdit.Value);
             prevCustomerId = Cheque.CustomerId;
+            orginalCustomerId = Cheque.OrginalCustomerIde;
             PersianCalendar pc = new PersianCalendar();
             string OdatDateTime = pc.GetYear((DateTime)Cheque.OdatDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.OdatDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.OdatDate).ToString();
             string DateTime = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
@@ -121,6 +124,8 @@ namespace PamirAccounting.Forms.Checks
             currentCheque.Type = currentCheque.Type;
             currentCheque.Status = (int)Settings.ChequeStatus.OdatDaryaftani;
             currentCheque.OdatDate = OdatDate;
+            currentCheque.OrginalCustomerIde = orginalCustomerId;
+            currentCheque.OrginalCustomerIde = orginalCustomerId;
             unitOfWork.ChequeServices.Update(currentCheque);
             unitOfWork.SaveChanges();
             ////////Customer transaction
@@ -186,6 +191,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.Type = Cheque.Type;
             Cheque.Status = Cheque.Status;
             Cheque.OdatDate = OdatDate;
+            Cheque.OrginalCustomerIde = orginalCustomerId;
             unitOfWork.ChequeServices.Update(Cheque);
             unitOfWork.SaveChanges();
 

@@ -34,7 +34,7 @@ namespace PamirAccounting.Forms
             AppSetting.SandoghCustomerId = 4;
             AppSetting.RecivedDocumentCustomerId = 16;
             AppSetting.SendDocumentCustomerId = 17;
-            AppSetting.AsnadDarJaryanVoslId = 19;
+            AppSetting.AsnadDarJaryanVoslId = 18;
             AppSetting.TomanCurrencyID = 2;
             // AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
             AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
