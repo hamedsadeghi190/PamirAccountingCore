@@ -97,9 +97,9 @@ namespace PamirAccounting.Forms.Checks
             prevCustomerId = Cheque.CustomerId;
             Status = Cheque.Status;
             PersianCalendar pc = new PersianCalendar();
-            // string VosoolDateTime = pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
+            string VosoolDateTime = pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
             string DateTime = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
-            //  txtVosoolDate.Text = VosoolDateTime;
+             txtVosoolDate.Text = VosoolDateTime;
             txtDate.Text = DateTime;
             txtDesc.Text = Cheque.Description;
             txtDocumentId.Text = Cheque.DocumentId.ToString();
@@ -129,7 +129,7 @@ namespace PamirAccounting.Forms.Checks
                 currentCheque.Type = currentCheque.Type;
                 currentCheque.Status = (int)Settings.ChequeStatus.Vosol;
                 currentCheque.OrginalCustomerIde = orginalCustomerId;
-                //currentCheque.VosoolDate = VosoolDate;
+                currentCheque.VosoolDate = VosoolDate;
                 unitOfWork.ChequeServices.Update(currentCheque);
                 unitOfWork.SaveChanges();
 
@@ -192,7 +192,7 @@ namespace PamirAccounting.Forms.Checks
                 currentCheque.Type = currentCheque.Type;
                 currentCheque.Status = (int)Settings.ChequeStatus.Vosol;
                 currentCheque.OrginalCustomerIde = orginalCustomerId;
-                // currentCheque.VosoolDate = VosoolDate;
+                currentCheque.VosoolDate = VosoolDate;
                 unitOfWork.ChequeServices.Update(currentCheque);
                 unitOfWork.SaveChanges();
 
@@ -244,8 +244,8 @@ namespace PamirAccounting.Forms.Checks
                 PersianCalendar p = new PersianCalendar();
                 var Date = txtDate.Text.Split('/');
                 var DateDateTime = p.ToDateTime(int.Parse(Date[0]), int.Parse(Date[1]), int.Parse(Date[2]), 0, 0, 0, 0);
-                //var VosoolDate1 = txtVosoolDate.Text.Split('/');
-                //var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
+                var VosoolDate1 = txtVosoolDate.Text.Split('/');
+                var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
                 Cheque.UserId = CurrentUser.UserID;
                 Cheque.IssueDate = Cheque.IssueDate;
                 Cheque.DueDate = Cheque.DueDate;
@@ -260,7 +260,7 @@ namespace PamirAccounting.Forms.Checks
                 Cheque.BankAccountNumber = Cheque.BankAccountNumber;
                 Cheque.Type = Cheque.Type;
                 Cheque.Status = Cheque.Status;
-                //  Cheque.VosoolDate = VosoolDate;
+                Cheque.VosoolDate = VosoolDate;
                 Cheque.OrginalCustomerIde = orginalCustomerId;
                 unitOfWork.ChequeServices.Update(Cheque);
                 unitOfWork.SaveChanges();
@@ -306,8 +306,8 @@ namespace PamirAccounting.Forms.Checks
                 PersianCalendar p = new PersianCalendar();
                 var Date = txtDate.Text.Split('/');
                 var DateDateTime = p.ToDateTime(int.Parse(Date[0]), int.Parse(Date[1]), int.Parse(Date[2]), 0, 0, 0, 0);
-                //var VosoolDate1 = txtVosoolDate.Text.Split('/');
-                //var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
+                var VosoolDate1 = txtVosoolDate.Text.Split('/');
+                var VosoolDate = p.ToDateTime(int.Parse(VosoolDate1[0]), int.Parse(VosoolDate1[1]), int.Parse(VosoolDate1[2]), 0, 0, 0, 0);
                 Cheque.UserId = CurrentUser.UserID;
                 Cheque.IssueDate = Cheque.IssueDate;
                 Cheque.DueDate = Cheque.DueDate;
@@ -323,7 +323,7 @@ namespace PamirAccounting.Forms.Checks
                 Cheque.Type = Cheque.Type;
                 Cheque.Status = Cheque.Status;
                 Cheque.OrginalCustomerIde = orginalCustomerId;
-                //  Cheque.VosoolDate = VosoolDate;
+                Cheque.VosoolDate = VosoolDate;
                 unitOfWork.ChequeServices.Update(Cheque);
                 unitOfWork.SaveChanges();
                 ////////Customer transaction

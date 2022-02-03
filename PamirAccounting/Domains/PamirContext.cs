@@ -119,6 +119,8 @@ namespace PamirAccounting.Domains
 
                 entity.Property(e => e.RegisterDateTime).HasColumnType("datetime");
 
+                entity.Property(e => e.VosoolDate).HasColumnType("datetime");
+
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Cheques)
                     .HasForeignKey(d => d.CustomerId)

@@ -26,6 +26,9 @@
     <Compile Update="Forms\Checks\BargashtCheckPardakhtaniListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Checks\BargashtCheckDaryaftiReportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Checks\DetailsPaymentCheckFrm.cs">
       <SubType>Form</SubType>
     </Compile>

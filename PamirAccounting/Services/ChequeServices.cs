@@ -355,5 +355,40 @@ namespace PamirAccounting.Services
             }
 
         }
+
+        public List<ChequeModel> GetAllBargashtShode()
+        {
+            try
+            {
+
+                var cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.Bargasht).Select(x => new ChequeModel
+                {
+                    Id = x.Id,
+                    Amount = x.Amount,
+                    BankAccountNumber = x.BankAccountNumber,
+                    Description = x.Description,
+                    BranchName = x.BranchName,
+                    ChequeNumber = x.ChequeNumber,
+                    CustomerId = x.CustomerId,
+                    DocumentId = x.DocumentId,
+                    DueDate = x.DueDate,
+                    IssueDate = x.IssueDate,
+                    RealBankId = x.RealBankId,
+                    RegisterDateTime = x.RegisterDateTime,
+                    Type = x.Type,
+                    UserId = x.UserId,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+
+                }).ToList();
+
+                return cheque;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
     }
 }

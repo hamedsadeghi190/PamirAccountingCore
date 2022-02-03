@@ -142,6 +142,7 @@ namespace PamirAccounting.Forms.Checks
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Enabled = false;
             this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(619, 35);
@@ -165,6 +166,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtDate
             // 
+            this.txtDate.Enabled = false;
             this.txtDate.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDate.Location = new System.Drawing.Point(19, 29);
             this.txtDate.Name = "txtDate";
@@ -174,6 +176,7 @@ namespace PamirAccounting.Forms.Checks
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(239, 35);
@@ -184,6 +187,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtDocumentId
             // 
+            this.txtDocumentId.Enabled = false;
             this.txtDocumentId.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDocumentId.Location = new System.Drawing.Point(399, 29);
             this.txtDocumentId.Name = "txtDocumentId";

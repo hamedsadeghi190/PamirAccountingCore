@@ -26,6 +26,7 @@ namespace PamirAccounting.Domains
         public string BranchName { get; set; }
         public int UserId { get; set; }
         public byte? Status { get; set; }
+        public DateTime? VosoolDate { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual RealBank RealBank { get; set; }
