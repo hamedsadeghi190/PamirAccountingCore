@@ -69,7 +69,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(10, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(538, 256);
+            this.groupBox1.Size = new System.Drawing.Size(538, 243);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "انتقال حساب به حساب";
@@ -81,7 +81,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.cmbDestiniation.Location = new System.Drawing.Point(18, 90);
             this.cmbDestiniation.Name = "cmbDestiniation";
             this.cmbDestiniation.Size = new System.Drawing.Size(177, 34);
-            this.cmbDestiniation.TabIndex = 344;
+            this.cmbDestiniation.TabIndex = 3;
             // 
             // CmbSource
             // 
@@ -90,7 +90,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.CmbSource.Location = new System.Drawing.Point(278, 90);
             this.CmbSource.Name = "CmbSource";
             this.CmbSource.Size = new System.Drawing.Size(182, 34);
-            this.CmbSource.TabIndex = 343;
+            this.CmbSource.TabIndex = 2;
             // 
             // txtAmount
             // 
@@ -103,7 +103,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.txtAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtAmount.Size = new System.Drawing.Size(177, 38);
-            this.txtAmount.TabIndex = 341;
+            this.txtAmount.TabIndex = 1;
             // 
             // txtDate
             // 
@@ -116,7 +116,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.txtDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDate.Size = new System.Drawing.Size(181, 38);
-            this.txtDate.TabIndex = 340;
+            this.txtDate.TabIndex = 0;
             // 
             // cmbCurrencies
             // 
@@ -125,7 +125,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.cmbCurrencies.Location = new System.Drawing.Point(277, 130);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(183, 34);
-            this.cmbCurrencies.TabIndex = 339;
+            this.cmbCurrencies.TabIndex = 4;
             // 
             // label8
             // 
@@ -146,7 +146,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.txtDesc.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(443, 53);
-            this.txtDesc.TabIndex = 336;
+            this.txtDesc.TabIndex = 5;
             this.txtDesc.Text = "";
             // 
             // label9
@@ -208,12 +208,12 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.btnsavebank.Appearance.Options.UseFont = true;
             this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
             this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnsavebank.Location = new System.Drawing.Point(7, 20);
+            this.btnsavebank.Location = new System.Drawing.Point(7, 16);
             this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnsavebank.Name = "btnsavebank";
             this.btnsavebank.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnsavebank.Size = new System.Drawing.Size(110, 38);
-            this.btnsavebank.TabIndex = 81;
+            this.btnsavebank.TabIndex = 6;
             this.btnsavebank.Text = "ثبت";
             this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
             // 
@@ -221,7 +221,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.btnsavebank);
-            this.groupBox2.Location = new System.Drawing.Point(12, 262);
+            this.groupBox2.Location = new System.Drawing.Point(12, 249);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox2.Size = new System.Drawing.Size(538, 68);
@@ -234,11 +234,11 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
             this.btnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnClose.Location = new System.Drawing.Point(124, 20);
+            this.btnClose.Location = new System.Drawing.Point(124, 16);
             this.btnClose.Name = "btnClose";
             this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnClose.Size = new System.Drawing.Size(110, 38);
-            this.btnClose.TabIndex = 82;
+            this.btnClose.TabIndex = 7;
             this.btnClose.Text = "بازگشت";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -248,7 +248,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 337);
+            this.ClientSize = new System.Drawing.Size(557, 321);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

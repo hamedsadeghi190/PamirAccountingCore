@@ -115,7 +115,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCustomers.Size = new System.Drawing.Size(166, 39);
-            this.cmbCustomers.TabIndex = 9;
+            this.cmbCustomers.TabIndex = 8;
             this.cmbCustomers.Visible = false;
             // 
             // lblCustomers
@@ -153,7 +153,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtReceiptNumber.Properties.AutoHeight = false;
             this.txtReceiptNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtReceiptNumber.Size = new System.Drawing.Size(166, 38);
-            this.txtReceiptNumber.TabIndex = 5;
+            this.txtReceiptNumber.TabIndex = 9;
             // 
             // label8
             // 
@@ -177,7 +177,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtBranchCode.Properties.AutoHeight = false;
             this.txtBranchCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtBranchCode.Size = new System.Drawing.Size(166, 38);
-            this.txtBranchCode.TabIndex = 4;
+            this.txtBranchCode.TabIndex = 7;
             // 
             // cmbVarizType
             // 
@@ -186,7 +186,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbVarizType.Location = new System.Drawing.Point(116, 129);
             this.cmbVarizType.Name = "cmbVarizType";
             this.cmbVarizType.Size = new System.Drawing.Size(166, 39);
-            this.cmbVarizType.TabIndex = 8;
+            this.cmbVarizType.TabIndex = 6;
             // 
             // label5
             // 
@@ -219,7 +219,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbAction.Location = new System.Drawing.Point(366, 49);
             this.cmbAction.Name = "cmbAction";
             this.cmbAction.Size = new System.Drawing.Size(166, 36);
-            this.cmbAction.TabIndex = 1;
+            this.cmbAction.TabIndex = 0;
             // 
             // label7
             // 
@@ -247,7 +247,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtAmount.Size = new System.Drawing.Size(166, 38);
-            this.txtAmount.TabIndex = 3;
+            this.txtAmount.TabIndex = 5;
             this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
             // cmbBanks
@@ -258,7 +258,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbBanks.Name = "cmbBanks";
             this.cmbBanks.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbBanks.Size = new System.Drawing.Size(166, 39);
-            this.cmbBanks.TabIndex = 6;
+            this.cmbBanks.TabIndex = 1;
             // 
             // label6
             // 
@@ -277,14 +277,14 @@ namespace PamirAccounting.Forms.Transactions
             this.txtDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtDate.Location = new System.Drawing.Point(366, 89);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDate.Properties.Appearance.Options.UseFont = true;
             this.txtDate.Properties.AutoHeight = false;
             this.txtDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.txtDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDate.Size = new System.Drawing.Size(166, 38);
-            this.txtDate.TabIndex = 2;
+            this.txtDate.TabIndex = 3;
             // 
             // label2
             // 
@@ -317,7 +317,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencies.Location = new System.Drawing.Point(116, 86);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(166, 39);
-            this.cmbCurrencies.TabIndex = 7;
+            this.cmbCurrencies.TabIndex = 4;
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             // 
             // label3
@@ -351,7 +351,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox2.Location = new System.Drawing.Point(12, 309);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(631, 79);
+            this.groupBox2.Size = new System.Drawing.Size(631, 73);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
@@ -377,7 +377,7 @@ namespace PamirAccounting.Forms.Transactions
             this.btnsavebank.Appearance.Options.UseFont = true;
             this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
             this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnsavebank.Location = new System.Drawing.Point(7, 18);
+            this.btnsavebank.Location = new System.Drawing.Point(7, 17);
             this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnsavebank.Name = "btnsavebank";
             this.btnsavebank.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -392,7 +392,7 @@ namespace PamirAccounting.Forms.Transactions
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 404);
+            this.ClientSize = new System.Drawing.Size(655, 387);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;

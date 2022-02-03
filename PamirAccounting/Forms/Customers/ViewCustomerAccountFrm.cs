@@ -131,8 +131,8 @@ namespace PamirAccounting.UI.Forms.Customers
             _Actions.Add(new ComboBoxModel() { Id = 1, Title = "ثبت حساب جدید " });
             _Actions.Add(new ComboBoxModel() { Id = 2, Title = "دریافت و پرداخت نقدی " });
             _Actions.Add(new ComboBoxModel() { Id = 3, Title = "دریافت و پرداخت بانکی " });
-            _Actions.Add(new ComboBoxModel() { Id = 4, Title = "انتقال حساب به حساب " });
-            _Actions.Add(new ComboBoxModel() { Id = 5, Title = "خرید و فروش ارز " });
+            _Actions.Add(new ComboBoxModel() { Id = 5, Title = "انتقال حساب به حساب " });
+            _Actions.Add(new ComboBoxModel() { Id = 10, Title = "خرید و فروش ارز " });
 
             cmbActions.SelectedValueChanged -= new EventHandler(cmbActions_SelectedValueChanged);
             cmbActions.DataSource = _Actions;
@@ -160,7 +160,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void BalanceBtn_Click(object sender, EventArgs e)
         {
-       
+
         }
 
         private void cmbActions_SelectedValueChanged(object sender, EventArgs e)
@@ -182,12 +182,12 @@ namespace PamirAccounting.UI.Forms.Customers
                     frmbank.ShowDialog();
                     LoadData();
                     break;
-                case 4:
-                    var frmtransfer = new TransferAccountFrm(_Id.Value);
+                case 5:
+                    var frmtransfer = new TransferAccountFrm(_Id.Value, null);
                     frmtransfer.ShowDialog();
                     LoadData();
                     break;
-                case 5:
+                case 10:
                     var frmCellAndBuy = new BuyAndSellCurrencyFrm(_Id.Value, null);
                     frmCellAndBuy.ShowDialog();
                     LoadData();
@@ -369,6 +369,12 @@ namespace PamirAccounting.UI.Forms.Customers
                         frmbank.ShowDialog();
                         LoadData();
                         break;
+
+                    case (int)TransaActionType.Transfer:
+                        var transferFrm = new TransferAccountFrm(_Id.Value, tranaction.Id);
+                        transferFrm.ShowDialog();
+                        LoadData();
+                        break;
                     default:
                         break;
                 }
@@ -399,7 +405,7 @@ namespace PamirAccounting.UI.Forms.Customers
             report.Render();
             report.Show();
         }
-    
+
 
         private void grdTransactions_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -540,7 +546,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 int i = grdTransactions.CurrentRow.Index;
                 var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
 
-                tmpDataList = tmpDataList.Where(p=>p.RowId==i).Select(x => new TransactionModel
+                tmpDataList = tmpDataList.Where(p => p.RowId == i).Select(x => new TransactionModel
                 {
                     Id = x.Id,
                     Description = x.Description,
@@ -552,10 +558,10 @@ namespace PamirAccounting.UI.Forms.Customers
                     UserId = x.UserId,
                     TransactionType = x.TransactionType,
                     DocumentId = x.DocumentId,
-                    CurrenyName=x.CurrenyName
+                    CurrenyName = x.CurrenyName
                 }).ToList();
-                var  Deposit=0;
-                var  Withdraw=0;
+                var Deposit = 0;
+                var Withdraw = 0;
                 foreach (var item in tmpDataList)
                 {
                     Deposit = (int)(long)item.DepositAmount;
@@ -569,7 +575,7 @@ namespace PamirAccounting.UI.Forms.Customers
                     PersianCalendar pc = new PersianCalendar();
                     DateTime dt = DateTime.Now;
                     string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-                    var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Deposit.ToString(), Status= "نزد برنامه طلبکار است" };
+                    var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Deposit.ToString(), Status = "نزد برنامه طلبکار است" };
                     var report = StiReport.CreateNewReport();
                     report.Load(AppSetting.ReportPath + "Transaction.mrt");
                     report.RegData("myData", data);
@@ -585,7 +591,7 @@ namespace PamirAccounting.UI.Forms.Customers
                     PersianCalendar pc = new PersianCalendar();
                     DateTime dt = DateTime.Now;
                     string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-                    var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Withdraw.ToString(),Status= " نزد برنامه بدهکار است" };
+                    var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Withdraw.ToString(), Status = " نزد برنامه بدهکار است" };
                     var report = StiReport.CreateNewReport();
                     report.Load(AppSetting.ReportPath + "Transaction.mrt");
                     report.RegData("myData", data);
@@ -594,7 +600,7 @@ namespace PamirAccounting.UI.Forms.Customers
                     report.Show();
                 }
 
-                
+
             }
         }
 

@@ -36,9 +36,11 @@ namespace PamirAccounting.Forms
             AppSetting.SendDocumentCustomerId = 17;
             AppSetting.AsnadDarJaryanVoslId = 18;
             AppSetting.TomanCurrencyID = 2;
+            AppSetting.DocumnetAndDraftsGroupID = new int[] { 7, 8 };
+
             // AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
             AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
-        
+
         }
 
         private void AccountActionMnu_Cash_Click(object sender, EventArgs e)
@@ -318,13 +320,13 @@ namespace PamirAccounting.Forms
         {
             var frm = new VosoolCheckDaryaftaniReportFrm();
             frm.ShowDialog();
-            
+
         }
 
         private void ChequeMenu_Vagozari_Click(object sender, EventArgs e)
         {
             var frm = new VagozariAsnadDaryaftaniReportFrm();
-            frm.ShowDialog(); 
+            frm.ShowDialog();
 
         }
 
@@ -332,7 +334,7 @@ namespace PamirAccounting.Forms
         {
             var frm = new OdatCheckDaryaftaniReportFrm();
             frm.ShowDialog();
-            
+
         }
 
         private void ChequeMenu_OdatSare_Click(object sender, EventArgs e)

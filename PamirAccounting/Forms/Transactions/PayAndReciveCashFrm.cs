@@ -15,7 +15,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private UnitOfWork unitOfWork;
         private List<ComboBoxModel> _Currencies, _RemainType, _Customers;
-        private int? _Id;
+        private int? _CustomerId;
         private long? _TransActionId;
         public Domains.Transaction sandoghTransAction;
         public Domains.Transaction customerTransaction;
@@ -24,7 +24,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-            _Id = Id;
+            _CustomerId = Id;
             _TransActionId = transActionId;
         }
 
@@ -34,14 +34,14 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork = new UnitOfWork();
         }
 
-        private void LoadData()
+        private void InitForm()
         {
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbCurrencies.DataSource = _Currencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
 
-            _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+            _Customers = unitOfWork.CustomerServices.GetAllNotDefaults();
 
             cmbCustomers.DataSource = _Customers;
             cmbCustomers.ValueMember = "Id";
@@ -60,11 +60,11 @@ namespace PamirAccounting.Forms.Transactions
 
         private void PayAndReciveCashFrm_Load(object sender, EventArgs e)
         {
-            LoadData();
+            InitForm();
 
             if (_TransActionId.HasValue)
             {
-                cmbCustomers.SelectedValue = _Id;
+                cmbCustomers.SelectedValue = _CustomerId;
                 cmbCustomers.Enabled = false;
                 loadTransActionInfo(_TransActionId);
             }
@@ -73,7 +73,11 @@ namespace PamirAccounting.Forms.Transactions
                 PersianCalendar pc = new PersianCalendar();
                 string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtDate.Text = PDate;
-                cmbCustomers.SelectedValue = _Id;
+
+                if (_CustomerId.HasValue)
+                {
+                    cmbCustomers.SelectedValue = _CustomerId;
+                }
             }
         }
 
@@ -81,6 +85,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
             sandoghTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
+           
             if (customerTransaction.WithdrawAmount.Value != 0)
             {
                 txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
@@ -111,47 +116,52 @@ namespace PamirAccounting.Forms.Transactions
 
         private void btnsavebank_Click(object sender, EventArgs e)
         {
-            if (_TransActionId.HasValue)
+            if (checkEntryData())
             {
-                SaveEdit();
+                if (_TransActionId.HasValue)
+                {
+                    SaveEdit();
+                }
+                else
+                {
+                    SaveNew();
+                }
+
+                Close();
             }
             else
             {
-                SaveNew();
+                MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید", "مقادیر ورودی", MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
             }
+        }
 
-            Close();
+        private bool checkEntryData()
+        {
+            if (txtAmount.Text.Trim().Length < 1 || long.Parse(txtAmount.Text) < 1)
+            {
+                return false;
+            }
+            return true;
         }
 
         private void SaveNew()
         {
-          
-            var sandoghAccount = unitOfWork.TransactionServices.FindLastTransaction(AppSetting.SandoghCustomerId, (int)TransaActionType.NewAccount, (int)cmbCurrencies.SelectedValue);
-            var customerAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbCustomers.SelectedValue, (int)TransaActionType.NewAccount, (int)cmbCurrencies.SelectedValue);
 
-            if (sandoghAccount == null)
-            {
-                createAccount(AppSetting.SandoghCustomerId, (int)cmbCurrencies.SelectedValue);
-            }
-
-            if (customerAccount == null)
-            {
-                createAccount((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
-            }
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             // trakonesh moshtari //
             var customerTransaction = new Domains.Transaction();
+
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = AppSetting.SandoghCustomerId;
             customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveCash;
-           
+
             customerTransaction.DocumentId = documentId;
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
                 customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 customerTransaction.DepositAmount = 0;
-                customerTransaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.WithdrawCash + " به شماره سند -" + documentId ; 
+                customerTransaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.WithdrawCash + " به شماره سند -" + documentId;
             }
             else
             {
@@ -179,8 +189,6 @@ namespace PamirAccounting.Forms.Transactions
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
-
-
                 sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 sandoghTransAction.WithdrawAmount = 0;
                 sandoghTransAction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.DepostitCash + " به شماره سند -" + documentId;
@@ -204,6 +212,10 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.TransactionServices.Insert(sandoghTransAction);
             unitOfWork.SaveChanges();
             // end trakonesh sandogh///
+
+            customerTransaction.DoubleTransactionId = sandoghTransAction.Id;
+            unitOfWork.TransactionServices.Update(customerTransaction);
+            unitOfWork.SaveChanges();
 
         }
 
@@ -237,7 +249,7 @@ namespace PamirAccounting.Forms.Transactions
             //end moshtari ///
 
             //tarakonesh sandogh//
-    
+
             if ((int)cmbRemainType.SelectedValue == 1)
             {
                 sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
@@ -259,25 +271,6 @@ namespace PamirAccounting.Forms.Transactions
             // end trakonesh sandogh///
 
         }
-
-        private void createAccount(int SourceCustomerId, int CurrenyId)
-        {
-            var newTransaction = new Domains.Transaction();
-            newTransaction.SourceCustomerId = SourceCustomerId;
-            newTransaction.TransactionType = 1;
-            newTransaction.Description = Messages.CreateNewAcount;
-            newTransaction.WithdrawAmount = 0;
-            newTransaction.DepositAmount = 0;
-            newTransaction.CurrenyId = CurrenyId;
-            newTransaction.Date = DateTime.Now;
-            newTransaction.TransactionDateTime = DateTime.Now;
-            newTransaction.UserId = CurrentUser.UserID;
-            newTransaction.DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
-            unitOfWork.TransactionServices.Insert(newTransaction);
-            unitOfWork.SaveChanges();
-
-        }
-
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
         {

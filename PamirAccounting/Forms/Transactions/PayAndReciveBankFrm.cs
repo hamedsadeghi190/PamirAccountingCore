@@ -16,7 +16,7 @@ namespace PamirAccounting.Forms.Transactions
         private List<ComboBoxModel> _Currencies, _varizType, _RemainType, _Customers, _Banks;
         private int? _Id;
         private long? _TransActionId;
-        public Domains.Transaction bankTransAction;
+        public Domains.Transaction bankTransaction;
         public Domains.Transaction customerTransaction;
 
         public PayAndReciveBankFrm(int Id, long? transActionId)
@@ -108,17 +108,17 @@ namespace PamirAccounting.Forms.Transactions
         private void loadTransActionInfo(long? transActionId)
         {
             customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
-            bankTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
+            bankTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
 
             if (customerTransaction.WithdrawAmount.Value != 0)
             {
                 txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
-                //  cmbRemainType.SelectedValue = 1;
+                cmbAction.SelectedValue = 1;
             }
             else
             {
                 txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
-                //   cmbRemainType.SelectedValue = 2;
+                cmbAction.SelectedValue = 2;
             }
 
             txtdesc.Text = customerTransaction.Description;
@@ -126,6 +126,8 @@ namespace PamirAccounting.Forms.Transactions
             cmbCurrencies.Enabled = false;
             cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
             cmbCustomers.Enabled = false;
+
+            cmbBanks.SelectedValue = bankTransaction.SourceCustomerId;
 
             PersianCalendar pc = new PersianCalendar();
             string PDate = pc.GetYear(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
@@ -194,8 +196,6 @@ namespace PamirAccounting.Forms.Transactions
             }
 
             Close();
-
-
         }
 
         private void SaveNew()
@@ -218,20 +218,10 @@ namespace PamirAccounting.Forms.Transactions
 
         private void CreateWithDraw()
         {
-            var bankAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbBanks.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
-            if (bankAccount == null)
-            {
-                createAccount((int)cmbBanks.SelectedValue, (int)cmbCurrencies.SelectedValue);
-            }
-            
-            var customerAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbCustomers.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
-            if (customerAccount == null)
-            {
-                createAccount((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
-            }
+
 
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
-            var bankTransaction = new Domains.Transaction();
+            bankTransaction = new Domains.Transaction();
             bankTransaction.DocumentId = documentId;
             bankTransaction.TransactionType = 3;
             bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
@@ -250,7 +240,7 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.TransactionServices.Insert(bankTransaction);
             unitOfWork.SaveChanges();
 
-         
+
             var customerTransaction = new Domains.Transaction();
             customerTransaction.TransactionType = 3;
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
@@ -281,24 +271,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void CreateDeposit()
         {
-            var bankTransaction = new Domains.Transaction();
-            var bankAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbBanks.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
-
-            if (bankAccount == null)
-            {
-                createAccount((int)cmbBanks.SelectedValue, (int)cmbCurrencies.SelectedValue);
-            }
-
-            //ثبت واریز برای مشتری
-            if ((int)cmbVarizType.SelectedValue == (int)DepostType.known)
-            {
-                var customerAccount = unitOfWork.TransactionServices.FindLastTransaction((int)cmbCustomers.SelectedValue, 1, (int)cmbCurrencies.SelectedValue);
-                if (customerAccount == null)
-                {
-                    createAccount((int)cmbCustomers.SelectedValue, (int)cmbCurrencies.SelectedValue);
-                }
-            }
-            
+            bankTransaction = new Domains.Transaction();
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             bankTransaction.Description = createDescription(txtdesc.Text);
             bankTransaction.DocumentId = documentId;
@@ -336,7 +309,7 @@ namespace PamirAccounting.Forms.Transactions
             if ((int)cmbVarizType.SelectedValue == (int)DepostType.known)
             {
 
-                var customerTransaction = new Domains.Transaction();
+                customerTransaction = new Domains.Transaction();
                 customerTransaction.TransactionType = 3;
                 customerTransaction.DoubleTransactionId = bankTransaction.Id;
                 customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
@@ -381,7 +354,7 @@ namespace PamirAccounting.Forms.Transactions
 
                 if ((int)cmbVarizType.SelectedValue == (int)DepostType.known)
                 {
-                    result += cmbCustomers.Text  + " " + txtReceiptNumber.Text + " " + cmbBanks.SelectedText + " شعبه " + txtBranchCode.Text;
+                    result += cmbCustomers.Text + " " + txtReceiptNumber.Text + " " + cmbBanks.SelectedText + " شعبه " + txtBranchCode.Text;
                 }
                 else
                 {

@@ -24,6 +24,7 @@ namespace PamirAccounting
             }
             if (RET == " " || RET == null || RET == "  ")
                 RET = "صفر";
+    
             return RET;
         }
 

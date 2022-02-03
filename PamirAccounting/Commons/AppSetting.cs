@@ -18,5 +18,7 @@ namespace PamirAccounting
         public static int  TomanCurrencyID { get; set; }
         public static int  SandoghCustomerId { get; set; }
         public static string  ReportPath { get; set; }
+
+        public static int[] DocumnetAndDraftsGroupID { get; set; }
     }
 }

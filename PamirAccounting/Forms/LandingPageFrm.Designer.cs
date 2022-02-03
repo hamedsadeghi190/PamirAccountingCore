@@ -122,7 +122,7 @@ namespace PamirAccounting.Forms
             this.تنظیماتToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1454, 90);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 90);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -373,7 +373,7 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
@@ -450,7 +450,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("عملیاتچکToolStripMenuItem.Image")));
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan
@@ -889,7 +889,7 @@ namespace PamirAccounting.Forms
             this.lblUser.AutoSize = true;
             this.lblUser.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblUser.Font = new System.Drawing.Font("B Zar", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblUser.Location = new System.Drawing.Point(1391, 0);
+            this.lblUser.Location = new System.Drawing.Point(1307, 0);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(63, 26);
             this.lblUser.TabIndex = 8;
@@ -931,14 +931,14 @@ namespace PamirAccounting.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 700);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1454, 46);
+            this.panel1.Size = new System.Drawing.Size(1370, 46);
             this.panel1.TabIndex = 11;
             // 
             // LandingPageFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1454, 746);
+            this.ClientSize = new System.Drawing.Size(1370, 746);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);

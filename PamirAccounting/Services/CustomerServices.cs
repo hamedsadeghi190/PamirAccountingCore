@@ -28,6 +28,22 @@ namespace PamirAccounting.Services
         #endregion
 
 
+        public List<ComboBoxModel> GetAllNotDefaults()
+        {
+            try
+            {
+                var dataList = FindAll(x => !AppSetting.DocumnetAndDraftsGroupID.Contains(x.GroupId.Value))
+                .Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+
+                return dataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
         public List<CustomerModel> GetAll()
         {
             try
@@ -50,7 +66,6 @@ namespace PamirAccounting.Services
             {
                 return null;
             }
-
         }
 
         public List<CustomerModel> GetAllReport()
