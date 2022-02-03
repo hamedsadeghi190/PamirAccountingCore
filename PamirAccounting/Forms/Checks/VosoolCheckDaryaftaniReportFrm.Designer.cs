@@ -36,7 +36,6 @@ namespace PamirAccounting.Forms.Checks
             this.label1 = new System.Windows.Forms.Label();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnsearchdate = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -77,7 +76,6 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textEdit1);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.btnsearchdate);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(388, 46);
             this.groupBox1.Name = "groupBox1";
@@ -127,19 +125,6 @@ namespace PamirAccounting.Forms.Checks
             this.label4.Size = new System.Drawing.Size(74, 26);
             this.label4.TabIndex = 110;
             this.label4.Text = "شماره چک";
-            // 
-            // btnsearchdate
-            // 
-            this.btnsearchdate.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnsearchdate.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.btnsearchdate.Appearance.Options.UseFont = true;
-            this.btnsearchdate.Appearance.Options.UseForeColor = true;
-            this.btnsearchdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsearchdate.ImageOptions.SvgImage")));
-            this.btnsearchdate.Location = new System.Drawing.Point(29, 36);
-            this.btnsearchdate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnsearchdate.Name = "btnsearchdate";
-            this.btnsearchdate.Size = new System.Drawing.Size(39, 41);
-            this.btnsearchdate.TabIndex = 105;
             // 
             // simpleButton1
             // 
@@ -325,7 +310,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private System.Windows.Forms.Label label4;
-        private DevExpress.XtraEditors.SimpleButton btnsearchdate;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.DataGridView dataGridView1;
