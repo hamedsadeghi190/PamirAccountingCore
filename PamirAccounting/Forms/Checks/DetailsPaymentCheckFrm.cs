@@ -202,7 +202,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveEdit()
         {
-
+            
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
@@ -213,7 +213,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.DueDate = DueDateDateTime;
             Cheque.BranchName = txtBranchName.Text;
             Cheque.ChequeNumber = txtChequeNumber.Text;
-           // Cheque.DocumentId = DocumentId;
+            Cheque.DocumentId = Cheque.DocumentId;
             Cheque.Description = txtDescription.Text;
             Cheque.Amount = long.Parse(txtAmount.Text);
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;

@@ -26,7 +26,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
-            dataList = unitOfWork.ChequeServices.GetAll();
+            dataList = unitOfWork.ChequeServices.GetAllPayment();
             dataGridView1.DataSource = dataList.Select(x => new
             {
                 x.Id,
@@ -39,7 +39,7 @@ namespace PamirAccounting.Forms.Checks
                 x.BankAccountNumber,
                 x.CustomerName,
                 x.RealBankName,
-
+                x.DueDate,
 
 
             }).ToList();
@@ -51,7 +51,7 @@ namespace PamirAccounting.Forms.Checks
             LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 11; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
