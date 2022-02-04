@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Models;
+﻿using JntNum2Text;
+using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace PamirAccounting.Forms.Transactions
         private long? _TransActionId;
         public Domains.Transaction sandoghTransAction;
         public Domains.Transaction customerTransaction;
-
+        private string CustomerDesc;
         public PayAndReciveCashFrm(int Id, long? transActionId)
         {
             InitializeComponent();
@@ -36,6 +37,9 @@ namespace PamirAccounting.Forms.Transactions
 
         private void InitForm()
         {
+            this.cmbCurrencies.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
+            this.cmbCustomers.SelectedValueChanged -= new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
+            this.cmbRemainType.SelectedIndexChanged -= new System.EventHandler(this.cmbRemainType_SelectedIndexChanged);
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbCurrencies.DataSource = _Currencies;
             cmbCurrencies.ValueMember = "Id";
@@ -55,6 +59,10 @@ namespace PamirAccounting.Forms.Transactions
             cmbRemainType.DataSource = _RemainType;
             cmbRemainType.ValueMember = "Id";
             cmbRemainType.DisplayMember = "Title";
+
+            this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
+            this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
+            this.cmbRemainType.SelectedIndexChanged += new System.EventHandler(this.cmbRemainType_SelectedIndexChanged);
         }
 
 
@@ -85,7 +93,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
             sandoghTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
-           
+
             if (customerTransaction.WithdrawAmount.Value != 0)
             {
                 txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
@@ -131,7 +139,7 @@ namespace PamirAccounting.Forms.Transactions
             }
             else
             {
-                MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید", "مقادیر ورودی", MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
+                MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید", "مقادیر ورودی", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
 
@@ -161,13 +169,13 @@ namespace PamirAccounting.Forms.Transactions
             {
                 customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 customerTransaction.DepositAmount = 0;
-                customerTransaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.WithdrawCash + " به شماره سند -" + documentId;
+                customerTransaction.Description = CustomerDesc;
             }
             else
             {
                 customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 customerTransaction.WithdrawAmount = 0;
-                customerTransaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.DepostitCash + " به شماره سند " + documentId;
+                customerTransaction.Description = CustomerDesc;
             }
 
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
@@ -191,13 +199,13 @@ namespace PamirAccounting.Forms.Transactions
             {
                 sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 sandoghTransAction.WithdrawAmount = 0;
-                sandoghTransAction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.DepostitCash + " به شماره سند -" + documentId;
+                sandoghTransAction.Description = txtdesc.Text;
             }
             else
             {
                 sandoghTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
                 sandoghTransAction.DepositAmount = 0;
-                sandoghTransAction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.WithdrawCash + " به شماره سند -" + documentId;
+                sandoghTransAction.Description = txtdesc.Text;
             }
 
 
@@ -280,6 +288,7 @@ namespace PamirAccounting.Forms.Transactions
             }
 
             ShowChars();
+            CreateDescription();
         }
 
         private void ShowChars()
@@ -287,13 +296,39 @@ namespace PamirAccounting.Forms.Transactions
             if (txtAmount.Text.Length > 0)
             {
                 var currencyName = cmbCurrencies.Text;
-                lblNumberString.Text = $"{ NumberUtility.GetString(txtAmount.Text.Replace(",", "")) } {currencyName}";
+                lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {currencyName}";
             }
+        }
+
+        private void cmbCustomers_SelectedValueChanged(object sender, EventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void cmbRemainType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateDescription();
         }
 
         private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowChars();
+            CreateDescription();
+        }
+
+        private void CreateDescription()
+        {
+            var currencyName = cmbCurrencies.Text;
+            if ((int)cmbRemainType.SelectedValue == 2)
+            {
+                CustomerDesc = $"{Messages.WithdrawCash } به صندوق  به مبلغ {txtAmount.Text} {currencyName}";
+                txtdesc.Text = $"{Messages.DepostitCash } از  {cmbCustomers.Text} ({cmbCustomers.SelectedValue}) به مبلغ {txtAmount.Text} {currencyName}";
+            }
+            else
+            {
+                CustomerDesc = $"{Messages.DepostitCash } از صندوق  به مبلغ {txtAmount.Text} {currencyName}";
+                txtdesc.Text = $"{Messages.WithdrawCash } به  {cmbCustomers.Text} ({cmbCustomers.SelectedValue}) به مبلغ {txtAmount.Text} {currencyName}";
+            }
         }
     }
 }

@@ -82,6 +82,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.cmbDestiniation.Name = "cmbDestiniation";
             this.cmbDestiniation.Size = new System.Drawing.Size(177, 34);
             this.cmbDestiniation.TabIndex = 3;
+            this.cmbDestiniation.SelectedIndexChanged += new System.EventHandler(this.cmbDestiniation_SelectedIndexChanged);
             // 
             // CmbSource
             // 
@@ -91,9 +92,11 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.CmbSource.Name = "CmbSource";
             this.CmbSource.Size = new System.Drawing.Size(182, 34);
             this.CmbSource.TabIndex = 2;
+            this.CmbSource.SelectedIndexChanged += new System.EventHandler(this.CmbSource_SelectedIndexChanged);
             // 
             // txtAmount
             // 
+            this.txtAmount.EditValue = "0";
             this.txtAmount.Location = new System.Drawing.Point(18, 46);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -104,6 +107,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtAmount.Size = new System.Drawing.Size(177, 38);
             this.txtAmount.TabIndex = 1;
+            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             // 
             // txtDate
             // 
@@ -126,6 +130,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(183, 34);
             this.cmbCurrencies.TabIndex = 4;
+            this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             // 
             // label8
             // 

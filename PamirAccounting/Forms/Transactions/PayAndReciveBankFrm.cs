@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Models;
+﻿using JntNum2Text;
+using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,7 @@ namespace PamirAccounting.Forms.Transactions
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
 
-            _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+            _Customers = unitOfWork.CustomerServices.GetAllNotDefaults();
 
             cmbCustomers.DataSource = _Customers;
             cmbCustomers.ValueMember = "Id";
@@ -140,11 +141,15 @@ namespace PamirAccounting.Forms.Transactions
             {
                 cmbCustomers.Visible = false;
                 lblCustomers.Visible = false;
+                cmbVarizType.Visible = true;
+                lbl_variz_type.Visible = true;
             }
             else
             {
                 cmbCustomers.Visible = true;
                 lblCustomers.Visible = true;
+                cmbVarizType.Visible = false;
+                lbl_variz_type.Visible = false;
             }
 
         }
@@ -165,12 +170,6 @@ namespace PamirAccounting.Forms.Transactions
             {
                 cmbCustomers.Visible = true;
                 lblCustomers.Visible = true;
-                _varizType = new List<ComboBoxModel>();
-                _varizType.Add(new ComboBoxModel() { Id = 2, Title = " معلوم" });
-
-                cmbVarizType.DataSource = _varizType;
-                cmbVarizType.ValueMember = "Id";
-                cmbVarizType.DisplayMember = "Title";
             }
         }
 
@@ -245,11 +244,9 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.TransactionType = 3;
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
-            bankTransaction.Description = createDescription(txtdesc.Text);
+            customerTransaction.Description = createDescription(txtdesc.Text);
             customerTransaction.DepositAmount = 0;
             customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-
-
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var cDate = txtDate.Text.Split('/');
 
@@ -278,13 +275,13 @@ namespace PamirAccounting.Forms.Transactions
 
             if ((int)cmbVarizType.SelectedValue == (int)DepostType.Unkown)
             {
-                bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
+                bankTransaction.TransactionType = (int)TransaActionType.UnkwonReciveBank;
                 bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             }
             else
             {
                 bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
-                bankTransaction.TransactionType = (int)TransaActionType.UnkwonReciveBank;
+                bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
             }
 
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
@@ -310,7 +307,7 @@ namespace PamirAccounting.Forms.Transactions
             {
 
                 customerTransaction = new Domains.Transaction();
-                customerTransaction.TransactionType = 3;
+                customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank; 
                 customerTransaction.DoubleTransactionId = bankTransaction.Id;
                 customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
                 customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
@@ -354,39 +351,20 @@ namespace PamirAccounting.Forms.Transactions
 
                 if ((int)cmbVarizType.SelectedValue == (int)DepostType.known)
                 {
-                    result += cmbCustomers.Text + " " + txtReceiptNumber.Text + " " + cmbBanks.SelectedText + " شعبه " + txtBranchCode.Text;
+                    result += cmbCustomers.Text + " " + txtReceiptNumber.Text + " " + cmbBanks.Text + " شعبه " + txtBranchCode.Text;
                 }
                 else
                 {
-                    result += " مشتری ناشناس به شماره فیش " + txtReceiptNumber.Text + " " + cmbBanks.SelectedText + " شعبه " + txtBranchCode.Text;
+                    result += " مشتری ناشناس به شماره فیش " + txtReceiptNumber.Text + " " + cmbBanks.Text + " شعبه " + txtBranchCode.Text;
                 }
             }
             else
             {
-                result = " پرداخت به  " + cmbCustomers.Text + " به شماره فیش " + txtReceiptNumber.Text + " - " + cmbBanks.SelectedText + " شعبه " + txtBranchCode.Text;
+                result = " پرداخت به  " + cmbCustomers.Text + " به شماره فیش " + txtReceiptNumber.Text + " - " + cmbBanks.Text + " شعبه " + txtBranchCode.Text;
             }
             return result;
         }
 
-
-        private void createAccount(int SourceCustomerId, int CurrenyId)
-        {
-            var newTransaction = new Domains.Transaction();
-            newTransaction.SourceCustomerId = SourceCustomerId;
-            newTransaction.TransactionType = 1;
-            newTransaction.Description = "حساب جدید";
-            newTransaction.WithdrawAmount = 0;
-            newTransaction.DepositAmount = 0;
-            newTransaction.DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
-            newTransaction.CurrenyId = CurrenyId;
-            newTransaction.Date = DateTime.Now;
-            newTransaction.TransactionDateTime = DateTime.Now;
-            newTransaction.UserId = CurrentUser.UserID;
-
-            unitOfWork.TransactionServices.Insert(newTransaction);
-            unitOfWork.SaveChanges();
-
-        }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
         {
@@ -403,7 +381,7 @@ namespace PamirAccounting.Forms.Transactions
             if (txtAmount.Text.Length > 0)
             {
                 var currencyName = cmbCurrencies.Text;
-                lblNumberString.Text = $"{ NumberUtility.GetString(txtAmount.Text.Replace(",", "")) } {currencyName}";
+                lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {currencyName}";
             }
         }
 

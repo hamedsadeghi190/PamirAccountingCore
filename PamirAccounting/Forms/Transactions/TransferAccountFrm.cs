@@ -48,6 +48,9 @@ namespace PamirAccounting.UI.Forms.Transaction
                 string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtDate.Text = PDate;
             }
+            this.CmbSource.SelectedIndexChanged += new System.EventHandler(this.CmbSource_SelectedIndexChanged);
+            this.cmbDestiniation.SelectedIndexChanged += new System.EventHandler(this.cmbDestiniation_SelectedIndexChanged);
+            this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
         }
 
         private void loadTransferInfo()
@@ -79,6 +82,10 @@ namespace PamirAccounting.UI.Forms.Transaction
 
         private void LoadData()
         {
+
+            this.CmbSource.SelectedIndexChanged -= new System.EventHandler(this.CmbSource_SelectedIndexChanged); 
+            this.cmbDestiniation.SelectedIndexChanged -= new System.EventHandler(this.cmbDestiniation_SelectedIndexChanged);
+            this.cmbCurrencies.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
 
             cmbCurrencies.DataSource = _Currencies;
@@ -167,6 +174,33 @@ namespace PamirAccounting.UI.Forms.Transaction
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void CmbSource_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateDescription();
+        }
+
+
+        private void cmbDestiniation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateDescription();
+        }
+
+
+        private void CreateDescription()
+        {
+            txtDesc.Text = $"انتقال وجه از  {CmbSource.Text} به {cmbDestiniation.Text} به مبلغ {txtAmount.Text} {cmbCurrencies.Text}";
+        }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+            CreateDescription();
         }
 
         private void label8_Click(object sender, EventArgs e)

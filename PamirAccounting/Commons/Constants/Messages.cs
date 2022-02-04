@@ -10,10 +10,9 @@ namespace PamirAccounting
     {
         public const string SaveSuccess = "اطلاعات با موفقیت ثبت شد.";
 
-
         public const string CreateNewAcount = "ایجاد حساب جدید ";
-        public const string DepostitCash = "دریافت وجه ";
-        public const string WithdrawCash = "پرداخت وجه ";
+        public const string DepostitCash = "دریافت نقدی ";
+        public const string WithdrawCash = "پرداخت نقدی ";
         public const string DepostitCheck = "دریافت چک ";
         public const string WithdrawCheck = "پرداخت چک ";
     }

@@ -63,4 +63,10 @@
     <Folder Include="Controls\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="JntNum2Text">
+      <HintPath>dll\JntNum2Text.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

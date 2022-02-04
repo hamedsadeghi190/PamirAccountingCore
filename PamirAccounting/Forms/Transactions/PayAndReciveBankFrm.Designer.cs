@@ -39,7 +39,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label8 = new System.Windows.Forms.Label();
             this.txtBranchCode = new DevExpress.XtraEditors.TextEdit();
             this.cmbVarizType = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_variz_type = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbAction = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtBranchCode);
             this.groupBox1.Controls.Add(this.cmbVarizType);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lbl_variz_type);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cmbAction);
             this.groupBox1.Controls.Add(this.label7);
@@ -188,17 +188,17 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbVarizType.Size = new System.Drawing.Size(166, 39);
             this.cmbVarizType.TabIndex = 6;
             // 
-            // label5
+            // lbl_variz_type
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(288, 132);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(59, 23);
-            this.label5.TabIndex = 206;
-            this.label5.Text = "نوع واریز :";
+            this.lbl_variz_type.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbl_variz_type.AutoSize = true;
+            this.lbl_variz_type.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_variz_type.Location = new System.Drawing.Point(288, 132);
+            this.lbl_variz_type.Name = "lbl_variz_type";
+            this.lbl_variz_type.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_variz_type.Size = new System.Drawing.Size(59, 23);
+            this.lbl_variz_type.TabIndex = 206;
+            this.lbl_variz_type.Text = "نوع واریز :";
             // 
             // label4
             // 
@@ -220,6 +220,8 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbAction.Name = "cmbAction";
             this.cmbAction.Size = new System.Drawing.Size(166, 36);
             this.cmbAction.TabIndex = 0;
+            this.cmbAction.SelectedIndexChanged += new System.EventHandler(this.cmbAction_SelectedIndexChanged);
+            this.cmbAction.SelectedValueChanged += new System.EventHandler(this.cmbAction_SelectedValueChanged);
             // 
             // label7
             // 
@@ -426,7 +428,7 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.TextEdit txtBranchCode;
         private System.Windows.Forms.ComboBox cmbVarizType;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_variz_type;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbAction;
         private System.Windows.Forms.Label label7;

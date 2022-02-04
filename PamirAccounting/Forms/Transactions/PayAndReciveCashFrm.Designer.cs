@@ -99,6 +99,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // cmbCustomers
             // 
+            this.cmbCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbCustomers.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomers.FormattingEnabled = true;
             this.cmbCustomers.Location = new System.Drawing.Point(22, 35);
@@ -106,6 +107,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCustomers.Size = new System.Drawing.Size(252, 34);
             this.cmbCustomers.TabIndex = 2;
+            this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
             // 
             // txtDate
             // 
@@ -128,6 +130,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbRemainType.Name = "cmbRemainType";
             this.cmbRemainType.Size = new System.Drawing.Size(109, 34);
             this.cmbRemainType.TabIndex = 5;
+            this.cmbRemainType.SelectedIndexChanged += new System.EventHandler(this.cmbRemainType_SelectedIndexChanged);
             // 
             // label6
             // 

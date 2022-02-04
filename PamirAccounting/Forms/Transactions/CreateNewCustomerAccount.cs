@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Models;
+﻿using JntNum2Text;
+using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,10 @@ namespace PamirAccounting.Forms.Transaction
     {
         private UnitOfWork unitOfWork;
         private Domains.Transaction transaction;
-        private int _Id;
-        private long? _TransActionId;
         private List<ComboBoxModel> _Currencies;
         private List<ComboBoxModel> _RemainType;
+        private long? _TransActionId;
+        private int _Id;
 
         public CreateNewCustomerAccount(int Id, long? transActionId)
         {
@@ -68,7 +69,6 @@ namespace PamirAccounting.Forms.Transaction
             }
         }
 
-
         private void LoadData()
         {
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
@@ -89,75 +89,83 @@ namespace PamirAccounting.Forms.Transaction
         private void btnsavebank_Click(object sender, EventArgs e)
         {
 
-            if (transaction != null)
+            try
             {
-                transaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.CreateNewAcount + cmbCurrencies.SelectedText;
-
-                if ((int)cmbRemainType.SelectedValue == 1)
+                if (transaction != null)
                 {
-                    transaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-                    transaction.DepositAmount = 0;
+                    transaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.CreateNewAcount + cmbCurrencies.SelectedText;
+
+                    if ((int)cmbRemainType.SelectedValue == 1)
+                    {
+                        transaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                        transaction.DepositAmount = 0;
+                    }
+                    else
+                    {
+                        transaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                        transaction.WithdrawAmount = 0;
+                    }
+
+                    transaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+                    var dDate = txtDate.Text.Split('/');
+
+                    PersianCalendar p = new PersianCalendar();
+                    var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                    transaction.Date = DateTime.Now;
+                    transaction.TransactionDateTime = TransactionDateTime;
+                    transaction.UserId = CurrentUser.UserID;
+
+                    unitOfWork.TransactionServices.Update(transaction);
+                    unitOfWork.SaveChanges();
                 }
                 else
                 {
-                    transaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-                    transaction.WithdrawAmount = 0;
+                    var account = unitOfWork.Transactions.FindFirstOrDefault(x => x.SourceCustomerId == _Id && x.TransactionType == 1 && x.CurrenyId == (int)cmbCurrencies.SelectedValue);
+
+                    if (account != null)
+                    {
+                        MessageBox.Show("برای این ارز قبلا حساب ایجاد شده است");
+                        return;
+                    }
+
+                    var newTransaction = new Domains.Transaction();
+                    newTransaction.DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
+                    newTransaction.SourceCustomerId = _Id;
+                    newTransaction.TransactionType = (int)TransaActionType.NewAccount;
+                    newTransaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.CreateNewAcount + cmbCurrencies.Text;
+
+                    if ((int)cmbRemainType.SelectedValue == 1)
+                    {
+                        newTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                        newTransaction.DepositAmount = 0;
+                    }
+                    else
+                    {
+                        newTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                        newTransaction.WithdrawAmount = 0;
+                    }
+
+                    newTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+                    var dDate = txtDate.Text.Split('/');
+
+                    PersianCalendar p = new PersianCalendar();
+                    var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                    newTransaction.Date = DateTime.Now;
+                    newTransaction.TransactionDateTime = TransactionDateTime;
+                    newTransaction.UserId = CurrentUser.UserID;
+
+                    unitOfWork.TransactionServices.Insert(newTransaction);
+                    unitOfWork.SaveChanges();
                 }
-
-                transaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
-                var dDate = txtDate.Text.Split('/');
-
-                PersianCalendar p = new PersianCalendar();
-                var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
-                transaction.Date = DateTime.Now;
-                transaction.TransactionDateTime = TransactionDateTime;
-                transaction.UserId = CurrentUser.UserID;
-
-                unitOfWork.TransactionServices.Update(transaction);
-                unitOfWork.SaveChanges();
+                Close();
             }
-            else
+            catch (Exception ex)
             {
-                var account = unitOfWork.Transactions.FindFirstOrDefault(x => x.SourceCustomerId == _Id && x.TransactionType == 1 && x.CurrenyId == (int)cmbCurrencies.SelectedValue);
-
-                if (account != null)
-                {
-                    MessageBox.Show("برای این ارز قبلا حساب ایجاد شده است");
-                    return;
-                }
-
-                var newTransaction = new Domains.Transaction();
-                newTransaction.DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
-                newTransaction.SourceCustomerId = _Id;
-                newTransaction.TransactionType = (int)TransaActionType.NewAccount;
-                newTransaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.CreateNewAcount + cmbCurrencies.Text;
-
-                if ((int)cmbRemainType.SelectedValue == 1)
-                {
-                    newTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-                    newTransaction.DepositAmount = 0;
-                }
-                else
-                {
-                    newTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-                    newTransaction.WithdrawAmount = 0;
-                }
-
-                newTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
-                var dDate = txtDate.Text.Split('/');
-
-                PersianCalendar p = new PersianCalendar();
-                var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
-                newTransaction.Date = DateTime.Now;
-                newTransaction.TransactionDateTime = TransactionDateTime;
-                newTransaction.UserId = CurrentUser.UserID;
-
-                unitOfWork.TransactionServices.Insert(newTransaction);
-                unitOfWork.SaveChanges();
+                MessageBox.Show("ثبت اطلاعات موفقیت امیز نبود", "خطای ثبت اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error,
+MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                AppSetting.SaveLog("newCustomerAccount", "Save", ex);
             }
 
-
-            Close();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -172,7 +180,7 @@ namespace PamirAccounting.Forms.Transaction
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Close();
+             Close();
         }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
@@ -190,7 +198,7 @@ namespace PamirAccounting.Forms.Transaction
             if (txtAmount.Text.Length > 0)
             {
                 var currencyName = cmbCurrencies.Text;
-                lblNumberString.Text = $"{ NumberUtility.GetString(txtAmount.Text.Replace(",", "")) } {currencyName}";
+                lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {currencyName}";
             }
         }
 

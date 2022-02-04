@@ -20,5 +20,14 @@ namespace PamirAccounting
         public static string  ReportPath { get; set; }
 
         public static int[] DocumnetAndDraftsGroupID { get; set; }
+
+
+
+        public static void SaveLog(string fromName, string actionName, Exception ex)
+        {
+
+        }
     }
+
+    
 }
