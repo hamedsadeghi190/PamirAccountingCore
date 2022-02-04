@@ -115,7 +115,7 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(10, 15);
+            this.groupBox1.Location = new System.Drawing.Point(10, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(855, 466);
             this.groupBox1.TabIndex = 0;
@@ -504,7 +504,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 486);
+            this.ClientSize = new System.Drawing.Size(874, 477);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "shippingOrderFrm";

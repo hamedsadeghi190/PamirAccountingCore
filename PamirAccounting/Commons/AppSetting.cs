@@ -8,7 +8,9 @@ namespace PamirAccounting
 {
     public static class AppSetting
     {
-       //آیدی حساب اسناد دریافتی
+        //آیدی حواله ای اجرا نشده
+        public static int NotRunnedDraftsId { get; set; }
+        //آیدی حساب اسناد دریافتی
         public static int  RecivedDocumentCustomerId { get; set; }
         //آیدی حساب اسناد پرداختنی
         public static int  SendDocumentCustomerId { get; set; }

@@ -98,8 +98,8 @@ namespace PamirAccounting.Forms.Drafts
                 draft.PayPlace = txtPayPlace.Text;
                 draft.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
                 draft.DraftAmount = long.Parse(txtDraftAmount.Text);
-                draft.Rate = long.Parse(txtRate.Text);
-                draft.Rent = long.Parse(txtRent.Text);
+                draft.Rate = double.Parse(txtRate.Text);
+                draft.Rent = double.Parse(txtRent.Text);
                 draft.DepositAmount = double.Parse(txtDepositAmount.Text);
                 draft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                 draft.CustomerId = (int)cmbCustomer.SelectedValue;
@@ -140,18 +140,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void txtRent_TextChanged(object sender, EventArgs e)
         {
-            if (txtRent.Text.Length > 0)
-            {
-                CalculateDeposit();
-                var deposit = txtDepositAmount.Text.Length > 0 ? double.Parse(txtDepositAmount.Text) : 0;
-                txtDepositAmount.Text = (deposit + double.Parse(txtRent.Text)).ToString("00.00");
-            }
-            else
-            {
-                CalculateDeposit();
-                var deposit = txtDepositAmount.Text.Length > 0 ? double.Parse(txtDepositAmount.Text) : 0;
-                txtDepositAmount.Text = (deposit + 0).ToString("00.00");
-            }
+            CalculateDeposit();
         }
 
         private void cmbAgency_SelectedIndexChanged(object sender, EventArgs e)
@@ -182,19 +171,31 @@ namespace PamirAccounting.Forms.Drafts
 
         private void CalculateDeposit()
         {
-            if (txtDraftAmount.Text.Length > 0 && txtRate.Text.Length > 0)
+            try
             {
-                double rate;
-                if (double.TryParse(txtRate.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out rate))
+                if (txtDraftAmount.Text.Length > 0 && txtRate.Text.Length > 0)
                 {
-                    txtDepositAmount.Text = (double.Parse(txtDraftAmount.Text) / rate).ToString();
-                }
-                else
-                {
-                    // TODO: tell the user to enter a correct number
-                }
+                    double rate;
+                    if (double.TryParse(txtRate.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out rate))
+                    {
+                        var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) / rate, MidpointRounding.AwayFromZero);
+                        var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
+                        txtDepositAmount.Text = (drafAmount + rent).ToString();
+                    }
+                    else
+                    {
+                        // TODO: tell the user to enter a correct number
+                    }
+
+                }
             }
+            catch (Exception)
+            {
+
+              
+            }
+   
         }
 
         private void txtDraftAmount_TextChanged(object sender, EventArgs e)

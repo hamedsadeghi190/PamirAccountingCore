@@ -39,9 +39,9 @@ namespace PamirAccounting.Forms.Transactions
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.txtReceiptNumber = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddDipositer = new DevExpress.XtraEditors.SimpleButton();
             this.txtdesc = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,9 +71,9 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.txtReceiptNumber);
-            this.groupBox1.Controls.Add(this.simpleButton1);
+            this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnsavebank);
+            this.groupBox1.Controls.Add(this.btnAddDipositer);
             this.groupBox1.Controls.Add(this.txtdesc);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
@@ -113,19 +113,21 @@ namespace PamirAccounting.Forms.Transactions
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(488, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(504, 179);
             this.dataGridView1.TabIndex = 284;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // Column1
             // 
             this.Column1.DataPropertyName = "CustomerId";
-            this.Column1.FillWeight = 60F;
+            this.Column1.FillWeight = 80F;
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "ردیف";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 60;
+            this.Column1.Width = 80;
             // 
             // Column2
             // 
@@ -176,6 +178,7 @@ namespace PamirAccounting.Forms.Transactions
             this.btnCancel.Size = new System.Drawing.Size(98, 38);
             this.btnCancel.TabIndex = 288;
             this.btnCancel.Text = "انصراف";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
             // 
             // txtReceiptNumber
             // 
@@ -189,19 +192,20 @@ namespace PamirAccounting.Forms.Transactions
             this.txtReceiptNumber.Size = new System.Drawing.Size(149, 38);
             this.txtReceiptNumber.TabIndex = 273;
             // 
-            // simpleButton1
+            // btnSave
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton1.Location = new System.Drawing.Point(15, 490);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.simpleButton1.Size = new System.Drawing.Size(98, 38);
-            this.simpleButton1.TabIndex = 287;
-            this.simpleButton1.Text = "ذخیره";
+            this.btnSave.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
+            this.btnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnSave.Location = new System.Drawing.Point(15, 490);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnSave.Size = new System.Drawing.Size(98, 38);
+            this.btnSave.TabIndex = 287;
+            this.btnSave.Text = "ذخیره";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label1
             // 
@@ -214,19 +218,20 @@ namespace PamirAccounting.Forms.Transactions
             this.label1.TabIndex = 275;
             this.label1.Text = "تاریخ ";
             // 
-            // btnsavebank
+            // btnAddDipositer
             // 
-            this.btnsavebank.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnsavebank.Appearance.Options.UseFont = true;
-            this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
-            this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnsavebank.Location = new System.Drawing.Point(15, 244);
-            this.btnsavebank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnsavebank.Name = "btnsavebank";
-            this.btnsavebank.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnsavebank.Size = new System.Drawing.Size(133, 38);
-            this.btnsavebank.TabIndex = 286;
-            this.btnsavebank.Text = "واریز کننده جدید";
+            this.btnAddDipositer.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddDipositer.Appearance.Options.UseFont = true;
+            this.btnAddDipositer.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddDipositer.ImageOptions.SvgImage")));
+            this.btnAddDipositer.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnAddDipositer.Location = new System.Drawing.Point(15, 244);
+            this.btnAddDipositer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddDipositer.Name = "btnAddDipositer";
+            this.btnAddDipositer.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnAddDipositer.Size = new System.Drawing.Size(133, 38);
+            this.btnAddDipositer.TabIndex = 286;
+            this.btnAddDipositer.Text = "واریز کننده جدید";
+            this.btnAddDipositer.Click += new System.EventHandler(this.btnAddDipositer_Click);
             // 
             // txtdesc
             // 
@@ -416,16 +421,11 @@ namespace PamirAccounting.Forms.Transactions
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.TextEdit txtReceiptNumber;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton btnsavebank;
+        private DevExpress.XtraEditors.SimpleButton btnAddDipositer;
         private DevExpress.XtraEditors.TextEdit txtdesc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -439,5 +439,10 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.Label label7;
         private DevExpress.XtraEditors.TextEdit txtBranchCode;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
     }
 }

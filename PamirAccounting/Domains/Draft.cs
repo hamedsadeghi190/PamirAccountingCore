@@ -19,8 +19,8 @@ namespace PamirAccounting.Domains
         public string Description { get; set; }
         public int TypeCurrencyId { get; set; }
         public long DraftAmount { get; set; }
-        public long Rate { get; set; }
-        public long Rent { get; set; }
+        public double Rate { get; set; }
+        public double Rent { get; set; }
         public double? DepositAmount { get; set; }
         public int? DepositCurrencyId { get; set; }
         public bool? Status { get; set; }

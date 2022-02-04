@@ -54,7 +54,7 @@ namespace PamirAccounting.Commons.Enums
             [Description("حواله آمد")]
             HavaleAmad =9,
             [Description("خرید و فروش ارز")]
-            CellAndBuy = 10,
+            SellAndBuy = 10,
         }
 
         public enum DocumentType

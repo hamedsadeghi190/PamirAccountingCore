@@ -62,6 +62,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 var destForm = new editUnkownDepositFrm(_dataList.ElementAt(e.RowIndex).Id);
                 destForm.ShowDialog();
+                LoadData();
             }
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)

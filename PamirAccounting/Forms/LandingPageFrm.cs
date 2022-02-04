@@ -31,6 +31,7 @@ namespace PamirAccounting.Forms
         public LandingPageFrm()
         {
             InitializeComponent();
+            AppSetting.NotRunnedDraftsId = 6;
             AppSetting.SandoghCustomerId = 4;
             AppSetting.RecivedDocumentCustomerId = 16;
             AppSetting.SendDocumentCustomerId = 17;

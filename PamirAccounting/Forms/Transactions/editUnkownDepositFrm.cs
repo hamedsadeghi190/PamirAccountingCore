@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Transactions
 {
@@ -34,7 +35,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -44,9 +45,11 @@ namespace PamirAccounting.Forms.Transactions
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
           
+            transaction = unitOfWork.Transactions.FindAll(x => x.Id == Id).Include(y => y.SourceCustomer).FirstOrDefault();
             if (transaction == null)
             {
                 Close();
+                return;
             }
 
             txtradif.Text = transaction.Id.ToString();
@@ -58,44 +61,9 @@ namespace PamirAccounting.Forms.Transactions
             txtdesc.Text = transaction.Description;
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            if (_dataList.Sum(x => x.Amount) == transaction.WithdrawAmount.Value)
-            {
-                var firstTr = _dataList.First();
-                transaction.DestinitionCustomerId = firstTr.CustomerId;
-                transaction.TransactionType = 3;
-                transaction.WithdrawAmount = firstTr.Amount ;
-                transaction.Description = "واریز به " + transaction.SourceCustomer.FirstName + "  کدشعبه " + transaction.BranchCode +
-                    " شماره فیش :" + transaction.ReceiptNumber + " توسط " + firstTr.FullName;
-                unitOfWork.Transactions.Update(transaction);
-                unitOfWork.SaveChanges();
-
-                createDeposit(firstTr.CustomerId, transaction.CurrenyId.Value, transaction.SourceCustomerId, firstTr.Amount.Value, transaction.Description, transaction.Date);
-
-                var otherTrs = _dataList.Where(x => x.CustomerId != firstTr.CustomerId).ToList();
-                foreach (var item in otherTrs)
-                {
-                    createDeposit(item.CustomerId, transaction.CurrenyId.Value, transaction.SourceCustomerId, item.Amount.Value, transaction.Description, transaction.Date);
-                    CreateWithDraw(transaction.SourceCustomerId, transaction.CurrenyId.Value, item.CustomerId, item.Amount.Value, transaction.Description, transaction.Date);
-                }
-
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("مبلغ معلوم از کل کمتر است");
-            }
-        }
 
         private void createDeposit(int customerID,int currenyId,int destCustomerId,long amount , string description,DateTime dateTime)
         {
-            var customerAccount = unitOfWork.TransactionServices.FindLastTransaction(customerID, 1, currenyId);
-            if (customerAccount == null)
-            {
-                createAccount(customerID, currenyId);
-            }
-           var customerlastTransAction = unitOfWork.TransactionServices.FindLastTransaction(customerID, currenyId);
 
             var customerTransaction = new Domains.Transaction();
             customerTransaction.TransactionType = 3;
@@ -104,7 +72,7 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.Description = description;
             customerTransaction.DepositAmount = amount;
             customerTransaction.WithdrawAmount = 0;
-
+            customerTransaction.DocumentId = transaction.DocumentId;
             customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
             customerTransaction.BranchCode = txtBranchCode.Text;
 
@@ -117,39 +85,12 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.SaveChanges();
         }
 
-        private void createAccount(int SourceCustomerId, int CurrenyId)
-        {
-            var newTransaction = new Domains.Transaction();
-            newTransaction.SourceCustomerId = SourceCustomerId;
-            newTransaction.TransactionType = 1;
-            newTransaction.Description = "حساب جدید";
-            newTransaction.WithdrawAmount = 0;
-            newTransaction.DepositAmount = 0;
-            newTransaction.CurrenyId = CurrenyId;
-            newTransaction.Date = DateTime.Now;
-            newTransaction.TransactionDateTime = DateTime.Now;
-            newTransaction.UserId = CurrentUser.UserID;
-
-            unitOfWork.TransactionServices.Insert(newTransaction);
-            unitOfWork.SaveChanges();
-
-        }
-
-
         private void CreateWithDraw(int customerID, int currenyId, int destCustomerId, long amount, string description, DateTime dateTime)
         {
-            var customerAccount = unitOfWork.TransactionServices.FindLastTransaction(customerID, 1, currenyId);
-            if (customerAccount == null)
-            {
-                createAccount(customerID, currenyId);
-            }
-            var banklastTransAction = unitOfWork.TransactionServices.FindLastTransaction(customerID, currenyId);
-
-
             
             var bankTransaction = new Domains.Transaction();
-
-            bankTransaction.TransactionType = 3;
+            bankTransaction.DocumentId = transaction.DocumentId;
+            bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank; 
             bankTransaction.DestinitionCustomerId = destCustomerId;
             bankTransaction.SourceCustomerId = customerID;
             bankTransaction.Description = description;
@@ -174,31 +115,6 @@ namespace PamirAccounting.Forms.Transactions
             Close();
         }
 
-        private void btnsavebank_Click(object sender, EventArgs e)
-        {
-            var frm = new addDepositCustomerFrm();
-            frm.TotalAmount = long.Parse(txtAmount.Text);
-
-            frm.RemaingAmount = frm.TotalAmount - _dataList.Sum(x => x.Amount);
-
-            if (frm.RemaingAmount > 0)
-                frm.ShowDialog();
-
-            if (frm.Amount.HasValue)
-            {
-                _dataList.Add(new TransactionsToCustomerModel()
-                {
-                    CustomerId = frm.CustomerID.Value,
-                    FullName = frm.FullName,
-                    Amount = frm.Amount
-                });
-            }
-
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = _dataList;
-            dataGridView1.Update();
-            dataGridView1.Refresh();
-        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -248,6 +164,85 @@ namespace PamirAccounting.Forms.Transactions
                     }
                 }
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (_dataList.Sum(x => x.Amount) == transaction.WithdrawAmount.Value)
+            {
+                var firstTr = _dataList.First();
+                transaction.DestinitionCustomerId = firstTr.CustomerId;
+                transaction.TransactionType = (int)TransaActionType.PayAndReciveBank; 
+                transaction.WithdrawAmount = firstTr.Amount;
+                transaction.Description = "واریز به " + transaction.SourceCustomer.FirstName + "  کدشعبه " + transaction.BranchCode +
+                    " شماره فیش :" + transaction.ReceiptNumber + " توسط " + firstTr.FullName;
+                unitOfWork.Transactions.Update(transaction);
+                unitOfWork.SaveChanges();
+
+                createDeposit(firstTr.CustomerId, transaction.CurrenyId.Value, transaction.SourceCustomerId, firstTr.Amount.Value, transaction.Description, transaction.Date);
+
+                var otherTrs = _dataList.Where(x => x.CustomerId != firstTr.CustomerId).ToList();
+                foreach (var item in otherTrs)
+                {
+                 var desc   = "واریز به " + transaction.SourceCustomer.FirstName + "  کدشعبه " + transaction.BranchCode +
+                    " شماره فیش :" + transaction.ReceiptNumber + " توسط " + item.FullName;
+                    createDeposit(item.CustomerId, transaction.CurrenyId.Value, transaction.SourceCustomerId, item.Amount.Value, desc, transaction.Date);
+                    CreateWithDraw(transaction.SourceCustomerId, transaction.CurrenyId.Value, item.CustomerId, item.Amount.Value, desc, transaction.Date);
+                }
+
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("مبلغ معلوم از کل کمتر است");
+            }
+        }
+
+        private void btnAddDipositer_Click(object sender, EventArgs e)
+        {
+            var frm = new addDepositCustomerFrm();
+            frm.TotalAmount = long.Parse(txtAmount.Text);
+
+            frm.RemaingAmount = frm.TotalAmount - _dataList.Sum(x => x.Amount);
+
+            if (frm.RemaingAmount > 0)
+                frm.ShowDialog();
+
+            if (frm.Amount.HasValue)
+            {
+                var customer = _dataList.FirstOrDefault(x => x.CustomerId == frm.CustomerID.Value);
+                if(customer !=null)
+                {
+
+                    customer.Amount += frm.Amount;
+                }
+                else
+                {
+
+                    _dataList.Add(new TransactionsToCustomerModel()
+                    {
+                        CustomerId = frm.CustomerID.Value,
+                        FullName = frm.FullName,
+                        Amount = frm.Amount
+                    });
+                }
+
+            }
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = _dataList;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

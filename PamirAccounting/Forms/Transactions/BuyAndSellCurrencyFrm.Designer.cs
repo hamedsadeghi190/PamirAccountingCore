@@ -38,7 +38,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbDestCustomers = new System.Windows.Forms.ComboBox();
             this.txtbuyerprice = new DevExpress.XtraEditors.TextEdit();
             this.label7 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbl_target_mablagh = new System.Windows.Forms.Label();
             this.txtrate = new DevExpress.XtraEditors.TextEdit();
             this.cmbCurrencybuyer = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -97,7 +97,7 @@ namespace PamirAccounting.Forms.Transactions
             this.BtnSave.Appearance.Options.UseFont = true;
             this.BtnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnSave.ImageOptions.SvgImage")));
             this.BtnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnSave.Location = new System.Drawing.Point(134, 25);
+            this.BtnSave.Location = new System.Drawing.Point(7, 25);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -113,7 +113,7 @@ namespace PamirAccounting.Forms.Transactions
             this.BtnClose.Appearance.Options.UseFont = true;
             this.BtnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnClose.ImageOptions.SvgImage")));
             this.BtnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnClose.Location = new System.Drawing.Point(20, 25);
+            this.BtnClose.Location = new System.Drawing.Point(123, 25);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -127,7 +127,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox3.Controls.Add(this.cmbDestCustomers);
             this.groupBox3.Controls.Add(this.txtbuyerprice);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.lbl_target_mablagh);
             this.groupBox3.Controls.Add(this.txtrate);
             this.groupBox3.Controls.Add(this.cmbCurrencybuyer);
             this.groupBox3.Controls.Add(this.label3);
@@ -150,6 +150,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbDestCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbDestCustomers.Size = new System.Drawing.Size(193, 34);
             this.cmbDestCustomers.TabIndex = 121;
+            this.cmbDestCustomers.SelectedIndexChanged += new System.EventHandler(this.cmbDestCustomers_SelectedIndexChanged);
             // 
             // txtbuyerprice
             // 
@@ -160,6 +161,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtbuyerprice.Properties.AutoHeight = false;
             this.txtbuyerprice.Size = new System.Drawing.Size(193, 34);
             this.txtbuyerprice.TabIndex = 118;
+            this.txtbuyerprice.TextChanged += new System.EventHandler(this.txtbuyerprice_TextChanged);
             this.txtbuyerprice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtbuyerprice_KeyUp);
             // 
             // label7
@@ -172,19 +174,19 @@ namespace PamirAccounting.Forms.Transactions
             this.label7.TabIndex = 119;
             this.label7.Text = "مبلغ معادل";
             // 
-            // label13
+            // lbl_target_mablagh
             // 
-            this.label13.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label13.Location = new System.Drawing.Point(6, 193);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(232, 49);
-            this.label13.TabIndex = 120;
-            this.label13.Text = "یک میلیون";
+            this.lbl_target_mablagh.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_target_mablagh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lbl_target_mablagh.Location = new System.Drawing.Point(6, 193);
+            this.lbl_target_mablagh.Name = "lbl_target_mablagh";
+            this.lbl_target_mablagh.Size = new System.Drawing.Size(232, 49);
+            this.lbl_target_mablagh.TabIndex = 120;
+            this.lbl_target_mablagh.Text = "یک میلیون";
             // 
             // txtrate
             // 
-            this.txtrate.EditValue = "0/13";
+            this.txtrate.EditValue = "0";
             this.txtrate.Location = new System.Drawing.Point(45, 108);
             this.txtrate.Name = "txtrate";
             this.txtrate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -194,6 +196,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtrate.Properties.MaskSettings.Set("mask", "f");
             this.txtrate.Size = new System.Drawing.Size(193, 34);
             this.txtrate.TabIndex = 101;
+            this.txtrate.TextChanged += new System.EventHandler(this.txtrate_TextChanged);
             // 
             // cmbCurrencybuyer
             // 
@@ -203,6 +206,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencybuyer.Name = "cmbCurrencybuyer";
             this.cmbCurrencybuyer.Size = new System.Drawing.Size(193, 34);
             this.cmbCurrencybuyer.TabIndex = 116;
+            this.cmbCurrencybuyer.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencybuyer_SelectedIndexChanged);
             this.cmbCurrencybuyer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcurrencybuyer_KeyUp);
             // 
             // label3
@@ -211,9 +215,9 @@ namespace PamirAccounting.Forms.Transactions
             this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(239, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 26);
+            this.label3.Size = new System.Drawing.Size(96, 26);
             this.label3.TabIndex = 114;
-            this.label3.Text = "صاحب حساب";
+            this.label3.Text = "حساب بدهکار :";
             // 
             // label4
             // 
@@ -287,6 +291,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbCustomers.Size = new System.Drawing.Size(193, 34);
             this.cmbCustomers.TabIndex = 113;
+            this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
             // 
             // label2
             // 
@@ -306,6 +311,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbSellCurrencies.Name = "cmbSellCurrencies";
             this.cmbSellCurrencies.Size = new System.Drawing.Size(193, 34);
             this.cmbSellCurrencies.TabIndex = 86;
+            this.cmbSellCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbSellCurrencies_SelectedIndexChanged);
             this.cmbSellCurrencies.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsellercurrency_KeyUp);
             // 
             // txtsellerprice
@@ -320,6 +326,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtsellerprice.Properties.MaskSettings.Set("mask", "n0");
             this.txtsellerprice.Size = new System.Drawing.Size(193, 34);
             this.txtsellerprice.TabIndex = 103;
+            this.txtsellerprice.TextChanged += new System.EventHandler(this.txtsellerprice_TextChanged);
             this.txtsellerprice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsellerprice_KeyUp);
             // 
             // label6
@@ -338,9 +345,9 @@ namespace PamirAccounting.Forms.Transactions
             this.label12.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.Location = new System.Drawing.Point(230, 77);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 26);
+            this.label12.Size = new System.Drawing.Size(96, 26);
             this.label12.TabIndex = 108;
-            this.label12.Text = "صاحب حساب :";
+            this.label12.Text = "حساب طلبکار :";
             // 
             // label1
             // 
@@ -421,7 +428,7 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraEditors.TextEdit txtbuyerprice;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbl_target_mablagh;
         private DevExpress.XtraEditors.TextEdit txtrate;
         private System.Windows.Forms.ComboBox cmbCurrencybuyer;
         private System.Windows.Forms.Label label3;

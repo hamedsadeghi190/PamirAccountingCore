@@ -18,8 +18,8 @@ namespace PamirAccounting.Models.ViewModels
         public string Description { get; set; }
         public string TypeCurrency { get; set; }
         public long DraftAmount { get; set; }
-        public long Rate { get; set; }
-        public long Rent { get; set; }
+        public double Rate { get; set; }
+        public double Rent { get; set; }
         public double? DepositAmount { get; set; }
         public string DepositCurrency { get; set; }
         public string Customer { get; set; }
@@ -30,7 +30,7 @@ namespace PamirAccounting.Models.ViewModels
 
     public class SummeryDraftViewModels
     {
-        public long TotalRent { get; set; }
+        public double TotalRent { get; set; }
         public double Total { get; set; }
         public string CurrenyName { get; set; }
     }
