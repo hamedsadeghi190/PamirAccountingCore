@@ -395,6 +395,7 @@ namespace PamirAccounting.Forms.Checks
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.DetailsReceiveCheckFrm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DetailsReceiveCheckFrm_KeyUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();

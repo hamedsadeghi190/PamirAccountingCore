@@ -281,6 +281,24 @@ namespace PamirAccounting.Forms.Checks
 
 
         }
+
+        private void DetailsReceiveCheckFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtAmount.Text += "000";
+            }
+
+            ShowChars();
+        }
+        private void ShowChars()
+        {
+            if (txtAmount.Text.Length > 0)
+            {
+               // var currencyName = cmbCurrencies.Text;
+                lblNumberString.Text = $"{ NumberUtility.GetString(txtAmount.Text.Replace(",", "")) } تومان";
+            }
+        }
         private void createAccount(int SourceCustomerId, int CurrenyId)
         {
             var newTransaction = new Domains.Transaction();
