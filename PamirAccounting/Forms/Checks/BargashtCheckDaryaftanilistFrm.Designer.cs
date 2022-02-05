@@ -179,7 +179,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "IssueDate";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "IssueDatePersian";
             this.dataGridViewTextBoxColumn3.FillWeight = 130F;
             this.dataGridViewTextBoxColumn3.HeaderText = "صدور";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -188,7 +188,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DueDate";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DueDatePersian";
             this.dataGridViewTextBoxColumn4.FillWeight = 130F;
             this.dataGridViewTextBoxColumn4.HeaderText = "سررسید";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";

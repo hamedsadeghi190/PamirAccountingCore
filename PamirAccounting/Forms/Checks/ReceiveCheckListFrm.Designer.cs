@@ -35,7 +35,6 @@ namespace PamirAccounting.Forms.Checks
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +50,6 @@ namespace PamirAccounting.Forms.Checks
             this.label1 = new System.Windows.Forms.Label();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnsearchdate = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,7 +68,6 @@ namespace PamirAccounting.Forms.Checks
             this.Column3,
             this.Column2,
             this.Column4,
-            this.Column8,
             this.GroupName,
             this.Column5,
             this.Column6,
@@ -110,7 +107,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "IssueDate";
+            this.Column2.DataPropertyName = "IssueDatePersian";
             this.Column2.FillWeight = 130F;
             this.Column2.HeaderText = "صدور";
             this.Column2.Name = "Column2";
@@ -119,18 +116,12 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "DueDate";
+            this.Column4.DataPropertyName = "DueDatePersian";
             this.Column4.FillWeight = 130F;
             this.Column4.HeaderText = "سررسید";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 130;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "برات";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
             // 
             // GroupName
             // 
@@ -197,7 +188,7 @@ namespace PamirAccounting.Forms.Checks
             // simpleButton2
             // 
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(11, 50);
+            this.simpleButton2.Location = new System.Drawing.Point(11, 76);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(39, 41);
             this.simpleButton2.TabIndex = 99;
@@ -207,7 +198,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.simpleButton1.AppearanceHovered.Options.UseTextOptions = true;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(56, 50);
+            this.simpleButton1.Location = new System.Drawing.Point(56, 76);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(39, 41);
             this.simpleButton1.TabIndex = 98;
@@ -232,7 +223,6 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textEdit1);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.btnsearchdate);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(390, 50);
             this.groupBox1.Name = "groupBox1";
@@ -243,7 +233,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(116, 40);
+            this.textEdit2.Location = new System.Drawing.Point(52, 37);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
@@ -255,7 +245,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(300, 44);
+            this.label1.Location = new System.Drawing.Point(238, 41);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(86, 26);
@@ -276,25 +266,12 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(592, 44);
+            this.label4.Location = new System.Drawing.Point(596, 40);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(74, 26);
             this.label4.TabIndex = 110;
             this.label4.Text = "شماره چک";
-            // 
-            // btnsearchdate
-            // 
-            this.btnsearchdate.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnsearchdate.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.btnsearchdate.Appearance.Options.UseFont = true;
-            this.btnsearchdate.Appearance.Options.UseForeColor = true;
-            this.btnsearchdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsearchdate.ImageOptions.SvgImage")));
-            this.btnsearchdate.Location = new System.Drawing.Point(29, 36);
-            this.btnsearchdate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnsearchdate.Name = "btnsearchdate";
-            this.btnsearchdate.Size = new System.Drawing.Size(39, 41);
-            this.btnsearchdate.TabIndex = 105;
             // 
             // ReceiveCheckListFrm
             // 
@@ -333,12 +310,10 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private System.Windows.Forms.Label label4;
-        private DevExpress.XtraEditors.SimpleButton btnsearchdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;

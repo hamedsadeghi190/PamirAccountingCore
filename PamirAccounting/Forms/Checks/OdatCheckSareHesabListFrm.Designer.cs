@@ -177,7 +177,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "IssueDate";
+            this.Column2.DataPropertyName = "IssueDatePersian";
             this.Column2.FillWeight = 130F;
             this.Column2.HeaderText = "صدور";
             this.Column2.Name = "Column2";
@@ -186,7 +186,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "DueDate";
+            this.Column4.DataPropertyName = "DueDatePersian";
             this.Column4.FillWeight = 130F;
             this.Column4.HeaderText = "سررسید";
             this.Column4.Name = "Column4";

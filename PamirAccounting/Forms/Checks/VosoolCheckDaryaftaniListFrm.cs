@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
+            PersianCalendar pc = new PersianCalendar();
             dataList = unitOfWork.ChequeServices.GetAllSareHesabAndReceive();
             dataGridView1.DataSource = dataList.Select(x => new
             {
@@ -37,7 +39,9 @@ namespace PamirAccounting.Forms.Checks
                 x.BankAccountNumber,
                 x.CustomerName,
                 x.RealBankName,
-                x.DueDate
+                x.DueDate,
+                IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
+                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
             }).ToList();
 

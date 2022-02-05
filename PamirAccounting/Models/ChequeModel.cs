@@ -15,6 +15,8 @@ namespace PamirAccounting.Models
         public DateTime RegisterDateTime { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime DueDate { get; set; }
+        public string IssueDatePersian { get; set; }
+        public string DueDatePersian { get; set; }
         public string ChequeNumber { get; set; }
         public string BankAccountNumber { get; set; }
         public long Amount { get; set; }

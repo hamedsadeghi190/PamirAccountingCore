@@ -104,5 +104,25 @@ namespace PamirAccounting.Services
             }
 
         }
+
+        public string GetCustomerName(int? id)
+        {
+            try
+            {
+
+                var customer = FindAllReadonly().Where(x => x.Id == id).Select(x => new CustomerModel
+                {
+
+                    FullName = x.FirstName + " " + x.LastName,
+                }).ToString();
+
+                return customer;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
     }
 }

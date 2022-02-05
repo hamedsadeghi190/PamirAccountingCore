@@ -69,7 +69,7 @@ namespace PamirAccounting.Commons.Enums
 
         public enum ChequeStatus
         {
-            [Description("جدید")]
+            [Description(" جدید دریافتی")]
             New = 1,
             [Description("در جریان وصول")]
             DarJaryanVosol = 2,
@@ -83,7 +83,12 @@ namespace PamirAccounting.Commons.Enums
             OdatSareHesab = 6,
             [Description(" برگشت چک")]
             Bargasht = 7,
-       
+
+            [Description("پاس پرداختی")]
+            PassPardakhti = 8,
+
+            [Description("جدید پرداختی")]
+            NewPayment = 12,
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using JntNum2Text;
 using PamirAccounting.Commons.Enums;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
@@ -113,25 +114,8 @@ namespace PamirAccounting.Forms.Checks
 
 
         }
-        private void txtAmount_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.KeyCode == Keys.Space)
-                {
-                    txtAmount.Text += "000";
-                }
-                lblNumberString.Text = NumberUtility.GetString(txtAmount.Text.Replace(",", ""));
-            }
-            catch (Exception EX)
-            {
-
-                throw;
-            }
-
-
-        }
-
+      
+        
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
@@ -284,21 +268,42 @@ namespace PamirAccounting.Forms.Checks
 
         private void DetailsReceiveCheckFrm_KeyUp(object sender, KeyEventArgs e)
         {
+          
+        }
+
+        private void txtAmount_KeyUp(object sender, KeyEventArgs e)
+        {
             if (e.KeyCode == Keys.Space)
             {
                 txtAmount.Text += "000";
             }
-
             ShowChars();
+            CreateDescription();
         }
         private void ShowChars()
         {
             if (txtAmount.Text.Length > 0)
             {
-               // var currencyName = cmbCurrencies.Text;
-                lblNumberString.Text = $"{ NumberUtility.GetString(txtAmount.Text.Replace(",", "")) } تومان";
+
+                lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {"تومان"}";
             }
         }
+
+      
+        private void cmbCustomers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateDescription();
+        }
+        private void txtDueDate_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void CreateDescription()
+        {
+            txtDescription.Text = $"{Messages.DepostitCheck } از  {cmbCustomers.Text}  به مبلغ {txtAmount.Text} {"تومان"}  تاریخ سر رسید  {txtDueDate.Text} ";
+        }
+
         private void createAccount(int SourceCustomerId, int CurrenyId)
         {
             var newTransaction = new Domains.Transaction();

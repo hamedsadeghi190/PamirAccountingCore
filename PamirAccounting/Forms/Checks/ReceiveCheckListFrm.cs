@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PamirAccounting.Services;
-
+using System.Globalization;
 
 namespace PamirAccounting.Forms.Checks
 {
@@ -18,8 +18,8 @@ namespace PamirAccounting.Forms.Checks
     {
         private UnitOfWork unitOfWork;
         private List<ChequeModel> dataList;
-      
-     
+
+
         public ReceiveCheckListFrm()
         {
             InitializeComponent();
@@ -27,22 +27,24 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
-            dataList = unitOfWork.ChequeServices.GetAll();
+            PersianCalendar pc = new PersianCalendar();
+            dataList = unitOfWork.ChequeServices.GetAllDaryaftani();
             dataGridView1.DataSource = dataList.Select(x => new
             {
-             x.Id,
-             x.IssueDate,
-             x.Description,
-             x.DocumentId,
-             x.ChequeNumber,
-             x.Amount,
-             x.BranchName,
-             x.BankAccountNumber,
-             x.CustomerName,
-             x.RealBankName,
+                x.Id,
+                x.IssueDate,
+                x.Description,
+                x.DocumentId,
+                x.ChequeNumber,
+                x.Amount,
+                x.BranchName,
+                x.BankAccountNumber,
+                x.CustomerName,
+                x.RealBankName,
+                IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
+                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
-            
-             
+
             }).ToList();
 
         }
@@ -52,7 +54,7 @@ namespace PamirAccounting.Forms.Checks
             LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 11; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
@@ -107,7 +109,7 @@ namespace PamirAccounting.Forms.Checks
 
                         LoadData();
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("حذف امکانپذیر نمیباشد");
                     }
@@ -117,5 +119,5 @@ namespace PamirAccounting.Forms.Checks
         }
     }
 
-       
-    }
+
+}

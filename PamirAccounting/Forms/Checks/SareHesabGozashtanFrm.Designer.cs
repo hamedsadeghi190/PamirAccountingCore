@@ -36,15 +36,16 @@ namespace PamirAccounting.Forms.Checks
             this.txtDocumentId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtAssignmentDate = new DevExpress.XtraEditors.TextEdit();
             this.txtDesc = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtAssignmentDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
             this.BtnClose = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAssignmentDate.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,9 +104,9 @@ namespace PamirAccounting.Forms.Checks
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtAssignmentDate);
             this.groupBox2.Controls.Add(this.txtDesc);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.txtAssignmentDate);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(8, 83);
             this.groupBox2.Name = "groupBox2";
@@ -113,13 +114,27 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox2.TabIndex = 110;
             this.groupBox2.TabStop = false;
             // 
+            // txtAssignmentDate
+            // 
+            this.txtAssignmentDate.Location = new System.Drawing.Point(413, 30);
+            this.txtAssignmentDate.Name = "txtAssignmentDate";
+            this.txtAssignmentDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtAssignmentDate.Properties.Appearance.Options.UseFont = true;
+            this.txtAssignmentDate.Properties.AutoHeight = false;
+            this.txtAssignmentDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
+            this.txtAssignmentDate.Properties.MaskSettings.Set("mask", "1999/99/00");
+            this.txtAssignmentDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtAssignmentDate.Size = new System.Drawing.Size(195, 37);
+            this.txtAssignmentDate.TabIndex = 115;
+            this.txtAssignmentDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAssignmentDate_KeyUp);
+            // 
             // txtDesc
             // 
             this.txtDesc.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDesc.Location = new System.Drawing.Point(160, 73);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(448, 39);
-            this.txtDesc.TabIndex = 113;
+            this.txtDesc.Size = new System.Drawing.Size(448, 89);
+            this.txtDesc.TabIndex = 116;
             this.txtDesc.Text = "";
             // 
             // label8
@@ -132,14 +147,6 @@ namespace PamirAccounting.Forms.Checks
             this.label8.Size = new System.Drawing.Size(67, 26);
             this.label8.TabIndex = 114;
             this.label8.Text = "شرح سند";
-            // 
-            // txtAssignmentDate
-            // 
-            this.txtAssignmentDate.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtAssignmentDate.Location = new System.Drawing.Point(388, 29);
-            this.txtAssignmentDate.Name = "txtAssignmentDate";
-            this.txtAssignmentDate.Size = new System.Drawing.Size(220, 38);
-            this.txtAssignmentDate.TabIndex = 107;
             // 
             // label3
             // 
@@ -173,7 +180,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnSave.Size = new System.Drawing.Size(110, 38);
-            this.BtnSave.TabIndex = 89;
+            this.BtnSave.TabIndex = 117;
             this.BtnSave.Text = "ثبت";
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
@@ -188,7 +195,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnClose.Size = new System.Drawing.Size(110, 38);
-            this.BtnClose.TabIndex = 90;
+            this.BtnClose.TabIndex = 118;
             this.BtnClose.Text = "بازگشت";
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
@@ -217,6 +224,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAssignmentDate.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -230,12 +238,12 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDocumentId;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtAssignmentDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox txtDesc;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraEditors.SimpleButton BtnSave;
         private DevExpress.XtraEditors.SimpleButton BtnClose;
+        private DevExpress.XtraEditors.TextEdit txtAssignmentDate;
     }
 }

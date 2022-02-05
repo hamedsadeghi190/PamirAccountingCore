@@ -6,6 +6,7 @@ using PamirAccounting.Infrastructures;
 using PamirAccounting.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace PamirAccounting.Services
@@ -66,6 +67,8 @@ namespace PamirAccounting.Services
         {
             try
             {
+                PersianCalendar pc = new PersianCalendar();
+             
 
                 var cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.New).Select(x => new ChequeModel
                 {
@@ -85,7 +88,8 @@ namespace PamirAccounting.Services
                     UserId = x.UserId,
                     RealBankName = x.RealBank.Name,
                     CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
-
+                    IssueDatePersian= pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
+                    DueDatePersian= pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
 
                 }).ToList();
@@ -398,7 +402,7 @@ namespace PamirAccounting.Services
             {
 
 
-                var cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.New && x.Type==(int)Settings.DocumentType.DepositDocument).Select(x => new ChequeModel
+                var cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.NewPayment && x.Type==(int)Settings.DocumentType.DepositDocument).Select(x => new ChequeModel
                 {
                     Id = x.Id,
                     Amount = x.Amount,
@@ -427,5 +431,7 @@ namespace PamirAccounting.Services
             }
 
         }
+
+      
     }
 }

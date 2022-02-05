@@ -86,7 +86,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(116, 40);
+            this.textEdit2.Location = new System.Drawing.Point(49, 37);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
@@ -98,7 +98,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(300, 44);
+            this.label1.Location = new System.Drawing.Point(233, 41);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(86, 26);
@@ -197,7 +197,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "IssueDate";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "IssueDatePersian";
             this.dataGridViewTextBoxColumn3.FillWeight = 130F;
             this.dataGridViewTextBoxColumn3.HeaderText = "صدور";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -206,7 +206,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DueDate";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DueDatePersian";
             this.dataGridViewTextBoxColumn4.FillWeight = 130F;
             this.dataGridViewTextBoxColumn4.HeaderText = "سررسید";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";

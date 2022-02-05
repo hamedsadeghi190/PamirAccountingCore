@@ -373,7 +373,7 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
@@ -450,7 +450,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("عملیاتچکToolStripMenuItem.Image")));
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan
@@ -509,7 +509,6 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_PassPardakhtani.Name = "ChequeMenu_PassPardakhtani";
             this.ChequeMenu_PassPardakhtani.Size = new System.Drawing.Size(250, 28);
             this.ChequeMenu_PassPardakhtani.Text = "پاس چک پرداختی";
-            this.ChequeMenu_PassPardakhtani.Visible = false;
             this.ChequeMenu_PassPardakhtani.Click += new System.EventHandler(this.ChequeMenu_PassPardakhtani_Click);
             // 
             // ChequeMenu_BargashtPardakhti
@@ -517,7 +516,6 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_BargashtPardakhti.Name = "ChequeMenu_BargashtPardakhti";
             this.ChequeMenu_BargashtPardakhti.Size = new System.Drawing.Size(250, 28);
             this.ChequeMenu_BargashtPardakhti.Text = "برگشت چک پراختی";
-            this.ChequeMenu_BargashtPardakhti.Visible = false;
             this.ChequeMenu_BargashtPardakhti.Click += new System.EventHandler(this.ChequeMenu_BargashtPardakhti_Click);
             // 
             // ChequeMenu_OdatPardakhti
@@ -525,7 +523,6 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_OdatPardakhti.Name = "ChequeMenu_OdatPardakhti";
             this.ChequeMenu_OdatPardakhti.Size = new System.Drawing.Size(250, 28);
             this.ChequeMenu_OdatPardakhti.Text = "عودت چکهای پرداختی";
-            this.ChequeMenu_OdatPardakhti.Visible = false;
             this.ChequeMenu_OdatPardakhti.Click += new System.EventHandler(this.ChequeMenu_OdatPardakhti_Click);
             // 
             // دفترکلToolStripMenuItem
