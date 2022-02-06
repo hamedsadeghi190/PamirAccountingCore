@@ -15,7 +15,9 @@ namespace PamirAccounting
         public const string WithdrawCash = "پرداخت نقدی ";
         public const string DepostitCheck = "دریافت چک ";
         public const string WithdrawCheck = "پرداخت چک ";
-        public const string PasCheck = "پاس چک ";
+        public const string PasCheck = " پاس چک پرداختنی ";
         public const string SareHesab = " در جریان وصول ";
+        public const string OdatPayment = " عودت چک پرداختنی ";
+        public const string BargashtPayment = " برگشت چک پرداختنی ";
     }
 }

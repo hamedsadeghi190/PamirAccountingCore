@@ -349,5 +349,23 @@ namespace PamirAccounting.Forms
             var frm = new BargashtCheckDaryaftiReportFrm();
             frm.ShowDialog();
         }
+
+        private void ChequeMenu_Pas_Click(object sender, EventArgs e)
+        {
+            var frm = new PasCheckPardakhtaniReportFrm();
+            frm.ShowDialog();
+        }
+
+        private void ListOdatPayment_Click(object sender, EventArgs e)
+        {
+             var frm = new OdatCheckPardakhtaniReportFrm();
+            frm.ShowDialog();
+        }
+
+        private void ListBargashtPayment_Click(object sender, EventArgs e)
+        {
+            var frm = new BargashtCheckPardakhtiReportFrm();
+            frm.ShowDialog();
+        }
     }
 }

@@ -83,10 +83,12 @@ namespace PamirAccounting.Commons.Enums
             OdatSareHesab = 6,
             [Description(" برگشت چک")]
             Bargasht = 7,
-
             [Description("پاس پرداختی")]
             PassPardakhti = 8,
-
+            [Description(" عودت پرداختنی")]
+            OdatPayment = 9,
+            [Description(" برگشت پرداختنی")]
+            BargashtPayment = 10,
             [Description("جدید پرداختی")]
             NewPayment = 12,
         }

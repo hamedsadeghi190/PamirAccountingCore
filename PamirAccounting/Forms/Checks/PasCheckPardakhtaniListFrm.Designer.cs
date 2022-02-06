@@ -48,8 +48,6 @@ namespace PamirAccounting.Forms.Checks
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -148,9 +146,7 @@ namespace PamirAccounting.Forms.Checks
             this.Column5,
             this.Column6,
             this.Column10,
-            this.Column9,
-            this.btnRowEdit,
-            this.btnRowDelete});
+            this.Column9});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -191,7 +187,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "IssueDate";
+            this.Column2.DataPropertyName = "IssueDatePersian";
             this.Column2.FillWeight = 130F;
             this.Column2.HeaderText = "صدور";
             this.Column2.Name = "Column2";
@@ -200,7 +196,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "DueDate";
+            this.Column4.DataPropertyName = "DueDatePersian";
             this.Column4.FillWeight = 130F;
             this.Column4.HeaderText = "سررسید";
             this.Column4.Name = "Column4";
@@ -246,28 +242,6 @@ namespace PamirAccounting.Forms.Checks
             this.Column9.HeaderText = "بانک";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            // 
-            // btnRowEdit
-            // 
-            this.btnRowEdit.HeaderText = "ویرایش";
-            this.btnRowEdit.Name = "btnRowEdit";
-            this.btnRowEdit.ReadOnly = true;
-            this.btnRowEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnRowEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnRowEdit.Text = "ویرایش";
-            this.btnRowEdit.UseColumnTextForButtonValue = true;
-            this.btnRowEdit.Width = 50;
-            // 
-            // btnRowDelete
-            // 
-            this.btnRowDelete.HeaderText = "حذف";
-            this.btnRowDelete.Name = "btnRowDelete";
-            this.btnRowDelete.ReadOnly = true;
-            this.btnRowDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnRowDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnRowDelete.Text = "حذف";
-            this.btnRowDelete.UseColumnTextForButtonValue = true;
-            this.btnRowDelete.Width = 50;
             // 
             // PasCheckPardakhtaniListFrm
             // 
@@ -316,7 +290,5 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
     }
 }

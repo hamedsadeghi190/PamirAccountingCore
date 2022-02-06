@@ -173,6 +173,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1182, 438);
             this.dataGridView1.TabIndex = 119;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -196,7 +197,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "IssueDate";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "IssueDatePersian";
             this.dataGridViewTextBoxColumn3.FillWeight = 130F;
             this.dataGridViewTextBoxColumn3.HeaderText = "صدور";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -205,7 +206,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DueDate";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DueDatePersian";
             this.dataGridViewTextBoxColumn4.FillWeight = 130F;
             this.dataGridViewTextBoxColumn4.HeaderText = "سررسید";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -290,6 +291,7 @@ namespace PamirAccounting.Forms.Checks
             this.Name = "OdatCheckPardakhtaniReportFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.OdatCheckPardakhtaniReportFrm_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

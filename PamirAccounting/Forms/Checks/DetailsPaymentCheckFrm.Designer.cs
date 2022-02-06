@@ -279,6 +279,7 @@ namespace PamirAccounting.Forms.Checks
             this.cmbRealBankId.Name = "cmbRealBankId";
             this.cmbRealBankId.Size = new System.Drawing.Size(140, 34);
             this.cmbRealBankId.TabIndex = 87;
+            this.cmbRealBankId.SelectedIndexChanged += new System.EventHandler(this.cmbRealBankId_SelectedIndexChanged);
             // 
             // label8
             // 

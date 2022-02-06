@@ -132,7 +132,6 @@ namespace PamirAccounting.Domains
                 entity.HasOne(d => d.RealBank)
                     .WithMany(p => p.Cheques)
                     .HasForeignKey(d => d.RealBankId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Cheques_RealBanks");
             });
 

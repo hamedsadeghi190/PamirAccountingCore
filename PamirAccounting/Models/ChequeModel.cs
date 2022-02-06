@@ -10,7 +10,7 @@ namespace PamirAccounting.Models
    public class ChequeModel
     {
         public long Id { get; set; }
-        public byte RealBankId { get; set; }
+        public byte? RealBankId { get; set; }
         public string RealBankName { get; set; }
         public DateTime RegisterDateTime { get; set; }
         public DateTime IssueDate { get; set; }

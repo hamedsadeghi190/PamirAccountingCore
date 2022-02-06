@@ -20,6 +20,9 @@
     <Compile Update="Forms\Checks\BargashtCheckDaryaftanilistFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Checks\BargashtCheckPardakhtiReportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Checks\BargashtCheckPardakhtaniFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +72,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Checks\PasCheckPardakhtaniListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Checks\PasCheckPardakhtaniReportFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Checks\PaymentCheckList.cs">

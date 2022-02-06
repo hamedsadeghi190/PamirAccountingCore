@@ -8,7 +8,7 @@ namespace PamirAccounting.Domains
     public partial class Cheque
     {
         public long Id { get; set; }
-        public byte RealBankId { get; set; }
+        public byte? RealBankId { get; set; }
         public DateTime RegisterDateTime { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime DueDate { get; set; }
@@ -28,6 +28,7 @@ namespace PamirAccounting.Domains
         public byte? Status { get; set; }
         public DateTime? VosoolDate { get; set; }
         public DateTime? PassDate { get; set; }
+        public int? BankId { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual RealBank RealBank { get; set; }

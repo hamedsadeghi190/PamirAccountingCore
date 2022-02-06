@@ -432,6 +432,115 @@ namespace PamirAccounting.Services
 
         }
 
-      
+        public List<ChequeModel> GetAllPasPayment()
+        {
+            try
+            {
+
+                var cheque = FindAllReadonly(x=>x.Status==(int)Settings.ChequeStatus.PassPardakhti && x.Type == (int)Settings.DocumentType.DepositDocument).Select(x => new ChequeModel
+                {
+                    Id = x.Id,
+                    Amount = x.Amount,
+                    BankAccountNumber = x.BankAccountNumber,
+                    Description = x.Description,
+                    BranchName = x.BranchName,
+                    ChequeNumber = x.ChequeNumber,
+                    CustomerId = x.CustomerId,
+                    DocumentId = x.DocumentId,
+                    DueDate = x.DueDate,
+                    IssueDate = x.IssueDate,
+                    RealBankId = x.RealBankId,
+                    RegisterDateTime = x.RegisterDateTime,
+                    Type = x.Type,
+                    UserId = x.UserId,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+
+
+
+                }).ToList();
+
+                return cheque;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        public List<ChequeModel> GetAllOdatPayment()
+        {
+            try
+            {
+
+                var cheque = FindAllReadonly(x => x.Status == (int)Settings.ChequeStatus.OdatPayment && x.Type == (int)Settings.DocumentType.DepositDocument).Select(x => new ChequeModel
+                {
+                    Id = x.Id,
+                    Amount = x.Amount,
+                    BankAccountNumber = x.BankAccountNumber,
+                    Description = x.Description,
+                    BranchName = x.BranchName,
+                    ChequeNumber = x.ChequeNumber,
+                    CustomerId = x.CustomerId,
+                    DocumentId = x.DocumentId,
+                    DueDate = x.DueDate,
+                    IssueDate = x.IssueDate,
+                    RealBankId = x.RealBankId,
+                    RegisterDateTime = x.RegisterDateTime,
+                    Type = x.Type,
+                    UserId = x.UserId,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+
+
+
+                }).ToList();
+
+                return cheque;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        public List<ChequeModel> GetAllBargashtPayment()
+        {
+            try
+            {
+
+                var cheque = FindAllReadonly(x => x.Status == (int)Settings.ChequeStatus.BargashtPayment && x.Type == (int)Settings.DocumentType.DepositDocument).Select(x => new ChequeModel
+                {
+                    Id = x.Id,
+                    Amount = x.Amount,
+                    BankAccountNumber = x.BankAccountNumber,
+                    Description = x.Description,
+                    BranchName = x.BranchName,
+                    ChequeNumber = x.ChequeNumber,
+                    CustomerId = x.CustomerId,
+                    DocumentId = x.DocumentId,
+                    DueDate = x.DueDate,
+                    IssueDate = x.IssueDate,
+                    RealBankId = x.RealBankId,
+                    RegisterDateTime = x.RegisterDateTime,
+                    Type = x.Type,
+                    UserId = x.UserId,
+                    RealBankName = x.RealBank.Name,
+                    CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+
+
+
+                }).ToList();
+
+                return cheque;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
     }
 }

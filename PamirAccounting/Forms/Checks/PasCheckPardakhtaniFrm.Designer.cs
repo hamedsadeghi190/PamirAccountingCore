@@ -35,7 +35,6 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtDesc = new System.Windows.Forms.RichTextBox();
-            this.txtPassDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -43,9 +42,11 @@ namespace PamirAccounting.Forms.Checks
             this.label1 = new System.Windows.Forms.Label();
             this.txtDocumentID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtPassDate = new DevExpress.XtraEditors.TextEdit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -89,8 +90,8 @@ namespace PamirAccounting.Forms.Checks
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtDesc);
             this.groupBox2.Controls.Add(this.txtPassDate);
+            this.groupBox2.Controls.Add(this.txtDesc);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Location = new System.Drawing.Point(5, 86);
@@ -104,17 +105,9 @@ namespace PamirAccounting.Forms.Checks
             this.txtDesc.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDesc.Location = new System.Drawing.Point(160, 73);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(448, 39);
+            this.txtDesc.Size = new System.Drawing.Size(448, 76);
             this.txtDesc.TabIndex = 113;
             this.txtDesc.Text = "";
-            // 
-            // txtPassDate
-            // 
-            this.txtPassDate.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtPassDate.Location = new System.Drawing.Point(388, 29);
-            this.txtPassDate.Name = "txtPassDate";
-            this.txtPassDate.Size = new System.Drawing.Size(220, 38);
-            this.txtPassDate.TabIndex = 107;
             // 
             // label3
             // 
@@ -193,6 +186,20 @@ namespace PamirAccounting.Forms.Checks
             this.label7.TabIndex = 101;
             this.label7.Text = "شماره سند";
             // 
+            // txtPassDate
+            // 
+            this.txtPassDate.Location = new System.Drawing.Point(446, 30);
+            this.txtPassDate.Name = "txtPassDate";
+            this.txtPassDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtPassDate.Properties.Appearance.Options.UseFont = true;
+            this.txtPassDate.Properties.AutoHeight = false;
+            this.txtPassDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
+            this.txtPassDate.Properties.MaskSettings.Set("mask", "1999/99/00");
+            this.txtPassDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtPassDate.Size = new System.Drawing.Size(162, 37);
+            this.txtPassDate.TabIndex = 115;
+            this.txtPassDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassDate_KeyUp_1);
+            // 
             // PasCheckPardakhtaniFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -219,6 +226,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -230,7 +238,6 @@ namespace PamirAccounting.Forms.Checks
         private DevExpress.XtraEditors.SimpleButton BtnClose;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox txtDesc;
-        private System.Windows.Forms.TextBox txtPassDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -238,5 +245,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDocumentID;
         private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.TextEdit txtPassDate;
     }
 }

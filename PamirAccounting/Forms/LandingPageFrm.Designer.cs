@@ -61,6 +61,9 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_ReceveOdat = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_OdatSare = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_Bargasht = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChequeMenu_Pas = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListOdatPayment = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListBargashtPayment = new System.Windows.Forms.ToolStripMenuItem();
             this.عملیاتچکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_SareHesabGozashtan = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_VosoolDaryaftani = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,6 +109,7 @@ namespace PamirAccounting.Forms
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.lblTimee = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.لیستچکهایبرگشتیپرداختنیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -368,7 +372,11 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_Vagozari,
             this.ChequeMenu_ReceveOdat,
             this.ChequeMenu_OdatSare,
-            this.ChequeMenu_Bargasht});
+            this.ChequeMenu_Bargasht,
+            this.ChequeMenu_Pas,
+            this.ListOdatPayment,
+            this.ListBargashtPayment,
+            this.لیستچکهایبرگشتیپرداختنیToolStripMenuItem});
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -432,6 +440,27 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_Bargasht.Size = new System.Drawing.Size(281, 28);
             this.ChequeMenu_Bargasht.Text = "لیست چک های برگشتی دریافتنی";
             this.ChequeMenu_Bargasht.Click += new System.EventHandler(this.ChequeMenu_Bargasht_Click);
+            // 
+            // ChequeMenu_Pas
+            // 
+            this.ChequeMenu_Pas.Name = "ChequeMenu_Pas";
+            this.ChequeMenu_Pas.Size = new System.Drawing.Size(281, 28);
+            this.ChequeMenu_Pas.Text = "لیست چک های پاس شده پرداختنی";
+            this.ChequeMenu_Pas.Click += new System.EventHandler(this.ChequeMenu_Pas_Click);
+            // 
+            // ListOdatPayment
+            // 
+            this.ListOdatPayment.Name = "ListOdatPayment";
+            this.ListOdatPayment.Size = new System.Drawing.Size(281, 28);
+            this.ListOdatPayment.Text = "لیست چک های عودت پرداختنی";
+            this.ListOdatPayment.Click += new System.EventHandler(this.ListOdatPayment_Click);
+            // 
+            // ListBargashtPayment
+            // 
+            this.ListBargashtPayment.Name = "ListBargashtPayment";
+            this.ListBargashtPayment.Size = new System.Drawing.Size(281, 28);
+            this.ListBargashtPayment.Text = "لیست چک های برگشتی پرداختنی";
+            this.ListBargashtPayment.Click += new System.EventHandler(this.ListBargashtPayment_Click);
             // 
             // عملیاتچکToolStripMenuItem
             // 
@@ -931,6 +960,12 @@ namespace PamirAccounting.Forms
             this.panel1.Size = new System.Drawing.Size(1370, 46);
             this.panel1.TabIndex = 11;
             // 
+            // لیستچکهایبرگشتیپرداختنیToolStripMenuItem
+            // 
+            this.لیستچکهایبرگشتیپرداختنیToolStripMenuItem.Name = "لیستچکهایبرگشتیپرداختنیToolStripMenuItem";
+            this.لیستچکهایبرگشتیپرداختنیToolStripMenuItem.Size = new System.Drawing.Size(281, 28);
+            this.لیستچکهایبرگشتیپرداختنیToolStripMenuItem.Text = "لیست چک های برگشتی پرداختنی";
+            // 
             // LandingPageFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1040,5 +1075,9 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.ToolStripMenuItem ChequeMenu_ReceveOdat;
         private System.Windows.Forms.ToolStripMenuItem ChequeMenu_OdatSare;
         private System.Windows.Forms.ToolStripMenuItem ChequeMenu_Bargasht;
+        private System.Windows.Forms.ToolStripMenuItem ChequeMenu_Pas;
+        private System.Windows.Forms.ToolStripMenuItem ListOdatPayment;
+        private System.Windows.Forms.ToolStripMenuItem ListBargashtPayment;
+        private System.Windows.Forms.ToolStripMenuItem لیستچکهایبرگشتیپرداختنیToolStripMenuItem;
     }
 }

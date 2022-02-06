@@ -64,7 +64,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
-            _RealBank = unitOfWork.RealBankServices.FindAll(x => x.Id > 0).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.Name}" }).ToList();
+            _RealBank = unitOfWork.CustomerServices.FindAll(p => p.GroupId == 2).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbRealBankId.DataSource = _RealBank;
             cmbRealBankId.ValueMember = "Id";
             cmbRealBankId.DisplayMember = "Title";
@@ -143,9 +143,9 @@ namespace PamirAccounting.Forms.Checks
             Cheque.BranchName = txtBranchName.Text;
             Cheque.ChequeNumber = txtChequeNumber.Text;
             Cheque.DocumentId = DocumentId;
-            Cheque.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCheck + " به شماره چک  "+txtChequeNumber.Text + " - به " + customerName + " - تاریخ سررسید " + txtDueDate.Text;
+            Cheque.Description = txtDescription.Text;
             Cheque.Amount = long.Parse(txtAmount.Text);
-            Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
+            Cheque.BankId = (int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
@@ -162,7 +162,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
             customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text); ;
             customerTransaction.DepositAmount = 0;
-            customerTransaction.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCheck + " به شماره چک  " + txtChequeNumber.Text + " - به " + customerName + " - تاریخ سررسید " + txtDueDate.Text;
+            customerTransaction.Description = txtDescription.Text;
             customerTransaction.CurrenyId = 2;
             customerTransaction.Date = DateTime.Now;
             customerTransaction.TransactionDateTime = DateTime.Now;
@@ -177,7 +177,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
             receivedDocuments.WithdrawAmount = 0;
             receivedDocuments.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text); ;
-            receivedDocuments.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCheck + " به شماره چک  " + txtChequeNumber.Text + " - به " + customerName + " - تاریخ سررسید " + txtDueDate.Text;
+            receivedDocuments.Description = txtDescription.Text;
             receivedDocuments.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             receivedDocuments.SourceCustomerId = AppSetting.SendDocumentCustomerId;
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
@@ -209,7 +209,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.BranchName = txtBranchName.Text;
             Cheque.ChequeNumber = txtChequeNumber.Text;
             Cheque.DocumentId = Cheque.DocumentId;
-            Cheque.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCheck + " به شماره چک  " + txtChequeNumber.Text + " - به " + customerName + " - تاریخ سررسید " + txtDueDate.Text;
+            Cheque.Description = txtDescription.Text;
             Cheque.Amount = long.Parse(txtAmount.Text);
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
@@ -227,7 +227,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
             customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text); 
             customerTransaction.DepositAmount = 0;
-            customerTransaction.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCheck + " به شماره چک  " + txtChequeNumber.Text + " - به " + customerName + " - تاریخ سررسید " + txtDueDate.Text;
+            customerTransaction.Description = txtDescription.Text;
             customerTransaction.CurrenyId = 2;
             customerTransaction.Date = DateTime.Now;
             customerTransaction.TransactionDateTime = DateTime.Now;
@@ -242,7 +242,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
             receivedDocuments.WithdrawAmount = 0;
             receivedDocuments.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-            receivedDocuments.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCheck + " به شماره چک  " + txtChequeNumber.Text + " - به " + customerName + " - تاریخ سررسید " + txtDueDate.Text;
+            receivedDocuments.Description = txtDescription.Text;
             receivedDocuments.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             receivedDocuments.SourceCustomerId = AppSetting.SendDocumentCustomerId;
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
@@ -288,7 +288,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDescription.Text = $"{Messages.WithdrawCheck } به  {cmbCustomers.Text}  به مبلغ {txtAmount.Text} {"تومان"}  تاریخ سر رسید  {txtDueDate.Text} ";
+            txtDescription.Text = $"{Messages.WithdrawCheck }شماره{txtChequeNumber.Text}  به  {cmbCustomers.Text}--  به مبلغ {txtAmount.Text} {"تومان"}-- از بانک {cmbRealBankId.Text}--  تاریخ سر رسید  {txtDueDate.Text} ";
         }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
@@ -302,6 +302,11 @@ namespace PamirAccounting.Forms.Checks
         }
 
         private void txtDueDate_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void cmbRealBankId_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateDescription();
         }

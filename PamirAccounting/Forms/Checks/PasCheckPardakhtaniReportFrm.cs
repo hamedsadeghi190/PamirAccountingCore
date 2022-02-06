@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.Checks
 {
-    public partial class OdatCheckPardakhtaniReportFrm : DevExpress.XtraEditors.XtraForm
+    public partial class PasCheckPardakhtaniReportFrm : DevExpress.XtraEditors.XtraForm
     {
         private UnitOfWork unitOfWork;
         private List<ChequeModel> dataList;
-        public OdatCheckPardakhtaniReportFrm()
+        public PasCheckPardakhtaniReportFrm()
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
@@ -26,7 +26,7 @@ namespace PamirAccounting.Forms.Checks
         private void LoadData()
         {
             PersianCalendar pc = new PersianCalendar();
-            dataList = unitOfWork.ChequeServices.GetAllOdatPayment();
+            dataList = unitOfWork.ChequeServices.GetAllPasPayment();
             dataGridView1.DataSource = dataList.Select(x => new
             {
                 x.Id,
@@ -48,7 +48,7 @@ namespace PamirAccounting.Forms.Checks
 
         }
 
-        private void OdatCheckPardakhtaniReportFrm_Load(object sender, EventArgs e)
+        private void PasCheckPardakhtaniReportFrm_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
             LoadData();
@@ -73,7 +73,7 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frm = new OdatCheckPardakhtaniFrm(0, dataList.ElementAt(e.RowIndex).Id);
+                var frm = new PasCheckPardakhtaniFrm(0, dataList.ElementAt(e.RowIndex).Id);
                 frm.ShowDialog();
                 LoadData();
             }
