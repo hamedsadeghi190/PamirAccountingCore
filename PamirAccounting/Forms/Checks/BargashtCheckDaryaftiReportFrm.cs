@@ -1,11 +1,13 @@
 ﻿using DevExpress.XtraEditors;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +39,10 @@ namespace PamirAccounting.Forms.Checks
                 x.BankAccountNumber,
                 x.CustomerName,
                 x.RealBankName,
-                x.DueDate
+                x.DueDate,
+                x.RowId,
+                x.DueDatePersian,
+                x.IssueDatePersian
             }).ToList();
 
         }
@@ -109,6 +114,27 @@ namespace PamirAccounting.Forms.Checks
 
                 }
             }
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var data = new UnitOfWork().ChequeServices.GetAllBargashtShode();
+            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "ReceiveCheckBargashtList.mrt");
+            report.RegData("myData", data);
+            report.RegData("basedata", basedata);
+            //report.Design();
+            report.Render();
+            report.Show();
         }
     }
 }

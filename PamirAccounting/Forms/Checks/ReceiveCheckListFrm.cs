@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PamirAccounting.Services;
 using System.Globalization;
+using Stimulsoft.Report;
 
 namespace PamirAccounting.Forms.Checks
 {
@@ -18,7 +19,7 @@ namespace PamirAccounting.Forms.Checks
     {
         private UnitOfWork unitOfWork;
         private List<ChequeModel> dataList;
-
+        private Domains.Customer _Customer;
 
         public ReceiveCheckListFrm()
         {
@@ -42,8 +43,8 @@ namespace PamirAccounting.Forms.Checks
                 x.CustomerName,
                 x.RealBankName,
                 IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
-                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
-
+                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString(),
+                x.RowId,
 
             }).ToList();
 
@@ -116,6 +117,24 @@ namespace PamirAccounting.Forms.Checks
 
                 }
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+          
+        
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var data= new UnitOfWork().ChequeServices.GetAllDaryaftani();  
+            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "ReceiveCheckList.mrt");
+            report.RegData("myData", data);
+            report.RegData("basedata", basedata);
+          ////report.Design();
+            report.Render();
+            report.Show();
         }
     }
 
