@@ -120,7 +120,7 @@ namespace PamirAccounting.Forms.Checks
                 currentCheque.BranchName = currentCheque.BranchName;
                 currentCheque.ChequeNumber = currentCheque.ChequeNumber;
                 currentCheque.DocumentId = currentCheque.DocumentId;
-                currentCheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                currentCheque.Description = txtVosoolDate.Text;
                 currentCheque.Amount = currentCheque.Amount;
                 currentCheque.RealBankId = currentCheque.RealBankId;
                 currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
@@ -140,7 +140,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
                 customerTransaction.WithdrawAmount = currentCheque.Amount;
                 customerTransaction.DepositAmount = 0;
-                customerTransaction.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                customerTransaction.Description = txtVosoolDate.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction.Date = DateTime.Now;
                 customerTransaction.TransactionDateTime = DateTime.Now;
@@ -154,7 +154,7 @@ namespace PamirAccounting.Forms.Checks
                 DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
                 DarJaryanVosool.WithdrawAmount = 0;
                 DarJaryanVosool.DepositAmount = currentCheque.Amount;
-                DarJaryanVosool.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                DarJaryanVosool.Description = txtVosoolDate.Text;
                 DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
                 DarJaryanVosool.TransactionType = (int)TransaActionType.RecivedDocument;
                 DarJaryanVosool.CurrenyId = AppSetting.TomanCurrencyID;
@@ -183,7 +183,7 @@ namespace PamirAccounting.Forms.Checks
                 currentCheque.BranchName = currentCheque.BranchName;
                 currentCheque.ChequeNumber = currentCheque.ChequeNumber;
                 currentCheque.DocumentId = currentCheque.DocumentId;
-                currentCheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                currentCheque.Description = txtVosoolDate.Text;
                 currentCheque.Amount = currentCheque.Amount;
                 currentCheque.RealBankId = currentCheque.RealBankId;
                 currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
@@ -203,7 +203,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
                 customerTransaction.WithdrawAmount = currentCheque.Amount;
                 customerTransaction.DepositAmount = 0;
-                customerTransaction.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                customerTransaction.Description = txtVosoolDate.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction.Date = DateTime.Now;
                 customerTransaction.TransactionDateTime = DateTime.Now;
@@ -219,7 +219,7 @@ namespace PamirAccounting.Forms.Checks
                 DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
                 DarJaryanVosool.WithdrawAmount = 0;
                 DarJaryanVosool.DepositAmount = currentCheque.Amount;
-                DarJaryanVosool.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                DarJaryanVosool.Description = txtVosoolDate.Text;
                 DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
                 DarJaryanVosool.TransactionType = (int)TransaActionType.RecivedDocument;
                 DarJaryanVosool.CurrenyId = AppSetting.TomanCurrencyID;
@@ -252,7 +252,7 @@ namespace PamirAccounting.Forms.Checks
                 Cheque.BranchName = Cheque.BranchName;
                 Cheque.ChequeNumber = Cheque.ChequeNumber;
                 Cheque.DocumentId = Cheque.DocumentId;
-                Cheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + Cheque.DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                Cheque.Description = txtVosoolDate.Text;
                 Cheque.Amount = Cheque.Amount;
                 Cheque.RealBankId = Cheque.RealBankId;
                 Cheque.RegisterDateTime = Cheque.RegisterDateTime;
@@ -314,7 +314,7 @@ namespace PamirAccounting.Forms.Checks
                 Cheque.BranchName = Cheque.BranchName;
                 Cheque.ChequeNumber = Cheque.ChequeNumber;
                 Cheque.DocumentId = Cheque.DocumentId;
-                Cheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + Cheque.DocumentId + "از مشتری" + cmbCustomers.SelectedText;
+                Cheque.Description = txtVosoolDate.Text;
                 Cheque.Amount = Cheque.Amount;
                 Cheque.RealBankId = Cheque.RealBankId;
                 Cheque.RegisterDateTime = Cheque.RegisterDateTime;
@@ -371,10 +371,29 @@ namespace PamirAccounting.Forms.Checks
 
         }
 
+        private void txtDesc_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void cmbCustomers_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void txtVosoolDate_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
         private void VosoolCheckFrm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+        }
+        private void CreateDescription()
+        {
+            txtDesc.Text = $"{Messages.Vosool } -چک به شماره   {currentCheque.ChequeNumber}   -به مبلغ {currentCheque.Amount} {"-تومان"} - تاریخ وصول  {txtVosoolDate.Text} ";
         }
 
 

@@ -19,5 +19,7 @@ namespace PamirAccounting
         public const string SareHesab = " در جریان وصول ";
         public const string OdatPayment = " عودت چک پرداختنی ";
         public const string BargashtPayment = " برگشت چک پرداختنی ";
+        public const string Vosool = " وصول چک ";
+        public const string Odat = " عودت چک  ";
     }
 }

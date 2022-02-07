@@ -91,7 +91,7 @@
         </PageFooterBand1>
         <HeaderBand1 Ref="7" type="HeaderBand" isKey="true">
           <Brush>[219:229:241]</Brush>
-          <ClientRectangle>0,0.2,7.72,1.5</ClientRectangle>
+          <ClientRectangle>0,0,7.72,1.5</ClientRectangle>
           <Components isList="true" count="4">
             <Text1 Ref="8" type="Text" isKey="true">
               <Brush>[219:229:241]</Brush>
@@ -167,7 +167,7 @@
         </HeaderBand1>
         <HeaderBand2 Ref="12" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,2.1,7.72,0.8</ClientRectangle>
+          <ClientRectangle>0,1.5,7.72,0.8</ClientRectangle>
           <Components isList="true" count="7">
             <Text6 Ref="13" type="Text" isKey="true">
               <Border>All;Black;2;Solid;False;2;Black</Border>
@@ -297,7 +297,8 @@
         </HeaderBand2>
         <Table1 Ref="20" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,3.3,7.72,0.5</ClientRectangle>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,2.3,7.72,0.5</ClientRectangle>
           <ColumnCount>7</ColumnCount>
           <Components isList="true" count="7">
             <Table1_Cell1 Ref="21" type="TableCell" isKey="true">
@@ -476,10 +477,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>2/7/2022 5:03:12 PM</ReportChanged>
+  <ReportChanged>2/7/2022 7:22:13 PM</ReportChanged>
   <ReportCreated>1/23/2022 12:40:14 PM</ReportCreated>
-  <ReportFile>D:\PamirAccountingCore\PamirAccounting\Reports\ReceiveCheckList.mrt</ReportFile>
-  <ReportGuid>4e19b937a01a412fa6f6e99103aacb2c</ReportGuid>
+  <ReportFile>D:\PamirAccountingCore\PamirAccounting\Reports\ReceiveVosoolList.mrt</ReportFile>
+  <ReportGuid>ebb2cf1b7a2d443fa2d49b8839e9f6ec</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2022.1.4.0</ReportVersion>

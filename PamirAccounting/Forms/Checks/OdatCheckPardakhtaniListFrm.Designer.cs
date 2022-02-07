@@ -69,6 +69,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(357, 38);
             this.txtsearch.TabIndex = 105;
+            this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
             // label1
             // 

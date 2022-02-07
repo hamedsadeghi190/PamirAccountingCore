@@ -132,5 +132,68 @@ namespace PamirAccounting.Forms.Checks
             report.Render();
            report.Show();
         }
+
+        private void txtChequeNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtChequeNumber.Text.Length > 0)
+            {
+                PersianCalendar pc = new PersianCalendar();
+                dataList = unitOfWork.ChequeServices.GetAllBargashtPayment();
+                dataGridView1.DataSource = dataList.Select(x => new
+                {
+                    x.Id,
+                    x.IssueDate,
+                    x.Description,
+                    x.DocumentId,
+                    x.ChequeNumber,
+                    x.Amount,
+                    x.BranchName,
+                    x.BankAccountNumber,
+                    x.CustomerName,
+                    x.RealBankName,
+                    x.DueDate,
+                    IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
+                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
+
+                }).Where(x => x.ChequeNumber == txtChequeNumber.Text).ToList();
+
+            }
+            else
+            {
+                LoadData();
+            }
+
+        }
+
+        private void txtAccountNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtAccountNumber.Text.Length > 0)
+            {
+                PersianCalendar pc = new PersianCalendar();
+                dataList = unitOfWork.ChequeServices.GetAllBargashtPayment();
+                dataGridView1.DataSource = dataList.Select(x => new
+                {
+                    x.Id,
+                    x.IssueDate,
+                    x.Description,
+                    x.DocumentId,
+                    x.ChequeNumber,
+                    x.Amount,
+                    x.BranchName,
+                    x.BankAccountNumber,
+                    x.CustomerName,
+                    x.RealBankName,
+                    x.DueDate,
+                    IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
+                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
+
+                }).Where(x => x.BankAccountNumber == txtAccountNumber.Text).ToList();
+
+            }
+            else
+            {
+                LoadData();
+            }
+        }
     }
 }

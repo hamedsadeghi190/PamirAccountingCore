@@ -34,12 +34,12 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave = new DevExpress.XtraEditors.SimpleButton();
             this.BtnClose = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtVosoolDate = new DevExpress.XtraEditors.TextEdit();
             this.cmbCustomers = new System.Windows.Forms.ComboBox();
             this.btnshowcustomer = new DevExpress.XtraEditors.SimpleButton();
             this.txtDesc = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtVosoolDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDate = new System.Windows.Forms.TextBox();
@@ -48,6 +48,7 @@ namespace PamirAccounting.Forms.Checks
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVosoolDate.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,18 +94,32 @@ namespace PamirAccounting.Forms.Checks
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtVosoolDate);
             this.groupBox2.Controls.Add(this.cmbCustomers);
             this.groupBox2.Controls.Add(this.btnshowcustomer);
             this.groupBox2.Controls.Add(this.txtDesc);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtVosoolDate);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(6, 81);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(704, 248);
             this.groupBox2.TabIndex = 113;
             this.groupBox2.TabStop = false;
+            // 
+            // txtVosoolDate
+            // 
+            this.txtVosoolDate.Location = new System.Drawing.Point(385, 30);
+            this.txtVosoolDate.Name = "txtVosoolDate";
+            this.txtVosoolDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtVosoolDate.Properties.Appearance.Options.UseFont = true;
+            this.txtVosoolDate.Properties.AutoHeight = false;
+            this.txtVosoolDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
+            this.txtVosoolDate.Properties.MaskSettings.Set("mask", "1999/99/00");
+            this.txtVosoolDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtVosoolDate.Size = new System.Drawing.Size(220, 37);
+            this.txtVosoolDate.TabIndex = 132;
+            this.txtVosoolDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtVosoolDate_KeyUp);
             // 
             // cmbCustomers
             // 
@@ -114,6 +129,7 @@ namespace PamirAccounting.Forms.Checks
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(220, 34);
             this.cmbCustomers.TabIndex = 131;
+            this.cmbCustomers.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbCustomers_KeyUp);
             // 
             // btnshowcustomer
             // 
@@ -128,15 +144,17 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnshowcustomer.Size = new System.Drawing.Size(38, 32);
             this.btnshowcustomer.TabIndex = 116;
+            this.btnshowcustomer.Visible = false;
             // 
             // txtDesc
             // 
             this.txtDesc.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDesc.Location = new System.Drawing.Point(157, 119);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(448, 39);
+            this.txtDesc.Size = new System.Drawing.Size(448, 82);
             this.txtDesc.TabIndex = 113;
             this.txtDesc.Text = "";
+            this.txtDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDesc_KeyUp);
             // 
             // label8
             // 
@@ -159,14 +177,6 @@ namespace PamirAccounting.Forms.Checks
             this.label2.Size = new System.Drawing.Size(98, 26);
             this.label2.TabIndex = 108;
             this.label2.Text = "وصول به حساب";
-            // 
-            // txtVosoolDate
-            // 
-            this.txtVosoolDate.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtVosoolDate.Location = new System.Drawing.Point(385, 29);
-            this.txtVosoolDate.Name = "txtVosoolDate";
-            this.txtVosoolDate.Size = new System.Drawing.Size(220, 38);
-            this.txtVosoolDate.TabIndex = 107;
             // 
             // label3
             // 
@@ -195,6 +205,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtDate
             // 
+            this.txtDate.Enabled = false;
             this.txtDate.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDate.Location = new System.Drawing.Point(19, 29);
             this.txtDate.Name = "txtDate";
@@ -204,6 +215,7 @@ namespace PamirAccounting.Forms.Checks
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(239, 35);
@@ -214,6 +226,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtDocumentId
             // 
+            this.txtDocumentId.Enabled = false;
             this.txtDocumentId.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDocumentId.Location = new System.Drawing.Point(391, 29);
             this.txtDocumentId.Name = "txtDocumentId";
@@ -223,6 +236,7 @@ namespace PamirAccounting.Forms.Checks
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Enabled = false;
             this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(611, 35);
@@ -255,6 +269,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVosoolDate.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -271,7 +286,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.RichTextBox txtDesc;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtVosoolDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtDate;
@@ -279,5 +293,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.TextBox txtDocumentId;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbCustomers;
+        private DevExpress.XtraEditors.TextEdit txtVosoolDate;
     }
 }

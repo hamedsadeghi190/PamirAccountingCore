@@ -37,7 +37,7 @@ namespace PamirAccounting.Forms.Checks
             this.label1 = new System.Windows.Forms.Label();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,7 +90,7 @@ namespace PamirAccounting.Forms.Checks
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.groupBox1);
-            this.groupBox4.Controls.Add(this.simpleButton1);
+            this.groupBox4.Controls.Add(this.btnPrint);
             this.groupBox4.Controls.Add(this.simpleButton2);
             this.groupBox4.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
@@ -156,15 +156,16 @@ namespace PamirAccounting.Forms.Checks
             this.label4.TabIndex = 110;
             this.label4.Text = "شماره چک";
             // 
-            // simpleButton1
+            // btnPrint
             // 
-            this.simpleButton1.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(51, 75);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton1.TabIndex = 98;
-            this.simpleButton1.Text = "چاپ";
+            this.btnPrint.AppearanceHovered.Options.UseTextOptions = true;
+            this.btnPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnPrint.Location = new System.Drawing.Point(51, 75);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(39, 41);
+            this.btnPrint.TabIndex = 98;
+            this.btnPrint.Text = "چاپ";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // simpleButton2
             // 
@@ -177,7 +178,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RowId";
             this.dataGridViewTextBoxColumn1.FillWeight = 60F;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "ردیف";
@@ -311,7 +312,7 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private System.Windows.Forms.Label label4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;

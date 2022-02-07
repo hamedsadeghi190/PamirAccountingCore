@@ -113,7 +113,7 @@ namespace PamirAccounting.Forms.Checks
             currentCheque.BranchName = currentCheque.BranchName;
             currentCheque.ChequeNumber = currentCheque.ChequeNumber;
             currentCheque.DocumentId = currentCheque.DocumentId;
-            currentCheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : currentCheque.Description;
+            currentCheque.Description = txtDesc.Text;
             currentCheque.Amount = currentCheque.Amount;
             currentCheque.RealBankId = currentCheque.RealBankId;
             currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
@@ -133,7 +133,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
             customerTransaction.WithdrawAmount = 0;
             customerTransaction.DepositAmount = currentCheque.Amount;
-            customerTransaction.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + currentCheque.DocumentId;
+            customerTransaction.Description = txtDesc.Text;
             customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
             customerTransaction.Date = DateTime.Now;
             customerTransaction.TransactionDateTime = DateTime.Now;
@@ -149,7 +149,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
             receivedDocuments.WithdrawAmount = currentCheque.Amount;
             receivedDocuments.DepositAmount =0;
-            receivedDocuments.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + currentCheque.DocumentId; ;
+            receivedDocuments.Description = txtDesc.Text;
             receivedDocuments.DestinitionCustomerId = AppSetting.AsnadDarJaryanVoslId;
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
             receivedDocuments.CurrenyId = AppSetting.TomanCurrencyID;
@@ -179,7 +179,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.BranchName = Cheque.BranchName;
             Cheque.ChequeNumber = Cheque.ChequeNumber;
             Cheque.DocumentId = Cheque.DocumentId;
-            Cheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Cheque.Description; ;
+            Cheque.Description = txtDesc.Text;
             Cheque.Amount = Cheque.Amount;
             Cheque.RealBankId = Cheque.RealBankId;
             Cheque.RegisterDateTime = Cheque.RegisterDateTime;
@@ -199,7 +199,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
             customerTransaction.WithdrawAmount = customerTransaction.WithdrawAmount;
             customerTransaction.DepositAmount = customerTransaction.DepositAmount;
-            customerTransaction.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + customerTransaction.DocumentId;
+            customerTransaction.Description = txtDesc.Text;
             customerTransaction.CurrenyId = customerTransaction.CurrenyId;
             customerTransaction.Date = DateTime.Now;
             customerTransaction.TransactionDateTime = DateTime.Now;
@@ -214,7 +214,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
             receivedDocuments.WithdrawAmount = receivedDocuments.WithdrawAmount;
             receivedDocuments.DepositAmount = receivedDocuments.DepositAmount;
-            receivedDocuments.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.WithdrawCheck + " به شماره چک -" + receivedDocuments.DocumentId;
+            receivedDocuments.Description = txtDesc.Text; ;
             receivedDocuments.DestinitionCustomerId = receivedDocuments.DestinitionCustomerId;
             receivedDocuments.SourceCustomerId = receivedDocuments.SourceCustomerId;
             receivedDocuments.TransactionType = receivedDocuments.TransactionType;
@@ -230,5 +230,21 @@ namespace PamirAccounting.Forms.Checks
 
 
         }
+
+        private void txtDesc_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void txtOdatDate_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void CreateDescription()
+        {
+            txtDesc.Text = $"{Messages.Odat } -چک به شماره   {currentCheque.ChequeNumber}   -به مبلغ {currentCheque.Amount} {"-تومان"} - تاریخ عودت  {txtOdatDate.Text} ";
+        }
+
     }
 }

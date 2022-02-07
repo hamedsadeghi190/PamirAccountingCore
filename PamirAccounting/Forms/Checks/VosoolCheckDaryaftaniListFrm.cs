@@ -78,5 +78,36 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
 
         }
+
+        private void txtsearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtsearch.Text.Length > 0)
+            {
+                PersianCalendar pc = new PersianCalendar();
+                dataList = unitOfWork.ChequeServices.GetAllSareHesabAndReceive();
+                dataGridView1.DataSource = dataList.Select(x => new
+                {
+                    x.Id,
+                    x.IssueDate,
+                    x.Description,
+                    x.DocumentId,
+                    x.ChequeNumber,
+                    x.Amount,
+                    x.BranchName,
+                    x.BankAccountNumber,
+                    x.CustomerName,
+                    x.RealBankName,
+                    x.DueDate,
+                    IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
+                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
+
+                }).Where(x => x.ChequeNumber == txtsearch.Text).ToList();
+
+            }
+            else
+            {
+                LoadData();
+            }
+        }
     }
 }

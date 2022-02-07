@@ -29,17 +29,9 @@ namespace PamirAccounting.Forms.Checks
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentCheckList));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,11 +43,19 @@ namespace PamirAccounting.Forms.Checks
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAccountNumber = new DevExpress.XtraEditors.TextEdit();
+            this.txtChequeNumber = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChequeNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -76,14 +76,14 @@ namespace PamirAccounting.Forms.Checks
             this.Column9,
             this.btnRowEdit,
             this.btnRowDelete});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(1, 197);
             this.dataGridView1.Name = "dataGridView1";
@@ -93,95 +93,6 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.Size = new System.Drawing.Size(1145, 621);
             this.dataGridView1.TabIndex = 118;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(116, 40);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Properties.AutoHeight = false;
-            this.textEdit2.Size = new System.Drawing.Size(187, 33);
-            this.textEdit2.TabIndex = 115;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(300, 44);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(86, 26);
-            this.label1.TabIndex = 114;
-            this.label1.Text = "شماره حساب";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(405, 37);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Properties.AutoHeight = false;
-            this.textEdit1.Size = new System.Drawing.Size(187, 33);
-            this.textEdit1.TabIndex = 113;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(592, 44);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(74, 26);
-            this.label4.TabIndex = 110;
-            this.label4.Text = "شماره چک";
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.AppearanceHovered.Options.UseTextOptions = true;
-            this.btnPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnPrint.Location = new System.Drawing.Point(51, 75);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(39, 41);
-            this.btnPrint.TabIndex = 98;
-            this.btnPrint.Text = "چاپ";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(6, 75);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton2.TabIndex = 99;
-            this.simpleButton2.Text = "راهنما";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.groupBox1);
-            this.groupBox4.Controls.Add(this.btnPrint);
-            this.groupBox4.Controls.Add(this.simpleButton2);
-            this.groupBox4.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(2, 14);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1145, 177);
-            this.groupBox4.TabIndex = 117;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "لیست چک های پرداختنی";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textEdit2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textEdit1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(388, 46);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(742, 96);
-            this.groupBox1.TabIndex = 113;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "جستجو";
             // 
             // Column1
             // 
@@ -283,6 +194,97 @@ namespace PamirAccounting.Forms.Checks
             this.btnRowDelete.UseColumnTextForButtonValue = true;
             this.btnRowDelete.Width = 50;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(300, 44);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(86, 26);
+            this.label1.TabIndex = 114;
+            this.label1.Text = "شماره حساب";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(592, 44);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(74, 26);
+            this.label4.TabIndex = 110;
+            this.label4.Text = "شماره چک";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.AppearanceHovered.Options.UseTextOptions = true;
+            this.btnPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPrint.ImageOptions.SvgImage")));
+            this.btnPrint.Location = new System.Drawing.Point(51, 75);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(39, 41);
+            this.btnPrint.TabIndex = 98;
+            this.btnPrint.Text = "چاپ";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.Location = new System.Drawing.Point(6, 75);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton2.TabIndex = 99;
+            this.simpleButton2.Text = "راهنما";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.groupBox1);
+            this.groupBox4.Controls.Add(this.btnPrint);
+            this.groupBox4.Controls.Add(this.simpleButton2);
+            this.groupBox4.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox4.Location = new System.Drawing.Point(2, 14);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1145, 177);
+            this.groupBox4.TabIndex = 117;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "لیست چک های پرداختنی";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtAccountNumber);
+            this.groupBox1.Controls.Add(this.txtChequeNumber);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(388, 46);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(742, 96);
+            this.groupBox1.TabIndex = 113;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "جستجو";
+            // 
+            // txtAccountNumber
+            // 
+            this.txtAccountNumber.Location = new System.Drawing.Point(107, 41);
+            this.txtAccountNumber.Name = "txtAccountNumber";
+            this.txtAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtAccountNumber.Properties.Appearance.Options.UseFont = true;
+            this.txtAccountNumber.Properties.AutoHeight = false;
+            this.txtAccountNumber.Size = new System.Drawing.Size(187, 33);
+            this.txtAccountNumber.TabIndex = 117;
+            this.txtAccountNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAccountNumber_KeyUp);
+            // 
+            // txtChequeNumber
+            // 
+            this.txtChequeNumber.Location = new System.Drawing.Point(396, 38);
+            this.txtChequeNumber.Name = "txtChequeNumber";
+            this.txtChequeNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtChequeNumber.Properties.Appearance.Options.UseFont = true;
+            this.txtChequeNumber.Properties.AutoHeight = false;
+            this.txtChequeNumber.Size = new System.Drawing.Size(187, 33);
+            this.txtChequeNumber.TabIndex = 116;
+            this.txtChequeNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtChequeNumber_KeyUp);
+            // 
             // PaymentCheckList
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -302,11 +304,11 @@ namespace PamirAccounting.Forms.Checks
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Load += new System.EventHandler(this.PaymentCheckList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChequeNumber.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,9 +316,7 @@ namespace PamirAccounting.Forms.Checks
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
@@ -333,5 +333,7 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
+        private DevExpress.XtraEditors.TextEdit txtAccountNumber;
+        private DevExpress.XtraEditors.TextEdit txtChequeNumber;
     }
 }
