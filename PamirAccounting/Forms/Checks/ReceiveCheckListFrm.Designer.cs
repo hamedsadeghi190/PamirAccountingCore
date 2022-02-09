@@ -46,10 +46,10 @@ namespace PamirAccounting.Forms.Checks
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtAccountNumber = new DevExpress.XtraEditors.TextEdit();
             this.txtChequeNumber = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,7 +82,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1145, 621);
-            this.dataGridView1.TabIndex = 116;
+            this.dataGridView1.TabIndex = 120;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Column1
@@ -191,7 +191,7 @@ namespace PamirAccounting.Forms.Checks
             this.simpleButton2.Location = new System.Drawing.Point(11, 76);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton2.TabIndex = 99;
+            this.simpleButton2.TabIndex = 119;
             this.simpleButton2.Text = "راهنما";
             // 
             // btnPrint
@@ -201,7 +201,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnPrint.Location = new System.Drawing.Point(56, 76);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(39, 41);
-            this.btnPrint.TabIndex = 98;
+            this.btnPrint.TabIndex = 118;
             this.btnPrint.Text = "چاپ";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -232,28 +232,6 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "جستجو";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(294, 41);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(86, 26);
-            this.label1.TabIndex = 114;
-            this.label1.Text = "شماره حساب";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(589, 39);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(74, 26);
-            this.label4.TabIndex = 110;
-            this.label4.Text = "شماره چک";
-            // 
             // txtAccountNumber
             // 
             this.txtAccountNumber.Location = new System.Drawing.Point(107, 38);
@@ -276,6 +254,28 @@ namespace PamirAccounting.Forms.Checks
             this.txtChequeNumber.TabIndex = 116;
             this.txtChequeNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtChequeNumber_KeyUp);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(294, 41);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(86, 26);
+            this.label1.TabIndex = 114;
+            this.label1.Text = "شماره حساب";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(589, 39);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(74, 26);
+            this.label4.TabIndex = 110;
+            this.label4.Text = "شماره چک";
+            // 
             // ReceiveCheckListFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -293,6 +293,7 @@ namespace PamirAccounting.Forms.Checks
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.ReceiveCheckListFrm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ReceiveCheckListFrm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

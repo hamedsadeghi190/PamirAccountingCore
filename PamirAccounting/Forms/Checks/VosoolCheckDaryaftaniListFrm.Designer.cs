@@ -44,7 +44,6 @@ namespace PamirAccounting.Forms.Checks
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RealBankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
             this.btnvosool_daryaftani = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3.SuspendLayout();
@@ -68,7 +67,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch.Location = new System.Drawing.Point(690, 19);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(357, 38);
-            this.txtsearch.TabIndex = 105;
+            this.txtsearch.TabIndex = 4;
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
             // label1
@@ -79,9 +78,9 @@ namespace PamirAccounting.Forms.Checks
             this.label1.Location = new System.Drawing.Point(1065, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 26);
+            this.label1.Size = new System.Drawing.Size(91, 26);
             this.label1.TabIndex = 104;
-            this.label1.Text = "جستجو( F3 )";
+            this.label1.Text = "جستجو( F2 )";
             // 
             // dataGridView1
             // 
@@ -104,9 +103,11 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1185, 503);
-            this.dataGridView1.TabIndex = 107;
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             // 
             // Column1
             // 
@@ -187,7 +188,6 @@ namespace PamirAccounting.Forms.Checks
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnprint);
             this.groupBox1.Controls.Add(this.btnhelp);
             this.groupBox1.Controls.Add(this.btnvosool_daryaftani);
             this.groupBox1.Location = new System.Drawing.Point(5, 26);
@@ -196,23 +196,13 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.TabIndex = 106;
             this.groupBox1.TabStop = false;
             // 
-            // btnprint
-            // 
-            this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
-            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
-            this.btnprint.Location = new System.Drawing.Point(63, 38);
-            this.btnprint.Name = "btnprint";
-            this.btnprint.Size = new System.Drawing.Size(39, 41);
-            this.btnprint.TabIndex = 98;
-            this.btnprint.Text = "چاپ";
-            // 
             // btnhelp
             // 
             this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
             this.btnhelp.Location = new System.Drawing.Point(18, 38);
             this.btnhelp.Name = "btnhelp";
             this.btnhelp.Size = new System.Drawing.Size(39, 41);
-            this.btnhelp.TabIndex = 99;
+            this.btnhelp.TabIndex = 2;
             this.btnhelp.Text = "راهنما";
             // 
             // btnvosool_daryaftani
@@ -229,7 +219,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnvosool_daryaftani.Location = new System.Drawing.Point(971, 38);
             this.btnvosool_daryaftani.Name = "btnvosool_daryaftani";
             this.btnvosool_daryaftani.Size = new System.Drawing.Size(185, 42);
-            this.btnvosool_daryaftani.TabIndex = 0;
+            this.btnvosool_daryaftani.TabIndex = 1;
             this.btnvosool_daryaftani.Text = "وصول چک";
             this.btnvosool_daryaftani.Click += new System.EventHandler(this.btnvosool_daryaftani_Click);
             // 
@@ -268,7 +258,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.SimpleButton btnprint;
         private DevExpress.XtraEditors.SimpleButton btnhelp;
         private DevExpress.XtraEditors.SimpleButton btnvosool_daryaftani;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

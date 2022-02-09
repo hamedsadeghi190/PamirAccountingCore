@@ -191,6 +191,11 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -199,6 +204,11 @@ namespace PamirAccounting.Forms.Checks
         }
 
         private void txtOdatDate_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void txtDesc_KeyUp(object sender, KeyEventArgs e)
         {
             CreateDescription();
         }

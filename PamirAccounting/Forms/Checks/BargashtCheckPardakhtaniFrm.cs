@@ -189,7 +189,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.BargashtPayment } شماره  {currentCheque.ChequeNumber} - به مبلغ {currentCheque.Amount} {"تومان"} - تاریخ عودت  {txtBargashtDate.Text} ";
+            txtDesc.Text = $"{Messages.BargashtPayment } شماره  {currentCheque.ChequeNumber} - به مبلغ {currentCheque.Amount} {"تومان"} - تاریخ برگشت  {txtBargashtDate.Text} ";
         }
         private void txtBargashtDate_KeyUp(object sender, KeyEventArgs e)
         {
@@ -199,6 +199,23 @@ namespace PamirAccounting.Forms.Checks
         private void txtDesc_KeyUp(object sender, KeyEventArgs e)
         {
             CreateDescription();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BargashtCheckPardakhtaniFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+        
         }
     }
 }

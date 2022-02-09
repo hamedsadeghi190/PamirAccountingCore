@@ -73,6 +73,16 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                txtsearch.Select();
+                txtsearch.Focus();
+            }
         }
 
         private void btnsarehesab_Click(object sender, EventArgs e)
@@ -122,6 +132,18 @@ namespace PamirAccounting.Forms.Checks
             {
                 LoadData();
             }
+        }
+
+        private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                var SareHesabGozashtan = new SareHesabGozashtanFrm(ChequeNumber, 0);
+                SareHesabGozashtan.ShowDialog();
+                LoadData();
+            }
+
         }
     }
 }

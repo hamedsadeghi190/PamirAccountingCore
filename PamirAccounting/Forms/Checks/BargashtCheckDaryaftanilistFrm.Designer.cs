@@ -35,7 +35,6 @@ namespace PamirAccounting.Forms.Checks
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnbargasht = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,14 +78,13 @@ namespace PamirAccounting.Forms.Checks
             this.label1.Location = new System.Drawing.Point(1065, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 26);
+            this.label1.Size = new System.Drawing.Size(91, 26);
             this.label1.TabIndex = 104;
-            this.label1.Text = "جستجو( F3 )";
+            this.label1.Text = "جستجو( F2 )";
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnbargasht);
-            this.groupBox4.Controls.Add(this.simpleButton1);
             this.groupBox4.Controls.Add(this.simpleButton2);
             this.groupBox4.Location = new System.Drawing.Point(2, 12);
             this.groupBox4.Name = "groupBox4";
@@ -112,23 +110,13 @@ namespace PamirAccounting.Forms.Checks
             this.btnbargasht.Text = "برگشت چک ها";
             this.btnbargasht.Click += new System.EventHandler(this.btnbargasht_Click);
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(63, 38);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton1.TabIndex = 98;
-            this.simpleButton1.Text = "چاپ";
-            // 
             // simpleButton2
             // 
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
             this.simpleButton2.Location = new System.Drawing.Point(18, 38);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton2.TabIndex = 99;
+            this.simpleButton2.TabIndex = 102;
             this.simpleButton2.Text = "راهنما";
             // 
             // dataGridView1
@@ -156,7 +144,9 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1182, 533);
-            this.dataGridView1.TabIndex = 115;
+            this.dataGridView1.TabIndex = 103;
+            this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
+            this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -271,7 +261,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox4;
         private DevExpress.XtraEditors.SimpleButton btnbargasht;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;

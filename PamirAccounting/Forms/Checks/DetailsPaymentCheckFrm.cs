@@ -311,6 +311,11 @@ namespace PamirAccounting.Forms.Checks
             CreateDescription();
         }
 
+        private void DetailsPaymentCheckFrm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
         private void btnshowcustomer_Click(object sender, EventArgs e)
         {
             var AllCustomersFrm = new SearchAllCustomersFrm();
@@ -320,7 +325,19 @@ namespace PamirAccounting.Forms.Checks
                 cmbCustomers.SelectedValue = AllCustomersFrm.CustomerId;
             }
         }
+    
 
+        private void DetailsPaymentCheckFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+        }
 
+   
     }
 }

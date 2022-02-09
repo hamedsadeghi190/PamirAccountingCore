@@ -68,6 +68,8 @@ namespace PamirAccounting.Forms.Checks
             d.FlatStyle = FlatStyle.Standard;
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
+            txtChequeNumber.Select();
+            txtChequeNumber.Focus();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -193,6 +195,15 @@ namespace PamirAccounting.Forms.Checks
             else
             {
                 LoadData();
+            }
+        }
+
+        private void BargashtCheckPardakhtiReportFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
             }
         }
     }

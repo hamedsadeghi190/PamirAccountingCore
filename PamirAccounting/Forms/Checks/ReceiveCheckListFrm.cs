@@ -51,6 +51,8 @@ namespace PamirAccounting.Forms.Checks
         }
         private void ReceiveCheckListFrm_Load(object sender, EventArgs e)
         {
+            txtChequeNumber.Select();
+            txtChequeNumber.Focus();
             dataGridView1.AutoGenerateColumns = false;
             LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
@@ -197,6 +199,17 @@ namespace PamirAccounting.Forms.Checks
             else
             {
                 LoadData();
+            }
+        }
+
+        private void ReceiveCheckListFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
             }
         }
     }

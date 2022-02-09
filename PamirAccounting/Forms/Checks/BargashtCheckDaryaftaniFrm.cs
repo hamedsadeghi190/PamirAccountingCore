@@ -44,9 +44,15 @@ namespace PamirAccounting.Forms.Checks
 
         private void BargashtCheckDaryaftaniFrm_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
         }
+
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
@@ -68,6 +74,8 @@ namespace PamirAccounting.Forms.Checks
 
         private void BargashtCheckDaryaftaniFrm_Load(object sender, EventArgs e)
         {
+            txtDesc.Select();
+            txtDesc.Focus();
             if (_ChequeNumberEdit > 0)
             {
                 ChequeActionInfo(_ChequeNumberEdit);

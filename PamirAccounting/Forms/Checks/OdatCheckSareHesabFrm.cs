@@ -46,6 +46,11 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -55,6 +60,8 @@ namespace PamirAccounting.Forms.Checks
 
         private void OdatCheckSareHesabFrm_Load(object sender, EventArgs e)
         {
+            txtOdatDate.Select();
+            txtOdatDate.Focus();
             if (_ChequeNumberEdit > 0)
             {
                 ChequeActionInfo(_ChequeNumberEdit);
@@ -70,6 +77,7 @@ namespace PamirAccounting.Forms.Checks
                 txtDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtOdatDate.Text = PDate2;
+                
             }
         }
         private void ChequeActionInfo(long? _ChequeNumberEdit)

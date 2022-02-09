@@ -32,6 +32,8 @@ namespace PamirAccounting.Forms.Checks
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OdatCheckDaryaftaniReportFrm));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAccountNumber = new DevExpress.XtraEditors.TextEdit();
+            this.txtChequeNumber = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
@@ -48,13 +50,11 @@ namespace PamirAccounting.Forms.Checks
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtAccountNumber = new DevExpress.XtraEditors.TextEdit();
-            this.txtChequeNumber = new DevExpress.XtraEditors.TextEdit();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChequeNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -83,6 +83,28 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.TabIndex = 113;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "جستجو";
+            // 
+            // txtAccountNumber
+            // 
+            this.txtAccountNumber.Location = new System.Drawing.Point(112, 37);
+            this.txtAccountNumber.Name = "txtAccountNumber";
+            this.txtAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtAccountNumber.Properties.Appearance.Options.UseFont = true;
+            this.txtAccountNumber.Properties.AutoHeight = false;
+            this.txtAccountNumber.Size = new System.Drawing.Size(187, 33);
+            this.txtAccountNumber.TabIndex = 117;
+            this.txtAccountNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAccountNumber_KeyUp);
+            // 
+            // txtChequeNumber
+            // 
+            this.txtChequeNumber.Location = new System.Drawing.Point(401, 34);
+            this.txtChequeNumber.Name = "txtChequeNumber";
+            this.txtChequeNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtChequeNumber.Properties.Appearance.Options.UseFont = true;
+            this.txtChequeNumber.Properties.AutoHeight = false;
+            this.txtChequeNumber.Size = new System.Drawing.Size(187, 33);
+            this.txtChequeNumber.TabIndex = 116;
+            this.txtChequeNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtChequeNumber_KeyUp);
             // 
             // label1
             // 
@@ -113,7 +135,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnPrint.Location = new System.Drawing.Point(51, 75);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(39, 41);
-            this.btnPrint.TabIndex = 98;
+            this.btnPrint.TabIndex = 118;
             this.btnPrint.Text = "چاپ";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -123,7 +145,7 @@ namespace PamirAccounting.Forms.Checks
             this.simpleButton2.Location = new System.Drawing.Point(6, 75);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton2.TabIndex = 99;
+            this.simpleButton2.TabIndex = 119;
             this.simpleButton2.Text = "راهنما";
             // 
             // dataGridView1
@@ -153,7 +175,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1182, 454);
-            this.dataGridView1.TabIndex = 123;
+            this.dataGridView1.TabIndex = 120;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // dataGridViewTextBoxColumn1
@@ -256,28 +278,6 @@ namespace PamirAccounting.Forms.Checks
             this.btnRowDelete.ToolTipText = "حذف";
             this.btnRowDelete.UseColumnTextForButtonValue = true;
             // 
-            // txtAccountNumber
-            // 
-            this.txtAccountNumber.Location = new System.Drawing.Point(112, 37);
-            this.txtAccountNumber.Name = "txtAccountNumber";
-            this.txtAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtAccountNumber.Properties.Appearance.Options.UseFont = true;
-            this.txtAccountNumber.Properties.AutoHeight = false;
-            this.txtAccountNumber.Size = new System.Drawing.Size(187, 33);
-            this.txtAccountNumber.TabIndex = 117;
-            this.txtAccountNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAccountNumber_KeyUp);
-            // 
-            // txtChequeNumber
-            // 
-            this.txtChequeNumber.Location = new System.Drawing.Point(401, 34);
-            this.txtChequeNumber.Name = "txtChequeNumber";
-            this.txtChequeNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtChequeNumber.Properties.Appearance.Options.UseFont = true;
-            this.txtChequeNumber.Properties.AutoHeight = false;
-            this.txtChequeNumber.Size = new System.Drawing.Size(187, 33);
-            this.txtChequeNumber.TabIndex = 116;
-            this.txtChequeNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtChequeNumber_KeyUp);
-            // 
             // OdatCheckDaryaftaniReportFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -295,12 +295,14 @@ namespace PamirAccounting.Forms.Checks
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.OdatCheckDaryaftaniReportFrm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OdatCheckDaryaftaniReportFrm_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OdatCheckDaryaftaniReportFrm_KeyUp);
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChequeNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

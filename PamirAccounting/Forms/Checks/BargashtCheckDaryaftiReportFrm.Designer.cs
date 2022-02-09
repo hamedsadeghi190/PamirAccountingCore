@@ -93,7 +93,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtAccountNumber.Properties.Appearance.Options.UseFont = true;
             this.txtAccountNumber.Properties.AutoHeight = false;
             this.txtAccountNumber.Size = new System.Drawing.Size(187, 33);
-            this.txtAccountNumber.TabIndex = 115;
+            this.txtAccountNumber.TabIndex = 114;
             this.txtAccountNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAccountNumber_KeyUp);
             // 
             // label1
@@ -136,7 +136,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnPrint.Location = new System.Drawing.Point(51, 75);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(39, 41);
-            this.btnPrint.TabIndex = 98;
+            this.btnPrint.TabIndex = 115;
             this.btnPrint.Text = "چاپ";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -146,7 +146,7 @@ namespace PamirAccounting.Forms.Checks
             this.simpleButton2.Location = new System.Drawing.Point(6, 75);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton2.TabIndex = 99;
+            this.simpleButton2.TabIndex = 116;
             this.simpleButton2.Text = "راهنما";
             // 
             // dataGridView1
@@ -178,6 +178,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.Size = new System.Drawing.Size(1182, 454);
             this.dataGridView1.TabIndex = 125;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -295,6 +296,7 @@ namespace PamirAccounting.Forms.Checks
             this.Name = "BargashtCheckDaryaftiReportFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Load += new System.EventHandler(this.BargashtCheckPardakhtaniReportFrm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BargashtCheckDaryaftiReportFrm_KeyUp);
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

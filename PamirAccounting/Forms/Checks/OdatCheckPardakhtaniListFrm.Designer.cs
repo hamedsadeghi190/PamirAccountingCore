@@ -35,7 +35,6 @@ namespace PamirAccounting.Forms.Checks
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnodat = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +67,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch.Location = new System.Drawing.Point(690, 19);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(357, 38);
-            this.txtsearch.TabIndex = 105;
+            this.txtsearch.TabIndex = 103;
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
             // label1
@@ -79,14 +78,13 @@ namespace PamirAccounting.Forms.Checks
             this.label1.Location = new System.Drawing.Point(1065, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 26);
+            this.label1.Size = new System.Drawing.Size(91, 26);
             this.label1.TabIndex = 104;
-            this.label1.Text = "جستجو( F3 )";
+            this.label1.Text = "جستجو( F2 )";
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnodat);
-            this.groupBox4.Controls.Add(this.simpleButton1);
             this.groupBox4.Controls.Add(this.simpleButton2);
             this.groupBox4.Location = new System.Drawing.Point(3, 11);
             this.groupBox4.Name = "groupBox4";
@@ -112,23 +110,13 @@ namespace PamirAccounting.Forms.Checks
             this.btnodat.Text = "عودت چک ها";
             this.btnodat.Click += new System.EventHandler(this.btnodat_Click);
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(63, 38);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton1.TabIndex = 98;
-            this.simpleButton1.Text = "چاپ";
-            // 
             // simpleButton2
             // 
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
             this.simpleButton2.Location = new System.Drawing.Point(18, 38);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton2.TabIndex = 99;
+            this.simpleButton2.TabIndex = 101;
             this.simpleButton2.Text = "راهنما";
             // 
             // dataGridView1
@@ -156,7 +144,8 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1182, 544);
-            this.dataGridView1.TabIndex = 106;
+            this.dataGridView1.TabIndex = 102;
+            this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -271,7 +260,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox4;
         private DevExpress.XtraEditors.SimpleButton btnodat;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;

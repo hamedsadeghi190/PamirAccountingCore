@@ -91,7 +91,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1145, 621);
-            this.dataGridView1.TabIndex = 118;
+            this.dataGridView1.TabIndex = 120;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Column1
@@ -223,7 +223,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnPrint.Location = new System.Drawing.Point(51, 75);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(39, 41);
-            this.btnPrint.TabIndex = 98;
+            this.btnPrint.TabIndex = 118;
             this.btnPrint.Text = "چاپ";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -233,7 +233,7 @@ namespace PamirAccounting.Forms.Checks
             this.simpleButton2.Location = new System.Drawing.Point(6, 75);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton2.TabIndex = 99;
+            this.simpleButton2.TabIndex = 119;
             this.simpleButton2.Text = "راهنما";
             // 
             // groupBox4
@@ -303,6 +303,7 @@ namespace PamirAccounting.Forms.Checks
             this.Name = "PaymentCheckList";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Load += new System.EventHandler(this.PaymentCheckList_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PaymentCheckList_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

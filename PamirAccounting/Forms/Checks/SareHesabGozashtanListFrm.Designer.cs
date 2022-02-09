@@ -31,7 +31,6 @@ namespace PamirAccounting.Forms.Checks
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SareHesabGozashtanListFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.btnsarehesab = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -62,7 +61,6 @@ namespace PamirAccounting.Forms.Checks
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.simpleButton4);
             this.groupBox1.Controls.Add(this.simpleButton3);
             this.groupBox1.Controls.Add(this.btnsarehesab);
             this.groupBox1.Location = new System.Drawing.Point(6, 31);
@@ -71,23 +69,13 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // simpleButton4
-            // 
-            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(63, 38);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton4.TabIndex = 98;
-            this.simpleButton4.Text = "چاپ";
-            // 
             // simpleButton3
             // 
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
             this.simpleButton3.Location = new System.Drawing.Point(18, 38);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton3.TabIndex = 99;
+            this.simpleButton3.TabIndex = 2;
             this.simpleButton3.Text = "راهنما";
             // 
             // btnsarehesab
@@ -104,7 +92,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnsarehesab.Location = new System.Drawing.Point(951, 38);
             this.btnsarehesab.Name = "btnsarehesab";
             this.btnsarehesab.Size = new System.Drawing.Size(185, 42);
-            this.btnsarehesab.TabIndex = 0;
+            this.btnsarehesab.TabIndex = 1;
             this.btnsarehesab.Text = "سرحساب گذاشتن";
             this.btnsarehesab.Click += new System.EventHandler(this.btnsarehesab_Click);
             // 
@@ -124,7 +112,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch.Location = new System.Drawing.Point(690, 14);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(357, 38);
-            this.txtsearch.TabIndex = 105;
+            this.txtsearch.TabIndex = 5;
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
             // label1
@@ -134,9 +122,9 @@ namespace PamirAccounting.Forms.Checks
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(1065, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 26);
+            this.label1.Size = new System.Drawing.Size(91, 26);
             this.label1.TabIndex = 104;
-            this.label1.Text = "جستجو( F3 )";
+            this.label1.Text = "جستجو( F2 )";
             // 
             // Column1
             // 
@@ -227,8 +215,9 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1182, 501);
-            this.dataGridView1.TabIndex = 104;
+            this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -338,7 +327,6 @@ namespace PamirAccounting.Forms.Checks
 
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton btnsarehesab;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtsearch;

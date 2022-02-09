@@ -73,7 +73,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnSave.Size = new System.Drawing.Size(110, 38);
-            this.BtnSave.TabIndex = 89;
+            this.BtnSave.TabIndex = 136;
             this.BtnSave.Text = "ثبت";
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
@@ -88,7 +88,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnClose.Size = new System.Drawing.Size(110, 38);
-            this.BtnClose.TabIndex = 90;
+            this.BtnClose.TabIndex = 137;
             this.BtnClose.Text = "بازگشت";
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
@@ -128,7 +128,7 @@ namespace PamirAccounting.Forms.Checks
             this.cmbCustomers.Location = new System.Drawing.Point(385, 73);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(220, 34);
-            this.cmbCustomers.TabIndex = 131;
+            this.cmbCustomers.TabIndex = 133;
             this.cmbCustomers.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbCustomers_KeyUp);
             // 
             // btnshowcustomer
@@ -143,7 +143,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.Name = "btnshowcustomer";
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnshowcustomer.Size = new System.Drawing.Size(38, 32);
-            this.btnshowcustomer.TabIndex = 116;
+            this.btnshowcustomer.TabIndex = 134;
             this.btnshowcustomer.Visible = false;
             // 
             // txtDesc
@@ -152,7 +152,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtDesc.Location = new System.Drawing.Point(157, 119);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(448, 82);
-            this.txtDesc.TabIndex = 113;
+            this.txtDesc.TabIndex = 135;
             this.txtDesc.Text = "";
             this.txtDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDesc_KeyUp);
             // 

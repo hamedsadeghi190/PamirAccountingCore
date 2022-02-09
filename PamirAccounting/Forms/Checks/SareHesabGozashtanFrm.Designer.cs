@@ -220,6 +220,7 @@ namespace PamirAccounting.Forms.Checks
             this.Text = "در جریان وصول چک";
             this.Load += new System.EventHandler(this.SareHesabGozashtanFrm_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SareHesabGozashtanFrm_KeyUp);
+            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.SareHesabGozashtanFrm_Layout);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

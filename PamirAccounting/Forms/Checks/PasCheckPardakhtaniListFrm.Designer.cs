@@ -35,7 +35,6 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
             this.btnpascheck = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -69,7 +68,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch.Location = new System.Drawing.Point(690, 19);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(357, 38);
-            this.txtsearch.TabIndex = 105;
+            this.txtsearch.TabIndex = 5;
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
             // label1
@@ -80,13 +79,12 @@ namespace PamirAccounting.Forms.Checks
             this.label1.Location = new System.Drawing.Point(1065, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 26);
+            this.label1.Size = new System.Drawing.Size(91, 26);
             this.label1.TabIndex = 104;
-            this.label1.Text = "جستجو( F3 )";
+            this.label1.Text = "جستجو( F2 )";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnprint);
             this.groupBox1.Controls.Add(this.btnhelp);
             this.groupBox1.Controls.Add(this.btnpascheck);
             this.groupBox1.Location = new System.Drawing.Point(3, 13);
@@ -95,23 +93,13 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.TabIndex = 106;
             this.groupBox1.TabStop = false;
             // 
-            // btnprint
-            // 
-            this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
-            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
-            this.btnprint.Location = new System.Drawing.Point(63, 38);
-            this.btnprint.Name = "btnprint";
-            this.btnprint.Size = new System.Drawing.Size(39, 41);
-            this.btnprint.TabIndex = 98;
-            this.btnprint.Text = "چاپ";
-            // 
             // btnhelp
             // 
             this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
             this.btnhelp.Location = new System.Drawing.Point(18, 38);
             this.btnhelp.Name = "btnhelp";
             this.btnhelp.Size = new System.Drawing.Size(39, 41);
-            this.btnhelp.TabIndex = 99;
+            this.btnhelp.TabIndex = 2;
             this.btnhelp.Text = "راهنما";
             // 
             // btnpascheck
@@ -128,7 +116,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnpascheck.Location = new System.Drawing.Point(971, 38);
             this.btnpascheck.Name = "btnpascheck";
             this.btnpascheck.Size = new System.Drawing.Size(185, 42);
-            this.btnpascheck.TabIndex = 0;
+            this.btnpascheck.TabIndex = 1;
             this.btnpascheck.Text = "پاس چک ها";
             this.btnpascheck.Click += new System.EventHandler(this.btnpascheck_Click);
             // 
@@ -161,10 +149,12 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1180, 621);
-            this.dataGridView1.TabIndex = 119;
+            this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             // 
             // Column1
             // 
@@ -278,7 +268,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.TextBox txtsearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.SimpleButton btnprint;
         private DevExpress.XtraEditors.SimpleButton btnhelp;
         private DevExpress.XtraEditors.SimpleButton btnpascheck;
         private System.Windows.Forms.DataGridView dataGridView1;

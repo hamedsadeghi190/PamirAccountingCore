@@ -401,6 +401,7 @@ namespace PamirAccounting.Forms.Checks
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "DetailsReceiveCheckFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

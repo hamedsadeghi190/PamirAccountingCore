@@ -44,7 +44,7 @@ namespace PamirAccounting.Forms.Checks
                 IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                 DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
-            }).ToList();
+            }).OrderBy(x=>x.Id).ToList();
 
         }
 
@@ -53,6 +53,11 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.F2)
+            {
+                txtsearch.Select();
+                txtsearch.Focus();
+            }
         }
 
         private void BargashtCheckDaryaftanilistFrm_Load(object sender, EventArgs e)
@@ -83,6 +88,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void txtsearch_KeyUp(object sender, KeyEventArgs e)
         {
+           
             if (txtsearch.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
@@ -110,6 +116,30 @@ namespace PamirAccounting.Forms.Checks
             {
                 LoadData();
             }
+        }
+
+        private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (e.KeyChar == 19)
+            //{
+
+            //    this.txtsearch.Focus();
+            //    LoadData();
+            //}
+            if (e.KeyChar == 13)
+                {
+                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                var frm = new BargashtCheckDaryaftaniFrm(ChequeNumber, 0);
+                frm.ShowDialog();
+                LoadData();
+            }
+       
+           
+        }
+
+        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
+        {
+          
         }
     }
 }

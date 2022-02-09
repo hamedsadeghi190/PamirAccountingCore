@@ -388,8 +388,14 @@ namespace PamirAccounting.Forms.Checks
 
         private void VosoolCheckFrm_KeyUp(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
         private void CreateDescription()
         {

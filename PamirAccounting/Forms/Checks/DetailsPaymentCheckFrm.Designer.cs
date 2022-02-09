@@ -80,7 +80,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave.Appearance.Options.UseFont = true;
             this.BtnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnSave.ImageOptions.SvgImage")));
             this.BtnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnSave.Location = new System.Drawing.Point(7, 22);
+            this.BtnSave.Location = new System.Drawing.Point(121, 22);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -95,7 +95,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose.Appearance.Options.UseFont = true;
             this.BtnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnClose.ImageOptions.SvgImage")));
             this.BtnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnClose.Location = new System.Drawing.Point(125, 22);
+            this.BtnClose.Location = new System.Drawing.Point(3, 22);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -219,7 +219,6 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnshowcustomer.Size = new System.Drawing.Size(38, 32);
             this.btnshowcustomer.TabIndex = 111;
-            this.btnshowcustomer.Visible = false;
             // 
             // label12
             // 
@@ -293,7 +292,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtBranchName
             // 
-            this.txtBranchName.Location = new System.Drawing.Point(341, 110);
+            this.txtBranchName.Location = new System.Drawing.Point(341, 112);
             this.txtBranchName.Name = "txtBranchName";
             this.txtBranchName.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtBranchName.Properties.Appearance.Options.UseFont = true;
@@ -367,6 +366,8 @@ namespace PamirAccounting.Forms.Checks
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.DetailsPaymentCheckFrm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DetailsPaymentCheckFrm_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DetailsPaymentCheckFrm_KeyUp);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

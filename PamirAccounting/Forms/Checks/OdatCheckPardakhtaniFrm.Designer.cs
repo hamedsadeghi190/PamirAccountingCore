@@ -70,7 +70,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnSave.Size = new System.Drawing.Size(110, 38);
-            this.BtnSave.TabIndex = 89;
+            this.BtnSave.TabIndex = 3;
             this.BtnSave.Text = "ثبت";
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
@@ -85,7 +85,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnClose.Size = new System.Drawing.Size(110, 38);
-            this.BtnClose.TabIndex = 90;
+            this.BtnClose.TabIndex = 4;
             this.BtnClose.Text = "بازگشت";
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
@@ -103,7 +103,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtOdatDate
             // 
-            this.txtOdatDate.Location = new System.Drawing.Point(446, 30);
+            this.txtOdatDate.Location = new System.Drawing.Point(390, 30);
             this.txtOdatDate.Name = "txtOdatDate";
             this.txtOdatDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtOdatDate.Properties.Appearance.Options.UseFont = true;
@@ -111,8 +111,8 @@ namespace PamirAccounting.Forms.Checks
             this.txtOdatDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.txtOdatDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtOdatDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtOdatDate.Size = new System.Drawing.Size(162, 37);
-            this.txtOdatDate.TabIndex = 116;
+            this.txtOdatDate.Size = new System.Drawing.Size(218, 37);
+            this.txtOdatDate.TabIndex = 1;
             this.txtOdatDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtOdatDate_KeyUp);
             // 
             // txtDesc
@@ -121,8 +121,9 @@ namespace PamirAccounting.Forms.Checks
             this.txtDesc.Location = new System.Drawing.Point(160, 73);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(448, 76);
-            this.txtDesc.TabIndex = 113;
+            this.txtDesc.TabIndex = 2;
             this.txtDesc.Text = "";
+            this.txtDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDesc_KeyUp);
             // 
             // label3
             // 
