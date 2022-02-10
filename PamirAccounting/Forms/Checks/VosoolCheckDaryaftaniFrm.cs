@@ -87,6 +87,7 @@ namespace PamirAccounting.Forms.Checks
                 txtDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtVosoolDate.Text = PDate2;
+                txtDesc.Text = currentCheque.Description;
             }
         }
 
@@ -97,9 +98,9 @@ namespace PamirAccounting.Forms.Checks
             prevCustomerId = Cheque.CustomerId;
             Status = Cheque.Status;
             PersianCalendar pc = new PersianCalendar();
-            string VosoolDateTime = pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
+            string VosoolDateTime = pc.GetYear((DateTime)Cheque.VosoolDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.VosoolDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.VosoolDate).ToString();
             string DateTime = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
-             txtVosoolDate.Text = VosoolDateTime;
+            txtVosoolDate.Text = VosoolDateTime;
             txtDate.Text = DateTime;
             txtDesc.Text = Cheque.Description;
             txtDocumentId.Text = Cheque.DocumentId.ToString();
@@ -120,7 +121,7 @@ namespace PamirAccounting.Forms.Checks
                 currentCheque.BranchName = currentCheque.BranchName;
                 currentCheque.ChequeNumber = currentCheque.ChequeNumber;
                 currentCheque.DocumentId = currentCheque.DocumentId;
-                currentCheque.Description = txtVosoolDate.Text;
+                currentCheque.Description = txtDesc.Text;
                 currentCheque.Amount = currentCheque.Amount;
                 currentCheque.RealBankId = currentCheque.RealBankId;
                 currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
@@ -140,7 +141,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
                 customerTransaction.WithdrawAmount = currentCheque.Amount;
                 customerTransaction.DepositAmount = 0;
-                customerTransaction.Description = txtVosoolDate.Text;
+                customerTransaction.Description = txtDesc.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction.Date = DateTime.Now;
                 customerTransaction.TransactionDateTime = DateTime.Now;
@@ -154,7 +155,7 @@ namespace PamirAccounting.Forms.Checks
                 DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
                 DarJaryanVosool.WithdrawAmount = 0;
                 DarJaryanVosool.DepositAmount = currentCheque.Amount;
-                DarJaryanVosool.Description = txtVosoolDate.Text;
+                DarJaryanVosool.Description = txtDesc.Text;
                 DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
                 DarJaryanVosool.TransactionType = (int)TransaActionType.RecivedDocument;
                 DarJaryanVosool.CurrenyId = AppSetting.TomanCurrencyID;
@@ -183,7 +184,7 @@ namespace PamirAccounting.Forms.Checks
                 currentCheque.BranchName = currentCheque.BranchName;
                 currentCheque.ChequeNumber = currentCheque.ChequeNumber;
                 currentCheque.DocumentId = currentCheque.DocumentId;
-                currentCheque.Description = txtVosoolDate.Text;
+                currentCheque.Description = txtDesc.Text;
                 currentCheque.Amount = currentCheque.Amount;
                 currentCheque.RealBankId = currentCheque.RealBankId;
                 currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
@@ -203,7 +204,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
                 customerTransaction.WithdrawAmount = currentCheque.Amount;
                 customerTransaction.DepositAmount = 0;
-                customerTransaction.Description = txtVosoolDate.Text;
+                customerTransaction.Description = txtDesc.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction.Date = DateTime.Now;
                 customerTransaction.TransactionDateTime = DateTime.Now;
@@ -219,7 +220,7 @@ namespace PamirAccounting.Forms.Checks
                 DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
                 DarJaryanVosool.WithdrawAmount = 0;
                 DarJaryanVosool.DepositAmount = currentCheque.Amount;
-                DarJaryanVosool.Description = txtVosoolDate.Text;
+                DarJaryanVosool.Description = txtDesc.Text;
                 DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
                 DarJaryanVosool.TransactionType = (int)TransaActionType.RecivedDocument;
                 DarJaryanVosool.CurrenyId = AppSetting.TomanCurrencyID;
@@ -252,7 +253,7 @@ namespace PamirAccounting.Forms.Checks
                 Cheque.BranchName = Cheque.BranchName;
                 Cheque.ChequeNumber = Cheque.ChequeNumber;
                 Cheque.DocumentId = Cheque.DocumentId;
-                Cheque.Description = txtVosoolDate.Text;
+                Cheque.Description =txtDesc.Text;
                 Cheque.Amount = Cheque.Amount;
                 Cheque.RealBankId = Cheque.RealBankId;
                 Cheque.RegisterDateTime = Cheque.RegisterDateTime;
@@ -314,7 +315,7 @@ namespace PamirAccounting.Forms.Checks
                 Cheque.BranchName = Cheque.BranchName;
                 Cheque.ChequeNumber = Cheque.ChequeNumber;
                 Cheque.DocumentId = Cheque.DocumentId;
-                Cheque.Description = txtVosoolDate.Text;
+                Cheque.Description = txtDesc.Text;
                 Cheque.Amount = Cheque.Amount;
                 Cheque.RealBankId = Cheque.RealBankId;
                 Cheque.RegisterDateTime = Cheque.RegisterDateTime;
@@ -399,7 +400,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.Vosool } -چک به شماره   {currentCheque.ChequeNumber}   -به مبلغ {currentCheque.Amount} {"-تومان"} - تاریخ وصول  {txtVosoolDate.Text} ";
+            txtDesc.Text = $"{Messages.Vosool } چک به شماره   {currentCheque.ChequeNumber} به مبلغ {currentCheque.Amount} {"تومان"} تاریخ وصول {txtVosoolDate.Text} ";
         }
 
 

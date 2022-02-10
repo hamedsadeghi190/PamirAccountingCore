@@ -64,7 +64,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
-            _RealBank = unitOfWork.CustomerServices.FindAll(p => p.GroupId == 2).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+            _RealBank = unitOfWork.RealBankServices.FindAll(x => x.Id > 0).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.Name}" }).ToList();
             cmbRealBankId.DataSource = _RealBank;
             cmbRealBankId.ValueMember = "Id";
             cmbRealBankId.DisplayMember = "Title";
@@ -144,8 +144,8 @@ namespace PamirAccounting.Forms.Checks
             Cheque.ChequeNumber = txtChequeNumber.Text;
             Cheque.DocumentId = DocumentId;
             Cheque.Description = txtDescription.Text;
-            Cheque.Amount = long.Parse(txtAmount.Text);
-            Cheque.BankId = (int)cmbRealBankId.SelectedValue;
+            Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
@@ -210,7 +210,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.ChequeNumber = txtChequeNumber.Text;
             Cheque.DocumentId = Cheque.DocumentId;
             Cheque.Description = txtDescription.Text;
-            Cheque.Amount = long.Parse(txtAmount.Text);
+            Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
@@ -288,7 +288,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDescription.Text = $"{Messages.WithdrawCheck }شماره{txtChequeNumber.Text}  به  {cmbCustomers.Text}--  به مبلغ {txtAmount.Text} {"تومان"}-- از بانک {cmbRealBankId.Text}--  تاریخ سر رسید  {txtDueDate.Text} ";
+            txtDescription.Text = $"{Messages.WithdrawCheck }  به  {cmbCustomers.Text}  به مبلغ {txtAmount.Text} {"تومان"}    تاریخ سر رسید  {txtDueDate.Text} ";
         }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
@@ -311,10 +311,7 @@ namespace PamirAccounting.Forms.Checks
             CreateDescription();
         }
 
-        private void DetailsPaymentCheckFrm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
+      
 
         private void btnshowcustomer_Click(object sender, EventArgs e)
         {
@@ -325,7 +322,8 @@ namespace PamirAccounting.Forms.Checks
                 cmbCustomers.SelectedValue = AllCustomersFrm.CustomerId;
             }
         }
-    
+
+       
 
         private void DetailsPaymentCheckFrm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -337,6 +335,29 @@ namespace PamirAccounting.Forms.Checks
                 e.Handled = true;
             }
         }
+
+
+    
+
+     
+
+        private void btnshowcustomer_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                var AllCustomersFrm = new SearchAllCustomersFrm();
+                AllCustomersFrm.ShowDialog();
+                if (AllCustomersFrm.CustomerId.HasValue)
+                {
+                    cmbCustomers.SelectedValue = AllCustomersFrm.CustomerId;
+                    cmbRealBankId.Select();
+                    cmbRealBankId.Focus();
+                }
+
+            }
+        }
+
+     
 
    
     }

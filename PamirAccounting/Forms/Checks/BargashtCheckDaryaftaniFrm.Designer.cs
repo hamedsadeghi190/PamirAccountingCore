@@ -113,7 +113,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtBargashtDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtBargashtDate.Size = new System.Drawing.Size(220, 37);
             this.txtBargashtDate.TabIndex = 133;
-            this.txtBargashtDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBargashtDate_KeyPress);
+    
             this.txtBargashtDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBargashtDate_KeyUp);
             // 
             // txtDesc

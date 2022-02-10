@@ -21,5 +21,6 @@ namespace PamirAccounting
         public const string BargashtPayment = " برگشت چک پرداختنی ";
         public const string Vosool = "   وصول  ";
         public const string Odat = "   عودت";
+        public const string Bargasht = " برگشت   ";
     }
 }

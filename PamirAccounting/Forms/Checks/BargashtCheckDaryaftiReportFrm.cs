@@ -42,7 +42,8 @@ namespace PamirAccounting.Forms.Checks
                 x.DueDate,
                 x.RowId,
                 x.DueDatePersian,
-                x.IssueDatePersian
+                x.IssueDatePersian,
+                
             }).ToList();
 
         }
@@ -54,7 +55,7 @@ namespace PamirAccounting.Forms.Checks
             LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < 12; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }

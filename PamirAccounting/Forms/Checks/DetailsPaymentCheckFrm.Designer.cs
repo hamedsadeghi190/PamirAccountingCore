@@ -85,7 +85,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnSave.Size = new System.Drawing.Size(110, 38);
-            this.BtnSave.TabIndex = 96;
+            this.BtnSave.TabIndex = 90;
             this.BtnSave.Text = "ثبت";
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
@@ -100,7 +100,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnClose.Size = new System.Drawing.Size(110, 38);
-            this.BtnClose.TabIndex = 97;
+            this.BtnClose.TabIndex = 91;
             this.BtnClose.Text = "بازگشت";
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
@@ -151,7 +151,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtDescription.Location = new System.Drawing.Point(33, 324);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(448, 117);
-            this.txtDescription.TabIndex = 95;
+            this.txtDescription.TabIndex = 89;
             this.txtDescription.Text = "";
             // 
             // txtDueDate
@@ -165,12 +165,12 @@ namespace PamirAccounting.Forms.Checks
             this.txtDueDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtDueDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDueDate.Size = new System.Drawing.Size(140, 38);
-            this.txtDueDate.TabIndex = 93;
+            this.txtDueDate.TabIndex = 87;
             this.txtDueDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDueDate_KeyUp);
             // 
             // txtIssueDate
             // 
-            this.txtIssueDate.Location = new System.Drawing.Point(341, 152);
+            this.txtIssueDate.Location = new System.Drawing.Point(341, 154);
             this.txtIssueDate.Name = "txtIssueDate";
             this.txtIssueDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtIssueDate.Properties.Appearance.Options.UseFont = true;
@@ -179,7 +179,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtIssueDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtIssueDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtIssueDate.Size = new System.Drawing.Size(140, 37);
-            this.txtIssueDate.TabIndex = 89;
+            this.txtIssueDate.TabIndex = 82;
             // 
             // txtAmount
             // 
@@ -193,7 +193,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtAmount.Size = new System.Drawing.Size(140, 38);
-            this.txtAmount.TabIndex = 91;
+            this.txtAmount.TabIndex = 84;
             this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
             // cmbCustomers
@@ -203,7 +203,7 @@ namespace PamirAccounting.Forms.Checks
             this.cmbCustomers.Location = new System.Drawing.Point(341, 282);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(140, 34);
-            this.cmbCustomers.TabIndex = 92;
+            this.cmbCustomers.TabIndex = 85;
             this.cmbCustomers.SelectedIndexChanged += new System.EventHandler(this.cmbCustomers_SelectedIndexChanged);
             // 
             // btnshowcustomer
@@ -218,7 +218,8 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.Name = "btnshowcustomer";
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnshowcustomer.Size = new System.Drawing.Size(38, 32);
-            this.btnshowcustomer.TabIndex = 111;
+            this.btnshowcustomer.TabIndex = 86;
+            this.btnshowcustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnshowcustomer_KeyUp);
             // 
             // label12
             // 
@@ -248,7 +249,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtBankAccountNumber.Properties.Appearance.Options.UseFont = true;
             this.txtBankAccountNumber.Properties.AutoHeight = false;
             this.txtBankAccountNumber.Size = new System.Drawing.Size(140, 38);
-            this.txtBankAccountNumber.TabIndex = 94;
+            this.txtBankAccountNumber.TabIndex = 88;
             // 
             // txtChequeNumber
             // 
@@ -258,7 +259,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtChequeNumber.Properties.Appearance.Options.UseFont = true;
             this.txtChequeNumber.Properties.AutoHeight = false;
             this.txtChequeNumber.Size = new System.Drawing.Size(140, 38);
-            this.txtChequeNumber.TabIndex = 90;
+            this.txtChequeNumber.TabIndex = 83;
             // 
             // label11
             // 
@@ -277,7 +278,7 @@ namespace PamirAccounting.Forms.Checks
             this.cmbRealBankId.Location = new System.Drawing.Point(341, 70);
             this.cmbRealBankId.Name = "cmbRealBankId";
             this.cmbRealBankId.Size = new System.Drawing.Size(140, 34);
-            this.cmbRealBankId.TabIndex = 87;
+            this.cmbRealBankId.TabIndex = 80;
             this.cmbRealBankId.SelectedIndexChanged += new System.EventHandler(this.cmbRealBankId_SelectedIndexChanged);
             // 
             // label8
@@ -292,13 +293,13 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtBranchName
             // 
-            this.txtBranchName.Location = new System.Drawing.Point(341, 112);
+            this.txtBranchName.Location = new System.Drawing.Point(341, 110);
             this.txtBranchName.Name = "txtBranchName";
             this.txtBranchName.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtBranchName.Properties.Appearance.Options.UseFont = true;
             this.txtBranchName.Properties.AutoHeight = false;
             this.txtBranchName.Size = new System.Drawing.Size(140, 38);
-            this.txtBranchName.TabIndex = 88;
+            this.txtBranchName.TabIndex = 81;
             // 
             // label7
             // 
@@ -366,7 +367,6 @@ namespace PamirAccounting.Forms.Checks
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.DetailsPaymentCheckFrm_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DetailsPaymentCheckFrm_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DetailsPaymentCheckFrm_KeyUp);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

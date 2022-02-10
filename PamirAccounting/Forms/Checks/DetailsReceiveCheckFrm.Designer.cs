@@ -124,7 +124,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtDueDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtDueDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDueDate.Size = new System.Drawing.Size(140, 38);
-            this.txtDueDate.TabIndex = 87;
+            this.txtDueDate.TabIndex = 88;
             this.txtDueDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDueDate_KeyUp);
             // 
             // txtIssueDate
@@ -177,9 +177,10 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.Name = "btnshowcustomer";
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnshowcustomer.Size = new System.Drawing.Size(38, 34);
-            this.btnshowcustomer.TabIndex = 111;
-            this.btnshowcustomer.Visible = false;
+            this.btnshowcustomer.TabIndex = 86;
             this.btnshowcustomer.Click += new System.EventHandler(this.btnshowcustomer_Click);
+            this.btnshowcustomer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnshowcustomer_KeyPress);
+            this.btnshowcustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnshowcustomer_KeyUp);
             // 
             // label12
             // 
@@ -211,7 +212,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtBankAccountNumber.Properties.Appearance.Options.UseFont = true;
             this.txtBankAccountNumber.Properties.AutoHeight = false;
             this.txtBankAccountNumber.Size = new System.Drawing.Size(140, 38);
-            this.txtBankAccountNumber.TabIndex = 88;
+            this.txtBankAccountNumber.TabIndex = 89;
             // 
             // txtChequeNumber
             // 
@@ -241,7 +242,7 @@ namespace PamirAccounting.Forms.Checks
             this.cmbRealBankId.Location = new System.Drawing.Point(30, 65);
             this.cmbRealBankId.Name = "cmbRealBankId";
             this.cmbRealBankId.Size = new System.Drawing.Size(140, 34);
-            this.cmbRealBankId.TabIndex = 86;
+            this.cmbRealBankId.TabIndex = 87;
             // 
             // txtDescription
             // 
@@ -249,7 +250,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtDescription.Location = new System.Drawing.Point(30, 316);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(448, 117);
-            this.txtDescription.TabIndex = 89;
+            this.txtDescription.TabIndex = 90;
             this.txtDescription.Text = "";
             // 
             // label8
@@ -365,12 +366,12 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave.Appearance.Options.UseFont = true;
             this.BtnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnSave.ImageOptions.SvgImage")));
             this.BtnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnSave.Location = new System.Drawing.Point(7, 37);
+            this.BtnSave.Location = new System.Drawing.Point(148, 35);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnSave.Size = new System.Drawing.Size(110, 38);
-            this.BtnSave.TabIndex = 100;
+            this.BtnSave.TabIndex = 91;
             this.BtnSave.Text = "ثبت";
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
@@ -380,12 +381,12 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose.Appearance.Options.UseFont = true;
             this.BtnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnClose.ImageOptions.SvgImage")));
             this.BtnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnClose.Location = new System.Drawing.Point(125, 37);
+            this.BtnClose.Location = new System.Drawing.Point(30, 35);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.BtnClose.Size = new System.Drawing.Size(110, 38);
-            this.BtnClose.TabIndex = 101;
+            this.BtnClose.TabIndex = 92;
             this.BtnClose.Text = "بازگشت";
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 

@@ -33,8 +33,6 @@ namespace PamirAccounting.Forms.Customers
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtsearch = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -56,6 +54,7 @@ namespace PamirAccounting.Forms.Customers
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(695, 327);
             this.dataGridView1.TabIndex = 99;
@@ -84,8 +83,6 @@ namespace PamirAccounting.Forms.Customers
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtsearch);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -96,37 +93,16 @@ namespace PamirAccounting.Forms.Customers
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label2.Location = new System.Drawing.Point(76, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 30);
-            this.label2.TabIndex = 115;
-            this.label2.Text = "2000,000,000";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(175, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 30);
-            this.label1.TabIndex = 114;
-            this.label1.Text = "مانده حساب :";
-            // 
             // txtsearch
             // 
-            this.txtsearch.Location = new System.Drawing.Point(400, 39);
+            this.txtsearch.Location = new System.Drawing.Point(313, 35);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtsearch.Properties.Appearance.Options.UseFont = true;
             this.txtsearch.Properties.AutoHeight = false;
-            this.txtsearch.Size = new System.Drawing.Size(187, 33);
+            this.txtsearch.Size = new System.Drawing.Size(275, 41);
             this.txtsearch.TabIndex = 113;
+            this.txtsearch.EditValueChanged += new System.EventHandler(this.txtsearch_EditValueChanged);
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
             // label4
@@ -136,9 +112,9 @@ namespace PamirAccounting.Forms.Customers
             this.label4.Location = new System.Drawing.Point(590, 43);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(55, 26);
+            this.label4.Size = new System.Drawing.Size(85, 26);
             this.label4.TabIndex = 110;
-            this.label4.Text = "جستجو";
+            this.label4.Text = "جستجو(F2)";
             // 
             // SearchAllCustomersFrm
             // 
@@ -173,8 +149,6 @@ namespace PamirAccounting.Forms.Customers
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.TextEdit txtsearch;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }

@@ -61,8 +61,16 @@ namespace PamirAccounting.Forms.Customers
             {
                 loadData();
             }
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    CustomerId = (int)dataGridView1.CurrentRow.Cells[0].Value;
+                    int x = 0;
+                }
+                Close();
+            }
 
-           
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -73,7 +81,11 @@ namespace PamirAccounting.Forms.Customers
         private void SearchAllCustomersFrm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
-                this.Close();
+                this.Close(); if (e.KeyCode == Keys.F2)
+            {
+                txtsearch.Select();
+                txtsearch.Focus();
+            }
         }
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
@@ -87,6 +99,11 @@ namespace PamirAccounting.Forms.Customers
                 }
                 Close();
             }
+        }
+
+        private void txtsearch_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

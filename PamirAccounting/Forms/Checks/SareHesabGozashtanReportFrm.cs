@@ -153,7 +153,7 @@ namespace PamirAccounting.Forms.Checks
             if (txtAccountNumber.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
-                dataList = unitOfWork.ChequeServices.GetAllPasPayment();
+                dataList = unitOfWork.ChequeServices.GetAllSareHesab();
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
@@ -184,7 +184,7 @@ namespace PamirAccounting.Forms.Checks
             if (txtChequeNumber.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
-                dataList = unitOfWork.ChequeServices.GetAllPasPayment();
+                dataList = unitOfWork.ChequeServices.GetAllSareHesab();
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,

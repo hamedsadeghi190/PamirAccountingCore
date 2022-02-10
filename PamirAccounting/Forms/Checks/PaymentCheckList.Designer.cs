@@ -29,9 +29,10 @@ namespace PamirAccounting.Forms.Checks
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentCheckList));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +66,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.Column1,
             this.Column3,
             this.Column2,
@@ -76,14 +78,14 @@ namespace PamirAccounting.Forms.Checks
             this.Column9,
             this.btnRowEdit,
             this.btnRowDelete});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(1, 197);
             this.dataGridView1.Name = "dataGridView1";
@@ -93,6 +95,15 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.Size = new System.Drawing.Size(1145, 621);
             this.dataGridView1.TabIndex = 120;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
             // Column1
             // 
@@ -302,6 +313,7 @@ namespace PamirAccounting.Forms.Checks
             this.MaximizeBox = false;
             this.Name = "PaymentCheckList";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.PaymentCheckList_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PaymentCheckList_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -323,6 +335,9 @@ namespace PamirAccounting.Forms.Checks
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox1;
+        private DevExpress.XtraEditors.TextEdit txtAccountNumber;
+        private DevExpress.XtraEditors.TextEdit txtChequeNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -334,7 +349,5 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
-        private DevExpress.XtraEditors.TextEdit txtAccountNumber;
-        private DevExpress.XtraEditors.TextEdit txtChequeNumber;
     }
 }

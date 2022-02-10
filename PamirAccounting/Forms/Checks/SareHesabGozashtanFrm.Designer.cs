@@ -136,6 +136,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtDesc.Size = new System.Drawing.Size(448, 89);
             this.txtDesc.TabIndex = 116;
             this.txtDesc.Text = "";
+            this.txtDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDesc_KeyUp);
             // 
             // label8
             // 

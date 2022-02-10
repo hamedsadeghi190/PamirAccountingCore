@@ -27,6 +27,7 @@ namespace PamirAccounting.Forms.Checks
         public int? CustomerId;
         private long? _ChequeNumber;
         public int? prevCustomerId;
+        public int? orginalCustomerId;
         public Domains.Transaction receiveTransAction;
         public Domains.Transaction customerTransaction;
         public DetailsReceiveCheckFrm(long? chequeNumber)
@@ -88,6 +89,7 @@ namespace PamirAccounting.Forms.Checks
                 txtIssueDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtDueDate.Text = PDate2;
+
             }
         }
         private void ChequeActionInfo(long? _ChequeNumber)
@@ -149,8 +151,8 @@ namespace PamirAccounting.Forms.Checks
             Cheque.BranchName = txtBranchName.Text;
             Cheque.ChequeNumber = txtChequeNumber.Text;
             Cheque.DocumentId = long.Parse(txtDocumentId.Text);
-            Cheque.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.DepostitCheck + " به شماره چک -" + txtDocumentId.Text;
-            Cheque.Amount = long.Parse(txtAmount.Text);
+            Cheque.Description = txtDescription.Text; ;
+            Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
@@ -168,7 +170,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
             customerTransaction.WithdrawAmount = 0;
             customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-            customerTransaction.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId;
+            customerTransaction.Description = txtDescription.Text;
 
             customerTransaction.CurrenyId = 2;
             customerTransaction.Date = DateTime.Now;
@@ -184,7 +186,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
             receivedDocuments.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             receivedDocuments.DepositAmount = 0;
-            receivedDocuments.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCheck + " به شماره چک -" + DocumentId;
+            receivedDocuments.Description = txtDescription.Text;
             receivedDocuments.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             receivedDocuments.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
@@ -217,7 +219,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.ChequeNumber = txtChequeNumber.Text;
             Cheque.DocumentId = long.Parse(txtDocumentId.Text);
             Cheque.Description = txtDescription.Text;
-            Cheque.Amount = long.Parse(txtAmount.Text);
+            Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
@@ -234,7 +236,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
             customerTransaction.WithdrawAmount = 0;
             customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-            customerTransaction.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.DepostitCheck + " به شماره چک -" + DocumentId;
+            customerTransaction.Description = txtDescription.Text;
             customerTransaction.CurrenyId = 2;
             customerTransaction.Date = DateTime.Now;
             customerTransaction.TransactionDateTime = DateTime.Now;
@@ -249,7 +251,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
             receivedDocuments.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
             receivedDocuments.DepositAmount = 0;
-            receivedDocuments.Description = (txtDescription.Text.Length > 0) ? txtDescription.Text : Messages.WithdrawCheck + " به شماره چک -" + DocumentId;
+            receivedDocuments.Description = txtDescription.Text;
             receivedDocuments.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             receivedDocuments.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
@@ -308,6 +310,39 @@ namespace PamirAccounting.Forms.Checks
         private void CreateDescription()
         {
             txtDescription.Text = $"{Messages.DepostitCheck } از  {cmbCustomers.Text}  به مبلغ {txtAmount.Text} {"تومان"}  تاریخ سر رسید  {txtDueDate.Text} ";
+        }
+
+        private void btnshowcustomer_KeyUp(object sender, KeyEventArgs e)
+        
+        
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                var AllCustomersFrm = new SearchAllCustomersFrm();
+                AllCustomersFrm.ShowDialog();
+                if (AllCustomersFrm.CustomerId.HasValue)
+                {
+                    cmbCustomers.SelectedValue = AllCustomersFrm.CustomerId;
+                    cmbRealBankId.Select();
+                    cmbRealBankId.Focus();
+                }
+
+            }
+        }
+
+        private void btnshowcustomer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                var AllCustomersFrm = new SearchAllCustomersFrm();
+                AllCustomersFrm.ShowDialog();
+                if (AllCustomersFrm.CustomerId.HasValue)
+                {
+                    cmbCustomers.SelectedValue = AllCustomersFrm.CustomerId;
+
+                }
+
+            }
         }
 
         private void createAccount(int SourceCustomerId, int CurrenyId)

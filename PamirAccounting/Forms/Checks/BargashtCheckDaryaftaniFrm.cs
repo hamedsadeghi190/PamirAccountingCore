@@ -28,7 +28,6 @@ namespace PamirAccounting.Forms.Checks
         public int? orginalCustomerId;
         public Domains.Transaction receiveTransAction;
         public Domains.Transaction customerTransaction;
-        public Domains.Cheque currentCheque;
         public Domains.Cheque Cheque;
         public BargashtCheckDaryaftaniFrm(long? chequeNumber, long? chequeNumberEdit)
         {
@@ -82,16 +81,16 @@ namespace PamirAccounting.Forms.Checks
             }
             if (_ChequeNumber > 0)
             {
-                currentCheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumber);
-                prevCustomerId = currentCheque.CustomerId;
-                orginalCustomerId = currentCheque.OrginalCustomerIde;
-                txtDocumentId.Text = currentCheque.DocumentId.ToString();
+               Cheque = unitOfWork.ChequeServices.FindFirst(x => x.Id == _ChequeNumber);
+                prevCustomerId = Cheque.CustomerId;
+                orginalCustomerId = Cheque.OrginalCustomerIde;
+                txtDocumentId.Text = Cheque.DocumentId.ToString();
                 PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
+                string PDate = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
                 txtDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtBargashtDate.Text = PDate2;
-                txtDesc.Text = currentCheque.Description;
+                txtDesc.Text = Cheque.Description;
             }
 
         }
@@ -115,28 +114,28 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
-            if (currentCheque.Status == (int)Settings.ChequeStatus.New)
+            if (Cheque.Status == (int)Settings.ChequeStatus.New)
             {
                 PersianCalendar p = new PersianCalendar();
                 var BargashtDate1 = txtBargashtDate.Text.Split('/');
                 var BargashtDate = p.ToDateTime(int.Parse(BargashtDate1[0]), int.Parse(BargashtDate1[1]), int.Parse(BargashtDate1[2]), 0, 0, 0, 0);
-                currentCheque.UserId = CurrentUser.UserID;
-                currentCheque.IssueDate = currentCheque.IssueDate;
-                currentCheque.DueDate = currentCheque.DueDate;
-                currentCheque.BranchName = currentCheque.BranchName;
-                currentCheque.ChequeNumber = currentCheque.ChequeNumber;
-                currentCheque.DocumentId = currentCheque.DocumentId;
-                currentCheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : currentCheque.Description;
-                currentCheque.Amount = currentCheque.Amount;
-                currentCheque.RealBankId = currentCheque.RealBankId;
-                currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
-                currentCheque.CustomerId =(int)prevCustomerId;
-                currentCheque.BankAccountNumber = currentCheque.BankAccountNumber;
-                currentCheque.Type = currentCheque.Type;
-                currentCheque.Status = (int)Settings.ChequeStatus.Bargasht;
-                currentCheque.BargashtDate = BargashtDate;
-                currentCheque.OrginalCustomerIde = orginalCustomerId;
-                unitOfWork.ChequeServices.Update(currentCheque);
+                Cheque.UserId = CurrentUser.UserID;
+                Cheque.IssueDate = Cheque.IssueDate;
+                Cheque.DueDate = Cheque.DueDate;
+                Cheque.BranchName = Cheque.BranchName;
+                Cheque.ChequeNumber = Cheque.ChequeNumber;
+                Cheque.DocumentId = Cheque.DocumentId;
+                Cheque.Description = txtDesc.Text;
+                Cheque.Amount = Cheque.Amount;
+                Cheque.RealBankId = Cheque.RealBankId;
+                Cheque.RegisterDateTime = Cheque.RegisterDateTime;
+                Cheque.CustomerId =(int)prevCustomerId;
+                Cheque.BankAccountNumber = Cheque.BankAccountNumber;
+                Cheque.Type = Cheque.Type;
+                Cheque.Status = (int)Settings.ChequeStatus.Bargasht;
+                Cheque.BargashtDate = BargashtDate;
+                Cheque.OrginalCustomerIde = orginalCustomerId;
+                unitOfWork.ChequeServices.Update(Cheque);
                 unitOfWork.SaveChanges();
 
                 ////////Customer transaction
@@ -144,7 +143,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.SourceCustomerId = (int)prevCustomerId;
                 customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
                 customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
-                customerTransaction.WithdrawAmount = currentCheque.Amount;
+                customerTransaction.WithdrawAmount = Cheque.Amount;
                 customerTransaction.DepositAmount =0;
                 customerTransaction.Description =txtDesc.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
@@ -160,7 +159,7 @@ namespace PamirAccounting.Forms.Checks
                 var receivedDocuments = new Domains.Transaction();
                 receivedDocuments.DoubleTransactionId = customerTransaction.Id;
                 receivedDocuments.WithdrawAmount = 0;
-                receivedDocuments.DepositAmount = currentCheque.Amount;
+                receivedDocuments.DepositAmount = Cheque.Amount;
                 receivedDocuments.Description =txtDesc.Text;
                 receivedDocuments.DestinitionCustomerId = (int)prevCustomerId;
                 receivedDocuments.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;
@@ -178,27 +177,27 @@ namespace PamirAccounting.Forms.Checks
                 //ReceivedDocuments transaction End
 
             }
-            if (currentCheque.Status == (int)Settings.ChequeStatus.DarJaryanVosol)
+            if (Cheque.Status == (int)Settings.ChequeStatus.DarJaryanVosol)
             {
                 PersianCalendar p = new PersianCalendar();
                 var BargashtDate1 = txtBargashtDate.Text.Split('/');
                 var BargashtDate = p.ToDateTime(int.Parse(BargashtDate1[0]), int.Parse(BargashtDate1[1]), int.Parse(BargashtDate1[2]), 0, 0, 0, 0);
-                currentCheque.UserId = CurrentUser.UserID;
-                currentCheque.IssueDate = currentCheque.IssueDate;
-                currentCheque.DueDate = currentCheque.DueDate;
-                currentCheque.BranchName = currentCheque.BranchName;
-                currentCheque.ChequeNumber = currentCheque.ChequeNumber;
-                currentCheque.DocumentId = currentCheque.DocumentId;
-                currentCheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : currentCheque.Description;
-                currentCheque.Amount = currentCheque.Amount;
-                currentCheque.RealBankId = currentCheque.RealBankId;
-                currentCheque.RegisterDateTime = currentCheque.RegisterDateTime;
-                currentCheque.CustomerId =(int) prevCustomerId;
-                currentCheque.BankAccountNumber = currentCheque.BankAccountNumber;
-                currentCheque.Type = currentCheque.Type;
-                currentCheque.Status = (int)Settings.ChequeStatus.Bargasht;
-                currentCheque.BargashtDate = BargashtDate;
-                unitOfWork.ChequeServices.Update(currentCheque);
+                Cheque.UserId = CurrentUser.UserID;
+                Cheque.IssueDate = Cheque.IssueDate;
+                Cheque.DueDate = Cheque.DueDate;
+                Cheque.BranchName = Cheque.BranchName;
+                Cheque.ChequeNumber = Cheque.ChequeNumber;
+                Cheque.DocumentId = Cheque.DocumentId;
+                Cheque.Description = txtDesc.Text;
+                Cheque.Amount = Cheque.Amount;
+                Cheque.RealBankId = Cheque.RealBankId;
+                Cheque.RegisterDateTime = Cheque.RegisterDateTime;
+                Cheque.CustomerId =(int) prevCustomerId;
+                Cheque.BankAccountNumber = Cheque.BankAccountNumber;
+                Cheque.Type = Cheque.Type;
+                Cheque.Status = (int)Settings.ChequeStatus.Bargasht;
+                Cheque.BargashtDate = BargashtDate;
+                unitOfWork.ChequeServices.Update(Cheque);
                 unitOfWork.SaveChanges();
 
                 ////////AsnadDarJaryanVos transaction
@@ -207,13 +206,13 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
                 customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
                 customerTransaction.WithdrawAmount = 0;
-                customerTransaction.DepositAmount = currentCheque.Amount;
+                customerTransaction.DepositAmount = Cheque.Amount;
                 customerTransaction.Description =txtDesc.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction.Date = DateTime.Now;
                 customerTransaction.TransactionDateTime = DateTime.Now;
                 customerTransaction.UserId = CurrentUser.UserID;
-                customerTransaction.DocumentId = currentCheque.DocumentId;
+                customerTransaction.DocumentId = Cheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(customerTransaction);
                 unitOfWork.SaveChanges();
                 //AsnadDarJaryanVos transaction end///
@@ -222,7 +221,7 @@ namespace PamirAccounting.Forms.Checks
                 var receivedDocuments = new Domains.Transaction();
                 receivedDocuments.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;
                 receivedDocuments.DoubleTransactionId = customerTransaction.Id;
-                receivedDocuments.WithdrawAmount = currentCheque.Amount;
+                receivedDocuments.WithdrawAmount = Cheque.Amount;
                 receivedDocuments.DepositAmount = 0;
                 receivedDocuments.Description =txtDesc.Text; ;
                 receivedDocuments.DestinitionCustomerId = (int)prevCustomerId;
@@ -231,7 +230,7 @@ namespace PamirAccounting.Forms.Checks
                 receivedDocuments.Date = DateTime.Now;
                 receivedDocuments.TransactionDateTime = DateTime.Now;
                 receivedDocuments.UserId = CurrentUser.UserID;
-                receivedDocuments.DocumentId = currentCheque.DocumentId;
+                receivedDocuments.DocumentId = Cheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(receivedDocuments);
                 unitOfWork.SaveChanges();
                 customerTransaction.DoubleTransactionId = receivedDocuments.Id;
@@ -245,14 +244,14 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction2.SourceCustomerId = (int)orginalCustomerId;
                 customerTransaction2.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
                 customerTransaction2.TransactionType = (int)TransaActionType.RecivedDocument;
-                customerTransaction2.WithdrawAmount = currentCheque.Amount;
+                customerTransaction2.WithdrawAmount = Cheque.Amount;
                 customerTransaction2.DepositAmount = 0;
                 customerTransaction2.Description =txtDesc.Text;
                 customerTransaction2.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction2.Date = DateTime.Now;
                 customerTransaction2.TransactionDateTime = DateTime.Now;
                 customerTransaction2.UserId = CurrentUser.UserID;
-                customerTransaction2.DocumentId = currentCheque.DocumentId;
+                customerTransaction2.DocumentId = Cheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(customerTransaction2);
                 unitOfWork.SaveChanges();
                 //customer transaction end///
@@ -261,7 +260,7 @@ namespace PamirAccounting.Forms.Checks
                 var receivedDocuments2 = new Domains.Transaction();
                 receivedDocuments2.DoubleTransactionId = customerTransaction2.Id;
                 receivedDocuments2.WithdrawAmount = 0;
-                receivedDocuments2.DepositAmount = currentCheque.Amount;
+                receivedDocuments2.DepositAmount = Cheque.Amount;
                 receivedDocuments2.Description = txtDesc.Text;
                 receivedDocuments2.DestinitionCustomerId = (int)orginalCustomerId;
                 receivedDocuments2.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;
@@ -270,7 +269,7 @@ namespace PamirAccounting.Forms.Checks
                 receivedDocuments2.Date = DateTime.Now;
                 receivedDocuments2.TransactionDateTime = DateTime.Now;
                 receivedDocuments2.UserId = CurrentUser.UserID;
-                receivedDocuments2.DocumentId = currentCheque.DocumentId;
+                receivedDocuments2.DocumentId = Cheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(receivedDocuments2);
                 unitOfWork.SaveChanges();
                 customerTransaction2.DoubleTransactionId = receivedDocuments2.Id;
@@ -291,7 +290,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.BranchName = Cheque.BranchName;
             Cheque.ChequeNumber = Cheque.ChequeNumber;
             Cheque.DocumentId = Cheque.DocumentId;
-            Cheque.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : currentCheque.Description;
+            Cheque.Description =txtDesc.Text;
             Cheque.Amount = Cheque.Amount;
             Cheque.RealBankId = Cheque.RealBankId;
             Cheque.RegisterDateTime = Cheque.RegisterDateTime;
@@ -446,10 +445,7 @@ namespace PamirAccounting.Forms.Checks
 
         }
 
-        private void txtBargashtDate_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
+     
 
         private void txtBargashtDate_KeyUp(object sender, KeyEventArgs e)
         {
@@ -462,8 +458,10 @@ namespace PamirAccounting.Forms.Checks
         }
 
         private void CreateDescription()
+        
+        
         {
-            txtDesc.Text = $"{Messages.SareHesab } -چک به شماره   {currentCheque.ChequeNumber}   -به مبلغ {currentCheque.Amount} {"-تومان"} - تاریخ برگشت  {txtBargashtDate.Text} ";
+            txtDesc.Text = $"{Messages.Bargasht } چک به شماره   {Cheque.ChequeNumber} به مبلغ {Cheque.Amount} {"تومان"}  تاریخ برگشت  {txtBargashtDate.Text} ";
         }
 
     }

@@ -43,7 +43,8 @@ namespace PamirAccounting.Forms.Checks
                 x.RealBankName,
                 x.DueDate,
                 IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
-                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
+                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString(),
+                x.RowId
 
 
             }).ToList();
@@ -52,6 +53,8 @@ namespace PamirAccounting.Forms.Checks
 
         private void VosoolCheckDaryaftaniReportFrm_Load(object sender, EventArgs e)
         {
+            txtChequeNumber.Select();
+            txtChequeNumber.Focus();
             dataGridView1.AutoGenerateColumns = false;
             LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
@@ -139,7 +142,7 @@ namespace PamirAccounting.Forms.Checks
             if (txtChequeNumber.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
-                dataList = unitOfWork.ChequeServices.GetAllPasPayment();
+                dataList = unitOfWork.ChequeServices.GetAllVosool();
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
@@ -170,7 +173,7 @@ namespace PamirAccounting.Forms.Checks
             if (txtAccountNumber.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
-                dataList = unitOfWork.ChequeServices.GetAllPasPayment();
+                dataList = unitOfWork.ChequeServices.GetAllVosool();
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
