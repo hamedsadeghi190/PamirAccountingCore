@@ -28,6 +28,8 @@ namespace PamirAccounting.Models
         public string BranchName { get; set; }
         public int UserId { get; set; }
         public int? RowId { get; set; }
+        public int? BankId { get; set; }
+        public string BankName { get; set; }
         //public List< Customer> Customers { get; set; }
         //public List<RealBank> RealBanks { get; set; }
         //public List<User> Users { get; set; }

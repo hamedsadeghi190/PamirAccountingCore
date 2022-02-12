@@ -54,7 +54,7 @@ namespace PamirAccounting.Forms.Checks
             LoadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 10; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }

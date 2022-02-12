@@ -99,6 +99,8 @@ namespace PamirAccounting.Domains
                     .IsRequired()
                     .HasMaxLength(50);
 
+                entity.Property(e => e.BankName).HasMaxLength(50);
+
                 entity.Property(e => e.BargashtDate).HasColumnType("datetime");
 
                 entity.Property(e => e.BranchName).HasMaxLength(1000);

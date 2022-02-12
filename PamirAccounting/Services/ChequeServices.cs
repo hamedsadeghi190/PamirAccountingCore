@@ -651,7 +651,8 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    RealBankName = x.RealBank.Name,
+                    BankName = x.BankName,
+                    RealBankName = x.BankName,
                     CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
@@ -674,8 +675,9 @@ namespace PamirAccounting.Services
                     RealBankId = x.RealBankId,
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
+                    BankName = x.BankName,
                     UserId = x.UserId,
-                    RealBankName = x.RealBankName,
+                    RealBankName = x.BankName,
                     CustomerName = x.CustomerName,
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
@@ -698,6 +700,7 @@ namespace PamirAccounting.Services
                 int row = 1;
                 var cheque = new List<ChequeModel>();
                 PersianCalendar pc = new PersianCalendar();
+         
                 cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.PassPardakhti && x.Type == (int)Settings.DocumentType.DepositDocument).Select(x => new ChequeModel
                 {
                     Id = x.Id,
@@ -714,7 +717,9 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
-                    RealBankName = x.RealBank.Name,
+                    BankId = x.BankId,
+                    BankName = x.BankName,
+              
                     CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
@@ -737,11 +742,13 @@ namespace PamirAccounting.Services
                     RealBankId = x.RealBankId,
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
+                    BankName = x.BankName,
                     UserId = x.UserId,
+                 
                     RealBankName = x.RealBankName,
                     CustomerName = x.CustomerName,
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
-                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
+                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString(),
 
                 }).ToList();
                 return cheque;
@@ -777,6 +784,7 @@ namespace PamirAccounting.Services
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
                     UserId = x.UserId,
+                    BankName = x.BankName,
                     RealBankName = x.RealBank.Name,
                     CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
@@ -800,6 +808,7 @@ namespace PamirAccounting.Services
                     RealBankId = x.RealBankId,
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
+                    BankName = x.BankName,
                     UserId = x.UserId,
                     RealBankName = x.RealBankName,
                     CustomerName = x.CustomerName,
@@ -839,8 +848,9 @@ namespace PamirAccounting.Services
                     RealBankId = x.RealBankId,
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
+                    BankName = x.BankName,
                     UserId = x.UserId,
-                    RealBankName = x.RealBank.Name,
+                    RealBankName = x.BankName,
                     CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
@@ -863,8 +873,9 @@ namespace PamirAccounting.Services
                     RealBankId = x.RealBankId,
                     RegisterDateTime = x.RegisterDateTime,
                     Type = x.Type,
+                    BankName = x.BankName,
                     UserId = x.UserId,
-                    RealBankName = x.RealBankName,
+                    RealBankName = x.BankName,
                     CustomerName = x.CustomerName,
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()

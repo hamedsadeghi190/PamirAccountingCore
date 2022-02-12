@@ -39,6 +39,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,6 +156,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -177,6 +179,15 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.Size = new System.Drawing.Size(1182, 438);
             this.dataGridView1.TabIndex = 120;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -251,7 +262,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column9
             // 
-            this.Column9.DataPropertyName = "RealBankName";
+            this.Column9.DataPropertyName = "BankName";
             this.Column9.HeaderText = "بانک";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
@@ -315,6 +326,9 @@ namespace PamirAccounting.Forms.Checks
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private DevExpress.XtraEditors.TextEdit txtAccountNumber;
+        private DevExpress.XtraEditors.TextEdit txtChequeNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -326,7 +340,5 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
-        private DevExpress.XtraEditors.TextEdit txtAccountNumber;
-        private DevExpress.XtraEditors.TextEdit txtChequeNumber;
     }
 }

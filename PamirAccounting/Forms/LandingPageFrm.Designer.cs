@@ -423,8 +423,8 @@ namespace PamirAccounting.Forms
             // ChequeMenu_ReceveOdat
             // 
             this.ChequeMenu_ReceveOdat.Name = "ChequeMenu_ReceveOdat";
-            this.ChequeMenu_ReceveOdat.Size = new System.Drawing.Size(281, 28);
-            this.ChequeMenu_ReceveOdat.Text = "لیست چک های عودت شده پرداختنی";
+            this.ChequeMenu_ReceveOdat.Size = new System.Drawing.Size(280, 28);
+            this.ChequeMenu_ReceveOdat.Text = "لیست چک های عودت شده  دریافتنی";
             this.ChequeMenu_ReceveOdat.Click += new System.EventHandler(this.ChequeMenu_ReceveOdat_Click);
             // 
             // ChequeMenu_OdatSare

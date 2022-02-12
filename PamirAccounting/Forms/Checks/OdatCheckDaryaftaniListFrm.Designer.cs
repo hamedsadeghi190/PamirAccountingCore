@@ -34,6 +34,10 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
+            this.btnodat_daryaftani = new DevExpress.XtraEditors.SimpleButton();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,9 +47,6 @@ namespace PamirAccounting.Forms.Checks
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RealBankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
-            this.btnodat_daryaftani = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,6 +90,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.Column1,
             this.Column3,
             this.Column2,
@@ -110,9 +112,57 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnhelp);
+            this.groupBox1.Controls.Add(this.btnodat_daryaftani);
+            this.groupBox1.Location = new System.Drawing.Point(5, 32);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1179, 110);
+            this.groupBox1.TabIndex = 102;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnhelp
+            // 
+            this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
+            this.btnhelp.Location = new System.Drawing.Point(18, 38);
+            this.btnhelp.Name = "btnhelp";
+            this.btnhelp.Size = new System.Drawing.Size(39, 41);
+            this.btnhelp.TabIndex = 99;
+            this.btnhelp.Text = "راهنما";
+            this.btnhelp.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnhelp_KeyUp);
+            // 
+            // btnodat_daryaftani
+            // 
+            this.btnodat_daryaftani.Appearance.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodat_daryaftani.Appearance.Options.UseFont = true;
+            this.btnodat_daryaftani.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodat_daryaftani.AppearanceDisabled.Options.UseFont = true;
+            this.btnodat_daryaftani.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodat_daryaftani.AppearanceHovered.Options.UseFont = true;
+            this.btnodat_daryaftani.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodat_daryaftani.AppearancePressed.Options.UseFont = true;
+            this.btnodat_daryaftani.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnodat_daryaftani.ImageOptions.SvgImage")));
+            this.btnodat_daryaftani.Location = new System.Drawing.Point(971, 38);
+            this.btnodat_daryaftani.Name = "btnodat_daryaftani";
+            this.btnodat_daryaftani.Size = new System.Drawing.Size(185, 42);
+            this.btnodat_daryaftani.TabIndex = 0;
+            this.btnodat_daryaftani.Text = "عودت چک ها";
+            this.btnodat_daryaftani.Click += new System.EventHandler(this.btnodat_daryaftani_Click);
+            this.btnodat_daryaftani.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnodat_daryaftani_KeyUp);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "Id";
+            this.Column1.DataPropertyName = "RowId";
             this.Column1.FillWeight = 60F;
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "ردیف";
@@ -188,45 +238,6 @@ namespace PamirAccounting.Forms.Checks
             this.RealBankName.Name = "RealBankName";
             this.RealBankName.ReadOnly = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnhelp);
-            this.groupBox1.Controls.Add(this.btnodat_daryaftani);
-            this.groupBox1.Location = new System.Drawing.Point(5, 32);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1179, 110);
-            this.groupBox1.TabIndex = 102;
-            this.groupBox1.TabStop = false;
-            // 
-            // btnhelp
-            // 
-            this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
-            this.btnhelp.Location = new System.Drawing.Point(18, 38);
-            this.btnhelp.Name = "btnhelp";
-            this.btnhelp.Size = new System.Drawing.Size(39, 41);
-            this.btnhelp.TabIndex = 99;
-            this.btnhelp.Text = "راهنما";
-            this.btnhelp.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnhelp_KeyUp);
-            // 
-            // btnodat_daryaftani
-            // 
-            this.btnodat_daryaftani.Appearance.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnodat_daryaftani.Appearance.Options.UseFont = true;
-            this.btnodat_daryaftani.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnodat_daryaftani.AppearanceDisabled.Options.UseFont = true;
-            this.btnodat_daryaftani.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnodat_daryaftani.AppearanceHovered.Options.UseFont = true;
-            this.btnodat_daryaftani.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnodat_daryaftani.AppearancePressed.Options.UseFont = true;
-            this.btnodat_daryaftani.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnodat_daryaftani.ImageOptions.SvgImage")));
-            this.btnodat_daryaftani.Location = new System.Drawing.Point(971, 38);
-            this.btnodat_daryaftani.Name = "btnodat_daryaftani";
-            this.btnodat_daryaftani.Size = new System.Drawing.Size(185, 42);
-            this.btnodat_daryaftani.TabIndex = 0;
-            this.btnodat_daryaftani.Text = "عودت چک ها";
-            this.btnodat_daryaftani.Click += new System.EventHandler(this.btnodat_daryaftani_Click);
-            this.btnodat_daryaftani.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnodat_daryaftani_KeyUp);
-            // 
             // OdatCheckDaryaftaniListFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -264,6 +275,7 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton btnhelp;
         private DevExpress.XtraEditors.SimpleButton btnodat_daryaftani;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

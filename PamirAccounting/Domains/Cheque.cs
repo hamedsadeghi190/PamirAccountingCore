@@ -29,6 +29,7 @@ namespace PamirAccounting.Domains
         public DateTime? VosoolDate { get; set; }
         public DateTime? PassDate { get; set; }
         public int? BankId { get; set; }
+        public string BankName { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual RealBank RealBank { get; set; }

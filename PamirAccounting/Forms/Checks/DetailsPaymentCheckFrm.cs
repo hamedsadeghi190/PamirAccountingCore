@@ -64,14 +64,14 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
-            _RealBank = unitOfWork.RealBankServices.FindAll(x => x.Id > 0).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.Name}" }).ToList();
+            _RealBank = unitOfWork.Customers.FindAll(x => x.GroupId==2).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbRealBankId.DataSource = _RealBank;
             cmbRealBankId.ValueMember = "Id";
             cmbRealBankId.DisplayMember = "Title";
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomers.DataSource = _Customers;
             cmbCustomers.ValueMember = "Id";
-            cmbCustomers.DisplayMember = "Title"; ;
+            cmbCustomers.DisplayMember = "Title"; 
 
         }
 
@@ -98,7 +98,7 @@ namespace PamirAccounting.Forms.Checks
             txtChequeNumber.Text = Cheque.ChequeNumber;
             txtDescription.Text = Cheque.Description;
             txtAmount.Text = Cheque.Amount.ToString();
-            cmbRealBankId.SelectedValue = (int)Cheque.RealBankId;
+            cmbRealBankId.SelectedValue = (int)Cheque.BankId;
             cmbCustomers.SelectedValue = Cheque.CustomerId;
             txtBankAccountNumber.Text = Cheque.BankAccountNumber;
 
@@ -145,12 +145,13 @@ namespace PamirAccounting.Forms.Checks
             Cheque.DocumentId = DocumentId;
             Cheque.Description = txtDescription.Text;
             Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-            Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
+            Cheque.BankId = (int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
             Cheque.Type = (int)DocumentType.DepositDocument;
             Cheque.Status = (int)Settings.ChequeStatus.NewPayment;
+            Cheque.BankName = cmbRealBankId.Text;
             Cheque.OrginalCustomerIde = (int)cmbCustomers.SelectedValue;
             unitOfWork.ChequeServices.Insert(Cheque);
             unitOfWork.SaveChanges();
@@ -211,11 +212,12 @@ namespace PamirAccounting.Forms.Checks
             Cheque.DocumentId = Cheque.DocumentId;
             Cheque.Description = txtDescription.Text;
             Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
-            Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
+            Cheque.BankId = (int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
             Cheque.Type = (int)DocumentType.DepositDocument;
+            Cheque.BankName = cmbRealBankId.Text;
             Cheque.Status = (int)Settings.ChequeStatus.NewPayment;
             unitOfWork.ChequeServices.Update(Cheque);
             unitOfWork.SaveChanges();

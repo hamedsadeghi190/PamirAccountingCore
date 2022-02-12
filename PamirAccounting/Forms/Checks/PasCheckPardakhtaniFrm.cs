@@ -124,6 +124,7 @@ namespace PamirAccounting.Forms.Checks
             currentCheque.Status = (int)Settings.ChequeStatus.PassPardakhti;
             currentCheque.PassDate = PassDate;
             currentCheque.OrginalCustomerIde = orginalCustomerId;
+            currentCheque.BankId = (int)currentCheque.BankId;
             unitOfWork.ChequeServices.Update(currentCheque);
             unitOfWork.SaveChanges();
 
@@ -169,7 +170,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-                txtDesc.Text = $"{Messages.PasCheck } شماره  {currentCheque.ChequeNumber} - به مبلغ {currentCheque.Amount} {"تومان"} - تاریخ پاس  {txtPassDate.Text} ";
+                txtDesc.Text = $"{Messages.PasCheck } شماره  {currentCheque.ChequeNumber}  به مبلغ {currentCheque.Amount} {"تومان"}  تاریخ پاس  {txtPassDate.Text} ";
         }
 
        

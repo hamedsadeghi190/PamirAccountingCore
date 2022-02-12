@@ -37,6 +37,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnodat = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,6 +127,7 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.Column1,
             this.Column3,
             this.Column2,
@@ -146,9 +148,18 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.TabIndex = 102;
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "Id";
+            this.Column1.DataPropertyName = "RowId";
             this.Column1.FillWeight = 60F;
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "ردیف";
@@ -262,6 +273,7 @@ namespace PamirAccounting.Forms.Checks
         private DevExpress.XtraEditors.SimpleButton btnodat;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
