@@ -37,7 +37,7 @@ namespace PamirAccounting.Forms.Drafts
             txtDate.Text = PDate;
             initData();
             cmbCustomer.SelectedValue = AppSetting.NotRunnedDraftsId;
-            cmbCustomer.Enabled = false;
+            
         }
 
         private void initData()
@@ -128,8 +128,8 @@ namespace PamirAccounting.Forms.Drafts
                 // customerTransaction.DestinitionCustomerId = AppSetting.SandoghCustomerId;
                 customerTransaction.TransactionType = (int)TransaActionType.HavaleAmad;
                 customerTransaction.DocumentId = documentId;
-                customerTransaction.DepositAmount = 0;
-                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtDepositAmount.Text.Trim())) ? 0 : long.Parse(txtDepositAmount.Text);
+                customerTransaction.WithdrawAmount = 0;
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtDepositAmount.Text.Trim())) ? 0 : long.Parse(txtDepositAmount.Text);
                 customerTransaction.Description = $"شماره  {txtNumber.Text} {cmbAgency.Text} , {txtSender.Text} برای " +
                     $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDepositCurreny.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text}  **{txtDesc.Text}";
 
