@@ -30,6 +30,7 @@ namespace PamirAccounting.Forms.Checks
         public int? orginalCustomerId;
         public Domains.Transaction receiveTransAction;
         public Domains.Transaction customerTransaction;
+        long amount;
         public DetailsReceiveCheckFrm(long? chequeNumber)
         {
             InitializeComponent();
@@ -139,6 +140,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             Cheque = new Domains.Cheque();
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
@@ -152,7 +154,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.ChequeNumber = txtChequeNumber.Text;
             Cheque.DocumentId = long.Parse(txtDocumentId.Text);
             Cheque.Description = txtDescription.Text; ;
-            Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
@@ -169,7 +171,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
             customerTransaction.WithdrawAmount = 0;
-            customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             customerTransaction.Description = txtDescription.Text;
 
             customerTransaction.CurrenyId = 2;
@@ -184,7 +186,7 @@ namespace PamirAccounting.Forms.Checks
             //ReceivedDocuments transaction
             var receivedDocuments = new Domains.Transaction();
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
-            receivedDocuments.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            receivedDocuments.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             receivedDocuments.DepositAmount = 0;
             receivedDocuments.Description = txtDescription.Text;
             receivedDocuments.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
@@ -219,7 +221,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.ChequeNumber = txtChequeNumber.Text;
             Cheque.DocumentId = long.Parse(txtDocumentId.Text);
             Cheque.Description = txtDescription.Text;
-            Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
@@ -235,7 +237,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
             customerTransaction.WithdrawAmount = 0;
-            customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             customerTransaction.Description = txtDescription.Text;
             customerTransaction.CurrenyId = 2;
             customerTransaction.Date = DateTime.Now;
@@ -249,7 +251,7 @@ namespace PamirAccounting.Forms.Checks
             //ReceivedDocuments transaction
             var receivedDocuments = unitOfWork.Transactions.FindFirst(x => x.DocumentId == Cheque.DocumentId && x.SourceCustomerId == AppSetting.RecivedDocumentCustomerId);
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
-            receivedDocuments.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            receivedDocuments.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             receivedDocuments.DepositAmount = 0;
             receivedDocuments.Description = txtDescription.Text;
             receivedDocuments.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
@@ -280,7 +282,7 @@ namespace PamirAccounting.Forms.Checks
         }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
-        {
+         {
             if (e.KeyCode == Keys.Space)
             {
                 txtAmount.Text += "000";
