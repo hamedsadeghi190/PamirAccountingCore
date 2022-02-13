@@ -381,41 +381,41 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
             // 
             this.ReceiveChequeList.Name = "ReceiveChequeList";
-            this.ReceiveChequeList.Size = new System.Drawing.Size(281, 28);
+            this.ReceiveChequeList.Size = new System.Drawing.Size(280, 28);
             this.ReceiveChequeList.Text = "لیست چک های دربافتنی";
             this.ReceiveChequeList.Click += new System.EventHandler(this.ReceiveChequeList_Click);
             // 
             // ChequePaymentList
             // 
             this.ChequePaymentList.Name = "ChequePaymentList";
-            this.ChequePaymentList.Size = new System.Drawing.Size(281, 28);
+            this.ChequePaymentList.Size = new System.Drawing.Size(280, 28);
             this.ChequePaymentList.Text = "لیست چک های پرداختنی";
             this.ChequePaymentList.Click += new System.EventHandler(this.ChequePaymentList_Click);
             // 
             // ChequeMenu_SareHesabList
             // 
             this.ChequeMenu_SareHesabList.Name = "ChequeMenu_SareHesabList";
-            this.ChequeMenu_SareHesabList.Size = new System.Drawing.Size(281, 28);
+            this.ChequeMenu_SareHesabList.Size = new System.Drawing.Size(280, 28);
             this.ChequeMenu_SareHesabList.Text = "لیست چک های سر حساب گداشته";
             this.ChequeMenu_SareHesabList.Click += new System.EventHandler(this.ChequeMenu_SareHesabList_Click);
             // 
             // ChequeMenu_VosoolShode
             // 
             this.ChequeMenu_VosoolShode.Name = "ChequeMenu_VosoolShode";
-            this.ChequeMenu_VosoolShode.Size = new System.Drawing.Size(281, 28);
+            this.ChequeMenu_VosoolShode.Size = new System.Drawing.Size(280, 28);
             this.ChequeMenu_VosoolShode.Text = "لیست چک های وصول شده";
             this.ChequeMenu_VosoolShode.Click += new System.EventHandler(this.ChequeMenu_VosoolShode_Click);
             // 
             // ChequeMenu_Vagozari
             // 
             this.ChequeMenu_Vagozari.Name = "ChequeMenu_Vagozari";
-            this.ChequeMenu_Vagozari.Size = new System.Drawing.Size(281, 28);
+            this.ChequeMenu_Vagozari.Size = new System.Drawing.Size(280, 28);
             this.ChequeMenu_Vagozari.Text = "لیست چک های واگذاری اسناد";
             this.ChequeMenu_Vagozari.Visible = false;
             this.ChequeMenu_Vagozari.Click += new System.EventHandler(this.ChequeMenu_Vagozari_Click);
@@ -430,42 +430,42 @@ namespace PamirAccounting.Forms
             // ChequeMenu_OdatSare
             // 
             this.ChequeMenu_OdatSare.Name = "ChequeMenu_OdatSare";
-            this.ChequeMenu_OdatSare.Size = new System.Drawing.Size(281, 28);
+            this.ChequeMenu_OdatSare.Size = new System.Drawing.Size(280, 28);
             this.ChequeMenu_OdatSare.Text = "لیست چک های عودت شده سر حساب";
             this.ChequeMenu_OdatSare.Click += new System.EventHandler(this.ChequeMenu_OdatSare_Click);
             // 
             // ChequeMenu_Bargasht
             // 
             this.ChequeMenu_Bargasht.Name = "ChequeMenu_Bargasht";
-            this.ChequeMenu_Bargasht.Size = new System.Drawing.Size(281, 28);
+            this.ChequeMenu_Bargasht.Size = new System.Drawing.Size(280, 28);
             this.ChequeMenu_Bargasht.Text = "لیست چک های برگشتی دریافتنی";
             this.ChequeMenu_Bargasht.Click += new System.EventHandler(this.ChequeMenu_Bargasht_Click);
             // 
             // ChequeMenu_Pas
             // 
             this.ChequeMenu_Pas.Name = "ChequeMenu_Pas";
-            this.ChequeMenu_Pas.Size = new System.Drawing.Size(281, 28);
+            this.ChequeMenu_Pas.Size = new System.Drawing.Size(280, 28);
             this.ChequeMenu_Pas.Text = "لیست چک های پاس شده پرداختنی";
             this.ChequeMenu_Pas.Click += new System.EventHandler(this.ChequeMenu_Pas_Click);
             // 
             // ListOdatPayment
             // 
             this.ListOdatPayment.Name = "ListOdatPayment";
-            this.ListOdatPayment.Size = new System.Drawing.Size(281, 28);
+            this.ListOdatPayment.Size = new System.Drawing.Size(280, 28);
             this.ListOdatPayment.Text = "لیست چک های عودت پرداختنی";
             this.ListOdatPayment.Click += new System.EventHandler(this.ListOdatPayment_Click);
             // 
             // ListBargashtPayment
             // 
             this.ListBargashtPayment.Name = "ListBargashtPayment";
-            this.ListBargashtPayment.Size = new System.Drawing.Size(281, 28);
+            this.ListBargashtPayment.Size = new System.Drawing.Size(280, 28);
             this.ListBargashtPayment.Text = "لیست چک های برگشتی پرداختنی";
             this.ListBargashtPayment.Click += new System.EventHandler(this.ListBargashtPayment_Click);
             // 
             // لیستچکهایبرگشتیپرداختنیToolStripMenuItem
             // 
             this.لیستچکهایبرگشتیپرداختنیToolStripMenuItem.Name = "لیستچکهایبرگشتیپرداختنیToolStripMenuItem";
-            this.لیستچکهایبرگشتیپرداختنیToolStripMenuItem.Size = new System.Drawing.Size(281, 28);
+            this.لیستچکهایبرگشتیپرداختنیToolStripMenuItem.Size = new System.Drawing.Size(280, 28);
             this.لیستچکهایبرگشتیپرداختنیToolStripMenuItem.Text = "لیست چک های برگشتی پرداختنی";
             // 
             // عملیاتچکToolStripMenuItem
@@ -485,7 +485,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("عملیاتچکToolStripMenuItem.Image")));
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(191, 56);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan
