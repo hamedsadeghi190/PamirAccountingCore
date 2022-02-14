@@ -25,7 +25,6 @@ namespace PamirAccounting.UI.Forms.Customers
         private List<ComboBoxModel> _Actions = new List<ComboBoxModel>();
         private List<TransactionModel> _dataList = new List<TransactionModel>();
         private List<TransactionsGroupModel> _GroupedDataList;
-
         private List<ComboBoxModel> _Currencies = new List<ComboBoxModel>();
         public ViewCustomerAccountFrm()
         {
@@ -142,7 +141,6 @@ namespace PamirAccounting.UI.Forms.Customers
 
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-
             cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
             cmbCurrencies.DataSource = _Currencies;
             cmbCurrencies.ValueMember = "Id";

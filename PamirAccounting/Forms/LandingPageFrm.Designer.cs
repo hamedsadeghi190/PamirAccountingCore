@@ -80,7 +80,7 @@ namespace PamirAccounting.Forms
             this.لیستمشتریانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.لیستکلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.لیستبستانکارانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.لیستبدهکارانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreditorList = new System.Windows.Forms.ToolStripMenuItem();
             this.دفترتلفنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.صورتسودوزیانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.بلانسحسابToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -567,7 +567,7 @@ namespace PamirAccounting.Forms
             this.لیستمشتریانToolStripMenuItem,
             this.لیستکلToolStripMenuItem,
             this.لیستبستانکارانToolStripMenuItem,
-            this.لیستبدهکارانToolStripMenuItem,
+            this.CreditorList,
             this.دفترتلفنToolStripMenuItem,
             this.صورتسودوزیانToolStripMenuItem,
             this.بلانسحسابToolStripMenuItem,
@@ -608,14 +608,15 @@ namespace PamirAccounting.Forms
             this.لیستبستانکارانToolStripMenuItem.Size = new System.Drawing.Size(245, 54);
             this.لیستبستانکارانToolStripMenuItem.Text = "لیست بستانکاران";
             // 
-            // لیستبدهکارانToolStripMenuItem
+            // CreditorList
             // 
-            this.لیستبدهکارانToolStripMenuItem.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.لیستبدهکارانToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("لیستبدهکارانToolStripMenuItem.Image")));
-            this.لیستبدهکارانToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.لیستبدهکارانToolStripMenuItem.Name = "لیستبدهکارانToolStripMenuItem";
-            this.لیستبدهکارانToolStripMenuItem.Size = new System.Drawing.Size(245, 54);
-            this.لیستبدهکارانToolStripMenuItem.Text = "لیست بدهکاران";
+            this.CreditorList.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CreditorList.Image = ((System.Drawing.Image)(resources.GetObject("CreditorList.Image")));
+            this.CreditorList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.CreditorList.Name = "CreditorList";
+            this.CreditorList.Size = new System.Drawing.Size(245, 54);
+            this.CreditorList.Text = "لیست بدهکاران";
+            this.CreditorList.Click += new System.EventHandler(this.CreditorList_Click);
             // 
             // دفترتلفنToolStripMenuItem
             // 
@@ -1040,7 +1041,7 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.ToolStripMenuItem لیستمشتریانToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem لیستکلToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem لیستبستانکارانToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem لیستبدهکارانToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CreditorList;
         private System.Windows.Forms.ToolStripMenuItem دفترتلفنToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem صورتسودوزیانToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem بلانسحسابToolStripMenuItem;

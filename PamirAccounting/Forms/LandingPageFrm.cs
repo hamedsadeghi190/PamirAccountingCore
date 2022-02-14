@@ -2,6 +2,7 @@
 using PamirAccounting.Forms.Currencies;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
+using PamirAccounting.Forms.GeneralLedger;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
 using PamirAccounting.UI.Forms.Agencies;
@@ -365,6 +366,12 @@ namespace PamirAccounting.Forms
         private void ListBargashtPayment_Click(object sender, EventArgs e)
         {
             var frm = new BargashtCheckPardakhtiReportFrm();
+            frm.ShowDialog();
+        }
+
+        private void CreditorList_Click(object sender, EventArgs e)
+        {
+             var frm = new CreditorListFrm();
             frm.ShowDialog();
         }
     }

@@ -278,5 +278,80 @@ namespace PamirAccounting.Services
                 return null;
             }
         }
+
+
+        public List<TransactionModel> GetAllWithdraw( int? currencyId)
+        {
+            try
+            {
+                var dataList = new List<TransactionModel>();
+                if (currencyId == null)
+                {
+                    dataList = FindAllReadonly(x => x.WithdrawAmount> 0)
+                    .Include(x => x.Curreny)
+                   .Select(x => new TransactionModel
+                   {
+
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       Phone = x.SourceCustomer.Phone,
+                       Mobile=x.SourceCustomer.Mobile,
+                       Date = x.Date.ToString(),
+                       TransactionDateTime = x.TransactionDateTime.ToString(),
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       FullName=x.SourceCustomer.FirstName+" "+x.SourceCustomer.LastName,
+                     
+
+                   }).ToList();
+                }
+                else
+                {
+                    dataList = FindAllReadonly(x => x.WithdrawAmount > 0 && x.CurrenyId == currencyId)
+                                 .Include(x => x.Curreny)
+  
+                                 .Select(x => new TransactionModel
+                                 {
+                                     Id = x.Id,
+                                     Description = x.Description,
+                                     DepositAmount = x.DepositAmount,
+                                     WithdrawAmount = x.WithdrawAmount,
+                                     Phone = x.SourceCustomer.Phone,
+                                     Mobile = x.SourceCustomer.Mobile,
+                                     Date = x.Date.ToString(),
+                                     TransactionDateTime = x.TransactionDateTime.ToString(),
+                                     CurrenyId = x.CurrenyId,
+                                     CurrenyName = x.Curreny.Name,
+                                     FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                                 }).ToList();
+                }
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id, 
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    Phone =x. Phone,
+                    Mobile = x.Mobile,
+                    Date = x.Date.ToString(),
+                    TransactionDateTime = x.TransactionDateTime.ToString(),
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    FullName = x.FullName,
+                   
+
+                }).ToList();
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
     }
 }

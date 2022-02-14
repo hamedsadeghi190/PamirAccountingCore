@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PamirAccounting.Domains;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,9 @@ namespace PamirAccounting.Models
         public string UserName{ get; set; }
         public string Status { get; set; }
         public string FullName { get; set; }
+        public string Phone { get; set; }
+        public string Mobile { get; set; }
+      
     }
 
     public class UnKownTransactionModel
