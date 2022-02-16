@@ -208,11 +208,7 @@ namespace PamirAccounting.UI
             FrmContacts.ShowDialog();
         }
 
-        private void barBtnDebit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            var FrmDebit = new DebitListFrm();
-            FrmDebit.ShowDialog();
-        }
+       
 
         private void barBtnReceiveCash_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

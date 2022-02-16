@@ -29,7 +29,11 @@ namespace PamirAccounting.Models
         public string FullName { get; set; }
         public string Phone { get; set; }
         public string Mobile { get; set; }
-      
+
+        public long TotalWithdrawAmount { get; set; }
+        public long TotalDepositAmount { get; set; }
+    
+
     }
 
     public class UnKownTransactionModel

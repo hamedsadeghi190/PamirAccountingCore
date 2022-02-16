@@ -13,31 +13,46 @@ using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.GeneralLedger
 {
- 
-    public partial class DebtorListFrm : DevExpress.XtraEditors.XtraForm
+    public partial class TotalListFrm : DevExpress.XtraEditors.XtraForm
     {
         private UnitOfWork unitOfWork;
-        private int? _Id;
-        private Domains.Customer _Customer;
         private List<ComboBoxModel> _Actions = new List<ComboBoxModel>();
         private List<TransactionModel> _dataList = new List<TransactionModel>();
         private List<TransactionsGroupModel> _GroupedDataList;
         private List<TransactionsGroupModel> _dataListTotal;
         private List<ComboBoxModel> _Currencies = new List<ComboBoxModel>();
         private List<ComboBoxModel> _Groups = new List<ComboBoxModel>();
-        public DebtorListFrm()
+
+        public TotalListFrm()
         {
+
             InitializeComponent();
             unitOfWork = new UnitOfWork();
 
         }
 
-        private void DebtorListFrm_Load(object sender, EventArgs e)
+    
+        private void initGrid()
         {
-            InitForm();
-            LoadData();
-            initGrid();
+            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
+            HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            for (int i = 0; i < 8; i++)
+            {
+                gridCreditor.Columns[i].HeaderCell.Style = HeaderStyle;
+            }
+            this.gridCreditor.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            ////////***************/////////////////
+            DataGridViewCellStyle HeaderStyle1 = new DataGridViewCellStyle();
+            HeaderStyle1.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            for (int i = 0; i < 6; i++)
+            {
+                grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
+            }
+            this.grdTotals.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+
         }
+
+
 
         private void InitForm()
         {
@@ -55,29 +70,31 @@ namespace PamirAccounting.Forms.GeneralLedger
             _Groups.AddRange(unitOfWork.CustomerGroups.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
 
         }
+
         private void LoadData()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllDeposit(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllTotal(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             GellAll(tmpDataList);
         }
-        private void initGrid()
-        {
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
-            for (int i = 0; i < 7; i++)
-            {
-                gridCreditor.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.gridCreditor.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
-            ////////***************/////////////////
-            DataGridViewCellStyle HeaderStyle1 = new DataGridViewCellStyle();
-            HeaderStyle1.Font = new Font("B Nazanin", 12, FontStyle.Bold);
-            for (int i = 0; i < 3; i++)
-            {
-                grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
-            }
-            this.grdTotals.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
 
+        private void TotalLiatFrm_Load(object sender, EventArgs e)
+        {
+            InitForm();
+            LoadData();
+            initGrid();
+        }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(txtSearch.Text.Length>0)
+            {
+                var tmpDataList = unitOfWork.TransactionServices.GetAllTotalCustomers(txtSearch.Text);
+                GellAll(tmpDataList);
+            }
+            else
+            {
+                LoadData();
+            }
         }
 
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
@@ -91,12 +108,12 @@ namespace PamirAccounting.Forms.GeneralLedger
             cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
             if ((int)cmbCurrencies.SelectedValue == 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllDeposit(null);
+                _dataList = unitOfWork.TransactionServices.GetAllTotal(null);
             }
 
             if ((int)cmbCurrencies.SelectedValue > 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllDeposit((int)cmbCurrencies.SelectedValue);
+                _dataList = unitOfWork.TransactionServices.GetAllTotal((int)cmbCurrencies.SelectedValue);
                 GellAll(_dataList);
             }
             else
@@ -110,20 +127,7 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         }
 
-        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (txtSearch.Text.Length > 0)
-            {
-                var tmpDataList = unitOfWork.TransactionServices.GetAllDepositCustomers(txtSearch.Text);
-                GellAll(tmpDataList);
-            }
-            else
-            {
-                LoadData();
-            }
-        }
-
-        private void DebtorListFrm_KeyUp(object sender, KeyEventArgs e)
+        private void TotalLiatFrm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
@@ -158,13 +162,15 @@ namespace PamirAccounting.Forms.GeneralLedger
                     curenncySummery.Phone = item.Phone;
                     curenncySummery.Mobile = item.Mobile;
                     item.RemainigAmount = Deposit - WithDraw;
+           
                     _dataList.Add(item);
                 }
 
                 curenncySummery.TotalDepositAmount = totalDeposit;
                 curenncySummery.TotalWithdrawAmount = totalWithDraw;
                 remaining = totalDeposit - totalWithDraw;
-                curenncySummery.RemainigAmount = remaining;
+                curenncySummery.RemainigAmount = remaining; 
+                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "طلبکار" : "بدهکار";
                 _GroupedDataList.Add(curenncySummery);
 
             }
@@ -172,10 +178,12 @@ namespace PamirAccounting.Forms.GeneralLedger
             gridCreditor.AutoGenerateColumns = false;
             gridCreditor.DataSource = _GroupedDataList;
             _GroupedDataList = new List<TransactionsGroupModel>();
+
             foreach (var currency in groupedCurrency)
             {
                 var curenncySummery2 = new TransactionsGroupModel();
-                long totalWithDraw2 = 0, totalDeposit2 = 0, remaining2 = 0;
+                long totalWithDraw2 = 0, totalDeposit2 = 0, remaining2 = 0; 
+                curenncySummery2.Description = "جمع";
                 foreach (var item in currency.OrderBy(x => x.Id).ToList())
                 {
                     totalWithDraw2 += item.WithdrawAmount.Value;
@@ -187,10 +195,11 @@ namespace PamirAccounting.Forms.GeneralLedger
                 curenncySummery2.TotalDepositAmount = totalDeposit2;
                 curenncySummery2.TotalWithdrawAmount = totalWithDraw2;
                 remaining2 = totalDeposit2 - totalWithDraw2;
-                curenncySummery2.RemainigAmount = remaining2;
+                curenncySummery2.RemainigAmount = remaining2; 
+                curenncySummery2.Status = (remaining2 == 0) ? "" : (remaining2 > 0) ? "طلبکار" : "بدهکار";
                 _dataListTotal.Add(curenncySummery2);
-
             }
+            _dataList = _dataList.OrderBy(x => x.RowId).ToList();
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _dataListTotal;
 

@@ -78,10 +78,10 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_OdatPardakhti = new System.Windows.Forms.ToolStripMenuItem();
             this.دفترکلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.لیستمشتریانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.لیستکلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.لیستبستانکارانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TotalList = new System.Windows.Forms.ToolStripMenuItem();
+            this.DepositList = new System.Windows.Forms.ToolStripMenuItem();
             this.CreditorList = new System.Windows.Forms.ToolStripMenuItem();
-            this.دفترتلفنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phone = new System.Windows.Forms.ToolStripMenuItem();
             this.صورتسودوزیانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.بلانسحسابToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.صورتحسابسودوزیانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,10 +100,10 @@ namespace PamirAccounting.Forms
             this.btnNewAccount = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_CreditorList = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btn_Deposit = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblUser = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -565,10 +565,10 @@ namespace PamirAccounting.Forms
             // 
             this.دفترکلToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.لیستمشتریانToolStripMenuItem,
-            this.لیستکلToolStripMenuItem,
-            this.لیستبستانکارانToolStripMenuItem,
+            this.TotalList,
+            this.DepositList,
             this.CreditorList,
-            this.دفترتلفنToolStripMenuItem,
+            this.phone,
             this.صورتسودوزیانToolStripMenuItem,
             this.بلانسحسابToolStripMenuItem,
             this.صورتحسابسودوزیانToolStripMenuItem,
@@ -590,23 +590,25 @@ namespace PamirAccounting.Forms
             this.لیستمشتریانToolStripMenuItem.Size = new System.Drawing.Size(245, 54);
             this.لیستمشتریانToolStripMenuItem.Text = "لیست مشتریان";
             // 
-            // لیستکلToolStripMenuItem
+            // TotalList
             // 
-            this.لیستکلToolStripMenuItem.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.لیستکلToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("لیستکلToolStripMenuItem.Image")));
-            this.لیستکلToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.لیستکلToolStripMenuItem.Name = "لیستکلToolStripMenuItem";
-            this.لیستکلToolStripMenuItem.Size = new System.Drawing.Size(245, 54);
-            this.لیستکلToolStripMenuItem.Text = "لیست کل";
+            this.TotalList.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TotalList.Image = ((System.Drawing.Image)(resources.GetObject("TotalList.Image")));
+            this.TotalList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.TotalList.Name = "TotalList";
+            this.TotalList.Size = new System.Drawing.Size(245, 54);
+            this.TotalList.Text = "لیست کل";
+            this.TotalList.Click += new System.EventHandler(this.TotalList_Click);
             // 
-            // لیستبستانکارانToolStripMenuItem
+            // DepositList
             // 
-            this.لیستبستانکارانToolStripMenuItem.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.لیستبستانکارانToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("لیستبستانکارانToolStripMenuItem.Image")));
-            this.لیستبستانکارانToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.لیستبستانکارانToolStripMenuItem.Name = "لیستبستانکارانToolStripMenuItem";
-            this.لیستبستانکارانToolStripMenuItem.Size = new System.Drawing.Size(245, 54);
-            this.لیستبستانکارانToolStripMenuItem.Text = "لیست بستانکاران";
+            this.DepositList.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DepositList.Image = ((System.Drawing.Image)(resources.GetObject("DepositList.Image")));
+            this.DepositList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.DepositList.Name = "DepositList";
+            this.DepositList.Size = new System.Drawing.Size(245, 54);
+            this.DepositList.Text = "لیست طلبکاران";
+            this.DepositList.Click += new System.EventHandler(this.DepositList_Click);
             // 
             // CreditorList
             // 
@@ -618,14 +620,15 @@ namespace PamirAccounting.Forms
             this.CreditorList.Text = "لیست بدهکاران";
             this.CreditorList.Click += new System.EventHandler(this.CreditorList_Click);
             // 
-            // دفترتلفنToolStripMenuItem
+            // phone
             // 
-            this.دفترتلفنToolStripMenuItem.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.دفترتلفنToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("دفترتلفنToolStripMenuItem.Image")));
-            this.دفترتلفنToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.دفترتلفنToolStripMenuItem.Name = "دفترتلفنToolStripMenuItem";
-            this.دفترتلفنToolStripMenuItem.Size = new System.Drawing.Size(245, 54);
-            this.دفترتلفنToolStripMenuItem.Text = "دفتر تلفن";
+            this.phone.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.phone.Image = ((System.Drawing.Image)(resources.GetObject("phone.Image")));
+            this.phone.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(245, 54);
+            this.phone.Text = "دفتر تلفن";
+            this.phone.Click += new System.EventHandler(this.phone_Click);
             // 
             // صورتسودوزیانToolStripMenuItem
             // 
@@ -653,6 +656,7 @@ namespace PamirAccounting.Forms
             this.صورتحسابسودوزیانToolStripMenuItem.Name = "صورتحسابسودوزیانToolStripMenuItem";
             this.صورتحسابسودوزیانToolStripMenuItem.Size = new System.Drawing.Size(245, 54);
             this.صورتحسابسودوزیانToolStripMenuItem.Text = "صورت حساب سود و زیان";
+            this.صورتحسابسودوزیانToolStripMenuItem.Visible = false;
             // 
             // گزارشموجودیکلToolStripMenuItem
             // 
@@ -662,6 +666,7 @@ namespace PamirAccounting.Forms
             this.گزارشموجودیکلToolStripMenuItem.Name = "گزارشموجودیکلToolStripMenuItem";
             this.گزارشموجودیکلToolStripMenuItem.Size = new System.Drawing.Size(245, 54);
             this.گزارشموجودیکلToolStripMenuItem.Text = "گزارش موجودی کل";
+            this.گزارشموجودیکلToolStripMenuItem.Visible = false;
             // 
             // تنظیماتToolStripMenuItem
             // 
@@ -837,24 +842,25 @@ namespace PamirAccounting.Forms
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btn_CreditorList
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(148, 408);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(178, 94);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "لیست بدهکاران";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn_CreditorList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
+            this.btn_CreditorList.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
+            this.btn_CreditorList.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
+            this.btn_CreditorList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
+            this.btn_CreditorList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_CreditorList.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_CreditorList.ForeColor = System.Drawing.Color.White;
+            this.btn_CreditorList.Image = ((System.Drawing.Image)(resources.GetObject("btn_CreditorList.Image")));
+            this.btn_CreditorList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_CreditorList.Location = new System.Drawing.Point(148, 408);
+            this.btn_CreditorList.Name = "btn_CreditorList";
+            this.btn_CreditorList.Size = new System.Drawing.Size(178, 94);
+            this.btn_CreditorList.TabIndex = 4;
+            this.btn_CreditorList.Text = "لیست بدهکاران";
+            this.btn_CreditorList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_CreditorList.UseVisualStyleBackColor = false;
+            this.btn_CreditorList.Click += new System.EventHandler(this.btn_CreditorList_Click);
             // 
             // button4
             // 
@@ -894,24 +900,25 @@ namespace PamirAccounting.Forms
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btn_Deposit
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(148, 308);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(178, 94);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "لیست بستانکاران";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btn_Deposit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
+            this.btn_Deposit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
+            this.btn_Deposit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
+            this.btn_Deposit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
+            this.btn_Deposit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Deposit.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Deposit.ForeColor = System.Drawing.Color.White;
+            this.btn_Deposit.Image = ((System.Drawing.Image)(resources.GetObject("btn_Deposit.Image")));
+            this.btn_Deposit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Deposit.Location = new System.Drawing.Point(148, 308);
+            this.btn_Deposit.Name = "btn_Deposit";
+            this.btn_Deposit.Size = new System.Drawing.Size(178, 94);
+            this.btn_Deposit.TabIndex = 7;
+            this.btn_Deposit.Text = "لیست طلبکاران";
+            this.btn_Deposit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Deposit.UseVisualStyleBackColor = false;
+            this.btn_Deposit.Click += new System.EventHandler(this.btn_Deposit_Click);
             // 
             // timer1
             // 
@@ -974,10 +981,10 @@ namespace PamirAccounting.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 746);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btn_Deposit);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn_CreditorList);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnNewAccount);
@@ -1039,10 +1046,10 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.ToolStripMenuItem ChequePaymentList;
         private System.Windows.Forms.ToolStripMenuItem دفترکلToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem لیستمشتریانToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem لیستکلToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem لیستبستانکارانToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TotalList;
+        private System.Windows.Forms.ToolStripMenuItem DepositList;
         private System.Windows.Forms.ToolStripMenuItem CreditorList;
-        private System.Windows.Forms.ToolStripMenuItem دفترتلفنToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem phone;
         private System.Windows.Forms.ToolStripMenuItem صورتسودوزیانToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem بلانسحسابToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem صورتحسابسودوزیانToolStripMenuItem;
@@ -1061,10 +1068,10 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.Button btnNewAccount;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_CreditorList;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn_Deposit;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblTime;

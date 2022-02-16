@@ -53,8 +53,6 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbGroup = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
@@ -215,7 +213,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.grdTotals.ReadOnly = true;
             this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdTotals.ShowEditingIcon = false;
-            this.grdTotals.Size = new System.Drawing.Size(1036, 125);
+            this.grdTotals.Size = new System.Drawing.Size(1036, 240);
             this.grdTotals.TabIndex = 106;
             // 
             // dataGridViewTextBoxColumn17
@@ -252,7 +250,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.groupBoxViewAccountCustomer.Controls.Add(this.btnprint);
             this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton5);
             this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(2, 28);
+            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(2, 19);
             this.groupBoxViewAccountCustomer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.Name = "groupBoxViewAccountCustomer";
             this.groupBoxViewAccountCustomer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -267,13 +265,11 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.groupBox1.Controls.Add(this.cmbCurrencies);
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cmbGroup);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(166, 50);
+            this.groupBox1.Location = new System.Drawing.Point(314, 50);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(860, 110);
+            this.groupBox1.Size = new System.Drawing.Size(685, 110);
             this.groupBox1.TabIndex = 112;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "جستجو";
@@ -281,7 +277,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             // cmbCurrencies
             // 
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(331, 39);
+            this.cmbCurrencies.Location = new System.Drawing.Point(390, 39);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(178, 34);
             this.cmbCurrencies.TabIndex = 118;
@@ -289,52 +285,32 @@ namespace PamirAccounting.Forms.GeneralLedger
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(53, 42);
+            this.txtSearch.Location = new System.Drawing.Point(112, 42);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
             this.txtSearch.Properties.AutoHeight = false;
             this.txtSearch.Size = new System.Drawing.Size(187, 33);
-            this.txtSearch.TabIndex = 117;
+            this.txtSearch.TabIndex = 119;
+            this.txtSearch.ToolTipAnchor = DevExpress.Utils.ToolTipAnchor.Object;
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(239, 46);
+            this.label4.Location = new System.Drawing.Point(298, 46);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(68, 26);
             this.label4.TabIndex = 116;
             this.label4.Text = "نام حساب";
             // 
-            // cmbGroup
-            // 
-            this.cmbGroup.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cmbGroup.FormattingEnabled = true;
-            this.cmbGroup.Location = new System.Drawing.Point(570, 42);
-            this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(198, 34);
-            this.cmbGroup.TabIndex = 115;
-            this.cmbGroup.SelectedValueChanged += new System.EventHandler(this.cmbGroup_SelectedValueChanged);
-            this.cmbGroup.TextChanged += new System.EventHandler(this.cmbGroup_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(770, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 26);
-            this.label2.TabIndex = 114;
-            this.label2.Text = "گروه";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(515, 44);
+            this.label1.Location = new System.Drawing.Point(574, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 26);
             this.label1.TabIndex = 111;
@@ -347,7 +323,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.btnprint.Location = new System.Drawing.Point(53, 84);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(39, 41);
-            this.btnprint.TabIndex = 110;
+            this.btnprint.TabIndex = 120;
             this.btnprint.Text = "چاپ";
             // 
             // simpleButton5
@@ -356,7 +332,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.simpleButton5.Location = new System.Drawing.Point(8, 84);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton5.TabIndex = 111;
+            this.simpleButton5.TabIndex = 121;
             this.simpleButton5.Text = "راهنما";
             // 
             // CreditorListFrm
@@ -365,7 +341,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1038, 843);
+            this.ClientSize = new System.Drawing.Size(1038, 957);
             this.Controls.Add(this.groupBoxViewAccountCustomer);
             this.Controls.Add(this.grdTotals);
             this.Controls.Add(this.gridCreditor);
@@ -377,6 +353,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.CreditorListFrm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CreditorListFrm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.gridCreditor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTotals)).EndInit();
             this.groupBoxViewAccountCustomer.ResumeLayout(false);
@@ -403,8 +380,6 @@ namespace PamirAccounting.Forms.GeneralLedger
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.TextEdit txtSearch;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbGroup;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnprint;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;

@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.GeneralLedger
@@ -22,15 +23,16 @@ namespace PamirAccounting.Forms.GeneralLedger
         private List<ComboBoxModel> _Actions = new List<ComboBoxModel>();
         private List<TransactionModel> _dataList = new List<TransactionModel>();
         private List<TransactionsGroupModel> _GroupedDataList;
+        private List<TransactionsGroupModel> _dataListTotal;
         private List<ComboBoxModel> _Currencies = new List<ComboBoxModel>();
         private List<ComboBoxModel> _Groups = new List<ComboBoxModel>();
 
         public CreditorListFrm()
         {
-            
+
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-      
+
         }
 
         private void CreditorListFrm_Load(object sender, EventArgs e)
@@ -59,93 +61,44 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         }
 
-      
+
 
         private void InitForm()
         {
+
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
             cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.TextChanged -= new EventHandler(cmbCurrencies_TextChanged);
             cmbCurrencies.DataSource = _Currencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
             cmbCurrencies.SelectedValueChanged += new EventHandler(cmbCurrencies_SelectedValueChanged);
-
+            cmbCurrencies.TextChanged += new EventHandler(cmbCurrencies_TextChanged);
             _Groups.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Groups.AddRange(unitOfWork.CustomerGroups.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-            cmbGroup.SelectedValueChanged -= new EventHandler(cmbGroup_SelectedValueChanged);
-            cmbGroup.DataSource = _Groups;
-            cmbGroup.ValueMember = "Id";
-            cmbGroup.DisplayMember = "Title";
-            cmbGroup.SelectedValueChanged += new EventHandler(cmbGroup_SelectedValueChanged);
+        
         }
 
-        
+        private void LoadData()
+        {
+            var tmpDataList = unitOfWork.TransactionServices.GetAllWithdraw(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            GellAll(tmpDataList);
+        }
 
         private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void LoadData()
-        {
-
-            var tmpDataList = unitOfWork.TransactionServices.GetAllWithdraw( ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
-            var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
-            _dataList = new List<TransactionModel>();
-            _GroupedDataList = new List<TransactionsGroupModel>();
-            foreach (var currency in grouped)
-            {
-                var curenncySummery = new TransactionsGroupModel();
-                curenncySummery.Description = "جمع";
-                long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
-                foreach (var item in currency.OrderBy(x => x.Id).ToList())
-                {
-                    totalWithDraw += item.WithdrawAmount.Value;
-                    totalDeposit += item.DepositAmount.Value;
-                    curenncySummery.CurrenyName = item.CurrenyName;
-                    item.RemainigAmount = totalDeposit - totalWithDraw;
-                    _dataList.Add(item);
-                }
-                curenncySummery.TotalDepositAmount = totalDeposit;
-                curenncySummery.TotalWithdrawAmount = totalWithDraw;
-                remaining = totalDeposit - totalWithDraw;
-                curenncySummery.RemainigAmount = remaining;
-                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
-                _GroupedDataList.Add(curenncySummery);
-
-            }
-            grdTotals.AutoGenerateColumns = false;
-            grdTotals.DataSource = _GroupedDataList;
-            _dataList = _dataList.OrderBy(x => x.RowId).ToList();
-            gridCreditor.AutoGenerateColumns = false;
-            gridCreditor.DataSource = _dataList;
-
-        }
+        
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
             if (txtSearch.Text.Length > 0)
             {
-                var customer = unitOfWork.Customers.Find(txtSearch.Text).Id;
-                _dataList = unitOfWork.TransactionServices.FindAll(x => x.SourceCustomerId == customer)
-                       .Include(x => x.Curreny)
-                    .Select(x => new TransactionModel
-                    {
-                        Id = x.Id,
-                        Description = x.Description,
-                        DepositAmount = x.DepositAmount,
-                        WithdrawAmount = x.WithdrawAmount,
-                        Phone = x.SourceCustomer.Phone,
-                        Mobile = x.SourceCustomer.Mobile,
-                        Date = x.Date.ToString(),
-                        TransactionDateTime = x.TransactionDateTime.ToString(),
-                        CurrenyId = x.CurrenyId,
-                        CurrenyName = x.Curreny.Name,
-                        FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-
-                    }).ToList();
-                gridCreditor.DataSource = _dataList;
+                var tmpDataList = unitOfWork.TransactionServices.GetAllWithdrawCustomers(txtSearch.Text);
+                GellAll(tmpDataList);
             }
             else
             {
@@ -164,29 +117,13 @@ namespace PamirAccounting.Forms.GeneralLedger
             cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
             if ((int)cmbCurrencies.SelectedValue == 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllWithdraw( null);
+                _dataList = unitOfWork.TransactionServices.GetAllWithdraw(null);
             }
 
             if ((int)cmbCurrencies.SelectedValue > 0)
             {
-                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name == (cmbCurrencies.Text) )
-                      .Include(x => x.Curreny)
-
-                       .Select(x => new TransactionModel
-                       {
-                           Id = x.Id,
-                           Description = x.Description,
-                           DepositAmount = x.DepositAmount,
-                           WithdrawAmount = x.WithdrawAmount,
-                           Phone = x.SourceCustomer.Phone,
-                           Mobile = x.SourceCustomer.Mobile,
-                           Date = x.Date.ToString(),
-                           TransactionDateTime = x.TransactionDateTime.ToString(),
-                           CurrenyId = x.CurrenyId,
-                           CurrenyName = x.Curreny.Name,
-                           FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-                       }).ToList();
-                gridCreditor.DataSource = _dataList;
+                _dataList = unitOfWork.TransactionServices.GetAllWithdraw((int)cmbCurrencies.SelectedValue);
+                GellAll(_dataList);
             }
             else
             {
@@ -194,51 +131,83 @@ namespace PamirAccounting.Forms.GeneralLedger
             }
         }
 
-        private void cmbGroup_TextChanged(object sender, EventArgs e)
-        {
-            _Groups.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Groups.AddRange(unitOfWork.CustomerGroups.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-            cmbGroup.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbGroup.DataSource = _Groups;
-            cmbGroup.ValueMember = "Id";
-            cmbGroup.DisplayMember = "Title";
-            cmbGroup.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            if ((int)cmbGroup.SelectedValue == 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAllWithdraw(null);
-            }
-
-            if ((int)cmbGroup.SelectedValue > 0)
-            {
-                var groupId = unitOfWork.CustomerServices.FindFirst(p => p.GroupId == (int)cmbGroup.SelectedValue).Id;
-                _dataList = unitOfWork.TransactionServices.FindAll(x => x.SourceCustomerId==groupId)
-                      .Include(x => x.Curreny)
-                       .Select(x => new TransactionModel
-                       {
-                           Id = x.Id,
-                           Description = x.Description,
-                           DepositAmount = x.DepositAmount,
-                           WithdrawAmount = x.WithdrawAmount,
-                           Phone = x.SourceCustomer.Phone,
-                           Mobile = x.SourceCustomer.Mobile,
-                           Date = x.Date.ToString(),
-                           TransactionDateTime = x.TransactionDateTime.ToString(),
-                           CurrenyId = x.CurrenyId,
-                           CurrenyName = x.Curreny.Name,
-                           FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-                       }).ToList();
-                gridCreditor.DataSource = _dataList;
-            }
-            else
-            {
-                LoadData();
-            }
-        
-        }
+   
 
         private void cmbGroup_SelectedValueChanged(object sender, EventArgs e)
         {
 
+        }
+        private  void GellAll(List<TransactionModel> _list)
+        {
+            var tmpDataList=_list;
+            var grouped = tmpDataList.GroupBy(x => new { x.CurrenyId, x.SourceCustomerId });
+            var groupedCurrency = tmpDataList.GroupBy(x => new { x.CurrenyId });
+            _dataListTotal = new List<TransactionsGroupModel>();
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in grouped)
+            {
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0, WithDraw = 0, Deposit = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw += item.WithdrawAmount.Value;
+                    totalDeposit += item.DepositAmount.Value;
+                    WithDraw = item.WithdrawAmount.Value;
+                    Deposit = item.DepositAmount.Value;
+                    curenncySummery.CurrenyName = item.CurrenyName;
+                    curenncySummery.FullName = item.FullName;
+                    curenncySummery.RowId = item.RowId;
+                    curenncySummery.Phone = item.Phone;
+                    curenncySummery.Mobile = item.Mobile;
+                    item.RemainigAmount = Deposit - WithDraw;
+                    _dataList.Add(item);
+                }
+
+                curenncySummery.TotalDepositAmount = totalDeposit;
+                curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                remaining = totalDeposit - totalWithDraw;
+                curenncySummery.RemainigAmount = remaining;
+                _GroupedDataList.Add(curenncySummery);
+
+            }
+            _GroupedDataList = _GroupedDataList.OrderBy(x => x.RowId).ToList();
+            gridCreditor.AutoGenerateColumns = false;
+            gridCreditor.DataSource = _GroupedDataList;
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in groupedCurrency)
+            {
+                var curenncySummery2 = new TransactionsGroupModel();
+                long totalWithDraw2 = 0, totalDeposit2 = 0, remaining2 = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw2 += item.WithdrawAmount.Value;
+                    totalDeposit2 += item.DepositAmount.Value;
+                    curenncySummery2.CurrenyName = item.CurrenyName;
+                    item.RemainigAmount = totalDeposit2 - totalWithDraw2;
+                    _dataList.Add(item);
+                }
+                curenncySummery2.TotalDepositAmount = totalDeposit2;
+                curenncySummery2.TotalWithdrawAmount = totalWithDraw2;
+                remaining2 = totalDeposit2 - totalWithDraw2;
+                curenncySummery2.RemainigAmount = remaining2;
+                _dataListTotal.Add(curenncySummery2);
+
+            }
+            grdTotals.AutoGenerateColumns = false;
+            grdTotals.DataSource = _dataListTotal;
+          
+        }
+
+        private void CreditorListFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
     }
 }

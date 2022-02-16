@@ -182,13 +182,13 @@
     <Compile Update="Forms\GeneralLedger\CreditorListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\GeneralLedger\DebitListFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\GeneralLedger\DebtorListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\GeneralLedger\ShowDebitListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GeneralLedger\TotalListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Groups\GroupCreateUpdateFrm.cs">

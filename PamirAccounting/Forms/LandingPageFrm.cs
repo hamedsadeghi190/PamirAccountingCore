@@ -10,6 +10,7 @@ using PamirAccounting.UI.Forms.Banks;
 using PamirAccounting.UI.Forms.Currencies;
 using PamirAccounting.UI.Forms.CurrencyAgencies;
 using PamirAccounting.UI.Forms.Customers;
+using PamirAccounting.UI.Forms.GeneralLedger;
 using PamirAccounting.UI.Forms.Groups;
 using PamirAccounting.UI.Forms.Header;
 using PamirAccounting.UI.Forms.Settings;
@@ -372,6 +373,37 @@ namespace PamirAccounting.Forms
         private void CreditorList_Click(object sender, EventArgs e)
         {
              var frm = new CreditorListFrm();
+            frm.ShowDialog();
+        }
+
+        private void DepositList_Click(object sender, EventArgs e)
+        {
+            var frm = new DebtorListFrm();
+            frm.ShowDialog();
+        }
+
+        private void btn_Deposit_Click(object sender, EventArgs e)
+        {
+            var frm = new DebtorListFrm();
+            frm.ShowDialog();
+        }
+
+        private void btn_CreditorList_Click(object sender, EventArgs e)
+        {
+            var frm = new CreditorListFrm();
+            frm.ShowDialog();
+
+        }
+
+        private void phone_Click(object sender, EventArgs e)
+        {
+            var frm = new ContactsListFrm();
+            frm.ShowDialog();
+        }
+
+        private void TotalList_Click(object sender, EventArgs e)
+        {
+            var frm = new TotalListFrm();
             frm.ShowDialog();
         }
     }

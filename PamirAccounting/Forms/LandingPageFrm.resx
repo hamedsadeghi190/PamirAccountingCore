@@ -1230,7 +1230,7 @@
         NH8Brmd4BUBs1qQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="لیستکلToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="TotalList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAACoZJREFUaEPtmnlQVFcWxqFFuwGjgmBiLBEcUBYFNQgIDJggIEQjGlmMUQmgRmKi
@@ -1281,7 +1281,7 @@
         F/r53MbM7L9oYRv+t2I+rAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="لیستبستانکارانToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="DepositList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAB9dJREFUaEPtmntQVFUcxxERdkMTxZRYBQFheSgKlciEVGNYzFgog070sGnIxjBE
@@ -1353,7 +1353,7 @@
         MAosQ9pxjwL8cbsJU6e4MybT6kMZT0M4Y6RUzeP5FxQJscFtCZ/tAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="دفترتلفنToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="phone.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAB6xJREFUaEPVmglUVGUUx2cGEQRCFlcWZYepQMVUSMoQhUTFBdNjIop7WlDmUVBW
@@ -2295,7 +2295,7 @@
         /CZneJH/clMFEyS/7uhTuOPQ0D/+a6levLgPSwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_CreditorList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAA2NJREFUaEPtmkmvDFEYhq95iikxk5gSNoT4EVY2YiPYWIuwktghdmK6QQxrG7FA
@@ -2371,7 +2371,7 @@
         f4CToc31NMgaY70HnMBe8CWzEtnrBHxMXQvXrTCoeX7ub+7WdBPj5iciAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_Deposit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAA2NJREFUaEPtmkmvDFEYhq95iikxk5gSNoT4EVY2YiPYWIuwktghdmK6QQxrG7FA

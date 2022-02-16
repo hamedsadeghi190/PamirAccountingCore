@@ -718,7 +718,7 @@ namespace PamirAccounting.UI
             this.barBtnDebit.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.barBtnDebit.LargeWidth = 110;
             this.barBtnDebit.Name = "barBtnDebit";
-            this.barBtnDebit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDebit_ItemClick);
+           // this.barBtnDebit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDebit_ItemClick);//
             // 
             // barBtnContacts
             // 
