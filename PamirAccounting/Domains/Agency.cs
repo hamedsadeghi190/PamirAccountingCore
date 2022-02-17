@@ -9,7 +9,6 @@ namespace PamirAccounting.Domains
     {
         public Agency()
         {
-            CurrencyAgencies = new HashSet<CurrencyAgency>();
             Users = new HashSet<User>();
         }
 
@@ -25,7 +24,6 @@ namespace PamirAccounting.Domains
         public string Dsc { get; set; }
 
         public virtual Currency Curreny { get; set; }
-        public virtual ICollection<CurrencyAgency> CurrencyAgencies { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }
 }

@@ -13,13 +13,12 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
     {
         private UnitOfWork unitOfWork;
         private int? _Id;
-        private List<ComboBoxModel> _agencies;
         private List<ComboBoxModel> _Currencies;
         private List<ComboBoxModel> _DestCurrencies = new List<ComboBoxModel>();
         private List<ComboBoxModel> _Actions = new List<ComboBoxModel>();
         private List<ComboBoxModel> _RoundLimit = new List<ComboBoxModel>();
         private List<ComboBoxModel> _exchangeRate = new List<ComboBoxModel>();
-        private CurrencyAgency _CurrencyAgency;
+        private CurrenciesMapping _CurrenciesMapping;
         public CurrencyAgenciesCreateUpdateFrm()
         {
             InitializeComponent();
@@ -34,7 +33,6 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         private void initData()
         {
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
-            _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbSourceCurreny.DataSource = _Currencies;
             cmbSourceCurreny.ValueMember = "Id";
             cmbSourceCurreny.DisplayMember = "Title";
@@ -44,11 +42,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             cmbDescCurenccy.ValueMember = "Id";
             cmbDescCurenccy.DisplayMember = "Title";
 
-
-            cmbAgency.DataSource = _agencies;
-            cmbAgency.ValueMember = "Id";
-            cmbAgency.DisplayMember = "Title";
-
+   
 
             _exchangeRate.Add(new ComboBoxModel() { Id = 1, Title = "عادی" });
             _exchangeRate.Add(new ComboBoxModel() { Id = 10, Title = "10 عدد" });
@@ -91,13 +85,13 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
         private void loadEditData()
         {
-            _CurrencyAgency = unitOfWork.CurrencyAgencies.FindFirst(x => x.Id == _Id);
-            cmbAgency.SelectedValue = _CurrencyAgency.AgencyId;
-            cmbAction.SelectedValue = _CurrencyAgency.Action;
-            cmbSourceCurreny.SelectedValue = _CurrencyAgency.SourceCurrenyId;
-            cmbDescCurenccy.SelectedValue = _CurrencyAgency.DestiniationCurrenyId;
-            cmbroundLimit.SelectedValue = _CurrencyAgency.RoundLimit;
-            cmbExchangeRate.SelectedValue = _CurrencyAgency.ExchangeRate;
+            _CurrenciesMapping = unitOfWork.CurrenciesMappings.FindFirst(x => x.Id == _Id);
+ 
+            cmbAction.SelectedValue = _CurrenciesMapping.Action;
+            cmbSourceCurreny.SelectedValue = _CurrenciesMapping.SourceCurrenyId;
+            cmbDescCurenccy.SelectedValue = _CurrenciesMapping.DestiniationCurrenyId;
+            cmbroundLimit.SelectedValue = _CurrenciesMapping.RoundLimit;
+            cmbExchangeRate.SelectedValue = _CurrenciesMapping.ExchangeRate;
         }
 
       
@@ -113,27 +107,27 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             {
                 if (_Id != null)
                 {
-                    _CurrencyAgency.AgencyId = (int)cmbAgency.SelectedValue;
-                    _CurrencyAgency.Action = (int)cmbAction.SelectedValue;
-                    _CurrencyAgency.SourceCurrenyId = (int)cmbSourceCurreny.SelectedValue;
-                    _CurrencyAgency.DestiniationCurrenyId = (int)cmbDescCurenccy.SelectedValue;
-                    _CurrencyAgency.RoundLimit = (int)cmbroundLimit.SelectedValue;
-                    _CurrencyAgency.ExchangeRate = (int)cmbExchangeRate.SelectedValue;
 
-                    unitOfWork.CurrencyAgenciesServices.Update(_CurrencyAgency);
+                    _CurrenciesMapping.Action = (int)cmbAction.SelectedValue;
+                    _CurrenciesMapping.SourceCurrenyId = (int)cmbSourceCurreny.SelectedValue;
+                    _CurrenciesMapping.DestiniationCurrenyId = (int)cmbDescCurenccy.SelectedValue;
+                    _CurrenciesMapping.RoundLimit = (int)cmbroundLimit.SelectedValue;
+                    _CurrenciesMapping.ExchangeRate = (int)cmbExchangeRate.SelectedValue;
+
+                    unitOfWork.CurrenciesMappingServices.Update(_CurrenciesMapping);
                 }
                 else
                 {
-                    var newCurrencyAgency = new CurrencyAgency()
+                    var newCurrencyMapping= new CurrenciesMapping()
                     {
-                        AgencyId = (int)cmbAgency.SelectedValue,
+             
                         Action = (int)cmbAction.SelectedValue,
                         SourceCurrenyId = (int)cmbSourceCurreny.SelectedValue,
                         DestiniationCurrenyId = (int)cmbDescCurenccy.SelectedValue,
                         RoundLimit = (int)cmbroundLimit.SelectedValue,
                         ExchangeRate = (int)cmbExchangeRate.SelectedValue,
                     };
-                    unitOfWork.CurrencyAgenciesServices.Insert(newCurrencyAgency);
+                    unitOfWork.CurrenciesMappingServices.Insert(newCurrencyMapping);
 
                 }
                 unitOfWork.SaveChanges();

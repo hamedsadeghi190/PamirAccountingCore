@@ -34,12 +34,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.cmbroundLimit = new System.Windows.Forms.ComboBox();
             this.cmbExchangeRate = new System.Windows.Forms.ComboBox();
             this.cmbAction = new System.Windows.Forms.ComboBox();
-            this.cmbAgency = new System.Windows.Forms.ComboBox();
             this.cmbDescCurenccy = new System.Windows.Forms.ComboBox();
             this.cmbSourceCurreny = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,12 +53,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.groupBox1.Controls.Add(this.cmbroundLimit);
             this.groupBox1.Controls.Add(this.cmbExchangeRate);
             this.groupBox1.Controls.Add(this.cmbAction);
-            this.groupBox1.Controls.Add(this.cmbAgency);
             this.groupBox1.Controls.Add(this.cmbDescCurenccy);
             this.groupBox1.Controls.Add(this.cmbSourceCurreny);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
@@ -72,13 +66,13 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.groupBox1.Size = new System.Drawing.Size(598, 229);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ثبت / ویرایش عملیات رمز ارز نمایندگی";
+            this.groupBox1.Text = "ثبت / ویرایش عملیات ارزها";
             // 
             // cmbroundLimit
             // 
             this.cmbroundLimit.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbroundLimit.FormattingEnabled = true;
-            this.cmbroundLimit.Location = new System.Drawing.Point(21, 141);
+            this.cmbroundLimit.Location = new System.Drawing.Point(318, 156);
             this.cmbroundLimit.Name = "cmbroundLimit";
             this.cmbroundLimit.Size = new System.Drawing.Size(177, 34);
             this.cmbroundLimit.TabIndex = 115;
@@ -87,7 +81,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             // 
             this.cmbExchangeRate.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbExchangeRate.FormattingEnabled = true;
-            this.cmbExchangeRate.Location = new System.Drawing.Point(318, 141);
+            this.cmbExchangeRate.Location = new System.Drawing.Point(318, 107);
             this.cmbExchangeRate.Name = "cmbExchangeRate";
             this.cmbExchangeRate.Size = new System.Drawing.Size(177, 34);
             this.cmbExchangeRate.TabIndex = 114;
@@ -96,25 +90,16 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             // 
             this.cmbAction.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbAction.FormattingEnabled = true;
-            this.cmbAction.Location = new System.Drawing.Point(21, 101);
+            this.cmbAction.Location = new System.Drawing.Point(21, 107);
             this.cmbAction.Name = "cmbAction";
             this.cmbAction.Size = new System.Drawing.Size(177, 34);
             this.cmbAction.TabIndex = 113;
-            // 
-            // cmbAgency
-            // 
-            this.cmbAgency.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cmbAgency.FormattingEnabled = true;
-            this.cmbAgency.Location = new System.Drawing.Point(318, 61);
-            this.cmbAgency.Name = "cmbAgency";
-            this.cmbAgency.Size = new System.Drawing.Size(177, 34);
-            this.cmbAgency.TabIndex = 110;
             // 
             // cmbDescCurenccy
             // 
             this.cmbDescCurenccy.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbDescCurenccy.FormattingEnabled = true;
-            this.cmbDescCurenccy.Location = new System.Drawing.Point(318, 101);
+            this.cmbDescCurenccy.Location = new System.Drawing.Point(318, 61);
             this.cmbDescCurenccy.Name = "cmbDescCurenccy";
             this.cmbDescCurenccy.Size = new System.Drawing.Size(177, 34);
             this.cmbDescCurenccy.TabIndex = 112;
@@ -128,48 +113,24 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.cmbSourceCurreny.Size = new System.Drawing.Size(177, 34);
             this.cmbSourceCurreny.TabIndex = 111;
             // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(408, 176);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(18, 26);
-            this.label8.TabIndex = 122;
-            this.label8.Text = "1";
-            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(496, 139);
+            this.label7.Location = new System.Drawing.Point(496, 111);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 26);
             this.label7.TabIndex = 120;
             this.label7.Text = "وضعیت نرخ";
             // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(496, 62);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 26);
-            this.label5.TabIndex = 118;
-            this.label5.Text = "نام نمایندگی";
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(496, 102);
+            this.label3.Location = new System.Drawing.Point(496, 65);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 26);
@@ -181,7 +142,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(196, 142);
+            this.label4.Location = new System.Drawing.Point(496, 159);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 26);
@@ -205,7 +166,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(196, 102);
+            this.label2.Location = new System.Drawing.Point(200, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 26);
@@ -219,10 +180,10 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.btnexitAgencyCurrency.Appearance.Options.UseFont = true;
             this.btnexitAgencyCurrency.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexitAgencyCurrency.ImageOptions.SvgImage")));
             this.btnexitAgencyCurrency.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnexitAgencyCurrency.Location = new System.Drawing.Point(95, 30);
+            this.btnexitAgencyCurrency.Location = new System.Drawing.Point(122, 12);
             this.btnexitAgencyCurrency.Name = "btnexitAgencyCurrency";
             this.btnexitAgencyCurrency.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnexitAgencyCurrency.Size = new System.Drawing.Size(83, 38);
+            this.btnexitAgencyCurrency.Size = new System.Drawing.Size(110, 38);
             this.btnexitAgencyCurrency.TabIndex = 18;
             this.btnexitAgencyCurrency.Text = "بازگشت";
             this.btnexitAgencyCurrency.Click += new System.EventHandler(this.btnexitAgencyCurrency_Click);
@@ -234,10 +195,10 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.btnSaveAgencyCurrency.Appearance.Options.UseFont = true;
             this.btnSaveAgencyCurrency.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveAgencyCurrency.ImageOptions.SvgImage")));
             this.btnSaveAgencyCurrency.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnSaveAgencyCurrency.Location = new System.Drawing.Point(6, 30);
+            this.btnSaveAgencyCurrency.Location = new System.Drawing.Point(6, 11);
             this.btnSaveAgencyCurrency.Name = "btnSaveAgencyCurrency";
             this.btnSaveAgencyCurrency.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnSaveAgencyCurrency.Size = new System.Drawing.Size(83, 38);
+            this.btnSaveAgencyCurrency.Size = new System.Drawing.Size(110, 38);
             this.btnSaveAgencyCurrency.TabIndex = 17;
             this.btnSaveAgencyCurrency.Text = "ثبت";
             this.btnSaveAgencyCurrency.Click += new System.EventHandler(this.btnSaveAgencyCurrency_Click);
@@ -246,9 +207,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             // 
             this.groupBox2.Controls.Add(this.btnSaveAgencyCurrency);
             this.groupBox2.Controls.Add(this.btnexitAgencyCurrency);
-            this.groupBox2.Location = new System.Drawing.Point(11, 245);
+            this.groupBox2.Location = new System.Drawing.Point(12, 250);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(598, 95);
+            this.groupBox2.Size = new System.Drawing.Size(598, 56);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
@@ -258,7 +219,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 345);
+            this.ClientSize = new System.Drawing.Size(620, 309);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -285,12 +246,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         private System.Windows.Forms.ComboBox cmbroundLimit;
         private System.Windows.Forms.ComboBox cmbExchangeRate;
         private System.Windows.Forms.ComboBox cmbAction;
-        private System.Windows.Forms.ComboBox cmbAgency;
         private System.Windows.Forms.ComboBox cmbDescCurenccy;
         private System.Windows.Forms.ComboBox cmbSourceCurreny;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;

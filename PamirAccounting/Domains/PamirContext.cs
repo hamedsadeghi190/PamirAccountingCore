@@ -22,8 +22,8 @@ namespace PamirAccounting.Domains
         public virtual DbSet<Cheque> Cheques { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<CurrenciesMapping> CurrenciesMappings { get; set; }
         public virtual DbSet<Currency> Currencies { get; set; }
-        public virtual DbSet<CurrencyAgency> CurrencyAgencies { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerGroup> CustomerGroups { get; set; }
         public virtual DbSet<Draft> Drafts { get; set; }
@@ -38,13 +38,13 @@ namespace PamirAccounting.Domains
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-DHSQIEN\\SQL2019;Database=PamirAccounting;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AI");
+            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AS_SC_UTF8");
 
             modelBuilder.Entity<Agency>(entity =>
             {
@@ -167,34 +167,29 @@ namespace PamirAccounting.Domains
                 entity.Property(e => e.NameFa).HasMaxLength(100);
             });
 
+            modelBuilder.Entity<CurrenciesMapping>(entity =>
+            {
+                entity.ToTable("CurrenciesMapping");
+
+                entity.HasIndex(e => e.DestiniationCurrenyId, "IX_CurrencyAgencies_DestiniationCurrenyId");
+
+                entity.HasOne(d => d.DestiniationCurreny)
+                    .WithMany(p => p.CurrenciesMappingDestiniationCurrenies)
+                    .HasForeignKey(d => d.DestiniationCurrenyId)
+                    .HasConstraintName("FK_CurrencyAgencies_Currencies_source");
+
+                entity.HasOne(d => d.SourceCurreny)
+                    .WithMany(p => p.CurrenciesMappingSourceCurrenies)
+                    .HasForeignKey(d => d.SourceCurrenyId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CurrencyAgencies_Currencies");
+            });
+
             modelBuilder.Entity<Currency>(entity =>
             {
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(100);
-            });
-
-            modelBuilder.Entity<CurrencyAgency>(entity =>
-            {
-                entity.HasIndex(e => e.AgencyId, "IX_CurrencyAgencies_AgencyId");
-
-                entity.HasIndex(e => e.DestiniationCurrenyId, "IX_CurrencyAgencies_DestiniationCurrenyId");
-
-                entity.HasOne(d => d.Agency)
-                    .WithMany(p => p.CurrencyAgencies)
-                    .HasForeignKey(d => d.AgencyId)
-                    .HasConstraintName("FK_CurrencyAgencies_agents");
-
-                entity.HasOne(d => d.DestiniationCurreny)
-                    .WithMany(p => p.CurrencyAgencyDestiniationCurrenies)
-                    .HasForeignKey(d => d.DestiniationCurrenyId)
-                    .HasConstraintName("FK_CurrencyAgencies_Currencies_source");
-
-                entity.HasOne(d => d.SourceCurreny)
-                    .WithMany(p => p.CurrencyAgencySourceCurrenies)
-                    .HasForeignKey(d => d.SourceCurrenyId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CurrencyAgencies_Currencies");
             });
 
             modelBuilder.Entity<Customer>(entity =>

@@ -52,7 +52,7 @@ namespace PamirAccounting.Forms.Drafts
             this.rate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rate.Name = "rate";
             this.rate.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.rate.Size = new System.Drawing.Size(610, 110);
+            this.rate.Size = new System.Drawing.Size(610, 68);
             this.rate.TabIndex = 0;
             this.rate.TabStop = false;
             this.rate.Text = "جستجو";
@@ -63,7 +63,7 @@ namespace PamirAccounting.Forms.Drafts
             this.btnNew.Appearance.Options.UseFont = true;
             this.btnNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNew.ImageOptions.SvgImage")));
             this.btnNew.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnNew.Location = new System.Drawing.Point(25, 32);
+            this.btnNew.Location = new System.Drawing.Point(8, 22);
             this.btnNew.Margin = new System.Windows.Forms.Padding(2);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(67, 38);
@@ -74,7 +74,7 @@ namespace PamirAccounting.Forms.Drafts
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(294, 42);
+            this.textBox1.Location = new System.Drawing.Point(340, 32);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(251, 27);
@@ -99,11 +99,11 @@ namespace PamirAccounting.Forms.Drafts
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.rategrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.rategrid.Location = new System.Drawing.Point(3, 128);
+            this.rategrid.Location = new System.Drawing.Point(3, 86);
             this.rategrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rategrid.Name = "rategrid";
             this.rategrid.RowTemplate.Height = 25;
-            this.rategrid.Size = new System.Drawing.Size(610, 336);
+            this.rategrid.Size = new System.Drawing.Size(610, 378);
             this.rategrid.TabIndex = 1;
             this.rategrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rategrid_CellContentClick);
             // 

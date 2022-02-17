@@ -4,6 +4,7 @@ using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 
@@ -80,7 +81,7 @@ namespace PamirAccounting.Forms.Currencies
             if (txtRate.Text.Length > 0)
             {
                 selectedCurrency.Action = byte.Parse(cmbAction.SelectedValue.ToString());
-                selectedCurrency.BaseRate = double.Parse(txtRate.Text);
+                selectedCurrency.BaseRate = Double.Parse(txtRate.Text.Replace(',', '.'), CultureInfo.InvariantCulture) ;
                 unitOfWork.CurrencyServices.Update(selectedCurrency);
                 unitOfWork.SaveChanges();
                 MessageBox.Show("نرخ بروز رسانی شد");

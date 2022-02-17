@@ -101,15 +101,15 @@ namespace PamirAccounting.Services
         public AgencyServices AgencyServices => (AgencyServices)Agencies;
         #endregion
 
-        #region CurrencyAgencies
+        #region CurrenciesMappingServices
 
-        private IRepository<CurrencyAgency> _currencyAgencies;
+        private IRepository<CurrenciesMapping> _currenciesMappings;
 
-        public IRepository<CurrencyAgency> CurrencyAgencies
+        public IRepository<CurrenciesMapping> CurrenciesMappings
         {
-            get { return _currencyAgencies = _currencyAgencies ?? new CurrencyAgenciesServices(_context, this, _mapper); }
+            get { return _currenciesMappings = _currenciesMappings ?? new CurrenciesMappingServices(_context, this, _mapper); }
         }
-        public CurrencyAgenciesServices CurrencyAgenciesServices => (CurrencyAgenciesServices)CurrencyAgencies;
+        public CurrenciesMappingServices CurrenciesMappingServices => (CurrenciesMappingServices)CurrenciesMappings;
         #endregion
 
         #region Header

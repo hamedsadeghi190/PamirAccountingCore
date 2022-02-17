@@ -27,7 +27,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
               loadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 8; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
@@ -52,8 +52,8 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
         private void loadData()
         {
-            dataList = unitOfWork.CurrencyAgenciesServices.GetAll();
-            dataGridView1.DataSource = dataList.Select(x => new { x.Id, x.AgencyName, x.SourceCurrenyName, x.DestiniationCurrenyName,x.ActionName , x.ExchangeRateShow, x.RoundLimitShow }).ToList();
+            dataList = unitOfWork.CurrenciesMappingServices.GetAll();
+            dataGridView1.DataSource = dataList.Select(x => new { x.Id, x.SourceCurrenyName, x.DestiniationCurrenyName,x.ActionName , x.ExchangeRateShow, x.RoundLimitShow }).ToList();
         }
 
 
@@ -80,7 +80,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
                 {
                     try
                     {
-                        unitOfWork.CurrencyAgenciesServices.Delete(new CurrencyAgency() { Id = dataList.ElementAt(e.RowIndex).Id });
+                        unitOfWork.CurrenciesMappingServices.Delete(new CurrenciesMapping() { Id = dataList.ElementAt(e.RowIndex).Id });
                         unitOfWork.SaveChanges();
                         loadData();
                     }
@@ -95,15 +95,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            if (txtSearch.Text.Length > 0)
-            {
-                dataList = unitOfWork.CurrencyAgencies.FindAll(y => y.Agency.Name.Contains(txtSearch.Text)).Select(x => new AgencyCurencyModel { Id = x.Id, AgencyName = x.Agency.Name }).ToList();
-                dataGridView1.DataSource = dataList;
-            }
-            else
-            {
-                loadData();
-            }
+           
         }
     }
 }

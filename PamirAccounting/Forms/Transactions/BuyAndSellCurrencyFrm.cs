@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using JntNum2Text;
+using Microsoft.EntityFrameworkCore;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
@@ -49,7 +50,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if(!(txtbuyerprice.Text.Length>0 && double.Parse(txtbuyerprice.Text)>0 && txtsellerprice.Text.Length > 0 && double.Parse(txtsellerprice.Text) > 0))
+            if (!(txtbuyerprice.Text.Length > 0 && double.Parse(txtbuyerprice.Text) > 0 && txtsellerprice.Text.Length > 0 && double.Parse(txtsellerprice.Text) > 0))
             {
                 MessageBox.Show("مبالغ وارد شده صحیح نمی باشد", "خطای  اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error,
 MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
@@ -273,7 +274,9 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
         private void txtsellerprice_TextChanged(object sender, EventArgs e)
         {
             ShowSellerChars();
+            calculateAmount();
             createDesc();
+           
         }
         private void ShowSellerChars()
         {
@@ -296,6 +299,46 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
         {
             ShowSellerChars();
             createDesc();
+            calculateAmount();
+        }
+
+        private void calculateAmount()
+        {
+            var sellCurrencyId = (int)cmbSellCurrencies.SelectedValue;
+            var buyerCurrencyId = (int)cmbCurrencybuyer.SelectedValue;
+            var sellerPrice = txtsellerprice.Text;
+            var sellerRate = txtrate.Text;
+
+            if (sellCurrencyId == buyerCurrencyId)
+            {
+                txtrate.Text = "1";
+                txtbuyerprice.Text = txtsellerprice.Text;
+                return ;
+            }
+
+            var currenyMapping = unitOfWork.CurrenciesMappings.FindAll(x => x.DestiniationCurrenyId == sellCurrencyId
+                                                                         && x.DestiniationCurrenyId == buyerCurrencyId)
+                                                                         .FirstOrDefault();
+
+            var sCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == sellCurrencyId);
+            var dCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == buyerCurrencyId);
+
+            if(sCurrency.Id == 1)
+            {
+                switch (dCurrency.Action)
+                {
+                    case 1:
+                        txtrate.Text = dCurrency.BaseRate.ToString();
+                        txtbuyerprice.Text = (double.Parse(txtsellerprice.Text) * dCurrency.BaseRate.Value).ToString();
+                        break;
+                    case 2:
+                        txtrate.Text = dCurrency.BaseRate.ToString();
+                        txtbuyerprice.Text = (double.Parse(txtsellerprice.Text) / dCurrency.BaseRate.Value).ToString();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         private void cmbDestCustomers_SelectedIndexChanged(object sender, EventArgs e)
@@ -306,17 +349,20 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
         private void cmbCurrencybuyer_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowbuyerChars();
+            calculateAmount();
             createDesc();
         }
 
         private void txtrate_TextChanged(object sender, EventArgs e)
         {
+            calculateAmount();
             createDesc();
         }
 
         private void txtbuyerprice_TextChanged(object sender, EventArgs e)
         {
             ShowbuyerChars();
+            calculateAmount();
             createDesc();
         }
 
@@ -329,7 +375,7 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
             catch (Exception ex)
             {
 
-                
+
             }
         }
 

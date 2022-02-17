@@ -11,8 +11,8 @@ namespace PamirAccounting.Domains
         {
             Agencies = new HashSet<Agency>();
             Banks = new HashSet<Bank>();
-            CurrencyAgencyDestiniationCurrenies = new HashSet<CurrencyAgency>();
-            CurrencyAgencySourceCurrenies = new HashSet<CurrencyAgency>();
+            CurrenciesMappingDestiniationCurrenies = new HashSet<CurrenciesMapping>();
+            CurrenciesMappingSourceCurrenies = new HashSet<CurrenciesMapping>();
             Customers = new HashSet<Customer>();
             DraftDepositCurrencies = new HashSet<Draft>();
             DraftTypeCurrencies = new HashSet<Draft>();
@@ -28,8 +28,8 @@ namespace PamirAccounting.Domains
 
         public virtual ICollection<Agency> Agencies { get; set; }
         public virtual ICollection<Bank> Banks { get; set; }
-        public virtual ICollection<CurrencyAgency> CurrencyAgencyDestiniationCurrenies { get; set; }
-        public virtual ICollection<CurrencyAgency> CurrencyAgencySourceCurrenies { get; set; }
+        public virtual ICollection<CurrenciesMapping> CurrenciesMappingDestiniationCurrenies { get; set; }
+        public virtual ICollection<CurrenciesMapping> CurrenciesMappingSourceCurrenies { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
         public virtual ICollection<Draft> DraftDepositCurrencies { get; set; }
         public virtual ICollection<Draft> DraftTypeCurrencies { get; set; }

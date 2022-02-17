@@ -10,14 +10,14 @@ using System.Linq;
 
 namespace PamirAccounting.Services.Services
 {
-    public class CurrencyAgenciesServices : Repository<CurrencyAgency>
+    public class CurrenciesMappingServices : Repository<CurrenciesMapping>
     {
         private readonly UnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly PamirContext _context;
 
-        #region BankServices
-        public CurrencyAgenciesServices(PamirContext context, UnitOfWork unitOfWork, IMapper mapper) : base(context)
+        #region CurrenciesMappingServices
+        public CurrenciesMappingServices(PamirContext context, UnitOfWork unitOfWork, IMapper mapper) : base(context)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -32,14 +32,12 @@ namespace PamirAccounting.Services.Services
             {
 
                 var dataList = FindAllReadonly()
-                    .Include(x => x.Agency)
                     .Include(x => x.SourceCurreny)
                     .Include(x => x.DestiniationCurreny)
 
                     .Select(x => new AgencyCurencyModel
                     {
                         Id = x.Id,
-                        AgencyName = x.Agency.Name,
                         SourceCurrenyName = x.SourceCurreny.Name,
                         DestiniationCurrenyName = x.DestiniationCurreny.Name,
                         ActionId = x.Action,
