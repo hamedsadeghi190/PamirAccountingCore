@@ -1,18 +1,13 @@
-﻿using DevExpress.XtraEditors;
-using JntNum2Text;
-using Microsoft.EntityFrameworkCore;
+﻿using JntNum2Text;
+using PamirAccounting.Domains;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -26,6 +21,10 @@ namespace PamirAccounting.Forms.Transactions
         private List<CurrencyViewModel> _DestCurrencies = new List<CurrencyViewModel>();
         private List<CurrencyViewModel> _Currencies;
         private List<ComboBoxModel> _Customers, _DestCustomers;
+
+        private int sellCurrencyId, buyerCurrencyId;
+        private double sellerPrice, sellerRate;
+        private Currency destiniationCurrency, sourceCurrency;
 
         public BuyAndSellCurrencyFrm(int Id, long? transActionId)
         {
@@ -53,7 +52,7 @@ namespace PamirAccounting.Forms.Transactions
             if (!(txtbuyerprice.Text.Length > 0 && double.Parse(txtbuyerprice.Text) > 0 && txtsellerprice.Text.Length > 0 && double.Parse(txtsellerprice.Text) > 0))
             {
                 MessageBox.Show("مبالغ وارد شده صحیح نمی باشد", "خطای  اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error,
-MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                                    MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                 return;
             }
 
@@ -276,24 +275,40 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
             ShowSellerChars();
             calculateAmount();
             createDesc();
-           
+
         }
         private void ShowSellerChars()
         {
-            if (txtsellerprice.Text.Length > 0)
+            try
             {
-                var currencyName = cmbSellCurrencies.Text;
-                label1.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtsellerprice.Text.Replace(",", ""))) } {currencyName}";
+                if (txtsellerprice.Text.Length > 0)
+                {
+                    var currencyName = cmbSellCurrencies.Text;
+                    label1.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtsellerprice.Text.Replace(",", ""))) } {currencyName}";
+                }
             }
+            catch (Exception)
+            {
+
+            }
+         
         }
 
         private void ShowbuyerChars()
         {
-            if (txtbuyerprice.Text.Length > 0)
+            try
             {
-                var currencyName = cmbCurrencybuyer.Text;
-                lbl_target_mablagh.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtbuyerprice.Text.Replace(",", ""))) } {currencyName}";
+                if (txtbuyerprice.Text.Length > 0)
+                {
+                    var currencyName = cmbCurrencybuyer.Text;
+                    lbl_target_mablagh.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtbuyerprice.Text.Replace(",", ""))) } {currencyName}";
+                }
             }
+            catch (Exception ex)
+            {
+             
+            }
+         
         }
         private void cmbSellCurrencies_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -302,44 +317,7 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
             calculateAmount();
         }
 
-        private void calculateAmount()
-        {
-            var sellCurrencyId = (int)cmbSellCurrencies.SelectedValue;
-            var buyerCurrencyId = (int)cmbCurrencybuyer.SelectedValue;
-            var sellerPrice = txtsellerprice.Text;
-            var sellerRate = txtrate.Text;
-
-            if (sellCurrencyId == buyerCurrencyId)
-            {
-                txtrate.Text = "1";
-                txtbuyerprice.Text = txtsellerprice.Text;
-                return ;
-            }
-
-            var currenyMapping = unitOfWork.CurrenciesMappings.FindAll(x => x.DestiniationCurrenyId == sellCurrencyId
-                                                                         && x.DestiniationCurrenyId == buyerCurrencyId)
-                                                                         .FirstOrDefault();
-
-            var sCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == sellCurrencyId);
-            var dCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == buyerCurrencyId);
-
-            if(sCurrency.Id == 1)
-            {
-                switch (dCurrency.Action)
-                {
-                    case 1:
-                        txtrate.Text = dCurrency.BaseRate.ToString();
-                        txtbuyerprice.Text = (double.Parse(txtsellerprice.Text) * dCurrency.BaseRate.Value).ToString();
-                        break;
-                    case 2:
-                        txtrate.Text = dCurrency.BaseRate.ToString();
-                        txtbuyerprice.Text = (double.Parse(txtsellerprice.Text) / dCurrency.BaseRate.Value).ToString();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
+       
 
         private void cmbDestCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -355,14 +333,70 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
 
         private void txtrate_TextChanged(object sender, EventArgs e)
         {
-            calculateAmount();
+
+            if (txtrate.Text.Length > 0)
+            {
+                calculateBuyRate(double.Parse(txtrate.Text.ToString()));
+            }
             createDesc();
         }
 
+        private void calculateBuyRate(double rate)
+        {
+            txtbuyerprice.Text = (double.Parse(txtsellerprice.Text) * rate).ToString();
+        }
+
+        private void calculateAmount()
+        {
+            sellCurrencyId = (int)cmbSellCurrencies.SelectedValue;
+            buyerCurrencyId = (int)cmbCurrencybuyer.SelectedValue;
+
+            if (sellCurrencyId == buyerCurrencyId)
+            {
+                txtrate.Text = "1";
+                txtbuyerprice.Text = txtsellerprice.Text;
+                return;
+            }
+            if(txtsellerprice.Text.Length>1)
+            {
+                return;
+            }
+
+            sellerPrice = double.Parse(txtsellerprice.Text);
+            sellerRate = double.Parse(txtrate.Text);
+
+            var currenyMapping = unitOfWork.CurrenciesMappings.FindAll(x => x.SourceCurrenyId == sellCurrencyId
+                                                                         && x.DestiniationCurrenyId == buyerCurrencyId)
+                                                                         .FirstOrDefault();
+
+            sourceCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == sellCurrencyId);
+            destiniationCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == buyerCurrencyId);
+
+            if (sourceCurrency.Id == 1)
+            {
+                switch (destiniationCurrency.Action)
+                {
+                    case 1:
+                        txtrate.Text = destiniationCurrency.BaseRate.ToString();
+                        txtbuyerprice.Text = (double.Parse(txtsellerprice.Text) * destiniationCurrency.BaseRate.Value).ToString();
+                        break;
+
+                    case 2:
+                        txtrate.Text = destiniationCurrency.BaseRate.ToString();
+                        txtbuyerprice.Text = (double.Parse(txtsellerprice.Text) / destiniationCurrency.BaseRate.Value).ToString();
+                        break;
+
+
+                    default:
+                        break;
+
+                }
+            }
+        }
         private void txtbuyerprice_TextChanged(object sender, EventArgs e)
         {
             ShowbuyerChars();
-            calculateAmount();
+            //calculateAmount();
             createDesc();
         }
 

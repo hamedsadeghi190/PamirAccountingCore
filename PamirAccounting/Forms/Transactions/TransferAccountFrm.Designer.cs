@@ -136,7 +136,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(460, 52);
+            this.label8.Location = new System.Drawing.Point(462, 52);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label8.Size = new System.Drawing.Size(45, 26);
@@ -150,7 +150,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.txtDesc.Location = new System.Drawing.Point(18, 171);
             this.txtDesc.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(443, 53);
+            this.txtDesc.Size = new System.Drawing.Size(443, 61);
             this.txtDesc.TabIndex = 5;
             this.txtDesc.Text = "";
             // 
@@ -158,7 +158,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(194, 93);
+            this.label9.Location = new System.Drawing.Point(197, 94);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 26);
             this.label9.TabIndex = 334;
@@ -168,7 +168,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(192, 52);
+            this.label1.Location = new System.Drawing.Point(196, 52);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(42, 26);
@@ -190,7 +190,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(460, 93);
+            this.label3.Location = new System.Drawing.Point(461, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 26);
             this.label3.TabIndex = 335;
@@ -200,7 +200,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(456, 133);
+            this.label2.Location = new System.Drawing.Point(460, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 26);
             this.label2.TabIndex = 333;
