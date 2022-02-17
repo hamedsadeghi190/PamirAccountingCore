@@ -171,7 +171,12 @@ namespace PamirAccounting.Forms.GeneralLedger
                 _GroupedDataList.Add(curenncySummery);
 
             }
-            _GroupedDataList = _GroupedDataList.OrderBy(x => x.RowId).ToList();
+            _GroupedDataList = _GroupedDataList.OrderBy(x => x.FullName).ToList();
+            int row = 1;
+            foreach (var item in _GroupedDataList)
+            {
+                item.RowId = row++;
+            }
             gridCreditor.AutoGenerateColumns = false;
             gridCreditor.DataSource = _GroupedDataList;
             _GroupedDataList = new List<TransactionsGroupModel>();
