@@ -208,25 +208,25 @@ namespace PamirAccounting.Forms.GeneralLedger
             PersianCalendar pc = new PersianCalendar();
             DateTime dt = DateTime.Now;
             string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-            var data = TotalPrint();
+            var data = Print();
+            var data2 = TotalPrint();
             var basedata = new reportbaseDAta() { Date = PersianDate };
             var report = StiReport.CreateNewReport();
-            report.Load(AppSetting.ReportPath + "DebtorListFrm.mrt");
-            report.RegData("myData", data);
+            report.Load(AppSetting.ReportPath + "DebtorList.mrt");
+            report.RegData("Data", data);
             report.RegData("basedata", basedata);
+            report.RegData("Data2", data2);
             report.Design();
             //report.Render();
             //report.Show();
         }
 
-        private List<TransactionsGroupModel> TotalPrint()
+        private List<TransactionsGroupModel> Print()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllTotal(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllDeposit(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             var grouped = tmpDataList.GroupBy(x => new { x.CurrenyId, x.SourceCustomerId });
-            var groupedCurrency = tmpDataList.GroupBy(x => new { x.CurrenyId });
             _dataListTotal = new List<TransactionsGroupModel>();
             _GroupedDataList = new List<TransactionsGroupModel>();
-            int row = 1;
             foreach (var currency in grouped)
             {
                 var curenncySummery = new TransactionsGroupModel();
@@ -240,11 +240,10 @@ namespace PamirAccounting.Forms.GeneralLedger
                     Deposit = item.DepositAmount.Value;
                     curenncySummery.CurrenyName = item.CurrenyName;
                     curenncySummery.FullName = item.FullName;
-
+                    curenncySummery.RowId = item.RowId;
                     curenncySummery.Phone = item.Phone;
                     curenncySummery.Mobile = item.Mobile;
                     item.RemainigAmount = Deposit - WithDraw;
-
                     _dataList.Add(item);
                 }
 
@@ -252,17 +251,53 @@ namespace PamirAccounting.Forms.GeneralLedger
                 curenncySummery.TotalWithdrawAmount = totalWithDraw;
                 remaining = totalDeposit - totalWithDraw;
                 curenncySummery.RemainigAmount = remaining;
-                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "طلبکار" : "بدهکار";
                 _GroupedDataList.Add(curenncySummery);
 
             }
             _GroupedDataList = _GroupedDataList.OrderBy(x => x.FullName).ToList();
+            int row = 1;
             foreach (var item in _GroupedDataList)
             {
                 item.RowId = row++;
             }
 
             return _GroupedDataList;
+        }
+
+  
+        private List<TransactionsGroupModel> TotalPrint()
+        {
+            var tmpDataList = unitOfWork.TransactionServices.GetAllDeposit(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var groupedCurrency = tmpDataList.GroupBy(x => new { x.CurrenyId });
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in groupedCurrency)
+            {
+                var curenncySummery2 = new TransactionsGroupModel();
+                long totalWithDraw2 = 0, totalDeposit2 = 0, remaining2 = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw2 += item.WithdrawAmount.Value;
+                    totalDeposit2 += item.DepositAmount.Value;
+                    curenncySummery2.CurrenyName = item.CurrenyName;
+                    item.RemainigAmount = totalDeposit2 - totalWithDraw2;
+                    _dataList.Add(item);
+                }
+                curenncySummery2.TotalDepositAmount = totalDeposit2;
+                curenncySummery2.TotalWithdrawAmount = totalWithDraw2;
+                remaining2 = totalDeposit2 - totalWithDraw2;
+                curenncySummery2.RemainigAmount = remaining2;
+                _dataListTotal.Add(curenncySummery2);
+
+            }
+          
+
+            return _dataListTotal; 
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

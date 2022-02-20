@@ -65,7 +65,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(549, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 26);
+            this.label1.Size = new System.Drawing.Size(37, 32);
             this.label1.TabIndex = 89;
             this.label1.Text = "نام ";
             // 
@@ -85,7 +85,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(240, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 26);
+            this.label3.Size = new System.Drawing.Size(46, 32);
             this.label3.TabIndex = 90;
             this.label3.Text = "گروه";
             // 
@@ -95,7 +95,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(550, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 26);
+            this.label4.Size = new System.Drawing.Size(102, 32);
             this.label4.TabIndex = 92;
             this.label4.Text = "نام خانوادگی";
             // 
@@ -115,7 +115,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(238, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 26);
+            this.label2.Size = new System.Drawing.Size(63, 32);
             this.label2.TabIndex = 93;
             this.label2.Text = "نوع ارز";
             // 
@@ -135,7 +135,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label6.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(552, 177);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 26);
+            this.label6.Size = new System.Drawing.Size(46, 32);
             this.label6.TabIndex = 95;
             this.label6.Text = "تلفن";
             // 
@@ -145,7 +145,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label5.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(551, 221);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 26);
+            this.label5.Size = new System.Drawing.Size(58, 32);
             this.label5.TabIndex = 97;
             this.label5.Text = "موبایل";
             // 
@@ -165,7 +165,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(553, 266);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 26);
+            this.label7.Size = new System.Drawing.Size(95, 32);
             this.label7.TabIndex = 99;
             this.label7.Text = "سقف اعتبار";
             // 
@@ -185,14 +185,14 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label8.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(237, 165);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 26);
+            this.label8.Size = new System.Drawing.Size(80, 32);
             this.label8.TabIndex = 100;
             this.label8.Text = "توضیحات";
             // 
             // txtDesc
             // 
             this.txtDesc.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtDesc.Location = new System.Drawing.Point(35, 166);
+            this.txtDesc.Location = new System.Drawing.Point(35, 171);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(202, 133);
             this.txtDesc.TabIndex = 88;
@@ -204,7 +204,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(35, 86);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(202, 34);
+            this.cmbCurrencies.Size = new System.Drawing.Size(202, 40);
             this.cmbCurrencies.TabIndex = 86;
             // 
             // cmbGroups
@@ -213,7 +213,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbGroups.FormattingEnabled = true;
             this.cmbGroups.Location = new System.Drawing.Point(35, 126);
             this.cmbGroups.Name = "cmbGroups";
-            this.cmbGroups.Size = new System.Drawing.Size(202, 34);
+            this.cmbGroups.Size = new System.Drawing.Size(202, 40);
             this.cmbGroups.TabIndex = 87;
             // 
             // groupBox1
@@ -287,7 +287,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 479);
             this.Controls.Add(this.groupBox2);

@@ -212,23 +212,7 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         }
 
-        private void btnprint_Click(object sender, EventArgs e)
-        {
-            PersianCalendar pc = new PersianCalendar();
-            DateTime dt = DateTime.Now;
-            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-            var data = TotalPrint();
-            var data2 = TotalSummeryPrint();
-            var basedata = new reportbaseDAta() { Date = PersianDate };
-            var report = StiReport.CreateNewReport();
-            report.Load(AppSetting.ReportPath + "TotalList.mrt");
-            report.RegData("myData", data);
-            report.RegData("myData2", data2);
-            report.RegData("basedata", basedata);
-            report.Design();
-            //report.Render();
-            //report.Show();
-        }
+
 
         private List<TransactionsGroupModel> TotalPrint( )
         {
@@ -309,6 +293,29 @@ namespace PamirAccounting.Forms.GeneralLedger
 
 
         private void groupBoxViewAccountCustomer_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var data = TotalPrint();
+            var data2 = TotalSummeryPrint();
+            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "TotalList.mrt");
+            report.RegData("myData", data);
+            report.RegData("myData2", data2);
+            report.RegData("basedata", basedata);
+            report.Design();
+            // report.Render();
+            //report.Show();
+        }
+
+        private void grdTotals_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
