@@ -62,7 +62,7 @@ namespace PamirAccounting.Forms.Users
             this.btnRowDelete});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(1, 142);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -146,9 +146,9 @@ namespace PamirAccounting.Forms.Users
             this.groupBox1.Controls.Add(this.BtnCreateNew);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(6, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox1.Size = new System.Drawing.Size(894, 121);
             this.groupBox1.TabIndex = 14;
@@ -159,7 +159,7 @@ namespace PamirAccounting.Forms.Users
             // 
             this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtsearch.Location = new System.Drawing.Point(517, 56);
-            this.txtsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtsearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(250, 39);
             this.txtsearch.TabIndex = 103;
@@ -180,7 +180,7 @@ namespace PamirAccounting.Forms.Users
             // 
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
             this.simpleButton3.Location = new System.Drawing.Point(8, 34);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(46, 50);
             this.simpleButton3.TabIndex = 105;
@@ -212,7 +212,8 @@ namespace PamirAccounting.Forms.Users
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "UsersListFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

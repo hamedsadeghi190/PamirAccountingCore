@@ -61,9 +61,9 @@ namespace PamirAccounting.UI.Forms.Header
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(12, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(831, 207);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -165,7 +165,7 @@ namespace PamirAccounting.UI.Forms.Header
             this.btnexit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexit.ImageOptions.SvgImage")));
             this.btnexit.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnexit.Location = new System.Drawing.Point(134, 45);
-            this.btnexit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnexit.Margin = new System.Windows.Forms.Padding(4);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(110, 47);
             this.btnexit.TabIndex = 68;
@@ -180,7 +180,7 @@ namespace PamirAccounting.UI.Forms.Header
             this.btnsave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsave.ImageOptions.SvgImage")));
             this.btnsave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnsave.Location = new System.Drawing.Point(20, 45);
-            this.btnsave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnsave.Margin = new System.Windows.Forms.Padding(4);
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(110, 47);
             this.btnsave.TabIndex = 67;
@@ -192,9 +192,9 @@ namespace PamirAccounting.UI.Forms.Header
             this.groupBox2.Controls.Add(this.btnsave);
             this.groupBox2.Controls.Add(this.btnexit);
             this.groupBox2.Location = new System.Drawing.Point(12, 211);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(831, 133);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -210,6 +210,7 @@ namespace PamirAccounting.UI.Forms.Header
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "HeaderCreateUpdateFrm";

@@ -32,7 +32,6 @@ namespace PamirAccounting.UI.Forms.Agencies
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgencyCreateUpdateFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbCurrencies = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtDesc = new DevExpress.XtraEditors.TextEdit();
             this.txtAddress = new DevExpress.XtraEditors.TextEdit();
             this.txtPhone = new DevExpress.XtraEditors.TextEdit();
@@ -41,6 +40,7 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnexitbank = new DevExpress.XtraEditors.SimpleButton();
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
@@ -81,16 +81,6 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(147, 40);
             this.cmbCurrencies.TabIndex = 65;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(177, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 32);
-            this.label3.TabIndex = 66;
-            this.label3.Text = "ارز پایه";
             // 
             // txtDesc
             // 
@@ -172,6 +162,16 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.label5.TabIndex = 70;
             this.label5.Text = "توضیحات ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(177, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 32);
+            this.label3.TabIndex = 66;
+            this.label3.Text = "ارز پایه";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnexitbank);
@@ -226,6 +226,7 @@ namespace PamirAccounting.UI.Forms.Agencies
             this.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "AgencyCreateUpdateFrm";

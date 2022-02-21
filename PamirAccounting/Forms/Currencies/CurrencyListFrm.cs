@@ -119,6 +119,13 @@ namespace PamirAccounting.UI.Forms.Currencies
                 txtsearch.Select();
                 txtsearch.Focus();
             }
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
         }
     }
 }

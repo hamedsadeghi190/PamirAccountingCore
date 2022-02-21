@@ -49,7 +49,7 @@ namespace PamirAccounting.UI.Forms.Groups
             this.exitbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("exitbtn.ImageOptions.SvgImage")));
             this.exitbtn.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.exitbtn.Location = new System.Drawing.Point(129, 44);
-            this.exitbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitbtn.Margin = new System.Windows.Forms.Padding(4);
             this.exitbtn.Name = "exitbtn";
             this.exitbtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.exitbtn.Size = new System.Drawing.Size(110, 47);
@@ -65,7 +65,7 @@ namespace PamirAccounting.UI.Forms.Groups
             this.insertbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("insertbtn.ImageOptions.SvgImage")));
             this.insertbtn.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.insertbtn.Location = new System.Drawing.Point(12, 43);
-            this.insertbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.insertbtn.Margin = new System.Windows.Forms.Padding(4);
             this.insertbtn.Name = "insertbtn";
             this.insertbtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.insertbtn.Size = new System.Drawing.Size(110, 47);
@@ -79,9 +79,9 @@ namespace PamirAccounting.UI.Forms.Groups
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(13, 3);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(510, 147);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
@@ -117,9 +117,9 @@ namespace PamirAccounting.UI.Forms.Groups
             this.groupBox2.Controls.Add(this.insertbtn);
             this.groupBox2.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(14, 158);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(510, 116);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
@@ -134,6 +134,7 @@ namespace PamirAccounting.UI.Forms.Groups
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GroupCreateUpdateFrm";

@@ -79,9 +79,9 @@ namespace PamirAccounting.UI.Forms.Settings
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(15, 32);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(827, 586);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -92,7 +92,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.comboBox4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(488, 128);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(206, 40);
             this.comboBox4.TabIndex = 107;
@@ -102,7 +102,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.CmbCalenderType.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CmbCalenderType.FormattingEnabled = true;
             this.CmbCalenderType.Location = new System.Drawing.Point(488, 174);
-            this.CmbCalenderType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CmbCalenderType.Margin = new System.Windows.Forms.Padding(4);
             this.CmbCalenderType.Name = "CmbCalenderType";
             this.CmbCalenderType.Size = new System.Drawing.Size(206, 40);
             this.CmbCalenderType.TabIndex = 109;
@@ -112,7 +112,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.cmbConstsAccount.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbConstsAccount.FormattingEnabled = true;
             this.cmbConstsAccount.Location = new System.Drawing.Point(42, 76);
-            this.cmbConstsAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbConstsAccount.Margin = new System.Windows.Forms.Padding(4);
             this.cmbConstsAccount.Name = "cmbConstsAccount";
             this.cmbConstsAccount.Size = new System.Drawing.Size(206, 40);
             this.cmbConstsAccount.TabIndex = 106;
@@ -122,7 +122,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.CmbRemittanceAccount.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CmbRemittanceAccount.FormattingEnabled = true;
             this.CmbRemittanceAccount.Location = new System.Drawing.Point(42, 122);
-            this.CmbRemittanceAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CmbRemittanceAccount.Margin = new System.Windows.Forms.Padding(4);
             this.CmbRemittanceAccount.Name = "CmbRemittanceAccount";
             this.CmbRemittanceAccount.Size = new System.Drawing.Size(206, 40);
             this.CmbRemittanceAccount.TabIndex = 108;
@@ -132,7 +132,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.cmbBaseCurenccy.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbBaseCurenccy.FormattingEnabled = true;
             this.cmbBaseCurenccy.Location = new System.Drawing.Point(488, 82);
-            this.cmbBaseCurenccy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbBaseCurenccy.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBaseCurenccy.Name = "cmbBaseCurenccy";
             this.cmbBaseCurenccy.Size = new System.Drawing.Size(206, 40);
             this.cmbBaseCurenccy.TabIndex = 105;
@@ -291,9 +291,9 @@ namespace PamirAccounting.UI.Forms.Settings
             this.groupBox2.Controls.Add(this.btnsave);
             this.groupBox2.Controls.Add(this.btnexit);
             this.groupBox2.Location = new System.Drawing.Point(15, 625);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(827, 126);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -305,7 +305,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.btnsave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsave.ImageOptions.SvgImage")));
             this.btnsave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnsave.Location = new System.Drawing.Point(12, 42);
-            this.btnsave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnsave.Margin = new System.Windows.Forms.Padding(4);
             this.btnsave.Name = "btnsave";
             this.btnsave.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnsave.Size = new System.Drawing.Size(110, 47);
@@ -324,7 +324,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.btnexit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexit.ImageOptions.SvgImage")));
             this.btnexit.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnexit.Location = new System.Drawing.Point(131, 42);
-            this.btnexit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnexit.Margin = new System.Windows.Forms.Padding(4);
             this.btnexit.Name = "btnexit";
             this.btnexit.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnexit.Size = new System.Drawing.Size(110, 47);
@@ -344,6 +344,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "SettingCreateUpdateFrm";

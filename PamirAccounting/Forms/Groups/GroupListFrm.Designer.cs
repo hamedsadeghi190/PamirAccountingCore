@@ -191,6 +191,7 @@ namespace PamirAccounting.UI.Forms.Groups
             this.Controls.Add(this.groupBoxSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GroupListFrm";

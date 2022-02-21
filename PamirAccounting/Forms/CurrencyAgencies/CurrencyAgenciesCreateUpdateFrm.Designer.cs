@@ -31,9 +31,6 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CurrencyAgenciesCreateUpdateFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnexitAgencyCurrency = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSaveAgencyCurrency = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmbroundLimit = new System.Windows.Forms.ComboBox();
             this.cmbExchangeRate = new System.Windows.Forms.ComboBox();
             this.cmbAction = new System.Windows.Forms.ComboBox();
@@ -44,6 +41,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnexitAgencyCurrency = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSaveAgencyCurrency = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -62,57 +62,13 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(13, 7);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(698, 261);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ثبت / ویرایش عملیات ارزها";
-            // 
-            // btnexitAgencyCurrency
-            // 
-            this.btnexitAgencyCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnexitAgencyCurrency.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnexitAgencyCurrency.Appearance.Options.UseFont = true;
-            this.btnexitAgencyCurrency.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexitAgencyCurrency.ImageOptions.SvgImage")));
-            this.btnexitAgencyCurrency.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnexitAgencyCurrency.Location = new System.Drawing.Point(122, 32);
-            this.btnexitAgencyCurrency.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnexitAgencyCurrency.Name = "btnexitAgencyCurrency";
-            this.btnexitAgencyCurrency.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnexitAgencyCurrency.Size = new System.Drawing.Size(110, 47);
-            this.btnexitAgencyCurrency.TabIndex = 129;
-            this.btnexitAgencyCurrency.Text = "بازگشت";
-            this.btnexitAgencyCurrency.Click += new System.EventHandler(this.btnexitAgencyCurrency_Click);
-            // 
-            // btnSaveAgencyCurrency
-            // 
-            this.btnSaveAgencyCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSaveAgencyCurrency.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSaveAgencyCurrency.Appearance.Options.UseFont = true;
-            this.btnSaveAgencyCurrency.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveAgencyCurrency.ImageOptions.SvgImage")));
-            this.btnSaveAgencyCurrency.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnSaveAgencyCurrency.Location = new System.Drawing.Point(7, 31);
-            this.btnSaveAgencyCurrency.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnSaveAgencyCurrency.Name = "btnSaveAgencyCurrency";
-            this.btnSaveAgencyCurrency.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnSaveAgencyCurrency.Size = new System.Drawing.Size(110, 47);
-            this.btnSaveAgencyCurrency.TabIndex = 128;
-            this.btnSaveAgencyCurrency.Text = "ثبت";
-            this.btnSaveAgencyCurrency.Click += new System.EventHandler(this.btnSaveAgencyCurrency_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnSaveAgencyCurrency);
-            this.groupBox2.Controls.Add(this.btnexitAgencyCurrency);
-            this.groupBox2.Location = new System.Drawing.Point(14, 268);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(698, 103);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
             // 
             // cmbroundLimit
             // 
@@ -224,6 +180,50 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.label2.TabIndex = 128;
             this.label2.Text = "عملیات";
             // 
+            // btnexitAgencyCurrency
+            // 
+            this.btnexitAgencyCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnexitAgencyCurrency.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnexitAgencyCurrency.Appearance.Options.UseFont = true;
+            this.btnexitAgencyCurrency.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexitAgencyCurrency.ImageOptions.SvgImage")));
+            this.btnexitAgencyCurrency.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnexitAgencyCurrency.Location = new System.Drawing.Point(122, 32);
+            this.btnexitAgencyCurrency.Margin = new System.Windows.Forms.Padding(4);
+            this.btnexitAgencyCurrency.Name = "btnexitAgencyCurrency";
+            this.btnexitAgencyCurrency.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnexitAgencyCurrency.Size = new System.Drawing.Size(110, 47);
+            this.btnexitAgencyCurrency.TabIndex = 129;
+            this.btnexitAgencyCurrency.Text = "بازگشت";
+            this.btnexitAgencyCurrency.Click += new System.EventHandler(this.btnexitAgencyCurrency_Click);
+            // 
+            // btnSaveAgencyCurrency
+            // 
+            this.btnSaveAgencyCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSaveAgencyCurrency.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSaveAgencyCurrency.Appearance.Options.UseFont = true;
+            this.btnSaveAgencyCurrency.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveAgencyCurrency.ImageOptions.SvgImage")));
+            this.btnSaveAgencyCurrency.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnSaveAgencyCurrency.Location = new System.Drawing.Point(7, 31);
+            this.btnSaveAgencyCurrency.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveAgencyCurrency.Name = "btnSaveAgencyCurrency";
+            this.btnSaveAgencyCurrency.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnSaveAgencyCurrency.Size = new System.Drawing.Size(110, 47);
+            this.btnSaveAgencyCurrency.TabIndex = 128;
+            this.btnSaveAgencyCurrency.Text = "ثبت";
+            this.btnSaveAgencyCurrency.Click += new System.EventHandler(this.btnSaveAgencyCurrency_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnSaveAgencyCurrency);
+            this.groupBox2.Controls.Add(this.btnexitAgencyCurrency);
+            this.groupBox2.Location = new System.Drawing.Point(14, 268);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(698, 103);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            // 
             // CurrencyAgenciesCreateUpdateFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -235,6 +235,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "CurrencyAgenciesCreateUpdateFrm";

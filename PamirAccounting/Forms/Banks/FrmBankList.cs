@@ -26,6 +26,7 @@ namespace PamirAccounting.UI.Forms.Banks
         private void FrmBankList_Load(object sender, EventArgs e)
         {
             loadData();
+            dataGridView1.AutoGenerateColumns = false;
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
             for (int i = 0; i < 6; i++)
