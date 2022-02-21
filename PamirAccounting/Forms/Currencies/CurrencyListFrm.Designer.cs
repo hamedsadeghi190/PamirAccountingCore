@@ -56,12 +56,15 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.btnRowEdit,
             this.btnRowDelete});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(0, 143);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 139);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(663, 349);
+            this.dataGridView1.Size = new System.Drawing.Size(676, 430);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -70,6 +73,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.Column1.DataPropertyName = "Id";
             this.Column1.FillWeight = 60F;
             this.Column1.HeaderText = "ردیف";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -80,6 +84,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.Column2.DataPropertyName = "Name";
             this.Column2.FillWeight = 440F;
             this.Column2.HeaderText = "نام ارز";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 440;
@@ -88,6 +93,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             // 
             this.btnRowEdit.FillWeight = 60F;
             this.btnRowEdit.HeaderText = "ویرایش";
+            this.btnRowEdit.MinimumWidth = 6;
             this.btnRowEdit.Name = "btnRowEdit";
             this.btnRowEdit.ReadOnly = true;
             this.btnRowEdit.Text = "ویرایش";
@@ -98,6 +104,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             // 
             this.btnRowDelete.FillWeight = 60F;
             this.btnRowDelete.HeaderText = "حذف";
+            this.btnRowDelete.MinimumWidth = 6;
             this.btnRowDelete.Name = "btnRowDelete";
             this.btnRowDelete.ReadOnly = true;
             this.btnRowDelete.Text = "حذف";
@@ -112,12 +119,12 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.groupBoxSearch.Controls.Add(this.label7);
             this.groupBoxSearch.Controls.Add(this.CreateNewCurrencyBtn);
             this.groupBoxSearch.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxSearch.Location = new System.Drawing.Point(1, 13);
-            this.groupBoxSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxSearch.Location = new System.Drawing.Point(9, -3);
+            this.groupBoxSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxSearch.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBoxSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBoxSearch.Size = new System.Drawing.Size(659, 124);
+            this.groupBoxSearch.Size = new System.Drawing.Size(662, 133);
             this.groupBoxSearch.TabIndex = 9;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "مدیریت ارزها";
@@ -125,18 +132,20 @@ namespace PamirAccounting.UI.Forms.Currencies
             // txtsearch
             // 
             this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtsearch.Location = new System.Drawing.Point(260, 49);
+            this.txtsearch.Location = new System.Drawing.Point(349, 57);
+            this.txtsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtsearch.Name = "txtsearch";
-            this.txtsearch.Size = new System.Drawing.Size(300, 33);
+            this.txtsearch.Size = new System.Drawing.Size(199, 39);
             this.txtsearch.TabIndex = 108;
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
             // simpleButton3
             // 
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(7, 44);
+            this.simpleButton3.Location = new System.Drawing.Point(12, 46);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton3.Size = new System.Drawing.Size(46, 50);
             this.simpleButton3.TabIndex = 106;
             this.simpleButton3.Text = "راهنما";
             // 
@@ -144,12 +153,12 @@ namespace PamirAccounting.UI.Forms.Currencies
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(565, 52);
+            this.label7.Location = new System.Drawing.Point(554, 63);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 26);
+            this.label7.Size = new System.Drawing.Size(104, 32);
             this.label7.TabIndex = 105;
-            this.label7.Text = "جستجو";
+            this.label7.Text = "جستجو(F2)";
             // 
             // CreateNewCurrencyBtn
             // 
@@ -159,10 +168,10 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.CreateNewCurrencyBtn.Appearance.Options.UseFont = true;
             this.CreateNewCurrencyBtn.Appearance.Options.UseForeColor = true;
             this.CreateNewCurrencyBtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("CreateNewCurrencyBtn.ImageOptions.SvgImage")));
-            this.CreateNewCurrencyBtn.Location = new System.Drawing.Point(50, 44);
-            this.CreateNewCurrencyBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.CreateNewCurrencyBtn.Location = new System.Drawing.Point(64, 45);
+            this.CreateNewCurrencyBtn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.CreateNewCurrencyBtn.Name = "CreateNewCurrencyBtn";
-            this.CreateNewCurrencyBtn.Size = new System.Drawing.Size(39, 41);
+            this.CreateNewCurrencyBtn.Size = new System.Drawing.Size(46, 50);
             this.CreateNewCurrencyBtn.TabIndex = 103;
             this.CreateNewCurrencyBtn.Click += new System.EventHandler(this.CreateNewCurrencyBtn_Click);
             // 
@@ -170,17 +179,19 @@ namespace PamirAccounting.UI.Forms.Currencies
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 493);
+            this.ClientSize = new System.Drawing.Size(676, 571);
             this.Controls.Add(this.groupBoxSearch);
             this.Controls.Add(this.dataGridView1);
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "CurrencyListFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.CurrencyListFrm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CurrencyListFrm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxSearch.ResumeLayout(false);
             this.groupBoxSearch.PerformLayout();

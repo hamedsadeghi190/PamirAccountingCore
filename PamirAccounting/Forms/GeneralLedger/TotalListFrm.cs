@@ -86,18 +86,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             initGrid();
         }
 
-        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            if(txtSearch.Text.Length>0)
-            {
-                var tmpDataList = unitOfWork.TransactionServices.GetAllTotalCustomers(txtSearch.Text);
-                GellAll(tmpDataList);
-            }
-            else
-            {
-                LoadData();
-            }
-        }
+       
 
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
@@ -318,6 +307,19 @@ namespace PamirAccounting.Forms.GeneralLedger
         private void grdTotals_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtSearch.Text.Length > 0)
+            {
+                var tmpDataList = unitOfWork.TransactionServices.GetAllTotalCustomers(txtSearch.Text);
+                GellAll(tmpDataList);
+            }
+            else
+            {
+                LoadData();
+            }
         }
     }
 }

@@ -171,6 +171,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.txtSearch.Size = new System.Drawing.Size(218, 41);
             this.txtSearch.TabIndex = 119;
             this.txtSearch.ToolTipAnchor = DevExpress.Utils.ToolTipAnchor.Object;
+            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // label4
             // 

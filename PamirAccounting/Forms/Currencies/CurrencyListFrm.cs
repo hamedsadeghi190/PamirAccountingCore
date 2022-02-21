@@ -23,6 +23,7 @@ namespace PamirAccounting.UI.Forms.Currencies
 
         private void CurrencyListFrm_Load(object sender, EventArgs e)
         {
+
             loadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
@@ -108,6 +109,15 @@ namespace PamirAccounting.UI.Forms.Currencies
             else
             {
                 loadData();
+            }
+        }
+
+        private void CurrencyListFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                txtsearch.Select();
+                txtsearch.Focus();
             }
         }
     }

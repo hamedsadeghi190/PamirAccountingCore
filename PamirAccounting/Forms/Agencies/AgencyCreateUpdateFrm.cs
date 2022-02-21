@@ -102,6 +102,20 @@ namespace PamirAccounting.UI.Forms.Agencies
             Close();
         }
 
-     
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AgencyCreateUpdateFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+        }
     }
 }

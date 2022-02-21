@@ -60,11 +60,11 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.exitbtn.Appearance.Options.UseFont = true;
             this.exitbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("exitbtn.ImageOptions.SvgImage")));
             this.exitbtn.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.exitbtn.Location = new System.Drawing.Point(98, 24);
+            this.exitbtn.Location = new System.Drawing.Point(125, 24);
             this.exitbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.exitbtn.Name = "exitbtn";
             this.exitbtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.exitbtn.Size = new System.Drawing.Size(83, 38);
+            this.exitbtn.Size = new System.Drawing.Size(110, 47);
             this.exitbtn.TabIndex = 9;
             this.exitbtn.Text = "بازگشت";
             this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
@@ -80,7 +80,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.insertbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.insertbtn.Name = "insertbtn";
             this.insertbtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.insertbtn.Size = new System.Drawing.Size(83, 38);
+            this.insertbtn.Size = new System.Drawing.Size(110, 47);
             this.insertbtn.TabIndex = 8;
             this.insertbtn.Text = "ثبت";
             this.insertbtn.Click += new System.EventHandler(this.insertbtn_Click);
@@ -123,7 +123,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 257);
             this.Controls.Add(this.groupBox2);
@@ -131,12 +131,14 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.Font = new System.Drawing.Font("B Nazanin", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "CurrencyCreateUpdateFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.CurrencyCreateUpdateFrm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CurrencyCreateUpdateFrm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

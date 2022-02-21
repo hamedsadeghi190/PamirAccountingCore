@@ -93,18 +93,7 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         
 
-        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (txtSearch.Text.Length > 0)
-            {
-                var tmpDataList = unitOfWork.TransactionServices.GetAllWithdrawCustomers(txtSearch.Text);
-                GellAll(tmpDataList);
-            }
-            else
-            {
-                LoadData();
-            }
-        }
+      
 
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
@@ -212,6 +201,19 @@ namespace PamirAccounting.Forms.GeneralLedger
             {
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
+            }
+        }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtSearch.Text.Length > 0)
+            {
+                var tmpDataList = unitOfWork.TransactionServices.GetAllWithdrawCustomers(txtSearch.Text);
+                GellAll(tmpDataList);
+            }
+            else
+            {
+                LoadData();
             }
         }
     }

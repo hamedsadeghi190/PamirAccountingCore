@@ -112,18 +112,7 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         }
 
-        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (txtSearch.Text.Length > 0)
-            {
-                var tmpDataList = unitOfWork.TransactionServices.GetAllDepositCustomers(txtSearch.Text);
-                GellAll(tmpDataList);
-            }
-            else
-            {
-                LoadData();
-            }
-        }
+   
 
         private void DebtorListFrm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -298,6 +287,19 @@ namespace PamirAccounting.Forms.GeneralLedger
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtSearch.Text.Length > 0)
+            {
+                var tmpDataList = unitOfWork.TransactionServices.GetAllDepositCustomers(txtSearch.Text);
+                GellAll(tmpDataList);
+            }
+            else
+            {
+                LoadData();
+            }
         }
     }
 }

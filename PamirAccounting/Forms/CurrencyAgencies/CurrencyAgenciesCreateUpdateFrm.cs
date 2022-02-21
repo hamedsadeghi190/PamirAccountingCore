@@ -138,5 +138,16 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
                 MessageBox.Show("ذخییره تغییرات با شکست مواجه شد");
             }
         }
+
+        private void CurrencyAgenciesCreateUpdateFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+        }
     }
 }

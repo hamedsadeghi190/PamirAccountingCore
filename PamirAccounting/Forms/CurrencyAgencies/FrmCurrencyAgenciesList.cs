@@ -97,5 +97,21 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         {
            
         }
+
+        private void FrmCurrencyAgenciesList_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                txtSearch.Select();
+                txtSearch.Focus();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+        }
     }
 }

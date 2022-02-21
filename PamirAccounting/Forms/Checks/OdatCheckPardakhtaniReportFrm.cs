@@ -209,5 +209,10 @@ namespace PamirAccounting.Forms.Checks
                 e.Handled = true;
             }
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

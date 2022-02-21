@@ -118,5 +118,21 @@ namespace PamirAccounting.Forms.Users
                 loadData();
             }
         }
+
+        private void UsersListFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                txtsearch.Select();
+                txtsearch.Focus();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+        }
     }
 }

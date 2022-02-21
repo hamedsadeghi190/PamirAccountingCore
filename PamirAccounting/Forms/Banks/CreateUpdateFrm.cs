@@ -164,5 +164,16 @@ namespace PamirAccounting.UI.Forms.Banks
         {
             this.Close();
         }
+
+        private void CreateUpdateFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+        }
     }
 }

@@ -69,5 +69,16 @@ namespace PamirAccounting.UI.Forms.Currencies
                 txtName.Text = currency.Name;
             }
         }
+
+        private void CurrencyCreateUpdateFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+        }
     }
 }
