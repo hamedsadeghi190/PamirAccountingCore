@@ -206,6 +206,12 @@
     <Compile Update="Forms\MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\NewsPaper\PayAndReciveBankListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\NewsPaper\PayAndReciveCashListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Settings\SettingCreateUpdateFrm.cs">
       <SubType>Form</SubType>
     </Compile>

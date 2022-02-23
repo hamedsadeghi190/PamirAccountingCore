@@ -1508,7 +1508,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="دفتربانکToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="PayAndReciveBank.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABqFJREFUWEfd
         l1lQ01cYxYEQAggCImA0rGFfIhBkERQIIAZad2ur1o5Lx22sArKpVUHZxBUXFKhLnbrNVFwgBFCoIqCI
@@ -1542,7 +1542,7 @@
         XrBlL/k/yMTkb+MIJkg9QGM5AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="دفترنقدیToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="PayAndReciveCash.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABqFJREFUWEfd
         l1lQ01cYxYEQAggCImA0rGFfIhBkERQIIAZad2ur1o5Lx22sArKpVUHZxBUXFKhLnbrNVFwgBFCoIqCI
@@ -1576,7 +1576,7 @@
         XrBlL/k/yMTkb+MIJkg9QGM5AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="انتقالبینحسابToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Transfer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABx1JREFUWEft
         V2tMm9cZdptmaqSp7aT+2Dq1k7ppSzV1qrZsS5oCDSmES9glWrJc2kZtljZNIAqhSdoM2qWIQGgSLgkJ
@@ -1612,7 +1612,7 @@
         8Wvvp/7//id8S8Bi/QvUuEkytVvXIwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="واریزهایبانکیToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="PayAndReciveBankList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAA0BJREFUWEe9
         l0tPU1EQx/kArPAzUOgDUYzBBQsSHtoEJBQUYkyKrlwYExPDwmhcdGGIulBYSDTR8kjUiCssIBBcKLAw

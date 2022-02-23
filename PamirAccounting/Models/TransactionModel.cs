@@ -32,7 +32,8 @@ namespace PamirAccounting.Models
 
         public long TotalWithdrawAmount { get; set; }
         public long TotalDepositAmount { get; set; }
-    
+        public string BranchCode { get; set; }
+        public string ReceiptNumber { get; set; }
 
     }
 

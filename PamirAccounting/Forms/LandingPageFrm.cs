@@ -3,6 +3,7 @@ using PamirAccounting.Forms.Currencies;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.GeneralLedger;
+using PamirAccounting.Forms.NewsPaper;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
 using PamirAccounting.UI.Forms.Agencies;
@@ -405,6 +406,37 @@ namespace PamirAccounting.Forms
         {
             var frm = new TotalListFrm();
             frm.ShowDialog();
+        }
+
+        private void Newspaper_Click(object sender, EventArgs e)
+        {
+            var frm = new PayAndReciveCashListFrm();
+            frm.ShowDialog();
+
+        }
+
+        private void PayAndReciveCash_Click(object sender, EventArgs e)
+        {
+            var FrmeRceiveCash = new PayAndReciveCashFrm();
+            FrmeRceiveCash.ShowDialog();
+        }
+
+        private void PayAndReciveBank_Click(object sender, EventArgs e)
+        {
+            var FrmBankPayment = new PayAndReciveBankFrm();
+            FrmBankPayment.ShowDialog();
+        }
+
+        private void Transfer_Click(object sender, EventArgs e)
+        {
+            var FrmTransferAccount = new TransferAccountFrm();
+            FrmTransferAccount.ShowDialog();
+        }
+
+        private void PayAndReciveBankList_Click(object sender, EventArgs e)
+        {
+            var FrmTransferAccount = new PayAndReciveBankListFrm();
+            FrmTransferAccount.ShowDialog();
         }
     }
 }

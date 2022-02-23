@@ -96,12 +96,13 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Users = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsMenu_Recovery = new System.Windows.Forms.ToolStripMenuItem();
             this.روزنامهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.دفتربانکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.دفترنقدیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.انتقالبینحسابToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.واریزهایبانکیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PayAndReciveBank = new System.Windows.Forms.ToolStripMenuItem();
+            this.PayAndReciveCash = new System.Windows.Forms.ToolStripMenuItem();
+            this.Transfer = new System.Windows.Forms.ToolStripMenuItem();
+            this.PayAndReciveBankList = new System.Windows.Forms.ToolStripMenuItem();
             this.عملیاتروزToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.لسیتخریدوفروشارزToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Newspaper = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNewAccount = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -782,12 +783,13 @@ namespace PamirAccounting.Forms
             // روزنامهToolStripMenuItem
             // 
             this.روزنامهToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.دفتربانکToolStripMenuItem,
-            this.دفترنقدیToolStripMenuItem,
-            this.انتقالبینحسابToolStripMenuItem,
-            this.واریزهایبانکیToolStripMenuItem,
+            this.PayAndReciveBank,
+            this.PayAndReciveCash,
+            this.Transfer,
+            this.PayAndReciveBankList,
             this.عملیاتروزToolStripMenuItem,
-            this.لسیتخریدوفروشارزToolStripMenuItem});
+            this.لسیتخریدوفروشارزToolStripMenuItem,
+            this.Newspaper});
             this.روزنامهToolStripMenuItem.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.روزنامهToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("روزنامهToolStripMenuItem.Image")));
             this.روزنامهToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -796,37 +798,41 @@ namespace PamirAccounting.Forms
             this.روزنامهToolStripMenuItem.Text = "+";
             this.روزنامهToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // دفتربانکToolStripMenuItem
+            // PayAndReciveBank
             // 
-            this.دفتربانکToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("دفتربانکToolStripMenuItem.Image")));
-            this.دفتربانکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.دفتربانکToolStripMenuItem.Name = "دفتربانکToolStripMenuItem";
-            this.دفتربانکToolStripMenuItem.Size = new System.Drawing.Size(273, 38);
-            this.دفتربانکToolStripMenuItem.Text = "دفتر بانک";
+            this.PayAndReciveBank.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveBank.Image")));
+            this.PayAndReciveBank.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.PayAndReciveBank.Name = "PayAndReciveBank";
+            this.PayAndReciveBank.Size = new System.Drawing.Size(273, 38);
+            this.PayAndReciveBank.Text = "دفتر بانک";
+            this.PayAndReciveBank.Click += new System.EventHandler(this.PayAndReciveBank_Click);
             // 
-            // دفترنقدیToolStripMenuItem
+            // PayAndReciveCash
             // 
-            this.دفترنقدیToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("دفترنقدیToolStripMenuItem.Image")));
-            this.دفترنقدیToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.دفترنقدیToolStripMenuItem.Name = "دفترنقدیToolStripMenuItem";
-            this.دفترنقدیToolStripMenuItem.Size = new System.Drawing.Size(273, 38);
-            this.دفترنقدیToolStripMenuItem.Text = "دفتر نقدی";
+            this.PayAndReciveCash.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveCash.Image")));
+            this.PayAndReciveCash.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.PayAndReciveCash.Name = "PayAndReciveCash";
+            this.PayAndReciveCash.Size = new System.Drawing.Size(273, 38);
+            this.PayAndReciveCash.Text = "دفتر نقدی";
+            this.PayAndReciveCash.Click += new System.EventHandler(this.PayAndReciveCash_Click);
             // 
-            // انتقالبینحسابToolStripMenuItem
+            // Transfer
             // 
-            this.انتقالبینحسابToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("انتقالبینحسابToolStripMenuItem.Image")));
-            this.انتقالبینحسابToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.انتقالبینحسابToolStripMenuItem.Name = "انتقالبینحسابToolStripMenuItem";
-            this.انتقالبینحسابToolStripMenuItem.Size = new System.Drawing.Size(273, 38);
-            this.انتقالبینحسابToolStripMenuItem.Text = "انتقال بین حساب ";
+            this.Transfer.Image = ((System.Drawing.Image)(resources.GetObject("Transfer.Image")));
+            this.Transfer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.Transfer.Name = "Transfer";
+            this.Transfer.Size = new System.Drawing.Size(273, 38);
+            this.Transfer.Text = "انتقال بین حساب ";
+            this.Transfer.Click += new System.EventHandler(this.Transfer_Click);
             // 
-            // واریزهایبانکیToolStripMenuItem
+            // PayAndReciveBankList
             // 
-            this.واریزهایبانکیToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("واریزهایبانکیToolStripMenuItem.Image")));
-            this.واریزهایبانکیToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.واریزهایبانکیToolStripMenuItem.Name = "واریزهایبانکیToolStripMenuItem";
-            this.واریزهایبانکیToolStripMenuItem.Size = new System.Drawing.Size(273, 38);
-            this.واریزهایبانکیToolStripMenuItem.Text = "واریزهای بانکی";
+            this.PayAndReciveBankList.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveBankList.Image")));
+            this.PayAndReciveBankList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.PayAndReciveBankList.Name = "PayAndReciveBankList";
+            this.PayAndReciveBankList.Size = new System.Drawing.Size(273, 38);
+            this.PayAndReciveBankList.Text = "واریزهای بانکی";
+            this.PayAndReciveBankList.Click += new System.EventHandler(this.PayAndReciveBankList_Click);
             // 
             // عملیاتروزToolStripMenuItem
             // 
@@ -843,6 +849,13 @@ namespace PamirAccounting.Forms
             this.لسیتخریدوفروشارزToolStripMenuItem.Name = "لسیتخریدوفروشارزToolStripMenuItem";
             this.لسیتخریدوفروشارزToolStripMenuItem.Size = new System.Drawing.Size(273, 38);
             this.لسیتخریدوفروشارزToolStripMenuItem.Text = "لسیت خرید و فروش ارز";
+            // 
+            // Newspaper
+            // 
+            this.Newspaper.Name = "Newspaper";
+            this.Newspaper.Size = new System.Drawing.Size(273, 38);
+            this.Newspaper.Text = "دفتر روزنامه";
+            this.Newspaper.Click += new System.EventHandler(this.Newspaper_Click);
             // 
             // btnNewAccount
             // 
@@ -1155,11 +1168,12 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.ToolStripMenuItem ListOdatPayment;
         private System.Windows.Forms.ToolStripMenuItem ListBargashtPayment;
         private System.Windows.Forms.ToolStripMenuItem روزنامهToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem دفتربانکToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem دفترنقدیToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem انتقالبینحسابToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem واریزهایبانکیToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PayAndReciveBank;
+        private System.Windows.Forms.ToolStripMenuItem PayAndReciveCash;
+        private System.Windows.Forms.ToolStripMenuItem Transfer;
+        private System.Windows.Forms.ToolStripMenuItem PayAndReciveBankList;
         private System.Windows.Forms.ToolStripMenuItem عملیاتروزToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem لسیتخریدوفروشارزToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Newspaper;
     }
 }
