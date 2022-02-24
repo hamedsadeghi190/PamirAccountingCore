@@ -39,7 +39,7 @@ namespace PamirAccounting.Forms.NewsPaper
         {
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 9; i++)
             {
                 gridPayAndReciveBank.Columns[i].HeaderCell.Style = HeaderStyle;
             }
@@ -68,14 +68,14 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void LoadData()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null);
             GellAll(tmpDataList);
         }
 
         private void cmbBank_TextChanged(object sender, EventArgs e)
         {
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
+            _Currencies.AddRange(unitOfWork.Customers.FindAll().Where(x=>x.GroupId==2).Select(x => new ComboBoxModel() { Id = x.Id, Title = x.FirstName }).ToList());
             cmbBank.SelectedValueChanged -= new EventHandler(cmbBank_SelectedValueChanged);
             cmbBank.DataSource = _Currencies;
             cmbBank.ValueMember = "Id";
@@ -138,14 +138,19 @@ namespace PamirAccounting.Forms.NewsPaper
                 curenncySummery.BranchCode = item.BranchCode;
                 curenncySummery.ReceiptNumber = item.ReceiptNumber;
                 curenncySummery.TransactionDateTime = item.TransactionDateTime;
-
+                curenncySummery.DepositAmount = item.DepositAmount;
                 _GroupedDataList.Add(curenncySummery);
 
             }
 
-       
+            _GroupedDataList = _GroupedDataList.OrderBy(x => x.FullName).ToList();
+            int row = 1;
+            foreach (var item in _GroupedDataList)
+            {
+                item.RowId = row++;
+            }
             gridPayAndReciveBank.AutoGenerateColumns = false;
-            gridPayAndReciveBank.DataSource = _dataList;
+            gridPayAndReciveBank.DataSource = _GroupedDataList;
 
         }
     }

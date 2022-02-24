@@ -767,7 +767,7 @@ namespace PamirAccounting.Services
                 if (bankId == null)
                 {
                     dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.SourceCustomerId != 4 )
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.SourceCustomer.GroupId!=2)
                    .Select(x => new TransactionModel
                    {
 
@@ -782,14 +782,14 @@ namespace PamirAccounting.Services
                        SourceCustomerId = x.SourceCustomerId,
                        BranchCode=x.BranchCode,
                        ReceiptNumber=x.ReceiptNumber,
-
+                   
 
 
                    }).ToList();
                 }
                 else
                 {
-                    dataList = FindAllReadonly(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.SourceCustomerId != 4)
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.SourceCustomer.GroupId != 2)
                                  .Include(x => x.Curreny)
 
                                  .Select(x => new TransactionModel
@@ -822,6 +822,7 @@ namespace PamirAccounting.Services
                     SourceCustomerId = x.SourceCustomerId,
                     BranchCode = x.BranchCode,
                     ReceiptNumber = x.ReceiptNumber,
+                    
 
                 }).ToList();
                 return tmpdataList;
