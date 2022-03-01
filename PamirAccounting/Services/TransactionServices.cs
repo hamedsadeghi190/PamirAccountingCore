@@ -642,7 +642,7 @@ namespace PamirAccounting.Services
                 if (currencyId == null)
                 {
                     dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.SourceCustomerId!=4)
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.SourceCustomerId==4)
                    .Select(x => new TransactionModel
                    {
 
@@ -662,7 +662,7 @@ namespace PamirAccounting.Services
                 }
                 else
                 {
-                    dataList = FindAllReadonly(x => x.CurrenyId == currencyId)
+                    dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.SourceCustomerId == 4 && x.CurrenyId==currencyId)
                                  .Include(x => x.Curreny)
 
                                  .Select(x => new TransactionModel
