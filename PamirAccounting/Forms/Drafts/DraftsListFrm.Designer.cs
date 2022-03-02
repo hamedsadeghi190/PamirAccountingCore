@@ -74,7 +74,6 @@ namespace PamirAccounting.Forms.Drafts
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnExecuteDaraft = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
             this.btnAgencystatus = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
@@ -536,7 +535,6 @@ namespace PamirAccounting.Forms.Drafts
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnExecuteDaraft);
-            this.groupBox2.Controls.Add(this.simpleButton12);
             this.groupBox2.Controls.Add(this.btnAgencystatus);
             this.groupBox2.Controls.Add(this.simpleButton8);
             this.groupBox2.Controls.Add(this.simpleButton5);
@@ -561,24 +559,12 @@ namespace PamirAccounting.Forms.Drafts
             this.btnExecuteDaraft.Text = "اجرای حواله";
             this.btnExecuteDaraft.Click += new System.EventHandler(this.btnExecuteDaraft_Click);
             // 
-            // simpleButton12
-            // 
-            this.simpleButton12.Appearance.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton12.Appearance.Options.UseFont = true;
-            this.simpleButton12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton12.ImageOptions.SvgImage")));
-            this.simpleButton12.Location = new System.Drawing.Point(9, 20);
-            this.simpleButton12.Name = "simpleButton12";
-            this.simpleButton12.Size = new System.Drawing.Size(131, 41);
-            this.simpleButton12.TabIndex = 12;
-            this.simpleButton12.Text = "جمع ارزها";
-            this.simpleButton12.Click += new System.EventHandler(this.simpleButton12_Click);
-            // 
             // btnAgencystatus
             // 
             this.btnAgencystatus.Appearance.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAgencystatus.Appearance.Options.UseFont = true;
             this.btnAgencystatus.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAgencystatus.ImageOptions.SvgImage")));
-            this.btnAgencystatus.Location = new System.Drawing.Point(146, 20);
+            this.btnAgencystatus.Location = new System.Drawing.Point(18, 22);
             this.btnAgencystatus.Name = "btnAgencystatus";
             this.btnAgencystatus.Size = new System.Drawing.Size(131, 41);
             this.btnAgencystatus.TabIndex = 11;
@@ -678,7 +664,6 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton12;
         private DevExpress.XtraEditors.SimpleButton btnAgencystatus;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label4;

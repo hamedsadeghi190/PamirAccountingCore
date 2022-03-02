@@ -37,8 +37,7 @@ namespace PamirAccounting.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.\\SQL2019;Database=PamirAccounting;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
 
@@ -244,6 +243,8 @@ namespace PamirAccounting.Domains
             {
                 entity.Property(e => e.Description).HasMaxLength(500);
 
+                entity.Property(e => e.ExtraDescription).HasMaxLength(500);
+
                 entity.Property(e => e.FatherName).HasMaxLength(250);
 
                 entity.Property(e => e.OtherNumber).HasMaxLength(50);
@@ -257,6 +258,11 @@ namespace PamirAccounting.Domains
                 entity.Property(e => e.Status)
                     .IsRequired()
                     .HasDefaultValueSql("((1))");
+
+                entity.HasOne(d => d.ConvertedCurrency)
+                    .WithMany(p => p.DraftConvertedCurrencies)
+                    .HasForeignKey(d => d.ConvertedCurrencyId)
+                    .HasConstraintName("FK_Drafts_Currencies_ConvertedCurenncy");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Drafts)

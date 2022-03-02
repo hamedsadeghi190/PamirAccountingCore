@@ -25,6 +25,13 @@ namespace PamirAccounting.Models.ViewModels
         public string Customer { get; set; }
         public string RunningDate { get; set; }
         public string Date { get; set; }
+        public int? ConvertedCurrencyId { get; set; }
+        public string ConvertedCurrency { get; set; }
+        public double? ConvertedRate { get; set; }
+        public long? ConvertedAmount { get; set; }
+        public string ConvertedDate { get; set; }
+        public string ExtraDescription { get; set; }
+
 
     }
 

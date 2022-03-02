@@ -150,5 +150,94 @@ namespace PamirAccounting.Forms.Drafts
                 MessageBox.Show("Data not Saved !" + ex.Message);
             }
         }
+
+        private void CalculateDeposit()
+        {
+            try
+            {
+                if (txtDraftAmount.Text.Length > 0 && txtRate.Text.Length > 0)
+                {
+                    double rate;
+                    if (double.TryParse(txtRate.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out rate))
+                    {
+                        var sourceCurrenyId = (int)cmbDraftCurrency.SelectedValue;
+                        var destiniationCurrenyId = (int)cmbDepositCurreny.SelectedValue;
+                        var currenciesMappings = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.SourceCurrenyId == sourceCurrenyId && x.DestiniationCurrenyId == destiniationCurrenyId);
+
+                        var mappingsAction = (int)MappingActions.Multiplication;
+
+                        if (currenciesMappings == null && (sourceCurrenyId != destiniationCurrenyId))
+                        {
+                            DialogResult dialogResult = MessageBox.Show("نحوه تبدیل ارز مورد نظر تعریف نشده است .", " ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                        }
+                        else
+                        {
+                            if (sourceCurrenyId != destiniationCurrenyId)
+                            {
+                                mappingsAction = currenciesMappings.Action;
+                            }
+
+
+                            if (mappingsAction == (int)MappingActions.Division)
+                            {
+                                var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) / rate, MidpointRounding.AwayFromZero);
+                                var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+
+                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                            }
+                            else if (mappingsAction == (int)MappingActions.Multiplication)
+                            {
+
+                                var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) * rate, MidpointRounding.AwayFromZero);
+                                var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+
+                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                            }
+                            else
+                            {
+                                var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) + rate, MidpointRounding.AwayFromZero);
+                                var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+
+                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        // TODO: tell the user to enter a correct number
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+        }
+
+        private void txtDraftAmount_TextChanged(object sender, EventArgs e)
+        {
+            CalculateDeposit();
+        }
+
+        private void txtRate_TextChanged(object sender, EventArgs e)
+        {
+            CalculateDeposit();
+        }
+
+        private void txtRent_TextChanged(object sender, EventArgs e)
+        {
+            CalculateDeposit();
+        }
+
+        private void cmbDepositCurreny_SelectedValueChanged(object sender, EventArgs e)
+        {
+            CalculateDeposit();
+        }
     }
 }

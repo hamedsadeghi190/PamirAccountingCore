@@ -10,7 +10,7 @@ namespace PamirAccounting.Forms.Drafts
 {
     public partial class DraftsListFrm : DevExpress.XtraEditors.XtraForm
     {
-        private List<SummeryDraftViewModels> _dataSummery ;
+        private List<SummeryDraftViewModels> _dataSummery;
         private List<DraftViewModels> _data;
         private List<ComboBoxModel> _agencies;
         private List<ComboBoxModel> _draftTypes = new List<ComboBoxModel>();
@@ -46,7 +46,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void btnAgencystatus_Click(object sender, EventArgs e)
         {
-            var AgencyStatusFrm = new AgencyStatusFrm();
+            var AgencyStatusFrm = new AgencyStatusFrm((int)cmbAgency.SelectedValue);
             AgencyStatusFrm.ShowDialog();
         }
 
@@ -73,7 +73,6 @@ namespace PamirAccounting.Forms.Drafts
             cmbAgency.SelectedIndex = 0;
 
             this.cmbType.SelectedIndexChanged -= new System.EventHandler(this.cmbType_SelectedIndexChanged);
-            _draftTypes.Add(new ComboBoxModel() { Id = -1, Title = "همه" });
             _draftTypes.Add(new ComboBoxModel() { Id = 0, Title = "رفت" });
             _draftTypes.Add(new ComboBoxModel() { Id = 1, Title = "آمد" });
             cmbType.DataSource = _draftTypes;
@@ -94,61 +93,32 @@ namespace PamirAccounting.Forms.Drafts
 
         private void LoadData()
         {
-            if ((int)cmbType.SelectedValue == -1)
-            {
-                _data = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue)
-                    .Select(q => new DraftViewModels()
-                    {
-                        Id = q.Id,
-                        Number = q.Number,
-                        OtherNumber = q.OtherNumber,
-                        Sender = q.Sender,
-                        Reciver = q.Reciver,
-                        FatherName = q.FatherName,
-                        PayPlace = q.PayPlace,
-                        Description = q.Description,
-                        TypeCurrency = q.TypeCurrency.Name,
-                        DraftAmount = q.DraftAmount,
-                        Rate = q.Rate,
-                        Rent = q.Rent,
-                        DepositAmount = q.DepositAmount,
-                        DepositCurrency = q.DepositCurrency.Name,
-                        Customer = q.Customer.FirstName + " " + q.Customer.LastName,
-                        RunningDate = q.RunningDate.ToString(),
-                        Date = q.Date.ToString()
 
-                    })
+            _data = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
+            && x.Type == (int)(cmbType.SelectedValue))
+                 .Select(q => new DraftViewModels()
+                 {
+                     Id = q.Id,
+                     Number = q.Number,
+                     OtherNumber = q.OtherNumber,
+                     Sender = q.Sender,
+                     Reciver = q.Reciver,
+                     FatherName = q.FatherName,
+                     PayPlace = q.PayPlace,
+                     Description = q.Description,
+                     TypeCurrency = q.TypeCurrency.Name,
+                     DraftAmount = q.DraftAmount,
+                     Rate = q.Rate,
+                     Rent = q.Rent,
+                     DepositAmount = q.DepositAmount,
+                     DepositCurrency = q.DepositCurrency.Name,
+                     Customer = q.Customer.FirstName + " " + q.Customer.LastName,
+                     RunningDate = q.RunningDate.ToString(),
+                     Date = q.Date.ToString()
 
+                 })
+                .ToList();
 
-                    .ToList();
-            }
-            else
-            {
-                _data = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
-                && x.Type == (int)(cmbType.SelectedValue))
-                     .Select(q => new DraftViewModels()
-                     {
-                         Id = q.Id,
-                         Number = q.Number,
-                         OtherNumber = q.OtherNumber,
-                         Sender = q.Sender,
-                         Reciver = q.Reciver,
-                         FatherName = q.FatherName,
-                         PayPlace = q.PayPlace,
-                         Description = q.Description,
-                         TypeCurrency = q.TypeCurrency.Name,
-                         DraftAmount = q.DraftAmount,
-                         Rate = q.Rate,
-                         Rent = q.Rent,
-                         DepositAmount = q.DepositAmount,
-                         DepositCurrency = q.DepositCurrency.Name,
-                         Customer = q.Customer.FirstName + " " + q.Customer.LastName,
-                         RunningDate = q.RunningDate.ToString(),
-                         Date = q.Date.ToString()
-
-                     })
-                    .ToList();
-            }
             gridDrafts.DataSource = null;
             gridDrafts.DataSource = _data;
             gridDrafts.Refresh();
@@ -158,7 +128,7 @@ namespace PamirAccounting.Forms.Drafts
             foreach (var item in _data)
             {
                 cdata.CurrenyName = item.DepositCurrency;
-                cdata.Total += (item.DepositAmount.HasValue) ? item.DepositAmount.Value:0;
+                cdata.Total += (item.DepositAmount.HasValue) ? item.DepositAmount.Value : 0;
                 cdata.TotalRent += item.Rent;
             }
             _dataSummery.Add(cdata);

@@ -113,5 +113,15 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             if (e.KeyCode == Keys.Escape)
                 this.Close();
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

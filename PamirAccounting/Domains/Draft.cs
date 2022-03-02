@@ -27,7 +27,13 @@ namespace PamirAccounting.Domains
         public int? CustomerId { get; set; }
         public DateTime? RunningDate { get; set; }
         public DateTime? Date { get; set; }
+        public int? ConvertedCurrencyId { get; set; }
+        public double? ConvertedRate { get; set; }
+        public long? ConvertedAmount { get; set; }
+        public DateTime? ConvertedDate { get; set; }
+        public string ExtraDescription { get; set; }
 
+        public virtual Currency ConvertedCurrency { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Currency DepositCurrency { get; set; }
         public virtual Currency TypeCurrency { get; set; }

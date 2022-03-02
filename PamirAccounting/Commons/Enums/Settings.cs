@@ -8,7 +8,7 @@ namespace PamirAccounting.Commons.Enums
         {
         }
 
-        public enum Action
+        public enum MappingActions
         {
             [Description("ضرب")]
             Multiplication = 1,
@@ -17,7 +17,6 @@ namespace PamirAccounting.Commons.Enums
             [Description("جمع")]
             Sum = 3,
         }
-
         public enum RoundLimit
         {
             Admin = 1,

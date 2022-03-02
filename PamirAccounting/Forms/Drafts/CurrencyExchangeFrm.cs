@@ -13,9 +13,11 @@ namespace PamirAccounting.Forms.Drafts
 {
     public partial class CurrencyExchangeFrm : DevExpress.XtraEditors.XtraForm
     {
-        public CurrencyExchangeFrm()
+        public long DraftId { get; set; }
+        public CurrencyExchangeFrm(long draftId)
         {
             InitializeComponent();
+            DraftId = draftId;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

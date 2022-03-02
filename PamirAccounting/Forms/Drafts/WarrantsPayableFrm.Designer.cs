@@ -104,6 +104,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDraftAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDraftAmount.Size = new System.Drawing.Size(265, 29);
             this.txtDraftAmount.TabIndex = 10;
+            this.txtDraftAmount.TextChanged += new System.EventHandler(this.txtDraftAmount_TextChanged);
             // 
             // txtRate
             // 
@@ -117,6 +118,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRate.Size = new System.Drawing.Size(265, 29);
             this.txtRate.TabIndex = 11;
+            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
             // 
             // txtDate
             // 
@@ -221,6 +223,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbDepositCurreny.Name = "cmbDepositCurreny";
             this.cmbDepositCurreny.Size = new System.Drawing.Size(265, 31);
             this.cmbDepositCurreny.TabIndex = 14;
+            this.cmbDepositCurreny.SelectedValueChanged += new System.EventHandler(this.cmbDepositCurreny_SelectedValueChanged);
             // 
             // txtRent
             // 
@@ -229,6 +232,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRent.Name = "txtRent";
             this.txtRent.Size = new System.Drawing.Size(265, 29);
             this.txtRent.TabIndex = 12;
+            this.txtRent.TextChanged += new System.EventHandler(this.txtRent_TextChanged);
             // 
             // txtPayPlace
             // 

@@ -71,12 +71,12 @@ namespace PamirAccounting.Forms.Customers
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.CreatBankBtn);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(4, 15);
+            this.groupBox1.Location = new System.Drawing.Point(4, 7);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(1145, 124);
+            this.groupBox1.Size = new System.Drawing.Size(1145, 83);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "لیست مشتریان";
@@ -84,8 +84,8 @@ namespace PamirAccounting.Forms.Customers
             // btnprint
             // 
             this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
-            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.btnprint.Location = new System.Drawing.Point(52, 47);
+            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
+            this.btnprint.Location = new System.Drawing.Point(52, 29);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(39, 41);
             this.btnprint.TabIndex = 96;
@@ -95,7 +95,7 @@ namespace PamirAccounting.Forms.Customers
             // simpleButton3
             // 
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(7, 47);
+            this.simpleButton3.Location = new System.Drawing.Point(7, 29);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(39, 41);
             this.simpleButton3.TabIndex = 97;
@@ -104,7 +104,7 @@ namespace PamirAccounting.Forms.Customers
             // txtphoneSearch
             // 
             this.txtphoneSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtphoneSearch.Location = new System.Drawing.Point(283, 50);
+            this.txtphoneSearch.Location = new System.Drawing.Point(283, 32);
             this.txtphoneSearch.Name = "txtphoneSearch";
             this.txtphoneSearch.Size = new System.Drawing.Size(143, 33);
             this.txtphoneSearch.TabIndex = 94;
@@ -114,7 +114,7 @@ namespace PamirAccounting.Forms.Customers
             // txtNumberSearch
             // 
             this.txtNumberSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtNumberSearch.Location = new System.Drawing.Point(511, 50);
+            this.txtNumberSearch.Location = new System.Drawing.Point(511, 32);
             this.txtNumberSearch.Name = "txtNumberSearch";
             this.txtNumberSearch.Size = new System.Drawing.Size(143, 33);
             this.txtNumberSearch.TabIndex = 93;
@@ -123,7 +123,7 @@ namespace PamirAccounting.Forms.Customers
             // txtNameSearch
             // 
             this.txtNameSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtNameSearch.Location = new System.Drawing.Point(957, 52);
+            this.txtNameSearch.Location = new System.Drawing.Point(957, 34);
             this.txtNameSearch.Name = "txtNameSearch";
             this.txtNameSearch.Size = new System.Drawing.Size(143, 33);
             this.txtNameSearch.TabIndex = 91;
@@ -133,7 +133,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.cmbGroupsSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbGroupsSearch.FormattingEnabled = true;
-            this.cmbGroupsSearch.Location = new System.Drawing.Point(738, 50);
+            this.cmbGroupsSearch.Location = new System.Drawing.Point(738, 32);
             this.cmbGroupsSearch.Name = "cmbGroupsSearch";
             this.cmbGroupsSearch.Size = new System.Drawing.Size(143, 34);
             this.cmbGroupsSearch.TabIndex = 92;
@@ -144,7 +144,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(877, 53);
+            this.label5.Location = new System.Drawing.Point(877, 35);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 26);
@@ -155,7 +155,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(424, 53);
+            this.label4.Location = new System.Drawing.Point(424, 35);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 26);
@@ -167,7 +167,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(650, 53);
+            this.label2.Location = new System.Drawing.Point(650, 35);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 26);
@@ -179,7 +179,7 @@ namespace PamirAccounting.Forms.Customers
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1258, 54);
+            this.label1.Location = new System.Drawing.Point(1258, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 23);
@@ -190,7 +190,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1098, 54);
+            this.label3.Location = new System.Drawing.Point(1098, 36);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 26);
@@ -204,7 +204,7 @@ namespace PamirAccounting.Forms.Customers
             this.CreatBankBtn.Appearance.Options.UseFont = true;
             this.CreatBankBtn.Appearance.Options.UseForeColor = true;
             this.CreatBankBtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("CreatBankBtn.ImageOptions.SvgImage")));
-            this.CreatBankBtn.Location = new System.Drawing.Point(96, 47);
+            this.CreatBankBtn.Location = new System.Drawing.Point(96, 29);
             this.CreatBankBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CreatBankBtn.Name = "CreatBankBtn";
             this.CreatBankBtn.Size = new System.Drawing.Size(39, 41);
@@ -228,13 +228,13 @@ namespace PamirAccounting.Forms.Customers
             this.btnRowDelete,
             this.btnView});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(0, 145);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 99);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1155, 679);
+            this.dataGridView1.Size = new System.Drawing.Size(1152, 459);
             this.dataGridView1.TabIndex = 98;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -322,7 +322,7 @@ namespace PamirAccounting.Forms.Customers
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 821);
+            this.ClientSize = new System.Drawing.Size(1155, 568);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

@@ -151,6 +151,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDraftAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDraftAmount.Size = new System.Drawing.Size(265, 29);
             this.txtDraftAmount.TabIndex = 10;
+            this.txtDraftAmount.TextChanged += new System.EventHandler(this.txtDraftAmount_TextChanged);
             // 
             // txtRate
             // 
@@ -233,6 +234,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbDraftCurrency.Name = "cmbDraftCurrency";
             this.cmbDraftCurrency.Size = new System.Drawing.Size(265, 31);
             this.cmbDraftCurrency.TabIndex = 8;
+            this.cmbDraftCurrency.SelectedValueChanged += new System.EventHandler(this.cmbDraftCurrency_SelectedValueChanged);
             // 
             // cmbAgency
             // 
@@ -274,10 +276,11 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // txtRent
             // 
-            this.txtRent.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRent.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtRent.Location = new System.Drawing.Point(74, 146);
             this.txtRent.Name = "txtRent";
-            this.txtRent.Size = new System.Drawing.Size(265, 29);
+            this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtRent.Size = new System.Drawing.Size(265, 26);
             this.txtRent.TabIndex = 12;
             this.txtRent.TextChanged += new System.EventHandler(this.txtRent_TextChanged);
             // 

@@ -36,7 +36,7 @@ namespace PamirAccounting.Forms.Drafts
             unitOfWork = new UnitOfWork();
             initData();
             PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + (pc.GetMonth(DateTime.Now) < 10 ? "0" + pc.GetMonth(DateTime.Now).ToString() : pc.GetMonth(DateTime.Now).ToString()) + "/" + (pc.GetDayOfMonth(DateTime.Now)<10?"0" + pc.GetDayOfMonth(DateTime.Now).ToString() : pc.GetDayOfMonth(DateTime.Now).ToString());
+            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + (pc.GetMonth(DateTime.Now) < 10 ? "0" + pc.GetMonth(DateTime.Now).ToString() : pc.GetMonth(DateTime.Now).ToString()) + "/" + (pc.GetDayOfMonth(DateTime.Now) < 10 ? "0" + pc.GetDayOfMonth(DateTime.Now).ToString() : pc.GetDayOfMonth(DateTime.Now).ToString());
             txtDate.Text = PDate;
         }
         private void initData()
@@ -178,10 +178,50 @@ namespace PamirAccounting.Forms.Drafts
                     double rate;
                     if (double.TryParse(txtRate.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out rate))
                     {
-                        var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) / rate, MidpointRounding.AwayFromZero);
-                        var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+                        var sourceCurrenyId = (int)cmbDraftCurrency.SelectedValue;
+                        var destiniationCurrenyId = (int)cmbDepositCurreny.SelectedValue;
+                        var currenciesMappings = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.SourceCurrenyId == sourceCurrenyId && x.DestiniationCurrenyId == destiniationCurrenyId);
 
-                        txtDepositAmount.Text = (drafAmount + rent).ToString();
+                        var mappingsAction = (int)MappingActions.Multiplication;
+
+                        if (currenciesMappings == null && (sourceCurrenyId != destiniationCurrenyId))
+                        {
+                            DialogResult dialogResult = MessageBox.Show("نحوه تبدیل ارز مورد نظر تعریف نشده است .", " ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                        }
+                        else
+                        {
+                            if(sourceCurrenyId != destiniationCurrenyId)
+                            {
+                                mappingsAction = currenciesMappings.Action;
+                            }
+                      
+
+                            if (mappingsAction == (int)MappingActions.Division)
+                            {
+                                var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) / rate, MidpointRounding.AwayFromZero);
+                                var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+
+                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                            }
+                            else if (mappingsAction == (int)MappingActions.Multiplication)
+                            {
+
+                                var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) * rate, MidpointRounding.AwayFromZero);
+                                var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+
+                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                            }
+                            else
+                            {
+                                var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) + rate, MidpointRounding.AwayFromZero);
+                                var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+
+                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                            }
+
+                        }
+
                     }
                     else
                     {
@@ -193,9 +233,9 @@ namespace PamirAccounting.Forms.Drafts
             catch (Exception)
             {
 
-              
+
             }
-   
+
         }
 
         private void txtDraftAmount_TextChanged(object sender, EventArgs e)
@@ -206,6 +246,11 @@ namespace PamirAccounting.Forms.Drafts
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void cmbDraftCurrency_SelectedValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

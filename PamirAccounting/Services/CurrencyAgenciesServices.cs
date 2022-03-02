@@ -41,7 +41,7 @@ namespace PamirAccounting.Services.Services
                         SourceCurrenyName = x.SourceCurreny.Name,
                         DestiniationCurrenyName = x.DestiniationCurreny.Name,
                         ActionId = x.Action,
-                        ActionName = (x.Action == (int)Settings.Action.Division) ? "تقسیم" : (x.Action == (int)Settings.Action.Multiplication) ? "ضرب" : "جمع",
+                        ActionName = (x.Action == (int)Settings.MappingActions.Division) ? "تقسیم" : (x.Action == (int)Settings.MappingActions.Multiplication) ? "ضرب" : "جمع",
                         RoundLimitShow = (x.RoundLimit == 10) ? "رند به تغریب 10" : (x.RoundLimit == 100) ? "رند به تغریب 100" : (x.RoundLimit == 1000) ? "رند به تغریب 1000" : (x.RoundLimit == 10000) ? "رند به تغریب 10000" : "رند عادی",
                         ExchangeRate = x.ExchangeRate,
                         RoundLimit = x.RoundLimit

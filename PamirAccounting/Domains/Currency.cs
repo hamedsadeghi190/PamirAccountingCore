@@ -14,6 +14,7 @@ namespace PamirAccounting.Domains
             CurrenciesMappingDestiniationCurrenies = new HashSet<CurrenciesMapping>();
             CurrenciesMappingSourceCurrenies = new HashSet<CurrenciesMapping>();
             Customers = new HashSet<Customer>();
+            DraftConvertedCurrencies = new HashSet<Draft>();
             DraftDepositCurrencies = new HashSet<Draft>();
             DraftTypeCurrencies = new HashSet<Draft>();
             Settings = new HashSet<Setting>();
@@ -31,6 +32,7 @@ namespace PamirAccounting.Domains
         public virtual ICollection<CurrenciesMapping> CurrenciesMappingDestiniationCurrenies { get; set; }
         public virtual ICollection<CurrenciesMapping> CurrenciesMappingSourceCurrenies { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Draft> DraftConvertedCurrencies { get; set; }
         public virtual ICollection<Draft> DraftDepositCurrencies { get; set; }
         public virtual ICollection<Draft> DraftTypeCurrencies { get; set; }
         public virtual ICollection<Setting> Settings { get; set; }

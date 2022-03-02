@@ -53,12 +53,12 @@ namespace PamirAccounting.UI.Forms.Customers
         private void initGrid()
         {
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            HeaderStyle.Font = new Font("B Nazanin", 10, FontStyle.Bold);
             for (int i = 0; i < 12; i++)
             {
                 grdTransactions.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.grdTransactions.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            this.grdTransactions.DefaultCellStyle.Font = new Font("B Nazanin", 10, FontStyle.Bold);
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)grdTransactions.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
