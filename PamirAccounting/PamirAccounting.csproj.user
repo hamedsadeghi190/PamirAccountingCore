@@ -149,6 +149,9 @@
     <Compile Update="Forms\Drafts\BalanceCreateUpdateFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Drafts\BalanceListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Drafts\CurrencyExchangeFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +159,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Drafts\ExecuteDaraftFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Drafts\RateCreateUpdateFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Drafts\RateListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Drafts\shippingOrderFrm.cs">

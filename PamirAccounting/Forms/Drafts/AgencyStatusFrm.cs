@@ -1,16 +1,10 @@
-﻿using DevExpress.XtraEditors;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PamirAccounting.Models.ViewModels;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.Drafts
 {
@@ -82,7 +76,7 @@ namespace PamirAccounting.Forms.Drafts
                      Rent = q.Rent,
                      ConvertedRate = q.ConvertedRate,
                      ConvertedAmount = q.ConvertedAmount,
-                     ConvertedCurrency =q.ConvertedCurrency !=null ? q.ConvertedCurrency.Name:"",
+                     ConvertedCurrency = q.ConvertedCurrency != null ? q.ConvertedCurrency.Name : "",
                      DepositAmount = q.DepositAmount,
                      DepositCurrency = q.DepositCurrency.Name,
                      Customer = q.Customer.FirstName + " " + q.Customer.LastName,
@@ -113,7 +107,14 @@ namespace PamirAccounting.Forms.Drafts
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == gridDrafts.Columns["btnConvert"].Index && e.RowIndex >= 0)
+            {
+                var draft = _data.ElementAt(e.RowIndex);
 
+                var FrmBalance = new CurrencyExchangeFrm(draft.Id);
+                FrmBalance.ShowDialog();
+                LoadData();
+            }
         }
     }
 }
