@@ -46,7 +46,7 @@ namespace PamirAccounting.Forms.Drafts
             cmbConvertedCurrency.ValueMember = "Id";
             cmbConvertedCurrency.DisplayMember = "Title";
 
-            _Draft = unitOfWork.Drafts.FindAll(x => x.Id == DraftId).Include(x=>x.TypeCurrency).FirstOrDefault();
+            _Draft = unitOfWork.Drafts.FindAll(x => x.Id == DraftId).Include(x => x.TypeCurrency).FirstOrDefault();
 
 
             if (_Draft != null)
@@ -139,6 +139,20 @@ namespace PamirAccounting.Forms.Drafts
         private void cmbConvertedCurrency_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblConvertedCurrency.Text = cmbConvertedCurrency.Text;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            _Draft.ConvertedCurrencyId = (int)cmbConvertedCurrency.SelectedValue;
+            _Draft.ConvertedAmount = long.Parse(lblConvetedAmount.Text);
+            _Draft.ConvertedRate = double.Parse(txtRate.Text);
+            _Draft.Rent = double.Parse(txtRent.Text);
+            _Draft.ExtraDescription = txtExteraDesc.Text;
+
+            unitOfWork.DraftsServices.Update(_Draft);
+            unitOfWork.SaveChanges();
+            Close();
+
         }
     }
 }

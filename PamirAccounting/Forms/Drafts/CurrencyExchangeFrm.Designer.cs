@@ -89,12 +89,11 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // lblConvertedCurrency
             // 
-            this.lblConvertedCurrency.AutoSize = true;
             this.lblConvertedCurrency.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblConvertedCurrency.ForeColor = System.Drawing.Color.Blue;
-            this.lblConvertedCurrency.Location = new System.Drawing.Point(41, 79);
+            this.lblConvertedCurrency.Location = new System.Drawing.Point(6, 79);
             this.lblConvertedCurrency.Name = "lblConvertedCurrency";
-            this.lblConvertedCurrency.Size = new System.Drawing.Size(17, 24);
+            this.lblConvertedCurrency.Size = new System.Drawing.Size(62, 24);
             this.lblConvertedCurrency.TabIndex = 18;
             this.lblConvertedCurrency.Text = "-";
             // 
@@ -122,11 +121,10 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // lblDraftCurrency
             // 
-            this.lblDraftCurrency.AutoSize = true;
             this.lblDraftCurrency.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDraftCurrency.Location = new System.Drawing.Point(41, 43);
+            this.lblDraftCurrency.Location = new System.Drawing.Point(6, 43);
             this.lblDraftCurrency.Name = "lblDraftCurrency";
-            this.lblDraftCurrency.Size = new System.Drawing.Size(17, 24);
+            this.lblDraftCurrency.Size = new System.Drawing.Size(62, 24);
             this.lblDraftCurrency.TabIndex = 12;
             this.lblDraftCurrency.Text = "-";
             // 
@@ -231,6 +229,7 @@ namespace PamirAccounting.Forms.Drafts
             this.btnSave.Size = new System.Drawing.Size(110, 38);
             this.btnSave.TabIndex = 62;
             this.btnSave.Text = "ثبت";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
