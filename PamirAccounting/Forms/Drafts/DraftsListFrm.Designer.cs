@@ -158,7 +158,7 @@ namespace PamirAccounting.Forms.Drafts
             this.gridDrafts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("B Titr", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -388,6 +388,7 @@ namespace PamirAccounting.Forms.Drafts
             this.btnExecuteDaraft.Size = new System.Drawing.Size(39, 41);
             this.btnExecuteDaraft.TabIndex = 13;
             this.btnExecuteDaraft.Text = "اجرای حواله";
+            this.btnExecuteDaraft.Visible = false;
             this.btnExecuteDaraft.Click += new System.EventHandler(this.btnExecuteDaraft_Click);
             // 
             // btnAgencystatus
@@ -410,6 +411,7 @@ namespace PamirAccounting.Forms.Drafts
             this.simpleButton8.Size = new System.Drawing.Size(39, 41);
             this.simpleButton8.TabIndex = 9;
             this.simpleButton8.Text = "دریافت از اکسل";
+            this.simpleButton8.Visible = false;
             // 
             // simpleButton5
             // 
@@ -419,12 +421,13 @@ namespace PamirAccounting.Forms.Drafts
             this.simpleButton5.Size = new System.Drawing.Size(39, 41);
             this.simpleButton5.TabIndex = 5;
             this.simpleButton5.Text = "تسویه حساب";
+            this.simpleButton5.Visible = false;
             // 
             // simpleButton4
             // 
             this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
             this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(1189, 22);
+            this.simpleButton4.Location = new System.Drawing.Point(155, 22);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(39, 41);
             this.simpleButton4.TabIndex = 4;
@@ -438,16 +441,18 @@ namespace PamirAccounting.Forms.Drafts
             this.simpleButton3.Size = new System.Drawing.Size(39, 41);
             this.simpleButton3.TabIndex = 2;
             this.simpleButton3.Text = "راهنما";
+            this.simpleButton3.Visible = false;
             // 
             // simpleButton2
             // 
             this.simpleButton2.AppearanceHovered.Options.UseTextOptions = true;
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(1234, 22);
+            this.simpleButton2.Location = new System.Drawing.Point(1189, 22);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(39, 41);
             this.simpleButton2.TabIndex = 1;
             this.simpleButton2.Text = "جستجو";
+            this.simpleButton2.Visible = false;
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // Radif
@@ -475,19 +480,19 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.Number.DataPropertyName = "Number";
             this.Number.HeaderText = "شماره";
-            this.Number.MinimumWidth = 6;
+            this.Number.MinimumWidth = 70;
             this.Number.Name = "Number";
             this.Number.ReadOnly = true;
-            this.Number.Width = 60;
+            this.Number.Width = 70;
             // 
             // Column4
             // 
             this.Column4.DataPropertyName = "OtherNumber";
             this.Column4.HeaderText = "ش . م";
-            this.Column4.MinimumWidth = 6;
+            this.Column4.MinimumWidth = 70;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 60;
+            this.Column4.Width = 70;
             // 
             // a
             // 
