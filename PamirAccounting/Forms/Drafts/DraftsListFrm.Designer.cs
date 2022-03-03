@@ -151,12 +151,14 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // gridDrafts
             // 
+            this.gridDrafts.AllowUserToAddRows = false;
             this.gridDrafts.AllowUserToDeleteRows = false;
             this.gridDrafts.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridDrafts.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.gridDrafts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("B Zar", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("B Titr", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -200,15 +202,17 @@ namespace PamirAccounting.Forms.Drafts
             this.gridDrafts.Name = "gridDrafts";
             this.gridDrafts.ReadOnly = true;
             this.gridDrafts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.gridDrafts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("B Yekan", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridDrafts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.gridDrafts.RowHeadersWidth = 51;
+            this.gridDrafts.RowHeadersVisible = false;
+            this.gridDrafts.RowHeadersWidth = 60;
             this.gridDrafts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gridDrafts.RowTemplate.ReadOnly = true;
             this.gridDrafts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -449,23 +453,23 @@ namespace PamirAccounting.Forms.Drafts
             // Radif
             // 
             this.Radif.DataPropertyName = "Id";
-            this.Radif.FillWeight = 80F;
+            this.Radif.FillWeight = 60F;
             this.Radif.HeaderText = "ردیف";
-            this.Radif.MinimumWidth = 80;
+            this.Radif.MinimumWidth = 60;
             this.Radif.Name = "Radif";
             this.Radif.ReadOnly = true;
             this.Radif.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Radif.Width = 80;
+            this.Radif.Width = 60;
             // 
             // Date
             // 
             this.Date.DataPropertyName = "Date";
-            this.Date.FillWeight = 110F;
+            this.Date.FillWeight = 70F;
             this.Date.HeaderText = "تاریخ";
             this.Date.MinimumWidth = 6;
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
-            this.Date.Width = 110;
+            this.Date.Width = 70;
             // 
             // Number
             // 
@@ -474,51 +478,56 @@ namespace PamirAccounting.Forms.Drafts
             this.Number.MinimumWidth = 6;
             this.Number.Name = "Number";
             this.Number.ReadOnly = true;
-            this.Number.Width = 125;
+            this.Number.Width = 60;
             // 
             // Column4
             // 
             this.Column4.DataPropertyName = "OtherNumber";
-            this.Column4.HeaderText = "شماره م";
+            this.Column4.HeaderText = "ش . م";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 60;
             // 
             // a
             // 
             this.a.DataPropertyName = "Sender";
+            this.a.FillWeight = 110F;
             this.a.HeaderText = "فرستنده";
             this.a.MinimumWidth = 6;
             this.a.Name = "a";
             this.a.ReadOnly = true;
-            this.a.Width = 125;
+            this.a.Width = 110;
             // 
             // Column5
             // 
             this.Column5.DataPropertyName = "Reciver";
+            this.Column5.FillWeight = 110F;
             this.Column5.HeaderText = "گیرنده";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 125;
+            this.Column5.Width = 110;
             // 
             // Column6
             // 
             this.Column6.DataPropertyName = "FatherName";
+            this.Column6.FillWeight = 110F;
             this.Column6.HeaderText = "پدر";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            this.Column6.Width = 125;
+            this.Column6.Width = 110;
             // 
             // Column7
             // 
             this.Column7.DataPropertyName = "Customer";
+            this.Column7.FillWeight = 110F;
             this.Column7.HeaderText = "اسم مشتری";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Width = 125;
+            this.Column7.Width = 110;
             // 
             // DraftAmount
             // 
@@ -527,7 +536,7 @@ namespace PamirAccounting.Forms.Drafts
             this.DraftAmount.MinimumWidth = 6;
             this.DraftAmount.Name = "DraftAmount";
             this.DraftAmount.ReadOnly = true;
-            this.DraftAmount.Width = 125;
+            this.DraftAmount.Width = 110;
             // 
             // Column9
             // 
@@ -536,7 +545,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            this.Column9.Width = 125;
+            this.Column9.Width = 110;
             // 
             // Column10
             // 
@@ -545,7 +554,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            this.Column10.Width = 125;
+            this.Column10.Width = 110;
             // 
             // Column11
             // 
@@ -554,7 +563,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
-            this.Column11.Width = 125;
+            this.Column11.Width = 110;
             // 
             // Column12
             // 
@@ -563,7 +572,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
-            this.Column12.Width = 125;
+            this.Column12.Width = 110;
             // 
             // Column13
             // 
@@ -572,7 +581,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column13.MinimumWidth = 6;
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
-            this.Column13.Width = 125;
+            this.Column13.Width = 110;
             // 
             // Column14
             // 
@@ -580,7 +589,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
             this.Column14.ReadOnly = true;
-            this.Column14.Width = 125;
+            this.Column14.Width = 110;
             // 
             // Column15
             // 
@@ -589,7 +598,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column15.MinimumWidth = 6;
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
-            this.Column15.Width = 125;
+            this.Column15.Width = 70;
             // 
             // Column16
             // 
@@ -707,6 +716,7 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        public System.Windows.Forms.DataGridView gridDrafts;
         private System.Windows.Forms.DataGridViewTextBoxColumn Radif;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
@@ -729,6 +739,5 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewButtonColumn Column21;
         private System.Windows.Forms.DataGridViewButtonColumn Column22;
-        public System.Windows.Forms.DataGridView gridDrafts;
     }
 }

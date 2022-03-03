@@ -122,24 +122,25 @@ namespace PamirAccounting.Forms.Drafts
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,
                 Customer = q.Customer.FirstName + " " + q.Customer.LastName,
-                RunningDate = q.RunningDate.ToString(),
-                Date = q.Date.ToString()
+                RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
+                Date = q.Date != null ? (DateTime.Parse(q.Date.ToString())).ToPersian() : "",
             }).ToList();
 
 
 
-            gridDrafts.RowsDefaultCellStyle.BackColor = Color.Bisque;
-            gridDrafts.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige;
-            gridDrafts.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            gridDrafts.RowsDefaultCellStyle.BackColor = Color.White;
+            
+            gridDrafts.AlternatingRowsDefaultCellStyle.BackColor = Color.Silver;
+            gridDrafts.CellBorderStyle = DataGridViewCellBorderStyle.Single;
 
-            gridDrafts.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
-            gridDrafts.DefaultCellStyle.SelectionForeColor = Color.Black;
+            gridDrafts.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
+            gridDrafts.DefaultCellStyle.SelectionForeColor = Color.White;
 
             gridDrafts.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             gridDrafts.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             gridDrafts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gridDrafts.AllowUserToResizeColumns = false;
+            //gridDrafts.AllowUserToResizeColumns = false;
 
 
             gridDrafts.RowsDefaultCellStyle.BackColor = Color.White;
