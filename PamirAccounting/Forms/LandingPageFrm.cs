@@ -4,6 +4,7 @@ using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.GeneralLedger;
 using PamirAccounting.Forms.NewsPaper;
+using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
 using PamirAccounting.UI.Forms.Agencies;
@@ -443,6 +444,36 @@ namespace PamirAccounting.Forms
         {
             var frm = new FrmCustomerList();
             frm.ShowDialog();
+        }
+
+        private void btnshippingOrder_Click(object sender, EventArgs e)
+        {
+            var frm = new shippingOrderFrm();
+            frm.ShowDialog();
+        }
+
+        private void btnWarrantsPayableFrm_Click(object sender, EventArgs e)
+        {
+            var frm = new WarrantsPayableFrm();
+            frm.ShowDialog();
+        }
+
+        private void btnNewAccount_Click(object sender, EventArgs e)
+        {
+            var frm = new CustomerCreateUpdateFrm();
+            frm.ShowDialog();
+        }
+
+        private void btnbank_Click(object sender, EventArgs e)
+        {
+            var FrmBankPayment = new PayAndReciveBankFrm();
+            FrmBankPayment.ShowDialog();
+        }
+
+        private void btnAgency_Click(object sender, EventArgs e)
+        {
+            var FrmAgency = new FrmCurrencyAgenciesList();
+            FrmAgency.ShowDialog();
         }
     }
 }

@@ -105,11 +105,11 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Users = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsMenu_Recovery = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNewAccount = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAgency = new System.Windows.Forms.Button();
+            this.btnWarrantsPayableFrm = new System.Windows.Forms.Button();
             this.btn_CreditorList = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnshippingOrder = new System.Windows.Forms.Button();
+            this.btnbank = new System.Windows.Forms.Button();
             this.btn_Deposit = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblUser = new System.Windows.Forms.Label();
@@ -468,7 +468,7 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(236, 38);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(211, 38);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
@@ -584,7 +584,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("عملیاتچکToolStripMenuItem.Image")));
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(236, 38);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(211, 38);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan
@@ -904,51 +904,54 @@ namespace PamirAccounting.Forms
             this.btnNewAccount.Location = new System.Drawing.Point(291, 144);
             this.btnNewAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNewAccount.Name = "btnNewAccount";
-            this.btnNewAccount.Size = new System.Drawing.Size(203, 125);
+            this.btnNewAccount.Size = new System.Drawing.Size(219, 125);
             this.btnNewAccount.TabIndex = 1;
-            this.btnNewAccount.Text = "ثبت حساب جدید";
+            this.btnNewAccount.Text = "ثبت مشتری جدید";
             this.btnNewAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNewAccount.UseVisualStyleBackColor = false;
+            this.btnNewAccount.Click += new System.EventHandler(this.btnNewAccount_Click);
             // 
-            // button1
+            // btnAgency
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(14, 144);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(271, 125);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "تنظیمات نمایندگی ها";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAgency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
+            this.btnAgency.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
+            this.btnAgency.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
+            this.btnAgency.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
+            this.btnAgency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgency.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAgency.ForeColor = System.Drawing.Color.White;
+            this.btnAgency.Image = ((System.Drawing.Image)(resources.GetObject("btnAgency.Image")));
+            this.btnAgency.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgency.Location = new System.Drawing.Point(14, 144);
+            this.btnAgency.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAgency.Name = "btnAgency";
+            this.btnAgency.Size = new System.Drawing.Size(271, 125);
+            this.btnAgency.TabIndex = 2;
+            this.btnAgency.Text = "تنظیمات نمایندگی ها";
+            this.btnAgency.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgency.UseVisualStyleBackColor = false;
+            this.btnAgency.Click += new System.EventHandler(this.btnAgency_Click);
             // 
-            // button2
+            // btnWarrantsPayableFrm
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(14, 411);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 125);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "حواله خرید";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnWarrantsPayableFrm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
+            this.btnWarrantsPayableFrm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
+            this.btnWarrantsPayableFrm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
+            this.btnWarrantsPayableFrm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
+            this.btnWarrantsPayableFrm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWarrantsPayableFrm.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnWarrantsPayableFrm.ForeColor = System.Drawing.Color.White;
+            this.btnWarrantsPayableFrm.Image = ((System.Drawing.Image)(resources.GetObject("btnWarrantsPayableFrm.Image")));
+            this.btnWarrantsPayableFrm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWarrantsPayableFrm.Location = new System.Drawing.Point(14, 411);
+            this.btnWarrantsPayableFrm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWarrantsPayableFrm.Name = "btnWarrantsPayableFrm";
+            this.btnWarrantsPayableFrm.Size = new System.Drawing.Size(149, 125);
+            this.btnWarrantsPayableFrm.TabIndex = 3;
+            this.btnWarrantsPayableFrm.Text = "حواله خرید";
+            this.btnWarrantsPayableFrm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnWarrantsPayableFrm.UseVisualStyleBackColor = false;
+            this.btnWarrantsPayableFrm.Click += new System.EventHandler(this.btnWarrantsPayableFrm_Click);
             // 
             // btn_CreditorList
             // 
@@ -971,45 +974,47 @@ namespace PamirAccounting.Forms
             this.btn_CreditorList.UseVisualStyleBackColor = false;
             this.btn_CreditorList.Click += new System.EventHandler(this.btn_CreditorList_Click);
             // 
-            // button4
+            // btnshippingOrder
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(14, 544);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 125);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "حواله فروش";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnshippingOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
+            this.btnshippingOrder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
+            this.btnshippingOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
+            this.btnshippingOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
+            this.btnshippingOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnshippingOrder.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnshippingOrder.ForeColor = System.Drawing.Color.White;
+            this.btnshippingOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnshippingOrder.Image")));
+            this.btnshippingOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnshippingOrder.Location = new System.Drawing.Point(14, 544);
+            this.btnshippingOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnshippingOrder.Name = "btnshippingOrder";
+            this.btnshippingOrder.Size = new System.Drawing.Size(149, 125);
+            this.btnshippingOrder.TabIndex = 5;
+            this.btnshippingOrder.Text = "حواله فروش";
+            this.btnshippingOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnshippingOrder.UseVisualStyleBackColor = false;
+            this.btnshippingOrder.Click += new System.EventHandler(this.btnshippingOrder_Click);
             // 
-            // button5
+            // btnbank
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(14, 277);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(271, 125);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "دریافت و پرداخت بانکی";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnbank.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
+            this.btnbank.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
+            this.btnbank.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
+            this.btnbank.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
+            this.btnbank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbank.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbank.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnbank.Image = ((System.Drawing.Image)(resources.GetObject("btnbank.Image")));
+            this.btnbank.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnbank.Location = new System.Drawing.Point(14, 277);
+            this.btnbank.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnbank.Name = "btnbank";
+            this.btnbank.Size = new System.Drawing.Size(271, 125);
+            this.btnbank.TabIndex = 6;
+            this.btnbank.Text = "دریافت و پرداخت بانکی";
+            this.btnbank.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnbank.UseVisualStyleBackColor = false;
+            this.btnbank.Click += new System.EventHandler(this.btnbank_Click);
             // 
             // btn_Deposit
             // 
@@ -1095,11 +1100,11 @@ namespace PamirAccounting.Forms
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Deposit);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnbank);
+            this.Controls.Add(this.btnshippingOrder);
             this.Controls.Add(this.btn_CreditorList);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnWarrantsPayableFrm);
+            this.Controls.Add(this.btnAgency);
             this.Controls.Add(this.btnNewAccount);
             this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
@@ -1179,11 +1184,11 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.ToolStripMenuItem SettingsMenu_Users;
         private System.Windows.Forms.ToolStripMenuItem SettingsMenu_Recovery;
         private System.Windows.Forms.Button btnNewAccount;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAgency;
+        private System.Windows.Forms.Button btnWarrantsPayableFrm;
         private System.Windows.Forms.Button btn_CreditorList;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnshippingOrder;
+        private System.Windows.Forms.Button btnbank;
         private System.Windows.Forms.Button btn_Deposit;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblUser;
