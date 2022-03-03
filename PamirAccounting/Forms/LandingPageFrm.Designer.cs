@@ -346,7 +346,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_Lis.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_Lis.Image")));
             this.CustomerMenu_Lis.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_Lis.Name = "CustomerMenu_Lis";
-            this.CustomerMenu_Lis.Size = new System.Drawing.Size(196, 38);
+            this.CustomerMenu_Lis.Size = new System.Drawing.Size(191, 38);
             this.CustomerMenu_Lis.Text = "لیست مشتریان";
             this.CustomerMenu_Lis.Click += new System.EventHandler(this.CustomerMenu_Lis_Click);
             // 
@@ -356,7 +356,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_New.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_New.Image")));
             this.CustomerMenu_New.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_New.Name = "CustomerMenu_New";
-            this.CustomerMenu_New.Size = new System.Drawing.Size(196, 38);
+            this.CustomerMenu_New.Size = new System.Drawing.Size(191, 38);
             this.CustomerMenu_New.Text = "ثبت مشتری جدید";
             this.CustomerMenu_New.Click += new System.EventHandler(this.CustomerMenu_New_Click);
             // 
@@ -366,7 +366,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_UnkwonDeposit.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_UnkwonDeposit.Image")));
             this.CustomerMenu_UnkwonDeposit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_UnkwonDeposit.Name = "CustomerMenu_UnkwonDeposit";
-            this.CustomerMenu_UnkwonDeposit.Size = new System.Drawing.Size(196, 38);
+            this.CustomerMenu_UnkwonDeposit.Size = new System.Drawing.Size(191, 38);
             this.CustomerMenu_UnkwonDeposit.Text = "واریزهای نامعلوم";
             this.CustomerMenu_UnkwonDeposit.Click += new System.EventHandler(this.CustomerMenu_UnkwonDeposit_Click);
             // 
@@ -469,7 +469,7 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(173, 38);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
@@ -585,7 +585,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("عملیاتچکToolStripMenuItem.Image")));
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(173, 38);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan
@@ -664,7 +664,7 @@ namespace PamirAccounting.Forms
             // چکهاToolStripMenuItem1
             // 
             this.چکهاToolStripMenuItem1.Name = "چکهاToolStripMenuItem1";
-            this.چکهاToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.چکهاToolStripMenuItem1.Size = new System.Drawing.Size(173, 38);
             this.چکهاToolStripMenuItem1.Text = "چکها";
             // 
             // دفترکلToolStripMenuItem
@@ -691,7 +691,6 @@ namespace PamirAccounting.Forms
             // 
             this.لیستمشتریانToolStripMenuItem.AutoSize = false;
             this.لیستمشتریانToolStripMenuItem.Font = new System.Drawing.Font("B Zar", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.لیستمشتریانToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("لیستمشتریانToolStripMenuItem.Image")));
             this.لیستمشتریانToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.لیستمشتریانToolStripMenuItem.Name = "لیستمشتریانToolStripMenuItem";
             this.لیستمشتریانToolStripMenuItem.Size = new System.Drawing.Size(245, 42);
@@ -924,7 +923,6 @@ namespace PamirAccounting.Forms
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(12, 108);
             this.button1.Name = "button1";
@@ -943,7 +941,6 @@ namespace PamirAccounting.Forms
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(12, 308);
             this.button2.Name = "button2";
@@ -982,7 +979,6 @@ namespace PamirAccounting.Forms
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(12, 408);
             this.button4.Name = "button4";
@@ -1001,7 +997,6 @@ namespace PamirAccounting.Forms
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("B Zar", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.Location = new System.Drawing.Point(12, 208);
             this.button5.Name = "button5";
