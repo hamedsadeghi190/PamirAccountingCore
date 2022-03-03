@@ -72,6 +72,7 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_Pas = new System.Windows.Forms.ToolStripMenuItem();
             this.ListOdatPayment = new System.Windows.Forms.ToolStripMenuItem();
             this.ListBargashtPayment = new System.Windows.Forms.ToolStripMenuItem();
+            this.لیستچکهایدربافتنیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.عملیاتچکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_SareHesabGozashtan = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_VosoolDaryaftani = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,6 +84,7 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_PassPardakhtani = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_BargashtPardakhti = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_OdatPardakhti = new System.Windows.Forms.ToolStripMenuItem();
+            this.چکهاToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.دفترکلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.لیستمشتریانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TotalList = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,8 +118,6 @@ namespace PamirAccounting.Forms
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.lblTimee = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.چکهاToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.لیستچکهایدربافتنیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -346,7 +346,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_Lis.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_Lis.Image")));
             this.CustomerMenu_Lis.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_Lis.Name = "CustomerMenu_Lis";
-            this.CustomerMenu_Lis.Size = new System.Drawing.Size(191, 38);
+            this.CustomerMenu_Lis.Size = new System.Drawing.Size(196, 38);
             this.CustomerMenu_Lis.Text = "لیست مشتریان";
             this.CustomerMenu_Lis.Click += new System.EventHandler(this.CustomerMenu_Lis_Click);
             // 
@@ -356,7 +356,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_New.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_New.Image")));
             this.CustomerMenu_New.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_New.Name = "CustomerMenu_New";
-            this.CustomerMenu_New.Size = new System.Drawing.Size(191, 38);
+            this.CustomerMenu_New.Size = new System.Drawing.Size(196, 38);
             this.CustomerMenu_New.Text = "ثبت مشتری جدید";
             this.CustomerMenu_New.Click += new System.EventHandler(this.CustomerMenu_New_Click);
             // 
@@ -366,7 +366,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_UnkwonDeposit.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_UnkwonDeposit.Image")));
             this.CustomerMenu_UnkwonDeposit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_UnkwonDeposit.Name = "CustomerMenu_UnkwonDeposit";
-            this.CustomerMenu_UnkwonDeposit.Size = new System.Drawing.Size(191, 38);
+            this.CustomerMenu_UnkwonDeposit.Size = new System.Drawing.Size(196, 38);
             this.CustomerMenu_UnkwonDeposit.Text = "واریزهای نامعلوم";
             this.CustomerMenu_UnkwonDeposit.Click += new System.EventHandler(this.CustomerMenu_UnkwonDeposit_Click);
             // 
@@ -561,6 +561,13 @@ namespace PamirAccounting.Forms
             this.ListBargashtPayment.Text = "لیست چک های برگشتی پرداختنی";
             this.ListBargashtPayment.Click += new System.EventHandler(this.ListBargashtPayment_Click);
             // 
+            // لیستچکهایدربافتنیToolStripMenuItem
+            // 
+            this.لیستچکهایدربافتنیToolStripMenuItem.AutoSize = false;
+            this.لیستچکهایدربافتنیToolStripMenuItem.Name = "لیستچکهایدربافتنیToolStripMenuItem";
+            this.لیستچکهایدربافتنیToolStripMenuItem.Size = new System.Drawing.Size(280, 38);
+            this.لیستچکهایدربافتنیToolStripMenuItem.Text = "لیست چک های دربافتنی";
+            // 
             // عملیاتچکToolStripMenuItem
             // 
             this.عملیاتچکToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -653,6 +660,12 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_OdatPardakhti.Size = new System.Drawing.Size(250, 28);
             this.ChequeMenu_OdatPardakhti.Text = "عودت چکهای پرداختی";
             this.ChequeMenu_OdatPardakhti.Click += new System.EventHandler(this.ChequeMenu_OdatPardakhti_Click);
+            // 
+            // چکهاToolStripMenuItem1
+            // 
+            this.چکهاToolStripMenuItem1.Name = "چکهاToolStripMenuItem1";
+            this.چکهاToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+            this.چکهاToolStripMenuItem1.Text = "چکها";
             // 
             // دفترکلToolStripMenuItem
             // 
@@ -1072,19 +1085,6 @@ namespace PamirAccounting.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1199, 46);
             this.panel1.TabIndex = 11;
-            // 
-            // چکهاToolStripMenuItem1
-            // 
-            this.چکهاToolStripMenuItem1.Name = "چکهاToolStripMenuItem1";
-            this.چکهاToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
-            this.چکهاToolStripMenuItem1.Text = "چکها";
-            // 
-            // لیستچکهایدربافتنیToolStripMenuItem
-            // 
-            this.لیستچکهایدربافتنیToolStripMenuItem.AutoSize = false;
-            this.لیستچکهایدربافتنیToolStripMenuItem.Name = "لیستچکهایدربافتنیToolStripMenuItem";
-            this.لیستچکهایدربافتنیToolStripMenuItem.Size = new System.Drawing.Size(280, 38);
-            this.لیستچکهایدربافتنیToolStripMenuItem.Text = "لیست چک های دربافتنی";
             // 
             // LandingPageFrm
             // 
