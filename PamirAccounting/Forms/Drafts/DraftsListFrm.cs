@@ -122,10 +122,24 @@ namespace PamirAccounting.Forms.Drafts
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,
                 Customer = q.Customer.FirstName + " " + q.Customer.LastName,
-                RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
-                Date = q.Date != null ? (DateTime.Parse(q.Date.ToString())).ToPersian() : "",
+                RunningDate = q.RunningDate.ToString(),
+                Date = q.Date.ToString()
             }).ToList();
 
+
+
+            gridDrafts.RowsDefaultCellStyle.BackColor = Color.Bisque;
+            gridDrafts.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige;
+            gridDrafts.CellBorderStyle = DataGridViewCellBorderStyle.None;
+
+            gridDrafts.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+            gridDrafts.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            gridDrafts.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            gridDrafts.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            gridDrafts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridDrafts.AllowUserToResizeColumns = false;
 
 
             gridDrafts.RowsDefaultCellStyle.BackColor = Color.White;
