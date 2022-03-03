@@ -174,5 +174,13 @@ namespace PamirAccounting.Forms.Drafts
             grdTotals.DataSource = _dataSummery;
 
         }
+
+        private void DraftsListFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F2)
+            {
+                btnAgencystatus_Click(null, null);
+            }
+        }
     }
 }

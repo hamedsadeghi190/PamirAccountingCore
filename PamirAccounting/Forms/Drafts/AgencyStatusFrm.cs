@@ -4,6 +4,7 @@ using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -31,38 +32,39 @@ namespace PamirAccounting.Forms.Drafts
 
         }
 
-        private void btncurrencyexchange_Click(object sender, EventArgs e)
-        {
-        }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            var AgencyStatusSearchFrm = new AgencyStatusSearchFrm();
-            AgencyStatusSearchFrm.ShowDialog();
-        }
-
-        private void btnBalance_Click(object sender, EventArgs e)
-        {
-        }
 
         private void AgencyStatusFrm_Load(object sender, EventArgs e)
         {
             gridDrafts.AutoGenerateColumns = false;
+
+            var agency = unitOfWork.Agencies.FindAll(x => x.Id == AgencyID).Include(x => x.Curreny).FirstOrDefault();
+            LblAgencyName.Text = agency.Name;
+            LblCurrencyName.Text = agency.Curreny.Name;
+
             LoadData();
         }
 
         private void LoadData()
         {
+
+
             var tmpdata = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == AgencyID)
                                     .Include(y => y.TypeCurrency)
                                     .Include(f => f.DepositCurrency)
                                     .Include(f => f.ConvertedCurrency)
                                     .Include(f => f.Customer)
+
                                     .ToList();
+
+            int radif = 0;
+            _data = null;
             _data = tmpdata
                  .Select(q => new DraftViewModels()
                  {
+                     Index = ++radif,
                      Id = q.Id,
+                     Type = q.Type,
                      Number = q.Number,
                      OtherNumber = q.OtherNumber,
                      Sender = q.Sender,
@@ -88,6 +90,21 @@ namespace PamirAccounting.Forms.Drafts
                  })
                 .ToList();
 
+
+            gridDrafts.RowsDefaultCellStyle.BackColor = Color.White;
+
+            gridDrafts.AlternatingRowsDefaultCellStyle.BackColor = Color.Silver;
+            gridDrafts.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+
+            gridDrafts.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
+            gridDrafts.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            gridDrafts.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            gridDrafts.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            gridDrafts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+
             gridDrafts.DataSource = null;
             gridDrafts.DataSource = _data;
             gridDrafts.Refresh();
@@ -104,6 +121,7 @@ namespace PamirAccounting.Forms.Drafts
 
             grdTotals.DataSource = null;
             grdTotals.DataSource = _dataSummery;
+            grdTotals.Refresh();
         }
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
@@ -118,15 +136,22 @@ namespace PamirAccounting.Forms.Drafts
             }
         }
 
-        private void AgencyStatusFrm_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void gridDrafts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
-            if (e.KeyCode == Keys.Enter)
+            foreach (DataGridViewRow row in gridDrafts.Rows)
             {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
+                if (Convert.ToDouble(row.Cells["ConvertedAmount"].Value) <= 0)
+                {
+                    row.Cells["ConvertedAmount"].Style.BackColor = Color.Red;
+                }
+                var data = _data.ElementAt(row.Index);
+                if (data.Type == 1)
+                {
+                    row.DefaultCellStyle.BackColor= Color.LightGreen;
+                }
+
             }
+
         }
     }
 }

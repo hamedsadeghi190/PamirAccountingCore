@@ -8,6 +8,8 @@ namespace PamirAccounting.Models.ViewModels
 {
     public class DraftViewModels
     {
+        public int Index { get; set; }
+        public int Type { get; set; }
         public long Id { get; set; }
         public long Number { get; set; }
         public string OtherNumber { get; set; }
