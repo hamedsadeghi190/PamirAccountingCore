@@ -196,6 +196,11 @@ namespace PamirAccounting.Forms.Transactions
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
 
         private void txtbuyerprice_KeyUp(object sender, KeyEventArgs e)

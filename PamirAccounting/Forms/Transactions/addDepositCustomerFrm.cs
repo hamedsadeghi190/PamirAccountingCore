@@ -3,6 +3,8 @@ using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Forms;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace PamirAccounting.Forms.Transactions
 {
@@ -75,6 +77,17 @@ namespace PamirAccounting.Forms.Transactions
             }
 
 
+        }
+
+        private void addDepositCustomerFrm_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
     }
 }

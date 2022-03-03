@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.UI.Forms.Transaction
@@ -201,6 +202,22 @@ namespace PamirAccounting.UI.Forms.Transaction
         private void txtAmount_TextChanged(object sender, EventArgs e)
         {
             CreateDescription();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TransferAccountFrm_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
 
         private void label8_Click(object sender, EventArgs e)

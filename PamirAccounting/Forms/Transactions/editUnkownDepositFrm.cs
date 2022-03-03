@@ -244,5 +244,16 @@ namespace PamirAccounting.Forms.Transactions
         {
 
         }
+
+        private void editUnkownDepositFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+        }
     }
 }
