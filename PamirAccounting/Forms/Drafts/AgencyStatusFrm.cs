@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.Drafts
 {
@@ -114,6 +115,17 @@ namespace PamirAccounting.Forms.Drafts
                 var FrmBalance = new CurrencyExchangeFrm(draft.Id);
                 FrmBalance.ShowDialog();
                 LoadData();
+            }
+        }
+
+        private void AgencyStatusFrm_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
             }
         }
     }

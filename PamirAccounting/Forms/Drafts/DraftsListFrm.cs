@@ -2,10 +2,12 @@
 using PamirAccounting.Models;
 using PamirAccounting.Models.ViewModels;
 using PamirAccounting.Services;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -157,6 +159,59 @@ namespace PamirAccounting.Forms.Drafts
             grdTotals.DataSource = null;
             grdTotals.DataSource = _dataSummery;
 
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
+                                                             && x.Type == (int)(cmbType.SelectedValue))
+                 .Include(x => x.DepositCurrency)
+                 .Include(x => x.TypeCurrency)
+                 .Include(x => x.Customer)
+                 .ToList();
+
+            _data = tmpData.Select(q => new DraftViewModels()
+            {
+                Id = q.Id,
+                Number = q.Number,
+                OtherNumber = q.OtherNumber,
+                Sender = q.Sender,
+                Reciver = q.Reciver,
+                FatherName = q.FatherName,
+                PayPlace = q.PayPlace,
+                Description = q.Description,
+                TypeCurrency = q.TypeCurrency.Name,
+                DraftAmount = q.DraftAmount,
+                Rate = q.Rate,
+                Rent = q.Rent,
+                DepositAmount = q.DepositAmount,
+                DepositCurrency = q.DepositCurrency?.Name,
+                Customer = q.Customer.FirstName + " " + q.Customer.LastName,
+                RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
+                Date = q.Date != null ? (DateTime.Parse(q.Date.ToString())).ToPersian() : "",
+            }).ToList();
+            _dataSummery = new List<SummeryDraftViewModels>();
+            var cdata = new SummeryDraftViewModels();
+            foreach (var item in _data)
+            {
+                cdata.CurrenyName = item.DepositCurrency;
+                cdata.Total += (item.DepositAmount.HasValue) ? item.DepositAmount.Value : 0;
+                cdata.TotalRent += item.Rent;
+            }
+
+            _dataSummery.Add(cdata);
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "DraftsList.mrt");
+            report.RegData("myData1", _data);
+            report.RegData("myData2", _dataSummery);
+            report.RegData("basedata", basedata);
+            report.Design();
+            //report.Render();
+            //report.Show();
         }
     }
 }

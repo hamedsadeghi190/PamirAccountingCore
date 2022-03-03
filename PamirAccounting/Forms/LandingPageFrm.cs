@@ -438,5 +438,11 @@ namespace PamirAccounting.Forms
             var FrmTransferAccount = new PayAndReciveBankListFrm();
             FrmTransferAccount.ShowDialog();
         }
+
+        private void CustomersList_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmCustomerList();
+            frm.ShowDialog();
+        }
     }
 }

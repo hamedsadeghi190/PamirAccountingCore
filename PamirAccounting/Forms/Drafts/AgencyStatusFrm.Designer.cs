@@ -78,9 +78,11 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBox2.Controls.Add(this.simpleButton4);
             this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(8, -4);
+            this.groupBox2.Location = new System.Drawing.Point(9, -5);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1188, 70);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1386, 86);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "وضعیت نمایندگی ";
@@ -88,9 +90,10 @@ namespace PamirAccounting.Forms.Drafts
             // LblAgencyName
             // 
             this.LblAgencyName.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblAgencyName.Location = new System.Drawing.Point(922, 29);
+            this.LblAgencyName.Location = new System.Drawing.Point(1076, 36);
+            this.LblAgencyName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblAgencyName.Name = "LblAgencyName";
-            this.LblAgencyName.Size = new System.Drawing.Size(180, 24);
+            this.LblAgencyName.Size = new System.Drawing.Size(210, 30);
             this.LblAgencyName.TabIndex = 10;
             this.LblAgencyName.Text = "مزار";
             // 
@@ -98,9 +101,10 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(1099, 29);
+            this.label4.Location = new System.Drawing.Point(1282, 36);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 24);
+            this.label4.Size = new System.Drawing.Size(99, 29);
             this.label4.TabIndex = 9;
             this.label4.Text = "نام نمایندگی :";
             // 
@@ -108,9 +112,10 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.LblCurrencyName.AutoSize = true;
             this.LblCurrencyName.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblCurrencyName.Location = new System.Drawing.Point(819, 29);
+            this.LblCurrencyName.Location = new System.Drawing.Point(955, 36);
+            this.LblCurrencyName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblCurrencyName.Name = "LblCurrencyName";
-            this.LblCurrencyName.Size = new System.Drawing.Size(31, 24);
+            this.LblCurrencyName.Size = new System.Drawing.Size(38, 29);
             this.LblCurrencyName.TabIndex = 8;
             this.LblCurrencyName.Text = "دلار";
             // 
@@ -118,9 +123,10 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(856, 29);
+            this.label1.Location = new System.Drawing.Point(999, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 24);
+            this.label1.Size = new System.Drawing.Size(73, 29);
             this.label1.TabIndex = 6;
             this.label1.Text = "ارز معیار :";
             // 
@@ -128,21 +134,25 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
             this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(10, 19);
+            this.simpleButton4.Location = new System.Drawing.Point(12, 23);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton4.Size = new System.Drawing.Size(46, 50);
             this.simpleButton4.TabIndex = 4;
             this.simpleButton4.Text = "چاپ";
+            this.simpleButton4.Visible = false;
             // 
             // btnSearch
             // 
             this.btnSearch.AppearanceHovered.Options.UseTextOptions = true;
             this.btnSearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSearch.ImageOptions.SvgImage")));
-            this.btnSearch.Location = new System.Drawing.Point(54, 19);
+            this.btnSearch.Location = new System.Drawing.Point(63, 23);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(39, 41);
+            this.btnSearch.Size = new System.Drawing.Size(46, 50);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "جستجو";
+            this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // gridDrafts
@@ -172,13 +182,14 @@ namespace PamirAccounting.Forms.Drafts
             this.Column17,
             this.btnConvert});
             this.gridDrafts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gridDrafts.Location = new System.Drawing.Point(3, 79);
+            this.gridDrafts.Location = new System.Drawing.Point(4, 97);
+            this.gridDrafts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridDrafts.Name = "gridDrafts";
             this.gridDrafts.ReadOnly = true;
             this.gridDrafts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.gridDrafts.RowHeadersWidth = 51;
             this.gridDrafts.ShowEditingIcon = false;
-            this.gridDrafts.Size = new System.Drawing.Size(1193, 387);
+            this.gridDrafts.Size = new System.Drawing.Size(1392, 476);
             this.gridDrafts.TabIndex = 25;
             this.gridDrafts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -267,6 +278,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
             // 
             // Column7
             // 
@@ -293,6 +305,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column13.MinimumWidth = 6;
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
+            this.Column13.Width = 125;
             // 
             // Column14
             // 
@@ -331,8 +344,10 @@ namespace PamirAccounting.Forms.Drafts
             // ExtraDescription
             // 
             this.ExtraDescription.HeaderText = "توضیحات اضافه";
+            this.ExtraDescription.MinimumWidth = 6;
             this.ExtraDescription.Name = "ExtraDescription";
             this.ExtraDescription.ReadOnly = true;
+            this.ExtraDescription.Width = 125;
             // 
             // Column17
             // 
@@ -369,13 +384,14 @@ namespace PamirAccounting.Forms.Drafts
             this.Column8,
             this.Column12});
             this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(3, 469);
+            this.grdTotals.Location = new System.Drawing.Point(4, 577);
+            this.grdTotals.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grdTotals.Name = "grdTotals";
             this.grdTotals.ReadOnly = true;
             this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdTotals.RowHeadersWidth = 51;
             this.grdTotals.ShowEditingIcon = false;
-            this.grdTotals.Size = new System.Drawing.Size(1193, 153);
+            this.grdTotals.Size = new System.Drawing.Size(1392, 188);
             this.grdTotals.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn2
@@ -439,13 +455,14 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 625);
+            this.ClientSize = new System.Drawing.Size(1399, 769);
             this.Controls.Add(this.gridDrafts);
             this.Controls.Add(this.grdTotals);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.MaximizeBox = false;
             this.Name = "AgencyStatusFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -453,6 +470,7 @@ namespace PamirAccounting.Forms.Drafts
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "وضعیت نمایندگی";
             this.Load += new System.EventHandler(this.AgencyStatusFrm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AgencyStatusFrm_KeyUp);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDrafts)).EndInit();
