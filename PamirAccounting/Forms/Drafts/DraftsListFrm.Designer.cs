@@ -81,8 +81,6 @@ namespace PamirAccounting.Forms.Drafts
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdTotals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDrafts)).BeginInit();
             this.groupBoxSearch.SuspendLayout();
@@ -185,9 +183,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column16,
             this.Column17,
             this.Column18,
-            this.Column19,
-            this.Column21,
-            this.Column22});
+            this.Column19});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -638,32 +634,6 @@ namespace PamirAccounting.Forms.Drafts
             this.Column19.ReadOnly = true;
             this.Column19.Width = 125;
             // 
-            // Column21
-            // 
-            this.Column21.FillWeight = 70F;
-            this.Column21.HeaderText = "ویرایش";
-            this.Column21.MinimumWidth = 70;
-            this.Column21.Name = "Column21";
-            this.Column21.ReadOnly = true;
-            this.Column21.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column21.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column21.Text = "ویرایش";
-            this.Column21.UseColumnTextForButtonValue = true;
-            this.Column21.Width = 70;
-            // 
-            // Column22
-            // 
-            this.Column22.FillWeight = 70F;
-            this.Column22.HeaderText = "حذف";
-            this.Column22.MinimumWidth = 70;
-            this.Column22.Name = "Column22";
-            this.Column22.ReadOnly = true;
-            this.Column22.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column22.Text = "حذف";
-            this.Column22.UseColumnTextForButtonValue = true;
-            this.Column22.Width = 79;
-            // 
             // DraftsListFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -742,7 +712,5 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewButtonColumn Column21;
-        private System.Windows.Forms.DataGridViewButtonColumn Column22;
     }
 }
