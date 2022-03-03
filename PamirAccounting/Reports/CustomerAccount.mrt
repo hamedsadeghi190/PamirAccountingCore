@@ -6,7 +6,7 @@
     <DataSources isList="true" count="2">
       <myData Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObjectSource" isKey="true">
         <Alias>myData</Alias>
-        <Columns isList="true" count="35">
+        <Columns isList="true" count="39">
           <value>Id,System.Int32</value>
           <value>FirstName,System.String</value>
           <value>LastName,System.String</value>
@@ -42,6 +42,10 @@
           <value>Status,System.String</value>
           <value>RowId,System.Int64</value>
           <value>DocumentId,System.Int64</value>
+          <value>TotalWithdrawAmount,System.Int64</value>
+          <value>TotalDepositAmount,System.Int64</value>
+          <value>BranchCode,System.String</value>
+          <value>ReceiptNumber,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>68e149a9c409411b8a3b056a6eca6c88</Key>
@@ -185,7 +189,7 @@
         </TableCell5>
         <ReportTitleBand1 Ref="10" type="ReportTitleBand" isKey="true">
           <Brush>[219:229:241]</Brush>
-          <ClientRectangle>0,0.2,7.72,1</ClientRectangle>
+          <ClientRectangle>0,0,7.72,1</ClientRectangle>
           <Components isList="true" count="4">
             <Image1 Ref="11" type="Image" isKey="true">
               <Border>None;[219:229:241];1;Solid;False;4;Black</Border>
@@ -438,7 +442,7 @@ jET/2Q==</ImageBytes>
         </ReportTitleBand1>
         <ReportTitleBand2 Ref="15" type="ReportTitleBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,1.6,7.72,1</ClientRectangle>
+          <ClientRectangle>0,1,7.72,1</ClientRectangle>
           <Components isList="true" count="2">
             <Text2 Ref="16" type="Text" isKey="true">
               <Border>None;[255:255:255];1;Solid;False;4;Black</Border>
@@ -483,7 +487,7 @@ jET/2Q==</ImageBytes>
         </ReportTitleBand2>
         <ReportTitleBand3 Ref="18" type="ReportTitleBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,3,7.72,0.3</ClientRectangle>
+          <ClientRectangle>0,2,7.72,0.3</ClientRectangle>
           <Components isList="true" count="7">
             <Text10 Ref="19" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
@@ -614,16 +618,20 @@ jET/2Q==</ImageBytes>
         <Table1 Ref="26" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,3.7,7.72,0.4</ClientRectangle>
+          <ClientRectangle>0,2.3,7.72,0.4</ClientRectangle>
           <ColumnCount>7</ColumnCount>
           <Components isList="true" count="7">
             <Table1_Cell1 Ref="27" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
               <ClientRectangle>0,0,3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
+              <FixedWidth>True</FixedWidth>
               <Font>B Nazanin,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
               <HorAlignment>Center</HorAlignment>
               <ID>25</ID>
               <JoinCells isList="true" count="0" />
@@ -634,6 +642,7 @@ jET/2Q==</ImageBytes>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.Description}</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell1>
@@ -641,9 +650,12 @@ jET/2Q==</ImageBytes>
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <ClientRectangle>3,0,0.9,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
+              <Conditions isList="true" count="1">
+                <value>myData.RemainigAmount,LessThan,_x0030_,,Numeric,Red,Transparent,Arial_x002C_8,True,False,,,None</value>
+              </Conditions>
               <Expressions isList="true" count="0" />
               <Font>B Nazanin,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
               <HorAlignment>Center</HorAlignment>
               <ID>0</ID>
               <JoinCells isList="true" count="0" />
@@ -654,6 +666,7 @@ jET/2Q==</ImageBytes>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.RemainigAmount}</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell2>
@@ -664,6 +677,7 @@ jET/2Q==</ImageBytes>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>B Nazanin,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
               <HorAlignment>Center</HorAlignment>
               <ID>1</ID>
               <JoinCells isList="true" count="0" />
@@ -674,6 +688,7 @@ jET/2Q==</ImageBytes>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.CurrenyName}</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell3>
@@ -684,6 +699,7 @@ jET/2Q==</ImageBytes>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>B Nazanin,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
               <HorAlignment>Center</HorAlignment>
               <ID>2</ID>
               <JoinCells isList="true" count="0" />
@@ -694,6 +710,7 @@ jET/2Q==</ImageBytes>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.DepositAmount}</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell4>
@@ -704,6 +721,7 @@ jET/2Q==</ImageBytes>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>B Nazanin,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
               <HorAlignment>Center</HorAlignment>
               <ID>3</ID>
               <JoinCells isList="true" count="0" />
@@ -714,6 +732,7 @@ jET/2Q==</ImageBytes>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.WithdrawAmount}</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell5>
@@ -724,6 +743,7 @@ jET/2Q==</ImageBytes>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>B Nazanin,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
               <HorAlignment>Center</HorAlignment>
               <ID>4</ID>
               <JoinCells isList="true" count="0" />
@@ -734,6 +754,7 @@ jET/2Q==</ImageBytes>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.TransactionDateTime}</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell6>
@@ -744,6 +765,7 @@ jET/2Q==</ImageBytes>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>B Nazanin,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
               <HorAlignment>Center</HorAlignment>
               <ID>30</ID>
               <JoinCells isList="true" count="0" />
@@ -754,6 +776,7 @@ jET/2Q==</ImageBytes>
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.RowId}</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell7>
@@ -793,10 +816,10 @@ jET/2Q==</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/25/2022 6:20:58 PM</ReportChanged>
+  <ReportChanged>3/3/2022 1:41:58 PM</ReportChanged>
   <ReportCreated>1/20/2022 1:49:09 PM</ReportCreated>
   <ReportFile>D:\PamirAccountingCore\PamirAccounting\Reports\CustomerAccount.mrt</ReportFile>
-  <ReportGuid>e73d889ce94b49d7997cb0e8d3ea000e</ReportGuid>
+  <ReportGuid>eba2786bf000493f90abfc904f3a87f5</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2022.1.4.0</ReportVersion>

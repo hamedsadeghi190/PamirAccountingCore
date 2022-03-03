@@ -206,14 +206,14 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // txtbuyerprice
             // 
-            this.txtbuyerprice.Location = new System.Drawing.Point(52, 173);
+            this.txtbuyerprice.Location = new System.Drawing.Point(52, 164);
             this.txtbuyerprice.Margin = new System.Windows.Forms.Padding(4);
             this.txtbuyerprice.Name = "txtbuyerprice";
             this.txtbuyerprice.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtbuyerprice.Properties.Appearance.Options.UseFont = true;
             this.txtbuyerprice.Properties.AutoHeight = false;
             this.txtbuyerprice.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtbuyerprice.Size = new System.Drawing.Size(225, 41);
+            this.txtbuyerprice.Size = new System.Drawing.Size(225, 35);
             this.txtbuyerprice.TabIndex = 119;
             this.txtbuyerprice.TextChanged += new System.EventHandler(this.txtbuyerprice_TextChanged);
             this.txtbuyerprice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtbuyerprice_KeyUp);
@@ -222,7 +222,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(277, 178);
+            this.label7.Location = new System.Drawing.Point(277, 167);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 32);
@@ -242,7 +242,7 @@ namespace PamirAccounting.Forms.Transactions
             // txtrate
             // 
             this.txtrate.EditValue = "0";
-            this.txtrate.Location = new System.Drawing.Point(52, 128);
+            this.txtrate.Location = new System.Drawing.Point(52, 124);
             this.txtrate.Margin = new System.Windows.Forms.Padding(4);
             this.txtrate.Name = "txtrate";
             this.txtrate.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -251,7 +251,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtrate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtrate.Properties.MaskSettings.Set("mask", "f");
             this.txtrate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtrate.Size = new System.Drawing.Size(225, 41);
+            this.txtrate.Size = new System.Drawing.Size(225, 35);
             this.txtrate.TabIndex = 118;
             this.txtrate.TextChanged += new System.EventHandler(this.txtrate_TextChanged);
             // 
@@ -259,7 +259,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.cmbCurrencybuyer.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencybuyer.FormattingEnabled = true;
-            this.cmbCurrencybuyer.Location = new System.Drawing.Point(52, 84);
+            this.cmbCurrencybuyer.Location = new System.Drawing.Point(52, 82);
             this.cmbCurrencybuyer.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCurrencybuyer.Name = "cmbCurrencybuyer";
             this.cmbCurrencybuyer.Size = new System.Drawing.Size(224, 40);
@@ -282,7 +282,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(279, 90);
+            this.label4.Location = new System.Drawing.Point(279, 88);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 32);
@@ -293,7 +293,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(277, 133);
+            this.label11.Location = new System.Drawing.Point(277, 129);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 32);
@@ -320,6 +320,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "فروش ارز";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtDate
             // 
@@ -333,14 +334,14 @@ namespace PamirAccounting.Forms.Transactions
             this.txtDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.txtDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDate.Size = new System.Drawing.Size(225, 41);
+            this.txtDate.Size = new System.Drawing.Size(225, 35);
             this.txtDate.TabIndex = 112;
             // 
             // cmbCustomers
             // 
             this.cmbCustomers.Font = new System.Drawing.Font("B Zar", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomers.FormattingEnabled = true;
-            this.cmbCustomers.Location = new System.Drawing.Point(36, 88);
+            this.cmbCustomers.Location = new System.Drawing.Point(36, 84);
             this.cmbCustomers.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -352,7 +353,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(267, 185);
+            this.label2.Location = new System.Drawing.Point(269, 171);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 32);
@@ -363,7 +364,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.cmbSellCurrencies.Font = new System.Drawing.Font("B Nazanin", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbSellCurrencies.FormattingEnabled = true;
-            this.cmbSellCurrencies.Location = new System.Drawing.Point(36, 178);
+            this.cmbSellCurrencies.Location = new System.Drawing.Point(36, 168);
             this.cmbSellCurrencies.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSellCurrencies.Name = "cmbSellCurrencies";
             this.cmbSellCurrencies.Size = new System.Drawing.Size(224, 40);
@@ -374,7 +375,7 @@ namespace PamirAccounting.Forms.Transactions
             // txtsellerprice
             // 
             this.txtsellerprice.EditValue = "0";
-            this.txtsellerprice.Location = new System.Drawing.Point(36, 132);
+            this.txtsellerprice.Location = new System.Drawing.Point(36, 127);
             this.txtsellerprice.Margin = new System.Windows.Forms.Padding(4);
             this.txtsellerprice.Name = "txtsellerprice";
             this.txtsellerprice.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -384,7 +385,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtsellerprice.Properties.MaskSettings.Set("mask", "\\d+");
             this.txtsellerprice.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
             this.txtsellerprice.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtsellerprice.Size = new System.Drawing.Size(225, 41);
+            this.txtsellerprice.Size = new System.Drawing.Size(225, 35);
             this.txtsellerprice.TabIndex = 114;
             this.txtsellerprice.TextChanged += new System.EventHandler(this.txtsellerprice_TextChanged);
             this.txtsellerprice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsellerprice_KeyUp);
@@ -404,7 +405,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(264, 88);
+            this.label12.Location = new System.Drawing.Point(264, 84);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(120, 32);
@@ -415,7 +416,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.label1.Font = new System.Drawing.Font("B Nazanin", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(36, 225);
+            this.label1.Location = new System.Drawing.Point(36, 220);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(225, 59);
@@ -425,7 +426,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(267, 137);
+            this.label9.Location = new System.Drawing.Point(267, 132);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 32);

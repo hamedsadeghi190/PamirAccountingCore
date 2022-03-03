@@ -91,7 +91,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.CmbSource.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CmbSource.FormattingEnabled = true;
-            this.CmbSource.Location = new System.Drawing.Point(326, 111);
+            this.CmbSource.Location = new System.Drawing.Point(326, 104);
             this.CmbSource.Margin = new System.Windows.Forms.Padding(4);
             this.CmbSource.Name = "CmbSource";
             this.CmbSource.Size = new System.Drawing.Size(210, 40);
@@ -101,7 +101,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // txtAmount
             // 
             this.txtAmount.EditValue = "0";
-            this.txtAmount.Location = new System.Drawing.Point(21, 57);
+            this.txtAmount.Location = new System.Drawing.Point(21, 64);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -110,13 +110,13 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.txtAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtAmount.Size = new System.Drawing.Size(206, 41);
+            this.txtAmount.Size = new System.Drawing.Size(206, 36);
             this.txtAmount.TabIndex = 4;
             this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(326, 60);
+            this.txtDate.Location = new System.Drawing.Point(326, 62);
             this.txtDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtDate.Name = "txtDate";
             this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -125,14 +125,14 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.txtDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.txtDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDate.Size = new System.Drawing.Size(211, 41);
+            this.txtDate.Size = new System.Drawing.Size(211, 36);
             this.txtDate.TabIndex = 1;
             // 
             // cmbCurrencies
             // 
             this.cmbCurrencies.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(326, 160);
+            this.cmbCurrencies.Location = new System.Drawing.Point(326, 150);
             this.cmbCurrencies.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(210, 40);
@@ -155,7 +155,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.txtDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDesc.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtDesc.Location = new System.Drawing.Point(21, 210);
+            this.txtDesc.Location = new System.Drawing.Point(21, 197);
             this.txtDesc.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(516, 74);
@@ -191,7 +191,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(534, 212);
+            this.label5.Location = new System.Drawing.Point(534, 199);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 32);
@@ -202,7 +202,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(538, 114);
+            this.label3.Location = new System.Drawing.Point(538, 108);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 32);
@@ -213,7 +213,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(537, 164);
+            this.label2.Location = new System.Drawing.Point(537, 154);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 32);
@@ -240,7 +240,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             // 
             this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.btnsavebank);
-            this.groupBox2.Location = new System.Drawing.Point(14, 300);
+            this.groupBox2.Location = new System.Drawing.Point(14, 294);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);

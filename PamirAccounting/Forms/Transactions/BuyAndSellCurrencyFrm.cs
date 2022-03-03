@@ -351,6 +351,11 @@ namespace PamirAccounting.Forms.Transactions
             txtbuyerprice.Text = (double.Parse(txtsellerprice.Text) * rate).ToString();
         }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void calculateAmount()
         {
             sellCurrencyId = (int)cmbSellCurrencies.SelectedValue;

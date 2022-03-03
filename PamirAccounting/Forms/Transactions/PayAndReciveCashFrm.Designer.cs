@@ -64,7 +64,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cmbCurrencies);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(14, 10);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -90,7 +90,7 @@ namespace PamirAccounting.Forms.Transactions
             // txtAmount
             // 
             this.txtAmount.EditValue = "0";
-            this.txtAmount.Location = new System.Drawing.Point(159, 95);
+            this.txtAmount.Location = new System.Drawing.Point(160, 95);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -99,7 +99,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtAmount.Size = new System.Drawing.Size(160, 45);
+            this.txtAmount.Size = new System.Drawing.Size(160, 35);
             this.txtAmount.TabIndex = 4;
             this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
@@ -112,25 +112,25 @@ namespace PamirAccounting.Forms.Transactions
             this.txtdesc.Properties.Appearance.Options.UseFont = true;
             this.txtdesc.Properties.AutoHeight = false;
             this.txtdesc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtdesc.Size = new System.Drawing.Size(578, 47);
+            this.txtdesc.Size = new System.Drawing.Size(578, 35);
             this.txtdesc.TabIndex = 6;
             // 
             // cmbCustomers
             // 
             this.cmbCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbCustomers.Font = new System.Drawing.Font("B Nazanin", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbCustomers.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomers.FormattingEnabled = true;
             this.cmbCustomers.Location = new System.Drawing.Point(26, 47);
             this.cmbCustomers.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbCustomers.Size = new System.Drawing.Size(293, 45);
+            this.cmbCustomers.Size = new System.Drawing.Size(293, 40);
             this.cmbCustomers.TabIndex = 2;
             this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(409, 47);
+            this.txtDate.Location = new System.Drawing.Point(409, 53);
             this.txtDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtDate.Name = "txtDate";
             this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -139,17 +139,17 @@ namespace PamirAccounting.Forms.Transactions
             this.txtDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.txtDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDate.Size = new System.Drawing.Size(194, 47);
+            this.txtDate.Size = new System.Drawing.Size(194, 35);
             this.txtDate.TabIndex = 1;
             // 
             // cmbRemainType
             // 
-            this.cmbRemainType.Font = new System.Drawing.Font("B Nazanin", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbRemainType.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbRemainType.FormattingEnabled = true;
             this.cmbRemainType.Location = new System.Drawing.Point(26, 95);
             this.cmbRemainType.Margin = new System.Windows.Forms.Padding(4);
             this.cmbRemainType.Name = "cmbRemainType";
-            this.cmbRemainType.Size = new System.Drawing.Size(126, 45);
+            this.cmbRemainType.Size = new System.Drawing.Size(126, 40);
             this.cmbRemainType.TabIndex = 5;
             this.cmbRemainType.SelectedIndexChanged += new System.EventHandler(this.cmbRemainType_SelectedIndexChanged);
             // 
@@ -167,12 +167,12 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // cmbCurrencies
             // 
-            this.cmbCurrencies.Font = new System.Drawing.Font("B Nazanin", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbCurrencies.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(409, 97);
+            this.cmbCurrencies.Location = new System.Drawing.Point(409, 96);
             this.cmbCurrencies.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(194, 45);
+            this.cmbCurrencies.Size = new System.Drawing.Size(194, 40);
             this.cmbCurrencies.TabIndex = 3;
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             // 
@@ -191,7 +191,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // btnClose
             // 
-            this.btnClose.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClose.ImageOptions.SvgImage")));
             this.btnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -220,7 +220,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(617, 116);
+            this.label3.Location = new System.Drawing.Point(617, 114);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -242,7 +242,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // btnsavebank
             // 
-            this.btnsavebank.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsavebank.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsavebank.Appearance.Options.UseFont = true;
             this.btnsavebank.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsavebank.ImageOptions.SvgImage")));
             this.btnsavebank.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
