@@ -30,6 +30,7 @@ namespace PamirAccounting.Forms.Customers
 
         private void FrmCustomerList_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoGenerateColumns = false;
             loadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
             HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
@@ -208,6 +209,17 @@ namespace PamirAccounting.Forms.Customers
             // report.Design();
             report.Render();
             report.Show();
+        }
+
+        private void FrmCustomerList_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
     }
 }

@@ -46,6 +46,8 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void ViewCustomerAccountFrm_Load(object sender, EventArgs e)
         {
+            grdTransactions.AutoGenerateColumns = false;
+            grdTotals.AutoGenerateColumns = false;
             InitForm();
             LoadData();
             initGrid();
@@ -608,6 +610,17 @@ namespace PamirAccounting.UI.Forms.Customers
             public string Date { get; set; }
             public string Price { get; set; }
             public string Status { get; set; }
+        }
+
+        private void ViewCustomerAccountFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
     }
 }
