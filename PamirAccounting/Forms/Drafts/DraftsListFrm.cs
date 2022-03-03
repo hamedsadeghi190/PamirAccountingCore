@@ -1,10 +1,13 @@
-﻿using PamirAccounting.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using PamirAccounting.Models;
 using PamirAccounting.Models.ViewModels;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.Drafts
 {
@@ -93,31 +96,48 @@ namespace PamirAccounting.Forms.Drafts
 
         private void LoadData()
         {
-
-            _data = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
-            && x.Type == (int)(cmbType.SelectedValue))
-                 .Select(q => new DraftViewModels()
-                 {
-                     Id = q.Id,
-                     Number = q.Number,
-                     OtherNumber = q.OtherNumber,
-                     Sender = q.Sender,
-                     Reciver = q.Reciver,
-                     FatherName = q.FatherName,
-                     PayPlace = q.PayPlace,
-                     Description = q.Description,
-                     TypeCurrency = q.TypeCurrency.Name,
-                     DraftAmount = q.DraftAmount,
-                     Rate = q.Rate,
-                     Rent = q.Rent,
-                     DepositAmount = q.DepositAmount,
-                     DepositCurrency = q.DepositCurrency.Name,
-                     Customer = q.Customer.FirstName + " " + q.Customer.LastName,
-                     RunningDate = q.RunningDate.ToString(),
-                     Date = q.Date.ToString()
-
-                 })
+            var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue 
+                                                            && x.Type == (int)(cmbType.SelectedValue))
+                .Include(x=>x.DepositCurrency)
+                .Include(x=>x.TypeCurrency)
+                .Include(x=>x.Customer)
                 .ToList();
+
+            _data = tmpData.Select(q => new DraftViewModels()
+            {
+                Id = q.Id,
+                Number = q.Number,
+                OtherNumber = q.OtherNumber,
+                Sender = q.Sender,
+                Reciver = q.Reciver,
+                FatherName = q.FatherName,
+                PayPlace = q.PayPlace,
+                Description = q.Description,
+                TypeCurrency = q.TypeCurrency.Name,
+                DraftAmount = q.DraftAmount,
+                Rate = q.Rate,
+                Rent = q.Rent,
+                DepositAmount = q.DepositAmount,
+                DepositCurrency = q.DepositCurrency?.Name,
+                Customer = q.Customer.FirstName + " " + q.Customer.LastName,
+                RunningDate = q.RunningDate.ToString(),
+                Date = q.Date.ToString()
+            }).ToList();
+
+
+
+            gridDrafts.RowsDefaultCellStyle.BackColor = Color.Bisque;
+            gridDrafts.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige;
+            gridDrafts.CellBorderStyle = DataGridViewCellBorderStyle.None;
+
+            gridDrafts.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+            gridDrafts.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            gridDrafts.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            gridDrafts.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            gridDrafts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridDrafts.AllowUserToResizeColumns = false;
 
             gridDrafts.DataSource = null;
             gridDrafts.DataSource = _data;
@@ -131,9 +151,11 @@ namespace PamirAccounting.Forms.Drafts
                 cdata.Total += (item.DepositAmount.HasValue) ? item.DepositAmount.Value : 0;
                 cdata.TotalRent += item.Rent;
             }
+
             _dataSummery.Add(cdata);
             grdTotals.DataSource = null;
             grdTotals.DataSource = _dataSummery;
+
         }
     }
 }
