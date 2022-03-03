@@ -76,7 +76,7 @@ namespace PamirAccounting.Forms.Customers
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(1336, 102);
+            this.groupBox1.Size = new System.Drawing.Size(1318, 102);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "لیست مشتریان";
@@ -86,7 +86,7 @@ namespace PamirAccounting.Forms.Customers
             this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
             this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
             this.btnprint.Location = new System.Drawing.Point(61, 36);
-            this.btnprint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnprint.Margin = new System.Windows.Forms.Padding(4);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(46, 50);
             this.btnprint.TabIndex = 96;
@@ -97,7 +97,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
             this.simpleButton3.Location = new System.Drawing.Point(8, 36);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(46, 50);
             this.simpleButton3.TabIndex = 97;
@@ -107,7 +107,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.txtphoneSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtphoneSearch.Location = new System.Drawing.Point(330, 39);
-            this.txtphoneSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtphoneSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtphoneSearch.Name = "txtphoneSearch";
             this.txtphoneSearch.Size = new System.Drawing.Size(166, 39);
             this.txtphoneSearch.TabIndex = 94;
@@ -118,7 +118,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.txtNumberSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtNumberSearch.Location = new System.Drawing.Point(596, 39);
-            this.txtNumberSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumberSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumberSearch.Name = "txtNumberSearch";
             this.txtNumberSearch.Size = new System.Drawing.Size(166, 39);
             this.txtNumberSearch.TabIndex = 93;
@@ -128,7 +128,7 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.txtNameSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtNameSearch.Location = new System.Drawing.Point(1116, 42);
-            this.txtNameSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNameSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtNameSearch.Name = "txtNameSearch";
             this.txtNameSearch.Size = new System.Drawing.Size(166, 39);
             this.txtNameSearch.TabIndex = 91;
@@ -139,7 +139,7 @@ namespace PamirAccounting.Forms.Customers
             this.cmbGroupsSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbGroupsSearch.FormattingEnabled = true;
             this.cmbGroupsSearch.Location = new System.Drawing.Point(861, 39);
-            this.cmbGroupsSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbGroupsSearch.Margin = new System.Windows.Forms.Padding(4);
             this.cmbGroupsSearch.Name = "cmbGroupsSearch";
             this.cmbGroupsSearch.Size = new System.Drawing.Size(166, 40);
             this.cmbGroupsSearch.TabIndex = 92;
@@ -185,7 +185,7 @@ namespace PamirAccounting.Forms.Customers
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1468, 42);
+            this.label1.Location = new System.Drawing.Point(1459, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 27);
@@ -234,8 +234,8 @@ namespace PamirAccounting.Forms.Customers
             this.btnRowDelete,
             this.btnView});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(0, 122);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 123);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -243,7 +243,7 @@ namespace PamirAccounting.Forms.Customers
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1344, 565);
+            this.dataGridView1.Size = new System.Drawing.Size(1323, 565);
             this.dataGridView1.TabIndex = 98;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -257,7 +257,7 @@ namespace PamirAccounting.Forms.Customers
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 150;
+            this.Column1.Width = 155;
             // 
             // Column3
             // 
@@ -268,7 +268,7 @@ namespace PamirAccounting.Forms.Customers
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 450;
+            this.Column3.Width = 455;
             // 
             // Column2
             // 
@@ -339,13 +339,13 @@ namespace PamirAccounting.Forms.Customers
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 699);
+            this.ClientSize = new System.Drawing.Size(1324, 689);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmCustomerList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

@@ -45,7 +45,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnprintResid = new DevExpress.XtraEditors.SimpleButton();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.grdTransactions = new System.Windows.Forms.DataGridView();
-            this.grdTotals = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocumentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +58,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.grdTotals = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,9 +98,9 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBox2.Controls.Add(this.cmbActions);
             this.groupBox2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(1161, 39);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(363, 98);
             this.groupBox2.TabIndex = 113;
             this.groupBox2.TabStop = false;
@@ -111,7 +111,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbActions.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbActions.FormattingEnabled = true;
             this.cmbActions.Location = new System.Drawing.Point(7, 37);
-            this.cmbActions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbActions.Margin = new System.Windows.Forms.Padding(4);
             this.cmbActions.Name = "cmbActions";
             this.cmbActions.Size = new System.Drawing.Size(336, 40);
             this.cmbActions.TabIndex = 102;
@@ -125,9 +125,9 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBox1.Controls.Add(this.btnsearchdate);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(411, 39);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(709, 98);
             this.groupBox1.TabIndex = 112;
             this.groupBox1.TabStop = false;
@@ -136,7 +136,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(422, 37);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
@@ -161,7 +161,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbCurrencies.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(112, 39);
-            this.cmbCurrencies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCurrencies.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(230, 40);
             this.cmbCurrencies.TabIndex = 114;
@@ -197,7 +197,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
             this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
             this.btnprint.Location = new System.Drawing.Point(63, 76);
-            this.btnprint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnprint.Margin = new System.Windows.Forms.Padding(4);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(46, 50);
             this.btnprint.TabIndex = 117;
@@ -208,7 +208,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
             this.simpleButton5.Location = new System.Drawing.Point(10, 76);
-            this.simpleButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.simpleButton5.Margin = new System.Windows.Forms.Padding(4);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(46, 50);
             this.simpleButton5.TabIndex = 118;
@@ -257,7 +257,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnRowDelete});
             this.grdTransactions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.grdTransactions.Location = new System.Drawing.Point(-3, 169);
-            this.grdTransactions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdTransactions.Margin = new System.Windows.Forms.Padding(4);
             this.grdTransactions.Name = "grdTransactions";
             this.grdTransactions.ReadOnly = true;
             this.grdTransactions.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -270,31 +270,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
             this.grdTransactions.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellValueChanged);
             this.grdTransactions.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.grdTransactions_KeyPress);
-            // 
-            // grdTotals
-            // 
-            this.grdTotals.AllowUserToAddRows = false;
-            this.grdTotals.AllowUserToDeleteRows = false;
-            this.grdTotals.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grdTotals.BackgroundColor = System.Drawing.Color.White;
-            this.grdTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdTotals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.Column10,
-            this.Column11});
-            this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(-4, 666);
-            this.grdTotals.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grdTotals.Name = "grdTotals";
-            this.grdTotals.ReadOnly = true;
-            this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.grdTotals.RowHeadersWidth = 51;
-            this.grdTotals.ShowEditingIcon = false;
-            this.grdTotals.Size = new System.Drawing.Size(1550, 154);
-            this.grdTotals.TabIndex = 16;
             // 
             // Column1
             // 
@@ -366,6 +341,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
             // 
             // Column6
             // 
@@ -425,6 +401,31 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnRowDelete.Text = "حذف";
             this.btnRowDelete.UseColumnTextForButtonValue = true;
             this.btnRowDelete.Width = 70;
+            // 
+            // grdTotals
+            // 
+            this.grdTotals.AllowUserToAddRows = false;
+            this.grdTotals.AllowUserToDeleteRows = false;
+            this.grdTotals.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grdTotals.BackgroundColor = System.Drawing.Color.White;
+            this.grdTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdTotals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.Column10,
+            this.Column11});
+            this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grdTotals.Location = new System.Drawing.Point(-4, 666);
+            this.grdTotals.Margin = new System.Windows.Forms.Padding(4);
+            this.grdTotals.Name = "grdTotals";
+            this.grdTotals.ReadOnly = true;
+            this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.grdTotals.RowHeadersWidth = 51;
+            this.grdTotals.ShowEditingIcon = false;
+            this.grdTotals.Size = new System.Drawing.Size(1550, 154);
+            this.grdTotals.TabIndex = 16;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -498,6 +499,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Controls.Add(this.groupBoxViewAccountCustomer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "ViewCustomerAccountFrm";
