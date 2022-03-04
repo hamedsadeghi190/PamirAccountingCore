@@ -475,5 +475,11 @@ namespace PamirAccounting.Forms
             var FrmAgency = new FrmCurrencyAgenciesList();
             FrmAgency.ShowDialog();
         }
+
+        private void TotalBlance_Click(object sender, EventArgs e)
+        {
+             var Frm = new TotalBalanceFrm();
+            Frm.ShowDialog();
+        }
     }
 }

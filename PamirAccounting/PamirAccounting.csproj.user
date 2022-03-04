@@ -173,6 +173,12 @@
     <Compile Update="Forms\GeneralLedger\ShowDebitListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\GeneralLedger\StatusListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GeneralLedger\TotalBalanceFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\GeneralLedger\TotalListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
