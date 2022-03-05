@@ -21,6 +21,7 @@ namespace PamirAccounting.Forms.Transactions
         public Domains.Transaction sandoghTransAction;
         public Domains.Transaction customerTransaction;
         private string CustomerDesc;
+        long amount;
         public PayAndReciveCashFrm(int Id, long? transActionId)
         {
             InitializeComponent();
@@ -129,13 +130,15 @@ namespace PamirAccounting.Forms.Transactions
                 if (_TransActionId.HasValue)
                 {
                     SaveEdit();
+                    Close();
                 }
                 else
                 {
                     SaveNew();
+                    CleanForm();
                 }
 
-                Close();
+               
             }
             else
             {
@@ -145,7 +148,8 @@ namespace PamirAccounting.Forms.Transactions
 
         private bool checkEntryData()
         {
-            if (txtAmount.Text.Trim().Length < 1 || long.Parse(txtAmount.Text) < 1)
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
+            if (txtAmount.Text.Trim().Length < 1 || amount < 1)
             {
                 return false;
             }
@@ -154,7 +158,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void SaveNew()
         {
-
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             // trakonesh moshtari //
             var customerTransaction = new Domains.Transaction();
@@ -167,13 +171,13 @@ namespace PamirAccounting.Forms.Transactions
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
-                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
                 customerTransaction.DepositAmount = 0;
                 customerTransaction.Description = CustomerDesc;
             }
             else
             {
-                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
                 customerTransaction.WithdrawAmount = 0;
                 customerTransaction.Description = CustomerDesc;
             }
@@ -197,13 +201,13 @@ namespace PamirAccounting.Forms.Transactions
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
-                sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 sandoghTransAction.WithdrawAmount = 0;
                 sandoghTransAction.Description = txtdesc.Text;
             }
             else
             {
-                sandoghTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                sandoghTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 sandoghTransAction.DepositAmount = 0;
                 sandoghTransAction.Description = txtdesc.Text;
             }
@@ -229,18 +233,19 @@ namespace PamirAccounting.Forms.Transactions
 
         private void SaveEdit()
         {
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             // trakonesh moshtari //
             customerTransaction.Description = txtdesc.Text;
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
-                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 customerTransaction.DepositAmount = 0;
 
             }
             else
             {
-                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 customerTransaction.WithdrawAmount = 0;
             }
 
@@ -260,12 +265,12 @@ namespace PamirAccounting.Forms.Transactions
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
-                sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                sandoghTransAction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 sandoghTransAction.WithdrawAmount = 0;
             }
             else
             {
-                sandoghTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                sandoghTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 sandoghTransAction.DepositAmount = 0;
             }
 
@@ -340,6 +345,14 @@ namespace PamirAccounting.Forms.Transactions
                 CustomerDesc = $"{Messages.DepostitCash } از صندوق  به مبلغ {txtAmount.Text} {currencyName}";
                 txtdesc.Text = $"{Messages.WithdrawCash } به  {cmbCustomers.Text} ({cmbCustomers.SelectedValue}) به مبلغ {txtAmount.Text} {currencyName}";
             }
+        }
+        private void CleanForm()
+        {
+            txtAmount.Text = "0";
+            txtdesc.Text = "";
+            txtDate.Select();
+            txtDate.Focus();
+
         }
     }
 }
