@@ -25,7 +25,8 @@ namespace PamirAccounting.Forms.Transactions
         private int sellCurrencyId, buyerCurrencyId;
         private double sellerPrice, sellerRate;
         private Currency destiniationCurrency, sourceCurrency;
-
+        long buyerPrice;
+        long sellerPrice1;
         public BuyAndSellCurrencyFrm(int Id, long? transActionId)
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            buyerPrice = Convert.ToInt64(txtbuyerprice.Text.Replace(",", ""));
             if (!(txtbuyerprice.Text.Length > 0 && double.Parse(txtbuyerprice.Text) > 0 && txtsellerprice.Text.Length > 0 && double.Parse(txtsellerprice.Text) > 0))
             {
                 MessageBox.Show("مبالغ وارد شده صحیح نمی باشد", "خطای  اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error,
@@ -60,13 +62,13 @@ namespace PamirAccounting.Forms.Transactions
 
             // talabkar Transaction//
             var talabkarTransaction = new Domains.Transaction();
-
+            sellerPrice1 = Convert.ToInt64(txtsellerprice.Text.Replace(",", ""));
             talabkarTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             talabkarTransaction.DestinitionCustomerId = (int)cmbDestCustomers.SelectedValue;
             talabkarTransaction.TransactionType = (int)TransaActionType.SellAndBuy;
             talabkarTransaction.DocumentId = documentId;
             talabkarTransaction.WithdrawAmount = 0;
-            talabkarTransaction.DepositAmount = (String.IsNullOrEmpty(txtsellerprice.Text.Trim())) ? 0 : long.Parse(txtsellerprice.Text);
+            talabkarTransaction.DepositAmount = (String.IsNullOrEmpty(txtsellerprice.Text.Trim())) ? 0 : sellerPrice1;
             talabkarTransaction.Description = txtDesc.Text;
             talabkarTransaction.CurrenyId = (int)cmbSellCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
@@ -84,7 +86,7 @@ namespace PamirAccounting.Forms.Transactions
             bedehkarTransAction.DoubleTransactionId = talabkarTransaction.Id;
             bedehkarTransAction.DocumentId = documentId;
 
-            bedehkarTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtbuyerprice.Text.Trim())) ? 0 : long.Parse(txtbuyerprice.Text);
+            bedehkarTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtbuyerprice.Text.Trim())) ? 0 : buyerPrice;
             bedehkarTransAction.DepositAmount = 0;
             bedehkarTransAction.Description = txtDesc.Text;
 
@@ -104,8 +106,7 @@ namespace PamirAccounting.Forms.Transactions
             talabkarTransaction.DoubleTransactionId = bedehkarTransAction.Id;
             unitOfWork.TransactionServices.Update(talabkarTransaction);
             unitOfWork.SaveChanges();
-
-            Close();
+            CleanForm();
 
         }
 
@@ -148,13 +149,26 @@ namespace PamirAccounting.Forms.Transactions
 
         private void txtsellerprice_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtsellerprice.Text += "000";
+            }
+
+            ShowChars();
             if (e.KeyCode == Keys.Enter)
             {
                 cmbSellCurrencies.Focus();
             }
 
         }
-
+        private void ShowChars()
+        {
+            if (txtsellerprice.Text.Length > 0)
+            {
+                var currencyName = cmbSellCurrencies.Text;
+                label1.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtsellerprice.Text.Replace(",", ""))) } {currencyName}";
+            }
+        }
         private void txtsellercurrency_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -447,6 +461,17 @@ namespace PamirAccounting.Forms.Transactions
                 this.cmbCurrencybuyer.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencybuyer_SelectedIndexChanged);
                 this.txtsellerprice.TextChanged -= new System.EventHandler(this.txtsellerprice_TextChanged);
             }
+        }
+
+        private void CleanForm()
+        {
+            txtDesc.Text = "";
+            txtsellerprice.Text = "0";
+            txtbuyerprice.Text = "0";
+            txtrate.Text = "";
+            txtDate.Select();
+            txtDate.Focus();
+
         }
     }
 }

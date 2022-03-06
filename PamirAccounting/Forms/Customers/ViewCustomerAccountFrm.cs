@@ -90,6 +90,7 @@ namespace PamirAccounting.UI.Forms.Customers
                         for (int i = 0; i < 10; i++)
                         {
                             row.Cells[i].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            row.Cells[i].Style.ForeColor = System.Drawing.Color.Red;
                         }
                     }
                 }
@@ -264,7 +265,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 curenncySummery.TotalWithdrawAmount = totalWithDraw;
                 remaining = totalDeposit - totalWithDraw;
                 curenncySummery.RemainigAmount = remaining;
-                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
+                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "طلبکار" : "بدهکار";
                 _GroupedDataList.Add(curenncySummery);
 
             }
@@ -516,7 +517,7 @@ namespace PamirAccounting.UI.Forms.Customers
                     curenncySummery.TotalWithdrawAmount = totalWithDraw;
                     remaining = totalDeposit - totalWithDraw;
                     curenncySummery.RemainigAmount = remaining;
-                    curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
+                    curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "طلبکار" : "بدهکار";
                     _GroupedDataList.Add(curenncySummery);
                 }
 

@@ -349,7 +349,8 @@ namespace PamirAccounting.Forms.Transactions
         private void CleanForm()
         {
             txtAmount.Text = "0";
-            txtdesc.Text = "";
+            txtdesc.Text = ""; 
+            lblNumberString.Text = "";
             txtDate.Select();
             txtDate.Focus();
 

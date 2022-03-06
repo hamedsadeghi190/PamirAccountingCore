@@ -675,7 +675,7 @@ namespace PamirAccounting.Forms
             this.TotalBlance.Image = ((System.Drawing.Image)(resources.GetObject("TotalBlance.Image")));
             this.TotalBlance.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TotalBlance.Name = "TotalBlance";
-            this.TotalBlance.Size = new System.Drawing.Size(236, 38);
+            this.TotalBlance.Size = new System.Drawing.Size(218, 38);
             this.TotalBlance.Text = "مفاد و زیان";
             this.TotalBlance.Click += new System.EventHandler(this.TotalBlance_Click);
             // 

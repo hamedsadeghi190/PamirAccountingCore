@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Models;
+﻿using JntNum2Text;
+using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace PamirAccounting.UI.Forms.Transaction
         private long? _TransActionId;
         private Domains.Transaction sourceTransaction, destinationTransaction;
         private List<ComboBoxModel> _Currencies, _SourceCustomers, _destCustomers;
-
+        long amount;
 
         public TransferAccountFrm(int Id, long? transActionId)
         {
@@ -116,24 +117,26 @@ namespace PamirAccounting.UI.Forms.Transaction
             if(_TransActionId.HasValue)
             {
                 SaveEdit();
+                Close();
             }
             else
             {
                 CreateTransfer();
+                CleanForm();
             }
             
-            Close();
+            
         }
 
         private void SaveEdit()
         {
-          
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             sourceTransaction.TransactionType = (int)TransaActionType.Transfer;
             sourceTransaction.DestinitionCustomerId = (int)cmbDestiniation.SelectedValue;
             sourceTransaction.SourceCustomerId = (int)CmbSource.SelectedValue;
             sourceTransaction.Description = txtDesc.Text.Length > 0 ? txtDesc.Text : " انتقال از حساب " + CmbSource.Text + " به " + cmbDestiniation.Text;
             sourceTransaction.DepositAmount = 0;
-            sourceTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            sourceTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             sourceTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
 
@@ -150,7 +153,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             destinationTransaction.SourceCustomerId = (int)cmbDestiniation.SelectedValue;
             destinationTransaction.DestinitionCustomerId = (int)CmbSource.SelectedValue;
             destinationTransaction.Description = txtDesc.Text.Length > 0 ? txtDesc.Text : " انتقال از حساب " + CmbSource.Text + " به " + cmbDestiniation.Text;
-            destinationTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            destinationTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             destinationTransaction.WithdrawAmount = 0;
             destinationTransaction.TransactionType = (int)TransaActionType.Transfer;
             destinationTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
@@ -225,6 +228,23 @@ namespace PamirAccounting.UI.Forms.Transaction
 
         }
 
+        private void txtAmount_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtAmount.Text += "000";
+            }
+
+            ShowChars();
+        }
+        private void ShowChars()
+        {
+            if (txtAmount.Text.Length > 0)
+            {
+                var currencyName = cmbCurrencies.Text;
+                lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {currencyName}";
+            }
+        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -239,7 +259,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             sourceTransaction.SourceCustomerId = (int)CmbSource.SelectedValue;
             sourceTransaction.Description = txtDesc.Text.Length > 0 ? txtDesc.Text : " انتقال از حساب " + CmbSource.Text + " به " + cmbDestiniation.Text;
             sourceTransaction.DepositAmount = 0;
-            sourceTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            sourceTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             sourceTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
 
@@ -258,7 +278,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             destinationTransaction.SourceCustomerId = (int)cmbDestiniation.SelectedValue;
             destinationTransaction.DestinitionCustomerId = (int)CmbSource.SelectedValue;
             destinationTransaction.Description = txtDesc.Text.Length>0 ? txtDesc.Text :" انتقال از حساب " + CmbSource.Text + " به " + cmbDestiniation.Text;
-            destinationTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            destinationTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             destinationTransaction.WithdrawAmount = 0;
             destinationTransaction.TransactionType = (int)TransaActionType.Transfer;
             destinationTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
@@ -277,6 +297,14 @@ namespace PamirAccounting.UI.Forms.Transaction
             unitOfWork.TransactionServices.Update(sourceTransaction);
             unitOfWork.SaveChanges();
         }
-       
+        private void CleanForm()
+        {
+            txtAmount.Text = "0";
+            txtDesc.Text = "";
+            lblNumberString.Text = "";
+            txtDate.Select();
+            txtDate.Focus();
+
+        }
     }
 }

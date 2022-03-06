@@ -19,7 +19,7 @@ namespace PamirAccounting.Forms.Transactions
         private long? _TransActionId;
         public Domains.Transaction bankTransaction;
         public Domains.Transaction customerTransaction;
-
+        long amount;
         public PayAndReciveBankFrm(int Id, long? transActionId)
         {
             InitializeComponent();
@@ -89,8 +89,10 @@ namespace PamirAccounting.Forms.Transactions
 
         private void PayAndReciveBankFrm_Load(object sender, EventArgs e)
         {
+            cmbAction.Select();
+            cmbAction.Focus();
             LoadData();
-
+            
             if (_TransActionId.HasValue)
             {
                 cmbCustomers.SelectedValue = _Id;
@@ -188,13 +190,15 @@ namespace PamirAccounting.Forms.Transactions
             if (_TransActionId.HasValue)
             {
                 SaveEdit();
+                Close();
             }
             else
             {
                 SaveNew();
+                CleanForm();
             }
 
-            Close();
+            
         }
 
         private void SaveNew()
@@ -207,7 +211,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 CreateWithDraw();
             }
-            Close();
+            CleanForm();
         }
 
         private void SaveEdit()
@@ -218,7 +222,7 @@ namespace PamirAccounting.Forms.Transactions
         private void CreateWithDraw()
         {
 
-
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             bankTransaction = new Domains.Transaction();
             bankTransaction.DocumentId = documentId;
@@ -226,7 +230,7 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
             bankTransaction.Description = createDescription(txtdesc.Text);
-            bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
             bankTransaction.WithdrawAmount = 0;
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
@@ -246,7 +250,7 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
             customerTransaction.Description = createDescription(txtdesc.Text);
             customerTransaction.DepositAmount = 0;
-            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var cDate = txtDate.Text.Split('/');
 
@@ -268,6 +272,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void CreateDeposit()
         {
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             bankTransaction = new Domains.Transaction();
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             bankTransaction.Description = createDescription(txtdesc.Text);
@@ -276,7 +281,7 @@ namespace PamirAccounting.Forms.Transactions
             if ((int)cmbVarizType.SelectedValue == (int)DepostType.Unkown)
             {
                 bankTransaction.TransactionType = (int)TransaActionType.UnkwonReciveBank;
-                bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
             }
             else
             {
@@ -287,7 +292,7 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
 
             bankTransaction.DepositAmount = 0;
-            bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+            bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
             bankTransaction.ReceiptNumber = txtReceiptNumber.Text;
             bankTransaction.BranchCode = txtBranchCode.Text;
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
@@ -312,7 +317,7 @@ namespace PamirAccounting.Forms.Transactions
                 customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
                 customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
                 customerTransaction.Description = txtdesc.Text;
-                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
                 customerTransaction.WithdrawAmount = 0;
                 customerTransaction.DocumentId = documentId;
                 customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
@@ -342,6 +347,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void PayAndReciveBankFrm_KeyUp(object sender, KeyEventArgs e)
         {
+          
             if (e.KeyCode == Keys.Escape)
                 this.Close();
             if (e.KeyCode == Keys.Enter)
@@ -404,6 +410,17 @@ namespace PamirAccounting.Forms.Transactions
         private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowChars();
+        }
+        private void CleanForm()
+        {
+            txtAmount.Text = "0";
+            txtdesc.Text = "";
+            txtBranchCode.Text = "";
+            txtReceiptNumber.Text = "";
+            lblNumberString.Text = "";
+            cmbAction.Select();
+            cmbAction.Focus();
+
         }
     }
 }
