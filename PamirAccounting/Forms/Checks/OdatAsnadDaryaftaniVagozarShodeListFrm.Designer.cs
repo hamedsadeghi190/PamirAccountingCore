@@ -81,7 +81,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtsearch
             // 
-            this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtsearch.Location = new System.Drawing.Point(690, 19);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(357, 38);
@@ -90,7 +90,7 @@ namespace PamirAccounting.Forms.Checks
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(1065, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
@@ -122,25 +122,25 @@ namespace PamirAccounting.Forms.Checks
             this.textEdit1.Location = new System.Drawing.Point(693, 69);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.textEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
             this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit1.Properties.AppearanceDisabled.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textEdit1.Properties.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textEdit1.Properties.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit1.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.textEdit1.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.textEdit1.Properties.AppearanceDisabled.Options.UseFont = true;
             this.textEdit1.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.textEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textEdit1.Properties.AppearanceFocused.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textEdit1.Properties.AppearanceFocused.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit1.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.textEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.textEdit1.Properties.AppearanceFocused.Options.UseFont = true;
             this.textEdit1.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.textEdit1.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textEdit1.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textEdit1.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit1.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Black;
             this.textEdit1.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.textEdit1.Properties.AppearanceReadOnly.Options.UseFont = true;
@@ -153,7 +153,7 @@ namespace PamirAccounting.Forms.Checks
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(1056, 75);
             this.label2.Name = "label2";
@@ -168,25 +168,25 @@ namespace PamirAccounting.Forms.Checks
             this.textEdit2.Location = new System.Drawing.Point(18, 63);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.textEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
             this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit2.Properties.AppearanceDisabled.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textEdit2.Properties.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textEdit2.Properties.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit2.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.textEdit2.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.textEdit2.Properties.AppearanceDisabled.Options.UseFont = true;
             this.textEdit2.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.textEdit2.Properties.AppearanceFocused.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textEdit2.Properties.AppearanceFocused.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textEdit2.Properties.AppearanceFocused.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit2.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.textEdit2.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.textEdit2.Properties.AppearanceFocused.Options.UseFont = true;
             this.textEdit2.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.textEdit2.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textEdit2.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textEdit2.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textEdit2.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Black;
             this.textEdit2.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.textEdit2.Properties.AppearanceReadOnly.Options.UseFont = true;
@@ -199,7 +199,7 @@ namespace PamirAccounting.Forms.Checks
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(374, 69);
             this.label3.Name = "label3";
@@ -214,25 +214,25 @@ namespace PamirAccounting.Forms.Checks
             this.txtCreditLimit.Location = new System.Drawing.Point(690, 24);
             this.txtCreditLimit.Name = "txtCreditLimit";
             this.txtCreditLimit.Properties.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCreditLimit.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtCreditLimit.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtCreditLimit.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtCreditLimit.Properties.Appearance.Options.UseBackColor = true;
             this.txtCreditLimit.Properties.Appearance.Options.UseFont = true;
             this.txtCreditLimit.Properties.Appearance.Options.UseForeColor = true;
             this.txtCreditLimit.Properties.AppearanceDisabled.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCreditLimit.Properties.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtCreditLimit.Properties.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtCreditLimit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtCreditLimit.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.txtCreditLimit.Properties.AppearanceDisabled.Options.UseFont = true;
             this.txtCreditLimit.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtCreditLimit.Properties.AppearanceFocused.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCreditLimit.Properties.AppearanceFocused.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtCreditLimit.Properties.AppearanceFocused.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtCreditLimit.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.txtCreditLimit.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtCreditLimit.Properties.AppearanceFocused.Options.UseFont = true;
             this.txtCreditLimit.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.txtCreditLimit.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtCreditLimit.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtCreditLimit.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtCreditLimit.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Black;
             this.txtCreditLimit.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtCreditLimit.Properties.AppearanceReadOnly.Options.UseFont = true;
@@ -245,7 +245,7 @@ namespace PamirAccounting.Forms.Checks
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(1053, 30);
             this.label7.Name = "label7";
@@ -260,25 +260,25 @@ namespace PamirAccounting.Forms.Checks
             this.txtLastName.Location = new System.Drawing.Point(15, 18);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Properties.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtLastName.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtLastName.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtLastName.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtLastName.Properties.Appearance.Options.UseBackColor = true;
             this.txtLastName.Properties.Appearance.Options.UseFont = true;
             this.txtLastName.Properties.Appearance.Options.UseForeColor = true;
             this.txtLastName.Properties.AppearanceDisabled.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtLastName.Properties.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtLastName.Properties.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtLastName.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;
             this.txtLastName.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.txtLastName.Properties.AppearanceDisabled.Options.UseFont = true;
             this.txtLastName.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtLastName.Properties.AppearanceFocused.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtLastName.Properties.AppearanceFocused.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtLastName.Properties.AppearanceFocused.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtLastName.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
             this.txtLastName.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtLastName.Properties.AppearanceFocused.Options.UseFont = true;
             this.txtLastName.Properties.AppearanceFocused.Options.UseForeColor = true;
             this.txtLastName.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtLastName.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtLastName.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtLastName.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Black;
             this.txtLastName.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtLastName.Properties.AppearanceReadOnly.Options.UseFont = true;
@@ -291,7 +291,7 @@ namespace PamirAccounting.Forms.Checks
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label4.Location = new System.Drawing.Point(371, 24);
             this.label4.Name = "label4";
@@ -452,13 +452,13 @@ namespace PamirAccounting.Forms.Checks
             // 
             // btnodat_asnad
             // 
-            this.btnodat_asnad.Appearance.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodat_asnad.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodat_asnad.Appearance.Options.UseFont = true;
-            this.btnodat_asnad.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodat_asnad.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodat_asnad.AppearanceDisabled.Options.UseFont = true;
-            this.btnodat_asnad.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodat_asnad.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodat_asnad.AppearanceHovered.Options.UseFont = true;
-            this.btnodat_asnad.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnodat_asnad.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnodat_asnad.AppearancePressed.Options.UseFont = true;
             this.btnodat_asnad.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnodat_asnad.ImageOptions.SvgImage")));
             this.btnodat_asnad.Location = new System.Drawing.Point(971, 38);

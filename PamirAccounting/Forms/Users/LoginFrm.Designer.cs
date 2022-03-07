@@ -100,12 +100,12 @@ namespace PamirAccounting.Forms.Users
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Zar", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(34, 229);
+            this.label1.Location = new System.Drawing.Point(4, 216);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(317, 54);
+            this.label1.Size = new System.Drawing.Size(338, 42);
             this.label1.TabIndex = 1;
             this.label1.Text = "نرم افزار حسابداری پامیر";
             // 
@@ -179,12 +179,12 @@ namespace PamirAccounting.Forms.Users
             // 
             this.btnexit.BackColor = System.Drawing.SystemColors.Control;
             this.btnexit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnexit.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnexit.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnexit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btnexit.Location = new System.Drawing.Point(240, 407);
+            this.btnexit.Location = new System.Drawing.Point(254, 416);
             this.btnexit.Margin = new System.Windows.Forms.Padding(4);
             this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(173, 63);
+            this.btnexit.Size = new System.Drawing.Size(182, 54);
             this.btnexit.TabIndex = 111;
             this.btnexit.Text = "خروج";
             this.btnexit.UseVisualStyleBackColor = false;
@@ -194,12 +194,12 @@ namespace PamirAccounting.Forms.Users
             // 
             this.btnsave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsave.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsave.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnsave.ForeColor = System.Drawing.Color.White;
-            this.btnsave.Location = new System.Drawing.Point(61, 407);
+            this.btnsave.Location = new System.Drawing.Point(54, 416);
             this.btnsave.Margin = new System.Windows.Forms.Padding(4);
             this.btnsave.Name = "btnsave";
-            this.btnsave.Size = new System.Drawing.Size(173, 63);
+            this.btnsave.Size = new System.Drawing.Size(182, 54);
             this.btnsave.TabIndex = 110;
             this.btnsave.Text = "ورود";
             this.btnsave.UseVisualStyleBackColor = false;
@@ -219,7 +219,7 @@ namespace PamirAccounting.Forms.Users
             // txtPassword
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtPassword.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.txtPassword.Location = new System.Drawing.Point(54, 12);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
@@ -267,7 +267,7 @@ namespace PamirAccounting.Forms.Users
             this.txtusername.Location = new System.Drawing.Point(54, 11);
             this.txtusername.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtusername.Name = "txtusername";
-            this.txtusername.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtusername.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtusername.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.txtusername.Properties.Appearance.Options.UseFont = true;
             this.txtusername.Properties.Appearance.Options.UseForeColor = true;
@@ -280,12 +280,12 @@ namespace PamirAccounting.Forms.Users
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.label6.Location = new System.Drawing.Point(138, 150);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(242, 47);
+            this.label6.Size = new System.Drawing.Size(274, 38);
             this.label6.TabIndex = 3;
             this.label6.Text = "ورود به حساب کاربری";
             // 

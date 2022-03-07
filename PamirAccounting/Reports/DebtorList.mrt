@@ -197,7 +197,7 @@
               <ClientRectangle>3.09,0.37,1.1,0.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,9,Bold</Font>
+              <Font>IRANSansMobile(FaNum),9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text12</Name>
@@ -224,7 +224,7 @@
               <ClientRectangle>2.5,0.1,2.6,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,21,Bold</Font>
+              <Font>IRANSansMobile(FaNum),21,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
@@ -239,7 +239,7 @@
               <ClientRectangle>0.9,0.1,0.3,0.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,12,Bold</Font>
+              <Font>IRANSansMobile(FaNum),12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
@@ -256,7 +256,7 @@
               <ClientRectangle>0.2,0.1,0.7,0.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,11,Bold</Font>
+              <Font>IRANSansMobile(FaNum),11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
@@ -273,7 +273,7 @@
               <ClientRectangle>1.8,1,3.9,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,17,Bold</Font>
+              <Font>IRANSansMobile(FaNum),17,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
@@ -301,7 +301,7 @@
               <ClientRectangle>7.2,0.4,0.51,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
@@ -318,7 +318,7 @@
               <ClientRectangle>5.39,0.4,1.81,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
@@ -335,7 +335,7 @@
               <ClientRectangle>4.79,0.4,0.59,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
@@ -352,7 +352,7 @@
               <ClientRectangle>2.92,0.4,1.86,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
@@ -369,7 +369,7 @@
               <ClientRectangle>1.14,0.4,1.11,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
@@ -386,7 +386,7 @@
               <ClientRectangle>5.39,0.4,1.81,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
@@ -403,7 +403,7 @@
               <ClientRectangle>4.79,0.4,0.59,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
@@ -420,7 +420,7 @@
               <ClientRectangle>2.92,0.4,1.86,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
@@ -437,7 +437,7 @@
               <ClientRectangle>2.26,0.4,0.66,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
@@ -454,7 +454,7 @@
               <ClientRectangle>0,0.4,1.14,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
@@ -484,7 +484,7 @@
               <ClientRectangle>0,0,1.14,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>35</ID>
               <JoinCells isList="true" count="0" />
@@ -504,7 +504,7 @@
               <ClientRectangle>1.14,0,1.12,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>36</ID>
               <JoinCells isList="true" count="0" />
@@ -524,7 +524,7 @@
               <ClientRectangle>2.26,0,0.66,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>37</ID>
               <JoinCells isList="true" count="0" />
@@ -544,7 +544,7 @@
               <ClientRectangle>2.92,0,1.87,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>43</ID>
               <JoinCells isList="true" count="0" />
@@ -564,7 +564,7 @@
               <ClientRectangle>4.79,0,0.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>42</ID>
               <JoinCells isList="true" count="0" />
@@ -584,7 +584,7 @@
               <ClientRectangle>5.39,0,1.81,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>39</ID>
               <JoinCells isList="true" count="0" />
@@ -604,7 +604,7 @@
               <ClientRectangle>7.2,0,0.52,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>44</ID>
               <JoinCells isList="true" count="0" />
@@ -651,7 +651,7 @@
               <ClientRectangle>5.2,0.38,2.49,0.41</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
@@ -668,7 +668,7 @@
               <ClientRectangle>0.01,0.38,4.21,0.41</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
@@ -685,7 +685,7 @@
               <ClientRectangle>4.22,0.38,0.96,0.41</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,14,Bold</Font>
+              <Font>IRANSansMobile(FaNum),14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
@@ -715,7 +715,7 @@
               <ClientRectangle>0,0,4.21,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>2</ID>
               <JoinCells isList="true" count="0" />
@@ -735,7 +735,7 @@
               <ClientRectangle>4.21,0,0.99,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>3</ID>
               <JoinCells isList="true" count="0" />
@@ -755,7 +755,7 @@
               <ClientRectangle>5.2,0,2.52,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>IRANSansMobile(FaNum),10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <ID>4</ID>
               <JoinCells isList="true" count="0" />

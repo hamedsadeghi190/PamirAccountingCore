@@ -270,7 +270,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>2.6,0.2,2.9,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,21,Bold</Font>
+              <Font>IRANSansMobile(FaNum),21,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
@@ -285,7 +285,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>0.8,0,0.3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,12,Bold</Font>
+              <Font>IRANSansMobile(FaNum),12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
@@ -302,7 +302,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>0.1,0,0.7,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,11,Bold</Font>
+              <Font>IRANSansMobile(FaNum),11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
@@ -329,7 +329,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>0.1,0.5,7.5,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,13,Bold</Font>
+              <Font>IRANSansMobile(FaNum),13,Bold</Font>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
@@ -345,7 +345,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>0.1,0.9,7.5,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,13,Bold</Font>
+              <Font>IRANSansMobile(FaNum),13,Bold</Font>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
@@ -361,7 +361,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>1,2.7,0.3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,12,Bold</Font>
+              <Font>IRANSansMobile(FaNum),12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
@@ -378,7 +378,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>0.3,2.7,0.7,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,11,Bold</Font>
+              <Font>IRANSansMobile(FaNum),11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
@@ -394,7 +394,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>1,2.7,0.3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,12,Bold</Font>
+              <Font>IRANSansMobile(FaNum),12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
@@ -411,7 +411,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>0.3,2.7,0.7,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,11,Bold</Font>
+              <Font>IRANSansMobile(FaNum),11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
@@ -427,7 +427,7 @@ jET/2Q==</ImageBytes>
               <ClientRectangle>1.7,2.7,0.3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>B Nazanin,12,Bold</Font>
+              <Font>IRANSansMobile(FaNum),12,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>

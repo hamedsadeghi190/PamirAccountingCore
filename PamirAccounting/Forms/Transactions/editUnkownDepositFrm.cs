@@ -30,12 +30,12 @@ namespace PamirAccounting.Forms.Transactions
         private void editUnkownDepositFrm_Load(object sender, EventArgs e)
         {
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             for (int i = 0; i < 5; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;

@@ -38,12 +38,12 @@ namespace PamirAccounting.Forms.NewsPaper
         private void initGrid()
         {
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             for (int i = 0; i < 9; i++)
             {
                 gridPayAndReciveBank.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.gridPayAndReciveBank.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            this.gridPayAndReciveBank.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
         
 
         }

@@ -67,7 +67,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtsearch
             // 
-            this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtsearch.Location = new System.Drawing.Point(805, 23);
             this.txtsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtsearch.Name = "txtsearch";
@@ -78,7 +78,7 @@ namespace PamirAccounting.Forms.Checks
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(1242, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -101,13 +101,13 @@ namespace PamirAccounting.Forms.Checks
             // 
             // btnbargasht
             // 
-            this.btnbargasht.Appearance.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargasht.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargasht.Appearance.Options.UseFont = true;
-            this.btnbargasht.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargasht.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargasht.AppearanceDisabled.Options.UseFont = true;
-            this.btnbargasht.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargasht.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargasht.AppearanceHovered.Options.UseFont = true;
-            this.btnbargasht.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbargasht.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnbargasht.AppearancePressed.Options.UseFont = true;
             this.btnbargasht.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnbargasht.ImageOptions.SvgImage")));
             this.btnbargasht.Location = new System.Drawing.Point(1150, 24);

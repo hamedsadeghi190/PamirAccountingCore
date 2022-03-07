@@ -66,7 +66,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtsearch
             // 
-            this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtsearch.Location = new System.Drawing.Point(805, 23);
             this.txtsearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtsearch.Name = "txtsearch";
@@ -77,7 +77,7 @@ namespace PamirAccounting.Forms.Checks
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(1242, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(4);
@@ -110,13 +110,13 @@ namespace PamirAccounting.Forms.Checks
             // 
             // btnpascheck
             // 
-            this.btnpascheck.Appearance.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheck.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnpascheck.Appearance.Options.UseFont = true;
-            this.btnpascheck.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheck.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnpascheck.AppearanceDisabled.Options.UseFont = true;
-            this.btnpascheck.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheck.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnpascheck.AppearanceHovered.Options.UseFont = true;
-            this.btnpascheck.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpascheck.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnpascheck.AppearancePressed.Options.UseFont = true;
             this.btnpascheck.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnpascheck.ImageOptions.SvgImage")));
             this.btnpascheck.Location = new System.Drawing.Point(1152, 24);

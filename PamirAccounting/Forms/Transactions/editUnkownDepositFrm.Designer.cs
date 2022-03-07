@@ -88,7 +88,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtBranchCode);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(14, 2);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
@@ -105,7 +105,7 @@ namespace PamirAccounting.Forms.Transactions
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -133,7 +133,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // btnCancel
             // 
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCancel.ImageOptions.SvgImage")));
             this.btnCancel.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -152,7 +152,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtReceiptNumber.Location = new System.Drawing.Point(18, 65);
             this.txtReceiptNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtReceiptNumber.Name = "txtReceiptNumber";
-            this.txtReceiptNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtReceiptNumber.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtReceiptNumber.Properties.Appearance.Options.UseFont = true;
             this.txtReceiptNumber.Properties.AutoHeight = false;
             this.txtReceiptNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -161,7 +161,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // btnSave
             // 
-            this.btnSave.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSave.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
             this.btnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -177,7 +177,7 @@ namespace PamirAccounting.Forms.Transactions
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(538, 177);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -188,7 +188,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // btnAddDipositer
             // 
-            this.btnAddDipositer.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddDipositer.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddDipositer.Appearance.Options.UseFont = true;
             this.btnAddDipositer.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddDipositer.ImageOptions.SvgImage")));
             this.btnAddDipositer.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -207,7 +207,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtdesc.Location = new System.Drawing.Point(18, 223);
             this.txtdesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtdesc.Name = "txtdesc";
-            this.txtdesc.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtdesc.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtdesc.Properties.Appearance.Options.UseFont = true;
             this.txtdesc.Properties.AutoHeight = false;
             this.txtdesc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -217,7 +217,7 @@ namespace PamirAccounting.Forms.Transactions
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(498, 290);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -229,7 +229,7 @@ namespace PamirAccounting.Forms.Transactions
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(540, 233);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -241,7 +241,7 @@ namespace PamirAccounting.Forms.Transactions
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(198, 177);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -257,7 +257,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtDate.Location = new System.Drawing.Point(356, 168);
             this.txtDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDate.Properties.Appearance.Options.UseFont = true;
             this.txtDate.Properties.AutoHeight = false;
             this.txtDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
@@ -272,7 +272,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtBankName.Location = new System.Drawing.Point(18, 169);
             this.txtBankName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBankName.Name = "txtBankName";
-            this.txtBankName.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtBankName.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtBankName.Properties.Appearance.Options.UseFont = true;
             this.txtBankName.Properties.AutoHeight = false;
             this.txtBankName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -282,7 +282,7 @@ namespace PamirAccounting.Forms.Transactions
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(538, 74);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -296,7 +296,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtradif.Location = new System.Drawing.Point(356, 65);
             this.txtradif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtradif.Name = "txtradif";
-            this.txtradif.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtradif.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtradif.Properties.Appearance.Options.UseFont = true;
             this.txtradif.Properties.AutoHeight = false;
             this.txtradif.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
@@ -311,7 +311,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtAmount.Location = new System.Drawing.Point(356, 117);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
             this.txtAmount.Properties.AutoHeight = false;
             this.txtAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
@@ -323,7 +323,7 @@ namespace PamirAccounting.Forms.Transactions
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.Location = new System.Drawing.Point(198, 74);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
@@ -335,7 +335,7 @@ namespace PamirAccounting.Forms.Transactions
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(538, 128);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -351,7 +351,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtBranchCode.Location = new System.Drawing.Point(18, 117);
             this.txtBranchCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBranchCode.Name = "txtBranchCode";
-            this.txtBranchCode.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtBranchCode.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtBranchCode.Properties.Appearance.Options.UseFont = true;
             this.txtBranchCode.Properties.AutoHeight = false;
             this.txtBranchCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -361,7 +361,7 @@ namespace PamirAccounting.Forms.Transactions
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(198, 125);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";

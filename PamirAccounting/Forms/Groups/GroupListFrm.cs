@@ -25,12 +25,12 @@ namespace PamirAccounting.UI.Forms.Groups
         {
             loadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             for (int i = 0; i < 4; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;

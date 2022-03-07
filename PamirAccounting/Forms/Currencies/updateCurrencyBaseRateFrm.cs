@@ -4,9 +4,13 @@ using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
+using System.Windows.Forms;
+using FontStyle = System.Drawing.FontStyle;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace PamirAccounting.Forms.Currencies
 {
@@ -25,6 +29,19 @@ namespace PamirAccounting.Forms.Currencies
 
         private void updateCurrencyBaseRateFrm_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoGenerateColumns = false;
+            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
+            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
+            for (int i = 0; i < 6; i++)
+            {
+                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
+            }
+            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
+            c.FlatStyle = FlatStyle.Standard;
+            c.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            c.DefaultCellStyle.BackColor = Color.Lavender;
+        
             this.cmbAction.SelectedIndexChanged -= new System.EventHandler(this.cmbVarizType_SelectedIndexChanged);
             _ActionType = new List<ComboBoxModel>();
             _ActionType.Add(new ComboBoxModel() { Id = 1, Title = " ضرب" });
@@ -91,6 +108,22 @@ namespace PamirAccounting.Forms.Currencies
             {
                 MessageBox.Show("نرخ را وارد نمایید");
             }
+        }
+
+        private void exitbtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void updateCurrencyBaseRateFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
         }
     }
 }

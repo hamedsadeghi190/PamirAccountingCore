@@ -57,7 +57,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.btnRowDelete});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(1, 139);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -118,7 +118,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.groupBoxSearch.Controls.Add(this.simpleButton3);
             this.groupBoxSearch.Controls.Add(this.label7);
             this.groupBoxSearch.Controls.Add(this.CreateNewCurrencyBtn);
-            this.groupBoxSearch.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBoxSearch.Location = new System.Drawing.Point(9, -3);
             this.groupBoxSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBoxSearch.Name = "groupBoxSearch";
@@ -131,11 +131,11 @@ namespace PamirAccounting.UI.Forms.Currencies
             // 
             // txtsearch
             // 
-            this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtsearch.Location = new System.Drawing.Point(349, 57);
-            this.txtsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtsearch.Location = new System.Drawing.Point(328, 56);
+            this.txtsearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtsearch.Name = "txtsearch";
-            this.txtsearch.Size = new System.Drawing.Size(199, 39);
+            this.txtsearch.Size = new System.Drawing.Size(199, 36);
             this.txtsearch.TabIndex = 108;
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
@@ -143,7 +143,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             // 
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
             this.simpleButton3.Location = new System.Drawing.Point(12, 46);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(46, 50);
             this.simpleButton3.TabIndex = 106;
@@ -152,18 +152,18 @@ namespace PamirAccounting.UI.Forms.Currencies
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(554, 63);
+            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(533, 63);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 32);
+            this.label7.Size = new System.Drawing.Size(117, 23);
             this.label7.TabIndex = 105;
-            this.label7.Text = "جستجو(F2)";
+            this.label7.Text = " جستجو (F2) :";
             // 
             // CreateNewCurrencyBtn
             // 
             this.CreateNewCurrencyBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CreateNewCurrencyBtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CreateNewCurrencyBtn.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CreateNewCurrencyBtn.Appearance.ForeColor = System.Drawing.Color.DarkGreen;
             this.CreateNewCurrencyBtn.Appearance.Options.UseFont = true;
             this.CreateNewCurrencyBtn.Appearance.Options.UseForeColor = true;

@@ -215,7 +215,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.groupBoxViewAccountCustomer.Controls.Add(this.groupBox1);
             this.groupBoxViewAccountCustomer.Controls.Add(this.btnprint);
             this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton5);
-            this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(1, 18);
             this.groupBoxViewAccountCustomer.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBoxViewAccountCustomer.Name = "groupBoxViewAccountCustomer";
@@ -232,7 +232,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(346, 32);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -244,11 +244,12 @@ namespace PamirAccounting.Forms.GeneralLedger
             // 
             // cmbCurrencies
             // 
+            this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(455, 44);
+            this.cmbCurrencies.Location = new System.Drawing.Point(473, 41);
             this.cmbCurrencies.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(207, 40);
+            this.cmbCurrencies.Size = new System.Drawing.Size(207, 37);
             this.cmbCurrencies.TabIndex = 118;
             // 
             // txtSearch
@@ -256,10 +257,10 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.txtSearch.Location = new System.Drawing.Point(130, 41);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
             this.txtSearch.Properties.AutoHeight = false;
-            this.txtSearch.Size = new System.Drawing.Size(218, 41);
+            this.txtSearch.Size = new System.Drawing.Size(218, 37);
             this.txtSearch.TabIndex = 119;
             this.txtSearch.ToolTipAnchor = DevExpress.Utils.ToolTipAnchor.Object;
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
@@ -267,25 +268,25 @@ namespace PamirAccounting.Forms.GeneralLedger
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(349, 48);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(83, 32);
+            this.label4.Size = new System.Drawing.Size(93, 23);
             this.label4.TabIndex = 116;
-            this.label4.Text = "نام حساب";
+            this.label4.Text = "نام حساب :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(672, 52);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(690, 49);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 32);
+            this.label1.Size = new System.Drawing.Size(67, 23);
             this.label1.TabIndex = 111;
-            this.label1.Text = "نوع ارز";
+            this.label1.Text = "نوع ارز :";
             // 
             // btnprint
             // 

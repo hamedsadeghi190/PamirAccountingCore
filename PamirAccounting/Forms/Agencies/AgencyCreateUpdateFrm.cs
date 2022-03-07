@@ -117,5 +117,10 @@ namespace PamirAccounting.UI.Forms.Agencies
             if (e.KeyCode == Keys.Escape)
                 this.Close();
         }
+
+        private void btnexitbank_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

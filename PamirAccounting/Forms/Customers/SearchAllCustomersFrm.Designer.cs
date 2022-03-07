@@ -51,12 +51,14 @@ namespace PamirAccounting.Forms.Customers
             this.Column3});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(695, 327);
+            this.dataGridView1.Size = new System.Drawing.Size(705, 402);
             this.dataGridView1.TabIndex = 99;
             this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
             // 
@@ -66,6 +68,7 @@ namespace PamirAccounting.Forms.Customers
             this.Column1.FillWeight = 60F;
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "کدحساب";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -77,6 +80,7 @@ namespace PamirAccounting.Forms.Customers
             this.Column3.FillWeight = 450F;
             this.Column3.Frozen = true;
             this.Column3.HeaderText = "نام حساب";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 450;
@@ -85,22 +89,25 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.groupBox1.Controls.Add(this.txtsearch);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(2, 330);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(2, 404);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(692, 108);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(703, 91);
             this.groupBox1.TabIndex = 114;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtsearch
             // 
-            this.txtsearch.Location = new System.Drawing.Point(313, 35);
+            this.txtsearch.Location = new System.Drawing.Point(350, 40);
+            this.txtsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtsearch.Name = "txtsearch";
-            this.txtsearch.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtsearch.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtsearch.Properties.Appearance.Options.UseFont = true;
             this.txtsearch.Properties.AutoHeight = false;
-            this.txtsearch.Size = new System.Drawing.Size(275, 41);
+            this.txtsearch.Size = new System.Drawing.Size(227, 37);
             this.txtsearch.TabIndex = 113;
             this.txtsearch.EditValueChanged += new System.EventHandler(this.txtsearch_EditValueChanged);
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
@@ -108,26 +115,28 @@ namespace PamirAccounting.Forms.Customers
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(590, 43);
+            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(585, 43);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(85, 26);
+            this.label4.Size = new System.Drawing.Size(117, 23);
             this.label4.TabIndex = 110;
-            this.label4.Text = "جستجو(F2)";
+            this.label4.Text = " جستجو (F2) :";
             // 
             // SearchAllCustomersFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 449);
+            this.ClientSize = new System.Drawing.Size(707, 499);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SearchAllCustomersFrm";

@@ -44,20 +44,20 @@ namespace PamirAccounting.Forms.GeneralLedger
         private void initGrid()
         {
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             for (int i = 0; i < 7; i++)
             {
                 gridCreditor.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.gridCreditor.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            this.gridCreditor.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             ////////***************/////////////////
             DataGridViewCellStyle HeaderStyle1 = new DataGridViewCellStyle();
-            HeaderStyle1.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            HeaderStyle1.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             for (int i = 0; i < 3; i++)
             {
                 grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
             }
-            this.grdTotals.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            this.grdTotals.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
 
         }
 

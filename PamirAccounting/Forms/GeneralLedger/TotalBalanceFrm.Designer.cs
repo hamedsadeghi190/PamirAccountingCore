@@ -31,11 +31,11 @@ namespace PamirAccounting.Forms.GeneralLedger
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TotalBalanceFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearch = new DevExpress.XtraEditors.TextEdit();
-            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
-            this.btnStatusList = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnStatusList = new DevExpress.XtraEditors.SimpleButton();
+            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
+            this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.gridBlance = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,17 +69,64 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // txtSearch
+            // simpleButton3
             // 
-            this.txtSearch.Location = new System.Drawing.Point(976, 27);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Properties.Appearance.Options.UseFont = true;
-            this.txtSearch.Properties.AutoHeight = false;
-            this.txtSearch.Size = new System.Drawing.Size(218, 46);
-            this.txtSearch.TabIndex = 121;
-            this.txtSearch.ToolTipAnchor = DevExpress.Utils.ToolTipAnchor.Object;
+            this.simpleButton3.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton3.Appearance.Options.UseFont = true;
+            this.simpleButton3.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton3.AppearanceDisabled.Options.UseFont = true;
+            this.simpleButton3.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton3.AppearanceHovered.Options.UseFont = true;
+            this.simpleButton3.AppearanceHovered.Options.UseTextOptions = true;
+            this.simpleButton3.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton3.AppearancePressed.Options.UseFont = true;
+            this.simpleButton3.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.simpleButton3.Location = new System.Drawing.Point(862, 27);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(106, 46);
+            this.simpleButton3.TabIndex = 125;
+            this.simpleButton3.Text = "نمایش";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton2.AppearanceDisabled.Options.UseFont = true;
+            this.simpleButton2.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton2.AppearanceHovered.Options.UseFont = true;
+            this.simpleButton2.AppearanceHovered.Options.UseTextOptions = true;
+            this.simpleButton2.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton2.AppearancePressed.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.Location = new System.Drawing.Point(282, 23);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(170, 46);
+            this.simpleButton2.TabIndex = 124;
+            this.simpleButton2.Text = "ثبت اطلاعات";
+            // 
+            // btnStatusList
+            // 
+            this.btnStatusList.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnStatusList.Appearance.Options.UseFont = true;
+            this.btnStatusList.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnStatusList.AppearanceDisabled.Options.UseFont = true;
+            this.btnStatusList.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnStatusList.AppearanceHovered.Options.UseFont = true;
+            this.btnStatusList.AppearanceHovered.Options.UseTextOptions = true;
+            this.btnStatusList.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnStatusList.AppearancePressed.Options.UseFont = true;
+            this.btnStatusList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStatusList.ImageOptions.SvgImage")));
+            this.btnStatusList.Location = new System.Drawing.Point(70, 23);
+            this.btnStatusList.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStatusList.Name = "btnStatusList";
+            this.btnStatusList.Size = new System.Drawing.Size(204, 46);
+            this.btnStatusList.TabIndex = 123;
+            this.btnStatusList.Text = "لیست وضعیت ها";
+            this.btnStatusList.Click += new System.EventHandler(this.btnStatusList_Click);
             // 
             // btnprint
             // 
@@ -92,64 +139,17 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.btnprint.TabIndex = 122;
             this.btnprint.Text = "چاپ";
             // 
-            // btnStatusList
+            // txtSearch
             // 
-            this.btnStatusList.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStatusList.Appearance.Options.UseFont = true;
-            this.btnStatusList.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStatusList.AppearanceDisabled.Options.UseFont = true;
-            this.btnStatusList.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStatusList.AppearanceHovered.Options.UseFont = true;
-            this.btnStatusList.AppearanceHovered.Options.UseTextOptions = true;
-            this.btnStatusList.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStatusList.AppearancePressed.Options.UseFont = true;
-            this.btnStatusList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnStatusList.Location = new System.Drawing.Point(70, 23);
-            this.btnStatusList.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStatusList.Name = "btnStatusList";
-            this.btnStatusList.Size = new System.Drawing.Size(170, 46);
-            this.btnStatusList.TabIndex = 123;
-            this.btnStatusList.Text = "لیست وضعیت ها";
-            this.btnStatusList.Click += new System.EventHandler(this.btnStatusList_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton2.AppearanceDisabled.Options.UseFont = true;
-            this.simpleButton2.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton2.AppearanceHovered.Options.UseFont = true;
-            this.simpleButton2.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton2.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton2.AppearancePressed.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(248, 23);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(170, 46);
-            this.simpleButton2.TabIndex = 124;
-            this.simpleButton2.Text = "ثبت اطلاعات";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton3.AppearanceDisabled.Options.UseFont = true;
-            this.simpleButton3.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton3.AppearanceHovered.Options.UseFont = true;
-            this.simpleButton3.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton3.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton3.AppearancePressed.Options.UseFont = true;
-            this.simpleButton3.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(862, 27);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(106, 46);
-            this.simpleButton3.TabIndex = 125;
-            this.simpleButton3.Text = "نمایش";
+            this.txtSearch.Location = new System.Drawing.Point(976, 27);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Properties.Appearance.Options.UseFont = true;
+            this.txtSearch.Properties.AutoHeight = false;
+            this.txtSearch.Size = new System.Drawing.Size(218, 46);
+            this.txtSearch.TabIndex = 121;
+            this.txtSearch.ToolTipAnchor = DevExpress.Utils.ToolTipAnchor.Object;
             // 
             // gridBlance
             // 

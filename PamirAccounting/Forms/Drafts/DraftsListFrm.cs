@@ -33,7 +33,7 @@ namespace PamirAccounting.Forms.Drafts
             //}
             //foreach (DataGridViewColumn DataGridViewColumn1 in gridDrafts.Columns)
             //{
-            //    DataGridViewColumn1.DefaultCellStyle.Font = new Font("B Nazanin", 12);
+            //    DataGridViewColumn1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 12);
             //}
         }
 

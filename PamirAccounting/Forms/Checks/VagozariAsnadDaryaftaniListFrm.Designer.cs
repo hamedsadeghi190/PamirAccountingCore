@@ -64,7 +64,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtsearch
             // 
-            this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtsearch.Location = new System.Drawing.Point(690, 19);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(357, 38);
@@ -73,7 +73,7 @@ namespace PamirAccounting.Forms.Checks
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(1065, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
@@ -114,13 +114,13 @@ namespace PamirAccounting.Forms.Checks
             // 
             // btnvagozariasnad_daryafti
             // 
-            this.btnvagozariasnad_daryafti.Appearance.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagozariasnad_daryafti.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagozariasnad_daryafti.Appearance.Options.UseFont = true;
-            this.btnvagozariasnad_daryafti.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagozariasnad_daryafti.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagozariasnad_daryafti.AppearanceDisabled.Options.UseFont = true;
-            this.btnvagozariasnad_daryafti.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagozariasnad_daryafti.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagozariasnad_daryafti.AppearanceHovered.Options.UseFont = true;
-            this.btnvagozariasnad_daryafti.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvagozariasnad_daryafti.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnvagozariasnad_daryafti.AppearancePressed.Options.UseFont = true;
             this.btnvagozariasnad_daryafti.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnvagozariasnad_daryafti.ImageOptions.SvgImage")));
             this.btnvagozariasnad_daryafti.Location = new System.Drawing.Point(971, 38);

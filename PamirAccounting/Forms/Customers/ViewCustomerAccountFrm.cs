@@ -55,12 +55,12 @@ namespace PamirAccounting.UI.Forms.Customers
         private void initGrid()
         {
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 10, FontStyle.Bold);
+            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 10, FontStyle.Bold);
             for (int i = 0; i < 12; i++)
             {
                 grdTransactions.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.grdTransactions.DefaultCellStyle.Font = new Font("B Nazanin", 10, FontStyle.Bold);
+            this.grdTransactions.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 10, FontStyle.Bold);
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)grdTransactions.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -71,12 +71,12 @@ namespace PamirAccounting.UI.Forms.Customers
             d.DefaultCellStyle.BackColor = Color.Lavender;
             ////////***************/////////////////
             DataGridViewCellStyle HeaderStyle1 = new DataGridViewCellStyle();
-            HeaderStyle1.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            HeaderStyle1.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             for (int i = 0; i < 6; i++)
             {
                 grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
             }
-            this.grdTotals.DefaultCellStyle.Font = new Font("B Nazanin", 11, FontStyle.Bold);
+            this.grdTotals.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
 
 
             foreach (DataGridViewRow row in grdTransactions.Rows)
@@ -622,6 +622,11 @@ namespace PamirAccounting.UI.Forms.Customers
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

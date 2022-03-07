@@ -134,9 +134,6 @@
     <Compile Update="Forms\Customers\SearchAllCustomersFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Customers\SearchDateFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\Customers\ViewCustomerAccountFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,9 +165,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\GeneralLedger\DebtorListFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\GeneralLedger\ShowDebitListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\GeneralLedger\StatusListFrm.cs">

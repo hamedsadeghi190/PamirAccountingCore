@@ -55,7 +55,7 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
             this.groupBoxContacts.Controls.Add(this.simpleButton3);
             this.groupBoxContacts.Controls.Add(this.txtsearch);
             this.groupBoxContacts.Controls.Add(this.CreateContactsBtn);
-            this.groupBoxContacts.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxContacts.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBoxContacts.Location = new System.Drawing.Point(-1, 3);
             this.groupBoxContacts.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBoxContacts.Name = "groupBoxContacts";
@@ -68,13 +68,13 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(739, 60);
+            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(729, 60);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 32);
+            this.label7.Size = new System.Drawing.Size(112, 23);
             this.label7.TabIndex = 97;
-            this.label7.Text = "جستجو(F2)";
+            this.label7.Text = "جستجو (F2) :";
             // 
             // simpleButton3
             // 
@@ -88,17 +88,17 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
             // 
             // txtsearch
             // 
-            this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtsearch.Location = new System.Drawing.Point(384, 52);
+            this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtsearch.Location = new System.Drawing.Point(491, 53);
             this.txtsearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtsearch.Name = "txtsearch";
-            this.txtsearch.Size = new System.Drawing.Size(349, 39);
+            this.txtsearch.Size = new System.Drawing.Size(232, 36);
             this.txtsearch.TabIndex = 4;
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
             // CreateContactsBtn
             // 
-            this.CreateContactsBtn.Appearance.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CreateContactsBtn.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CreateContactsBtn.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.CreateContactsBtn.Appearance.Options.UseFont = true;
             this.CreateContactsBtn.Appearance.Options.UseForeColor = true;

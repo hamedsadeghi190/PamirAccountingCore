@@ -39,12 +39,12 @@ namespace PamirAccounting.Forms.Customers
         {
             loadData();
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             for (int i = 0; i < 2; i++)
             {
                 dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
             }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("B Nazanin", 12, FontStyle.Bold);
+            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             txtsearch.Focus();
 
 

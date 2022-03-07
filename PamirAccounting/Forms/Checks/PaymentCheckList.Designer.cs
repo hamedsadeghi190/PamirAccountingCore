@@ -225,7 +225,7 @@ namespace PamirAccounting.Forms.Checks
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(350, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -237,7 +237,7 @@ namespace PamirAccounting.Forms.Checks
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(691, 54);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -273,7 +273,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox4.Controls.Add(this.groupBox1);
             this.groupBox4.Controls.Add(this.btnPrint);
             this.groupBox4.Controls.Add(this.simpleButton2);
-            this.groupBox4.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.Location = new System.Drawing.Point(2, 17);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
@@ -289,7 +289,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.txtChequeNumber);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(453, 46);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
@@ -304,7 +304,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtAccountNumber.Location = new System.Drawing.Point(125, 50);
             this.txtAccountNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAccountNumber.Name = "txtAccountNumber";
-            this.txtAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtAccountNumber.Properties.Appearance.Options.UseFont = true;
             this.txtAccountNumber.Properties.AutoHeight = false;
             this.txtAccountNumber.Size = new System.Drawing.Size(218, 41);
@@ -316,7 +316,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtChequeNumber.Location = new System.Drawing.Point(462, 47);
             this.txtChequeNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtChequeNumber.Name = "txtChequeNumber";
-            this.txtChequeNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtChequeNumber.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtChequeNumber.Properties.Appearance.Options.UseFont = true;
             this.txtChequeNumber.Properties.AutoHeight = false;
             this.txtChequeNumber.Size = new System.Drawing.Size(218, 41);
