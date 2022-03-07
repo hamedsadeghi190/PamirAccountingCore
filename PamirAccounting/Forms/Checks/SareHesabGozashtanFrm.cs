@@ -93,7 +93,7 @@ namespace PamirAccounting.Forms.Checks
                 txtDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtAssignmentDate.Text = PDate2;
-                txtDesc.Text = Cheque.Description;
+             
                
             }
 
@@ -119,8 +119,11 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
-           
-    
+            if (txtDesc.Text == "")
+            {
+                CreateDescription();
+            }
+
             PersianCalendar p = new PersianCalendar();
             var AssignmentDate1 = txtAssignmentDate.Text.Split('/');
             var AssignmentDate = p.ToDateTime(int.Parse(AssignmentDate1[0]), int.Parse(AssignmentDate1[1]), int.Parse(AssignmentDate1[2]), 0, 0, 0, 0);

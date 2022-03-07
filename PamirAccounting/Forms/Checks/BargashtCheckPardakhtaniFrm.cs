@@ -79,7 +79,7 @@ namespace PamirAccounting.Forms.Checks
                 txtDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtBargashtDate.Text = PDate2;
-                txtDesc.Text = txtDesc.Text;
+             
             }
         }
         private void ChequeActionInfo(long? _ChequeNumberEdit)
@@ -99,7 +99,10 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
-
+            if (txtDesc.Text == "")
+            {
+                CreateDescription();
+            }
             PersianCalendar p = new PersianCalendar();
             var BargashtDate1 = txtBargashtDate.Text.Split('/');
             var BargashtDate = p.ToDateTime(int.Parse(BargashtDate1[0]), int.Parse(BargashtDate1[1]), int.Parse(BargashtDate1[2]), 0, 0, 0, 0);

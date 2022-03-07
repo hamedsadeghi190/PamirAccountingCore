@@ -54,9 +54,9 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox3.Controls.Add(this.BtnSave);
             this.groupBox3.Controls.Add(this.BtnClose);
             this.groupBox3.Location = new System.Drawing.Point(6, 298);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(821, 126);
             this.groupBox3.TabIndex = 120;
             this.groupBox3.TabStop = false;
@@ -98,9 +98,9 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Location = new System.Drawing.Point(6, 107);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(821, 192);
             this.groupBox2.TabIndex = 119;
             this.groupBox2.TabStop = false;
@@ -108,7 +108,7 @@ namespace PamirAccounting.Forms.Checks
             // txtOdatDate
             // 
             this.txtOdatDate.Location = new System.Drawing.Point(455, 37);
-            this.txtOdatDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOdatDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtOdatDate.Name = "txtOdatDate";
             this.txtOdatDate.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtOdatDate.Properties.Appearance.Options.UseFont = true;
@@ -124,9 +124,9 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.txtDesc.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDesc.Location = new System.Drawing.Point(187, 90);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(4);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(522, 93);
+            this.txtDesc.Size = new System.Drawing.Size(522, 47);
             this.txtDesc.TabIndex = 2;
             this.txtDesc.Text = "";
             this.txtDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDesc_KeyUp);
@@ -163,9 +163,9 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.txtDocumentID);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(-5, -9);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(845, 113);
             this.groupBox1.TabIndex = 118;
             this.groupBox1.TabStop = false;
@@ -175,7 +175,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtDate.Enabled = false;
             this.txtDate.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDate.Location = new System.Drawing.Point(22, 36);
-            this.txtDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(256, 45);
             this.txtDate.TabIndex = 109;
@@ -198,7 +198,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtDocumentID.Enabled = false;
             this.txtDocumentID.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtDocumentID.Location = new System.Drawing.Point(465, 36);
-            this.txtDocumentID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDocumentID.Margin = new System.Windows.Forms.Padding(4);
             this.txtDocumentID.Name = "txtDocumentID";
             this.txtDocumentID.Size = new System.Drawing.Size(256, 45);
             this.txtDocumentID.TabIndex = 107;
@@ -229,7 +229,7 @@ namespace PamirAccounting.Forms.Checks
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "OdatCheckPardakhtaniFrm";

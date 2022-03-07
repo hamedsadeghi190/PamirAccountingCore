@@ -77,7 +77,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnRowDelete});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(2, 199);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -211,9 +211,9 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox4.Controls.Add(this.simpleButton2);
             this.groupBox4.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.Location = new System.Drawing.Point(13, 1);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(1368, 187);
             this.groupBox4.TabIndex = 118;
             this.groupBox4.TabStop = false;
@@ -227,9 +227,9 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(453, 38);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(866, 118);
             this.groupBox1.TabIndex = 113;
             this.groupBox1.TabStop = false;
@@ -238,7 +238,7 @@ namespace PamirAccounting.Forms.Checks
             // txtAccountNumber
             // 
             this.txtAccountNumber.Location = new System.Drawing.Point(62, 46);
-            this.txtAccountNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAccountNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtAccountNumber.Name = "txtAccountNumber";
             this.txtAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtAccountNumber.Properties.Appearance.Options.UseFont = true;
@@ -262,13 +262,14 @@ namespace PamirAccounting.Forms.Checks
             // txtChequeNumber
             // 
             this.txtChequeNumber.Location = new System.Drawing.Point(497, 46);
-            this.txtChequeNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtChequeNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtChequeNumber.Name = "txtChequeNumber";
             this.txtChequeNumber.Properties.Appearance.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtChequeNumber.Properties.Appearance.Options.UseFont = true;
             this.txtChequeNumber.Properties.AutoHeight = false;
             this.txtChequeNumber.Size = new System.Drawing.Size(218, 41);
             this.txtChequeNumber.TabIndex = 113;
+            this.txtChequeNumber.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.txtChequeNumber_EditValueChanging);
             this.txtChequeNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtChequeNumber_KeyUp);
             // 
             // label4
@@ -288,7 +289,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnPrint.AppearanceHovered.Options.UseTextOptions = true;
             this.btnPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPrint.ImageOptions.SvgImage")));
             this.btnPrint.Location = new System.Drawing.Point(60, 42);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(46, 50);
             this.btnPrint.TabIndex = 116;
@@ -299,7 +300,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
             this.simpleButton2.Location = new System.Drawing.Point(8, 42);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(4);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(46, 50);
             this.simpleButton2.TabIndex = 117;
@@ -317,7 +318,7 @@ namespace PamirAccounting.Forms.Checks
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "SareHesabGozashtanReportFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

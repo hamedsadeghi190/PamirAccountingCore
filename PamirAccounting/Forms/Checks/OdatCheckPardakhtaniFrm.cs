@@ -74,7 +74,7 @@ namespace PamirAccounting.Forms.Checks
                 txtDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtOdatDate.Text = PDate2;
-                txtDesc.Text = txtDesc.Text;
+       
             }
         }
 
@@ -95,7 +95,10 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
-
+            if (txtDesc.Text == "")
+            {
+                CreateDescription();
+            }
             PersianCalendar p = new PersianCalendar();
             var OdatDate1 = txtOdatDate.Text.Split('/');
             var OdatDate = p.ToDateTime(int.Parse(OdatDate1[0]), int.Parse(OdatDate1[1]), int.Parse(OdatDate1[2]), 0, 0, 0, 0);

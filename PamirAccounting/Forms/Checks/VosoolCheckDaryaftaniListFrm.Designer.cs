@@ -34,9 +34,6 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
-            this.btnvosool_daryaftani = new DevExpress.XtraEditors.SimpleButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +44,9 @@ namespace PamirAccounting.Forms.Checks
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RealBankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
+            this.btnvosool_daryaftani = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -56,10 +56,10 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.groupBox3.Controls.Add(this.txtsearch);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(5, 749);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(5, 643);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(1376, 85);
             this.groupBox3.TabIndex = 109;
             this.groupBox3.TabStop = false;
@@ -68,7 +68,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtsearch.Location = new System.Drawing.Point(805, 23);
-            this.txtsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtsearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(416, 45);
             this.txtsearch.TabIndex = 4;
@@ -80,7 +80,7 @@ namespace PamirAccounting.Forms.Checks
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(1242, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 32);
             this.label1.TabIndex = 104;
@@ -105,57 +105,16 @@ namespace PamirAccounting.Forms.Checks
             this.RealBankName});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(2, 128);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1382, 619);
+            this.dataGridView1.Size = new System.Drawing.Size(1382, 507);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnhelp);
-            this.groupBox1.Controls.Add(this.btnvosool_daryaftani);
-            this.groupBox1.Location = new System.Drawing.Point(6, 8);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(1375, 107);
-            this.groupBox1.TabIndex = 106;
-            this.groupBox1.TabStop = false;
-            // 
-            // btnhelp
-            // 
-            this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
-            this.btnhelp.Location = new System.Drawing.Point(8, 24);
-            this.btnhelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnhelp.Name = "btnhelp";
-            this.btnhelp.Size = new System.Drawing.Size(46, 50);
-            this.btnhelp.TabIndex = 2;
-            this.btnhelp.Text = "راهنما";
-            // 
-            // btnvosool_daryaftani
-            // 
-            this.btnvosool_daryaftani.Appearance.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnvosool_daryaftani.Appearance.Options.UseFont = true;
-            this.btnvosool_daryaftani.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnvosool_daryaftani.AppearanceDisabled.Options.UseFont = true;
-            this.btnvosool_daryaftani.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnvosool_daryaftani.AppearanceHovered.Options.UseFont = true;
-            this.btnvosool_daryaftani.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnvosool_daryaftani.AppearancePressed.Options.UseFont = true;
-            this.btnvosool_daryaftani.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnvosool_daryaftani.ImageOptions.SvgImage")));
-            this.btnvosool_daryaftani.Location = new System.Drawing.Point(1137, 24);
-            this.btnvosool_daryaftani.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnvosool_daryaftani.Name = "btnvosool_daryaftani";
-            this.btnvosool_daryaftani.Size = new System.Drawing.Size(216, 52);
-            this.btnvosool_daryaftani.TabIndex = 1;
-            this.btnvosool_daryaftani.Text = "وصول چک";
-            this.btnvosool_daryaftani.Click += new System.EventHandler(this.btnvosool_daryaftani_Click);
             // 
             // id
             // 
@@ -256,20 +215,61 @@ namespace PamirAccounting.Forms.Checks
             this.RealBankName.ReadOnly = true;
             this.RealBankName.Width = 125;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnhelp);
+            this.groupBox1.Controls.Add(this.btnvosool_daryaftani);
+            this.groupBox1.Location = new System.Drawing.Point(6, 8);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1375, 107);
+            this.groupBox1.TabIndex = 106;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnhelp
+            // 
+            this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
+            this.btnhelp.Location = new System.Drawing.Point(8, 24);
+            this.btnhelp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnhelp.Name = "btnhelp";
+            this.btnhelp.Size = new System.Drawing.Size(46, 50);
+            this.btnhelp.TabIndex = 2;
+            this.btnhelp.Text = "راهنما";
+            // 
+            // btnvosool_daryaftani
+            // 
+            this.btnvosool_daryaftani.Appearance.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.Appearance.Options.UseFont = true;
+            this.btnvosool_daryaftani.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.AppearanceDisabled.Options.UseFont = true;
+            this.btnvosool_daryaftani.AppearanceHovered.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.AppearanceHovered.Options.UseFont = true;
+            this.btnvosool_daryaftani.AppearancePressed.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.AppearancePressed.Options.UseFont = true;
+            this.btnvosool_daryaftani.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnvosool_daryaftani.ImageOptions.SvgImage")));
+            this.btnvosool_daryaftani.Location = new System.Drawing.Point(1137, 24);
+            this.btnvosool_daryaftani.Margin = new System.Windows.Forms.Padding(4);
+            this.btnvosool_daryaftani.Name = "btnvosool_daryaftani";
+            this.btnvosool_daryaftani.Size = new System.Drawing.Size(216, 52);
+            this.btnvosool_daryaftani.TabIndex = 1;
+            this.btnvosool_daryaftani.Text = "وصول چک";
+            this.btnvosool_daryaftani.Click += new System.EventHandler(this.btnvosool_daryaftani_Click);
+            // 
             // VosoolCheckDaryaftaniListFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1387, 844);
+            this.ClientSize = new System.Drawing.Size(1387, 738);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "VosoolCheckDaryaftaniListFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

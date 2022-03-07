@@ -170,7 +170,7 @@ namespace PamirAccounting.Forms.Checks
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
-                }).Where(x => x.BankAccountNumber == txtAccountNumber.Text).ToList();
+                }).Where(x => x.BankAccountNumber.Contains(txtAccountNumber.Text)).ToList();
 
             }
             else
@@ -201,13 +201,18 @@ namespace PamirAccounting.Forms.Checks
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
-                }).Where(x => x.ChequeNumber == txtChequeNumber.Text).ToList();
+                }).Where(x => x.ChequeNumber.Contains( txtChequeNumber.Text)).ToList();
 
             }
             else
             {
                 LoadData();
             }
+        }
+
+        private void txtChequeNumber_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+
         }
     }
 }

@@ -181,6 +181,10 @@ namespace PamirAccounting.Forms.Checks
         }
         private void SaveEdit()
         {
+            if (txtDesc.Text == "")
+            {
+                CreateDescription();
+            }
             PersianCalendar p = new PersianCalendar();
             var PasDate1 = txtPassDate.Text.Split('/');
             var PasDate = p.ToDateTime(int.Parse(PasDate1[0]), int.Parse(PasDate1[1]), int.Parse(PasDate1[2]), 0, 0, 0, 0);

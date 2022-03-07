@@ -120,16 +120,32 @@ namespace PamirAccounting.Forms.Checks
         {
             if (_ChequeNumber.HasValue)
             {
-                SaveEdit();
+                SaveEdit(); 
+                Close();
             }
             else
             {
                 SaveNew();
+                CleanForm();
             }
-            Close();
+          
+        }
+
+        private void CleanForm()
+        {
+            txtBranchName.Text = "";
+            txtChequeNumber.Text = "";
+            txtDescription.Text = "";
+            txtBankAccountNumber.Text = "";
+            txtAmount.Text = "0";
+            cmbRealBankId.Focus();
         }
         private void SaveNew()
         {
+            if (txtDescription.Text == "")
+            {
+                CreateDescription();
+            }
             amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             customerName = cmbCustomers.Text;
             Cheque = new Domains.Cheque();

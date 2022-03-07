@@ -87,7 +87,7 @@ namespace PamirAccounting.Forms.Checks
                 txtDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtVosoolDate.Text = PDate2;
-                txtDesc.Text = currentCheque.Description;
+               
             }
         }
 
@@ -109,6 +109,10 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
+            if (txtDesc.Text == "")
+            {
+                CreateDescription();
+            }
             ///////////////// //Check Status New/////////////
             if (Status == (int)Settings.ChequeStatus.New)
             {
@@ -400,7 +404,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.Vosool } چک به شماره   {currentCheque.ChequeNumber} به مبلغ {currentCheque.Amount} {"تومان"} تاریخ وصول {txtVosoolDate.Text} ";
+            txtDesc.Text = $"{Messages.Vosool } چک به شماره   {currentCheque.ChequeNumber} به مبلغ {currentCheque.Amount} {"تومان"} تاریخ پاس {txtVosoolDate.Text} ";
         }
 
 

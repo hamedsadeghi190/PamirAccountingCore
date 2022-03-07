@@ -56,10 +56,10 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.groupBox3.Controls.Add(this.txtsearch);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(4, 744);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(4, 611);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(1376, 85);
             this.groupBox3.TabIndex = 109;
             this.groupBox3.TabStop = false;
@@ -68,7 +68,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.txtsearch.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtsearch.Location = new System.Drawing.Point(805, 23);
-            this.txtsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtsearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(416, 45);
             this.txtsearch.TabIndex = 5;
@@ -80,7 +80,7 @@ namespace PamirAccounting.Forms.Checks
             this.label1.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(1242, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 32);
             this.label1.TabIndex = 104;
@@ -91,9 +91,9 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.btnhelp);
             this.groupBox1.Controls.Add(this.btnpascheck);
             this.groupBox1.Location = new System.Drawing.Point(4, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1376, 97);
             this.groupBox1.TabIndex = 106;
             this.groupBox1.TabStop = false;
@@ -102,7 +102,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
             this.btnhelp.Location = new System.Drawing.Point(9, 24);
-            this.btnhelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnhelp.Margin = new System.Windows.Forms.Padding(4);
             this.btnhelp.Name = "btnhelp";
             this.btnhelp.Size = new System.Drawing.Size(46, 50);
             this.btnhelp.TabIndex = 2;
@@ -120,7 +120,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnpascheck.AppearancePressed.Options.UseFont = true;
             this.btnpascheck.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnpascheck.ImageOptions.SvgImage")));
             this.btnpascheck.Location = new System.Drawing.Point(1152, 24);
-            this.btnpascheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnpascheck.Margin = new System.Windows.Forms.Padding(4);
             this.btnpascheck.Name = "btnpascheck";
             this.btnpascheck.Size = new System.Drawing.Size(216, 52);
             this.btnpascheck.TabIndex = 1;
@@ -145,15 +145,15 @@ namespace PamirAccounting.Forms.Checks
             this.Column10,
             this.Column9});
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(2, 126);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 121);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1377, 610);
+            this.dataGridView1.Size = new System.Drawing.Size(1377, 484);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
@@ -264,14 +264,14 @@ namespace PamirAccounting.Forms.Checks
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 826);
+            this.ClientSize = new System.Drawing.Size(1382, 710);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "PasCheckPardakhtaniListFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

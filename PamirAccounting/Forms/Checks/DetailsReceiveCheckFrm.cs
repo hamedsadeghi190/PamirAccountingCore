@@ -125,14 +125,24 @@ namespace PamirAccounting.Forms.Checks
             if (_ChequeNumber.HasValue)
             {
                 SaveEdit();
+                Close();
             }
             else
             {
                 SaveNew();
+                CleanForm();
             }
-            Close();
+          
         }
-
+        private void CleanForm()
+        {
+            txtBranchName.Text = "";
+            txtChequeNumber.Text = "";
+            txtDescription.Text = "";
+            txtBankAccountNumber.Text = "";
+            txtAmount.Text = "0";
+            cmbRealBankId.Focus();
+        }
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -140,6 +150,10 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
+            if (txtDescription.Text == "")
+            {
+                CreateDescription();
+            }
             amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             Cheque = new Domains.Cheque();
             var dIssueDate = txtIssueDate.Text.Split('/');

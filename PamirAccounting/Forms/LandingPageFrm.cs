@@ -481,5 +481,35 @@ namespace PamirAccounting.Forms
              var Frm = new TotalBalanceFrm();
             Frm.ShowDialog();
         }
+
+        private void btnNewAccount_Click_1(object sender, EventArgs e)
+        {
+            var FrmCustomers = new CustomerCreateUpdateFrm();
+            FrmCustomers.ShowDialog();
+        }
+
+        private void btnBank_Click_1(object sender, EventArgs e)
+        {
+            var FrmBankPayment = new PayAndReciveBankFrm();
+            FrmBankPayment.ShowDialog();
+        }
+
+        private void btnWarrantsPayable_Click(object sender, EventArgs e)
+        {
+            var FrmWarrantsPayable = new WarrantsPayableFrm();
+            FrmWarrantsPayable.ShowDialog();
+        }
+
+        private void btnShippingOrder_Click_1(object sender, EventArgs e)
+        {
+            var FrmshippingOrder = new shippingOrderFrm();
+            FrmshippingOrder.ShowDialog();
+        }
+
+        private void btnCurrencyAgency_Click(object sender, EventArgs e)
+        {
+            var FrmAgency = new FrmCurrencyAgenciesList();
+            FrmAgency.ShowDialog();
+        }
     }
 }
