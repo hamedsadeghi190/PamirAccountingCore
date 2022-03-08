@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -85,14 +86,35 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbVarizType.SelectedValueChanged += new System.EventHandler(this.cmbVarizType_SelectedValueChanged);
         }
 
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
 
 
         private void PayAndReciveBankFrm_Load(object sender, EventArgs e)
         {
+            SetComboBoxHeight(cmbCustomers.Handle, 25);
+            cmbCustomers.Refresh();
+            SetComboBoxHeight(cmbCurrencies.Handle, 25);
+            cmbCurrencies.Refresh();
+            SetComboBoxHeight(cmbAction.Handle, 25);
+            cmbAction.Refresh();
+            SetComboBoxHeight(cmbBanks.Handle, 25);
+            cmbBanks.Refresh();
+            SetComboBoxHeight(cmbVarizType.Handle, 25);
+            cmbVarizType.Refresh();
+       
+
+
             cmbAction.Select();
             cmbAction.Focus();
             LoadData();
-            
+
             if (_TransActionId.HasValue)
             {
                 cmbCustomers.SelectedValue = _Id;
@@ -198,7 +220,7 @@ namespace PamirAccounting.Forms.Transactions
                 CleanForm();
             }
 
-            
+
         }
 
         private void SaveNew()
@@ -230,7 +252,7 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
             bankTransaction.Description = createDescription(txtdesc.Text);
-            bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+            bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             bankTransaction.WithdrawAmount = 0;
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
@@ -250,7 +272,7 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
             customerTransaction.Description = createDescription(txtdesc.Text);
             customerTransaction.DepositAmount = 0;
-            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var cDate = txtDate.Text.Split('/');
 
@@ -281,7 +303,7 @@ namespace PamirAccounting.Forms.Transactions
             if ((int)cmbVarizType.SelectedValue == (int)DepostType.Unkown)
             {
                 bankTransaction.TransactionType = (int)TransaActionType.UnkwonReciveBank;
-                bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+                bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             }
             else
             {
@@ -292,7 +314,7 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
 
             bankTransaction.DepositAmount = 0;
-            bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+            bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             bankTransaction.ReceiptNumber = txtReceiptNumber.Text;
             bankTransaction.BranchCode = txtBranchCode.Text;
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
@@ -312,12 +334,12 @@ namespace PamirAccounting.Forms.Transactions
             {
 
                 customerTransaction = new Domains.Transaction();
-                customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank; 
+                customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
                 customerTransaction.DoubleTransactionId = bankTransaction.Id;
                 customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
                 customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
                 customerTransaction.Description = txtdesc.Text;
-                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 customerTransaction.WithdrawAmount = 0;
                 customerTransaction.DocumentId = documentId;
                 customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
@@ -347,7 +369,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void PayAndReciveBankFrm_KeyUp(object sender, KeyEventArgs e)
         {
-          
+
             if (e.KeyCode == Keys.Escape)
                 this.Close();
             if (e.KeyCode == Keys.Enter)
@@ -387,6 +409,10 @@ namespace PamirAccounting.Forms.Transactions
             return result;
         }
 
+        private void txtDate_Leave(object sender, EventArgs e)
+        {
+            Tools.CheckDate(txtDate);
+        }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
         {
