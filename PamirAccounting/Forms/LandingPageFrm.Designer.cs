@@ -496,7 +496,7 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
@@ -594,6 +594,7 @@ namespace PamirAccounting.Forms
             // ListOdatPayment
             // 
             this.ListOdatPayment.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ListOdatPayment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.ListOdatPayment.Name = "ListOdatPayment";
             this.ListOdatPayment.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ListOdatPayment.Size = new System.Drawing.Size(326, 42);
@@ -603,6 +604,7 @@ namespace PamirAccounting.Forms
             // ListBargashtPayment
             // 
             this.ListBargashtPayment.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ListBargashtPayment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.ListBargashtPayment.Name = "ListBargashtPayment";
             this.ListBargashtPayment.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ListBargashtPayment.Size = new System.Drawing.Size(326, 42);
@@ -628,7 +630,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
             this.عملیاتچکToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(178, 48);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(196, 48);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan

@@ -353,33 +353,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void txtDate_Leave(object sender, EventArgs e)
         {
-            var splited = txtDate.Text.Split('/');
-            var year = splited[0].Replace("_", "");
-            var month = splited[1].Replace("_", "");
-            var day = splited[2].Replace("_", "");
-
-            PersianCalendar pc = new PersianCalendar();
-
-
-            if (year.Length < 4)
-            {
-                year = pc.GetYear(DateTime.Now).ToString();
-            }
-
-            if (month.Length < 1 || (month.Length > 0 && int.Parse(month) == 0) || (month.Length > 0 && int.Parse(month) > 12))
-            {
-                month = pc.GetMonth(DateTime.Now).ToString();
-            }
-
-            if (day.Length < 1 || (day.Length > 0 && int.Parse(day) == 0) || (day.Length > 0 && int.Parse(month) <= 6 && int.Parse(day) > 31)
-
-                || (day.Length > 0 && int.Parse(month) > 6 && int.Parse(day) > 30))
-            {
-                day = pc.GetDayOfMonth(DateTime.Now).ToString();
-
-            }
-
-            txtDate.Text = $"{year}/{month}/{day}";
+            Tools.CheckDate(txtDate);
         }
 
         private void txtDate_KeyUp(object sender, KeyEventArgs e)
