@@ -86,12 +86,12 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // lblNumberString
             // 
-            this.lblNumberString.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNumberString.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNumberString.ForeColor = System.Drawing.Color.Navy;
-            this.lblNumberString.Location = new System.Drawing.Point(22, 149);
+            this.lblNumberString.Location = new System.Drawing.Point(22, 151);
             this.lblNumberString.Name = "lblNumberString";
             this.lblNumberString.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblNumberString.Size = new System.Drawing.Size(254, 23);
+            this.lblNumberString.Size = new System.Drawing.Size(493, 29);
             this.lblNumberString.TabIndex = 128;
             this.lblNumberString.Tag = "";
             this.lblNumberString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,6 +146,8 @@ namespace PamirAccounting.Forms.Transactions
             this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDate.Size = new System.Drawing.Size(166, 32);
             this.txtDate.TabIndex = 1;
+            this.txtDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDate_KeyUp);
+            this.txtDate.Leave += new System.EventHandler(this.txtDate_Leave);
             // 
             // cmbRemainType
             // 

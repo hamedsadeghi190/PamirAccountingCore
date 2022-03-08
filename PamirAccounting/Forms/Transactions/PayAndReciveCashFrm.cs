@@ -23,6 +23,7 @@ namespace PamirAccounting.Forms.Transactions
         public Domains.Transaction customerTransaction;
         private string CustomerDesc;
         long amount;
+        bool isMessageShow = false;
         public PayAndReciveCashFrm(int Id, long? transActionId)
         {
             InitializeComponent();
@@ -66,6 +67,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
             this.cmbRemainType.SelectedIndexChanged += new System.EventHandler(this.cmbRemainType_SelectedIndexChanged);
         }
+
         [DllImport("user32.dll")]
         static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
         private const Int32 CB_SETITEMHEIGHT = 0x153;
@@ -81,9 +83,9 @@ namespace PamirAccounting.Forms.Transactions
             InitForm();
 
             SetComboBoxHeight(cmbCustomers.Handle, 25);
-            cmbCustomers.Refresh(); 
+            cmbCustomers.Refresh();
             SetComboBoxHeight(cmbCurrencies.Handle, 25);
-            cmbCurrencies.Refresh(); 
+            cmbCurrencies.Refresh();
             SetComboBoxHeight(cmbRemainType.Handle, 25);
             cmbRemainType.Refresh();
 
@@ -154,7 +156,7 @@ namespace PamirAccounting.Forms.Transactions
                     CleanForm();
                 }
 
-               
+
             }
             else
             {
@@ -187,13 +189,13 @@ namespace PamirAccounting.Forms.Transactions
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
-                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+                customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 customerTransaction.DepositAmount = 0;
                 customerTransaction.Description = CustomerDesc;
             }
             else
             {
-                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 customerTransaction.WithdrawAmount = 0;
                 customerTransaction.Description = CustomerDesc;
             }
@@ -335,10 +337,11 @@ namespace PamirAccounting.Forms.Transactions
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+
             if (e.KeyCode == Keys.Enter)
             {
                 SendKeys.Send("{TAB}");
-                e.Handled = true;
+                e.Handled = false;
             }
         }
 
@@ -346,6 +349,43 @@ namespace PamirAccounting.Forms.Transactions
         {
             ShowChars();
             CreateDescription();
+        }
+
+        private void txtDate_Leave(object sender, EventArgs e)
+        {
+            var splited = txtDate.Text.Split('/');
+            var year = splited[0].Replace("_", "");
+            var month = splited[1].Replace("_", "");
+            var day = splited[2].Replace("_", "");
+
+            PersianCalendar pc = new PersianCalendar();
+
+
+            if (year.Length < 4)
+            {
+                year = pc.GetYear(DateTime.Now).ToString();
+            }
+
+            if (month.Length < 1 || (month.Length > 0 && int.Parse(month) == 0) || (month.Length > 0 && int.Parse(month) > 12))
+            {
+                month = pc.GetMonth(DateTime.Now).ToString();
+            }
+
+            if (day.Length < 1 || (day.Length > 0 && int.Parse(day) == 0) || (day.Length > 0 && int.Parse(month) <= 6 && int.Parse(day) > 31)
+
+                || (day.Length > 0 && int.Parse(month) > 6 && int.Parse(day) > 30))
+            {
+                day = pc.GetDayOfMonth(DateTime.Now).ToString();
+
+            }
+
+            txtDate.Text = $"{year}/{month}/{day}";
+        }
+
+        private void txtDate_KeyUp(object sender, KeyEventArgs e)
+        {
+
+
         }
 
         private void CreateDescription()
@@ -365,7 +405,7 @@ namespace PamirAccounting.Forms.Transactions
         private void CleanForm()
         {
             txtAmount.Text = "0";
-            txtdesc.Text = ""; 
+            txtdesc.Text = "";
             lblNumberString.Text = "";
             txtDate.Select();
             txtDate.Focus();
