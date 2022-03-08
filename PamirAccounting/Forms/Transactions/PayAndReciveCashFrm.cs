@@ -148,11 +148,13 @@ namespace PamirAccounting.Forms.Transactions
                 if (_TransActionId.HasValue)
                 {
                     SaveEdit();
+                    MessageBox.Show("عملیات با موفقیت ویزایش گردید", " ویرایش", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
                 else
                 {
                     SaveNew();
+                    MessageBox.Show("عملیات با موفقیت ثبت گردید", " ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CleanForm();
                 }
 
