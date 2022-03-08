@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -38,6 +39,15 @@ namespace PamirAccounting.UI.Forms.Transaction
         }
         private void TransferAccountFrm_Load(object sender, EventArgs e)
         {
+            this.cmbCurrencies.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
+            this.cmbDestiniation.SelectedValueChanged -= new System.EventHandler(this.cmbDestiniation_SelectedIndexChanged);
+            this.CmbSource.SelectedIndexChanged -= new System.EventHandler(this.CmbSource_SelectedIndexChanged);
+            SetComboBoxHeight(cmbDestiniation.Handle, 25);
+            cmbDestiniation.Refresh();
+            SetComboBoxHeight(cmbCurrencies.Handle, 25);
+            cmbCurrencies.Refresh();
+            SetComboBoxHeight(CmbSource.Handle, 25);
+            CmbSource.Refresh();
             LoadData();
 
             if (_TransActionId.HasValue)
@@ -54,7 +64,14 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.cmbDestiniation.SelectedIndexChanged += new System.EventHandler(this.cmbDestiniation_SelectedIndexChanged);
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
         }
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
 
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         private void loadTransferInfo()
         {
             sourceTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == _TransActionId.Value);
@@ -114,18 +131,25 @@ namespace PamirAccounting.UI.Forms.Transaction
 
         private void btnsavebank_Click(object sender, EventArgs e)
         {
-            if (_TransActionId.HasValue)
+            if (checkEntryData())
             {
-                SaveEdit();
-                Close();
+                if (_TransActionId.HasValue)
+                {
+                    SaveEdit();
+                    MessageBox.Show("عملیات با موفقیت ویزایش گردید", " ویرایش", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                else
+                {
+                    CreateTransfer();
+                    MessageBox.Show("عملیات با موفقیت ثبت گردید", " ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CleanForm();
+                }
             }
             else
             {
-                CreateTransfer();
-                CleanForm();
+                MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید", "مقادیر ورودی", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void SaveEdit()
@@ -245,6 +269,12 @@ namespace PamirAccounting.UI.Forms.Transaction
                 lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {currencyName}";
             }
         }
+
+        private void txtDate_Leave(object sender, EventArgs e)
+        {
+            Tools.CheckDate(txtDate);
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -306,6 +336,15 @@ namespace PamirAccounting.UI.Forms.Transaction
             txtDate.Select();
             txtDate.Focus();
 
+        }
+        private bool checkEntryData()
+        {
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
+            if (txtAmount.Text.Trim().Length < 1 || amount < 1)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
