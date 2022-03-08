@@ -108,7 +108,7 @@ namespace PamirAccounting.Forms.Transactions
             cmbBanks.Refresh();
             SetComboBoxHeight(cmbVarizType.Handle, 25);
             cmbVarizType.Refresh();
-       
+
 
 
             cmbAction.Select();
@@ -211,16 +211,50 @@ namespace PamirAccounting.Forms.Transactions
         {
             if (_TransActionId.HasValue)
             {
-                SaveEdit();
-                Close();
+                if (CheckEntries() == true)
+                {
+                    SaveEdit();
+                    Close();
+
+                    MessageBox.Show("اطلاعات با موفقیت ثبت شد.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                }
+                else
+                {
+                    MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
+             MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                }
+
             }
             else
             {
-                SaveNew();
-                CleanForm();
+                if (CheckEntries() == true)
+                {
+                    SaveNew();
+                    CleanForm();
+                    MessageBox.Show("اطلاعات با موفقیت ثبت شد.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                }
+                else
+                {
+                    MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
+             MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                }
             }
 
 
+        }
+
+        private bool CheckEntries()
+        {
+            if(txtAmount.Text.Length==0 || Convert.ToInt64(txtAmount.Text.Replace(",", ""))==0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void SaveNew()
