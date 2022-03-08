@@ -53,6 +53,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_Lis = new System.Windows.Forms.ToolStripMenuItem();
             this.CustomerMenu_New = new System.Windows.Forms.ToolStripMenuItem();
             this.CustomerMenu_UnkwonDeposit = new System.Windows.Forms.ToolStripMenuItem();
+            this.گزارشاتچکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.حوالهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DraftMenu_ShippingOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.DraftMenu_WarrantsPayable = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,6 +148,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_PaymentCheque,
             this.AccountActionMnu_BuyAndSellCurrency});
             this.AccountActionMnu.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.AccountActionMnu.Image = ((System.Drawing.Image)(resources.GetObject("AccountActionMnu.Image")));
             this.AccountActionMnu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu.Margin = new System.Windows.Forms.Padding(5);
@@ -157,85 +159,98 @@ namespace PamirAccounting.Forms
             // 
             // AccountActionMnu_Cash
             // 
-            this.AccountActionMnu_Cash.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_Cash.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_Cash.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.AccountActionMnu_Cash.Image = ((System.Drawing.Image)(resources.GetObject("AccountActionMnu_Cash.Image")));
             this.AccountActionMnu_Cash.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_Cash.Name = "AccountActionMnu_Cash";
             this.AccountActionMnu_Cash.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.AccountActionMnu_Cash.Size = new System.Drawing.Size(262, 38);
+            this.AccountActionMnu_Cash.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_Cash.Text = "دریافت و پرداخت نقدی";
             this.AccountActionMnu_Cash.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.AccountActionMnu_Cash.Click += new System.EventHandler(this.AccountActionMnu_Cash_Click);
             // 
             // AccountActionMnu_Transfer
             // 
-            this.AccountActionMnu_Transfer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_Transfer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_Transfer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.AccountActionMnu_Transfer.Image = ((System.Drawing.Image)(resources.GetObject("AccountActionMnu_Transfer.Image")));
             this.AccountActionMnu_Transfer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_Transfer.Name = "AccountActionMnu_Transfer";
             this.AccountActionMnu_Transfer.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.AccountActionMnu_Transfer.Size = new System.Drawing.Size(262, 38);
+            this.AccountActionMnu_Transfer.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_Transfer.Text = "انتقال حساب به حساب";
             this.AccountActionMnu_Transfer.Click += new System.EventHandler(this.AccountActionMnu_Transfer_Click);
             // 
             // AccountActionMnu_Bank
             // 
-            this.AccountActionMnu_Bank.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_Bank.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_Bank.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.AccountActionMnu_Bank.Image = ((System.Drawing.Image)(resources.GetObject("AccountActionMnu_Bank.Image")));
             this.AccountActionMnu_Bank.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_Bank.Name = "AccountActionMnu_Bank";
             this.AccountActionMnu_Bank.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.AccountActionMnu_Bank.Size = new System.Drawing.Size(262, 38);
+            this.AccountActionMnu_Bank.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_Bank.Text = "دریافت و پرداخت بانکی";
             this.AccountActionMnu_Bank.Click += new System.EventHandler(this.AccountActionMnu_Bank_Click);
             // 
             // AccountActionMnu_ShippingOrder
             // 
+            this.AccountActionMnu_ShippingOrder.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_ShippingOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.AccountActionMnu_ShippingOrder.Image = ((System.Drawing.Image)(resources.GetObject("AccountActionMnu_ShippingOrder.Image")));
             this.AccountActionMnu_ShippingOrder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_ShippingOrder.Name = "AccountActionMnu_ShippingOrder";
             this.AccountActionMnu_ShippingOrder.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.AccountActionMnu_ShippingOrder.Size = new System.Drawing.Size(262, 38);
+            this.AccountActionMnu_ShippingOrder.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_ShippingOrder.Text = "حواله فروش";
             this.AccountActionMnu_ShippingOrder.Click += new System.EventHandler(this.AccountActionMnu_ShippingOrder_Click);
             // 
             // AccountActionMnu_WarrantsPayable
             // 
+            this.AccountActionMnu_WarrantsPayable.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_WarrantsPayable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.AccountActionMnu_WarrantsPayable.Image = ((System.Drawing.Image)(resources.GetObject("AccountActionMnu_WarrantsPayable.Image")));
             this.AccountActionMnu_WarrantsPayable.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_WarrantsPayable.Name = "AccountActionMnu_WarrantsPayable";
             this.AccountActionMnu_WarrantsPayable.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.AccountActionMnu_WarrantsPayable.Size = new System.Drawing.Size(262, 38);
+            this.AccountActionMnu_WarrantsPayable.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_WarrantsPayable.Text = "حواله آمد";
             this.AccountActionMnu_WarrantsPayable.Click += new System.EventHandler(this.AccountActionMnu_WarrantsPayable_Click);
             // 
             // AccountActionMnu_ReceiveCheque
             // 
+            this.AccountActionMnu_ReceiveCheque.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_ReceiveCheque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.AccountActionMnu_ReceiveCheque.Image = ((System.Drawing.Image)(resources.GetObject("AccountActionMnu_ReceiveCheque.Image")));
             this.AccountActionMnu_ReceiveCheque.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_ReceiveCheque.Name = "AccountActionMnu_ReceiveCheque";
             this.AccountActionMnu_ReceiveCheque.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.AccountActionMnu_ReceiveCheque.Size = new System.Drawing.Size(262, 38);
+            this.AccountActionMnu_ReceiveCheque.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_ReceiveCheque.Text = "دریافت چک";
             this.AccountActionMnu_ReceiveCheque.Click += new System.EventHandler(this.AccountActionMnu_ReceiveCheque_Click);
             // 
             // AccountActionMnu_PaymentCheque
             // 
+            this.AccountActionMnu_PaymentCheque.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_PaymentCheque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.AccountActionMnu_PaymentCheque.Image = ((System.Drawing.Image)(resources.GetObject("AccountActionMnu_PaymentCheque.Image")));
             this.AccountActionMnu_PaymentCheque.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_PaymentCheque.Name = "AccountActionMnu_PaymentCheque";
             this.AccountActionMnu_PaymentCheque.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.AccountActionMnu_PaymentCheque.Size = new System.Drawing.Size(262, 38);
+            this.AccountActionMnu_PaymentCheque.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_PaymentCheque.Text = "پرداخت چک";
             this.AccountActionMnu_PaymentCheque.Click += new System.EventHandler(this.AccountActionMnu_PaymentCheque_Click);
             // 
             // AccountActionMnu_BuyAndSellCurrency
             // 
+            this.AccountActionMnu_BuyAndSellCurrency.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AccountActionMnu_BuyAndSellCurrency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.AccountActionMnu_BuyAndSellCurrency.Image = ((System.Drawing.Image)(resources.GetObject("AccountActionMnu_BuyAndSellCurrency.Image")));
             this.AccountActionMnu_BuyAndSellCurrency.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_BuyAndSellCurrency.Name = "AccountActionMnu_BuyAndSellCurrency";
             this.AccountActionMnu_BuyAndSellCurrency.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.AccountActionMnu_BuyAndSellCurrency.Size = new System.Drawing.Size(262, 38);
+            this.AccountActionMnu_BuyAndSellCurrency.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_BuyAndSellCurrency.Text = "خرید و فروش ارز";
             this.AccountActionMnu_BuyAndSellCurrency.Click += new System.EventHandler(this.AccountActionMnu_BuyAndSellCurrency_Click);
             // 
@@ -249,77 +264,85 @@ namespace PamirAccounting.Forms
             this.عملیاتروزToolStripMenuItem,
             this.لسیتخریدوفروشارزToolStripMenuItem,
             this.Newspaper});
-            this.روزنامهToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.روزنامهToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.روزنامهToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.روزنامهToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("روزنامهToolStripMenuItem.Image")));
             this.روزنامهToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.روزنامهToolStripMenuItem.Name = "روزنامهToolStripMenuItem";
-            this.روزنامهToolStripMenuItem.Size = new System.Drawing.Size(91, 81);
+            this.روزنامهToolStripMenuItem.Size = new System.Drawing.Size(95, 81);
             this.روزنامهToolStripMenuItem.Text = "دفتر روزنامه";
             this.روزنامهToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // PayAndReciveBank
             // 
-            this.PayAndReciveBank.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PayAndReciveBank.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PayAndReciveBank.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.PayAndReciveBank.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveBank.Image")));
             this.PayAndReciveBank.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.PayAndReciveBank.Name = "PayAndReciveBank";
-            this.PayAndReciveBank.Size = new System.Drawing.Size(236, 38);
+            this.PayAndReciveBank.Size = new System.Drawing.Size(247, 38);
             this.PayAndReciveBank.Text = "دفتر بانک";
             this.PayAndReciveBank.Click += new System.EventHandler(this.PayAndReciveBank_Click);
             // 
             // PayAndReciveCash
             // 
-            this.PayAndReciveCash.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PayAndReciveCash.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PayAndReciveCash.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.PayAndReciveCash.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveCash.Image")));
             this.PayAndReciveCash.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.PayAndReciveCash.Name = "PayAndReciveCash";
-            this.PayAndReciveCash.Size = new System.Drawing.Size(236, 38);
+            this.PayAndReciveCash.Size = new System.Drawing.Size(247, 38);
             this.PayAndReciveCash.Text = "دفتر نقدی";
             this.PayAndReciveCash.Click += new System.EventHandler(this.PayAndReciveCash_Click);
             // 
             // Transfer
             // 
-            this.Transfer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Transfer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Transfer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.Transfer.Image = ((System.Drawing.Image)(resources.GetObject("Transfer.Image")));
             this.Transfer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.Transfer.Name = "Transfer";
-            this.Transfer.Size = new System.Drawing.Size(236, 38);
+            this.Transfer.Size = new System.Drawing.Size(247, 38);
             this.Transfer.Text = "انتقال بین حساب ";
             this.Transfer.Click += new System.EventHandler(this.Transfer_Click);
             // 
             // PayAndReciveBankList
             // 
-            this.PayAndReciveBankList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PayAndReciveBankList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PayAndReciveBankList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.PayAndReciveBankList.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveBankList.Image")));
             this.PayAndReciveBankList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.PayAndReciveBankList.Name = "PayAndReciveBankList";
-            this.PayAndReciveBankList.Size = new System.Drawing.Size(236, 38);
+            this.PayAndReciveBankList.Size = new System.Drawing.Size(247, 38);
             this.PayAndReciveBankList.Text = "واریزهای بانکی";
             this.PayAndReciveBankList.Click += new System.EventHandler(this.PayAndReciveBankList_Click);
             // 
             // عملیاتروزToolStripMenuItem
             // 
-            this.عملیاتروزToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.عملیاتروزToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.عملیاتروزToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.عملیاتروزToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("عملیاتروزToolStripMenuItem.Image")));
             this.عملیاتروزToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتروزToolStripMenuItem.Name = "عملیاتروزToolStripMenuItem";
-            this.عملیاتروزToolStripMenuItem.Size = new System.Drawing.Size(236, 38);
+            this.عملیاتروزToolStripMenuItem.Size = new System.Drawing.Size(247, 38);
             this.عملیاتروزToolStripMenuItem.Text = "عملیات روز";
             // 
             // لسیتخریدوفروشارزToolStripMenuItem
             // 
-            this.لسیتخریدوفروشارزToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.لسیتخریدوفروشارزToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.لسیتخریدوفروشارزToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.لسیتخریدوفروشارزToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("لسیتخریدوفروشارزToolStripMenuItem.Image")));
             this.لسیتخریدوفروشارزToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.لسیتخریدوفروشارزToolStripMenuItem.Name = "لسیتخریدوفروشارزToolStripMenuItem";
-            this.لسیتخریدوفروشارزToolStripMenuItem.Size = new System.Drawing.Size(236, 38);
+            this.لسیتخریدوفروشارزToolStripMenuItem.Size = new System.Drawing.Size(247, 38);
             this.لسیتخریدوفروشارزToolStripMenuItem.Text = "لسیت خرید و فروش ارز";
             // 
             // Newspaper
             // 
-            this.Newspaper.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Newspaper.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Newspaper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.Newspaper.Name = "Newspaper";
-            this.Newspaper.Size = new System.Drawing.Size(236, 38);
+            this.Newspaper.Size = new System.Drawing.Size(247, 38);
             this.Newspaper.Text = "دفتر روزنامه";
             this.Newspaper.Click += new System.EventHandler(this.Newspaper_Click);
             // 
@@ -328,18 +351,20 @@ namespace PamirAccounting.Forms
             this.مشتریانToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CustomerMenu_Lis,
             this.CustomerMenu_New,
-            this.CustomerMenu_UnkwonDeposit});
-            this.مشتریانToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CustomerMenu_UnkwonDeposit,
+            this.گزارشاتچکToolStripMenuItem});
+            this.مشتریانToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.مشتریانToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.مشتریانToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("مشتریانToolStripMenuItem.Image")));
             this.مشتریانToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.مشتریانToolStripMenuItem.Name = "مشتریانToolStripMenuItem";
-            this.مشتریانToolStripMenuItem.Size = new System.Drawing.Size(73, 81);
+            this.مشتریانToolStripMenuItem.Size = new System.Drawing.Size(76, 81);
             this.مشتریانToolStripMenuItem.Text = "مشتریان";
             this.مشتریانToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // CustomerMenu_Lis
             // 
-            this.CustomerMenu_Lis.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CustomerMenu_Lis.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CustomerMenu_Lis.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_Lis.Image")));
             this.CustomerMenu_Lis.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_Lis.Name = "CustomerMenu_Lis";
@@ -349,7 +374,7 @@ namespace PamirAccounting.Forms
             // 
             // CustomerMenu_New
             // 
-            this.CustomerMenu_New.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CustomerMenu_New.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CustomerMenu_New.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_New.Image")));
             this.CustomerMenu_New.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_New.Name = "CustomerMenu_New";
@@ -359,13 +384,19 @@ namespace PamirAccounting.Forms
             // 
             // CustomerMenu_UnkwonDeposit
             // 
-            this.CustomerMenu_UnkwonDeposit.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CustomerMenu_UnkwonDeposit.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CustomerMenu_UnkwonDeposit.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_UnkwonDeposit.Image")));
             this.CustomerMenu_UnkwonDeposit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_UnkwonDeposit.Name = "CustomerMenu_UnkwonDeposit";
             this.CustomerMenu_UnkwonDeposit.Size = new System.Drawing.Size(204, 38);
             this.CustomerMenu_UnkwonDeposit.Text = "واریزهای نامعلوم";
             this.CustomerMenu_UnkwonDeposit.Click += new System.EventHandler(this.CustomerMenu_UnkwonDeposit_Click);
+            // 
+            // گزارشاتچکToolStripMenuItem
+            // 
+            this.گزارشاتچکToolStripMenuItem.Name = "گزارشاتچکToolStripMenuItem";
+            this.گزارشاتچکToolStripMenuItem.Size = new System.Drawing.Size(204, 38);
+            this.گزارشاتچکToolStripMenuItem.Text = "گزارشات چک";
             // 
             // حوالهToolStripMenuItem
             // 
@@ -374,7 +405,8 @@ namespace PamirAccounting.Forms
             this.DraftMenu_WarrantsPayable,
             this.DraftMenu_List,
             this.DraftMenu_Rate});
-            this.حوالهToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.حوالهToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.حوالهToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.حوالهToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("حوالهToolStripMenuItem.Image")));
             this.حوالهToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.حوالهToolStripMenuItem.Name = "حوالهToolStripMenuItem";
@@ -384,7 +416,7 @@ namespace PamirAccounting.Forms
             // 
             // DraftMenu_ShippingOrder
             // 
-            this.DraftMenu_ShippingOrder.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DraftMenu_ShippingOrder.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DraftMenu_ShippingOrder.Image = ((System.Drawing.Image)(resources.GetObject("DraftMenu_ShippingOrder.Image")));
             this.DraftMenu_ShippingOrder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DraftMenu_ShippingOrder.Name = "DraftMenu_ShippingOrder";
@@ -394,7 +426,7 @@ namespace PamirAccounting.Forms
             // 
             // DraftMenu_WarrantsPayable
             // 
-            this.DraftMenu_WarrantsPayable.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DraftMenu_WarrantsPayable.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DraftMenu_WarrantsPayable.Image = ((System.Drawing.Image)(resources.GetObject("DraftMenu_WarrantsPayable.Image")));
             this.DraftMenu_WarrantsPayable.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DraftMenu_WarrantsPayable.Name = "DraftMenu_WarrantsPayable";
@@ -404,7 +436,7 @@ namespace PamirAccounting.Forms
             // 
             // DraftMenu_List
             // 
-            this.DraftMenu_List.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DraftMenu_List.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DraftMenu_List.Image = ((System.Drawing.Image)(resources.GetObject("DraftMenu_List.Image")));
             this.DraftMenu_List.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DraftMenu_List.Name = "DraftMenu_List";
@@ -414,7 +446,7 @@ namespace PamirAccounting.Forms
             // 
             // DraftMenu_Rate
             // 
-            this.DraftMenu_Rate.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DraftMenu_Rate.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DraftMenu_Rate.Image = ((System.Drawing.Image)(resources.GetObject("DraftMenu_Rate.Image")));
             this.DraftMenu_Rate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DraftMenu_Rate.Name = "DraftMenu_Rate";
@@ -427,7 +459,8 @@ namespace PamirAccounting.Forms
             this.چکهاToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.سرحسابگذاشتنچکهاToolStripMenuItem,
             this.عملیاتچکToolStripMenuItem});
-            this.چکهاToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.چکهاToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.چکهاToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.چکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("چکهاToolStripMenuItem.Image")));
             this.چکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.چکهاToolStripMenuItem.Name = "چکهاToolStripMenuItem";
@@ -449,7 +482,7 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_Pas,
             this.ListOdatPayment,
             this.ListBargashtPayment});
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
@@ -458,7 +491,7 @@ namespace PamirAccounting.Forms
             // 
             // ReceiveChequeList
             // 
-            this.ReceiveChequeList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ReceiveChequeList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReceiveChequeList.Name = "ReceiveChequeList";
             this.ReceiveChequeList.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ReceiveChequeList.Size = new System.Drawing.Size(310, 42);
@@ -468,7 +501,7 @@ namespace PamirAccounting.Forms
             // 
             // ChequePaymentList
             // 
-            this.ChequePaymentList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChequePaymentList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChequePaymentList.Name = "ChequePaymentList";
             this.ChequePaymentList.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ChequePaymentList.Size = new System.Drawing.Size(310, 42);
@@ -477,7 +510,7 @@ namespace PamirAccounting.Forms
             // 
             // ChequeMenu_SareHesabList
             // 
-            this.ChequeMenu_SareHesabList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChequeMenu_SareHesabList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChequeMenu_SareHesabList.Name = "ChequeMenu_SareHesabList";
             this.ChequeMenu_SareHesabList.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ChequeMenu_SareHesabList.Size = new System.Drawing.Size(310, 42);
@@ -486,7 +519,7 @@ namespace PamirAccounting.Forms
             // 
             // ChequeMenu_VosoolShode
             // 
-            this.ChequeMenu_VosoolShode.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChequeMenu_VosoolShode.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChequeMenu_VosoolShode.Name = "ChequeMenu_VosoolShode";
             this.ChequeMenu_VosoolShode.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ChequeMenu_VosoolShode.Size = new System.Drawing.Size(310, 42);
@@ -495,7 +528,7 @@ namespace PamirAccounting.Forms
             // 
             // ChequeMenu_Vagozari
             // 
-            this.ChequeMenu_Vagozari.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChequeMenu_Vagozari.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChequeMenu_Vagozari.Name = "ChequeMenu_Vagozari";
             this.ChequeMenu_Vagozari.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ChequeMenu_Vagozari.Size = new System.Drawing.Size(310, 42);
@@ -505,7 +538,7 @@ namespace PamirAccounting.Forms
             // 
             // ChequeMenu_ReceveOdat
             // 
-            this.ChequeMenu_ReceveOdat.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChequeMenu_ReceveOdat.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChequeMenu_ReceveOdat.Name = "ChequeMenu_ReceveOdat";
             this.ChequeMenu_ReceveOdat.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ChequeMenu_ReceveOdat.Size = new System.Drawing.Size(310, 42);
@@ -514,7 +547,7 @@ namespace PamirAccounting.Forms
             // 
             // ChequeMenu_OdatSare
             // 
-            this.ChequeMenu_OdatSare.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChequeMenu_OdatSare.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChequeMenu_OdatSare.Name = "ChequeMenu_OdatSare";
             this.ChequeMenu_OdatSare.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ChequeMenu_OdatSare.Size = new System.Drawing.Size(310, 42);
@@ -523,7 +556,7 @@ namespace PamirAccounting.Forms
             // 
             // ChequeMenu_Bargasht
             // 
-            this.ChequeMenu_Bargasht.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChequeMenu_Bargasht.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChequeMenu_Bargasht.Name = "ChequeMenu_Bargasht";
             this.ChequeMenu_Bargasht.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ChequeMenu_Bargasht.Size = new System.Drawing.Size(310, 42);
@@ -532,7 +565,7 @@ namespace PamirAccounting.Forms
             // 
             // ChequeMenu_Pas
             // 
-            this.ChequeMenu_Pas.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChequeMenu_Pas.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChequeMenu_Pas.Name = "ChequeMenu_Pas";
             this.ChequeMenu_Pas.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ChequeMenu_Pas.Size = new System.Drawing.Size(310, 42);
@@ -541,7 +574,7 @@ namespace PamirAccounting.Forms
             // 
             // ListOdatPayment
             // 
-            this.ListOdatPayment.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ListOdatPayment.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ListOdatPayment.Name = "ListOdatPayment";
             this.ListOdatPayment.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ListOdatPayment.Size = new System.Drawing.Size(310, 42);
@@ -550,7 +583,7 @@ namespace PamirAccounting.Forms
             // 
             // ListBargashtPayment
             // 
-            this.ListBargashtPayment.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ListBargashtPayment.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ListBargashtPayment.Name = "ListBargashtPayment";
             this.ListBargashtPayment.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.ListBargashtPayment.Size = new System.Drawing.Size(310, 42);
@@ -570,7 +603,7 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_PassPardakhtani,
             this.ChequeMenu_BargashtPardakhti,
             this.ChequeMenu_OdatPardakhti});
-            this.عملیاتچکToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.عملیاتچکToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.عملیاتچکToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("عملیاتچکToolStripMenuItem.Image")));
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
@@ -671,17 +704,18 @@ namespace PamirAccounting.Forms
             this.DepositList,
             this.CreditorList,
             this.phone});
-            this.دفترکلToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.دفترکلToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.دفترکلToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.دفترکلToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("دفترکلToolStripMenuItem.Image")));
             this.دفترکلToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.دفترکلToolStripMenuItem.Name = "دفترکلToolStripMenuItem";
-            this.دفترکلToolStripMenuItem.Size = new System.Drawing.Size(67, 81);
+            this.دفترکلToolStripMenuItem.Size = new System.Drawing.Size(70, 81);
             this.دفترکلToolStripMenuItem.Text = "دفتر کل";
             this.دفترکلToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // TotalBlance
             // 
-            this.TotalBlance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TotalBlance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TotalBlance.Image = ((System.Drawing.Image)(resources.GetObject("TotalBlance.Image")));
             this.TotalBlance.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TotalBlance.Name = "TotalBlance";
@@ -692,7 +726,7 @@ namespace PamirAccounting.Forms
             // لیستمشتریانToolStripMenuItem
             // 
             this.لیستمشتریانToolStripMenuItem.AutoSize = false;
-            this.لیستمشتریانToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.لیستمشتریانToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.لیستمشتریانToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("لیستمشتریانToolStripMenuItem.Image")));
             this.لیستمشتریانToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.لیستمشتریانToolStripMenuItem.Name = "لیستمشتریانToolStripMenuItem";
@@ -704,7 +738,7 @@ namespace PamirAccounting.Forms
             // TotalList
             // 
             this.TotalList.AutoSize = false;
-            this.TotalList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TotalList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TotalList.Image = ((System.Drawing.Image)(resources.GetObject("TotalList.Image")));
             this.TotalList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TotalList.Name = "TotalList";
@@ -715,7 +749,7 @@ namespace PamirAccounting.Forms
             // DepositList
             // 
             this.DepositList.AutoSize = false;
-            this.DepositList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DepositList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DepositList.Image = ((System.Drawing.Image)(resources.GetObject("DepositList.Image")));
             this.DepositList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DepositList.Name = "DepositList";
@@ -726,7 +760,7 @@ namespace PamirAccounting.Forms
             // CreditorList
             // 
             this.CreditorList.AutoSize = false;
-            this.CreditorList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CreditorList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CreditorList.Image = ((System.Drawing.Image)(resources.GetObject("CreditorList.Image")));
             this.CreditorList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CreditorList.Name = "CreditorList";
@@ -737,7 +771,7 @@ namespace PamirAccounting.Forms
             // phone
             // 
             this.phone.AutoSize = false;
-            this.phone.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.phone.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.phone.Image = ((System.Drawing.Image)(resources.GetObject("phone.Image")));
             this.phone.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.phone.Name = "phone";
@@ -757,17 +791,18 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Setting,
             this.SettingsMenu_Users,
             this.SettingsMenu_Recovery});
-            this.تنظیماتToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.تنظیماتToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.تنظیماتToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.تنظیماتToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("تنظیماتToolStripMenuItem.Image")));
             this.تنظیماتToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.تنظیماتToolStripMenuItem.Name = "تنظیماتToolStripMenuItem";
-            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(72, 81);
+            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(75, 81);
             this.تنظیماتToolStripMenuItem.Text = "تنظیمات";
             this.تنظیماتToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // SettingsMenu_CurrencyLis
             // 
-            this.SettingsMenu_CurrencyLis.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SettingsMenu_CurrencyLis.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SettingsMenu_CurrencyLis.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_CurrencyLis.Image")));
             this.SettingsMenu_CurrencyLis.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_CurrencyLis.Name = "SettingsMenu_CurrencyLis";
@@ -777,7 +812,7 @@ namespace PamirAccounting.Forms
             // 
             // SettingsMenu_GroupList
             // 
-            this.SettingsMenu_GroupList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SettingsMenu_GroupList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SettingsMenu_GroupList.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_GroupList.Image")));
             this.SettingsMenu_GroupList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_GroupList.Name = "SettingsMenu_GroupList";
@@ -787,7 +822,7 @@ namespace PamirAccounting.Forms
             // 
             // SettingsMenu_BankList
             // 
-            this.SettingsMenu_BankList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SettingsMenu_BankList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SettingsMenu_BankList.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_BankList.Image")));
             this.SettingsMenu_BankList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_BankList.Name = "SettingsMenu_BankList";
@@ -797,7 +832,7 @@ namespace PamirAccounting.Forms
             // 
             // SettingsMenu_Agency
             // 
-            this.SettingsMenu_Agency.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SettingsMenu_Agency.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SettingsMenu_Agency.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Agency.Image")));
             this.SettingsMenu_Agency.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Agency.Name = "SettingsMenu_Agency";
@@ -807,7 +842,7 @@ namespace PamirAccounting.Forms
             // 
             // SettingsMenu_CurrencyAgency
             // 
-            this.SettingsMenu_CurrencyAgency.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SettingsMenu_CurrencyAgency.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SettingsMenu_CurrencyAgency.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_CurrencyAgency.Image")));
             this.SettingsMenu_CurrencyAgency.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_CurrencyAgency.Name = "SettingsMenu_CurrencyAgency";
@@ -817,7 +852,7 @@ namespace PamirAccounting.Forms
             // 
             // SettingsMenu_Header
             // 
-            this.SettingsMenu_Header.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SettingsMenu_Header.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SettingsMenu_Header.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Header.Image")));
             this.SettingsMenu_Header.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Header.Name = "SettingsMenu_Header";
@@ -827,7 +862,7 @@ namespace PamirAccounting.Forms
             // 
             // SettingsMenu_Setting
             // 
-            this.SettingsMenu_Setting.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SettingsMenu_Setting.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SettingsMenu_Setting.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Setting.Image")));
             this.SettingsMenu_Setting.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Setting.Name = "SettingsMenu_Setting";
@@ -837,7 +872,7 @@ namespace PamirAccounting.Forms
             // 
             // SettingsMenu_Users
             // 
-            this.SettingsMenu_Users.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SettingsMenu_Users.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SettingsMenu_Users.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Users.Image")));
             this.SettingsMenu_Users.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Users.Name = "SettingsMenu_Users";
@@ -847,7 +882,7 @@ namespace PamirAccounting.Forms
             // 
             // SettingsMenu_Recovery
             // 
-            this.SettingsMenu_Recovery.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SettingsMenu_Recovery.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SettingsMenu_Recovery.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Recovery.Image")));
             this.SettingsMenu_Recovery.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Recovery.Name = "SettingsMenu_Recovery";
@@ -862,14 +897,14 @@ namespace PamirAccounting.Forms
             this.btnNewAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(111)))), ((int)(((byte)(239)))));
             this.btnNewAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(111)))), ((int)(((byte)(239)))));
             this.btnNewAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewAccount.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnNewAccount.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNewAccount.ForeColor = System.Drawing.Color.White;
             this.btnNewAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnNewAccount.Image")));
             this.btnNewAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewAccount.Location = new System.Drawing.Point(322, 137);
+            this.btnNewAccount.Location = new System.Drawing.Point(322, 156);
             this.btnNewAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNewAccount.Name = "btnNewAccount";
-            this.btnNewAccount.Size = new System.Drawing.Size(244, 90);
+            this.btnNewAccount.Size = new System.Drawing.Size(167, 71);
             this.btnNewAccount.TabIndex = 1;
             this.btnNewAccount.Text = "ثبت مشتری جدید";
             this.btnNewAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -883,14 +918,14 @@ namespace PamirAccounting.Forms
             this.btnCurrencyAgency.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
             this.btnCurrencyAgency.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(53)))), ((int)(((byte)(172)))));
             this.btnCurrencyAgency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCurrencyAgency.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCurrencyAgency.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCurrencyAgency.ForeColor = System.Drawing.Color.White;
             this.btnCurrencyAgency.Image = ((System.Drawing.Image)(resources.GetObject("btnCurrencyAgency.Image")));
             this.btnCurrencyAgency.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCurrencyAgency.Location = new System.Drawing.Point(16, 137);
+            this.btnCurrencyAgency.Location = new System.Drawing.Point(16, 156);
             this.btnCurrencyAgency.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCurrencyAgency.Name = "btnCurrencyAgency";
-            this.btnCurrencyAgency.Size = new System.Drawing.Size(300, 90);
+            this.btnCurrencyAgency.Size = new System.Drawing.Size(222, 71);
             this.btnCurrencyAgency.TabIndex = 2;
             this.btnCurrencyAgency.Text = "تنظیمات نمایندگی ها";
             this.btnCurrencyAgency.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -904,14 +939,14 @@ namespace PamirAccounting.Forms
             this.btnWarrantsPayable.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
             this.btnWarrantsPayable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(54)))), ((int)(((byte)(174)))));
             this.btnWarrantsPayable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWarrantsPayable.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnWarrantsPayable.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnWarrantsPayable.ForeColor = System.Drawing.Color.White;
             this.btnWarrantsPayable.Image = ((System.Drawing.Image)(resources.GetObject("btnWarrantsPayable.Image")));
             this.btnWarrantsPayable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWarrantsPayable.Location = new System.Drawing.Point(16, 333);
+            this.btnWarrantsPayable.Location = new System.Drawing.Point(16, 352);
             this.btnWarrantsPayable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnWarrantsPayable.Name = "btnWarrantsPayable";
-            this.btnWarrantsPayable.Size = new System.Drawing.Size(146, 90);
+            this.btnWarrantsPayable.Size = new System.Drawing.Size(136, 71);
             this.btnWarrantsPayable.TabIndex = 3;
             this.btnWarrantsPayable.Text = "حواله آمد";
             this.btnWarrantsPayable.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -925,14 +960,14 @@ namespace PamirAccounting.Forms
             this.btn_CreditorList.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
             this.btn_CreditorList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
             this.btn_CreditorList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CreditorList.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_CreditorList.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_CreditorList.ForeColor = System.Drawing.Color.White;
             this.btn_CreditorList.Image = ((System.Drawing.Image)(resources.GetObject("btn_CreditorList.Image")));
             this.btn_CreditorList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CreditorList.Location = new System.Drawing.Point(346, 333);
+            this.btn_CreditorList.Location = new System.Drawing.Point(346, 352);
             this.btn_CreditorList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_CreditorList.Name = "btn_CreditorList";
-            this.btn_CreditorList.Size = new System.Drawing.Size(220, 90);
+            this.btn_CreditorList.Size = new System.Drawing.Size(156, 71);
             this.btn_CreditorList.TabIndex = 4;
             this.btn_CreditorList.Text = "لیست بدهکاران";
             this.btn_CreditorList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -946,14 +981,14 @@ namespace PamirAccounting.Forms
             this.btnShippingOrder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
             this.btnShippingOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(85)))), ((int)(((byte)(47)))));
             this.btnShippingOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShippingOrder.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnShippingOrder.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnShippingOrder.ForeColor = System.Drawing.Color.White;
             this.btnShippingOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnShippingOrder.Image")));
             this.btnShippingOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShippingOrder.Location = new System.Drawing.Point(168, 333);
+            this.btnShippingOrder.Location = new System.Drawing.Point(168, 352);
             this.btnShippingOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnShippingOrder.Name = "btnShippingOrder";
-            this.btnShippingOrder.Size = new System.Drawing.Size(172, 90);
+            this.btnShippingOrder.Size = new System.Drawing.Size(162, 71);
             this.btnShippingOrder.TabIndex = 5;
             this.btnShippingOrder.Text = "حواله فروش";
             this.btnShippingOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -967,14 +1002,14 @@ namespace PamirAccounting.Forms
             this.btnBank.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
             this.btnBank.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(27)))), ((int)(((byte)(65)))));
             this.btnBank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBank.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBank.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnBank.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnBank.Image = ((System.Drawing.Image)(resources.GetObject("btnBank.Image")));
             this.btnBank.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBank.Location = new System.Drawing.Point(16, 235);
+            this.btnBank.Location = new System.Drawing.Point(16, 254);
             this.btnBank.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBank.Name = "btnBank";
-            this.btnBank.Size = new System.Drawing.Size(324, 90);
+            this.btnBank.Size = new System.Drawing.Size(222, 71);
             this.btnBank.TabIndex = 6;
             this.btnBank.Text = "دریافت و پرداخت بانکی";
             this.btnBank.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -988,14 +1023,14 @@ namespace PamirAccounting.Forms
             this.btn_Deposit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
             this.btn_Deposit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
             this.btn_Deposit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Deposit.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Deposit.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Deposit.ForeColor = System.Drawing.Color.White;
             this.btn_Deposit.Image = ((System.Drawing.Image)(resources.GetObject("btn_Deposit.Image")));
             this.btn_Deposit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Deposit.Location = new System.Drawing.Point(346, 235);
+            this.btn_Deposit.Location = new System.Drawing.Point(346, 254);
             this.btn_Deposit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Deposit.Name = "btn_Deposit";
-            this.btn_Deposit.Size = new System.Drawing.Size(220, 90);
+            this.btn_Deposit.Size = new System.Drawing.Size(156, 71);
             this.btn_Deposit.TabIndex = 7;
             this.btn_Deposit.Text = "لیست طلبکاران";
             this.btn_Deposit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1009,10 +1044,10 @@ namespace PamirAccounting.Forms
             // 
             // lblUser
             // 
+            this.lblUser.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblUser.AutoSize = true;
-            this.lblUser.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblUser.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblUser.Location = new System.Drawing.Point(1287, 0);
+            this.lblUser.Location = new System.Drawing.Point(1275, 20);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(45, 19);
             this.lblUser.TabIndex = 8;
@@ -1175,5 +1210,6 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.ToolStripMenuItem لسیتخریدوفروشارزToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Newspaper;
         private System.Windows.Forms.ToolStripMenuItem TotalBlance;
+        private System.Windows.Forms.ToolStripMenuItem گزارشاتچکToolStripMenuItem;
     }
 }
