@@ -384,8 +384,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void btnsearchdate_Click(object sender, EventArgs e)
         {
-            var SearchDateFrm1 = new SearchDateFrm();
-            SearchDateFrm1.ShowDialog();
+        
         }
 
         private void btnprint_Click(object sender, EventArgs e)
