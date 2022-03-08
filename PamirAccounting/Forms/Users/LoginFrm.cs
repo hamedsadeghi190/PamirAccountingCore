@@ -108,5 +108,27 @@ namespace PamirAccounting.Forms.Users
         {
             Application.Exit();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LoginFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+        }
+
+        private void LoginFrm_Load(object sender, EventArgs e)
+        {
+            btnsave.Select();
+            btnsave.Focus();
+        }
     }
 }

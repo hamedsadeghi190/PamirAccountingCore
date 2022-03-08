@@ -511,5 +511,10 @@ namespace PamirAccounting.Forms
             var FrmAgency = new FrmCurrencyAgenciesList();
             FrmAgency.ShowDialog();
         }
+
+        private void lblTime_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
