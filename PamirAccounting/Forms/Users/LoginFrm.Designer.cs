@@ -110,11 +110,11 @@ namespace PamirAccounting.Forms.Users
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(19, 209);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(275, 34);
+            this.label1.Size = new System.Drawing.Size(267, 42);
             this.label1.TabIndex = 1;
             this.label1.Text = "نرم افزار حسابداری پامیر";
             // 
@@ -222,19 +222,20 @@ namespace PamirAccounting.Forms.Users
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.txtPassword.Location = new System.Drawing.Point(56, 10);
+            this.txtPassword.Location = new System.Drawing.Point(53, 10);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(336, 26);
+            this.txtPassword.Size = new System.Drawing.Size(321, 26);
             this.txtPassword.TabIndex = 110;
             this.txtPassword.Text = "123";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(5, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 39);
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -251,9 +252,10 @@ namespace PamirAccounting.Forms.Users
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(5, 3);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(45, 44);
+            this.pictureBox3.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
@@ -261,7 +263,7 @@ namespace PamirAccounting.Forms.Users
             // 
             this.txtusername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtusername.EditValue = "admin";
-            this.txtusername.Location = new System.Drawing.Point(53, 9);
+            this.txtusername.Location = new System.Drawing.Point(53, 10);
             this.txtusername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtusername.Name = "txtusername";
             this.txtusername.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -270,7 +272,7 @@ namespace PamirAccounting.Forms.Users
             this.txtusername.Properties.Appearance.Options.UseForeColor = true;
             this.txtusername.Properties.AutoHeight = false;
             this.txtusername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtusername.Size = new System.Drawing.Size(294, 27);
+            this.txtusername.Size = new System.Drawing.Size(321, 27);
             this.txtusername.TabIndex = 108;
             this.txtusername.EditValueChanged += new System.EventHandler(this.txtusername_EditValueChanged);
             // 
@@ -281,7 +283,7 @@ namespace PamirAccounting.Forms.Users
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.label6.Location = new System.Drawing.Point(110, 81);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 30);
+            this.label6.Size = new System.Drawing.Size(220, 38);
             this.label6.TabIndex = 3;
             this.label6.Text = "ورود به حساب کاربری";
             // 
