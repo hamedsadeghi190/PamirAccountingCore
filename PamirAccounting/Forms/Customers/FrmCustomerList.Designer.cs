@@ -30,12 +30,11 @@ namespace PamirAccounting.Forms.Customers
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomerList));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnprint = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.txtphoneSearch = new System.Windows.Forms.TextBox();
             this.txtNumberSearch = new System.Windows.Forms.TextBox();
             this.txtNameSearch = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@ namespace PamirAccounting.Forms.Customers
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnView = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +62,6 @@ namespace PamirAccounting.Forms.Customers
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnprint);
-            this.groupBox1.Controls.Add(this.simpleButton3);
             this.groupBox1.Controls.Add(this.txtphoneSearch);
             this.groupBox1.Controls.Add(this.txtNumberSearch);
             this.groupBox1.Controls.Add(this.txtNameSearch);
@@ -73,13 +72,13 @@ namespace PamirAccounting.Forms.Customers
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.CreatBankBtn);
-            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(4, 7);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(1130, 83);
+            this.groupBox1.Size = new System.Drawing.Size(1041, 83);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "لیست مشتریان";
@@ -88,57 +87,48 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
             this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
-            this.btnprint.Location = new System.Drawing.Point(52, 29);
+            this.btnprint.Location = new System.Drawing.Point(8, 27);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(39, 41);
             this.btnprint.TabIndex = 96;
             this.btnprint.Text = "چاپ";
             this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
-            // simpleButton3
-            // 
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(7, 29);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton3.TabIndex = 97;
-            this.simpleButton3.Text = "راهنما";
-            // 
             // txtphoneSearch
             // 
-            this.txtphoneSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtphoneSearch.Location = new System.Drawing.Point(265, 37);
+            this.txtphoneSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtphoneSearch.Location = new System.Drawing.Point(153, 37);
             this.txtphoneSearch.Name = "txtphoneSearch";
-            this.txtphoneSearch.Size = new System.Drawing.Size(143, 30);
+            this.txtphoneSearch.Size = new System.Drawing.Size(143, 31);
             this.txtphoneSearch.TabIndex = 94;
             this.txtphoneSearch.TextChanged += new System.EventHandler(this.txtphoneSearch_TextChanged);
             this.txtphoneSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtphoneSearch_KeyUp);
             // 
             // txtNumberSearch
             // 
-            this.txtNumberSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtNumberSearch.Location = new System.Drawing.Point(493, 37);
+            this.txtNumberSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNumberSearch.Location = new System.Drawing.Point(381, 37);
             this.txtNumberSearch.Name = "txtNumberSearch";
-            this.txtNumberSearch.Size = new System.Drawing.Size(143, 30);
+            this.txtNumberSearch.Size = new System.Drawing.Size(143, 31);
             this.txtNumberSearch.TabIndex = 93;
             this.txtNumberSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNumberSearch_KeyUp);
             // 
             // txtNameSearch
             // 
-            this.txtNameSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtNameSearch.Location = new System.Drawing.Point(939, 39);
+            this.txtNameSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNameSearch.Location = new System.Drawing.Point(827, 39);
             this.txtNameSearch.Name = "txtNameSearch";
-            this.txtNameSearch.Size = new System.Drawing.Size(143, 30);
+            this.txtNameSearch.Size = new System.Drawing.Size(143, 31);
             this.txtNameSearch.TabIndex = 91;
             this.txtNameSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNameSearch_KeyUp);
             // 
             // cmbGroupsSearch
             // 
-            this.cmbGroupsSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbGroupsSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbGroupsSearch.FormattingEnabled = true;
-            this.cmbGroupsSearch.Location = new System.Drawing.Point(720, 37);
+            this.cmbGroupsSearch.Location = new System.Drawing.Point(608, 37);
             this.cmbGroupsSearch.Name = "cmbGroupsSearch";
-            this.cmbGroupsSearch.Size = new System.Drawing.Size(143, 32);
+            this.cmbGroupsSearch.Size = new System.Drawing.Size(143, 27);
             this.cmbGroupsSearch.TabIndex = 92;
             this.cmbGroupsSearch.TextChanged += new System.EventHandler(this.cmbGroupsSearch_TextChanged);
             this.cmbGroupsSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbGroupsSearch_KeyUp);
@@ -146,8 +136,8 @@ namespace PamirAccounting.Forms.Customers
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(862, 41);
+            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(752, 41);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 19);
@@ -157,8 +147,8 @@ namespace PamirAccounting.Forms.Customers
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(406, 40);
+            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(301, 45);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 19);
@@ -169,8 +159,8 @@ namespace PamirAccounting.Forms.Customers
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(635, 41);
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(529, 45);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 19);
@@ -182,7 +172,7 @@ namespace PamirAccounting.Forms.Customers
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1251, 34);
+            this.label1.Location = new System.Drawing.Point(1206, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 17);
@@ -192,8 +182,8 @@ namespace PamirAccounting.Forms.Customers
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1080, 43);
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(971, 43);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 19);
@@ -207,7 +197,7 @@ namespace PamirAccounting.Forms.Customers
             this.CreatBankBtn.Appearance.Options.UseFont = true;
             this.CreatBankBtn.Appearance.Options.UseForeColor = true;
             this.CreatBankBtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("CreatBankBtn.ImageOptions.SvgImage")));
-            this.CreatBankBtn.Location = new System.Drawing.Point(96, 29);
+            this.CreatBankBtn.Location = new System.Drawing.Point(52, 27);
             this.CreatBankBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CreatBankBtn.Name = "CreatBankBtn";
             this.CreatBankBtn.Size = new System.Drawing.Size(39, 41);
@@ -218,19 +208,19 @@ namespace PamirAccounting.Forms.Customers
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -241,16 +231,16 @@ namespace PamirAccounting.Forms.Customers
             this.btnRowEdit,
             this.btnRowDelete,
             this.btnView});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(0, 100);
+            this.dataGridView1.Location = new System.Drawing.Point(-1, 92);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -259,7 +249,7 @@ namespace PamirAccounting.Forms.Customers
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1134, 459);
+            this.dataGridView1.Size = new System.Drawing.Size(1044, 422);
             this.dataGridView1.TabIndex = 98;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -346,13 +336,23 @@ namespace PamirAccounting.Forms.Customers
             this.btnView.UseColumnTextForButtonValue = true;
             this.btnView.Width = 70;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 530);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 99;
+            this.label6.Text = "label6";
+            // 
             // FrmCustomerList
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 560);
+            this.ClientSize = new System.Drawing.Size(1042, 552);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -367,6 +367,7 @@ namespace PamirAccounting.Forms.Customers
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -385,7 +386,6 @@ namespace PamirAccounting.Forms.Customers
         private System.Windows.Forms.TextBox txtphoneSearch;
         private System.Windows.Forms.TextBox txtNumberSearch;
         private DevExpress.XtraEditors.SimpleButton btnprint;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -394,5 +394,6 @@ namespace PamirAccounting.Forms.Customers
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
         private System.Windows.Forms.DataGridViewButtonColumn btnView;
+        private System.Windows.Forms.Label label6;
     }
 }

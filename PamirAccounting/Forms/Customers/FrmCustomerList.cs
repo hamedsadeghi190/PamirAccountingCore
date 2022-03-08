@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,13 +33,8 @@ namespace PamirAccounting.Forms.Customers
         {
             dataGridView1.AutoGenerateColumns = false;
             loadData();
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 8; i++)
-            {
-                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
+            SetComboBoxHeight(cmbGroupsSearch.Handle, 25);
+            cmbGroupsSearch.Refresh();
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -48,7 +44,14 @@ namespace PamirAccounting.Forms.Customers
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
         }
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
 
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         private void loadData()
         {
             _Groups = unitOfWork.CustomerGroupServices.GetAll();
