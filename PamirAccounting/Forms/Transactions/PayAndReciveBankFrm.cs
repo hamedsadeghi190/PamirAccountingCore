@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -85,14 +86,35 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbVarizType.SelectedValueChanged += new System.EventHandler(this.cmbVarizType_SelectedValueChanged);
         }
 
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
 
 
         private void PayAndReciveBankFrm_Load(object sender, EventArgs e)
         {
+            SetComboBoxHeight(cmbCustomers.Handle, 25);
+            cmbCustomers.Refresh();
+            SetComboBoxHeight(cmbCurrencies.Handle, 25);
+            cmbCurrencies.Refresh();
+            SetComboBoxHeight(cmbAction.Handle, 25);
+            cmbAction.Refresh();
+            SetComboBoxHeight(cmbBanks.Handle, 25);
+            cmbBanks.Refresh();
+            SetComboBoxHeight(cmbVarizType.Handle, 25);
+            cmbVarizType.Refresh();
+
+
+
             cmbAction.Select();
             cmbAction.Focus();
             LoadData();
-            
+
             if (_TransActionId.HasValue)
             {
                 cmbCustomers.SelectedValue = _Id;
@@ -189,16 +211,52 @@ namespace PamirAccounting.Forms.Transactions
         {
             if (_TransActionId.HasValue)
             {
-                SaveEdit();
-                Close();
+                if (CheckEntries() == true)
+                {
+                    SaveEdit();
+                    Close();
+
+                    MessageBox.Show("اطلاعات با موفقیت ثبت شد.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                }
+                else
+                {
+                    MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
+             MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                    txtDate.Focus();
+                }
+
             }
             else
             {
-                SaveNew();
-                CleanForm();
+                if (CheckEntries() == true)
+                {
+                    SaveNew();
+                    CleanForm();
+                    MessageBox.Show("اطلاعات با موفقیت ثبت شد.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                }
+                else
+                {
+                    MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
+             MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                    txtDate.Focus();
+                }
             }
 
-            
+
+        }
+
+        private bool CheckEntries()
+        {
+            if(txtAmount.Text.Length==0 || Convert.ToInt64(txtAmount.Text.Replace(",", ""))==0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void SaveNew()
@@ -216,7 +274,58 @@ namespace PamirAccounting.Forms.Transactions
 
         private void SaveEdit()
         {
-            // throw new NotImplementedException();
+            if ((int)cmbAction.SelectedValue == 1)
+            {
+                //EditDeposit();
+            }
+            else
+            {
+               EditWithDraw();
+            }
+        }
+
+        private void EditWithDraw()
+        {
+
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
+            bankTransaction = new Domains.Transaction();
+            bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
+            bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+            bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
+            bankTransaction.Description = createDescription(txtdesc.Text);
+            bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
+            bankTransaction.WithdrawAmount = 0;
+            bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            var dDate = txtDate.Text.Split('/');
+
+            PersianCalendar p = new PersianCalendar();
+            var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+            bankTransaction.Date = DateTime.Now;
+            bankTransaction.TransactionDateTime = TransactionDateTime;
+            bankTransaction.UserId = CurrentUser.UserID;
+            unitOfWork.TransactionServices.Update(bankTransaction);
+            unitOfWork.SaveChanges();
+
+
+            var customerTransaction = new Domains.Transaction();
+            customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
+            customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+            customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
+            customerTransaction.Description = createDescription(txtdesc.Text);
+            customerTransaction.DepositAmount = 0;
+            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
+            customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            var cDate = txtDate.Text.Split('/');
+
+            PersianCalendar pc = new PersianCalendar();
+            TransactionDateTime = p.ToDateTime(int.Parse(cDate[0]), int.Parse(cDate[1]), int.Parse(cDate[2]), 0, 0, 0, 0);
+            customerTransaction.Date = DateTime.Now;
+            customerTransaction.TransactionDateTime = TransactionDateTime;
+            customerTransaction.UserId = CurrentUser.UserID;
+            customerTransaction.DoubleTransactionId = bankTransaction.Id;
+            unitOfWork.TransactionServices.Update(customerTransaction);
+            unitOfWork.SaveChanges();
+
         }
 
         private void CreateWithDraw()
@@ -226,11 +335,11 @@ namespace PamirAccounting.Forms.Transactions
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             bankTransaction = new Domains.Transaction();
             bankTransaction.DocumentId = documentId;
-            bankTransaction.TransactionType = 3;
+            bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
             bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
             bankTransaction.Description = createDescription(txtdesc.Text);
-            bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+            bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             bankTransaction.WithdrawAmount = 0;
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var dDate = txtDate.Text.Split('/');
@@ -245,12 +354,12 @@ namespace PamirAccounting.Forms.Transactions
 
 
             var customerTransaction = new Domains.Transaction();
-            customerTransaction.TransactionType = 3;
+            customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
             customerTransaction.Description = createDescription(txtdesc.Text);
             customerTransaction.DepositAmount = 0;
-            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             var cDate = txtDate.Text.Split('/');
 
@@ -281,7 +390,7 @@ namespace PamirAccounting.Forms.Transactions
             if ((int)cmbVarizType.SelectedValue == (int)DepostType.Unkown)
             {
                 bankTransaction.TransactionType = (int)TransaActionType.UnkwonReciveBank;
-                bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+                bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             }
             else
             {
@@ -292,7 +401,7 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
 
             bankTransaction.DepositAmount = 0;
-            bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+            bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             bankTransaction.ReceiptNumber = txtReceiptNumber.Text;
             bankTransaction.BranchCode = txtBranchCode.Text;
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
@@ -312,12 +421,12 @@ namespace PamirAccounting.Forms.Transactions
             {
 
                 customerTransaction = new Domains.Transaction();
-                customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank; 
+                customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
                 customerTransaction.DoubleTransactionId = bankTransaction.Id;
                 customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
                 customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
                 customerTransaction.Description = txtdesc.Text;
-                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 :amount;
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
                 customerTransaction.WithdrawAmount = 0;
                 customerTransaction.DocumentId = documentId;
                 customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
@@ -347,7 +456,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void PayAndReciveBankFrm_KeyUp(object sender, KeyEventArgs e)
         {
-          
+
             if (e.KeyCode == Keys.Escape)
                 this.Close();
             if (e.KeyCode == Keys.Enter)
@@ -387,6 +496,10 @@ namespace PamirAccounting.Forms.Transactions
             return result;
         }
 
+        private void txtDate_Leave(object sender, EventArgs e)
+        {
+            Tools.CheckDate(txtDate);
+        }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
         {
