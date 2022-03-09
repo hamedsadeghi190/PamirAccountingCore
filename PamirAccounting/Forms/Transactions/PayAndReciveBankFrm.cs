@@ -274,7 +274,58 @@ namespace PamirAccounting.Forms.Transactions
 
         private void SaveEdit()
         {
-            // throw new NotImplementedException();
+            if ((int)cmbAction.SelectedValue == 1)
+            {
+                //EditDeposit();
+            }
+            else
+            {
+               EditWithDraw();
+            }
+        }
+
+        private void EditWithDraw()
+        {
+
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
+            bankTransaction = new Domains.Transaction();
+            bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
+            bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+            bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
+            bankTransaction.Description = createDescription(txtdesc.Text);
+            bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
+            bankTransaction.WithdrawAmount = 0;
+            bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            var dDate = txtDate.Text.Split('/');
+
+            PersianCalendar p = new PersianCalendar();
+            var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+            bankTransaction.Date = DateTime.Now;
+            bankTransaction.TransactionDateTime = TransactionDateTime;
+            bankTransaction.UserId = CurrentUser.UserID;
+            unitOfWork.TransactionServices.Update(bankTransaction);
+            unitOfWork.SaveChanges();
+
+
+            var customerTransaction = new Domains.Transaction();
+            customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
+            customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+            customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
+            customerTransaction.Description = createDescription(txtdesc.Text);
+            customerTransaction.DepositAmount = 0;
+            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
+            customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            var cDate = txtDate.Text.Split('/');
+
+            PersianCalendar pc = new PersianCalendar();
+            TransactionDateTime = p.ToDateTime(int.Parse(cDate[0]), int.Parse(cDate[1]), int.Parse(cDate[2]), 0, 0, 0, 0);
+            customerTransaction.Date = DateTime.Now;
+            customerTransaction.TransactionDateTime = TransactionDateTime;
+            customerTransaction.UserId = CurrentUser.UserID;
+            customerTransaction.DoubleTransactionId = bankTransaction.Id;
+            unitOfWork.TransactionServices.Update(customerTransaction);
+            unitOfWork.SaveChanges();
+
         }
 
         private void CreateWithDraw()
@@ -284,7 +335,7 @@ namespace PamirAccounting.Forms.Transactions
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             bankTransaction = new Domains.Transaction();
             bankTransaction.DocumentId = documentId;
-            bankTransaction.TransactionType = 3;
+            bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
             bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
             bankTransaction.Description = createDescription(txtdesc.Text);
@@ -303,7 +354,7 @@ namespace PamirAccounting.Forms.Transactions
 
 
             var customerTransaction = new Domains.Transaction();
-            customerTransaction.TransactionType = 3;
+            customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
             customerTransaction.Description = createDescription(txtdesc.Text);
