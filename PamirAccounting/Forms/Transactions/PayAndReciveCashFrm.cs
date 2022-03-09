@@ -173,6 +173,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 return false;
             }
+        
             return true;
         }
 

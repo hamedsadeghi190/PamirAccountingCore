@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -29,6 +30,7 @@ namespace PamirAccounting.Forms.Checks
         public Domains.Transaction customerTransaction;
         public string customerName;
         long amount;
+        string accountNumber;
         public DetailsPaymentCheckFrm(long? chequeNumber)
         {
             InitializeComponent();
@@ -38,6 +40,10 @@ namespace PamirAccounting.Forms.Checks
 
         private void DetailsPaymentCheckFrm_Load(object sender, EventArgs e)
         {
+            SetComboBoxHeight(cmbRealBankId.Handle, 25);
+            cmbRealBankId.Refresh();
+            SetComboBoxHeight(cmbCustomers.Handle, 25);
+            cmbCustomers.Refresh();
             LoadData();
             if (_ChequeNumber.HasValue)
             {
@@ -55,6 +61,14 @@ namespace PamirAccounting.Forms.Checks
             }
         }
 
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         public DetailsPaymentCheckFrm()
         {
 
@@ -64,10 +78,11 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
-            _RealBank = unitOfWork.Customers.FindAll(x => x.GroupId==2).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+            _RealBank = unitOfWork.Customers.FindAll(x => x.GroupId==2).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName}{x.LastName}" }).ToList();
             cmbRealBankId.DataSource = _RealBank;
             cmbRealBankId.ValueMember = "Id";
             cmbRealBankId.DisplayMember = "Title";
+            txtBankAccountNumber.Text=unitOfWork.BankServices.FindAll(x => x.Id == (int)cmbRealBankId.SelectedValue).Select(x => x.AccountNumber).First().ToString();
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomers.DataSource = _Customers;
             cmbCustomers.ValueMember = "Id";
@@ -307,7 +322,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDescription.Text = $"{Messages.WithdrawCheck }  به  {cmbCustomers.Text}  به مبلغ {txtAmount.Text} {"تومان"}    تاریخ سر رسید  {txtDueDate.Text} ";
+            txtDescription.Text = $"{Messages.WithdrawCheck }به {cmbCustomers.Text} به مبلغ {txtAmount.Text}{"تومان"} تاریخ سر رسید{txtDueDate.Text} ";
         }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
@@ -355,10 +370,10 @@ namespace PamirAccounting.Forms.Checks
             }
         }
 
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
 
-    
-
-     
+        }
 
         private void btnshowcustomer_KeyUp(object sender, KeyEventArgs e)
         {

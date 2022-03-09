@@ -160,6 +160,16 @@ namespace PamirAccounting.Forms.Checks
             {
                 return false;
             }
+
+            if (txtBankAccountNumber.Text == "")
+            {
+                return false;
+            }
+
+            if (txtChequeNumber.Text == "")
+            {
+                return false;
+            }
             return true;
         }
         private void CleanForm()
@@ -169,6 +179,7 @@ namespace PamirAccounting.Forms.Checks
             txtDescription.Text = "";
             txtBankAccountNumber.Text = "";
             txtAmount.Text = "0";
+            lblNumberString.Text = "";
             cmbRealBankId.Focus();
         }
         private void BtnClose_Click(object sender, EventArgs e)
@@ -353,7 +364,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void CreateDescription()
         {
-            txtDescription.Text = $"{Messages.DepostitCheck } از  {cmbCustomers.Text}  به مبلغ {txtAmount.Text} {"تومان"}  تاریخ سر رسید  {txtDueDate.Text} ";
+            txtDescription.Text = $"{Messages.DepostitCheck }از{cmbCustomers.Text} به مبلغ {txtAmount.Text}{"تومان"} تاریخ سر رسید{txtDueDate.Text} ";
         }
 
         private void btnshowcustomer_KeyUp(object sender, KeyEventArgs e)

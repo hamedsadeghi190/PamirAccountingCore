@@ -159,7 +159,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.cmbCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomers.FormattingEnabled = true;
-            this.cmbCustomers.Location = new System.Drawing.Point(338, 267);
+            this.cmbCustomers.Location = new System.Drawing.Point(338, 262);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(140, 27);
             this.cmbCustomers.TabIndex = 85;
@@ -172,11 +172,11 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnshowcustomer.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnshowcustomer.ImageOptions.SvgImage")));
             this.btnshowcustomer.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnshowcustomer.Location = new System.Drawing.Point(294, 267);
+            this.btnshowcustomer.Location = new System.Drawing.Point(294, 262);
             this.btnshowcustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnshowcustomer.Name = "btnshowcustomer";
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnshowcustomer.Size = new System.Drawing.Size(38, 27);
+            this.btnshowcustomer.Size = new System.Drawing.Size(38, 30);
             this.btnshowcustomer.TabIndex = 86;
             this.btnshowcustomer.Click += new System.EventHandler(this.btnshowcustomer_Click);
             this.btnshowcustomer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnshowcustomer_KeyPress);
@@ -187,7 +187,7 @@ namespace PamirAccounting.Forms.Checks
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(478, 273);
+            this.label12.Location = new System.Drawing.Point(478, 268);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(90, 19);
             this.label12.TabIndex = 108;
@@ -247,7 +247,7 @@ namespace PamirAccounting.Forms.Checks
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDescription.Location = new System.Drawing.Point(30, 316);
+            this.txtDescription.Location = new System.Drawing.Point(30, 298);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(448, 37);
             this.txtDescription.TabIndex = 90;
@@ -258,7 +258,7 @@ namespace PamirAccounting.Forms.Checks
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(478, 321);
+            this.label8.Location = new System.Drawing.Point(478, 303);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 19);
             this.label8.TabIndex = 100;

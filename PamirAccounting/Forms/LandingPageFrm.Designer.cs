@@ -53,7 +53,6 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_Lis = new System.Windows.Forms.ToolStripMenuItem();
             this.CustomerMenu_New = new System.Windows.Forms.ToolStripMenuItem();
             this.CustomerMenu_UnkwonDeposit = new System.Windows.Forms.ToolStripMenuItem();
-            this.گزارشاتچکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.حوالهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DraftMenu_ShippingOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.DraftMenu_WarrantsPayable = new System.Windows.Forms.ToolStripMenuItem();
@@ -351,8 +350,7 @@ namespace PamirAccounting.Forms
             this.مشتریانToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CustomerMenu_Lis,
             this.CustomerMenu_New,
-            this.CustomerMenu_UnkwonDeposit,
-            this.گزارشاتچکToolStripMenuItem});
+            this.CustomerMenu_UnkwonDeposit});
             this.مشتریانToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.مشتریانToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.مشتریانToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("مشتریانToolStripMenuItem.Image")));
@@ -394,14 +392,6 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_UnkwonDeposit.Size = new System.Drawing.Size(212, 38);
             this.CustomerMenu_UnkwonDeposit.Text = "واریزهای نامعلوم";
             this.CustomerMenu_UnkwonDeposit.Click += new System.EventHandler(this.CustomerMenu_UnkwonDeposit_Click);
-            // 
-            // گزارشاتچکToolStripMenuItem
-            // 
-            this.گزارشاتچکToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.گزارشاتچکToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.گزارشاتچکToolStripMenuItem.Name = "گزارشاتچکToolStripMenuItem";
-            this.گزارشاتچکToolStripMenuItem.Size = new System.Drawing.Size(212, 38);
-            this.گزارشاتچکToolStripMenuItem.Text = "گزارشات چک";
             // 
             // حوالهToolStripMenuItem
             // 
@@ -496,7 +486,7 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
@@ -630,7 +620,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
             this.عملیاتچکToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(196, 48);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(178, 48);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan
@@ -752,7 +742,7 @@ namespace PamirAccounting.Forms
             this.TotalBlance.Image = ((System.Drawing.Image)(resources.GetObject("TotalBlance.Image")));
             this.TotalBlance.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TotalBlance.Name = "TotalBlance";
-            this.TotalBlance.Size = new System.Drawing.Size(195, 38);
+            this.TotalBlance.Size = new System.Drawing.Size(196, 38);
             this.TotalBlance.Text = "مفاد و زیان";
             this.TotalBlance.Click += new System.EventHandler(this.TotalBlance_Click);
             // 
@@ -1261,6 +1251,5 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.ToolStripMenuItem لسیتخریدوفروشارزToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Newspaper;
         private System.Windows.Forms.ToolStripMenuItem TotalBlance;
-        private System.Windows.Forms.ToolStripMenuItem گزارشاتچکToolStripMenuItem;
     }
 }
