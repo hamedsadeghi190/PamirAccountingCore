@@ -113,7 +113,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.groupBox2.Controls.Add(this.cmbActions);
             this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(965, 34);
+            this.groupBox2.Location = new System.Drawing.Point(965, 32);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(208, 90);
             this.groupBox2.TabIndex = 113;
