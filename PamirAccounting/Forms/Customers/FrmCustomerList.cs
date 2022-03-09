@@ -14,6 +14,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.Customers
@@ -31,6 +32,7 @@ namespace PamirAccounting.Forms.Customers
 
         private void FrmCustomerList_Load(object sender, EventArgs e)
         {
+
             dataGridView1.AutoGenerateColumns = false;
             loadData();
             SetComboBoxHeight(cmbGroupsSearch.Handle, 25);
@@ -204,7 +206,7 @@ namespace PamirAccounting.Forms.Customers
             DateTime dt = DateTime.Now;
             string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
             var data = new UnitOfWork().CustomerServices.GetAllReport();
-            var basedata = new reportbaseDAta() { Date=PersianDate };
+            var basedata = new reportbaseDAta() { Date = PersianDate };
             var report = StiReport.CreateNewReport();
             report.Load(AppSetting.ReportPath + "Customers.mrt");
             report.RegData("myData", data);
@@ -223,12 +225,49 @@ namespace PamirAccounting.Forms.Customers
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+            if (e.KeyCode == Keys.F3)
+            {
+                btnprint_Click(null, null);
+            }
+            if (e.KeyCode == Keys.F4)
+            {
+                CreatBankBtn_Click(null, null);
+            }
+            if (e.KeyCode == Keys.F5)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
+                    destForm.ShowDialog();
+                }
+            }
+         
         }
+
+        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var rowIndex = dataGridView1.SelectedRows[0].Index;
+                var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
+                destForm.ShowDialog();
+
+            }
+        }
+
+        private void dataGridView1_Enter(object sender, EventArgs e)
+        {
+            var rowIndex = dataGridView1.SelectedRows[0].Index;
+            var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
+            destForm.ShowDialog();
+        }
+
     }
-}
 
-public class reportbaseDAta
-{
-    public string Date { get; set; }
+    public class reportbaseDAta
+    {
+        public string Date { get; set; }
 
+    }
 }
