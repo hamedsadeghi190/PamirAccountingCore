@@ -223,6 +223,7 @@ namespace PamirAccounting.Forms.Transactions
                 {
                     MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
              MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                    txtDate.Focus();
                 }
 
             }
@@ -239,6 +240,7 @@ namespace PamirAccounting.Forms.Transactions
                 {
                     MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
              MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                    txtDate.Focus();
                 }
             }
 
