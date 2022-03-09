@@ -62,158 +62,158 @@ namespace PamirAccounting.UI.Forms.Customers
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(549, 59);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(558, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 23);
+            this.label1.Size = new System.Drawing.Size(35, 19);
             this.label1.TabIndex = 89;
             this.label1.Text = "نام :";
             // 
             // txtFirstname
             // 
-            this.txtFirstname.Location = new System.Drawing.Point(350, 52);
+            this.txtFirstname.Location = new System.Drawing.Point(356, 53);
             this.txtFirstname.Name = "txtFirstname";
-            this.txtFirstname.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtFirstname.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtFirstname.Properties.Appearance.Options.UseFont = true;
             this.txtFirstname.Properties.AutoHeight = false;
-            this.txtFirstname.Size = new System.Drawing.Size(202, 38);
+            this.txtFirstname.Size = new System.Drawing.Size(202, 30);
             this.txtFirstname.TabIndex = 80;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(240, 96);
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(242, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 23);
+            this.label3.Size = new System.Drawing.Size(43, 19);
             this.label3.TabIndex = 90;
             this.label3.Text = "گروه :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(550, 103);
+            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(559, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 23);
+            this.label4.Size = new System.Drawing.Size(94, 19);
             this.label4.TabIndex = 92;
             this.label4.Text = "نام خانوادگی :";
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(350, 95);
+            this.txtLastName.Location = new System.Drawing.Point(356, 91);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtLastName.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtLastName.Properties.Appearance.Options.UseFont = true;
             this.txtLastName.Properties.AutoHeight = false;
-            this.txtLastName.Size = new System.Drawing.Size(202, 38);
+            this.txtLastName.Size = new System.Drawing.Size(202, 30);
             this.txtLastName.TabIndex = 81;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(238, 56);
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(240, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 23);
+            this.label2.Size = new System.Drawing.Size(58, 19);
             this.label2.TabIndex = 93;
             this.label2.Text = "نوع ارز :";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(350, 138);
+            this.txtPhone.Location = new System.Drawing.Point(356, 130);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPhone.Properties.Appearance.Options.UseFont = true;
             this.txtPhone.Properties.AutoHeight = false;
-            this.txtPhone.Size = new System.Drawing.Size(202, 38);
+            this.txtPhone.Size = new System.Drawing.Size(202, 30);
             this.txtPhone.TabIndex = 83;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(552, 144);
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(561, 134);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 23);
+            this.label6.Size = new System.Drawing.Size(45, 19);
             this.label6.TabIndex = 95;
             this.label6.Text = "تلفن :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(551, 188);
+            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(560, 173);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 23);
+            this.label5.Size = new System.Drawing.Size(57, 19);
             this.label5.TabIndex = 97;
             this.label5.Text = "موبایل :";
             // 
             // txtMobile
             // 
-            this.txtMobile.Location = new System.Drawing.Point(350, 182);
+            this.txtMobile.Location = new System.Drawing.Point(356, 169);
             this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtMobile.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMobile.Properties.Appearance.Options.UseFont = true;
             this.txtMobile.Properties.AutoHeight = false;
-            this.txtMobile.Size = new System.Drawing.Size(202, 38);
+            this.txtMobile.Size = new System.Drawing.Size(202, 30);
             this.txtMobile.TabIndex = 84;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(553, 233);
+            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(562, 213);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 23);
+            this.label7.Size = new System.Drawing.Size(85, 19);
             this.label7.TabIndex = 99;
             this.label7.Text = "سقف اعتبار :";
             // 
             // txtCreditLimit
             // 
-            this.txtCreditLimit.Location = new System.Drawing.Point(350, 226);
+            this.txtCreditLimit.Location = new System.Drawing.Point(356, 208);
             this.txtCreditLimit.Name = "txtCreditLimit";
-            this.txtCreditLimit.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtCreditLimit.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCreditLimit.Properties.Appearance.Options.UseFont = true;
             this.txtCreditLimit.Properties.AutoHeight = false;
-            this.txtCreditLimit.Size = new System.Drawing.Size(202, 38);
+            this.txtCreditLimit.Size = new System.Drawing.Size(202, 30);
             this.txtCreditLimit.TabIndex = 85;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(237, 132);
+            this.label8.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(239, 123);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 23);
+            this.label8.Size = new System.Drawing.Size(77, 19);
             this.label8.TabIndex = 100;
             this.label8.Text = "توضیحات :";
             // 
             // txtDesc
             // 
-            this.txtDesc.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtDesc.Location = new System.Drawing.Point(35, 136);
+            this.txtDesc.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDesc.Location = new System.Drawing.Point(35, 123);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(202, 128);
+            this.txtDesc.Size = new System.Drawing.Size(202, 124);
             this.txtDesc.TabIndex = 88;
             this.txtDesc.Text = "";
             // 
             // cmbCurrencies
             // 
-            this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(35, 53);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(202, 37);
+            this.cmbCurrencies.Size = new System.Drawing.Size(202, 27);
             this.cmbCurrencies.TabIndex = 86;
             // 
             // cmbGroups
             // 
-            this.cmbGroups.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbGroups.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbGroups.FormattingEnabled = true;
-            this.cmbGroups.Location = new System.Drawing.Point(35, 93);
+            this.cmbGroups.Location = new System.Drawing.Point(35, 90);
             this.cmbGroups.Name = "cmbGroups";
-            this.cmbGroups.Size = new System.Drawing.Size(202, 37);
+            this.cmbGroups.Size = new System.Drawing.Size(202, 27);
             this.cmbGroups.TabIndex = 87;
             // 
             // groupBox1
@@ -234,17 +234,18 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtFirstname);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(12, -2);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(12, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(663, 309);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ثبت / ویرایش مشتری";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // BtnClose
             // 
-            this.BtnClose.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnClose.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnClose.Appearance.Options.UseFont = true;
             this.BtnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnClose.ImageOptions.SvgImage")));
             this.BtnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -259,7 +260,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // BtnSave
             // 
-            this.BtnSave.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnSave.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnSave.Appearance.Options.UseFont = true;
             this.BtnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnSave.ImageOptions.SvgImage")));
             this.BtnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -276,7 +277,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.groupBox2.Controls.Add(this.BtnSave);
             this.groupBox2.Controls.Add(this.BtnClose);
-            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(10, 307);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(665, 67);
@@ -289,7 +290,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 381);
             this.Controls.Add(this.groupBox2);
