@@ -127,7 +127,8 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbActions.Location = new System.Drawing.Point(6, 35);
             this.cmbActions.Name = "cmbActions";
             this.cmbActions.Size = new System.Drawing.Size(192, 32);
-            this.cmbActions.TabIndex = 102;
+            this.cmbActions.Sorted = true;
+            this.cmbActions.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -157,7 +158,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.txtDate2.Properties.Appearance.Options.UseFont = true;
             this.txtDate2.Properties.AutoHeight = false;
             this.txtDate2.Size = new System.Drawing.Size(121, 30);
-            this.txtDate2.TabIndex = 120;
+            this.txtDate2.TabIndex = 5;
             // 
             // label2
             // 
@@ -178,7 +179,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.txtDate1.Properties.Appearance.Options.UseFont = true;
             this.txtDate1.Properties.AutoHeight = false;
             this.txtDate1.Size = new System.Drawing.Size(131, 30);
-            this.txtDate1.TabIndex = 118;
+            this.txtDate1.TabIndex = 4;
             // 
             // label3
             // 
@@ -202,7 +203,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnsearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Size = new System.Drawing.Size(37, 32);
-            this.btnsearch.TabIndex = 116;
+            this.btnsearch.TabIndex = 6;
             // 
             // txtSearch
             // 
@@ -212,7 +213,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
             this.txtSearch.Properties.AutoHeight = false;
             this.txtSearch.Size = new System.Drawing.Size(116, 30);
-            this.txtSearch.TabIndex = 113;
+            this.txtSearch.TabIndex = 2;
             // 
             // label4
             // 
@@ -232,7 +233,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbCurrencies.Location = new System.Drawing.Point(478, 37);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(114, 32);
-            this.cmbCurrencies.TabIndex = 114;
+            this.cmbCurrencies.TabIndex = 3;
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             this.cmbCurrencies.TextChanged += new System.EventHandler(this.cmbCurrencies_TextChanged);
             // 
@@ -256,7 +257,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnprint.Location = new System.Drawing.Point(48, 41);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(39, 41);
-            this.btnprint.TabIndex = 117;
+            this.btnprint.TabIndex = 7;
             this.btnprint.Text = "چاپ";
             this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
@@ -282,7 +283,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnprintResid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnprintResid.Name = "btnprintResid";
             this.btnprintResid.Size = new System.Drawing.Size(81, 40);
-            this.btnprintResid.TabIndex = 116;
+            this.btnprintResid.TabIndex = 8;
             this.btnprintResid.Text = "رسید";
             this.btnprintResid.Click += new System.EventHandler(this.btnprintResid_Click);
             // 
@@ -350,7 +351,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdTransactions.ShowEditingIcon = false;
             this.grdTransactions.Size = new System.Drawing.Size(1185, 331);
-            this.grdTransactions.TabIndex = 15;
+            this.grdTransactions.TabIndex = 0;
             this.grdTransactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
             this.grdTransactions.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellValueChanged);
