@@ -12,6 +12,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -46,21 +47,25 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void ViewCustomerAccountFrm_Load(object sender, EventArgs e)
         {
+            SetComboBoxHeight(cmbActions.Handle, 25);
+            cmbActions.Refresh();
             grdTransactions.AutoGenerateColumns = false;
             grdTotals.AutoGenerateColumns = false;
             InitForm();
             LoadData();
             initGrid();
         }
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         private void initGrid()
         {
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 10, FontStyle.Bold);
-            for (int i = 0; i < 12; i++)
-            {
-                grdTransactions.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.grdTransactions.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 10, FontStyle.Bold);
+
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)grdTransactions.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -70,28 +75,21 @@ namespace PamirAccounting.UI.Forms.Customers
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
             ////////***************/////////////////
-            DataGridViewCellStyle HeaderStyle1 = new DataGridViewCellStyle();
-            HeaderStyle1.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 6; i++)
-            {
-                grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
-            }
-            this.grdTotals.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-
 
             foreach (DataGridViewRow row in grdTransactions.Rows)
             {
 
-                int quantity;
-                if (int.TryParse(row.Cells[5].Value.ToString(), out quantity))
+                int RemainigAmount;
+                if (int.TryParse(row.Cells["RemainigAmount"].Value.ToString(), out RemainigAmount))
                 {
-                    if (quantity > 0)
+                    if (RemainigAmount > 0)
                     {
-                        for (int i = 0; i < 10; i++)
-                        {
-                            row.Cells[i].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            row.Cells[i].Style.ForeColor = System.Drawing.Color.Red;
-                        }
+
+                        row.Cells["RemainigAmount"].Style.ForeColor = System.Drawing.Color.Red;
+                        row.Cells["Status"].Style.ForeColor = System.Drawing.Color.Red;
+                        row.Cells["DepositAmount"].Style.ForeColor = System.Drawing.Color.Red;
+
+
                     }
                 }
                 //if (int.TryParse(row.Cells[5].Value.ToString(), out quantity))
@@ -112,14 +110,14 @@ namespace PamirAccounting.UI.Forms.Customers
                 int quantity1;
                 if (int.TryParse(row.Cells[1].Value.ToString(), out quantity1))
                 {
-                    if (quantity1 > 0)
-                        row.Cells[1].Style.BackColor = System.Drawing.Color.Lavender;
+                    //if (quantity1 > 0)
+                    //    row.Cells[1].Style.BackColor = System.Drawing.Color.Lavender;
 
                 }
                 if (int.TryParse(row.Cells[2].Value.ToString(), out quantity1))
                 {
-                    if (quantity1 > 0)
-                        row.Cells[2].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                    //(quantity1 > 0)
+                    // row.Cells[2].Style.BackColor = System.Drawing.Color.WhiteSmoke;
 
                 }
             }
@@ -259,6 +257,19 @@ namespace PamirAccounting.UI.Forms.Customers
                     totalDeposit += item.DepositAmount.Value;
                     curenncySummery.CurrenyName = item.CurrenyName;
                     item.RemainigAmount = totalDeposit - totalWithDraw;
+                    if (item.RemainigAmount > 0)
+                    {
+                        item.Status = "طلبکار";
+                    }
+                    else if (item.RemainigAmount < 0)
+                    {
+                        item.Status = "بدهکار";
+                    }
+                    else
+                    {
+                        item.Status = "";
+                    }
+
                     _dataList.Add(item);
                 }
                 curenncySummery.TotalDepositAmount = totalDeposit;
@@ -384,7 +395,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void btnsearchdate_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         private void btnprint_Click(object sender, EventArgs e)
@@ -401,7 +412,7 @@ namespace PamirAccounting.UI.Forms.Customers
             report.Load(AppSetting.ReportPath + "CustomerAccount.mrt");
             report.RegData("myData", data);
             report.RegData("basedata", basedata);
-           // report.Design();
+            // report.Design();
             report.Render();
             report.Show();
         }
@@ -621,9 +632,27 @@ namespace PamirAccounting.UI.Forms.Customers
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+            if (e.KeyCode == Keys.F3)
+            {
+                btnprint_Click(null, null);
+            }
+            if (e.KeyCode == Keys.F4)
+            {
+                if (grdTransactions.SelectedRows.Count > 0)
+                {
+                    //var rowIndex = grdTransactions.SelectedRows[0].Index;
+                    //var destForm = new ViewCustomerAccountFrm(_dataList.ElementAt(rowIndex).Id);
+                    //destForm.ShowDialog();
+                }
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
