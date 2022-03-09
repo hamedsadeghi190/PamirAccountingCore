@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using PamirAccounting.Services;
 using System.Globalization;
 using Stimulsoft.Report;
+using PamirAccounting.Forms.Customers;
 
 namespace PamirAccounting.Forms.Checks
 {
