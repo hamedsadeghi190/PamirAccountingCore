@@ -92,7 +92,7 @@ namespace PamirAccounting.Forms.Customers
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(1023, 80);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 19);
+            this.label9.Size = new System.Drawing.Size(53, 24);
             this.label9.TabIndex = 97;
             this.label9.Text = "label9";
             // 
@@ -141,7 +141,7 @@ namespace PamirAccounting.Forms.Customers
             this.cmbGroupsSearch.FormattingEnabled = true;
             this.cmbGroupsSearch.Location = new System.Drawing.Point(608, 37);
             this.cmbGroupsSearch.Name = "cmbGroupsSearch";
-            this.cmbGroupsSearch.Size = new System.Drawing.Size(143, 27);
+            this.cmbGroupsSearch.Size = new System.Drawing.Size(143, 32);
             this.cmbGroupsSearch.TabIndex = 92;
             this.cmbGroupsSearch.TextChanged += new System.EventHandler(this.cmbGroupsSearch_TextChanged);
             this.cmbGroupsSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbGroupsSearch_KeyUp);
@@ -153,7 +153,7 @@ namespace PamirAccounting.Forms.Customers
             this.label5.Location = new System.Drawing.Point(752, 41);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 19);
+            this.label5.Size = new System.Drawing.Size(43, 24);
             this.label5.TabIndex = 88;
             this.label5.Text = "گروه :";
             // 
@@ -164,7 +164,7 @@ namespace PamirAccounting.Forms.Customers
             this.label4.Location = new System.Drawing.Point(301, 45);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 19);
+            this.label4.Size = new System.Drawing.Size(45, 24);
             this.label4.TabIndex = 57;
             this.label4.Text = "تلفن :";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -176,7 +176,7 @@ namespace PamirAccounting.Forms.Customers
             this.label2.Location = new System.Drawing.Point(529, 45);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 19);
+            this.label2.Size = new System.Drawing.Size(52, 24);
             this.label2.TabIndex = 55;
             this.label2.Text = "شماره :";
             // 
@@ -188,7 +188,7 @@ namespace PamirAccounting.Forms.Customers
             this.label1.Location = new System.Drawing.Point(1206, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 17);
+            this.label1.Size = new System.Drawing.Size(25, 22);
             this.label1.TabIndex = 53;
             this.label1.Text = "نام";
             // 
@@ -199,7 +199,7 @@ namespace PamirAccounting.Forms.Customers
             this.label3.Location = new System.Drawing.Point(971, 43);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 19);
+            this.label3.Size = new System.Drawing.Size(35, 24);
             this.label3.TabIndex = 52;
             this.label3.Text = "نام :";
             // 
@@ -266,6 +266,8 @@ namespace PamirAccounting.Forms.Customers
             this.dataGridView1.TabIndex = 98;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.Enter += new System.EventHandler(this.dataGridView1_Enter);
+            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
             // 
             // Column1
@@ -354,30 +356,30 @@ namespace PamirAccounting.Forms.Customers
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Medium", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(12, 528);
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(12, 521);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 15);
+            this.label6.Size = new System.Drawing.Size(60, 24);
             this.label6.TabIndex = 99;
             this.label6.Text = "چاپ F3";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Medium", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(97, 528);
+            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(97, 521);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 15);
+            this.label7.Size = new System.Drawing.Size(57, 24);
             this.label7.TabIndex = 100;
             this.label7.Text = "ثبت F4";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("IRANSansMobile(FaNum) Medium", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(180, 528);
+            this.label8.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(180, 521);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 15);
+            this.label8.Size = new System.Drawing.Size(75, 24);
             this.label8.TabIndex = 101;
             this.label8.Text = "نمایش F5";
             // 

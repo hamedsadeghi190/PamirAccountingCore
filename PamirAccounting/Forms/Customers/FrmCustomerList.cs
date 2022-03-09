@@ -242,26 +242,51 @@ namespace PamirAccounting.Forms.Customers
                     destForm.ShowDialog();
                 }
             }
-         
+
         }
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                var rowIndex = dataGridView1.SelectedRows[0].Index;
-                var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
-                destForm.ShowDialog();
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    var rowIndex = dataGridView1.SelectedRows[0].Index;
+            //    var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
+            //    destForm.ShowDialog();
 
-            }
+            //}
         }
 
         private void dataGridView1_Enter(object sender, EventArgs e)
         {
-            var rowIndex = dataGridView1.SelectedRows[0].Index;
-            var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
-            destForm.ShowDialog();
+           
         }
+
+        private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.dataGridView1.CurrentRow.Selected = true;
+                e.Handled = true;
+
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
+                destForm.ShowDialog();
+            }
+        }
+
+        //        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        //        {
+        //            if (e.KeyCode == 13) 
+        //{
+        //                this.dataGridView1.CurrentRow.Selected = true;
+        //                e.Handled = true;
+        //            }
+        //        }
 
     }
 

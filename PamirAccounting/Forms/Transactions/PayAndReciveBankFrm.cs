@@ -249,7 +249,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private bool CheckEntries()
         {
-            if(txtAmount.Text.Length==0 || Convert.ToInt64(txtAmount.Text.Replace(",", ""))==0)
+            if (txtAmount.Text.Length == 0 || Convert.ToInt64(txtAmount.Text.Replace(",", "")) == 0)
             {
                 return false;
             }
@@ -276,13 +276,82 @@ namespace PamirAccounting.Forms.Transactions
         {
             if ((int)cmbAction.SelectedValue == 1)
             {
-                //EditDeposit();
+                EditDeposit();
             }
             else
             {
-               EditWithDraw();
+                EditWithDraw();
             }
         }
+
+
+        private void EditDeposit()
+        {
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
+
+            bankTransaction.Description = createDescription(txtdesc.Text);
+
+            if ((int)cmbVarizType.SelectedValue == (int)DepostType.Unkown)
+            {
+                bankTransaction.TransactionType = (int)TransaActionType.UnkwonReciveBank;
+                bankTransaction.UnkownAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
+            }
+            else
+            {
+                bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
+                bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
+            }
+
+            bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
+
+            bankTransaction.DepositAmount = 0;
+            bankTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
+            bankTransaction.ReceiptNumber = txtReceiptNumber.Text;
+            bankTransaction.BranchCode = txtBranchCode.Text;
+            bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            var dDate = txtDate.Text.Split('/');
+
+            PersianCalendar p = new PersianCalendar();
+            var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+            bankTransaction.Date = DateTime.Now;
+            bankTransaction.TransactionDateTime = TransactionDateTime;
+            bankTransaction.UserId = CurrentUser.UserID;
+            bankTransaction.Description = createDescription(txtdesc.Text);
+            unitOfWork.TransactionServices.Update(bankTransaction);
+            unitOfWork.SaveChanges();
+
+            //ثبت واریز برای مشتری
+            if ((int)cmbVarizType.SelectedValue == (int)DepostType.known)
+            {
+
+
+                customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
+                customerTransaction.DoubleTransactionId = bankTransaction.Id;
+                customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+                customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
+                customerTransaction.Description = txtdesc.Text;
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
+                customerTransaction.WithdrawAmount = 0;
+                customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
+                customerTransaction.BranchCode = txtBranchCode.Text;
+                customerTransaction.Description = createDescription(txtdesc.Text);
+
+                customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+                var cDate = txtDate.Text.Split('/');
+
+                PersianCalendar pc = new PersianCalendar();
+                TransactionDateTime = p.ToDateTime(int.Parse(cDate[0]), int.Parse(cDate[1]), int.Parse(cDate[2]), 0, 0, 0, 0);
+                customerTransaction.Date = DateTime.Now;
+                customerTransaction.TransactionDateTime = TransactionDateTime;
+                customerTransaction.UserId = CurrentUser.UserID;
+
+                unitOfWork.TransactionServices.Update(customerTransaction);
+                unitOfWork.SaveChanges();
+
+            }
+
+        }
+
 
         private void EditWithDraw()
         {
