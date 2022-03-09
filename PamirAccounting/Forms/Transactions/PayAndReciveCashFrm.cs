@@ -162,7 +162,9 @@ namespace PamirAccounting.Forms.Transactions
             }
             else
             {
+
                 MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید", "مقادیر ورودی", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                cmbCurrencies.Focus();
             }
         }
 

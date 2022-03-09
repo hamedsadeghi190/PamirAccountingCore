@@ -132,31 +132,40 @@ namespace PamirAccounting.Forms.Transactions
 
         private void loadTransActionInfo(long? transActionId)
         {
-            customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
-            bankTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
-
-            if (customerTransaction.WithdrawAmount.Value != 0)
+            if (customerTransaction.DoubleTransactionId != null)
             {
-                txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
-                cmbAction.SelectedValue = 1;
+
+
+                customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
+                bankTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
+
+                if (customerTransaction.WithdrawAmount.Value != 0)
+                {
+                    txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
+                    cmbAction.SelectedValue = 1;
+                }
+                else
+                {
+                    txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
+                    cmbAction.SelectedValue = 2;
+                }
+
+                txtdesc.Text = customerTransaction.Description;
+                cmbCurrencies.SelectedValue = customerTransaction.CurrenyId;
+                cmbCurrencies.Enabled = false;
+                cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
+                cmbCustomers.Enabled = false;
+
+                cmbBanks.SelectedValue = bankTransaction.SourceCustomerId;
+
+                PersianCalendar pc = new PersianCalendar();
+                string PDate = pc.GetYear(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+                txtDate.Text = PDate;
             }
             else
             {
-                txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
-                cmbAction.SelectedValue = 2;
+
             }
-
-            txtdesc.Text = customerTransaction.Description;
-            cmbCurrencies.SelectedValue = customerTransaction.CurrenyId;
-            cmbCurrencies.Enabled = false;
-            cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
-            cmbCustomers.Enabled = false;
-
-            cmbBanks.SelectedValue = bankTransaction.SourceCustomerId;
-
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            txtDate.Text = PDate;
         }
 
         private void cmbAction_SelectedValueChanged(object sender, EventArgs e)

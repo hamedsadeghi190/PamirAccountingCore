@@ -349,7 +349,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.grdTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdTransactions.ShowEditingIcon = false;
-            this.grdTransactions.Size = new System.Drawing.Size(1185, 344);
+            this.grdTransactions.Size = new System.Drawing.Size(1185, 331);
             this.grdTransactions.TabIndex = 15;
             this.grdTransactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
@@ -519,7 +519,7 @@ namespace PamirAccounting.UI.Forms.Customers
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdTotals.DefaultCellStyle = dataGridViewCellStyle8;
             this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(0, 487);
+            this.grdTotals.Location = new System.Drawing.Point(0, 477);
             this.grdTotals.Name = "grdTotals";
             this.grdTotals.ReadOnly = true;
             this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -595,22 +595,24 @@ namespace PamirAccounting.UI.Forms.Customers
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(93, 598);
+            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(92, 587);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 15);
+            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label7.Size = new System.Drawing.Size(90, 24);
             this.label7.TabIndex = 103;
-            this.label7.Text = "ویرایش F4";
+            this.label7.Text = "ویرایش (F4)";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(22, 598);
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(15, 587);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 15);
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(72, 24);
             this.label6.TabIndex = 102;
-            this.label6.Text = "چاپ F3";
+            this.label6.Text = "چاپ (F3)";
             // 
             // ViewCustomerAccountFrm
             // 

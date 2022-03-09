@@ -103,7 +103,7 @@ namespace PamirAccounting.Forms.Customers
             this.btnprint.Location = new System.Drawing.Point(8, 27);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(39, 41);
-            this.btnprint.TabIndex = 96;
+            this.btnprint.TabIndex = 6;
             this.btnprint.Text = "چاپ";
             this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
@@ -113,7 +113,7 @@ namespace PamirAccounting.Forms.Customers
             this.txtphoneSearch.Location = new System.Drawing.Point(153, 37);
             this.txtphoneSearch.Name = "txtphoneSearch";
             this.txtphoneSearch.Size = new System.Drawing.Size(143, 31);
-            this.txtphoneSearch.TabIndex = 94;
+            this.txtphoneSearch.TabIndex = 4;
             this.txtphoneSearch.TextChanged += new System.EventHandler(this.txtphoneSearch_TextChanged);
             this.txtphoneSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtphoneSearch_KeyUp);
             // 
@@ -123,7 +123,7 @@ namespace PamirAccounting.Forms.Customers
             this.txtNumberSearch.Location = new System.Drawing.Point(381, 37);
             this.txtNumberSearch.Name = "txtNumberSearch";
             this.txtNumberSearch.Size = new System.Drawing.Size(143, 31);
-            this.txtNumberSearch.TabIndex = 93;
+            this.txtNumberSearch.TabIndex = 3;
             this.txtNumberSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNumberSearch_KeyUp);
             // 
             // txtNameSearch
@@ -132,7 +132,7 @@ namespace PamirAccounting.Forms.Customers
             this.txtNameSearch.Location = new System.Drawing.Point(827, 39);
             this.txtNameSearch.Name = "txtNameSearch";
             this.txtNameSearch.Size = new System.Drawing.Size(143, 31);
-            this.txtNameSearch.TabIndex = 91;
+            this.txtNameSearch.TabIndex = 1;
             this.txtNameSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNameSearch_KeyUp);
             // 
             // cmbGroupsSearch
@@ -142,7 +142,7 @@ namespace PamirAccounting.Forms.Customers
             this.cmbGroupsSearch.Location = new System.Drawing.Point(608, 37);
             this.cmbGroupsSearch.Name = "cmbGroupsSearch";
             this.cmbGroupsSearch.Size = new System.Drawing.Size(143, 32);
-            this.cmbGroupsSearch.TabIndex = 92;
+            this.cmbGroupsSearch.TabIndex = 2;
             this.cmbGroupsSearch.TextChanged += new System.EventHandler(this.cmbGroupsSearch_TextChanged);
             this.cmbGroupsSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbGroupsSearch_KeyUp);
             // 
@@ -214,7 +214,7 @@ namespace PamirAccounting.Forms.Customers
             this.CreatBankBtn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CreatBankBtn.Name = "CreatBankBtn";
             this.CreatBankBtn.Size = new System.Drawing.Size(39, 41);
-            this.CreatBankBtn.TabIndex = 95;
+            this.CreatBankBtn.TabIndex = 5;
             this.CreatBankBtn.Click += new System.EventHandler(this.CreatBankBtn_Click);
             // 
             // dataGridView1
@@ -263,7 +263,7 @@ namespace PamirAccounting.Forms.Customers
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1044, 422);
-            this.dataGridView1.TabIndex = 98;
+            this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.Enter += new System.EventHandler(this.dataGridView1_Enter);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
