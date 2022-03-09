@@ -49,7 +49,7 @@ namespace PamirAccounting.UI.Forms.Banks
 
             txtbalance.Text = _bank.Balance.ToString();
             txtBankName.Text = _bank.Name;
-
+            txtAccountNumber.Text = _bank.AccountNumber;
             if (_bank.CountryId != null)
             {
 
@@ -69,7 +69,7 @@ namespace PamirAccounting.UI.Forms.Banks
             cmbCountries.DataSource = _Countries;
             cmbCountries.ValueMember = "Id";
             cmbCountries.DisplayMember = "Title";
-
+           
             cmbCurrencies.DataSource = _Currencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
@@ -91,6 +91,7 @@ namespace PamirAccounting.UI.Forms.Banks
                     _bank.Balance = long.Parse(txtbalance.Text);
                     _bank.BaseCurrencyId = (int)cmbCurrencies.SelectedValue;
                     _bank.CountryId = (int)cmbCountries.SelectedValue;
+                    _bank.AccountNumber = txtAccountNumber.Text;
 
 
                     var customer = unitOfWork.Customers.FindFirstOrDefault(x => x.BankId == _bank.Id);
@@ -105,7 +106,9 @@ namespace PamirAccounting.UI.Forms.Banks
                             CountryId = (int)cmbCountries.SelectedValue,
                             GroupId = bankGroup.Id,
                             BankId = _bank.Id,
-                            CreditLimit = 1
+                            CreditLimit = 1,
+                            
+                            
                         };
 
                         unitOfWork.CustomerServices.Insert(newCustomer);
@@ -130,6 +133,7 @@ namespace PamirAccounting.UI.Forms.Banks
                         Balance = long.Parse(txtbalance.Text),
                         BaseCurrencyId = (int)cmbCurrencies.SelectedValue,
                         CountryId = (int)cmbCountries.SelectedValue,
+                        AccountNumber = txtAccountNumber.Text,
                     };
 
                     unitOfWork.BankServices.Insert(newBank);
@@ -145,7 +149,7 @@ namespace PamirAccounting.UI.Forms.Banks
                             CreditCurrencyId = (int)cmbCurrencies.SelectedValue,
                             CountryId = (int)cmbCountries.SelectedValue,
                             GroupId = bankGroup.Id,
-                            BankId = newBank.Id
+                            BankId = newBank.Id,
                         };
 
                         unitOfWork.CustomerServices.Insert(newCustomer);

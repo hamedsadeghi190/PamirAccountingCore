@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -73,12 +74,23 @@ namespace PamirAccounting.Forms.Checks
         {
         }
 
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         private void DetailsReceiveCheckFrm_Load(object sender, EventArgs e)
         {
+            SetComboBoxHeight(cmbCustomers.Handle, 25);
+            cmbCustomers.Refresh(); 
+            SetComboBoxHeight(cmbRealBankId.Handle, 25);
+            cmbRealBankId.Refresh();
             LoadData();
             if (_ChequeNumber.HasValue)
             {
-
                 ChequeActionInfo(_ChequeNumber);
             }
             else
@@ -121,18 +133,34 @@ namespace PamirAccounting.Forms.Checks
         
         private void BtnSave_Click(object sender, EventArgs e)
         {
-
-            if (_ChequeNumber.HasValue)
+            if (checkEntryData())
             {
-                SaveEdit();
-                Close();
+                if (_ChequeNumber.HasValue)
+                {
+                    SaveEdit();
+                    MessageBox.Show("عملیات با موفقیت ویزایش گردید", " ویرایش", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                else
+                {
+                    SaveNew();
+                    MessageBox.Show("عملیات با موفقیت ثبت گردید", " ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CleanForm();
+                }
             }
             else
             {
-                SaveNew();
-                CleanForm();
+                MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید", "مقادیر ورودی", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-          
+        }
+        private bool checkEntryData()
+        {
+            amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
+            if (txtAmount.Text.Trim().Length < 1 || amount < 1)
+            {
+                return false;
+            }
+            return true;
         }
         private void CleanForm()
         {
