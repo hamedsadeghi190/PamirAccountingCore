@@ -65,7 +65,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(558, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 19);
+            this.label1.Size = new System.Drawing.Size(35, 24);
             this.label1.TabIndex = 89;
             this.label1.Text = "نام :";
             // 
@@ -85,7 +85,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(242, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 19);
+            this.label3.Size = new System.Drawing.Size(43, 24);
             this.label3.TabIndex = 90;
             this.label3.Text = "گروه :";
             // 
@@ -95,7 +95,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(559, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 19);
+            this.label4.Size = new System.Drawing.Size(93, 24);
             this.label4.TabIndex = 92;
             this.label4.Text = "نام خانوادگی :";
             // 
@@ -115,7 +115,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(240, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 19);
+            this.label2.Size = new System.Drawing.Size(57, 24);
             this.label2.TabIndex = 93;
             this.label2.Text = "نوع ارز :";
             // 
@@ -135,7 +135,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(561, 134);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 19);
+            this.label6.Size = new System.Drawing.Size(45, 24);
             this.label6.TabIndex = 95;
             this.label6.Text = "تلفن :";
             // 
@@ -145,7 +145,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(560, 173);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 19);
+            this.label5.Size = new System.Drawing.Size(58, 24);
             this.label5.TabIndex = 97;
             this.label5.Text = "موبایل :";
             // 
@@ -165,7 +165,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(562, 213);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 19);
+            this.label7.Size = new System.Drawing.Size(84, 24);
             this.label7.TabIndex = 99;
             this.label7.Text = "سقف اعتبار :";
             // 
@@ -185,7 +185,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label8.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(240, 136);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 19);
+            this.label8.Size = new System.Drawing.Size(77, 24);
             this.label8.TabIndex = 100;
             this.label8.Text = "توضیحات :";
             // 
@@ -204,7 +204,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(35, 53);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(202, 27);
+            this.cmbCurrencies.Size = new System.Drawing.Size(202, 32);
             this.cmbCurrencies.TabIndex = 86;
             // 
             // cmbGroups
@@ -213,7 +213,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbGroups.FormattingEnabled = true;
             this.cmbGroups.Location = new System.Drawing.Point(35, 94);
             this.cmbGroups.Name = "cmbGroups";
-            this.cmbGroups.Size = new System.Drawing.Size(202, 27);
+            this.cmbGroups.Size = new System.Drawing.Size(202, 32);
             this.cmbGroups.TabIndex = 87;
             // 
             // groupBox1
@@ -237,7 +237,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(12, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(663, 301);
+            this.groupBox1.Size = new System.Drawing.Size(663, 254);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ثبت / ویرایش مشتری";
@@ -249,7 +249,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.BtnClose.Appearance.Options.UseFont = true;
             this.BtnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnClose.ImageOptions.SvgImage")));
             this.BtnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnClose.Location = new System.Drawing.Point(150, 21);
+            this.BtnClose.Location = new System.Drawing.Point(135, 21);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -264,7 +264,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.BtnSave.Appearance.Options.UseFont = true;
             this.BtnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnSave.ImageOptions.SvgImage")));
             this.BtnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnSave.Location = new System.Drawing.Point(37, 21);
+            this.BtnSave.Location = new System.Drawing.Point(17, 21);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -278,7 +278,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBox2.Controls.Add(this.BtnSave);
             this.groupBox2.Controls.Add(this.BtnClose);
             this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(10, 304);
+            this.groupBox2.Location = new System.Drawing.Point(12, 264);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(665, 67);
             this.groupBox2.TabIndex = 1;
@@ -292,7 +292,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 381);
+            this.ClientSize = new System.Drawing.Size(685, 339);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

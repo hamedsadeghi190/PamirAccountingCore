@@ -139,7 +139,8 @@ namespace PamirAccounting.UI.Forms.Customers
             cmbActions.ValueMember = "Id";
             cmbActions.DisplayMember = "Title";
             cmbActions.SelectedValueChanged += new EventHandler(cmbActions_SelectedValueChanged);
-
+            
+            _Currencies.Clear();
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
             cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
@@ -294,7 +295,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            LoadData();
         }
 
         private void grdTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -429,73 +430,8 @@ namespace PamirAccounting.UI.Forms.Customers
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
 
-            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbCurrencies.DataSource = _Currencies;
-            cmbCurrencies.ValueMember = "Id";
-            cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            if ((int)cmbCurrencies.SelectedValue == 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAll(_Id.Value, null);
-            }
+            
 
-            if ((int)cmbCurrencies.SelectedValue > 0)
-            {
-                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Curreny.Name == (cmbCurrencies.Text) && x.SourceCustomerId == _Id)
-                      .Include(x => x.Curreny)
-                      .Include(x => x.User)
-                       .Select(x => new TransactionModel
-                       {
-                           Id = x.Id,
-                           Description = x.Description,
-                           DepositAmount = x.DepositAmount,
-                           WithdrawAmount = x.WithdrawAmount,
-                           Date = x.Date.ToString(),
-                           TransactionDateTime = x.TransactionDateTime.ToString(),
-                           CurrenyId = x.CurrenyId,
-                           CurrenyName = x.Curreny.Name,
-                           UserId = x.UserId,
-                           UserName = x.User.UserName,
-                       }).ToList();
-                grdTransactions.DataSource = _dataList;
-            }
-            else
-            {
-                LoadData();
-            }
-            foreach (DataGridViewRow row in grdTransactions.Rows)
-            {
-                int quantity;
-                if (int.TryParse(row.Cells[5].Value.ToString(), out quantity))
-                {
-                    if (quantity > 0)
-                    {
-                        for (int i = 0; i < 10; i++)
-                        {
-                            row.Cells[i].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                        }
-                    }
-                }
-            }
-            foreach (DataGridViewRow row in grdTotals.Rows)
-            {
-
-                int quantity1;
-                if (int.TryParse(row.Cells[1].Value.ToString(), out quantity1))
-                {
-                    if (quantity1 > 0)
-                        row.Cells[1].Style.BackColor = System.Drawing.Color.Lavender;
-
-                }
-                if (int.TryParse(row.Cells[2].Value.ToString(), out quantity1))
-                {
-                    if (quantity1 > 0)
-                        row.Cells[2].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-
-                }
-            }
 
 
 
@@ -649,12 +585,14 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
+        }
 
+        private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

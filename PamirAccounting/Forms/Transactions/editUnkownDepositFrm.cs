@@ -30,12 +30,8 @@ namespace PamirAccounting.Forms.Transactions
         private void editUnkownDepositFrm_Load(object sender, EventArgs e)
         {
             DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 5; i++)
-            {
-                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
+   
+          //  this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 10, FontStyle.Bold);
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -44,7 +40,7 @@ namespace PamirAccounting.Forms.Transactions
             d.FlatStyle = FlatStyle.Standard;
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
-          
+
             transaction = unitOfWork.Transactions.FindAll(x => x.Id == Id).Include(y => y.SourceCustomer).FirstOrDefault();
             if (transaction == null)
             {
@@ -59,10 +55,11 @@ namespace PamirAccounting.Forms.Transactions
             txtBankName.Text = transaction.SourceCustomer.FirstName;
             txtDate.Text = (DateTime.Parse(transaction.Date.ToString())).ToShortPersianDateString();
             txtdesc.Text = transaction.Description;
+            dataGridView1.Focus();
         }
 
 
-        private void createDeposit(int customerID,int currenyId,int destCustomerId,long amount , string description,DateTime dateTime)
+        private void createDeposit(int customerID, int currenyId, int destCustomerId, long amount, string description, DateTime dateTime)
         {
 
             var customerTransaction = new Domains.Transaction();
@@ -87,10 +84,10 @@ namespace PamirAccounting.Forms.Transactions
 
         private void CreateWithDraw(int customerID, int currenyId, int destCustomerId, long amount, string description, DateTime dateTime)
         {
-            
+
             var bankTransaction = new Domains.Transaction();
             bankTransaction.DocumentId = transaction.DocumentId;
-            bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank; 
+            bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
             bankTransaction.DestinitionCustomerId = destCustomerId;
             bankTransaction.SourceCustomerId = customerID;
             bankTransaction.Description = description;
@@ -127,13 +124,13 @@ namespace PamirAccounting.Forms.Transactions
                 frm.CustomerID = _dataList.ElementAt(e.RowIndex).CustomerId;
                 frm.Amount = _dataList.ElementAt(e.RowIndex).Amount;
                 frm.ShowDialog();
-                
+
                 var tmp = _dataList.Where(x => x.CustomerId == frm.CustomerID.Value).First();
 
                 tmp.CustomerId = frm.CustomerID.Value;
                 tmp.FullName = frm.FullName;
                 tmp.Amount = frm.Amount;
-                
+
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = _dataList;
                 dataGridView1.Update();
@@ -153,7 +150,7 @@ namespace PamirAccounting.Forms.Transactions
                     {
                         _dataList = _dataList.Where(x => x.CustomerId != _dataList.ElementAt(e.RowIndex).CustomerId).ToList();
 
-        dataGridView1.DataSource = null;
+                        dataGridView1.DataSource = null;
                         dataGridView1.DataSource = _dataList;
                         dataGridView1.Update();
                         dataGridView1.Refresh();
@@ -170,26 +167,23 @@ namespace PamirAccounting.Forms.Transactions
         {
             if (_dataList.Sum(x => x.Amount) == transaction.WithdrawAmount.Value)
             {
-                var firstTr = _dataList.First();
-                transaction.DestinitionCustomerId = firstTr.CustomerId;
-                transaction.TransactionType = (int)TransaActionType.PayAndReciveBank; 
-                transaction.WithdrawAmount = firstTr.Amount;
-                transaction.Description = "واریز به " + transaction.SourceCustomer.FirstName + "  کدشعبه " + transaction.BranchCode +
-                    " شماره فیش :" + transaction.ReceiptNumber + " توسط " + firstTr.FullName;
-                unitOfWork.Transactions.Update(transaction);
-                unitOfWork.SaveChanges();
-
-                createDeposit(firstTr.CustomerId, transaction.CurrenyId.Value, transaction.SourceCustomerId, firstTr.Amount.Value, transaction.Description, transaction.Date);
-
-                var otherTrs = _dataList.Where(x => x.CustomerId != firstTr.CustomerId).ToList();
-                foreach (var item in otherTrs)
+                var bankDesc = "واریز به " + transaction.SourceCustomer.FirstName + "  کدشعبه " + transaction.BranchCode +
+                       " شماره فیش :" + transaction.ReceiptNumber + " واریز مشترک : ";
+                foreach (var item in _dataList)
                 {
-                 var desc   = "واریز به " + transaction.SourceCustomer.FirstName + "  کدشعبه " + transaction.BranchCode +
-                    " شماره فیش :" + transaction.ReceiptNumber + " توسط " + item.FullName;
+                    var desc = "واریز به " + transaction.SourceCustomer.FirstName + "  کدشعبه " + transaction.BranchCode +
+                       " شماره فیش :" + transaction.ReceiptNumber + " توسط " + item.FullName;
+                    bankDesc += $" {item.FullName} ";
+
                     createDeposit(item.CustomerId, transaction.CurrenyId.Value, transaction.SourceCustomerId, item.Amount.Value, desc, transaction.Date);
-                    CreateWithDraw(transaction.SourceCustomerId, transaction.CurrenyId.Value, item.CustomerId, item.Amount.Value, desc, transaction.Date);
+                   // CreateWithDraw(transaction.SourceCustomerId, transaction.CurrenyId.Value, item.CustomerId, item.Amount.Value, desc, transaction.Date);
                 }
 
+               
+                transaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
+                transaction.Description = bankDesc;
+                unitOfWork.Transactions.Update(transaction);
+                unitOfWork.SaveChanges();
                 Close();
             }
             else
@@ -211,7 +205,7 @@ namespace PamirAccounting.Forms.Transactions
             if (frm.Amount.HasValue)
             {
                 var customer = _dataList.FirstOrDefault(x => x.CustomerId == frm.CustomerID.Value);
-                if(customer !=null)
+                if (customer != null)
                 {
 
                     customer.Amount += frm.Amount;

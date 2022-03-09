@@ -24,6 +24,16 @@ namespace PamirAccounting.Forms.Customers
         private UnitOfWork unitOfWork;
         private List<CustomerModel> dataList;
         private List<CustomerGroupModel> _Groups;
+
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
+
         public FrmCustomerList()
         {
             InitializeComponent();
@@ -46,17 +56,14 @@ namespace PamirAccounting.Forms.Customers
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
         }
-        [DllImport("user32.dll")]
-        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
-        private const Int32 CB_SETITEMHEIGHT = 0x153;
 
-        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
-        {
-            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
-        }
         private void loadData()
         {
-            _Groups = unitOfWork.CustomerGroupServices.GetAll();
+            var groups = unitOfWork.CustomerGroupServices.GetAll();
+            _Groups = new List<CustomerGroupModel>();
+            _Groups.Add(new CustomerGroupModel() { Id = 0, Name = "همه" });
+            _Groups.AddRange(groups);
+
             cmbGroupsSearch.DataSource = _Groups;
             cmbGroupsSearch.ValueMember = "Id";
             cmbGroupsSearch.DisplayMember = "Name";
@@ -242,26 +249,51 @@ namespace PamirAccounting.Forms.Customers
                     destForm.ShowDialog();
                 }
             }
-         
+
         }
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                var rowIndex = dataGridView1.SelectedRows[0].Index;
-                var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
-                destForm.ShowDialog();
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    var rowIndex = dataGridView1.SelectedRows[0].Index;
+            //    var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
+            //    destForm.ShowDialog();
 
-            }
+            //}
         }
 
         private void dataGridView1_Enter(object sender, EventArgs e)
         {
-            var rowIndex = dataGridView1.SelectedRows[0].Index;
-            var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
-            destForm.ShowDialog();
+
         }
+
+        private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.dataGridView1.CurrentRow.Selected = true;
+                e.Handled = true;
+
+                var rowIndex = dataGridView1.SelectedRows[0].Index;
+                var destForm = new ViewCustomerAccountFrm(dataList.ElementAt(rowIndex).Id);
+                destForm.ShowDialog();
+            }
+        }
+
+        //        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        //        {
+        //            if (e.KeyCode == 13) 
+        //{
+        //                this.dataGridView1.CurrentRow.Selected = true;
+        //                e.Handled = true;
+        //            }
+        //        }
 
     }
 
