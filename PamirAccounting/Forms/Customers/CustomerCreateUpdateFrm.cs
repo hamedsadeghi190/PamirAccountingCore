@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,13 +35,24 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void CustomerCreateUpdateFrm_Load(object sender, EventArgs e)
         {
+            SetComboBoxHeight(cmbCurrencies.Handle, 25);
+            cmbCurrencies.Refresh();
+            SetComboBoxHeight(cmbGroups.Handle, 25);
+            cmbGroups.Refresh();
             initData();
             if (_Id != null)
             {
                 LoadData();
             }
         }
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
 
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         private void initData()
         {
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel()
@@ -140,6 +152,11 @@ namespace PamirAccounting.UI.Forms.Customers
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
