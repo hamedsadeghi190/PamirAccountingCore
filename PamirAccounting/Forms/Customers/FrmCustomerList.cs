@@ -35,8 +35,18 @@ namespace PamirAccounting.Forms.Customers
             unitOfWork = new UnitOfWork();
         }
 
+
+
+
+        public void Sort(object sender, EventArgs e)
+        {
+
+        }
+
         private void FrmCustomerList_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataBindingComplete += Sort;
+
             var groups = unitOfWork.CustomerGroupServices.GetAll();
             _Groups = new List<CustomerGroupModel>();
             _Groups.Add(new CustomerGroupModel() { Id = 0, Name = "همه" });
@@ -105,7 +115,7 @@ namespace PamirAccounting.Forms.Customers
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
-                if(dataList.ElementAt(e.RowIndex).IsPrimery)
+                if (dataList.ElementAt(e.RowIndex).IsPrimery)
                 {
                     MessageBox.Show($"از حساب های اصلی است حذف امکانپذیر نمیباشد ", "حذف مشتری", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -235,7 +245,7 @@ namespace PamirAccounting.Forms.Customers
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
-            if (e.KeyCode == Keys.F3)
+            if (e.KeyCode == Keys.F2)
             {
                 btnprint_Click(null, null);
             }
