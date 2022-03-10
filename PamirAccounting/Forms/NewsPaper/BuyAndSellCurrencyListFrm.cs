@@ -23,6 +23,7 @@ namespace PamirAccounting.Forms.NewsPaper
         public BuyAndSellCurrencyListFrm()
         {
             InitializeComponent();
+            unitOfWork = new UnitOfWork();
         }
 
         [DllImport("user32.dll")]

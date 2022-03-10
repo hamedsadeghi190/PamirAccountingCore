@@ -490,7 +490,7 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
@@ -624,7 +624,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
             this.عملیاتچکToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(196, 48);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(184, 48);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan
@@ -942,7 +942,7 @@ namespace PamirAccounting.Forms
             this.btnNewAccount.ForeColor = System.Drawing.Color.White;
             this.btnNewAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnNewAccount.Image")));
             this.btnNewAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewAccount.Location = new System.Drawing.Point(212, 127);
+            this.btnNewAccount.Location = new System.Drawing.Point(232, 127);
             this.btnNewAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNewAccount.Name = "btnNewAccount";
             this.btnNewAccount.Size = new System.Drawing.Size(167, 93);
@@ -966,7 +966,7 @@ namespace PamirAccounting.Forms
             this.btnCurrencyAgency.Location = new System.Drawing.Point(16, 127);
             this.btnCurrencyAgency.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCurrencyAgency.Name = "btnCurrencyAgency";
-            this.btnCurrencyAgency.Size = new System.Drawing.Size(191, 93);
+            this.btnCurrencyAgency.Size = new System.Drawing.Size(209, 93);
             this.btnCurrencyAgency.TabIndex = 2;
             this.btnCurrencyAgency.Text = "تنظیمات نمایندگی ها";
             this.btnCurrencyAgency.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -984,7 +984,7 @@ namespace PamirAccounting.Forms
             this.btnWarrantsPayable.ForeColor = System.Drawing.Color.White;
             this.btnWarrantsPayable.Image = ((System.Drawing.Image)(resources.GetObject("btnWarrantsPayable.Image")));
             this.btnWarrantsPayable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWarrantsPayable.Location = new System.Drawing.Point(16, 333);
+            this.btnWarrantsPayable.Location = new System.Drawing.Point(16, 327);
             this.btnWarrantsPayable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnWarrantsPayable.Name = "btnWarrantsPayable";
             this.btnWarrantsPayable.Size = new System.Drawing.Size(104, 93);
@@ -1005,7 +1005,7 @@ namespace PamirAccounting.Forms
             this.btn_CreditorList.ForeColor = System.Drawing.Color.White;
             this.btn_CreditorList.Image = ((System.Drawing.Image)(resources.GetObject("btn_CreditorList.Image")));
             this.btn_CreditorList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CreditorList.Location = new System.Drawing.Point(248, 333);
+            this.btn_CreditorList.Location = new System.Drawing.Point(248, 327);
             this.btn_CreditorList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_CreditorList.Name = "btn_CreditorList";
             this.btn_CreditorList.Size = new System.Drawing.Size(152, 93);
@@ -1026,7 +1026,7 @@ namespace PamirAccounting.Forms
             this.btnShippingOrder.ForeColor = System.Drawing.Color.White;
             this.btnShippingOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnShippingOrder.Image")));
             this.btnShippingOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShippingOrder.Location = new System.Drawing.Point(126, 333);
+            this.btnShippingOrder.Location = new System.Drawing.Point(126, 327);
             this.btnShippingOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnShippingOrder.Name = "btnShippingOrder";
             this.btnShippingOrder.Size = new System.Drawing.Size(116, 93);
@@ -1047,10 +1047,10 @@ namespace PamirAccounting.Forms
             this.btnBank.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnBank.Image = ((System.Drawing.Image)(resources.GetObject("btnBank.Image")));
             this.btnBank.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBank.Location = new System.Drawing.Point(16, 230);
+            this.btnBank.Location = new System.Drawing.Point(16, 227);
             this.btnBank.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBank.Name = "btnBank";
-            this.btnBank.Size = new System.Drawing.Size(206, 93);
+            this.btnBank.Size = new System.Drawing.Size(226, 93);
             this.btnBank.TabIndex = 6;
             this.btnBank.Text = "دریافت و پرداخت بانکی";
             this.btnBank.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1068,7 +1068,7 @@ namespace PamirAccounting.Forms
             this.btn_Deposit.ForeColor = System.Drawing.Color.White;
             this.btn_Deposit.Image = ((System.Drawing.Image)(resources.GetObject("btn_Deposit.Image")));
             this.btn_Deposit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Deposit.Location = new System.Drawing.Point(228, 230);
+            this.btn_Deposit.Location = new System.Drawing.Point(248, 227);
             this.btn_Deposit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Deposit.Name = "btn_Deposit";
             this.btn_Deposit.Size = new System.Drawing.Size(151, 93);
