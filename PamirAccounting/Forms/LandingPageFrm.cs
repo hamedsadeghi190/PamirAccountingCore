@@ -517,5 +517,11 @@ namespace PamirAccounting.Forms
         {
 
         }
+
+        private void BuyAndSellCurrencyList_Click(object sender, EventArgs e)
+        {
+            var frm = new BuyAndSellCurrencyListFrm();
+            frm.ShowDialog();
+        }
     }
 }

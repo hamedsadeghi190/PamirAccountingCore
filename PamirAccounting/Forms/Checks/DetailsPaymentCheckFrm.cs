@@ -21,7 +21,7 @@ namespace PamirAccounting.Forms.Checks
     {
         private UnitOfWork unitOfWork;
         long DocumentId;
-        private List<ComboBoxModel> _RealBank, _Customers;
+        private List<ComboBoxModel> _Banks, _Customers;
         public Domains.Cheque Cheque;
         public int? CustomerId;
         private long? _ChequeNumber;
@@ -78,15 +78,19 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
-            _RealBank = unitOfWork.Customers.FindAll(x => x.GroupId==2).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName}{x.LastName}" }).ToList();
-            cmbRealBankId.DataSource = _RealBank;
+            _Banks = unitOfWork.Banks.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
+            this.cmbRealBankId.SelectedValueChanged -= new System.EventHandler(this.cmbRealBankId_SelectedValueChanged);
             cmbRealBankId.ValueMember = "Id";
             cmbRealBankId.DisplayMember = "Title";
-            txtBankAccountNumber.Text=unitOfWork.BankServices.FindAll(x => x.Id == (int)cmbRealBankId.SelectedValue).Select(x => x.AccountNumber).First().ToString();
+            cmbRealBankId.DataSource = _Banks;
+            this.cmbRealBankId.SelectedValueChanged += new System.EventHandler(this.cmbRealBankId_SelectedValueChanged);
+
+            txtBankAccountNumber.Text = unitOfWork.BankServices.GetAccountNumber((int)cmbRealBankId.SelectedValue);
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomers.DataSource = _Customers;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title"; 
+
 
         }
 
@@ -373,6 +377,18 @@ namespace PamirAccounting.Forms.Checks
         private void groupBox1_Enter_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbRealBankId_SelectedValueChanged(object sender, EventArgs e)
+        {
+            txtBankAccountNumber.Text = unitOfWork.BankServices.GetAccountNumber((int)cmbRealBankId.SelectedValue);
+
+        }
+
+        private void btnshowcustomer_Click_1(object sender, EventArgs e)
+        {
+            var frm = new SearchAllCustomersFrm();
+            frm.ShowDialog();
         }
 
         private void btnshowcustomer_KeyUp(object sender, KeyEventArgs e)

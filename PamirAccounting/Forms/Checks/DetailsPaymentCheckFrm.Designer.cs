@@ -221,6 +221,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnshowcustomer.Size = new System.Drawing.Size(38, 32);
             this.btnshowcustomer.TabIndex = 86;
+            this.btnshowcustomer.Click += new System.EventHandler(this.btnshowcustomer_Click_1);
             this.btnshowcustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnshowcustomer_KeyUp);
             // 
             // label12
@@ -282,6 +283,7 @@ namespace PamirAccounting.Forms.Checks
             this.cmbRealBankId.Size = new System.Drawing.Size(140, 27);
             this.cmbRealBankId.TabIndex = 80;
             this.cmbRealBankId.SelectedIndexChanged += new System.EventHandler(this.cmbRealBankId_SelectedIndexChanged);
+            this.cmbRealBankId.SelectedValueChanged += new System.EventHandler(this.cmbRealBankId_SelectedValueChanged);
             // 
             // label8
             // 

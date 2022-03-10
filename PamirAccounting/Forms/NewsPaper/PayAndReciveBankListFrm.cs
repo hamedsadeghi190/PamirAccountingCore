@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,25 +35,26 @@ namespace PamirAccounting.Forms.NewsPaper
 
         }
 
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
 
         private void initGrid()
         {
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 9; i++)
-            {
-                gridPayAndReciveBank.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.gridPayAndReciveBank.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-        
-
+          
         }
 
 
 
         private void InitForm()
         {
-
+            SetComboBoxHeight(cmbBank.Handle, 25);
+            cmbBank.Refresh();
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Currencies.AddRange(unitOfWork.Customers.FindAll().Where(x=>x.GroupId==2).Select(x => new ComboBoxModel() { Id = x.Id, Title = x.FirstName }).ToList());
             cmbBank.SelectedValueChanged -= new EventHandler(cmbBank_SelectedValueChanged);

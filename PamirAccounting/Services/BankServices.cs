@@ -73,13 +73,14 @@ namespace PamirAccounting.Services.Services
             try
             {
                 var banks = _context.Banks.ToList();
-                var bank = FindAllReadonly().Include(x => x.BaseCurrency).Include(x => x.Country).Select(x => new BanksModel {
+                var bank = FindAllReadonly().Include(x => x.BaseCurrency).Include(x => x.Country).Select(x => new BanksModel
+                {
                     Id = x.Id,
-                    Name = x.Name, 
-                    CountryId = x.CountryId,  
-                    BaseCurrencyId = x.BaseCurrencyId,  
-                    BaseCurrencyName= x.BaseCurrency.Name,
-                    CountryName= x.Country.NameFa
+                    Name = x.Name,
+                    CountryId = x.CountryId,
+                    BaseCurrencyId = x.BaseCurrencyId,
+                    BaseCurrencyName = x.BaseCurrency.Name,
+                    CountryName = x.Country.NameFa
 
                 }).ToList();
 
@@ -132,6 +133,14 @@ namespace PamirAccounting.Services.Services
             {
                 return null;
             }
+
+        }
+
+        public string GetAccountNumber(int id)
+        {
+            var bank = _unitOfWork.Banks.FindFirstOrDefault(x => x.Id == id);
+            string accountNumber = bank.AccountNumber?.ToString();
+            return accountNumber;
 
         }
     }

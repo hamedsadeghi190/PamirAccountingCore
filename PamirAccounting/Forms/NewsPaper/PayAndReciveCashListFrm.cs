@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -35,32 +36,18 @@ namespace PamirAccounting.Forms.NewsPaper
 
         }
 
-      
-        private void initGrid()
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
         {
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 7; i++)
-            {
-                gridPayAndReciveCash.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.gridPayAndReciveCash.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            ////////***************/////////////////
-            DataGridViewCellStyle HeaderStyle1 = new DataGridViewCellStyle();
-            HeaderStyle1.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 6; i++)
-            {
-                grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
-            }
-            this.grdTotals.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
         }
-
-
-
         private void InitForm()
         {
-
+            SetComboBoxHeight(cmbCurrencies.Handle, 25);
+            cmbCurrencies.Refresh();
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
             cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
@@ -167,7 +154,6 @@ namespace PamirAccounting.Forms.NewsPaper
         {
             InitForm();
             LoadData();
-            initGrid(); 
             PersianCalendar pc = new PersianCalendar();
             string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
             txtDate.Text = PDate;

@@ -191,6 +191,9 @@
     <Compile Update="Forms\MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\NewsPaper\BuyAndSellCurrencyListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\NewsPaper\PayAndReciveBankListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
