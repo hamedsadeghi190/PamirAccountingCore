@@ -61,7 +61,7 @@ namespace PamirAccounting.Forms.Transactions
 
         private void addDepositCustomerFrm_Load(object sender, EventArgs e)
         {
-            _Customers = unitOfWork.CustomerServices.GetAll();
+            _Customers = unitOfWork.CustomerServices.GetAll(null);
             cmb_customer.DataSource = _Customers;
             cmb_customer.DisplayMember = "FullName";
             cmb_customer.ValueMember = "Id";

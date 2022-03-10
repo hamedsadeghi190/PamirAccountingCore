@@ -99,11 +99,18 @@ namespace PamirAccounting.UI.Forms.Customers
         {
             try
             {
+                if (!fromValidation())
+                {
+                    MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید", "مقادیر ورودی", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    txtFirstname.Focus();
+                    return;
+                }
+
                 if (_Customer != null)
                 {
-                    _Customer.FirstName = txtFirstname.Text;
+                        _Customer.FirstName = txtFirstname.Text;
                     _Customer.LastName = txtLastName.Text;
-                    _Customer.CreditLimit = String.IsNullOrEmpty(txtCreditLimit.Text.Trim()) ?  0: int.Parse(txtCreditLimit.Text);
+                    _Customer.CreditLimit = String.IsNullOrEmpty(txtCreditLimit.Text.Trim()) ? 0 : int.Parse(txtCreditLimit.Text);
                     _Customer.Dsc = txtDesc.Text;
                     _Customer.Phone = txtPhone.Text;
                     _Customer.Mobile = txtMobile.Text;
@@ -136,6 +143,15 @@ namespace PamirAccounting.UI.Forms.Customers
                 MessageBox.Show("ذخیره تغییرات با شکست مواجه شد");
             }
 
+        }
+
+        private bool fromValidation()
+        {
+            if (String.IsNullOrEmpty(txtFirstname.Text.Trim()))
+            {
+                return false;
+            }
+            return true;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
