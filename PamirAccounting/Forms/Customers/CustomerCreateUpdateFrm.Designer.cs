@@ -176,6 +176,9 @@ namespace PamirAccounting.UI.Forms.Customers
             this.txtCreditLimit.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCreditLimit.Properties.Appearance.Options.UseFont = true;
             this.txtCreditLimit.Properties.AutoHeight = false;
+            this.txtCreditLimit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
+            this.txtCreditLimit.Properties.MaskSettings.Set("MaskManagerSignature", "ignoreMaskBlank=True");
+            this.txtCreditLimit.Properties.MaskSettings.Set("mask", "\\d?\\d?\\d?\\d?\\d?");
             this.txtCreditLimit.Size = new System.Drawing.Size(202, 30);
             this.txtCreditLimit.TabIndex = 85;
             // 

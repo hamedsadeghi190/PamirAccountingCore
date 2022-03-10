@@ -71,9 +71,9 @@ namespace PamirAccounting.Services.Services
         {
             try
             {
-                var customerGroup = FindAllReadonly().Select(x => new CustomerGroupModel { Name = x.Name, Id = x.Id }).ToList();
-
-                return customerGroup;
+                    var customerGroup = FindAllReadonly().Select(x => new CustomerGroupModel { Name = x.Name, Id = x.Id }).ToList();
+                    return customerGroup;
+         
             }
             catch (Exception ex)
             {

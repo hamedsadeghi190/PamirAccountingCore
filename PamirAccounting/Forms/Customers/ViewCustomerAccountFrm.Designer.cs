@@ -122,12 +122,12 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // cmbActions
             // 
+            this.cmbActions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbActions.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbActions.FormattingEnabled = true;
             this.cmbActions.Location = new System.Drawing.Point(6, 35);
             this.cmbActions.Name = "cmbActions";
             this.cmbActions.Size = new System.Drawing.Size(192, 32);
-            this.cmbActions.Sorted = true;
             this.cmbActions.TabIndex = 1;
             // 
             // groupBox1

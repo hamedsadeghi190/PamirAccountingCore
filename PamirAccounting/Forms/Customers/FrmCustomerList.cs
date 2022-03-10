@@ -1,20 +1,14 @@
-﻿using DevExpress.XtraEditors;
-using PamirAccounting.Domains;
-using PamirAccounting.Models;
+﻿using PamirAccounting.Models;
 using PamirAccounting.Services;
 using PamirAccounting.UI.Forms.Customers;
 using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.Customers
@@ -22,6 +16,7 @@ namespace PamirAccounting.Forms.Customers
     public partial class FrmCustomerList : DevExpress.XtraEditors.XtraForm
     {
         private UnitOfWork unitOfWork;
+        private int selectedGroupId = 0;
         private List<CustomerModel> dataList;
         private List<CustomerGroupModel> _Groups;
 
@@ -42,9 +37,19 @@ namespace PamirAccounting.Forms.Customers
 
         private void FrmCustomerList_Load(object sender, EventArgs e)
         {
+            var groups = unitOfWork.CustomerGroupServices.GetAll();
+            _Groups = new List<CustomerGroupModel>();
+            _Groups.Add(new CustomerGroupModel() { Id = 0, Name = "همه" });
+            _Groups.AddRange(groups);
+
+            this.cmbGroupsSearch.SelectedValueChanged -= new System.EventHandler(this.cmbGroupsSearch_SelectedValueChanged);
+            cmbGroupsSearch.ValueMember = "Id";
+            cmbGroupsSearch.DisplayMember = "Name";
+            cmbGroupsSearch.DataSource = _Groups;
+            this.cmbGroupsSearch.SelectedValueChanged += new System.EventHandler(this.cmbGroupsSearch_SelectedValueChanged);
 
             dataGridView1.AutoGenerateColumns = false;
-            loadData();
+            loadData(selectedGroupId);
             SetComboBoxHeight(cmbGroupsSearch.Handle, 25);
             cmbGroupsSearch.Refresh();
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
@@ -55,20 +60,21 @@ namespace PamirAccounting.Forms.Customers
             d.FlatStyle = FlatStyle.Standard;
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
+
         }
 
-        private void loadData()
+        private void loadData(int groupId)
         {
-            var groups = unitOfWork.CustomerGroupServices.GetAll();
-            _Groups = new List<CustomerGroupModel>();
-            _Groups.Add(new CustomerGroupModel() { Id = 0, Name = "همه" });
-            _Groups.AddRange(groups);
 
-            cmbGroupsSearch.DataSource = _Groups;
-            cmbGroupsSearch.ValueMember = "Id";
-            cmbGroupsSearch.DisplayMember = "Name";
+            if (groupId == 0)
+            {
+                dataList = unitOfWork.CustomerServices.GetAll(null);
+            }
+            else
+            {
+                dataList = unitOfWork.CustomerServices.GetAll(groupId);
+            }
 
-            dataList = unitOfWork.CustomerServices.GetAll();
             dataGridView1.DataSource = dataList.Select(x => new
             {
                 x.Id,
@@ -93,12 +99,17 @@ namespace PamirAccounting.Forms.Customers
             {
                 var frmCurrencies = new CustomerCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
                 frmCurrencies.ShowDialog();
-                loadData();
+                loadData(selectedGroupId);
             }
 
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
+                if(dataList.ElementAt(e.RowIndex).IsPrimery)
+                {
+                    MessageBox.Show($"از حساب های اصلی است حذف امکانپذیر نمیباشد ", "حذف مشتری", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
@@ -111,11 +122,11 @@ namespace PamirAccounting.Forms.Customers
                         customer.IsDeleted = true;
                         unitOfWork.CustomerServices.Update(customer);
                         unitOfWork.SaveChanges();
-                        loadData();
+                        loadData(selectedGroupId);
                     }
                     catch
                     {
-                        MessageBox.Show("حذف امکانپذیر نمیباشد");
+                        MessageBox.Show($" بدلیل موجود بودن تراکنش امکان حذف وجود ندارد", "حذف مشتری", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -126,7 +137,7 @@ namespace PamirAccounting.Forms.Customers
         {
             var frmCurrencies = new CustomerCreateUpdateFrm();
             frmCurrencies.ShowDialog();
-            loadData();
+            loadData(selectedGroupId);
         }
 
         private void txtphoneSearch_TextChanged(object sender, EventArgs e)
@@ -148,7 +159,7 @@ namespace PamirAccounting.Forms.Customers
             }
             else
             {
-                loadData();
+                loadData(selectedGroupId);
             }
         }
 
@@ -161,7 +172,7 @@ namespace PamirAccounting.Forms.Customers
             }
             else
             {
-                loadData();
+                loadData(selectedGroupId);
             }
         }
 
@@ -175,7 +186,7 @@ namespace PamirAccounting.Forms.Customers
             }
             else
             {
-                loadData();
+                loadData(selectedGroupId);
             }
         }
 
@@ -189,21 +200,13 @@ namespace PamirAccounting.Forms.Customers
             }
             else
             {
-                loadData();
+                loadData(selectedGroupId);
             }
         }
 
         private void cmbGroupsSearch_TextChanged(object sender, EventArgs e)
         {
-            if (cmbGroupsSearch.Text.Length > 0)
-            {
-                dataList = unitOfWork.Customers.FindAll(y => y.Group.Name.Contains(cmbGroupsSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
-                dataGridView1.DataSource = dataList;
-            }
-            else
-            {
-                loadData();
-            }
+
 
         }
 
@@ -286,14 +289,12 @@ namespace PamirAccounting.Forms.Customers
             }
         }
 
-        //        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
-        //        {
-        //            if (e.KeyCode == 13) 
-        //{
-        //                this.dataGridView1.CurrentRow.Selected = true;
-        //                e.Handled = true;
-        //            }
-        //        }
+        private void cmbGroupsSearch_SelectedValueChanged(object sender, EventArgs e)
+        {
+            selectedGroupId = (int)cmbGroupsSearch.SelectedValue;
+            loadData(selectedGroupId);
+        }
+
 
     }
 

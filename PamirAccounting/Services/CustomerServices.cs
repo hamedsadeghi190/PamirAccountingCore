@@ -48,19 +48,65 @@ namespace PamirAccounting.Services
         {
             try
             {
-                var dataList = FindAllReadonly(x => x.IsDeleted == false).Include(x => x.Group).Select(x => new CustomerModel
+                    var dataList = FindAllReadonly(x => x.IsDeleted == false).Include(x => x.Group).Select(x => new CustomerModel
+                    {
+                        Id = x.Id,
+                        FirstName = x.FirstName,
+                        LastName = x.LastName,
+                        FullName = x.FirstName + " " + x.LastName,
+                        Phone = x.Phone,
+                        Mobile = x.Mobile,
+                        GroupName = x.Group.Name,
+
+                    }).ToList();
+
+                    return dataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public List<CustomerModel> GetAll(int? groupId)
+        {
+            try
+            {
+                if (groupId == null)
                 {
-                    Id = x.Id,
-                    FirstName = x.FirstName,
-                    LastName = x.LastName,
-                    FullName = x.FirstName + " " + x.LastName,
-                    Phone = x.Phone,
-                    Mobile = x.Mobile,
-                    GroupName = x.Group.Name,
+                    var dataList = FindAllReadonly(x => x.IsDeleted == false).Include(x => x.Group).Select(x => new CustomerModel
+                    {
+                        Id = x.Id,
+                        FirstName = x.FirstName,
+                        LastName = x.LastName,
+                        FullName = x.FirstName + " " + x.LastName,
+                        Phone = x.Phone,
+                        Mobile = x.Mobile,
+                        GroupName = x.Group.Name,
+                        IsPrimery = x.IsPrimery
 
-                }).ToList();
+                    }).ToList();
 
-                return dataList;
+                    return dataList;
+                }
+                else
+                {
+                    var dataList = FindAllReadonly(x => x.IsDeleted == false && x.GroupId == groupId).Include(x => x.Group).Select(x => new CustomerModel
+                    {
+                        Id = x.Id,
+                        FirstName = x.FirstName,
+                        LastName = x.LastName,
+                        FullName = x.FirstName + " " + x.LastName,
+                        Phone = x.Phone,
+                        Mobile = x.Mobile,
+                        GroupName = x.Group.Name,
+                        IsPrimery = x.IsPrimery
+
+                    }).ToList();
+
+                    return dataList;
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -82,9 +128,9 @@ namespace PamirAccounting.Services
                     Phone = x.Phone,
                     Mobile = x.Mobile,
                     GroupName = x.Group.Name,
-                  
 
-                }).ToList(); 
+
+                }).ToList();
                 dataList = dataList.Select(x => new CustomerModel
                 {
                     Id = x.Id,

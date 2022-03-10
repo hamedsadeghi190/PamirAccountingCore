@@ -128,6 +128,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void InitForm()
         {
+           
             _Actions.Add(new ComboBoxModel() { Id = 1, Title = "ثبت حساب جدید " });
             _Actions.Add(new ComboBoxModel() { Id = 2, Title = "دریافت و پرداخت نقدی " });
             _Actions.Add(new ComboBoxModel() { Id = 3, Title = "دریافت و پرداخت بانکی " });

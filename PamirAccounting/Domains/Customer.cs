@@ -32,6 +32,7 @@ namespace PamirAccounting.Domains
         public int? CountryId { get; set; }
         public int? BankId { get; set; }
         public bool IsDeleted { get; set; }
+        public bool IsPrimery { get; set; }
 
         public virtual Bank Bank { get; set; }
         public virtual Country Country { get; set; }

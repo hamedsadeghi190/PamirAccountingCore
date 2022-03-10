@@ -99,6 +99,13 @@ namespace PamirAccounting.UI.Forms.Customers
         {
             try
             {
+                if(!fromValidation())
+                {
+                    MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید", "مقادیر ورودی", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    txtFirstname.Focus();
+                    return;
+                }
+
                 if (_Customer != null)
                 {
                     _Customer.FirstName = txtFirstname.Text;
@@ -136,6 +143,11 @@ namespace PamirAccounting.UI.Forms.Customers
                 MessageBox.Show("ذخیره تغییرات با شکست مواجه شد");
             }
 
+        }
+
+        private bool fromValidation()
+        {
+            throw new NotImplementedException();
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

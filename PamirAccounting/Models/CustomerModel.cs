@@ -24,6 +24,7 @@ namespace PamirAccounting.Models
         public int? CountryId { get; set; }
         public int? BankId { get; set; }
         public bool IsDeleted { get; set; }
+        public bool IsPrimery { get; set; }
         public string Date { get; set; }
         public int? Radif { get; set; }
     }
