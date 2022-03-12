@@ -229,7 +229,7 @@ namespace PamirAccounting.Forms.Customers
             var basedata = new reportbaseDAta() { Date = PersianDate };
             var report = StiReport.CreateNewReport();
             report.Load(AppSetting.ReportPath + "Customers.mrt");
-            report.RegData("myData", data);
+            report.RegData("myData", dataList);
             report.RegData("basedata", basedata);
             // report.Design();
             report.Render();
