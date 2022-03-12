@@ -29,6 +29,9 @@ namespace PamirAccounting.Forms.GeneralLedger
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TotalListFrm));
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,8 +129,19 @@ namespace PamirAccounting.Forms.GeneralLedger
             // 
             this.grdTotals.AllowUserToAddRows = false;
             this.grdTotals.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grdTotals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grdTotals.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grdTotals.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdTotals.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.grdTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdTotals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
@@ -136,28 +150,37 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.dataGridViewTextBoxColumn16,
             this.Column10,
             this.Column11});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdTotals.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(1, 481);
+            this.grdTotals.Location = new System.Drawing.Point(0, 481);
             this.grdTotals.Name = "grdTotals";
             this.grdTotals.ReadOnly = true;
             this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.grdTotals.RowHeadersVisible = false;
             this.grdTotals.RowHeadersWidth = 51;
             this.grdTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdTotals.ShowEditingIcon = false;
-            this.grdTotals.Size = new System.Drawing.Size(1034, 132);
+            this.grdTotals.Size = new System.Drawing.Size(992, 132);
             this.grdTotals.TabIndex = 128;
             this.grdTotals.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTotals_CellContentClick);
             // 
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn13.FillWeight = 610F;
+            this.dataGridViewTextBoxColumn13.FillWeight = 200F;
             this.dataGridViewTextBoxColumn13.Frozen = true;
             this.dataGridViewTextBoxColumn13.HeaderText = "شرح";
             this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 405;
+            this.dataGridViewTextBoxColumn13.Width = 200;
             // 
             // dataGridViewTextBoxColumn14
             // 
@@ -192,21 +215,22 @@ namespace PamirAccounting.Forms.GeneralLedger
             // Column10
             // 
             this.Column10.DataPropertyName = "RemainigAmount";
-            this.Column10.FillWeight = 150F;
+            this.Column10.FillWeight = 220F;
             this.Column10.HeaderText = "باقیمانده";
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            this.Column10.Width = 180;
+            this.Column10.Width = 220;
             // 
             // Column11
             // 
             this.Column11.DataPropertyName = "Status";
+            this.Column11.FillWeight = 132F;
             this.Column11.HeaderText = "وضعیت";
             this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
-            this.Column11.Width = 125;
+            this.Column11.Width = 132;
             // 
             // groupBoxViewAccountCustomer
             // 
@@ -220,7 +244,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.groupBoxViewAccountCustomer.Name = "groupBoxViewAccountCustomer";
             this.groupBoxViewAccountCustomer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(1034, 130);
+            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(991, 130);
             this.groupBoxViewAccountCustomer.TabIndex = 127;
             this.groupBoxViewAccountCustomer.TabStop = false;
             this.groupBoxViewAccountCustomer.Text = "لیست کل";
@@ -232,7 +256,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(297, 26);
+            this.groupBox1.Location = new System.Drawing.Point(269, 26);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(685, 90);
             this.groupBox1.TabIndex = 112;
@@ -243,7 +267,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             // 
             this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(405, 33);
+            this.cmbCurrencies.Location = new System.Drawing.Point(409, 34);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(178, 27);
             this.cmbCurrencies.TabIndex = 118;
@@ -305,7 +329,9 @@ namespace PamirAccounting.Forms.GeneralLedger
             // 
             this.gridCreditor.AllowUserToAddRows = false;
             this.gridCreditor.AllowUserToDeleteRows = false;
+            this.gridCreditor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridCreditor.BackgroundColor = System.Drawing.Color.White;
+            this.gridCreditor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridCreditor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCreditor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
@@ -316,16 +342,18 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.Column1,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
+            this.gridCreditor.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridCreditor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gridCreditor.Location = new System.Drawing.Point(1, 159);
+            this.gridCreditor.Location = new System.Drawing.Point(0, 151);
             this.gridCreditor.MultiSelect = false;
             this.gridCreditor.Name = "gridCreditor";
             this.gridCreditor.ReadOnly = true;
             this.gridCreditor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.gridCreditor.RowHeadersVisible = false;
             this.gridCreditor.RowHeadersWidth = 51;
             this.gridCreditor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCreditor.ShowEditingIcon = false;
-            this.gridCreditor.Size = new System.Drawing.Size(1034, 324);
+            this.gridCreditor.Size = new System.Drawing.Size(992, 332);
             this.gridCreditor.TabIndex = 126;
             // 
             // dataGridViewTextBoxColumn5
@@ -342,25 +370,25 @@ namespace PamirAccounting.Forms.GeneralLedger
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "RowId";
-            this.dataGridViewTextBoxColumn7.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn7.FillWeight = 75F;
             this.dataGridViewTextBoxColumn7.Frozen = true;
             this.dataGridViewTextBoxColumn7.HeaderText = "ردیف";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn7.Width = 125;
+            this.dataGridViewTextBoxColumn7.Width = 75;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "FullName";
-            this.dataGridViewTextBoxColumn8.FillWeight = 450F;
+            this.dataGridViewTextBoxColumn8.FillWeight = 245F;
             this.dataGridViewTextBoxColumn8.Frozen = true;
             this.dataGridViewTextBoxColumn8.HeaderText = "نام حساب";
             this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 250;
+            this.dataGridViewTextBoxColumn8.Width = 245;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -369,17 +397,16 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 130;
             // 
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "RemainigAmount";
-            this.dataGridViewTextBoxColumn10.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn10.FillWeight = 185F;
             this.dataGridViewTextBoxColumn10.HeaderText = "باقیمانده";
             this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 250;
+            this.dataGridViewTextBoxColumn10.Width = 185;
             // 
             // Column1
             // 
@@ -388,7 +415,6 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -403,6 +429,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "Mobile";
+            this.dataGridViewTextBoxColumn12.FillWeight = 130F;
             this.dataGridViewTextBoxColumn12.HeaderText = "موبایل";
             this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
@@ -415,7 +442,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 613);
+            this.ClientSize = new System.Drawing.Size(992, 613);
             this.Controls.Add(this.grdTotals);
             this.Controls.Add(this.groupBoxViewAccountCustomer);
             this.Controls.Add(this.gridCreditor);
@@ -446,12 +473,6 @@ namespace PamirAccounting.Forms.GeneralLedger
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridView grdTotals;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.GroupBox groupBoxViewAccountCustomer;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbCurrencies;
@@ -461,6 +482,12 @@ namespace PamirAccounting.Forms.GeneralLedger
         private DevExpress.XtraEditors.SimpleButton btnprint;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private System.Windows.Forms.DataGridView gridCreditor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
