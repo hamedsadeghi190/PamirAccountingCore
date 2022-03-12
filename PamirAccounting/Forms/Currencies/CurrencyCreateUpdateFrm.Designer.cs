@@ -44,23 +44,23 @@ namespace PamirAccounting.UI.Forms.Currencies
             // txtName
             // 
             this.txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtName.Location = new System.Drawing.Point(115, 54);
+            this.txtName.Location = new System.Drawing.Point(114, 58);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtName.Properties.Appearance.Options.UseFont = true;
             this.txtName.Properties.AutoHeight = false;
-            this.txtName.Size = new System.Drawing.Size(246, 38);
+            this.txtName.Size = new System.Drawing.Size(246, 32);
             this.txtName.TabIndex = 7;
             // 
             // exitbtn
             // 
             this.exitbtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.exitbtn.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.exitbtn.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.exitbtn.Appearance.Options.UseFont = true;
             this.exitbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("exitbtn.ImageOptions.SvgImage")));
             this.exitbtn.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.exitbtn.Location = new System.Drawing.Point(125, 32);
+            this.exitbtn.Location = new System.Drawing.Point(125, 20);
             this.exitbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.exitbtn.Name = "exitbtn";
             this.exitbtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -72,11 +72,11 @@ namespace PamirAccounting.UI.Forms.Currencies
             // insertbtn
             // 
             this.insertbtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.insertbtn.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.insertbtn.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.insertbtn.Appearance.Options.UseFont = true;
             this.insertbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("insertbtn.ImageOptions.SvgImage")));
             this.insertbtn.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.insertbtn.Location = new System.Drawing.Point(7, 32);
+            this.insertbtn.Location = new System.Drawing.Point(7, 20);
             this.insertbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.insertbtn.Name = "insertbtn";
             this.insertbtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -88,7 +88,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(354, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 36);
@@ -100,7 +100,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             // 
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(12, 16);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(458, 141);
@@ -112,10 +112,10 @@ namespace PamirAccounting.UI.Forms.Currencies
             // 
             this.groupBox2.Controls.Add(this.insertbtn);
             this.groupBox2.Controls.Add(this.exitbtn);
-            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(12, 157);
+            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(11, 158);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(458, 91);
+            this.groupBox2.Size = new System.Drawing.Size(458, 66);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             // 
@@ -124,9 +124,9 @@ namespace PamirAccounting.UI.Forms.Currencies
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 257);
+            this.ClientSize = new System.Drawing.Size(481, 239);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
