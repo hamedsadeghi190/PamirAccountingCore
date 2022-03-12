@@ -29,6 +29,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCurrencyAgenciesList));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +55,18 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -63,16 +77,24 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.Column5,
             this.btnRowEdit,
             this.btnRowDelete});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(1, 122);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 99);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(948, 558);
+            this.dataGridView1.Size = new System.Drawing.Size(895, 443);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -164,23 +186,20 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.simpleButton3);
             this.groupBox1.Controls.Add(this.BtnCreateNew);
-            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(5, 14);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(4, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(944, 101);
+            this.groupBox1.Size = new System.Drawing.Size(892, 82);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "مدیریت عملیات رمز ارز نمایندگی";
             // 
             // txtSearch
             // 
-            this.txtSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(562, 46);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(482, 35);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(215, 36);
+            this.txtSearch.Size = new System.Drawing.Size(185, 31);
             this.txtSearch.TabIndex = 103;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
@@ -188,11 +207,11 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(783, 51);
+            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(671, 41);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 23);
+            this.label7.Size = new System.Drawing.Size(91, 19);
             this.label7.TabIndex = 102;
             this.label7.Text = "جستجو(F2) :";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -200,10 +219,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             // simpleButton3
             // 
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(7, 30);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.simpleButton3.Location = new System.Drawing.Point(6, 24);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(46, 50);
+            this.simpleButton3.Size = new System.Drawing.Size(39, 41);
             this.simpleButton3.TabIndex = 105;
             this.simpleButton3.Text = "راهنما";
             // 
@@ -215,10 +233,10 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.BtnCreateNew.Appearance.Options.UseFont = true;
             this.BtnCreateNew.Appearance.Options.UseForeColor = true;
             this.BtnCreateNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnCreateNew.ImageOptions.SvgImage")));
-            this.BtnCreateNew.Location = new System.Drawing.Point(55, 30);
-            this.BtnCreateNew.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.BtnCreateNew.Location = new System.Drawing.Point(89, 24);
+            this.BtnCreateNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnCreateNew.Name = "BtnCreateNew";
-            this.BtnCreateNew.Size = new System.Drawing.Size(46, 50);
+            this.BtnCreateNew.Size = new System.Drawing.Size(39, 41);
             this.BtnCreateNew.TabIndex = 104;
             this.BtnCreateNew.Click += new System.EventHandler(this.BtnCreateNew_Click);
             // 
@@ -226,15 +244,14 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 682);
+            this.ClientSize = new System.Drawing.Size(892, 529);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FrmCurrencyAgenciesList";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

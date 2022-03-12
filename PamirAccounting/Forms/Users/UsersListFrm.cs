@@ -134,5 +134,10 @@ namespace PamirAccounting.Forms.Users
             if (e.KeyCode == Keys.Escape)
                 this.Close();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

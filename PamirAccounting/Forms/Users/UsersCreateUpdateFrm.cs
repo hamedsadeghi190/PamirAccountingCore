@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace PamirAccounting.UI.Forms.Users
@@ -35,8 +36,22 @@ namespace PamirAccounting.UI.Forms.Users
 
         }
 
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         private void UsersCreateUpdateFrm_Load(object sender, EventArgs e)
         {
+            SetComboBoxHeight(cmbAgency.Handle, 25);
+            cmbAgency.Refresh();
+            SetComboBoxHeight(cmbCurrency.Handle, 25);
+            cmbCurrency.Refresh();
+            SetComboBoxHeight(CmbSandogh.Handle, 25);
+            CmbSandogh.Refresh();
             initData();
 
             if (_Id != null)

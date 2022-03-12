@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace PamirAccounting.UI.Forms.CurrencyAgencies
@@ -24,8 +25,26 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             InitializeComponent();
             unitOfWork = new UnitOfWork();
         }
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         public CurrencyAgenciesCreateUpdateFrm(int id)
         {
+            SetComboBoxHeight(cmbAction.Handle, 25);
+            cmbAction.Refresh();
+            SetComboBoxHeight(cmbDescCurenccy.Handle, 25);
+            cmbDescCurenccy.Refresh();
+            SetComboBoxHeight(cmbExchangeRate.Handle, 25);
+            cmbExchangeRate.Refresh();
+            SetComboBoxHeight(cmbroundLimit.Handle, 25);
+            cmbroundLimit.Refresh();
+            SetComboBoxHeight(cmbSourceCurreny.Handle, 25);
+            cmbSourceCurreny.Refresh();
             _Id = id;
             InitializeComponent();
             unitOfWork = new UnitOfWork();
@@ -148,6 +167,11 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
