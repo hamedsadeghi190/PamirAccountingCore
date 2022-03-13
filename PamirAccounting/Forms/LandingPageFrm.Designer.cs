@@ -312,8 +312,8 @@ namespace PamirAccounting.Forms
             this.PayAndReciveBankList.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveBankList.Image")));
             this.PayAndReciveBankList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.PayAndReciveBankList.Name = "PayAndReciveBankList";
-            this.PayAndReciveBankList.Size = new System.Drawing.Size(297, 38);
-            this.PayAndReciveBankList.Text = "واریزهای بانکی";
+            this.PayAndReciveBankList.Size = new System.Drawing.Size(291, 38);
+            this.PayAndReciveBankList.Text = "لیست واریزهای بانکی";
             this.PayAndReciveBankList.Click += new System.EventHandler(this.PayAndReciveBankList_Click);
             // 
             // عملیاتروزToolStripMenuItem

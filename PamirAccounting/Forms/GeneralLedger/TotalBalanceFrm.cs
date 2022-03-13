@@ -18,29 +18,11 @@ namespace PamirAccounting.Forms.GeneralLedger
             InitializeComponent();
         }
 
-        private void initGrid()
-        {
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 6; i++)
-            {
-                gridBlance.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.gridBlance.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            ////////***************/////////////////
-            DataGridViewCellStyle HeaderStyle1 = new DataGridViewCellStyle();
-            HeaderStyle1.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 6; i++)
-            {
-                grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
-            }
-            this.grdTotals.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-
-        }
+        
 
         private void TotalBalanceFrm_Load(object sender, EventArgs e)
         {
-            initGrid();
+            
         }
 
         private void btnStatusList_Click(object sender, EventArgs e)

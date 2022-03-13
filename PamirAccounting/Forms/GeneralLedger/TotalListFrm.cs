@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -35,25 +36,6 @@ namespace PamirAccounting.Forms.GeneralLedger
         }
 
     
-        private void initGrid()
-        {
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 8; i++)
-            {
-                gridCreditor.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.gridCreditor.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            ////////***************/////////////////
-            DataGridViewCellStyle HeaderStyle1 = new DataGridViewCellStyle();
-            HeaderStyle1.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 6; i++)
-            {
-                grdTotals.Columns[i].HeaderCell.Style = HeaderStyle1;
-            }
-            this.grdTotals.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-
-        }
 
 
 
@@ -80,11 +62,21 @@ namespace PamirAccounting.Forms.GeneralLedger
             GellAll(tmpDataList);
         }
 
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         private void TotalLiatFrm_Load(object sender, EventArgs e)
         {
+            SetComboBoxHeight(cmbCurrencies.Handle, 25);
+            cmbCurrencies.Refresh();
             InitForm();
             LoadData();
-            initGrid();
+           
         }
 
        
