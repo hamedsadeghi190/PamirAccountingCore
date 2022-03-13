@@ -85,11 +85,11 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.btnsarehesab.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesab.Appearance.Options.UseFont = true;
-            this.btnsarehesab.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesab.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesab.AppearanceDisabled.Options.UseFont = true;
-            this.btnsarehesab.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesab.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesab.AppearanceHovered.Options.UseFont = true;
-            this.btnsarehesab.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsarehesab.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnsarehesab.AppearancePressed.Options.UseFont = true;
             this.btnsarehesab.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsarehesab.ImageOptions.SvgImage")));
             this.btnsarehesab.Location = new System.Drawing.Point(946, 23);

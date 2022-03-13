@@ -37,9 +37,6 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
-            this.btnvosool_daryaftani = new DevExpress.XtraEditors.SimpleButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +47,9 @@ namespace PamirAccounting.Forms.Checks
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RealBankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
+            this.btnvosool_daryaftani = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -80,7 +80,7 @@ namespace PamirAccounting.Forms.Checks
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(1065, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 19);
             this.label1.TabIndex = 104;
@@ -134,43 +134,6 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.Size = new System.Drawing.Size(1185, 364);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnhelp);
-            this.groupBox1.Controls.Add(this.btnvosool_daryaftani);
-            this.groupBox1.Location = new System.Drawing.Point(5, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1179, 87);
-            this.groupBox1.TabIndex = 106;
-            this.groupBox1.TabStop = false;
-            // 
-            // btnhelp
-            // 
-            this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
-            this.btnhelp.Location = new System.Drawing.Point(7, 20);
-            this.btnhelp.Name = "btnhelp";
-            this.btnhelp.Size = new System.Drawing.Size(39, 41);
-            this.btnhelp.TabIndex = 2;
-            this.btnhelp.Text = "راهنما";
-            // 
-            // btnvosool_daryaftani
-            // 
-            this.btnvosool_daryaftani.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnvosool_daryaftani.Appearance.Options.UseFont = true;
-            this.btnvosool_daryaftani.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnvosool_daryaftani.AppearanceDisabled.Options.UseFont = true;
-            this.btnvosool_daryaftani.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnvosool_daryaftani.AppearanceHovered.Options.UseFont = true;
-            this.btnvosool_daryaftani.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnvosool_daryaftani.AppearancePressed.Options.UseFont = true;
-            this.btnvosool_daryaftani.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnvosool_daryaftani.ImageOptions.SvgImage")));
-            this.btnvosool_daryaftani.Location = new System.Drawing.Point(975, 20);
-            this.btnvosool_daryaftani.Name = "btnvosool_daryaftani";
-            this.btnvosool_daryaftani.Size = new System.Drawing.Size(185, 42);
-            this.btnvosool_daryaftani.TabIndex = 1;
-            this.btnvosool_daryaftani.Text = "وصول چک";
-            this.btnvosool_daryaftani.Click += new System.EventHandler(this.btnvosool_daryaftani_Click);
             // 
             // id
             // 
@@ -270,6 +233,43 @@ namespace PamirAccounting.Forms.Checks
             this.RealBankName.Name = "RealBankName";
             this.RealBankName.ReadOnly = true;
             this.RealBankName.Width = 125;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnhelp);
+            this.groupBox1.Controls.Add(this.btnvosool_daryaftani);
+            this.groupBox1.Location = new System.Drawing.Point(5, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1179, 87);
+            this.groupBox1.TabIndex = 106;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnhelp
+            // 
+            this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
+            this.btnhelp.Location = new System.Drawing.Point(7, 20);
+            this.btnhelp.Name = "btnhelp";
+            this.btnhelp.Size = new System.Drawing.Size(39, 41);
+            this.btnhelp.TabIndex = 2;
+            this.btnhelp.Text = "راهنما";
+            // 
+            // btnvosool_daryaftani
+            // 
+            this.btnvosool_daryaftani.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.Appearance.Options.UseFont = true;
+            this.btnvosool_daryaftani.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.AppearanceDisabled.Options.UseFont = true;
+            this.btnvosool_daryaftani.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.AppearanceHovered.Options.UseFont = true;
+            this.btnvosool_daryaftani.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnvosool_daryaftani.AppearancePressed.Options.UseFont = true;
+            this.btnvosool_daryaftani.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnvosool_daryaftani.ImageOptions.SvgImage")));
+            this.btnvosool_daryaftani.Location = new System.Drawing.Point(975, 20);
+            this.btnvosool_daryaftani.Name = "btnvosool_daryaftani";
+            this.btnvosool_daryaftani.Size = new System.Drawing.Size(185, 42);
+            this.btnvosool_daryaftani.TabIndex = 1;
+            this.btnvosool_daryaftani.Text = "وصول چک";
+            this.btnvosool_daryaftani.Click += new System.EventHandler(this.btnvosool_daryaftani_Click);
             // 
             // VosoolCheckDaryaftaniListFrm
             // 
