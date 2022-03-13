@@ -31,13 +31,6 @@ namespace PamirAccounting.UI.Forms.Agencies
         private void AgencyListFrm_Load(object sender, EventArgs e)
         {
             loadData();
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 6; i++)
-            {
-                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
