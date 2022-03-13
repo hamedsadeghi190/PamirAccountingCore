@@ -128,7 +128,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void InitForm()
         {
-           
+
             _Actions.Add(new ComboBoxModel() { Id = 1, Title = "ثبت حساب جدید " });
             _Actions.Add(new ComboBoxModel() { Id = 2, Title = "دریافت و پرداخت نقدی " });
             _Actions.Add(new ComboBoxModel() { Id = 3, Title = "دریافت و پرداخت بانکی " });
@@ -140,7 +140,7 @@ namespace PamirAccounting.UI.Forms.Customers
             cmbActions.ValueMember = "Id";
             cmbActions.DisplayMember = "Title";
             cmbActions.SelectedValueChanged += new EventHandler(cmbActions_SelectedValueChanged);
-            
+
             _Currencies.Clear();
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
@@ -349,11 +349,32 @@ namespace PamirAccounting.UI.Forms.Customers
                     try
                     {
                         var transaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
+
+                        if (transaction.DoubleTransactionId != null)
+                        {
+                           
+                            var doubleTransaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == transaction.DoubleTransactionId);
+
+
+                            transaction.DoubleTransactionId = null;
+                            unitOfWork.TransactionServices.Update(transaction);
+                            unitOfWork.SaveChanges();
+
+
+                            doubleTransaction.DoubleTransactionId = null;
+                            unitOfWork.TransactionServices.Update(doubleTransaction);
+                            unitOfWork.SaveChanges();
+
+                            unitOfWork.TransactionServices.Delete(doubleTransaction);
+                            unitOfWork.SaveChanges();
+                        }
+
                         unitOfWork.TransactionServices.Delete(transaction);
                         unitOfWork.SaveChanges();
+
                         LoadData();
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         MessageBox.Show("حذف امکانپذیر نمیباشد");
                     }
@@ -431,7 +452,7 @@ namespace PamirAccounting.UI.Forms.Customers
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
 
-            
+
 
 
 
