@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace PamirAccounting.UI.Forms.Settings
@@ -27,8 +28,26 @@ namespace PamirAccounting.UI.Forms.Settings
 
         }
 
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
         private void SettingCreateUpdateFrm_Load(object sender, EventArgs e)
         {
+            SetComboBoxHeight(cmbBaseCurenccy.Handle, 25);
+            cmbBaseCurenccy.Refresh();
+            SetComboBoxHeight(cmbConstsAccount.Handle, 25);
+            cmbConstsAccount.Refresh();
+            SetComboBoxHeight(CmbCalenderType.Handle, 25);
+            CmbCalenderType.Refresh();
+            SetComboBoxHeight(CmbRemittanceAccount.Handle, 25);
+            CmbRemittanceAccount.Refresh();
+            SetComboBoxHeight(comboBox4.Handle, 25);
+            comboBox4.Refresh();
             initData();
             LoadData();
         }
@@ -120,6 +139,11 @@ namespace PamirAccounting.UI.Forms.Settings
             }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void LoadData()

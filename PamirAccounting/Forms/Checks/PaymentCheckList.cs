@@ -54,13 +54,7 @@ namespace PamirAccounting.Forms.Checks
             txtChequeNumber.Focus();
             dataGridView1.AutoGenerateColumns = false;
             LoadData();
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 11; i++)
-            {
-                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
+        
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -205,6 +199,11 @@ namespace PamirAccounting.Forms.Checks
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

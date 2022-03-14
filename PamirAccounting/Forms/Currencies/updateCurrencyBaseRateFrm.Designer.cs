@@ -30,12 +30,10 @@ namespace PamirAccounting.Forms.Currencies
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(updateCurrencyBaseRateFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblRate = new System.Windows.Forms.Label();
             this.txtRate = new DevExpress.XtraEditors.TextEdit();
             this.cmbAction = new System.Windows.Forms.ComboBox();
@@ -46,6 +44,10 @@ namespace PamirAccounting.Forms.Currencies
             this.exitbtn = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -56,32 +58,182 @@ namespace PamirAccounting.Forms.Currencies
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.btnRowEdit});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(5, 60);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(-1, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(520, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(450, 274);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // lblRate
+            // 
+            this.lblRate.AutoSize = true;
+            this.lblRate.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRate.Location = new System.Drawing.Point(404, 371);
+            this.lblRate.Name = "lblRate";
+            this.lblRate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblRate.Size = new System.Drawing.Size(40, 19);
+            this.lblRate.TabIndex = 222;
+            this.lblRate.Text = "نرخ :";
+            this.lblRate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRate.Visible = false;
+            // 
+            // txtRate
+            // 
+            this.txtRate.EnterMoveNextControl = true;
+            this.txtRate.Location = new System.Drawing.Point(252, 367);
+            this.txtRate.Name = "txtRate";
+            this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRate.Properties.Appearance.Options.UseFont = true;
+            this.txtRate.Properties.AutoHeight = false;
+            this.txtRate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtRate.Properties.MaskSettings.Set("mask", "f");
+            this.txtRate.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtRate.Size = new System.Drawing.Size(149, 32);
+            this.txtRate.TabIndex = 221;
+            this.txtRate.Visible = false;
+            // 
+            // cmbAction
+            // 
+            this.cmbAction.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbAction.FormattingEnabled = true;
+            this.cmbAction.Location = new System.Drawing.Point(26, 366);
+            this.cmbAction.Name = "cmbAction";
+            this.cmbAction.Size = new System.Drawing.Size(149, 27);
+            this.cmbAction.TabIndex = 223;
+            this.cmbAction.Visible = false;
+            this.cmbAction.SelectedIndexChanged += new System.EventHandler(this.cmbVarizType_SelectedIndexChanged);
+            // 
+            // lblAction
+            // 
+            this.lblAction.AutoSize = true;
+            this.lblAction.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAction.Location = new System.Drawing.Point(177, 369);
+            this.lblAction.Name = "lblAction";
+            this.lblAction.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblAction.Size = new System.Drawing.Size(60, 19);
+            this.lblAction.TabIndex = 224;
+            this.lblAction.Text = "عملیات :";
+            this.lblAction.Visible = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
+            this.btnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnSave.Location = new System.Drawing.Point(18, 28);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnSave.Size = new System.Drawing.Size(110, 38);
+            this.btnSave.TabIndex = 225;
+            this.btnSave.Text = "ثبت";
+            this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // lblCurrenyName
+            // 
+            this.lblCurrenyName.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCurrenyName.Location = new System.Drawing.Point(265, 325);
+            this.lblCurrenyName.Name = "lblCurrenyName";
+            this.lblCurrenyName.Size = new System.Drawing.Size(149, 28);
+            this.lblCurrenyName.TabIndex = 226;
+            this.lblCurrenyName.Text = "دلار";
+            this.lblCurrenyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCurrenyName.Visible = false;
+            // 
+            // lblArz
+            // 
+            this.lblArz.AutoSize = true;
+            this.lblArz.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblArz.Location = new System.Drawing.Point(413, 328);
+            this.lblArz.Name = "lblArz";
+            this.lblArz.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblArz.Size = new System.Drawing.Size(36, 19);
+            this.lblArz.TabIndex = 227;
+            this.lblArz.Text = " ارز :";
+            this.lblArz.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblArz.Visible = false;
+            // 
+            // exitbtn
+            // 
+            this.exitbtn.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.exitbtn.Appearance.Options.UseFont = true;
+            this.exitbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("exitbtn.ImageOptions.SvgImage")));
+            this.exitbtn.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.exitbtn.Location = new System.Drawing.Point(133, 28);
+            this.exitbtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.exitbtn.Name = "exitbtn";
+            this.exitbtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.exitbtn.Size = new System.Drawing.Size(110, 38);
+            this.exitbtn.TabIndex = 228;
+            this.exitbtn.Text = "بازگشت";
+            this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.exitbtn);
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(2, 431);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(454, 82);
+            this.groupBox1.TabIndex = 229;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.lblCurrenyName);
+            this.groupBox2.Controls.Add(this.lblArz);
+            this.groupBox2.Controls.Add(this.txtRate);
+            this.groupBox2.Controls.Add(this.lblRate);
+            this.groupBox2.Controls.Add(this.cmbAction);
+            this.groupBox2.Controls.Add(this.lblAction);
+            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(2, 10);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(454, 417);
+            this.groupBox2.TabIndex = 230;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "ثبت / ویرایش نرخ معیار";
             // 
             // Column1
             // 
@@ -97,21 +249,22 @@ namespace PamirAccounting.Forms.Currencies
             // Column2
             // 
             this.Column2.DataPropertyName = "Name";
-            this.Column2.FillWeight = 200F;
+            this.Column2.FillWeight = 190F;
             this.Column2.HeaderText = "نام ارز";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 200;
+            this.Column2.Width = 190;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "BaseRate";
+            this.Column3.FillWeight = 135F;
             this.Column3.HeaderText = "نرخ";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 125;
+            this.Column3.Width = 135;
             // 
             // btnRowEdit
             // 
@@ -122,161 +275,20 @@ namespace PamirAccounting.Forms.Currencies
             this.btnRowEdit.ReadOnly = true;
             this.btnRowEdit.Text = "ویرایش";
             this.btnRowEdit.UseColumnTextForButtonValue = true;
-            this.btnRowEdit.Width = 80;
-            // 
-            // lblRate
-            // 
-            this.lblRate.AutoSize = true;
-            this.lblRate.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblRate.Location = new System.Drawing.Point(471, 461);
-            this.lblRate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRate.Name = "lblRate";
-            this.lblRate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblRate.Size = new System.Drawing.Size(46, 23);
-            this.lblRate.TabIndex = 222;
-            this.lblRate.Text = "نرخ :";
-            this.lblRate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblRate.Visible = false;
-            // 
-            // txtRate
-            // 
-            this.txtRate.EnterMoveNextControl = true;
-            this.txtRate.Location = new System.Drawing.Point(294, 452);
-            this.txtRate.Margin = new System.Windows.Forms.Padding(4);
-            this.txtRate.Name = "txtRate";
-            this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtRate.Properties.Appearance.Options.UseFont = true;
-            this.txtRate.Properties.AutoHeight = false;
-            this.txtRate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtRate.Properties.MaskSettings.Set("mask", "f");
-            this.txtRate.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtRate.Size = new System.Drawing.Size(174, 36);
-            this.txtRate.TabIndex = 221;
-            this.txtRate.Visible = false;
-            // 
-            // cmbAction
-            // 
-            this.cmbAction.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cmbAction.FormattingEnabled = true;
-            this.cmbAction.Location = new System.Drawing.Point(30, 451);
-            this.cmbAction.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbAction.Name = "cmbAction";
-            this.cmbAction.Size = new System.Drawing.Size(173, 37);
-            this.cmbAction.TabIndex = 223;
-            this.cmbAction.Visible = false;
-            this.cmbAction.SelectedIndexChanged += new System.EventHandler(this.cmbVarizType_SelectedIndexChanged);
-            // 
-            // lblAction
-            // 
-            this.lblAction.AutoSize = true;
-            this.lblAction.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblAction.Location = new System.Drawing.Point(207, 461);
-            this.lblAction.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAction.Name = "lblAction";
-            this.lblAction.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblAction.Size = new System.Drawing.Size(71, 23);
-            this.lblAction.TabIndex = 224;
-            this.lblAction.Text = "عملیات :";
-            this.lblAction.Visible = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
-            this.btnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnSave.Location = new System.Drawing.Point(21, 24);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnSave.Size = new System.Drawing.Size(110, 38);
-            this.btnSave.TabIndex = 225;
-            this.btnSave.Text = "ثبت";
-            this.btnSave.Visible = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // lblCurrenyName
-            // 
-            this.lblCurrenyName.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCurrenyName.Location = new System.Drawing.Point(309, 400);
-            this.lblCurrenyName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCurrenyName.Name = "lblCurrenyName";
-            this.lblCurrenyName.Size = new System.Drawing.Size(174, 34);
-            this.lblCurrenyName.TabIndex = 226;
-            this.lblCurrenyName.Text = "دلار";
-            this.lblCurrenyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblCurrenyName.Visible = false;
-            // 
-            // lblArz
-            // 
-            this.lblArz.AutoSize = true;
-            this.lblArz.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblArz.Location = new System.Drawing.Point(482, 404);
-            this.lblArz.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblArz.Name = "lblArz";
-            this.lblArz.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblArz.Size = new System.Drawing.Size(41, 23);
-            this.lblArz.TabIndex = 227;
-            this.lblArz.Text = " ارز :";
-            this.lblArz.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblArz.Visible = false;
-            // 
-            // exitbtn
-            // 
-            this.exitbtn.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.exitbtn.Appearance.Options.UseFont = true;
-            this.exitbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("exitbtn.ImageOptions.SvgImage")));
-            this.exitbtn.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.exitbtn.Location = new System.Drawing.Point(140, 24);
-            this.exitbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.exitbtn.Name = "exitbtn";
-            this.exitbtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.exitbtn.Size = new System.Drawing.Size(110, 38);
-            this.exitbtn.TabIndex = 228;
-            this.exitbtn.Text = "بازگشت";
-            this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.exitbtn);
-            this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Location = new System.Drawing.Point(2, 531);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(530, 71);
-            this.groupBox1.TabIndex = 229;
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.lblCurrenyName);
-            this.groupBox2.Controls.Add(this.lblArz);
-            this.groupBox2.Controls.Add(this.txtRate);
-            this.groupBox2.Controls.Add(this.lblRate);
-            this.groupBox2.Controls.Add(this.cmbAction);
-            this.groupBox2.Controls.Add(this.lblAction);
-            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(2, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(530, 513);
-            this.groupBox2.TabIndex = 230;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "ثبت / ویرایش نرخ معیار";
+            this.btnRowEdit.Width = 60;
             // 
             // updateCurrencyBaseRateFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 616);
+            this.ClientSize = new System.Drawing.Size(453, 524);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "updateCurrencyBaseRateFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -304,10 +316,10 @@ namespace PamirAccounting.Forms.Currencies
         private System.Windows.Forms.Label lblArz;
         private DevExpress.XtraEditors.SimpleButton exitbtn;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
-        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
