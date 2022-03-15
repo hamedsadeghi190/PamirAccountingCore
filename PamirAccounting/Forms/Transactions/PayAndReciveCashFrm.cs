@@ -175,7 +175,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 return false;
             }
-        
+
             return true;
         }
 
@@ -323,8 +323,16 @@ namespace PamirAccounting.Forms.Transactions
         {
             if (txtAmount.Text.Length > 0)
             {
-                var currencyName = cmbCurrencies.Text;
-                lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {currencyName}";
+                try
+                {
+                    var currencyName = cmbCurrencies.Text;
+                    lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {currencyName}";
+                }
+                catch
+                {
+
+                }
+
             }
         }
 

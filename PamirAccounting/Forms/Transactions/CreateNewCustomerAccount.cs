@@ -197,8 +197,16 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
         {
             if (txtAmount.Text.Length > 0)
             {
-                var currencyName = cmbCurrencies.Text;
-                lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {currencyName}";
+                try
+                {
+                    var currencyName = cmbCurrencies.Text;
+                    lblNumberString.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtAmount.Text.Replace(",", ""))) } {currencyName}";
+                }
+                catch
+                {
+                    
+                }
+                
             }
         }
 
