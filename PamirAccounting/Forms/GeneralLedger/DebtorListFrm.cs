@@ -191,20 +191,20 @@ namespace PamirAccounting.Forms.GeneralLedger
             PersianCalendar pc = new PersianCalendar();
             DateTime dt = DateTime.Now;
             string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-            var data = Print();
-            var data2 = TotalPrint();
+            var data = TotalPrint();
+            var data2 = TotalSummeryPrint();
             var basedata = new reportbaseDAta() { Date = PersianDate };
             var report = StiReport.CreateNewReport();
             report.Load(AppSetting.ReportPath + "DebtorList.mrt");
-            report.RegData("Data", data);
+            report.RegData("myData", data);
+            report.RegData("myData2", data2);
             report.RegData("basedata", basedata);
-            report.RegData("Data2", data2);
             report.Design();
             //report.Render();
-            //report.Show();
+            // report.Show();
         }
 
-        private List<TransactionsGroupModel> Print()
+        private List<TransactionsGroupModel> TotalPrint()
         {
             var tmpDataList = unitOfWork.TransactionServices.GetAllDeposit(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             var grouped = tmpDataList.GroupBy(x => new { x.CurrenyId, x.SourceCustomerId });
@@ -248,7 +248,7 @@ namespace PamirAccounting.Forms.GeneralLedger
         }
 
   
-        private List<TransactionsGroupModel> TotalPrint()
+        private List<TransactionsGroupModel> TotalSummeryPrint()
         {
             var tmpDataList = unitOfWork.TransactionServices.GetAllDeposit(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             var groupedCurrency = tmpDataList.GroupBy(x => new { x.CurrenyId });

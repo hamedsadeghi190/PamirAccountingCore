@@ -314,6 +314,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.btnprint.Size = new System.Drawing.Size(39, 41);
             this.btnprint.TabIndex = 120;
             this.btnprint.Text = "چاپ";
+            this.btnprint.Visible = false;
             this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // simpleButton5

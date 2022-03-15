@@ -1,12 +1,15 @@
 ﻿using DevExpress.XtraEditors;
 using Microsoft.EntityFrameworkCore;
+using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -213,6 +216,96 @@ namespace PamirAccounting.Forms.GeneralLedger
         private void groupBoxViewAccountCustomer_Enter(object sender, EventArgs e)
         {
 
+        }
+        private List<TransactionsGroupModel> TotalPrint()
+        {
+
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            var tmpDataList = unitOfWork.TransactionServices.GetAllWithdraw(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var grouped = tmpDataList.GroupBy(x => new { x.CurrenyId, x.SourceCustomerId });
+            var groupedCurrency = tmpDataList.GroupBy(x => new { x.CurrenyId });
+            _dataListTotal = new List<TransactionsGroupModel>();
+            foreach (var currency in grouped)
+            {
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0, WithDraw = 0, Deposit = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw += item.WithdrawAmount.Value;
+                    totalDeposit += item.DepositAmount.Value;
+                    WithDraw = item.WithdrawAmount.Value;
+                    Deposit = item.DepositAmount.Value;
+                    curenncySummery.CurrenyName = item.CurrenyName;
+                    curenncySummery.FullName = item.FullName;
+                    curenncySummery.RowId = item.RowId;
+                    curenncySummery.Phone = item.Phone;
+                    curenncySummery.Mobile = item.Mobile;
+                    item.RemainigAmount = Deposit - WithDraw;
+                    _dataList.Add(item);
+                }
+
+                curenncySummery.TotalDepositAmount = totalDeposit;
+                curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                remaining = totalDeposit - totalWithDraw;
+                curenncySummery.RemainigAmount = remaining;
+                _GroupedDataList.Add(curenncySummery);
+
+            }
+            _GroupedDataList = _GroupedDataList.OrderBy(x => x.FullName).ToList();
+            int row = 1;
+            foreach (var item in _GroupedDataList)
+            {
+                item.RowId = row++;
+            }
+            gridCreditor.AutoGenerateColumns = false;
+           return( _GroupedDataList);
+        }
+        private List<TransactionsGroupModel> TotalSummeryPrint()
+        {
+            var tmpDataList = unitOfWork.TransactionServices.GetAllWithdraw(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var grouped = tmpDataList.GroupBy(x => new { x.CurrenyId, x.SourceCustomerId });
+            var groupedCurrency = tmpDataList.GroupBy(x => new { x.CurrenyId });
+            _dataListTotal = new List<TransactionsGroupModel>();
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in groupedCurrency)
+            {
+                var curenncySummery2 = new TransactionsGroupModel();
+                long totalWithDraw2 = 0, totalDeposit2 = 0, remaining2 = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw2 += item.WithdrawAmount.Value;
+                    totalDeposit2 += item.DepositAmount.Value;
+                    curenncySummery2.CurrenyName = item.CurrenyName;
+                    item.RemainigAmount = totalDeposit2 - totalWithDraw2;
+                    _dataList.Add(item);
+                }
+                curenncySummery2.TotalDepositAmount = totalDeposit2;
+                curenncySummery2.TotalWithdrawAmount = totalWithDraw2;
+                remaining2 = totalDeposit2 - totalWithDraw2;
+                curenncySummery2.RemainigAmount = remaining2;
+                _dataListTotal.Add(curenncySummery2);
+
+            }
+            grdTotals.AutoGenerateColumns = false;
+           return( _dataListTotal);
+        }
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var data = TotalPrint();
+            var data2 = TotalSummeryPrint();
+            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "CreditorList.mrt");
+            report.RegData("myData", data);
+            report.RegData("myData2", data2);
+            report.RegData("basedata", basedata);
+            //report.Design();
+           report.Render();
+           report.Show();
         }
     }
 }

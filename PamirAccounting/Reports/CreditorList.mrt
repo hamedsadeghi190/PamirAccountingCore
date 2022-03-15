@@ -170,7 +170,7 @@
             </Text1>
             <Text8 Ref="11" type="Text" isKey="true">
               <Brush>[219:229:241]</Brush>
-              <ClientRectangle>1,0.08,0.3,0.2</ClientRectangle>
+              <ClientRectangle>0.9,0.1,0.3,0.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),12,Bold</Font>
@@ -644,7 +644,7 @@
               <Page isRef="5" />
               <Parent isRef="35" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData2.TotalDepositAmount}</Text>
+              <Text>{myData2.TotalWithdrawAmount}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
@@ -685,10 +685,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/15/2022 12:51:42 PM</ReportChanged>
+  <ReportChanged>3/15/2022 12:43:19 PM</ReportChanged>
   <ReportCreated>1/23/2022 12:40:14 PM</ReportCreated>
-  <ReportFile>D:\fixed\PamirAccountingCore\PamirAccounting\Reports\DebtorList.mrt</ReportFile>
-  <ReportGuid>54bb6340104d44428096a9a09210d704</ReportGuid>
+  <ReportFile>D:\fixed\PamirAccountingCore\PamirAccounting\Reports\CreditorList.mrt</ReportFile>
+  <ReportGuid>c893a8b4024b474081cad603ca6286b3</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2022.1.4.0</ReportVersion>
