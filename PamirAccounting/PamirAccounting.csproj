@@ -111,6 +111,9 @@
     <None Update="Reports\CreditorList.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Reports\CustomerAccount2.mrt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Reports\TotalList.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

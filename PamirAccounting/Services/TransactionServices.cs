@@ -288,7 +288,7 @@ namespace PamirAccounting.Services
                 var dataList = new List<TransactionModel>();
                 if (currencyId == null)
                 {
-                    dataList = FindAllReadonly(x => x.WithdrawAmount > 0)
+                    dataList = FindAllReadonly(x => x.Id > 0)
                     .Include(x => x.Curreny)
                    .Select(x => new TransactionModel
                    {
@@ -359,7 +359,7 @@ namespace PamirAccounting.Services
                 var dataList = new List<TransactionModel>();
                 if (currencyId == null)
                 {
-                    dataList = FindAllReadonly(x => x.DepositAmount > 0)
+                    dataList = FindAllReadonly(x => x.Id > 0)
                     .Include(x => x.Curreny)
                    .Select(x => new TransactionModel
                    {

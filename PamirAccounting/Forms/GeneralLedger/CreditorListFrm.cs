@@ -138,8 +138,6 @@ namespace PamirAccounting.Forms.GeneralLedger
                 {
                     totalWithDraw += item.WithdrawAmount.Value;
                     totalDeposit += item.DepositAmount.Value;
-                    WithDraw = item.WithdrawAmount.Value;
-                    Deposit = item.DepositAmount.Value;
                     curenncySummery.CurrenyName = item.CurrenyName;
                     curenncySummery.FullName = item.FullName;
                     curenncySummery.RowId = item.RowId;
@@ -149,9 +147,13 @@ namespace PamirAccounting.Forms.GeneralLedger
                     _dataList.Add(item);
                 }
 
-                curenncySummery.TotalDepositAmount = totalDeposit;
-                curenncySummery.TotalWithdrawAmount = totalWithDraw;
-                remaining = totalDeposit - totalWithDraw;
+                remaining = totalDeposit - totalWithDraw; 
+                if (remaining > 0)
+                {
+
+                    curenncySummery.TotalDepositAmount = totalDeposit;
+                    curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                }
                 curenncySummery.RemainigAmount = remaining;
                 _GroupedDataList.Add(curenncySummery);
 

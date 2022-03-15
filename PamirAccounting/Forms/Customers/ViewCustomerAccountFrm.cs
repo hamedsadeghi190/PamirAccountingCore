@@ -428,12 +428,14 @@ namespace PamirAccounting.UI.Forms.Customers
             PersianCalendar pc = new PersianCalendar();
             DateTime dt = DateTime.Now;
             string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-            var data = new UnitOfWork().TransactionServices.GetAllReport(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var data = TotalPrint();
+            var data2 = TotalSummeryPrint();
             //  var name = new UnitOfWork().TransactionServices.FindUserName(_Id.Value);
             var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name };
             var report = StiReport.CreateNewReport();
-            report.Load(AppSetting.ReportPath + "CustomerAccount.mrt");
+            report.Load(AppSetting.ReportPath + "CustomerAccount2.mrt");
             report.RegData("myData", data);
+            report.RegData("myData2", data2);
             report.RegData("basedata", basedata);
             // report.Design();
             report.Render();
@@ -615,6 +617,97 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private  List<TransactionsGroupModel> TotalSummeryPrint()
+        {
+            var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
+            _dataList = new List<TransactionModel>();
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in grouped)
+            {
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw += item.WithdrawAmount.Value;
+                    totalDeposit += item.DepositAmount.Value;
+                    curenncySummery.CurrenyName = item.CurrenyName;
+                    item.RemainigAmount = totalDeposit - totalWithDraw;
+                    if (item.RemainigAmount > 0)
+                    {
+                        item.Status = "طلبکار";
+                    }
+                    else if (item.RemainigAmount < 0)
+                    {
+                        item.Status = "بدهکار";
+                    }
+                    else
+                    {
+                        item.Status = "";
+                    }
+
+                    _dataList.Add(item);
+                }
+                curenncySummery.TotalDepositAmount = totalDeposit;
+                curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                remaining = totalDeposit - totalWithDraw;
+                curenncySummery.RemainigAmount = remaining;
+                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "طلبکار" : "بدهکار";
+                _GroupedDataList.Add(curenncySummery);
+
+            }
+            grdTotals.AutoGenerateColumns = false;
+            return _GroupedDataList;
+         
+        }
+
+        private List<TransactionModel> TotalPrint()
+        {
+            var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
+            _dataList = new List<TransactionModel>();
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in grouped)
+            {
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw += item.WithdrawAmount.Value;
+                    totalDeposit += item.DepositAmount.Value;
+                    curenncySummery.CurrenyName = item.CurrenyName;
+                    item.RemainigAmount = totalDeposit - totalWithDraw;
+                    if (item.RemainigAmount > 0)
+                    {
+                        item.Status = "طلبکار";
+                    }
+                    else if (item.RemainigAmount < 0)
+                    {
+                        item.Status = "بدهکار";
+                    }
+                    else
+                    {
+                        item.Status = "";
+                    }
+
+                    _dataList.Add(item);
+                }
+                curenncySummery.TotalDepositAmount = totalDeposit;
+                curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                remaining = totalDeposit - totalWithDraw;
+                curenncySummery.RemainigAmount = remaining;
+                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "طلبکار" : "بدهکار";
+                _GroupedDataList.Add(curenncySummery);
+
+            }
+        
+            _dataList = _dataList.OrderBy(x => x.RowId).ToList();
+            grdTransactions.AutoGenerateColumns = false;
+          return  _dataList;
         }
     }
 }
