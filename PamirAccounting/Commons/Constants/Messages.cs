@@ -22,5 +22,6 @@ namespace PamirAccounting
         public const string Vosool = "   پاس  ";
         public const string Odat = "   عودت";
         public const string Bargasht = " برگشت   ";
+        public const string Vagozari = " واگذاری  ";
     }
 }
