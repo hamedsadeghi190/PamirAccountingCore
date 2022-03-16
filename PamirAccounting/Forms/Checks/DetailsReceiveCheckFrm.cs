@@ -180,6 +180,9 @@ namespace PamirAccounting.Forms.Checks
             txtBankAccountNumber.Text = "";
             txtAmount.Text = "0";
             lblNumberString.Text = "";
+            var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
+            txtDocumentId.Text = documentId.ToString();
+            LoadData();
             cmbRealBankId.Focus();
         }
         private void BtnClose_Click(object sender, EventArgs e)
@@ -193,6 +196,7 @@ namespace PamirAccounting.Forms.Checks
             {
                 CreateDescription();
             }
+            var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             Cheque = new Domains.Cheque();
             var dIssueDate = txtIssueDate.Text.Split('/');
@@ -205,7 +209,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.DueDate = DueDateDateTime;
             Cheque.BranchName = txtBranchName.Text;
             Cheque.ChequeNumber = txtChequeNumber.Text;
-            Cheque.DocumentId = long.Parse(txtDocumentId.Text);
+            Cheque.DocumentId = documentId;
             Cheque.Description = txtDescription.Text; ;
             Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
@@ -231,7 +235,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.Date = DateTime.Now;
             customerTransaction.TransactionDateTime = DateTime.Now;
             customerTransaction.UserId = CurrentUser.UserID;
-            customerTransaction.DocumentId = DocumentId;
+            customerTransaction.DocumentId = documentId;
             unitOfWork.TransactionServices.Insert(customerTransaction);
             unitOfWork.SaveChanges();
             //customer transaction end///
@@ -249,7 +253,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.Date = DateTime.Now;
             receivedDocuments.TransactionDateTime = DateTime.Now;
             receivedDocuments.UserId = CurrentUser.UserID;
-            receivedDocuments.DocumentId = DocumentId;
+            receivedDocuments.DocumentId = documentId;
             unitOfWork.TransactionServices.Insert(receivedDocuments);
             unitOfWork.SaveChanges();
             //ReceivedDocuments transaction End
@@ -261,7 +265,7 @@ namespace PamirAccounting.Forms.Checks
        
         private void SaveEdit()
         {
-            
+           
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
@@ -272,7 +276,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.DueDate = DueDateDateTime;
             Cheque.BranchName = txtBranchName.Text;
             Cheque.ChequeNumber = txtChequeNumber.Text;
-            Cheque.DocumentId = long.Parse(txtDocumentId.Text);
+            Cheque.DocumentId = Cheque.DocumentId;
             Cheque.Description = txtDescription.Text;
             Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
@@ -364,7 +368,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void CreateDescription()
         {
-            txtDescription.Text = $"{Messages.DepostitCheck }از{cmbCustomers.Text} به مبلغ {txtAmount.Text}{"تومان"} تاریخ سر رسید{txtDueDate.Text} ";
+            txtDescription.Text = $"{Messages.DepostitCheck }از{cmbCustomers.Text} تاریخ سر رسید{txtDueDate.Text} ";
         }
 
         private void btnshowcustomer_KeyUp(object sender, KeyEventArgs e)

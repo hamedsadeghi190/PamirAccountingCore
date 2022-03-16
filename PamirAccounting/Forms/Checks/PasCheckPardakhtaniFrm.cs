@@ -85,7 +85,7 @@ namespace PamirAccounting.Forms.Checks
                 txtDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtPassDate.Text = PDate2;
-                txtDesc.Text = txtDesc.Text;
+           
             }
         }
 
@@ -105,7 +105,11 @@ namespace PamirAccounting.Forms.Checks
         }
         private void SaveNew()
         {
-
+            if (txtDesc.Text == "")
+            {
+                CreateDescription();
+            }
+                
             PersianCalendar p = new PersianCalendar();
             var PassDate1 = txtPassDate.Text.Split('/');
             var PassDate = p.ToDateTime(int.Parse(PassDate1[0]), int.Parse(PassDate1[1]), int.Parse(PassDate1[2]), 0, 0, 0, 0);
@@ -170,7 +174,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-                txtDesc.Text = $"{Messages.PasCheck } شماره  {currentCheque.ChequeNumber}  به مبلغ {currentCheque.Amount} {"تومان"}  تاریخ پاس  {txtPassDate.Text} ";
+                txtDesc.Text = $"{Messages.PasCheck } شماره {currentCheque.ChequeNumber} تاریخ پاس {txtPassDate.Text} ";
         }
 
        

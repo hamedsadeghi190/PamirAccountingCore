@@ -192,7 +192,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.BargashtPayment } شماره  {currentCheque.ChequeNumber} - به مبلغ {currentCheque.Amount} {"تومان"} - تاریخ برگشت  {txtBargashtDate.Text} ";
+            txtDesc.Text = $"{Messages.BargashtPayment } شماره  {currentCheque.ChequeNumber}- تاریخ برگشت  {txtBargashtDate.Text} ";
         }
         private void txtBargashtDate_KeyUp(object sender, KeyEventArgs e)
         {

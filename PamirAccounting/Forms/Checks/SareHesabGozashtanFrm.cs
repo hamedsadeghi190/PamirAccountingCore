@@ -257,7 +257,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.SareHesab } -چک به شماره   {Cheque.ChequeNumber}   -به مبلغ {Cheque.Amount} {"تومان"} - تاریخ واگذاری  {txtAssignmentDate.Text} ";
+            txtDesc.Text = $"{Messages.SareHesab } -چک به شماره {Cheque.ChequeNumber} -تاریخ واگذاری {txtAssignmentDate.Text} ";
         }
 
         private void txtAssignmentDate_KeyUp(object sender, KeyEventArgs e)

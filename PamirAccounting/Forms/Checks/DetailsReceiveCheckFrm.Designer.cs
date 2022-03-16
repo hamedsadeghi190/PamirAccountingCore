@@ -309,6 +309,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtDocumentId
             // 
+            this.txtDocumentId.Enabled = false;
             this.txtDocumentId.Location = new System.Drawing.Point(338, 65);
             this.txtDocumentId.Name = "txtDocumentId";
             this.txtDocumentId.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -320,6 +321,7 @@ namespace PamirAccounting.Forms.Checks
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(477, 71);

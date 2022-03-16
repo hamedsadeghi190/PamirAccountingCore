@@ -144,20 +144,23 @@ namespace PamirAccounting.Forms.GeneralLedger
                     curenncySummery.Phone = item.Phone;
                     curenncySummery.Mobile = item.Mobile;
                     item.RemainigAmount = Deposit - WithDraw;
-                    _dataList.Add(item);
+                  
+                        _dataList.Add(item);
+                   
+                   
                 }
-
-                remaining = totalDeposit - totalWithDraw; 
-                if (remaining > 0)
+           
+                remaining = totalDeposit - totalWithDraw;
+                if (remaining < 0)
                 {
+                    curenncySummery.RemainigAmount = remaining;
+                    _GroupedDataList.Add(curenncySummery);
 
-                    curenncySummery.TotalDepositAmount = totalDeposit;
-                    curenncySummery.TotalWithdrawAmount = totalWithDraw;
                 }
-                curenncySummery.RemainigAmount = remaining;
-                _GroupedDataList.Add(curenncySummery);
-
+              
+            
             }
+        
             _GroupedDataList = _GroupedDataList.OrderBy(x => x.FullName).ToList();
             int row = 1;
             foreach (var item in _GroupedDataList)
@@ -166,26 +169,47 @@ namespace PamirAccounting.Forms.GeneralLedger
             }
             gridCreditor.AutoGenerateColumns = false;
             gridCreditor.DataSource = _GroupedDataList;
-            _GroupedDataList = new List<TransactionsGroupModel>();
+            ////////////////////////////////////////////////////////
             foreach (var currency in groupedCurrency)
             {
-                var curenncySummery2 = new TransactionsGroupModel();
-                long totalWithDraw2 = 0, totalDeposit2 = 0, remaining2 = 0;
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0, WithDraw = 0, Deposit = 0;
                 foreach (var item in currency.OrderBy(x => x.Id).ToList())
                 {
-                    totalWithDraw2 += item.WithdrawAmount.Value;
-                    totalDeposit2 += item.DepositAmount.Value;
-                    curenncySummery2.CurrenyName = item.CurrenyName;
-                    item.RemainigAmount = totalDeposit2 - totalWithDraw2;
+                    totalWithDraw += item.WithdrawAmount.Value;
+                    totalDeposit += item.DepositAmount.Value;
+                    curenncySummery.CurrenyName = item.CurrenyName;
+                    curenncySummery.FullName = item.FullName;
+                    curenncySummery.RowId = item.RowId;
+                    curenncySummery.Phone = item.Phone;
+                    curenncySummery.Mobile = item.Mobile;
+                    item.RemainigAmount = Deposit - WithDraw;
+
                     _dataList.Add(item);
+
+
                 }
-                curenncySummery2.TotalDepositAmount = totalDeposit2;
-                curenncySummery2.TotalWithdrawAmount = totalWithDraw2;
-                remaining2 = totalDeposit2 - totalWithDraw2;
-                curenncySummery2.RemainigAmount = remaining2;
-                _dataListTotal.Add(curenncySummery2);
+
+                remaining = totalDeposit - totalWithDraw;
+                if (remaining < 0)
+                {
+                    curenncySummery.RemainigAmount += remaining;
+                    curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                    _dataListTotal.Add(curenncySummery);
+
+                }
+
 
             }
+
+            _dataListTotal = _GroupedDataList.OrderBy(x => x.FullName).ToList();
+            int row2 = 1;
+            foreach (var item in _GroupedDataList)
+            {
+                item.RowId = row2++;
+            }
+   
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _dataListTotal;
           

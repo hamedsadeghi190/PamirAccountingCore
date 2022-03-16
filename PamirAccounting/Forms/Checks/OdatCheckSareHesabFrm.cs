@@ -254,7 +254,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.Odat } چک به شماره   {Cheque.ChequeNumber} به مبلغ {Cheque.Amount} {"تومان"} تاریخ عودت  {txtOdatDate.Text} ";
+            txtDesc.Text = $"{Messages.Odat } چک به شماره   {Cheque.ChequeNumber} تاریخ عودت  {txtOdatDate.Text} ";
         }
 
     }

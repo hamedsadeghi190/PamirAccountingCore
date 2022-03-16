@@ -70,7 +70,7 @@ namespace PamirAccounting.Services
                 int row = 1;
                 var cheque = new List<ChequeModel>();
                 PersianCalendar pc = new PersianCalendar();
-                cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.New).Select(x => new ChequeModel
+                cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.New ||x.Status==(int)Settings.ChequeStatus.OdatDaryaftani ||x.Status==(int)Settings.ChequeStatus.OdatSareHesab).Select(x => new ChequeModel
                 {
                     Id = x.Id,
                     Amount = x.Amount,
@@ -635,7 +635,7 @@ namespace PamirAccounting.Services
                 int row = 1;
                 var cheque = new List<ChequeModel>();
                 PersianCalendar pc = new PersianCalendar();
-                cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.NewPayment && x.Type == (int)Settings.DocumentType.DepositDocument).Select(x => new ChequeModel
+                cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.NewPayment || x.Status==(int)Settings.ChequeStatus.OdatPayment).Select(x => new ChequeModel
                 {
                     Id = x.Id,
                     Amount = x.Amount,

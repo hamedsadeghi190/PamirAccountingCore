@@ -309,7 +309,7 @@ namespace PamirAccounting.Services
                 }
                 else
                 {
-                    dataList = FindAllReadonly(x => x.WithdrawAmount > 0 && x.CurrenyId == currencyId)
+                    dataList = FindAllReadonly(x =>x.CurrenyId == currencyId)
                                  .Include(x => x.Curreny)
 
                                  .Select(x => new TransactionModel
@@ -382,7 +382,7 @@ namespace PamirAccounting.Services
                 }
                 else
                 {
-                    dataList = FindAllReadonly(x => x.DepositAmount > 0 && x.CurrenyId == currencyId)
+                    dataList = FindAllReadonly(x => x.CurrenyId == currencyId)
                                  .Include(x => x.Curreny)
 
                                  .Select(x => new TransactionModel

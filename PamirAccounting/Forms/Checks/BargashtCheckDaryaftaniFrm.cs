@@ -465,7 +465,7 @@ namespace PamirAccounting.Forms.Checks
         
         
         {
-            txtDesc.Text = $"{Messages.Bargasht } چک به شماره   {Cheque.ChequeNumber} به مبلغ {Cheque.Amount} {"تومان"}  تاریخ برگشت  {txtBargashtDate.Text} ";
+            txtDesc.Text = $"{Messages.Bargasht } چک به شماره {Cheque.ChequeNumber} تاریخ برگشت {txtBargashtDate.Text} ";
         }
 
     }

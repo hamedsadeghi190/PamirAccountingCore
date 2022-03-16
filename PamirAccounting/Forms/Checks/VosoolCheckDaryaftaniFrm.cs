@@ -415,7 +415,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.Vosool } چک به شماره   {currentCheque.ChequeNumber} به مبلغ {currentCheque.Amount} {"تومان"} تاریخ پاس {txtVosoolDate.Text} ";
+            txtDesc.Text = $"{Messages.Vosool } چک به شماره {Cheque.ChequeNumber} تاریخ پاس {txtVosoolDate.Text} ";
         }
 
 

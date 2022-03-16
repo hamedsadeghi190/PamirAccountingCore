@@ -188,7 +188,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.OdatPayment } شماره  {currentCheque.ChequeNumber} - به مبلغ {currentCheque.Amount} {"تومان"} - تاریخ عودت  {txtOdatDate.Text} ";
+            txtDesc.Text = $"{Messages.OdatPayment } شماره  {currentCheque.ChequeNumber}- تاریخ عودت  {txtOdatDate.Text} ";
         }
         private void OdatCheckPardakhtaniFrm_KeyUp(object sender, KeyEventArgs e)
         {
