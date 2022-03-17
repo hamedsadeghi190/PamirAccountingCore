@@ -325,6 +325,7 @@ namespace PamirAccounting.Services
                 cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.VagozariAsnadDaryaftani).Select(x => new ChequeModel
                 {
                     Id = x.Id,
+        
                     Amount = x.Amount,
                     BankAccountNumber = x.BankAccountNumber,
                     Description = x.Description,

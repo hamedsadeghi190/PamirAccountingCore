@@ -147,6 +147,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.Size = new System.Drawing.Size(38, 26);
             this.btnshowcustomer.TabIndex = 134;
             this.btnshowcustomer.Visible = false;
+            this.btnshowcustomer.Click += new System.EventHandler(this.btnshowcustomer_Click);
             // 
             // txtDesc
             // 

@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using PamirAccounting.Commons.Enums;
+using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -413,6 +414,13 @@ namespace PamirAccounting.Forms.Checks
                 e.Handled = true;
             }
         }
+
+        private void btnshowcustomer_Click(object sender, EventArgs e)
+        {
+            var frm = new SearchAllCustomersFrm();
+            frm.ShowDialog();
+        }
+
         private void CreateDescription()
         {
             txtDesc.Text = $"{Messages.Vosool } چک به شماره {Cheque.ChequeNumber} تاریخ پاس {txtVosoolDate.Text} ";

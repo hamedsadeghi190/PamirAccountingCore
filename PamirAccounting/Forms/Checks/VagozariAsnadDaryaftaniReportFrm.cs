@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,8 +43,8 @@ namespace PamirAccounting.Forms.Checks
                 x.RealBankName,
                 x.DueDate,
                 IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
-                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
-
+                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString(),
+                x.RowId
 
             }).ToList();
 
@@ -52,13 +54,9 @@ namespace PamirAccounting.Forms.Checks
         {
             dataGridView1.AutoGenerateColumns = false;
             LoadData();
-            DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-            HeaderStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
-            for (int i = 0; i < 11; i++)
-            {
-                dataGridView1.Columns[i].HeaderCell.Style = HeaderStyle;
-            }
-            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
+            txtChequeNumber.Select();
+            txtChequeNumber.Focus();
+          
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -68,7 +66,6 @@ namespace PamirAccounting.Forms.Checks
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
         }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
@@ -114,6 +111,100 @@ namespace PamirAccounting.Forms.Checks
 
                 }
             }
+        }
+
+        private void txtChequeNumber_KeyUp(object sender, KeyEventArgs e)
+
+        {
+            if (txtChequeNumber.Text.Length > 0)
+            {
+                PersianCalendar pc = new PersianCalendar();
+                dataList = unitOfWork.ChequeServices.GetAllVagozariAsnadDaryaftani();
+                dataGridView1.DataSource = dataList.Select(x => new
+                {
+                    x.Id,
+                    x.IssueDate,
+                    x.Description,
+                    x.DocumentId,
+                    x.ChequeNumber,
+                    x.Amount,
+                    x.BranchName,
+                    x.BankAccountNumber,
+                    x.CustomerName,
+                    x.RealBankName,
+                    x.DueDate,
+                    IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
+                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
+
+                }).Where(x => x.ChequeNumber.Contains(txtChequeNumber.Text)).ToList();
+
+            }
+            else
+            {
+                LoadData();
+            }
+        }
+
+        private void txtAccountNumber_KeyUp(object sender, KeyEventArgs e)
+
+        {
+            if (txtAccountNumber.Text.Length > 0)
+            {
+                PersianCalendar pc = new PersianCalendar();
+                dataList = unitOfWork.ChequeServices.GetAllVagozariAsnadDaryaftani();
+                dataGridView1.DataSource = dataList.Select(x => new
+                {
+                    x.Id,
+                    x.IssueDate,
+                    x.Description,
+                    x.DocumentId,
+                    x.ChequeNumber,
+                    x.Amount,
+                    x.BranchName,
+                    x.BankAccountNumber,
+                    x.CustomerName,
+                    x.RealBankName,
+                    x.DueDate,
+                    IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
+                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
+
+                }).Where(x => x.BankAccountNumber.Contains(txtAccountNumber.Text)).ToList();
+
+            }
+            else
+            {
+                LoadData();
+            }
+        }
+
+        private void VagozariAsnadDaryaftaniReportFrm_KeyUp(object sender, KeyEventArgs e)
+
+        {
+
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+
+        {
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var data = new UnitOfWork().ChequeServices.GetAllVagozariAsnadDaryaftani();
+            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "VagozariList.mrt");
+            report.RegData("myData", data);
+            report.RegData("basedata", basedata);
+            report.Design();
+            //report.Render();
+            //report.Show();
         }
     }
 }
