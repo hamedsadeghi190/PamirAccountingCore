@@ -409,6 +409,11 @@ namespace PamirAccounting.UI.Forms.Customers
                         var transferFrm = new TransferAccountFrm(_Id.Value, tranaction.Id);
                         transferFrm.ShowDialog();
                         LoadData();
+                        break;      
+                    case (int)TransaActionType.SellAndBuy:
+                        var frmCellAndBuy = new BuyAndSellCurrencyFrm(_Id.Value, tranaction.Id);
+                        frmCellAndBuy.ShowDialog();
+                        LoadData();
                         break;
                     default:
                         break;

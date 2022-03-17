@@ -60,8 +60,6 @@ namespace PamirAccounting.Forms.Drafts
 
         private void btnExecuteDaraft_Click(object sender, EventArgs e)
         {
-            var ExecuteDaraftFrm = new ExecuteDaraftFrm();
-            ExecuteDaraftFrm.ShowDialog();
         }
 
         private void DraftsListFrm_Load(object sender, EventArgs e)
@@ -119,7 +117,8 @@ namespace PamirAccounting.Forms.Drafts
                 Rent = q.Rent,
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,
-                Customer = q.Customer.FirstName + " " + q.Customer.LastName,
+                CustomerId =  q.CustomerId,
+                Customer =  q.Customer.FirstName + " " + q.Customer.LastName,
                 RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
                 Date = q.Date != null ? (DateTime.Parse(q.Date.ToString())).ToPersian() : "",
             }).ToList();
@@ -182,5 +181,26 @@ namespace PamirAccounting.Forms.Drafts
                 btnAgencystatus_Click(null, null);
             }
         }
+
+        private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == gridDrafts.Columns["btnExecute"].Index && e.RowIndex >= 0)
+            {
+                var draft = _data.ElementAt(e.RowIndex);
+                if (draft.CustomerId == AppSetting.NotRunnedDraftsId)
+                {
+                    var FrmBalance = new ExecuteDaraftFrm(draft.Id);
+                    FrmBalance.ShowDialog();
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("حواله قبلا اجرا شده است.");
+                }
+            }
+
+
+        }
+
     }
 }

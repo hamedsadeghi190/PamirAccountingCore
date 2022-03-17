@@ -37,13 +37,13 @@ namespace PamirAccounting.Forms.Drafts
             txtDate.Text = PDate;
             initData();
             cmbCustomer.SelectedValue = AppSetting.NotRunnedDraftsId;
-            
+
         }
 
         private void initData()
         {
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
-            _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
+            _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = "نمایندگی " + x.Name, Type = 2 }).ToList();
 
             // this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
             cmbAgency.DataSource = _agencies;
@@ -53,7 +53,11 @@ namespace PamirAccounting.Forms.Drafts
             //this.cmbAgency.SelectedIndexChanged += new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
             cmbAgency.SelectedIndex = 0;
 
-            _Customers = unitOfWork.Customers.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+            var _tmpCustomers = unitOfWork.Customers.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}", Type = 1 }).ToList();
+            _Customers = new List<ComboBoxModel>();
+            _Customers.AddRange(_tmpCustomers);
+            _Customers.AddRange(_agencies);
+
             cmbCustomer.DataSource = _Customers;
             cmbCustomer.ValueMember = "Id";
             cmbCustomer.DisplayMember = "Title";
@@ -121,27 +125,64 @@ namespace PamirAccounting.Forms.Drafts
                 unitOfWork.DraftsServices.Insert(draft);
                 unitOfWork.SaveChanges();
 
+                var selectedIndex = (int)cmbCustomer.SelectedIndex;
+                var customer = _Customers.ElementAt(selectedIndex);
+                if (customer.Type == 1)
+                {
 
-                // trakonesh moshtari //
-                var customerTransaction = new Domains.Transaction();
-                customerTransaction.SourceCustomerId = (int)cmbCustomer.SelectedValue;
-                // customerTransaction.DestinitionCustomerId = AppSetting.SandoghCustomerId;
-                customerTransaction.TransactionType = (int)TransaActionType.HavaleAmad;
-                customerTransaction.DocumentId = documentId;
-                customerTransaction.WithdrawAmount = 0;
-                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtDepositAmount.Text.Trim())) ? 0 : long.Parse(txtDepositAmount.Text);
-                customerTransaction.Description = $"شماره  {txtNumber.Text} {cmbAgency.Text} , {txtSender.Text} برای " +
-                    $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDepositCurreny.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text}  **{txtDesc.Text}";
+                    // trakonesh moshtari //
+                    var customerTransaction = new Domains.Transaction();
+                    customerTransaction.SourceCustomerId = (int)cmbCustomer.SelectedValue;
+                    // customerTransaction.DestinitionCustomerId = AppSetting.SandoghCustomerId;
+                    customerTransaction.TransactionType = (int)TransaActionType.HavaleAmad;
+                    customerTransaction.DocumentId = documentId;
+                    customerTransaction.WithdrawAmount = 0;
+                    customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtDepositAmount.Text.Trim())) ? 0 : long.Parse(txtDepositAmount.Text);
+                    customerTransaction.Description = $"شماره  {txtNumber.Text} {cmbAgency.Text} , {txtSender.Text} برای " +
+                        $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDepositCurreny.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text}  **{txtDesc.Text}";
 
-                customerTransaction.CurrenyId = (int)cmbDepositCurreny.SelectedValue;
-                var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
-                customerTransaction.Date = DateTime.Now;
-                customerTransaction.TransactionDateTime = TransactionDateTime;
-                customerTransaction.UserId = CurrentUser.UserID;
+                    customerTransaction.CurrenyId = (int)cmbDepositCurreny.SelectedValue;
+                    var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                    customerTransaction.Date = DateTime.Now;
+                    customerTransaction.TransactionDateTime = TransactionDateTime;
+                    customerTransaction.UserId = CurrentUser.UserID;
 
-                unitOfWork.TransactionServices.Insert(customerTransaction);
-                unitOfWork.SaveChanges();
-                //end moshtari ///
+                    unitOfWork.TransactionServices.Insert(customerTransaction);
+                    unitOfWork.SaveChanges();
+                    //end moshtari ///
+
+                  
+                }
+                else
+
+                {
+                  
+                    var draftForosh = new Domains.Draft();
+
+                    draftForosh.Date = draftDateTime;
+                    draftForosh.AgencyId = customer.Id;
+                    draftForosh.Type = 0;
+                    draftForosh.Number = Int64.Parse(txtNumber.Text);
+                    draftForosh.OtherNumber = txtOtherNumber.Text;
+                    draftForosh.Sender = txtSender.Text;
+                    draftForosh.Reciver = txtReciver.Text;
+                    draftForosh.FatherName = txtFatherName.Text;
+                    draftForosh.Description = txtDesc.Text;
+                    draftForosh.PayPlace = txtPayPlace.Text;
+                    draftForosh.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
+                    draftForosh.DraftAmount = long.Parse(txtDraftAmount.Text);
+                    draftForosh.Rate = double.Parse(txtRate.Text);
+                    draftForosh.Rent = double.Parse(txtRent.Text);
+                    draftForosh.DepositAmount = double.Parse(txtDepositAmount.Text);
+                    draftForosh.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
+                    draftForosh.CustomerId = AppSetting.NotRunnedDraftsId;
+                    draftForosh.Status = (bool)cmbStatus.SelectedValue;
+
+                    unitOfWork.DraftsServices.Insert(draftForosh);
+                    unitOfWork.SaveChanges();
+
+                }
+
 
                 MessageBox.Show(" حواله با موفقیت ثبت شد");
             }
@@ -249,6 +290,11 @@ namespace PamirAccounting.Forms.Drafts
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

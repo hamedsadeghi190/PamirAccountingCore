@@ -133,7 +133,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDepositAmount.Properties.MaskSettings.Set("mask", "f");
             this.txtDepositAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDepositAmount.Size = new System.Drawing.Size(265, 29);
-            this.txtDepositAmount.TabIndex = 13;
+            this.txtDepositAmount.TabIndex = 14;
             // 
             // txtDraftAmount
             // 
@@ -148,7 +148,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDraftAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtDraftAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDraftAmount.Size = new System.Drawing.Size(265, 29);
-            this.txtDraftAmount.TabIndex = 10;
+            this.txtDraftAmount.TabIndex = 11;
             this.txtDraftAmount.TextChanged += new System.EventHandler(this.txtDraftAmount_TextChanged);
             // 
             // txtRate
@@ -162,7 +162,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRate.Properties.AutoHeight = false;
             this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRate.Size = new System.Drawing.Size(265, 29);
-            this.txtRate.TabIndex = 11;
+            this.txtRate.TabIndex = 12;
             this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
             // 
             // txtDate
@@ -181,7 +181,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // btnSave
             // 
-            this.btnSave.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
+            this.btnSave.Appearance.BackColor = System.Drawing.Color.White;
             this.btnSave.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.Appearance.Options.UseFont = true;
@@ -263,7 +263,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbDepositCurreny.Location = new System.Drawing.Point(74, 67);
             this.cmbDepositCurreny.Name = "cmbDepositCurreny";
             this.cmbDepositCurreny.Size = new System.Drawing.Size(265, 28);
-            this.cmbDepositCurreny.TabIndex = 14;
+            this.cmbDepositCurreny.TabIndex = 10;
             // 
             // txtRent
             // 
@@ -272,7 +272,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRent.Name = "txtRent";
             this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRent.Size = new System.Drawing.Size(265, 31);
-            this.txtRent.TabIndex = 12;
+            this.txtRent.TabIndex = 13;
             this.txtRent.Text = "0";
             this.txtRent.TextChanged += new System.EventHandler(this.txtRent_TextChanged);
             // 

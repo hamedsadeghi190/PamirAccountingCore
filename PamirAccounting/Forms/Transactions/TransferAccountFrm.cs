@@ -173,7 +173,6 @@ namespace PamirAccounting.UI.Forms.Transaction
             unitOfWork.SaveChanges();
 
 
-            destinationTransaction = new Domains.Transaction();
             destinationTransaction.SourceCustomerId = (int)cmbDestiniation.SelectedValue;
             destinationTransaction.DestinitionCustomerId = (int)CmbSource.SelectedValue;
             destinationTransaction.Description = txtDesc.Text.Length > 0 ? txtDesc.Text : " انتقال از حساب " + CmbSource.Text + " به " + cmbDestiniation.Text;

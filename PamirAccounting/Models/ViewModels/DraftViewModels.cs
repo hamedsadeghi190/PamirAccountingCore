@@ -25,6 +25,7 @@ namespace PamirAccounting.Models.ViewModels
         public double? DepositAmount { get; set; }
         public string DepositCurrency { get; set; }
         public string Customer { get; set; }
+        public int? CustomerId { get; set; }
         public string RunningDate { get; set; }
         public string Date { get; set; }
         public int? ConvertedCurrencyId { get; set; }
