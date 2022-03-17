@@ -32,6 +32,9 @@ namespace PamirAccounting.Domains
         public long? ConvertedAmount { get; set; }
         public DateTime? ConvertedDate { get; set; }
         public string ExtraDescription { get; set; }
+        public string PhoneNumber { get; set; }
+        public string RunningDesc { get; set; }
+        public string Tazkare { get; set; }
 
         public virtual Agency Agency { get; set; }
         public virtual Currency ConvertedCurrency { get; set; }

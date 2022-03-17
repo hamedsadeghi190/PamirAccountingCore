@@ -37,7 +37,6 @@ namespace PamirAccounting.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
@@ -254,13 +253,19 @@ namespace PamirAccounting.Domains
 
                 entity.Property(e => e.PayPlace).HasMaxLength(150);
 
+                entity.Property(e => e.PhoneNumber).HasMaxLength(50);
+
                 entity.Property(e => e.Reciver).HasMaxLength(250);
+
+                entity.Property(e => e.RunningDesc).HasMaxLength(500);
 
                 entity.Property(e => e.Sender).HasMaxLength(250);
 
                 entity.Property(e => e.Status)
                     .IsRequired()
                     .HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Tazkare).HasMaxLength(50);
 
                 entity.HasOne(d => d.Agency)
                     .WithMany(p => p.Drafts)
