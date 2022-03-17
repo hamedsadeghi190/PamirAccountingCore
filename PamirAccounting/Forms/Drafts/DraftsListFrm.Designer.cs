@@ -43,6 +43,27 @@ namespace PamirAccounting.Forms.Drafts
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridDrafts = new System.Windows.Forms.DataGridView();
+            this.Radif = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.a = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DraftAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExecute = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
@@ -65,27 +86,6 @@ namespace PamirAccounting.Forms.Drafts
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.Radif = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.a = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DraftAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExecute = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdTotals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDrafts)).BeginInit();
             this.groupBoxSearch.SuspendLayout();
@@ -238,242 +238,6 @@ namespace PamirAccounting.Forms.Drafts
             this.gridDrafts.Size = new System.Drawing.Size(1279, 333);
             this.gridDrafts.TabIndex = 20;
             this.gridDrafts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // groupBoxSearch
-            // 
-            this.groupBoxSearch.Controls.Add(this.label6);
-            this.groupBoxSearch.Controls.Add(this.cmbType);
-            this.groupBoxSearch.Controls.Add(this.textBox5);
-            this.groupBoxSearch.Controls.Add(this.label4);
-            this.groupBoxSearch.Controls.Add(this.textBox6);
-            this.groupBoxSearch.Controls.Add(this.label5);
-            this.groupBoxSearch.Controls.Add(this.textBox3);
-            this.groupBoxSearch.Controls.Add(this.label3);
-            this.groupBoxSearch.Controls.Add(this.textBox4);
-            this.groupBoxSearch.Controls.Add(this.label1);
-            this.groupBoxSearch.Controls.Add(this.cmbAgency);
-            this.groupBoxSearch.Controls.Add(this.textBox1);
-            this.groupBoxSearch.Controls.Add(this.label2);
-            this.groupBoxSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxSearch.Location = new System.Drawing.Point(2, 74);
-            this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(1279, 63);
-            this.groupBoxSearch.TabIndex = 21;
-            this.groupBoxSearch.TabStop = false;
-            this.groupBoxSearch.Text = "جستجو";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(989, 27);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 23);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "نوع :";
-            // 
-            // cmbType
-            // 
-            this.cmbType.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(849, 25);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(134, 28);
-            this.cmbType.TabIndex = 20;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(384, 22);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(89, 29);
-            this.textBox5.TabIndex = 19;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(479, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 23);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "تا";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(503, 22);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(86, 29);
-            this.textBox6.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(595, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 23);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "از شماره :";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(47, 20);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(134, 29);
-            this.textBox3.TabIndex = 15;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(182, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 23);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "تا";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(201, 20);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(134, 29);
-            this.textBox4.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1211, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "نمایندگی";
-            // 
-            // cmbAgency
-            // 
-            this.cmbAgency.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cmbAgency.FormattingEnabled = true;
-            this.cmbAgency.Location = new System.Drawing.Point(1037, 25);
-            this.cmbAgency.Name = "cmbAgency";
-            this.cmbAgency.Size = new System.Drawing.Size(168, 28);
-            this.cmbAgency.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(671, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 29);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "نام";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(334, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 23);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "از تاریخ";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnExecuteDaraft);
-            this.groupBox2.Controls.Add(this.btnAgencystatus);
-            this.groupBox2.Controls.Add(this.simpleButton8);
-            this.groupBox2.Controls.Add(this.simpleButton5);
-            this.groupBox2.Controls.Add(this.simpleButton4);
-            this.groupBox2.Controls.Add(this.simpleButton3);
-            this.groupBox2.Controls.Add(this.simpleButton2);
-            this.groupBox2.Location = new System.Drawing.Point(3, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1278, 77);
-            this.groupBox2.TabIndex = 22;
-            this.groupBox2.TabStop = false;
-            // 
-            // btnExecuteDaraft
-            // 
-            this.btnExecuteDaraft.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnExecuteDaraft.AppearanceDisabled.Options.UseFont = true;
-            this.btnExecuteDaraft.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExecuteDaraft.ImageOptions.SvgImage")));
-            this.btnExecuteDaraft.Location = new System.Drawing.Point(1009, 22);
-            this.btnExecuteDaraft.Name = "btnExecuteDaraft";
-            this.btnExecuteDaraft.Size = new System.Drawing.Size(39, 41);
-            this.btnExecuteDaraft.TabIndex = 13;
-            this.btnExecuteDaraft.Text = "اجرای حواله";
-            this.btnExecuteDaraft.Visible = false;
-            this.btnExecuteDaraft.Click += new System.EventHandler(this.btnExecuteDaraft_Click);
-            // 
-            // btnAgencystatus
-            // 
-            this.btnAgencystatus.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAgencystatus.Appearance.Options.UseFont = true;
-            this.btnAgencystatus.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAgencystatus.ImageOptions.SvgImage")));
-            this.btnAgencystatus.Location = new System.Drawing.Point(18, 22);
-            this.btnAgencystatus.Name = "btnAgencystatus";
-            this.btnAgencystatus.Size = new System.Drawing.Size(172, 41);
-            this.btnAgencystatus.TabIndex = 11;
-            this.btnAgencystatus.Text = "وضعیت نمایندگی (F2)";
-            this.btnAgencystatus.Click += new System.EventHandler(this.btnAgencystatus_Click);
-            // 
-            // simpleButton8
-            // 
-            this.simpleButton8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton8.ImageOptions.SvgImage")));
-            this.simpleButton8.Location = new System.Drawing.Point(1054, 22);
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton8.TabIndex = 9;
-            this.simpleButton8.Text = "دریافت از اکسل";
-            this.simpleButton8.Visible = false;
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
-            this.simpleButton5.Location = new System.Drawing.Point(1144, 22);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton5.TabIndex = 5;
-            this.simpleButton5.Text = "تسویه حساب";
-            this.simpleButton5.Visible = false;
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton4.Location = new System.Drawing.Point(196, 22);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(50, 41);
-            this.simpleButton4.TabIndex = 4;
-            this.simpleButton4.Text = "چاپ";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(1099, 22);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton3.TabIndex = 2;
-            this.simpleButton3.Text = "راهنما";
-            this.simpleButton3.Visible = false;
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.AppearanceHovered.Options.UseTextOptions = true;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(1189, 22);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "جستجو";
-            this.simpleButton2.Visible = false;
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // Radif
             // 
@@ -666,6 +430,242 @@ namespace PamirAccounting.Forms.Drafts
             this.btnExecute.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.btnExecute.Text = "اجرای حواله";
             this.btnExecute.UseColumnTextForButtonValue = true;
+            // 
+            // groupBoxSearch
+            // 
+            this.groupBoxSearch.Controls.Add(this.label6);
+            this.groupBoxSearch.Controls.Add(this.cmbType);
+            this.groupBoxSearch.Controls.Add(this.textBox5);
+            this.groupBoxSearch.Controls.Add(this.label4);
+            this.groupBoxSearch.Controls.Add(this.textBox6);
+            this.groupBoxSearch.Controls.Add(this.label5);
+            this.groupBoxSearch.Controls.Add(this.textBox3);
+            this.groupBoxSearch.Controls.Add(this.label3);
+            this.groupBoxSearch.Controls.Add(this.textBox4);
+            this.groupBoxSearch.Controls.Add(this.label1);
+            this.groupBoxSearch.Controls.Add(this.cmbAgency);
+            this.groupBoxSearch.Controls.Add(this.textBox1);
+            this.groupBoxSearch.Controls.Add(this.label2);
+            this.groupBoxSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxSearch.Location = new System.Drawing.Point(2, 74);
+            this.groupBoxSearch.Name = "groupBoxSearch";
+            this.groupBoxSearch.Size = new System.Drawing.Size(1279, 63);
+            this.groupBoxSearch.TabIndex = 21;
+            this.groupBoxSearch.TabStop = false;
+            this.groupBoxSearch.Text = "جستجو";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(989, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 23);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "نوع :";
+            // 
+            // cmbType
+            // 
+            this.cmbType.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Location = new System.Drawing.Point(849, 25);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(134, 32);
+            this.cmbType.TabIndex = 20;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox5.Location = new System.Drawing.Point(384, 22);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(89, 29);
+            this.textBox5.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(479, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 23);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "تا";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox6.Location = new System.Drawing.Point(503, 22);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(86, 29);
+            this.textBox6.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(595, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 23);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "از شماره :";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(47, 20);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(134, 29);
+            this.textBox3.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(182, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 23);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "تا";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox4.Location = new System.Drawing.Point(201, 20);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(134, 29);
+            this.textBox4.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(1211, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 23);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "نمایندگی";
+            // 
+            // cmbAgency
+            // 
+            this.cmbAgency.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbAgency.FormattingEnabled = true;
+            this.cmbAgency.Location = new System.Drawing.Point(1037, 25);
+            this.cmbAgency.Name = "cmbAgency";
+            this.cmbAgency.Size = new System.Drawing.Size(168, 32);
+            this.cmbAgency.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(671, 24);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(134, 29);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "نام";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(334, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 23);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "از تاریخ";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnExecuteDaraft);
+            this.groupBox2.Controls.Add(this.btnAgencystatus);
+            this.groupBox2.Controls.Add(this.simpleButton8);
+            this.groupBox2.Controls.Add(this.simpleButton5);
+            this.groupBox2.Controls.Add(this.simpleButton4);
+            this.groupBox2.Controls.Add(this.simpleButton3);
+            this.groupBox2.Controls.Add(this.simpleButton2);
+            this.groupBox2.Location = new System.Drawing.Point(3, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1278, 77);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            // 
+            // btnExecuteDaraft
+            // 
+            this.btnExecuteDaraft.AppearanceDisabled.Font = new System.Drawing.Font("B Nazanin", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExecuteDaraft.AppearanceDisabled.Options.UseFont = true;
+            this.btnExecuteDaraft.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExecuteDaraft.ImageOptions.SvgImage")));
+            this.btnExecuteDaraft.Location = new System.Drawing.Point(1009, 22);
+            this.btnExecuteDaraft.Name = "btnExecuteDaraft";
+            this.btnExecuteDaraft.Size = new System.Drawing.Size(39, 41);
+            this.btnExecuteDaraft.TabIndex = 13;
+            this.btnExecuteDaraft.Text = "اجرای حواله";
+            this.btnExecuteDaraft.Visible = false;
+            this.btnExecuteDaraft.Click += new System.EventHandler(this.btnExecuteDaraft_Click);
+            // 
+            // btnAgencystatus
+            // 
+            this.btnAgencystatus.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAgencystatus.Appearance.Options.UseFont = true;
+            this.btnAgencystatus.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAgencystatus.ImageOptions.SvgImage")));
+            this.btnAgencystatus.Location = new System.Drawing.Point(18, 22);
+            this.btnAgencystatus.Name = "btnAgencystatus";
+            this.btnAgencystatus.Size = new System.Drawing.Size(172, 41);
+            this.btnAgencystatus.TabIndex = 11;
+            this.btnAgencystatus.Text = "وضعیت نمایندگی (F2)";
+            this.btnAgencystatus.Click += new System.EventHandler(this.btnAgencystatus_Click);
+            // 
+            // simpleButton8
+            // 
+            this.simpleButton8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton8.ImageOptions.SvgImage")));
+            this.simpleButton8.Location = new System.Drawing.Point(1054, 22);
+            this.simpleButton8.Name = "simpleButton8";
+            this.simpleButton8.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton8.TabIndex = 9;
+            this.simpleButton8.Text = "دریافت از اکسل";
+            this.simpleButton8.Visible = false;
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
+            this.simpleButton5.Location = new System.Drawing.Point(1144, 22);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton5.TabIndex = 5;
+            this.simpleButton5.Text = "تسویه حساب";
+            this.simpleButton5.Visible = false;
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton4.Appearance.Options.UseFont = true;
+            this.simpleButton4.AppearanceHovered.Options.UseTextOptions = true;
+            this.simpleButton4.Location = new System.Drawing.Point(196, 22);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(50, 41);
+            this.simpleButton4.TabIndex = 4;
+            this.simpleButton4.Text = "چاپ";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.simpleButton3.Location = new System.Drawing.Point(1099, 22);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton3.TabIndex = 2;
+            this.simpleButton3.Text = "راهنما";
+            this.simpleButton3.Visible = false;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.AppearanceHovered.Options.UseTextOptions = true;
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.Location = new System.Drawing.Point(1189, 22);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(39, 41);
+            this.simpleButton2.TabIndex = 1;
+            this.simpleButton2.Text = "جستجو";
+            this.simpleButton2.Visible = false;
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // DraftsListFrm
             // 
