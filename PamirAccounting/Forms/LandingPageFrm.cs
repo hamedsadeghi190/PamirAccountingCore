@@ -43,10 +43,10 @@ namespace PamirAccounting.Forms
             AppSetting.TomanCurrencyID = 2;
             AppSetting.DocumnetAndDraftsGroupID = new int[] { 7, 8 };
 
-            //AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
+            AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
             //AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
             //AppSetting.ReportPath = "E:\\Projects\\PamirAccounting\\PamirAccounting\\Reports\\";
-            AppSetting.ReportPath = "D:\\fixed\\PamirAccountingCore\\PamirAccounting\\Reports\\";
+            //AppSetting.ReportPath = "D:\\fixed\\PamirAccountingCore\\PamirAccounting\\Reports\\";
 
         }
 
