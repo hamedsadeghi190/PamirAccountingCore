@@ -202,5 +202,9 @@ namespace PamirAccounting.Forms.Drafts
 
         }
 
+        private void gridDrafts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
