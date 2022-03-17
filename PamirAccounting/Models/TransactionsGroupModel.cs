@@ -13,6 +13,7 @@ namespace PamirAccounting.Models
         public long TotalWithdrawAmount { get; set; }
         public long TotalDepositAmount { get; set; }
         public long RemainigAmount { get; set; }
+        public long RemainigAmount2 { get; set; }
         public string Description { get; set; }
         public string CurrenyName { get; set; }
         public string Status { get; set; }

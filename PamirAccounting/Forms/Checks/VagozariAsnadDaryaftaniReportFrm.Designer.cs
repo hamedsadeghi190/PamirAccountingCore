@@ -32,6 +32,7 @@ namespace PamirAccounting.Forms.Checks
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VagozariAsnadDaryaftaniReportFrm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAccountNumber = new DevExpress.XtraEditors.TextEdit();
@@ -62,8 +63,8 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnRowEdit1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnRowDelete1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).BeginInit();
@@ -268,6 +269,14 @@ namespace PamirAccounting.Forms.Checks
             dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -280,18 +289,18 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
-            this.dataGridViewButtonColumn1,
-            this.dataGridViewButtonColumn2});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.btnRowEdit1,
+            this.btnRowDelete1});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(-2, 156);
+            this.dataGridView1.Location = new System.Drawing.Point(-1, 139);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -301,11 +310,13 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1182, 373);
-            this.dataGridView1.TabIndex = 123;
+            this.dataGridView1.TabIndex = 118;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // id
             // 
             this.id.DataPropertyName = "Id";
+            this.id.Frozen = true;
             this.id.HeaderText = "id";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
@@ -317,6 +328,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "RowId";
             this.dataGridViewTextBoxColumn5.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn5.Frozen = true;
             this.dataGridViewTextBoxColumn5.HeaderText = "ردیف";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -328,6 +340,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "ChequeNumber";
             this.dataGridViewTextBoxColumn7.FillWeight = 450F;
+            this.dataGridViewTextBoxColumn7.Frozen = true;
             this.dataGridViewTextBoxColumn7.HeaderText = "شماره چک";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
@@ -400,33 +413,33 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             this.dataGridViewTextBoxColumn15.Width = 125;
             // 
-            // dataGridViewButtonColumn1
+            // btnRowEdit1
             // 
-            this.dataGridViewButtonColumn1.FillWeight = 70F;
-            this.dataGridViewButtonColumn1.HeaderText = "ویرایش";
-            this.dataGridViewButtonColumn1.MinimumWidth = 6;
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.ReadOnly = true;
-            this.dataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewButtonColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewButtonColumn1.Text = "ویرایش";
-            this.dataGridViewButtonColumn1.ToolTipText = "ویرایش";
-            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn1.Width = 70;
+            this.btnRowEdit1.FillWeight = 70F;
+            this.btnRowEdit1.HeaderText = "ویرایش";
+            this.btnRowEdit1.MinimumWidth = 6;
+            this.btnRowEdit1.Name = "btnRowEdit1";
+            this.btnRowEdit1.ReadOnly = true;
+            this.btnRowEdit1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnRowEdit1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnRowEdit1.Text = "ویرایش";
+            this.btnRowEdit1.ToolTipText = "ویرایش";
+            this.btnRowEdit1.UseColumnTextForButtonValue = true;
+            this.btnRowEdit1.Width = 70;
             // 
-            // dataGridViewButtonColumn2
+            // btnRowDelete1
             // 
-            this.dataGridViewButtonColumn2.FillWeight = 70F;
-            this.dataGridViewButtonColumn2.HeaderText = "حذف";
-            this.dataGridViewButtonColumn2.MinimumWidth = 6;
-            this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
-            this.dataGridViewButtonColumn2.ReadOnly = true;
-            this.dataGridViewButtonColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewButtonColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewButtonColumn2.Text = "حذف";
-            this.dataGridViewButtonColumn2.ToolTipText = "حذف";
-            this.dataGridViewButtonColumn2.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn2.Width = 70;
+            this.btnRowDelete1.FillWeight = 70F;
+            this.btnRowDelete1.HeaderText = "حذف";
+            this.btnRowDelete1.MinimumWidth = 6;
+            this.btnRowDelete1.Name = "btnRowDelete1";
+            this.btnRowDelete1.ReadOnly = true;
+            this.btnRowDelete1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnRowDelete1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnRowDelete1.Text = "حذف";
+            this.btnRowDelete1.ToolTipText = "حذف";
+            this.btnRowDelete1.UseColumnTextForButtonValue = true;
+            this.btnRowDelete1.Width = 70;
             // 
             // VagozariAsnadDaryaftaniReportFrm
             // 
@@ -434,7 +447,7 @@ namespace PamirAccounting.Forms.Checks
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1181, 531);
+            this.ClientSize = new System.Drawing.Size(1181, 513);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -488,7 +501,7 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
+        private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit1;
+        private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete1;
     }
 }

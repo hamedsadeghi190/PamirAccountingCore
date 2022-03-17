@@ -115,7 +115,7 @@ namespace PamirAccounting.Forms.Checks
             txtDate.Text = DateTime;
             txtDesc.Text = Cheque.Description;
             txtDocumentId.Text = Cheque.DocumentId.ToString();
-
+            cmbCustomers.SelectedValue = Cheque.CustomerId;
         }
 
 

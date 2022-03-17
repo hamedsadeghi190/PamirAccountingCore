@@ -55,63 +55,17 @@ namespace PamirAccounting.Forms.Checks
             dataGridView1.AutoGenerateColumns = false;
             LoadData();
             txtChequeNumber.Select();
-            txtChequeNumber.Focus();
-          
-            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
+            txtChequeNumber.Focus(); 
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit1"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
             c.DefaultCellStyle.BackColor = Color.Lavender;
-            DataGridViewButtonColumn d = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowDelete"];
+            DataGridViewButtonColumn d = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowDelete1"];
             d.FlatStyle = FlatStyle.Standard;
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
         }
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
-            {
-                var frm = new VagozariAsnadDaryaftaniFrm(0, dataList.ElementAt(e.RowIndex).Id);
-                frm.ShowDialog();
-                LoadData();
-            }
 
-
-            if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
-            {
-
-                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف چک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
-
-                if (dialogResult == DialogResult.Yes)
-                {
-                    try
-                    {
-                        var cheque = unitOfWork.Cheque.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
-                        unitOfWork.ChequeServices.Delete(cheque);
-                        var transactions = unitOfWork.Transactions.FindAll(x => x.DocumentId == cheque.DocumentId).ToList();
-                        foreach (var item in transactions)
-                        {
-                            item.DoubleTransactionId = null;
-                            unitOfWork.TransactionServices.Update(item);
-                            unitOfWork.SaveChanges();
-                        }
-
-                        foreach (var item in transactions)
-                        {
-                            unitOfWork.TransactionServices.Delete(item);
-                            unitOfWork.SaveChanges();
-                        }
-
-                        LoadData();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("حذف امکانپذیر نمیباشد");
-                    }
-
-                }
-            }
-        }
 
         private void txtChequeNumber_KeyUp(object sender, KeyEventArgs e)
 
@@ -202,9 +156,56 @@ namespace PamirAccounting.Forms.Checks
             report.Load(AppSetting.ReportPath + "VagozariList.mrt");
             report.RegData("myData", data);
             report.RegData("basedata", basedata);
-            report.Design();
-            //report.Render();
-            //report.Show();
+           // report.Design();
+            report.Render();
+            report.Show();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit1"].Index && e.RowIndex >= 0)
+            {
+                var frm = new VagozariAsnadDaryaftaniFrm(0, dataList.ElementAt(e.RowIndex).Id);
+                frm.ShowDialog();
+                LoadData();
+            }
+
+
+            if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete1"].Index && e.RowIndex >= 0)
+            {
+
+                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف چک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var cheque = unitOfWork.Cheque.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
+                        unitOfWork.ChequeServices.Delete(cheque);
+                        var transactions = unitOfWork.Transactions.FindAll(x => x.DocumentId == cheque.DocumentId).ToList();
+                        foreach (var item in transactions)
+                        {
+                            item.DoubleTransactionId = null;
+                            unitOfWork.TransactionServices.Update(item);
+                            unitOfWork.SaveChanges();
+                        }
+
+                        foreach (var item in transactions)
+                        {
+                            unitOfWork.TransactionServices.Delete(item);
+                            unitOfWork.SaveChanges();
+                        }
+
+                        LoadData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("حذف امکانپذیر نمیباشد");
+                    }
+
+                }
+            }
         }
     }
 }

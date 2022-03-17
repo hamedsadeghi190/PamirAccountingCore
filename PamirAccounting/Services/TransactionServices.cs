@@ -376,7 +376,7 @@ namespace PamirAccounting.Services
                        CurrenyName = x.Curreny.Name,
                        FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
                        SourceCustomerId = x.SourceCustomerId,
-
+                       
 
                    }).ToList();
                 }
