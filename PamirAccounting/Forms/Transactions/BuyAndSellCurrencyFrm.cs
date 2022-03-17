@@ -110,7 +110,7 @@ namespace PamirAccounting.Forms.Transactions
 
 
             bedehkarTransAction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
-            bedehkarTransAction.SourceCustomerId = AppSetting.SandoghCustomerId;
+            bedehkarTransAction.SourceCustomerId = (int)cmbDestCustomers.SelectedValue;
             bedehkarTransAction.TransactionType = (int)TransaActionType.SellAndBuy;
 
             bedehkarTransAction.CurrenyId = (int)cmbCurrencybuyer.SelectedValue;

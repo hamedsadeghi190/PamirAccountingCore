@@ -152,9 +152,7 @@ namespace PamirAccounting.Forms.Drafts
                 {
                     row.DefaultCellStyle.BackColor = Color.LightGreen;
                 }
-
             }
-
         }
     }
 }

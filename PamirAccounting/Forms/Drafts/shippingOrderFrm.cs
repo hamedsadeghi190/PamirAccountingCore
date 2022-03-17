@@ -153,7 +153,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void calcNumber(int agenyId)
         {
-            var lastDraft = unitOfWork.Drafts.FindAll(x => x.AgencyId == agenyId).OrderByDescending(x => x.Id).FirstOrDefault();
+            var lastDraft = unitOfWork.Drafts.FindAll(x => x.AgencyId == agenyId && x.Type == 0).OrderByDescending(x => x.Id).FirstOrDefault();
             if (lastDraft != null)
             {
                 txtNumber.Text = (lastDraft.Number + 1).ToString();
@@ -191,11 +191,11 @@ namespace PamirAccounting.Forms.Drafts
                         }
                         else
                         {
-                            if(sourceCurrenyId != destiniationCurrenyId)
+                            if (sourceCurrenyId != destiniationCurrenyId)
                             {
                                 mappingsAction = currenciesMappings.Action;
                             }
-                      
+
 
                             if (mappingsAction == (int)MappingActions.Division)
                             {

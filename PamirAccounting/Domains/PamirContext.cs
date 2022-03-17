@@ -262,6 +262,12 @@ namespace PamirAccounting.Domains
                     .IsRequired()
                     .HasDefaultValueSql("((1))");
 
+                entity.HasOne(d => d.Agency)
+                    .WithMany(p => p.Drafts)
+                    .HasForeignKey(d => d.AgencyId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Drafts_Agencies");
+
                 entity.HasOne(d => d.ConvertedCurrency)
                     .WithMany(p => p.DraftConvertedCurrencies)
                     .HasForeignKey(d => d.ConvertedCurrencyId)

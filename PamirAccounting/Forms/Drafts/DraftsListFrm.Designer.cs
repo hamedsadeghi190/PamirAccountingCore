@@ -231,14 +231,15 @@ namespace PamirAccounting.Forms.Drafts
             this.gridDrafts.RowHeadersWidth = 60;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gridDrafts.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.gridDrafts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gridDrafts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gridDrafts.RowTemplate.Height = 30;
             this.gridDrafts.RowTemplate.ReadOnly = true;
             this.gridDrafts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDrafts.ShowEditingIcon = false;
             this.gridDrafts.Size = new System.Drawing.Size(1279, 333);
             this.gridDrafts.TabIndex = 20;
             this.gridDrafts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.gridDrafts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDrafts_CellContentClick);
+           
             // 
             // Radif
             // 
