@@ -130,6 +130,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnshowcustomer.Size = new System.Drawing.Size(38, 27);
             this.btnshowcustomer.TabIndex = 116;
+            this.btnshowcustomer.Click += new System.EventHandler(this.btnshowcustomer_Click);
             // 
             // txtDesc
             // 

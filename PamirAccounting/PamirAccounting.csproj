@@ -102,6 +102,9 @@
     <None Update="Reports\ReceiveSareHesabList.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Reports\VagozariList.mrt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Reports\ReceiveVosoolList.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
