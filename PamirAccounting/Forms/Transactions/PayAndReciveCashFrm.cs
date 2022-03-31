@@ -92,6 +92,7 @@ namespace PamirAccounting.Forms.Transactions
             if (_TransActionId.HasValue)
             {
                 cmbCustomers.SelectedValue = _CustomerId;
+              
                 cmbCustomers.Enabled = false;
                 loadTransActionInfo(_TransActionId);
             }
@@ -105,6 +106,7 @@ namespace PamirAccounting.Forms.Transactions
                 {
                     cmbCustomers.SelectedValue = _CustomerId;
                 }
+                lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             }
         }
 
@@ -112,6 +114,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
             sandoghTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
+            lbl_Document_Id_value.Text = customerTransaction.DocumentId.ToString();
 
             if (customerTransaction.WithdrawAmount.Value != 0)
             {

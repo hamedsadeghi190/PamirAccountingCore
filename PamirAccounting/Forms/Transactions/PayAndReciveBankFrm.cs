@@ -128,6 +128,7 @@ namespace PamirAccounting.Forms.Transactions
                 PersianCalendar pc = new PersianCalendar();
                 string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtDate.Text = PDate;
+                lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             }
 
         }
@@ -136,7 +137,7 @@ namespace PamirAccounting.Forms.Transactions
         {
 
             customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
-
+            lbl_Document_Id_value.Text = customerTransaction.DocumentId.ToString();
             if (customerTransaction.WithdrawAmount.Value != 0)
             {
                 txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();

@@ -4,7 +4,6 @@ using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.GeneralLedger;
 using PamirAccounting.Forms.NewsPaper;
-using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
 using PamirAccounting.UI.Forms.Agencies;
@@ -18,14 +17,8 @@ using PamirAccounting.UI.Forms.Header;
 using PamirAccounting.UI.Forms.Settings;
 using PamirAccounting.UI.Forms.Transaction;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace PamirAccounting.Forms
@@ -35,6 +28,8 @@ namespace PamirAccounting.Forms
         public LandingPageFrm()
         {
             InitializeComponent();
+            AppSetting.DebugMode = true;
+
             AppSetting.NotRunnedDraftsId = 6;
             AppSetting.SandoghCustomerId = 4;
             AppSetting.RecivedDocumentCustomerId = 16;
@@ -43,10 +38,18 @@ namespace PamirAccounting.Forms
             AppSetting.TomanCurrencyID = 2;
             AppSetting.DocumnetAndDraftsGroupID = new int[] { 7, 8 };
 
-            AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
-            //AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
-            //AppSetting.ReportPath = "E:\\Projects\\PamirAccounting\\PamirAccounting\\Reports\\";
-            //AppSetting.ReportPath = "D:\\fixed\\PamirAccountingCore\\PamirAccounting\\Reports\\";
+
+            if (AppSetting.DebugMode == false)
+            {
+                var currentDirectory = Directory.GetCurrentDirectory();
+                AppSetting.ReportPath = $"{currentDirectory}\\Reports\\";
+            }
+            else
+            {
+                //AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
+                //AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
+                AppSetting.ReportPath = "E:\\Projects\\PamirAccounting\\PamirAccounting\\Reports\\";
+            }
 
         }
 
@@ -364,7 +367,7 @@ namespace PamirAccounting.Forms
 
         private void ListOdatPayment_Click(object sender, EventArgs e)
         {
-             var frm = new OdatCheckPardakhtaniReportFrm();
+            var frm = new OdatCheckPardakhtaniReportFrm();
             frm.ShowDialog();
         }
 
@@ -376,7 +379,7 @@ namespace PamirAccounting.Forms
 
         private void CreditorList_Click(object sender, EventArgs e)
         {
-             var frm = new CreditorListFrm();
+            var frm = new CreditorListFrm();
             frm.ShowDialog();
         }
 
@@ -480,7 +483,7 @@ namespace PamirAccounting.Forms
 
         private void TotalBlance_Click(object sender, EventArgs e)
         {
-             var Frm = new TotalBalanceFrm();
+            var Frm = new TotalBalanceFrm();
             Frm.ShowDialog();
         }
 

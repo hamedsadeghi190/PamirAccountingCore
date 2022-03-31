@@ -8,6 +8,8 @@ namespace PamirAccounting
 {
     public static class AppSetting
     {
+
+        public static bool DebugMode { get; set; }
         //آیدی حواله ای اجرا نشده
         public static int NotRunnedDraftsId { get; set; }
         //آیدی حساب اسناد دریافتی
