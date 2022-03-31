@@ -350,13 +350,12 @@ namespace PamirAccounting.Services
             }
 
         }
-        public List<TransactionModel> GetAllWithdraw(int? currencyId)
+        public List<TransactionModel> GetAllWithdraw(int? CurrenyId,int? GroupId)
         {
             try
             {
                 var dataList = new List<TransactionModel>();
-                if (currencyId == null)
-                {
+             
                     dataList = FindAllReadonly(x => x.Id > 0)
                     .Include(x => x.Curreny)
                    .Select(x => new TransactionModel
@@ -372,29 +371,13 @@ namespace PamirAccounting.Services
                        CurrenyName = x.Curreny.Name,
                        FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
                        SourceCustomerId = x.SourceCustomerId,
+                       GroupName = x.SourceCustomer.Group.Name,
+                       GroupId = x.SourceCustomer.Group.Id,
 
 
-                   }).ToList();
-                }
-                else
-                {
-                    dataList = FindAllReadonly(x =>x.CurrenyId == currencyId)
-                                 .Include(x => x.Curreny)
-
-                                 .Select(x => new TransactionModel
-                                 {
-                                     Id = x.Id,
-                                     Description = x.Description,
-                                     DepositAmount = x.DepositAmount,
-                                     WithdrawAmount = x.WithdrawAmount,
-                                     Phone = x.SourceCustomer.Phone,
-                                     Mobile = x.SourceCustomer.Mobile,
-                                     CurrenyId = x.CurrenyId,
-                                     CurrenyName = x.Curreny.Name,
-                                     FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-                                     SourceCustomerId = x.SourceCustomerId,
-                                 }).ToList();
-                }
+                   }).Where(x=>x.CurrenyId==CurrenyId && x.GroupId==GroupId).ToList();
+          
+            
                 int row = 1;
                 var tmpdataList = dataList.Select(x => new TransactionModel
                 {
@@ -409,7 +392,8 @@ namespace PamirAccounting.Services
                     CurrenyName = x.CurrenyName,
                     FullName = x.FullName,
                     SourceCustomerId = x.SourceCustomerId,
-
+                    GroupId=x.GroupId,
+                    GroupName=x.GroupName,
 
                 }).ToList();
                 return tmpdataList;
@@ -903,6 +887,51 @@ namespace PamirAccounting.Services
 
         }
 
+        public List<TransactionModel> GetAllWGroupList()
+        {
+            try
+            {
+                var dataList = new List<TransactionModel>();
+                    dataList = FindAllReadonly(x => x.Id > 0)
+                    .Include(x => x.Curreny)
+                   .Select(x => new TransactionModel
+                   {
 
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                       SourceCustomerId = x.SourceCustomerId,
+                       GroupId=x.SourceCustomer.GroupId,
+                       GroupName=x.SourceCustomer.Group.Name,
+                   }).ToList();
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    FullName = x.FullName,
+                    SourceCustomerId = x.SourceCustomerId,
+                    GroupId = x.GroupId,
+                    GroupName = x.GroupName,
+
+
+                }).ToList();
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
     }
 }

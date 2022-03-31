@@ -379,7 +379,7 @@ namespace PamirAccounting.Forms
 
         private void CreditorList_Click(object sender, EventArgs e)
         {
-            var frm = new CreditorListFrm();
+            var frm = new CreditorGroupListFrm();
             frm.ShowDialog();
         }
 

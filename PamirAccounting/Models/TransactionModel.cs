@@ -33,7 +33,8 @@ namespace PamirAccounting.Models
         public long TotalDepositAmount { get; set; }
         public string BranchCode { get; set; }
         public string ReceiptNumber { get; set; }
-
+        public int? GroupId { get; set; }
+        public string GroupName { get; set; }
     }
 
     public class UnKownTransactionModel

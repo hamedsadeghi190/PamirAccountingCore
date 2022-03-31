@@ -33,5 +33,7 @@ namespace PamirAccounting.Models
         public string FullName { get; set; }
         public string Phone { get; set; }
         public string Mobile { get; set; }
+        public string GroupName { get; set; }
+        public int? GroupId { get; set; }
     }
 }
