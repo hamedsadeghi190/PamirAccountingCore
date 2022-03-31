@@ -63,6 +63,7 @@ namespace PamirAccounting.Forms.Drafts
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExecute = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
@@ -201,7 +202,8 @@ namespace PamirAccounting.Forms.Drafts
             this.Column16,
             this.Column17,
             this.Column18,
-            this.Column19});
+            this.Column19,
+            this.btnExecute});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -229,23 +231,26 @@ namespace PamirAccounting.Forms.Drafts
             this.gridDrafts.RowHeadersWidth = 60;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gridDrafts.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.gridDrafts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gridDrafts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gridDrafts.RowTemplate.Height = 30;
             this.gridDrafts.RowTemplate.ReadOnly = true;
             this.gridDrafts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDrafts.ShowEditingIcon = false;
             this.gridDrafts.Size = new System.Drawing.Size(1279, 333);
             this.gridDrafts.TabIndex = 20;
+            this.gridDrafts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+           
             // 
             // Radif
             // 
             this.Radif.DataPropertyName = "Id";
             this.Radif.FillWeight = 60F;
             this.Radif.HeaderText = "ردیف";
-            this.Radif.MinimumWidth = 60;
+            this.Radif.MinimumWidth = 70;
             this.Radif.Name = "Radif";
             this.Radif.ReadOnly = true;
             this.Radif.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Radif.Width = 60;
+            this.Radif.Width = 70;
             // 
             // Date
             // 
@@ -384,7 +389,6 @@ namespace PamirAccounting.Forms.Drafts
             this.Column15.MinimumWidth = 6;
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
-            this.Column15.Width = 70;
             // 
             // Column16
             // 
@@ -419,6 +423,16 @@ namespace PamirAccounting.Forms.Drafts
             this.Column19.ReadOnly = true;
             this.Column19.Width = 125;
             // 
+            // btnExecute
+            // 
+            this.btnExecute.HeaderText = "اجرای حواله";
+            this.btnExecute.Name = "btnExecute";
+            this.btnExecute.ReadOnly = true;
+            this.btnExecute.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnExecute.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnExecute.Text = "اجرای حواله";
+            this.btnExecute.UseColumnTextForButtonValue = true;
+            // 
             // groupBoxSearch
             // 
             this.groupBoxSearch.Controls.Add(this.label6);
@@ -434,7 +448,7 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBoxSearch.Controls.Add(this.cmbAgency);
             this.groupBoxSearch.Controls.Add(this.textBox1);
             this.groupBoxSearch.Controls.Add(this.label2);
-            this.groupBoxSearch.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxSearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxSearch.Location = new System.Drawing.Point(2, 74);
             this.groupBoxSearch.Name = "groupBoxSearch";
             this.groupBoxSearch.Size = new System.Drawing.Size(1279, 63);
@@ -445,20 +459,20 @@ namespace PamirAccounting.Forms.Drafts
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(989, 27);
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(989, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 23);
+            this.label6.Size = new System.Drawing.Size(40, 24);
             this.label6.TabIndex = 21;
             this.label6.Text = "نوع :";
             // 
             // cmbType
             // 
-            this.cmbType.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbType.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Location = new System.Drawing.Point(849, 25);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(134, 28);
+            this.cmbType.Size = new System.Drawing.Size(134, 32);
             this.cmbType.TabIndex = 20;
             // 
             // textBox5
@@ -472,10 +486,10 @@ namespace PamirAccounting.Forms.Drafts
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(479, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 23);
+            this.label4.Size = new System.Drawing.Size(19, 24);
             this.label4.TabIndex = 18;
             this.label4.Text = "تا";
             // 
@@ -490,10 +504,10 @@ namespace PamirAccounting.Forms.Drafts
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(595, 27);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 23);
+            this.label5.Size = new System.Drawing.Size(64, 24);
             this.label5.TabIndex = 17;
             this.label5.Text = "از شماره :";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -509,10 +523,10 @@ namespace PamirAccounting.Forms.Drafts
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(182, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 23);
+            this.label3.Size = new System.Drawing.Size(19, 24);
             this.label3.TabIndex = 7;
             this.label3.Text = "تا";
             // 
@@ -527,20 +541,20 @@ namespace PamirAccounting.Forms.Drafts
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1211, 28);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(1208, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 23);
+            this.label1.Size = new System.Drawing.Size(64, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "نمایندگی";
             // 
             // cmbAgency
             // 
-            this.cmbAgency.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmbAgency.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbAgency.FormattingEnabled = true;
-            this.cmbAgency.Location = new System.Drawing.Point(1037, 25);
+            this.cmbAgency.Location = new System.Drawing.Point(1036, 25);
             this.cmbAgency.Name = "cmbAgency";
-            this.cmbAgency.Size = new System.Drawing.Size(168, 28);
+            this.cmbAgency.Size = new System.Drawing.Size(168, 32);
             this.cmbAgency.TabIndex = 1;
             // 
             // textBox1
@@ -555,10 +569,10 @@ namespace PamirAccounting.Forms.Drafts
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("B Nazanin", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(334, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 23);
+            this.label2.Size = new System.Drawing.Size(53, 24);
             this.label2.TabIndex = 6;
             this.label2.Text = "از تاریخ";
             // 
@@ -735,5 +749,6 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewButtonColumn btnExecute;
     }
 }

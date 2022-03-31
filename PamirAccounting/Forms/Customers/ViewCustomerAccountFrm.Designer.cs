@@ -36,15 +36,15 @@ namespace PamirAccounting.UI.Forms.Customers
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxViewAccountCustomer = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmbActions = new System.Windows.Forms.ComboBox();
@@ -63,15 +63,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnprintResid = new DevExpress.XtraEditors.SimpleButton();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.grdTransactions = new System.Windows.Forms.DataGridView();
-            this.grdTotals = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.RowId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocumentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransactionDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,6 +76,15 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.grdTotals = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxViewAccountCustomer.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -157,7 +157,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             // txtDate2
             // 
-            this.txtDate2.Location = new System.Drawing.Point(63, 34);
+            this.txtDate2.Location = new System.Drawing.Point(63, 35);
             this.txtDate2.Name = "txtDate2";
             this.txtDate2.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDate2.Properties.Appearance.Options.UseFont = true;
@@ -190,7 +190,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(396, 42);
+            this.label3.Location = new System.Drawing.Point(396, 39);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(61, 24);
@@ -204,7 +204,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnsearch.Appearance.Options.UseFont = true;
             this.btnsearch.Appearance.Options.UseForeColor = true;
             this.btnsearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsearch.ImageOptions.SvgImage")));
-            this.btnsearch.Location = new System.Drawing.Point(12, 32);
+            this.btnsearch.Location = new System.Drawing.Point(12, 33);
             this.btnsearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Size = new System.Drawing.Size(37, 32);
@@ -224,7 +224,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(784, 42);
+            this.label4.Location = new System.Drawing.Point(784, 38);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(52, 24);
@@ -235,7 +235,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(478, 37);
+            this.cmbCurrencies.Location = new System.Drawing.Point(478, 35);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(114, 32);
             this.cmbCurrencies.TabIndex = 3;
@@ -246,7 +246,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(598, 42);
+            this.label1.Location = new System.Drawing.Point(598, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 24);
             this.label1.TabIndex = 111;
@@ -361,134 +361,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
             this.grdTransactions.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellValueChanged);
             this.grdTransactions.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.grdTransactions_KeyPress);
-            // 
-            // grdTotals
-            // 
-            this.grdTotals.AllowUserToAddRows = false;
-            this.grdTotals.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grdTotals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.grdTotals.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdTotals.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.grdTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdTotals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.Column10,
-            this.Column11});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdTotals.DefaultCellStyle = dataGridViewCellStyle13;
-            this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(0, 477);
-            this.grdTotals.Name = "grdTotals";
-            this.grdTotals.ReadOnly = true;
-            this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.grdTotals.RowHeadersVisible = false;
-            this.grdTotals.RowHeadersWidth = 51;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grdTotals.RowsDefaultCellStyle = dataGridViewCellStyle14;
-            this.grdTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdTotals.ShowEditingIcon = false;
-            this.grdTotals.Size = new System.Drawing.Size(1185, 105);
-            this.grdTotals.TabIndex = 16;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn2.FillWeight = 270F;
-            this.dataGridViewTextBoxColumn2.Frozen = true;
-            this.dataGridViewTextBoxColumn2.HeaderText = "شرح";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 270;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TotalWithdrawAmount";
-            this.dataGridViewTextBoxColumn3.FillWeight = 150F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "جمع بدهکار";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "TotalDepositAmount";
-            this.dataGridViewTextBoxColumn4.FillWeight = 150F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "جمع طلبکار";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "CurrenyName";
-            this.dataGridViewTextBoxColumn5.FillWeight = 130F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "نوع ارز";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 130;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "RemainigAmount";
-            this.Column10.FillWeight = 150F;
-            this.Column10.HeaderText = "باقیمانده";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 175;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "Status";
-            this.Column11.HeaderText = "وضعیت";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 300;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(92, 587);
-            this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(90, 24);
-            this.label7.TabIndex = 103;
-            this.label7.Text = "ویرایش (F4)";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(15, 587);
-            this.label6.Name = "label6";
-            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(72, 24);
-            this.label6.TabIndex = 102;
-            this.label6.Text = "چاپ (F3)";
             // 
             // RowId
             // 
@@ -629,6 +501,134 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnRowDelete.Text = "حذف";
             this.btnRowDelete.UseColumnTextForButtonValue = true;
             this.btnRowDelete.Width = 70;
+            // 
+            // grdTotals
+            // 
+            this.grdTotals.AllowUserToAddRows = false;
+            this.grdTotals.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grdTotals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.grdTotals.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdTotals.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.grdTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdTotals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.Column10,
+            this.Column11});
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdTotals.DefaultCellStyle = dataGridViewCellStyle13;
+            this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grdTotals.Location = new System.Drawing.Point(0, 477);
+            this.grdTotals.Name = "grdTotals";
+            this.grdTotals.ReadOnly = true;
+            this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.grdTotals.RowHeadersVisible = false;
+            this.grdTotals.RowHeadersWidth = 51;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grdTotals.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.grdTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdTotals.ShowEditingIcon = false;
+            this.grdTotals.Size = new System.Drawing.Size(1185, 105);
+            this.grdTotals.TabIndex = 16;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn2.FillWeight = 270F;
+            this.dataGridViewTextBoxColumn2.Frozen = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "شرح";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 270;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TotalWithdrawAmount";
+            this.dataGridViewTextBoxColumn3.FillWeight = 150F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "جمع بدهکار";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "TotalDepositAmount";
+            this.dataGridViewTextBoxColumn4.FillWeight = 150F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "جمع طلبکار";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "CurrenyName";
+            this.dataGridViewTextBoxColumn5.FillWeight = 130F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "نوع ارز";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 130;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "RemainigAmount";
+            this.Column10.FillWeight = 150F;
+            this.Column10.HeaderText = "باقیمانده";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 175;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "Status";
+            this.Column11.HeaderText = "وضعیت";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 300;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(92, 587);
+            this.label7.Name = "label7";
+            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label7.Size = new System.Drawing.Size(90, 24);
+            this.label7.TabIndex = 103;
+            this.label7.Text = "ویرایش (F4)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(15, 587);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(72, 24);
+            this.label6.TabIndex = 102;
+            this.label6.Text = "چاپ (F3)";
             // 
             // ViewCustomerAccountFrm
             // 

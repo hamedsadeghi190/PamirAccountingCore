@@ -181,7 +181,7 @@ namespace PamirAccounting.Forms.Transaction
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(488, 90);
+            this.label6.Location = new System.Drawing.Point(487, 89);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label6.Size = new System.Drawing.Size(82, 24);

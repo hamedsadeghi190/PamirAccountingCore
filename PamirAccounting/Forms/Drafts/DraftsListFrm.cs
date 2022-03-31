@@ -60,8 +60,6 @@ namespace PamirAccounting.Forms.Drafts
 
         private void btnExecuteDaraft_Click(object sender, EventArgs e)
         {
-            var ExecuteDaraftFrm = new ExecuteDaraftFrm();
-            ExecuteDaraftFrm.ShowDialog();
         }
 
         private void DraftsListFrm_Load(object sender, EventArgs e)
@@ -96,11 +94,11 @@ namespace PamirAccounting.Forms.Drafts
 
         private void LoadData()
         {
-            var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue 
+            var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
                                                             && x.Type == (int)(cmbType.SelectedValue))
-                .Include(x=>x.DepositCurrency)
-                .Include(x=>x.TypeCurrency)
-                .Include(x=>x.Customer)
+                .Include(x => x.DepositCurrency)
+                .Include(x => x.TypeCurrency)
+                .Include(x => x.Customer)
                 .ToList();
 
             _data = tmpData.Select(q => new DraftViewModels()
@@ -119,6 +117,7 @@ namespace PamirAccounting.Forms.Drafts
                 Rent = q.Rent,
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,
+                CustomerId = q.CustomerId,
                 Customer = q.Customer.FirstName + " " + q.Customer.LastName,
                 RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
                 Date = q.Date != null ? (DateTime.Parse(q.Date.ToString())).ToPersian() : "",
@@ -127,12 +126,12 @@ namespace PamirAccounting.Forms.Drafts
 
 
             gridDrafts.RowsDefaultCellStyle.BackColor = Color.White;
-            
+
             gridDrafts.AlternatingRowsDefaultCellStyle.BackColor = Color.Silver;
             gridDrafts.CellBorderStyle = DataGridViewCellBorderStyle.Single;
 
-            gridDrafts.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
-            gridDrafts.DefaultCellStyle.SelectionForeColor = Color.White;
+            //gridDrafts.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
+            //gridDrafts.DefaultCellStyle.SelectionForeColor = Color.White;
 
             gridDrafts.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             gridDrafts.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -161,8 +160,8 @@ namespace PamirAccounting.Forms.Drafts
             grdTotals.AlternatingRowsDefaultCellStyle.BackColor = Color.Silver;
             grdTotals.CellBorderStyle = DataGridViewCellBorderStyle.Single;
 
-            grdTotals.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
-            grdTotals.DefaultCellStyle.SelectionForeColor = Color.White;
+            //grdTotals.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
+            //grdTotals.DefaultCellStyle.SelectionForeColor = Color.White;
 
             grdTotals.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             grdTotals.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -177,10 +176,35 @@ namespace PamirAccounting.Forms.Drafts
 
         private void DraftsListFrm_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.F2)
+            if (e.KeyCode == Keys.F2)
             {
                 btnAgencystatus_Click(null, null);
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == gridDrafts.Columns["btnExecute"].Index && e.RowIndex >= 0)
+            {
+                var draft = _data.ElementAt(e.RowIndex);
+                if (draft.CustomerId == AppSetting.NotRunnedDraftsId)
+                {
+                    var FrmBalance = new ExecuteDaraftFrm(draft.Id);
+                    FrmBalance.ShowDialog();
+                    LoadData();
+                }
+                else
+                {
+                   // MessageBox.Show("حواله قبلا اجرا شده است.");
+                }
+            }
+
+
+        }
+
+        private void gridDrafts_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
@@ -352,7 +351,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
                         if (transaction.DoubleTransactionId != null)
                         {
-                           
+
                             var doubleTransaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == transaction.DoubleTransactionId);
 
 
@@ -408,6 +407,11 @@ namespace PamirAccounting.UI.Forms.Customers
                     case (int)TransaActionType.Transfer:
                         var transferFrm = new TransferAccountFrm(_Id.Value, tranaction.Id);
                         transferFrm.ShowDialog();
+                        LoadData();
+                        break;
+                    case (int)TransaActionType.SellAndBuy:
+                        var frmCellAndBuy = new BuyAndSellCurrencyFrm(_Id.Value, tranaction.Id);
+                        frmCellAndBuy.ShowDialog();
                         LoadData();
                         break;
                     default:
@@ -512,7 +516,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void grdTransactions_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (Char)Keys.Enter)
+            if (e.KeyChar == (Char)Keys.Enter && grdTransactions.CurrentRow != null)
             {
                 int i = grdTransactions.CurrentRow.Index;
                 var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
@@ -619,7 +623,7 @@ namespace PamirAccounting.UI.Forms.Customers
         {
         }
 
-        private  List<TransactionsGroupModel> TotalSummeryPrint()
+        private List<TransactionsGroupModel> TotalSummeryPrint()
         {
             var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
@@ -661,7 +665,7 @@ namespace PamirAccounting.UI.Forms.Customers
             }
             grdTotals.AutoGenerateColumns = false;
             return _GroupedDataList;
-         
+
         }
 
         private List<TransactionModel> TotalPrint()
@@ -704,10 +708,10 @@ namespace PamirAccounting.UI.Forms.Customers
                 _GroupedDataList.Add(curenncySummery);
 
             }
-        
+
             _dataList = _dataList.OrderBy(x => x.RowId).ToList();
             grdTransactions.AutoGenerateColumns = false;
-          return  _dataList;
+            return _dataList;
         }
     }
 }

@@ -110,7 +110,6 @@ namespace PamirAccounting.Forms.Transactions
             cmbVarizType.Refresh();
 
 
-
             cmbAction.Select();
             cmbAction.Focus();
             LoadData();
@@ -119,6 +118,9 @@ namespace PamirAccounting.Forms.Transactions
             {
                 cmbCustomers.SelectedValue = _Id;
                 cmbCustomers.Enabled = false;
+                cmbCustomers.Visible = true;
+                cmbAction.Enabled = false;
+                cmbCurrencies.Enabled = true;
                 loadTransActionInfo(_TransActionId);
             }
             else
@@ -126,41 +128,46 @@ namespace PamirAccounting.Forms.Transactions
                 PersianCalendar pc = new PersianCalendar();
                 string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtDate.Text = PDate;
+                lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             }
 
         }
 
         private void loadTransActionInfo(long? transActionId)
         {
+
+            customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
+            lbl_Document_Id_value.Text = customerTransaction.DocumentId.ToString();
+            if (customerTransaction.WithdrawAmount.Value != 0)
+            {
+                txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
+                cmbAction.SelectedValue = 2;
+            }
+            else
+            {
+                txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
+                cmbAction.SelectedValue = 1;
+            }
+            lblCustomers.Visible = true;
+            cmbVarizType.SelectedValue = 2;
+            cmbVarizType.Enabled = false;
+            txtdesc.Text = customerTransaction.Description;
+            cmbCurrencies.SelectedValue = customerTransaction.CurrenyId;
+            cmbCurrencies.Enabled = true;
+            cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
+            cmbCustomers.Enabled = false;
+
+            txtReceiptNumber.Text = customerTransaction.ReceiptNumber;
+            txtBranchCode.Text = customerTransaction.BranchCode;
+
+            PersianCalendar pc = new PersianCalendar();
+            string PDate = pc.GetYear(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetDayOfMonth(customerTransaction.TransactionDateTime).ToString();
+            txtDate.Text = PDate;
+
             if (customerTransaction.DoubleTransactionId != null)
             {
-
-
-                customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
                 bankTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
-
-                if (customerTransaction.WithdrawAmount.Value != 0)
-                {
-                    txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
-                    cmbAction.SelectedValue = 1;
-                }
-                else
-                {
-                    txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
-                    cmbAction.SelectedValue = 2;
-                }
-
-                txtdesc.Text = customerTransaction.Description;
-                cmbCurrencies.SelectedValue = customerTransaction.CurrenyId;
-                cmbCurrencies.Enabled = false;
-                cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
-                cmbCustomers.Enabled = false;
-
                 cmbBanks.SelectedValue = bankTransaction.SourceCustomerId;
-
-                PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtDate.Text = PDate;
             }
             else
             {
@@ -366,7 +373,6 @@ namespace PamirAccounting.Forms.Transactions
         {
 
             amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
-            bankTransaction = new Domains.Transaction();
             bankTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
             bankTransaction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             bankTransaction.SourceCustomerId = (int)cmbBanks.SelectedValue;
@@ -374,6 +380,8 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             bankTransaction.WithdrawAmount = 0;
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            bankTransaction.ReceiptNumber = txtReceiptNumber.Text;
+            bankTransaction.BranchCode = txtBranchCode.Text;
             var dDate = txtDate.Text.Split('/');
 
             PersianCalendar p = new PersianCalendar();
@@ -383,9 +391,8 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.UserId = CurrentUser.UserID;
             unitOfWork.TransactionServices.Update(bankTransaction);
             unitOfWork.SaveChanges();
+            ///////////////////////////////////////////////////////////////
 
-
-            var customerTransaction = new Domains.Transaction();
             customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
@@ -393,6 +400,9 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.DepositAmount = 0;
             customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
+            customerTransaction.BranchCode = txtBranchCode.Text;
+
             var cDate = txtDate.Text.Split('/');
 
             PersianCalendar pc = new PersianCalendar();
@@ -420,6 +430,8 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             bankTransaction.WithdrawAmount = 0;
             bankTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            bankTransaction.ReceiptNumber = txtReceiptNumber.Text;
+            bankTransaction.BranchCode = txtBranchCode.Text;
             var dDate = txtDate.Text.Split('/');
 
             PersianCalendar p = new PersianCalendar();
@@ -448,6 +460,8 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.UserId = CurrentUser.UserID;
             customerTransaction.DoubleTransactionId = bankTransaction.Id;
             customerTransaction.DocumentId = documentId;
+            customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
+            customerTransaction.BranchCode = txtBranchCode.Text;
             unitOfWork.TransactionServices.Insert(customerTransaction);
             unitOfWork.SaveChanges();
 

@@ -35,8 +35,10 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         }
         public CurrencyAgenciesCreateUpdateFrm(int id)
         {
-            SetComboBoxHeight(cmbAction.Handle, 25);
-            cmbAction.Refresh();
+
+            InitializeComponent();
+            unitOfWork = new UnitOfWork();
+
             SetComboBoxHeight(cmbDescCurenccy.Handle, 25);
             cmbDescCurenccy.Refresh();
             SetComboBoxHeight(cmbExchangeRate.Handle, 25);
@@ -45,9 +47,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             cmbroundLimit.Refresh();
             SetComboBoxHeight(cmbSourceCurreny.Handle, 25);
             cmbSourceCurreny.Refresh();
+            SetComboBoxHeight(cmbAction.Handle, 25);
+            cmbAction.Refresh();
             _Id = id;
-            InitializeComponent();
-            unitOfWork = new UnitOfWork();
         }
         private void initData()
         {

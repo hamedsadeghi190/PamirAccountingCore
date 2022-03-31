@@ -21,6 +21,7 @@ namespace PamirAccounting.Forms.Transactions
         private List<CurrencyViewModel> _DestCurrencies = new List<CurrencyViewModel>();
         private List<CurrencyViewModel> _Currencies;
         private List<ComboBoxModel> _Customers, _DestCustomers;
+        private Domains.Transaction talabkarTransaction, bedehkarTransAction;
 
         private int sellCurrencyId, buyerCurrencyId;
         private double sellerPrice, sellerRate;
@@ -51,6 +52,7 @@ namespace PamirAccounting.Forms.Transactions
         private void BtnSave_Click(object sender, EventArgs e)
         {
             buyerPrice = Convert.ToInt64(txtbuyerprice.Text.Replace(",", ""));
+            var rate = Convert.ToDouble(txtrate.Text.Replace(",", ""));
             if (!(txtbuyerprice.Text.Length > 0 && double.Parse(txtbuyerprice.Text) > 0 && txtsellerprice.Text.Length > 0 && double.Parse(txtsellerprice.Text) > 0))
             {
                 MessageBox.Show("مبالغ وارد شده صحیح نمی باشد", "خطای  اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error,
@@ -61,7 +63,10 @@ namespace PamirAccounting.Forms.Transactions
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
 
             // talabkar Transaction//
-            var talabkarTransaction = new Domains.Transaction();
+            if (_TransActionId == null)
+            {
+                talabkarTransaction = new Domains.Transaction();
+            }
             sellerPrice1 = Convert.ToInt64(txtsellerprice.Text.Replace(",", ""));
             talabkarTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             talabkarTransaction.DestinitionCustomerId = (int)cmbDestCustomers.SelectedValue;
@@ -77,36 +82,61 @@ namespace PamirAccounting.Forms.Transactions
             talabkarTransaction.Date = DateTime.Now;
             talabkarTransaction.TransactionDateTime = TransactionDateTime;
             talabkarTransaction.UserId = CurrentUser.UserID;
-            unitOfWork.TransactionServices.Insert(talabkarTransaction);
+            if (_TransActionId.HasValue)
+            {
+                unitOfWork.TransactionServices.Update(talabkarTransaction);
+            }
+            else
+            {
+                unitOfWork.TransactionServices.Insert(talabkarTransaction);
+            }
+
             unitOfWork.SaveChanges();
             //end talabkarTransaction ///
 
             //tarakonesh sandogh//
-            var bedehkarTransAction = new Domains.Transaction();
+            if (_TransActionId == null)
+            {
+                bedehkarTransAction = new Domains.Transaction();
+            }
+
             bedehkarTransAction.DoubleTransactionId = talabkarTransaction.Id;
             bedehkarTransAction.DocumentId = documentId;
 
             bedehkarTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtbuyerprice.Text.Trim())) ? 0 : buyerPrice;
+            bedehkarTransAction.Rate = (String.IsNullOrEmpty(txtrate.Text.Trim())) ? 0 : rate;
             bedehkarTransAction.DepositAmount = 0;
             bedehkarTransAction.Description = txtDesc.Text;
 
 
             bedehkarTransAction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
-            bedehkarTransAction.SourceCustomerId = AppSetting.SandoghCustomerId;
+            bedehkarTransAction.SourceCustomerId = (int)cmbDestCustomers.SelectedValue;
             bedehkarTransAction.TransactionType = (int)TransaActionType.SellAndBuy;
 
             bedehkarTransAction.CurrenyId = (int)cmbCurrencybuyer.SelectedValue;
             bedehkarTransAction.Date = DateTime.Now;
             bedehkarTransAction.TransactionDateTime = TransactionDateTime;
             bedehkarTransAction.UserId = CurrentUser.UserID;
-            unitOfWork.TransactionServices.Insert(bedehkarTransAction);
+
+            if (_TransActionId.HasValue)
+            {
+                unitOfWork.TransactionServices.Update(bedehkarTransAction);
+            }
+            else
+            {
+                unitOfWork.TransactionServices.Insert(bedehkarTransAction);
+            }
             unitOfWork.SaveChanges();
             // end trakonesh sandogh///
 
             talabkarTransaction.DoubleTransactionId = bedehkarTransAction.Id;
             unitOfWork.TransactionServices.Update(talabkarTransaction);
             unitOfWork.SaveChanges();
-            CleanForm();
+            if (_TransActionId.HasValue)
+                this.Close();
+            else
+
+                CleanForm();
 
         }
 
@@ -248,7 +278,31 @@ namespace PamirAccounting.Forms.Transactions
         {
             handleEvents(false);
             LoadData();
+            if (_TransActionId.HasValue)
+            {
+                loadTransactionInfo();
+            }
             handleEvents(true);
+        }
+
+        private void loadTransactionInfo()
+        {
+            talabkarTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == _TransActionId.Value);
+            bedehkarTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == talabkarTransaction.DoubleTransactionId);
+            PersianCalendar pc = new PersianCalendar();
+            string PDate = pc.GetYear(talabkarTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(talabkarTransaction.TransactionDateTime).ToString() + "/" + pc.GetDayOfMonth(talabkarTransaction.TransactionDateTime).ToString();
+            txtDate.Text = PDate;
+
+            cmbCustomers.SelectedValue = talabkarTransaction.SourceCustomerId;
+            txtsellerprice.Text = talabkarTransaction.DepositAmount.ToString();
+            cmbSellCurrencies.SelectedValue = talabkarTransaction.CurrenyId;
+
+            cmbDestCustomers.SelectedValue = bedehkarTransAction.SourceCustomerId;
+            cmbCurrencybuyer.SelectedValue = bedehkarTransAction.CurrenyId;
+            txtrate.Text = bedehkarTransAction.Rate?.ToString();
+
+            txtbuyerprice.Text = bedehkarTransAction.WithdrawAmount.ToString();
+            txtDesc.Text = talabkarTransaction.Description;
         }
 
         private void LoadData()
@@ -310,7 +364,7 @@ namespace PamirAccounting.Forms.Transactions
             {
 
             }
-         
+
         }
 
         private void ShowbuyerChars()
@@ -325,9 +379,9 @@ namespace PamirAccounting.Forms.Transactions
             }
             catch (Exception ex)
             {
-             
+
             }
-         
+
         }
         private void cmbSellCurrencies_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -336,7 +390,7 @@ namespace PamirAccounting.Forms.Transactions
             calculateAmount();
         }
 
-       
+
 
         private void cmbDestCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -381,7 +435,7 @@ namespace PamirAccounting.Forms.Transactions
                 txtbuyerprice.Text = txtsellerprice.Text;
                 return;
             }
-            if(txtsellerprice.Text.Length>1)
+            if (txtsellerprice.Text.Length > 1)
             {
                 return;
             }

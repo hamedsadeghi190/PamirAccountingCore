@@ -82,6 +82,7 @@ namespace PamirAccounting.Forms.Drafts
                      ConvertedCurrency = q.ConvertedCurrency != null ? q.ConvertedCurrency.Name : "",
                      DepositAmount = q.DepositAmount,
                      DepositCurrency = q.DepositCurrency.Name,
+                     CustomerId = q.CustomerId,
                      Customer = q.Customer.FirstName + " " + q.Customer.LastName,
                      RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
                      ConvertedDate = q.ConvertedDate != null ? (DateTime.Parse(q.ConvertedDate.ToString())).ToPersian() : "",
@@ -134,6 +135,8 @@ namespace PamirAccounting.Forms.Drafts
                 FrmBalance.ShowDialog();
                 LoadData();
             }
+
+           
         }
 
         private void gridDrafts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -147,11 +150,9 @@ namespace PamirAccounting.Forms.Drafts
                 var data = _data.ElementAt(row.Index);
                 if (data.Type == 1)
                 {
-                    row.DefaultCellStyle.BackColor= Color.LightGreen;
+                    row.DefaultCellStyle.BackColor = Color.LightGreen;
                 }
-
             }
-
         }
     }
 }

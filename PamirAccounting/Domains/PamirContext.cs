@@ -37,7 +37,7 @@ namespace PamirAccounting.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\sql2019;Database=PamirAccounting;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
 
@@ -74,6 +74,8 @@ namespace PamirAccounting.Domains
             modelBuilder.Entity<Bank>(entity =>
             {
                 entity.HasIndex(e => e.CountryId, "IX_Banks_CountryId");
+
+                entity.Property(e => e.AccountNumber).HasMaxLength(100);
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -251,13 +253,25 @@ namespace PamirAccounting.Domains
 
                 entity.Property(e => e.PayPlace).HasMaxLength(150);
 
+                entity.Property(e => e.PhoneNumber).HasMaxLength(50);
+
                 entity.Property(e => e.Reciver).HasMaxLength(250);
+
+                entity.Property(e => e.RunningDesc).HasMaxLength(500);
 
                 entity.Property(e => e.Sender).HasMaxLength(250);
 
                 entity.Property(e => e.Status)
                     .IsRequired()
                     .HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Tazkare).HasMaxLength(50);
+
+                entity.HasOne(d => d.Agency)
+                    .WithMany(p => p.Drafts)
+                    .HasForeignKey(d => d.AgencyId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Drafts_Agencies");
 
                 entity.HasOne(d => d.ConvertedCurrency)
                     .WithMany(p => p.DraftConvertedCurrencies)

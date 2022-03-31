@@ -66,13 +66,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
-            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbCurrencies.DataSource = _Currencies;
-            cmbCurrencies.ValueMember = "Id";
-            cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
+           
 
 
 

@@ -91,6 +91,15 @@ namespace PamirAccounting.Forms.Transaction
 
             try
             {
+                var amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : long.Parse(txtAmount.Text);
+                if (amount == 0)
+                {
+                    MessageBox.Show("مانده از قبل باید بیشتر از صفر باشد.", "خطای ثبت اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error,
+MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                    
+                    return;
+                }
+
                 if (transaction != null)
                 {
                     transaction.Description = (txtdesc.Text.Length > 0) ? txtdesc.Text : Messages.CreateNewAcount + cmbCurrencies.SelectedText;
@@ -180,7 +189,7 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-             Close();
+            Close();
         }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
@@ -204,9 +213,9 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
                 }
                 catch
                 {
-                    
+
                 }
-                
+
             }
         }
 

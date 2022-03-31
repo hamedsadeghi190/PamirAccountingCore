@@ -45,44 +45,41 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // cmb_customer
             // 
-            this.cmb_customer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cmb_customer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_customer.FormattingEnabled = true;
-            this.cmb_customer.Location = new System.Drawing.Point(327, 53);
-            this.cmb_customer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_customer.Location = new System.Drawing.Point(272, 42);
             this.cmb_customer.Name = "cmb_customer";
-            this.cmb_customer.Size = new System.Drawing.Size(197, 40);
+            this.cmb_customer.Size = new System.Drawing.Size(169, 32);
             this.cmb_customer.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(524, 56);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(447, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 32);
+            this.label1.Size = new System.Drawing.Size(62, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "مشتری :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(217, 56);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(195, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 32);
+            this.label2.Size = new System.Drawing.Size(40, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "مبلغ:";
             // 
             // btnCancel
             // 
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCancel.ImageOptions.SvgImage")));
             this.btnCancel.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnCancel.Location = new System.Drawing.Point(138, 31);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnCancel.Location = new System.Drawing.Point(133, 23);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnCancel.Size = new System.Drawing.Size(110, 38);
@@ -92,12 +89,12 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton1.Location = new System.Drawing.Point(15, 31);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.simpleButton1.Location = new System.Drawing.Point(14, 22);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.simpleButton1.Size = new System.Drawing.Size(110, 38);
@@ -107,16 +104,15 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(23, 52);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAmount.Location = new System.Drawing.Point(20, 42);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
             this.txtAmount.Properties.AutoHeight = false;
             this.txtAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtAmount.Size = new System.Drawing.Size(197, 41);
+            this.txtAmount.Size = new System.Drawing.Size(169, 33);
             this.txtAmount.TabIndex = 2;
             // 
             // groupBox1
@@ -125,10 +121,12 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(6, -3);
+            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(6, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(610, 149);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(523, 95);
             this.groupBox1.TabIndex = 235;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "واریزکننده";
@@ -137,10 +135,12 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.groupBox2.Controls.Add(this.simpleButton1);
             this.groupBox2.Controls.Add(this.btnCancel);
-            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(5, 146);
+            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(4, 101);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(611, 83);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(524, 67);
             this.groupBox2.TabIndex = 236;
             this.groupBox2.TabStop = false;
             // 
@@ -148,15 +148,14 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 234);
+            this.ClientSize = new System.Drawing.Size(534, 179);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "addDepositCustomerFrm";

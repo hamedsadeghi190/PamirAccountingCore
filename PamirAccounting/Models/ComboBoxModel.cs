@@ -10,6 +10,7 @@ namespace PamirAccounting.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public int Type { get; set; }
     }
     public class ComboBoxBoolModel
     {
