@@ -31,6 +31,7 @@ namespace PamirAccounting.Forms.Checks
         public Domains.Transaction receiveTransAction;
         public Domains.Transaction customerTransaction;
         public Domains.Cheque Cheque;
+        string customerName;
         public VagozariAsnadDaryaftaniFrm(long? chequeNumber, long? chequeNumberEdit)
         {
             InitializeComponent();
@@ -53,6 +54,11 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -121,6 +127,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
+            customerName = cmbCustomers.Text;
             if (txtDesc.Text == "")
             {
                 CreateDescription();
@@ -189,6 +196,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveEdit()
         {
+            customerName = cmbCustomers.Text;
             PersianCalendar p = new PersianCalendar();
             var Date = txtDate.Text.Split('/');
             var DateDateTime = p.ToDateTime(int.Parse(Date[0]), int.Parse(Date[1]), int.Parse(Date[2]), 0, 0, 0, 0);
@@ -261,7 +269,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.Vagozari } چک به شماره {Cheque.ChequeNumber} تاریخ واگذاری {txtAssignmentDate.Text} ";
+            txtDesc.Text = $"{Messages.Vagozari}چک به شماره {Cheque.ChequeNumber} به {customerName} تاریخ واگذاری {txtAssignmentDate.Text} ";
         }
 
     }

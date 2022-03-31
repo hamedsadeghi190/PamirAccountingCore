@@ -20,8 +20,9 @@ namespace PamirAccounting
         public const string OdatPayment = " عودت چک پرداختنی ";
         public const string BargashtPayment = " برگشت چک پرداختنی ";
         public const string Vosool = "   پاس  ";
-        public const string Odat = "   عودت";
+        public const string Odat = " عودت";
         public const string Bargasht = " برگشت   ";
-        public const string Vagozari = " واگذاری  ";
+        public const string Vagozari = "واگذاری";
+        public const string OdatVagozari = "عودت اسناد واگذاری";
     }
 }

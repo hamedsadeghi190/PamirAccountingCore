@@ -280,7 +280,76 @@ namespace PamirAccounting.Services
             }
         }
 
+        public List<TransactionModel> GetAllTotalWithdraw(int? currencyId)
+        {
+            try
+            {
+                var dataList = new List<TransactionModel>();
+                if (currencyId == null)
+                {
+                    dataList = FindAllReadonly(x => x.Id > 0)
+                    .Include(x => x.Curreny)
+                   .Select(x => new TransactionModel
+                   {
 
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       Phone = x.SourceCustomer.Phone,
+                       Mobile = x.SourceCustomer.Mobile,
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                       SourceCustomerId = x.SourceCustomerId,
+
+
+                   }).Where(x=>x.WithdrawAmount>0).ToList();
+                }
+                else
+                {
+                    dataList = FindAllReadonly(x => x.CurrenyId == currencyId)
+                                 .Include(x => x.Curreny)
+
+                                 .Select(x => new TransactionModel
+                                 {
+                                     Id = x.Id,
+                                     Description = x.Description,
+                                     DepositAmount = x.DepositAmount,
+                                     WithdrawAmount = x.WithdrawAmount,
+                                     Phone = x.SourceCustomer.Phone,
+                                     Mobile = x.SourceCustomer.Mobile,
+                                     CurrenyId = x.CurrenyId,
+                                     CurrenyName = x.Curreny.Name,
+                                     FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                                     SourceCustomerId = x.SourceCustomerId,
+                                 }).ToList();
+                }
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    Phone = x.Phone,
+                    Mobile = x.Mobile,
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    FullName = x.FullName,
+                    SourceCustomerId = x.SourceCustomerId,
+
+
+                }).ToList();
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
         public List<TransactionModel> GetAllWithdraw(int? currencyId)
         {
             try
