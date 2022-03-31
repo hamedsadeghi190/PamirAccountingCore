@@ -38,6 +38,9 @@
     <Compile Update="Forms\Checks\DetailsReceiveCheckFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Checks\OdatAsnadDaryaftaniVagozarShodeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Checks\OdatAsnadDaryaftaniVagozarShodeListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +162,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\GeneralLedger\ContactsListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GeneralLedger\CreditorGroupListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\GeneralLedger\CreditorListFrm.cs">

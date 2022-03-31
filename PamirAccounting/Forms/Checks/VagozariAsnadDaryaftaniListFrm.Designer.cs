@@ -37,7 +37,6 @@ namespace PamirAccounting.Forms.Checks
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
             this.btnvagozariasnad_daryafti = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -88,7 +87,6 @@ namespace PamirAccounting.Forms.Checks
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnprint);
             this.groupBox1.Controls.Add(this.btnhelp);
             this.groupBox1.Controls.Add(this.btnvagozariasnad_daryafti);
             this.groupBox1.Location = new System.Drawing.Point(5, 0);
@@ -96,16 +94,6 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Size = new System.Drawing.Size(1179, 84);
             this.groupBox1.TabIndex = 110;
             this.groupBox1.TabStop = false;
-            // 
-            // btnprint
-            // 
-            this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
-            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
-            this.btnprint.Location = new System.Drawing.Point(52, 20);
-            this.btnprint.Name = "btnprint";
-            this.btnprint.Size = new System.Drawing.Size(39, 41);
-            this.btnprint.TabIndex = 98;
-            this.btnprint.Text = "چاپ";
             // 
             // btnhelp
             // 
@@ -276,6 +264,7 @@ namespace PamirAccounting.Forms.Checks
             this.MaximizeBox = false;
             this.Name = "VagozariAsnadDaryaftaniListFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "واگذاری اسناد دریافتنی";
             this.Load += new System.EventHandler(this.VagozariAsnadDaryaftaniListFrm_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VagozariAsnadDaryaftaniListFrm_KeyUp);
@@ -293,7 +282,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.TextBox txtsearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.SimpleButton btnprint;
         private DevExpress.XtraEditors.SimpleButton btnhelp;
         private DevExpress.XtraEditors.SimpleButton btnvagozariasnad_daryafti;
         private System.Windows.Forms.DataGridView dataGridView1;

@@ -45,5 +45,25 @@ namespace PamirAccounting.Services
             }
 
         }
+        public string FindName(string name)
+        {
+            try
+            {
+                var dataList = FindAllReadonly().Select(x => new RealBankModel
+                {
+                 
+                    Name = x.Name,
+
+
+                }).Where(x=>x.Name==name).ToString();
+
+                return dataList;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
     }
 }

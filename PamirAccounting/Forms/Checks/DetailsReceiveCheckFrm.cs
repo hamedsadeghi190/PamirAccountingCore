@@ -42,7 +42,7 @@ namespace PamirAccounting.Forms.Checks
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-           
+
         }
         private void LoadData()
         {
@@ -53,7 +53,7 @@ namespace PamirAccounting.Forms.Checks
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomers.DataSource = _Customers;
             cmbCustomers.ValueMember = "Id";
-            cmbCustomers.DisplayMember = "Title"; 
+            cmbCustomers.DisplayMember = "Title";
 
         }
 
@@ -85,7 +85,7 @@ namespace PamirAccounting.Forms.Checks
         private void DetailsReceiveCheckFrm_Load(object sender, EventArgs e)
         {
             SetComboBoxHeight(cmbCustomers.Handle, 25);
-            cmbCustomers.Refresh(); 
+            cmbCustomers.Refresh();
             SetComboBoxHeight(cmbRealBankId.Handle, 25);
             cmbRealBankId.Refresh();
             LoadData();
@@ -119,18 +119,18 @@ namespace PamirAccounting.Forms.Checks
             txtBranchName.Text = Cheque.BranchName;
             txtChequeNumber.Text = Cheque.ChequeNumber;
             txtDocumentId.Text = Cheque.DocumentId.ToString();
-            txtDescription.Text= Cheque.Description;
+            txtDescription.Text = Cheque.Description;
             txtAmount.Text = Cheque.Amount.ToString();
             cmbRealBankId.SelectedValue = (int)Cheque.RealBankId;
             cmbCustomers.SelectedValue = Cheque.CustomerId;
-            txtBankAccountNumber.Text = Cheque.BankAccountNumber ;
+            txtBankAccountNumber.Text = Cheque.BankAccountNumber;
 
 
 
 
         }
-      
-        
+
+
         private void BtnSave_Click(object sender, EventArgs e)
         {
             if (checkEntryData())
@@ -192,13 +192,27 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
+            Cheque = new Domains.Cheque();
             if (txtDescription.Text == "")
             {
                 CreateDescription();
             }
+            if (cmbRealBankId.SelectedValue == null)
+            {
+              var  realBank = new Domains.RealBank();
+                realBank.Name = cmbRealBankId.Text;
+                realBank.Id =5;
+                unitOfWork.RealBankServices.Insert(realBank);
+                unitOfWork.SaveChanges();
+                Cheque.RealBankId = realBank.Id;
+            }
+            else
+            {
+                Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
+            }
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
-            Cheque = new Domains.Cheque();
+           
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
@@ -212,7 +226,6 @@ namespace PamirAccounting.Forms.Checks
             Cheque.DocumentId = documentId;
             Cheque.Description = txtDescription.Text; ;
             Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
-            Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
@@ -222,7 +235,7 @@ namespace PamirAccounting.Forms.Checks
             unitOfWork.ChequeServices.Insert(Cheque);
             unitOfWork.SaveChanges();
             ////////Customer transaction
-    
+
             var customerTransaction = new Domains.Transaction();
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
@@ -262,10 +275,10 @@ namespace PamirAccounting.Forms.Checks
             unitOfWork.SaveChanges();
 
         }
-       
+
         private void SaveEdit()
         {
-           
+
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
@@ -318,11 +331,11 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.Date = DateTime.Now;
             receivedDocuments.TransactionDateTime = DateTime.Now;
             receivedDocuments.UserId = CurrentUser.UserID;
-            receivedDocuments.DocumentId = Cheque.DocumentId; 
+            receivedDocuments.DocumentId = Cheque.DocumentId;
             unitOfWork.TransactionServices.Update(receivedDocuments);
             unitOfWork.SaveChanges();
             //ReceivedDocuments transaction End
-       
+
 
 
         }
@@ -339,7 +352,7 @@ namespace PamirAccounting.Forms.Checks
         }
 
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
-         {
+        {
             if (e.KeyCode == Keys.Space)
             {
                 txtAmount.Text += "000";
@@ -356,7 +369,7 @@ namespace PamirAccounting.Forms.Checks
             }
         }
 
-      
+
         private void cmbCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateDescription();
@@ -372,8 +385,8 @@ namespace PamirAccounting.Forms.Checks
         }
 
         private void btnshowcustomer_KeyUp(object sender, KeyEventArgs e)
-        
-        
+
+
         {
             if (e.KeyCode == Keys.Tab)
             {

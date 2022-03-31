@@ -129,6 +129,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             var groupedCurrency = tmpDataList.GroupBy(x => x.CurrenyId);
             _dataListTotal = new List<TransactionsGroupModel>();
             _GroupedDataList = new List<TransactionsGroupModel>();
+
             foreach (var currency in grouped)
             {
                 var curenncySummery = new TransactionsGroupModel();
@@ -147,7 +148,7 @@ namespace PamirAccounting.Forms.GeneralLedger
                     item.RemainigAmount = Deposit - WithDraw;
                     curenncySummery.WithdrawAmount = item.WithdrawAmount;
                     curenncySummery.DepositAmount = item.DepositAmount;
-                    _dataList.Add(item);
+                    //   _dataList.Add(item);
 
 
                 }
@@ -174,37 +175,32 @@ namespace PamirAccounting.Forms.GeneralLedger
 
             var tmpGroup = _GroupedDataList.GroupBy(x => x.CurrenyId);
             //////////////////////////////////////////////////////
-            //foreach (var currency1 in tmpGroup)
-            //{
-            //    var curenncySummery = new TransactionsGroupModel();
-            //    curenncySummery.Description = "جمع";
-            //    long totalWithDraw = 0, totalDeposit = 0, remaining2 = 0, WithDraw = 0, Deposit = 0;
-            //    foreach (var item in currency1.OrderBy(x => x.Id).ToList())
-            //    {
-            //        totalWithDraw += item.WithdrawAmount.Value;
-            //        totalDeposit += item.DepositAmount.Value;
-            //        curenncySummery.RowId = item.RowId;
-            //        item.RemainigAmount = totalDeposit - totalWithDraw;
-            //        curenncySummery.CurrenyName = item.CurrenyName;
+            var xx = _GroupedDataList.GroupBy(x => x.CurrenyId);
 
-            //    }
+            foreach (var currency in xx)
+            {
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
 
-            //    _dataListTotal.Add(curenncySummery);
-            //    remaining2 = totalDeposit - totalWithDraw;
-            //    if (remaining2 < 0)
-            //    {
-            //        curenncySummery.RemainigAmount = remaining2;
-            //        _dataListTotal.Add(curenncySummery);
+                foreach (var item in currency)
+                {
+                    remaining += item.RemainigAmount;
+                    curenncySummery.CurrenyName = item.CurrenyName;
 
-            //    }
+                }
+
+                curenncySummery.RemainigAmount = remaining;
+                curenncySummery.TotalWithdrawAmount = remaining;
+                _dataListTotal.Add(curenncySummery);
 
 
-            //}
+            }
 
-     
 
-            //grdTotals.AutoGenerateColumns = false;
-            //grdTotals.DataSource = _dataListTotal;
+
+            grdTotals.AutoGenerateColumns = false;
+            grdTotals.DataSource = _dataListTotal;
 
         }
 
