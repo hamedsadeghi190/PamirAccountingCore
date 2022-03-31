@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PamirAccounting
 {
-   public class Tools
+    public static class Tools
     {
         public static void CheckDate(DevExpress.XtraEditors.TextEdit textBox)
         {
@@ -38,6 +38,16 @@ namespace PamirAccounting
             }
 
             textBox.Text = $"{year}/{month}/{day}";
+        }
+
+        public static string ToFarsiFormat(this DateTime dateTime)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            string formatedDate = pc.GetYear(dateTime).ToString() + "/" +
+                (pc.GetMonth(dateTime) < 10 ? "0" + pc.GetMonth(dateTime).ToString() : pc.GetMonth(dateTime).ToString()) + "/" +
+                (pc.GetDayOfMonth(dateTime) < 10 ? "0" + pc.GetDayOfMonth(dateTime).ToString() : pc.GetDayOfMonth(dateTime).ToString()) + "/" ;
+                
+            return formatedDate;
         }
     }
 }

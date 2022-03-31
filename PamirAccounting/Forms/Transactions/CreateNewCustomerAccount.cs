@@ -42,6 +42,8 @@ namespace PamirAccounting.Forms.Transaction
             {
                 transaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == _TransActionId.Value);
 
+                lbl_Document_Id_value.Text = transaction.DocumentId.ToString();
+
                 if (transaction.WithdrawAmount.Value != 0)
                 {
                     txtAmount.Text = transaction.WithdrawAmount.Value.ToString();
@@ -58,14 +60,21 @@ namespace PamirAccounting.Forms.Transaction
                 cmbCurrencies.Enabled = false;
 
                 PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(transaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtDate.Text = PDate;
+                string PDate = pc.GetYear(transaction.TransactionDateTime).ToString() + "/" +
+                    (pc.GetMonth(transaction.TransactionDateTime) < 10 ? "0" + pc.GetMonth(transaction.TransactionDateTime).ToString() : pc.GetMonth(transaction.TransactionDateTime).ToString())
+                    + "/" + pc.GetDayOfMonth(transaction.TransactionDateTime).ToString();
+
+                txtDate.Text = transaction.TransactionDateTime.ToFarsiFormat();
             }
             else
             {
                 PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtDate.Text = PDate;
+                string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + (pc.GetMonth(DateTime.Now) < 10 ? "0" + pc.GetMonth(DateTime.Now).ToString() : pc.GetMonth(DateTime.Now).ToString())
+                    + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+
+                txtDate.Text = DateTime.Now.ToFarsiFormat();
+                lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
+
             }
         }
 
@@ -96,7 +105,7 @@ namespace PamirAccounting.Forms.Transaction
                 {
                     MessageBox.Show("مانده از قبل باید بیشتر از صفر باشد.", "خطای ثبت اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error,
 MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
-                    
+
                     return;
                 }
 
