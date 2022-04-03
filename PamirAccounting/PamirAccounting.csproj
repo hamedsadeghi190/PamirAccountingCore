@@ -54,6 +54,9 @@
     <None Update="Reports\Bank.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Reports\CreditorGroupList.mrt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Reports\DebtorList.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
