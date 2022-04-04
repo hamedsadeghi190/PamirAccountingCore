@@ -6,7 +6,7 @@
     <DataSources isList="true" count="3">
       <myData Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObjectSource" isKey="true">
         <Alias>myData</Alias>
-        <Columns isList="true" count="38">
+        <Columns isList="true" count="41">
           <value>Id,System.Int64</value>
           <value>RealBankId,System.Byte</value>
           <value>RealBankName,System.String</value>
@@ -45,6 +45,9 @@
           <value>FullName,System.String</value>
           <value>Phone,System.String</value>
           <value>Mobile,System.String</value>
+          <value>RemainigAmount2,System.Int64</value>
+          <value>GroupName,System.String</value>
+          <value>GroupId,System.Int32</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>6c312f11acdd44fa8a4130361563b49d</Key>
@@ -65,7 +68,7 @@
       </basedata>
       <myData2 Ref="4" type="Stimulsoft.Report.Dictionary.StiBusinessObjectSource" isKey="true">
         <Alias>myData2</Alias>
-        <Columns isList="true" count="24">
+        <Columns isList="true" count="27">
           <value>Id,System.Int32</value>
           <value>TotalWithdrawAmount,System.Int64</value>
           <value>TotalDepositAmount,System.Int64</value>
@@ -90,6 +93,9 @@
           <value>Mobile,System.String</value>
           <value>_ID,System.Int32</value>
           <value>_Current,System.Object</value>
+          <value>RemainigAmount2,System.Int64</value>
+          <value>GroupName,System.String</value>
+          <value>GroupId,System.Int32</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>53164a82b49b49968611623d5cd6b6b0</Key>
@@ -170,7 +176,7 @@
             </Text1>
             <Text8 Ref="11" type="Text" isKey="true">
               <Brush>[219:229:241]</Brush>
-              <ClientRectangle>0.9,0.1,0.3,0.2</ClientRectangle>
+              <ClientRectangle>0.93,0.12,0.38,0.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),12,Bold</Font>
@@ -204,7 +210,7 @@
             <Text2 Ref="13" type="Text" isKey="true">
               <Border>None;[255:255:255];1;Solid;False;4;Black</Border>
               <Brush>[219:229:241]</Brush>
-              <ClientRectangle>1.8,1,3.9,0.4</ClientRectangle>
+              <ClientRectangle>1.81,1.01,3.9,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),17,Bold</Font>
@@ -213,7 +219,7 @@
               <Name>Text2</Name>
               <Page isRef="5" />
               <Parent isRef="9" />
-              <Text>لیست کل</Text>
+              <Text>لیست بدهکاران {myData.CurrenyName} </Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -351,7 +357,7 @@
             <Text11 Ref="22" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0.39,1.3,0.4</ClientRectangle>
+              <ClientRectangle>0,0.4,1.3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),14,Bold</Font>
@@ -685,10 +691,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/15/2022 12:43:19 PM</ReportChanged>
+  <ReportChanged>4/3/2022 7:26:21 PM</ReportChanged>
   <ReportCreated>1/23/2022 12:40:14 PM</ReportCreated>
   <ReportFile>D:\fixed\PamirAccountingCore\PamirAccounting\Reports\CreditorList.mrt</ReportFile>
-  <ReportGuid>c893a8b4024b474081cad603ca6286b3</ReportGuid>
+  <ReportGuid>dbcd010b5e7b4519b315107e5d01c06c</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2022.1.4.0</ReportVersion>

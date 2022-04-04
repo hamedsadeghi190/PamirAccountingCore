@@ -170,6 +170,9 @@
     <Compile Update="Forms\GeneralLedger\CreditorListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\GeneralLedger\DebtorGroupListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\GeneralLedger\DebtorListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +180,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\GeneralLedger\TotalBalanceFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GeneralLedger\TotalGroupListFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\GeneralLedger\TotalListFrm.cs">

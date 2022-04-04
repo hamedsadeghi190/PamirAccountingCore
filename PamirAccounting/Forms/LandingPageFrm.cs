@@ -48,8 +48,12 @@ namespace PamirAccounting.Forms
             {
                 //AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
                 //AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
-                AppSetting.ReportPath = "E:\\Projects\\PamirAccounting\\PamirAccounting\\Reports\\";
+                //AppSetting.ReportPath = "E:\\Projects\\PamirAccounting\\PamirAccounting\\Reports\\";
+                AppSetting.ReportPath = "D:\\fixed\\PamirAccountingCore\\PamirAccounting\\Reports\\";
             }
+          
+
+
 
         }
 
@@ -379,25 +383,25 @@ namespace PamirAccounting.Forms
 
         private void CreditorList_Click(object sender, EventArgs e)
         {
-            var frm = new CreditorListFrm();
+            var frm = new CreditorGroupListFrm();
             frm.ShowDialog();
         }
 
         private void DepositList_Click(object sender, EventArgs e)
         {
-            var frm = new DebtorListFrm();
+            var frm = new DebtorGroupListFrm();
             frm.ShowDialog();
         }
 
         private void btn_Deposit_Click(object sender, EventArgs e)
         {
-            var frm = new DebtorListFrm();
+            var frm = new DebtorGroupListFrm();
             frm.ShowDialog();
         }
 
         private void btn_CreditorList_Click(object sender, EventArgs e)
         {
-            var frm = new CreditorListFrm();
+            var frm = new CreditorGroupListFrm();
             frm.ShowDialog();
 
         }
@@ -410,7 +414,7 @@ namespace PamirAccounting.Forms
 
         private void TotalList_Click(object sender, EventArgs e)
         {
-            var frm = new TotalListFrm();
+            var frm = new TotalGroupListFrm();
             frm.ShowDialog();
         }
 
