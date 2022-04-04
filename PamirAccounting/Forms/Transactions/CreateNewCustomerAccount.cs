@@ -59,22 +59,12 @@ namespace PamirAccounting.Forms.Transaction
                 cmbCurrencies.SelectedValue = transaction.CurrenyId;
                 cmbCurrencies.Enabled = false;
 
-                PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(transaction.TransactionDateTime).ToString() + "/" +
-                    (pc.GetMonth(transaction.TransactionDateTime) < 10 ? "0" + pc.GetMonth(transaction.TransactionDateTime).ToString() : pc.GetMonth(transaction.TransactionDateTime).ToString())
-                    + "/" + pc.GetDayOfMonth(transaction.TransactionDateTime).ToString();
-
                 txtDate.Text = transaction.TransactionDateTime.ToFarsiFormat();
             }
             else
             {
-                PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + (pc.GetMonth(DateTime.Now) < 10 ? "0" + pc.GetMonth(DateTime.Now).ToString() : pc.GetMonth(DateTime.Now).ToString())
-                    + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-
                 txtDate.Text = DateTime.Now.ToFarsiFormat();
                 lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
-
             }
         }
 
