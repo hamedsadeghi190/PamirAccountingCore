@@ -23,7 +23,7 @@ namespace PamirAccounting.Forms.Transactions
         public Domains.Transaction customerTransaction;
         private string CustomerDesc;
         long amount;
-        bool isMessageShow = false;
+
         public PayAndReciveCashFrm(int Id, long? transActionId)
         {
             InitializeComponent();
@@ -43,6 +43,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencies.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             this.cmbCustomers.SelectedValueChanged -= new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
             this.cmbRemainType.SelectedIndexChanged -= new System.EventHandler(this.cmbRemainType_SelectedIndexChanged);
+           
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbCurrencies.DataSource = _Currencies;
             cmbCurrencies.ValueMember = "Id";
@@ -66,6 +67,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
             this.cmbRemainType.SelectedIndexChanged += new System.EventHandler(this.cmbRemainType_SelectedIndexChanged);
+
         }
 
         [DllImport("user32.dll")]
@@ -91,29 +93,32 @@ namespace PamirAccounting.Forms.Transactions
 
             if (_TransActionId.HasValue)
             {
-                cmbCustomers.SelectedValue = _CustomerId;
-              
-                cmbCustomers.Enabled = false;
                 loadTransActionInfo(_TransActionId);
             }
             else
             {
-                PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtDate.Text = PDate;
+                txtDate.Text = DateTime.Now.ToFarsiFormat();
 
                 if (_CustomerId.HasValue)
                 {
                     cmbCustomers.SelectedValue = _CustomerId;
                 }
+
                 lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             }
         }
 
         private void loadTransActionInfo(long? transActionId)
         {
-            customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
+            var transaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
+            
+            customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transaction.OriginalTransactionId);
             sandoghTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
+            
+            _CustomerId = customerTransaction.SourceCustomerId;
+            cmbCustomers.SelectedValue = _CustomerId;
+            cmbCustomers.Enabled = false;
+            
             lbl_Document_Id_value.Text = customerTransaction.DocumentId.ToString();
 
             if (customerTransaction.WithdrawAmount.Value != 0)
@@ -126,15 +131,14 @@ namespace PamirAccounting.Forms.Transactions
                 txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
                 cmbRemainType.SelectedValue = 2;
             }
+
             txtdesc.Text = customerTransaction.Description;
             cmbCurrencies.SelectedValue = customerTransaction.CurrenyId;
             cmbCurrencies.Enabled = false;
             cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
             cmbCustomers.Enabled = false;
 
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            txtDate.Text = PDate;
+            txtDate.Text = customerTransaction.TransactionDateTime.ToFarsiFormat();
         }
 
 
@@ -160,12 +164,9 @@ namespace PamirAccounting.Forms.Transactions
                     MessageBox.Show("عملیات با موفقیت ثبت گردید", " ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CleanForm();
                 }
-
-
             }
             else
             {
-
                 MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید", "مقادیر ورودی", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 cmbCurrencies.Focus();
             }
@@ -224,6 +225,7 @@ namespace PamirAccounting.Forms.Transactions
             var sandoghTransAction = new Domains.Transaction();
             sandoghTransAction.DoubleTransactionId = customerTransaction.Id;
             sandoghTransAction.DocumentId = documentId;
+            sandoghTransAction.OriginalTransactionId = customerTransaction.Id;
 
             if ((int)cmbRemainType.SelectedValue == 1)
             {
@@ -250,7 +252,7 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.TransactionServices.Insert(sandoghTransAction);
             unitOfWork.SaveChanges();
             // end trakonesh sandogh///
-
+            customerTransaction.OriginalTransactionId = customerTransaction.Id;
             customerTransaction.DoubleTransactionId = sandoghTransAction.Id;
             unitOfWork.TransactionServices.Update(customerTransaction);
             unitOfWork.SaveChanges();
@@ -301,7 +303,7 @@ namespace PamirAccounting.Forms.Transactions
             }
 
 
-            sandoghTransAction.Description = txtdesc.Text;
+            sandoghTransAction.Description = CustomerDesc;
             sandoghTransAction.Date = DateTime.Now;
             sandoghTransAction.TransactionDateTime = TransactionDateTime;
             sandoghTransAction.UserId = CurrentUser.UserID;

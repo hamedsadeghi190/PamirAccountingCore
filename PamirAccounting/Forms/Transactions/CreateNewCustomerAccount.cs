@@ -214,7 +214,6 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
                 {
 
                 }
-
             }
         }
 

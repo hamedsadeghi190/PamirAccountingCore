@@ -427,23 +427,31 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void btnprint_Click(object sender, EventArgs e)
         {
-            _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
-            var name = _Customer.FirstName + " " + _Customer.LastName;
-            PersianCalendar pc = new PersianCalendar();
-            DateTime dt = DateTime.Now;
-            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-            var data = TotalPrint();
-            var data2 = TotalSummeryPrint();
-            //  var name = new UnitOfWork().TransactionServices.FindUserName(_Id.Value);
-            var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name };
-            var report = StiReport.CreateNewReport();
-            report.Load(AppSetting.ReportPath + "CustomerAccount2.mrt");
-            report.RegData("myData", data);
-            report.RegData("myData2", data2);
-            report.RegData("basedata", basedata);
-            // report.Design();
-            report.Render();
-            report.Show();
+            try
+            {
+                _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+                var name = _Customer.FirstName + " " + _Customer.LastName;
+                PersianCalendar pc = new PersianCalendar();
+                DateTime dt = DateTime.Now;
+                string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                var data = TotalPrint();
+                var data2 = TotalSummeryPrint();
+                //  var name = new UnitOfWork().TransactionServices.FindUserName(_Id.Value);
+                var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name };
+                var report = StiReport.CreateNewReport();
+                report.Load(AppSetting.ReportPath + "CustomerAccount2.mrt");
+                report.RegData("myData", data);
+                report.RegData("myData2", data2);
+                report.RegData("basedata", basedata);
+                // report.Design();
+                report.Render();
+                report.Show();
+            }
+            catch 
+            {
+                MessageBox.Show("خطا در پرینت");
+            }
+        
         }
 
 

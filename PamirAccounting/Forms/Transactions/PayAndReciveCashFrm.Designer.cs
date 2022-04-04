@@ -31,6 +31,8 @@ namespace PamirAccounting.Forms.Transactions
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayAndReciveCashFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_Document_Id_value = new System.Windows.Forms.Label();
+            this.lbl_Document_Id = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNumberString = new System.Windows.Forms.Label();
             this.txtAmount = new DevExpress.XtraEditors.TextEdit();
@@ -46,8 +48,6 @@ namespace PamirAccounting.Forms.Transactions
             this.label1 = new System.Windows.Forms.Label();
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbl_Document_Id = new System.Windows.Forms.Label();
-            this.lbl_Document_Id_value = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtdesc.Properties)).BeginInit();
@@ -76,6 +76,29 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "دریافت و  پرداخت نقدی";
+            // 
+            // lbl_Document_Id_value
+            // 
+            this.lbl_Document_Id_value.AccessibleName = "";
+            this.lbl_Document_Id_value.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Document_Id_value.Location = new System.Drawing.Point(351, 34);
+            this.lbl_Document_Id_value.Name = "lbl_Document_Id_value";
+            this.lbl_Document_Id_value.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_Document_Id_value.Size = new System.Drawing.Size(166, 24);
+            this.lbl_Document_Id_value.TabIndex = 131;
+            this.lbl_Document_Id_value.Text = "0";
+            this.lbl_Document_Id_value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Document_Id
+            // 
+            this.lbl_Document_Id.AutoSize = true;
+            this.lbl_Document_Id.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Document_Id.Location = new System.Drawing.Point(521, 34);
+            this.lbl_Document_Id.Name = "lbl_Document_Id";
+            this.lbl_Document_Id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 24);
+            this.lbl_Document_Id.TabIndex = 130;
+            this.lbl_Document_Id.Text = "سند :";
             // 
             // label2
             // 
@@ -217,7 +240,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(532, 123);
+            this.label3.Location = new System.Drawing.Point(532, 120);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(57, 24);
@@ -260,29 +283,6 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox2.Size = new System.Drawing.Size(591, 65);
             this.groupBox2.TabIndex = 125;
             this.groupBox2.TabStop = false;
-            // 
-            // lbl_Document_Id
-            // 
-            this.lbl_Document_Id.AutoSize = true;
-            this.lbl_Document_Id.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Document_Id.Location = new System.Drawing.Point(523, 34);
-            this.lbl_Document_Id.Name = "lbl_Document_Id";
-            this.lbl_Document_Id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 24);
-            this.lbl_Document_Id.TabIndex = 130;
-            this.lbl_Document_Id.Text = "سند :";
-            // 
-            // lbl_Document_Id_value
-            // 
-            this.lbl_Document_Id_value.AccessibleName = "";
-            this.lbl_Document_Id_value.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Document_Id_value.Location = new System.Drawing.Point(351, 34);
-            this.lbl_Document_Id_value.Name = "lbl_Document_Id_value";
-            this.lbl_Document_Id_value.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_Document_Id_value.Size = new System.Drawing.Size(166, 24);
-            this.lbl_Document_Id_value.TabIndex = 131;
-            this.lbl_Document_Id_value.Text = "0";
-            this.lbl_Document_Id_value.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PayAndReciveCashFrm
             // 
