@@ -106,20 +106,36 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.cmbDestiniation.SelectedIndexChanged -= new System.EventHandler(this.cmbDestiniation_SelectedIndexChanged);
             this.cmbCurrencies.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
-
             cmbCurrencies.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbCurrencies.AutoCompleteCustomSource = autoCurrencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
-
+            ////////////////////////////////////////////
             _SourceCustomers = unitOfWork.CustomerServices.GetAllNotDefaults();
-
             CmbSource.DataSource = _SourceCustomers;
+            AutoCompleteStringCollection autoSourceCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _SourceCustomers)
+            {
+                autoSourceCustomers.Add(item.Title);
+            }
+            CmbSource.AutoCompleteCustomSource = autoSourceCustomers;
             CmbSource.ValueMember = "Id";
             CmbSource.DisplayMember = "Title";
-
+            ////////////////////////////////////////////
             _destCustomers = new List<ComboBoxModel>();
             _destCustomers.AddRange(_SourceCustomers);
             cmbDestiniation.DataSource = _destCustomers;
+            AutoCompleteStringCollection autoDestCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _destCustomers)
+            {
+                autoDestCustomers.Add(item.Title);
+            }
+            cmbDestiniation.AutoCompleteCustomSource = autoDestCustomers;
             cmbDestiniation.ValueMember = "Id";
             cmbDestiniation.DisplayMember = "Title";
 
