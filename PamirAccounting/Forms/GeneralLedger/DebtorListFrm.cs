@@ -345,5 +345,10 @@ namespace PamirAccounting.Forms.GeneralLedger
                 LoadData();
             }
         }
+
+        private void txtSearch_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

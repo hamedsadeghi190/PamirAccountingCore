@@ -63,6 +63,12 @@ namespace PamirAccounting.Forms.Transactions
         {
             _Customers = unitOfWork.CustomerServices.GetAll(null);
             cmb_customer.DataSource = _Customers;
+            AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _Customers)
+            {
+                autoCustomers.Add(item.FullName);
+            }
+            cmb_customer.AutoCompleteCustomSource = autoCustomers;
             cmb_customer.DisplayMember = "FullName";
             cmb_customer.ValueMember = "Id";
 

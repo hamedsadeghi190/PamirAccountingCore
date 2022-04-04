@@ -45,11 +45,13 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // cmb_customer
             // 
+            this.cmb_customer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmb_customer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmb_customer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_customer.FormattingEnabled = true;
             this.cmb_customer.Location = new System.Drawing.Point(272, 42);
             this.cmb_customer.Name = "cmb_customer";
-            this.cmb_customer.Size = new System.Drawing.Size(169, 32);
+            this.cmb_customer.Size = new System.Drawing.Size(169, 27);
             this.cmb_customer.TabIndex = 1;
             // 
             // label1
@@ -58,7 +60,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(447, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 24);
+            this.label1.Size = new System.Drawing.Size(62, 19);
             this.label1.TabIndex = 2;
             this.label1.Text = "مشتری :";
             // 
@@ -68,7 +70,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(195, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 24);
+            this.label2.Size = new System.Drawing.Size(39, 19);
             this.label2.TabIndex = 3;
             this.label2.Text = "مبلغ:";
             // 

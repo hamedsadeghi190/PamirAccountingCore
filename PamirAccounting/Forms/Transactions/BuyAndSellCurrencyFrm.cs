@@ -311,12 +311,24 @@ namespace PamirAccounting.Forms.Transactions
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new CurrencyViewModel() { Id = x.Id, Title = x.Name, Action = x.Action, BaseRate = x.BaseRate }).ToList();
 
             cmbSellCurrencies.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbSellCurrencies.AutoCompleteCustomSource = autoCurrencies;
             cmbSellCurrencies.ValueMember = "Id";
             cmbSellCurrencies.DisplayMember = "Title";
 
 
             _DestCurrencies.AddRange(_Currencies);
             cmbCurrencybuyer.DataSource = _DestCurrencies;
+            AutoCompleteStringCollection autoDestCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _DestCurrencies)
+            {
+                autoDestCurrencies.Add(item.Title);
+            }
+            cmbCurrencybuyer.AutoCompleteCustomSource = autoDestCurrencies;
             cmbCurrencybuyer.ValueMember = "Id";
             cmbCurrencybuyer.DisplayMember = "Title";
 
@@ -326,10 +338,22 @@ namespace PamirAccounting.Forms.Transactions
             _DestCustomers.AddRange(_Customers);
 
             cmbCustomers.DataSource = _Customers;
+            AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _Customers)
+            {
+                autoCustomers.Add(item.Title);
+            }
+            cmbCustomers.AutoCompleteCustomSource = autoCustomers;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
 
             cmbDestCustomers.DataSource = _DestCustomers;
+            AutoCompleteStringCollection autoDestCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _DestCustomers)
+            {
+                autoDestCustomers.Add(item.Title);
+            }
+            cmbDestCustomers.AutoCompleteCustomSource = autoDestCustomers;
             cmbDestCustomers.ValueMember = "Id";
             cmbDestCustomers.DisplayMember = "Title";
 
