@@ -54,8 +54,7 @@ namespace PamirAccounting.Forms.GeneralLedger
         }
         private void CreditorListFrm_Load(object sender, EventArgs e)
         {
-          
-            InitForm();
+  
             LoadData();
 
         }
@@ -63,16 +62,7 @@ namespace PamirAccounting.Forms.GeneralLedger
 
 
 
-        private void InitForm()
-        {
-
-            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-         
-            _Groups.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Groups.AddRange(unitOfWork.CustomerGroups.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-
-        }
+   
 
         private void LoadData()
         {

@@ -389,19 +389,19 @@ namespace PamirAccounting.Forms
 
         private void DepositList_Click(object sender, EventArgs e)
         {
-            var frm = new DebtorListFrm();
+            var frm = new DebtorGroupListFrm();
             frm.ShowDialog();
         }
 
         private void btn_Deposit_Click(object sender, EventArgs e)
         {
-            var frm = new DebtorListFrm();
+            var frm = new DebtorGroupListFrm();
             frm.ShowDialog();
         }
 
         private void btn_CreditorList_Click(object sender, EventArgs e)
         {
-            var frm = new CreditorListFrm();
+            var frm = new CreditorGroupListFrm();
             frm.ShowDialog();
 
         }
@@ -414,7 +414,7 @@ namespace PamirAccounting.Forms
 
         private void TotalList_Click(object sender, EventArgs e)
         {
-            var frm = new TotalListFrm();
+            var frm = new TotalGroupListFrm();
             frm.ShowDialog();
         }
 

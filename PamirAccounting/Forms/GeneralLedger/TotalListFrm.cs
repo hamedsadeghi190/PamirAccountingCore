@@ -26,6 +26,8 @@ namespace PamirAccounting.Forms.GeneralLedger
         private List<TransactionsGroupModel> _dataListTotal;
         private List<ComboBoxModel> _Currencies = new List<ComboBoxModel>();
         private List<ComboBoxModel> _Groups = new List<ComboBoxModel>();
+        private int? _CurrenyId;
+        private int? _GroupId;
 
         public TotalListFrm()
         {
@@ -35,80 +37,27 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         }
 
-    
 
-
-
-        private void InitForm()
+        public TotalListFrm(int? CurrenyId, int? GroupId)
         {
-
-            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbCurrencies.TextChanged -= new EventHandler(cmbCurrencies_TextChanged);
-            cmbCurrencies.DataSource = _Currencies;
-            cmbCurrencies.ValueMember = "Id";
-            cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged += new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbCurrencies.TextChanged += new EventHandler(cmbCurrencies_TextChanged);
-            _Groups.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Groups.AddRange(unitOfWork.CustomerGroups.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-
+            _CurrenyId = CurrenyId;
+            _GroupId = GroupId;
+            InitializeComponent();
+            unitOfWork = new UnitOfWork();
         }
+
 
         private void LoadData()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllTotal(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllWithdraw(_CurrenyId, _GroupId);
             GellAll(tmpDataList);
         }
 
-        [DllImport("user32.dll")]
-        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
-        private const Int32 CB_SETITEMHEIGHT = 0x153;
 
-        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
-        {
-            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
-        }
+
         private void TotalLiatFrm_Load(object sender, EventArgs e)
         {
-            SetComboBoxHeight(cmbCurrencies.Handle, 25);
-            cmbCurrencies.Refresh();
-            InitForm();
             LoadData();
-           
-        }
-
-       
-
-        private void cmbCurrencies_TextChanged(object sender, EventArgs e)
-        {
-            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbCurrencies.DataSource = _Currencies;
-            cmbCurrencies.ValueMember = "Id";
-            cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            if ((int)cmbCurrencies.SelectedValue == 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAllTotal(null);
-            }
-
-            if ((int)cmbCurrencies.SelectedValue > 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAllTotal((int)cmbCurrencies.SelectedValue);
-                GellAll(_dataList);
-            }
-            else
-            {
-                LoadData();
-            }
-        }
-
-        private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void TotalLiatFrm_KeyUp(object sender, KeyEventArgs e)
@@ -134,7 +83,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             {
                 var curenncySummery = new TransactionsGroupModel();
                 curenncySummery.Description = "جمع";
-                long totalWithDraw = 0, totalDeposit = 0, remaining = 0, WithDraw = 0, Deposit = 0; 
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0, WithDraw = 0, Deposit = 0;
                 foreach (var item in currency.OrderBy(x => x.Id).ToList())
                 {
                     totalWithDraw += item.WithdrawAmount.Value;
@@ -143,18 +92,18 @@ namespace PamirAccounting.Forms.GeneralLedger
                     Deposit = item.DepositAmount.Value;
                     curenncySummery.CurrenyName = item.CurrenyName;
                     curenncySummery.FullName = item.FullName;
-                  
+
                     curenncySummery.Phone = item.Phone;
                     curenncySummery.Mobile = item.Mobile;
                     item.RemainigAmount = Deposit - WithDraw;
-           
+
                     _dataList.Add(item);
                 }
 
                 curenncySummery.TotalDepositAmount = totalDeposit;
                 curenncySummery.TotalWithdrawAmount = totalWithDraw;
                 remaining = totalDeposit - totalWithDraw;
-                curenncySummery.RemainigAmount = remaining; 
+                curenncySummery.RemainigAmount = remaining;
                 curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "طلبکار" : "بدهکار";
                 _GroupedDataList.Add(curenncySummery);
 
@@ -171,7 +120,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             foreach (var currency in groupedCurrency)
             {
                 var curenncySummery2 = new TransactionsGroupModel();
-                long totalWithDraw2 = 0, totalDeposit2 = 0, remaining2 = 0; 
+                long totalWithDraw2 = 0, totalDeposit2 = 0, remaining2 = 0;
                 curenncySummery2.Description = "جمع";
                 foreach (var item in currency.OrderBy(x => x.Id).ToList())
                 {
@@ -184,7 +133,7 @@ namespace PamirAccounting.Forms.GeneralLedger
                 curenncySummery2.TotalDepositAmount = totalDeposit2;
                 curenncySummery2.TotalWithdrawAmount = totalWithDraw2;
                 remaining2 = totalDeposit2 - totalWithDraw2;
-                curenncySummery2.RemainigAmount = remaining2; 
+                curenncySummery2.RemainigAmount = remaining2;
                 curenncySummery2.Status = (remaining2 == 0) ? "" : (remaining2 > 0) ? "طلبکار" : "بدهکار";
                 _dataListTotal.Add(curenncySummery2);
             }
@@ -196,7 +145,7 @@ namespace PamirAccounting.Forms.GeneralLedger
 
 
 
-        private List<TransactionsGroupModel> TotalPrint( )
+        private List<TransactionsGroupModel> TotalPrint()
         {
             var tmpDataList = unitOfWork.TransactionServices.GetAllTotal(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             var grouped = tmpDataList.GroupBy(x => new { x.CurrenyId, x.SourceCustomerId });
@@ -238,8 +187,8 @@ namespace PamirAccounting.Forms.GeneralLedger
             {
                 item.RowId = row++;
             }
-          
-           return _GroupedDataList;
+
+            return _GroupedDataList;
         }
 
         private List<TransactionsGroupModel> TotalSummeryPrint()
