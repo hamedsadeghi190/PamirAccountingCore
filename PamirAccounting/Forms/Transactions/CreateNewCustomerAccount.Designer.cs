@@ -38,7 +38,6 @@ namespace PamirAccounting.Forms.Transaction
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.txtAmount = new DevExpress.XtraEditors.TextEdit();
             this.txtdesc = new DevExpress.XtraEditors.TextEdit();
-            this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@ namespace PamirAccounting.Forms.Transaction
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
@@ -55,6 +55,7 @@ namespace PamirAccounting.Forms.Transaction
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbCurrencies);
             this.groupBox1.Controls.Add(this.lbl_Document_Id_value);
             this.groupBox1.Controls.Add(this.lbl_Document_Id);
             this.groupBox1.Controls.Add(this.lblNumberString);
@@ -62,7 +63,6 @@ namespace PamirAccounting.Forms.Transaction
             this.groupBox1.Controls.Add(this.txtDate);
             this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.txtdesc);
-            this.groupBox1.Controls.Add(this.cmbCurrencies);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -95,7 +95,7 @@ namespace PamirAccounting.Forms.Transaction
             this.lbl_Document_Id.Location = new System.Drawing.Point(488, 27);
             this.lbl_Document_Id.Name = "lbl_Document_Id";
             this.lbl_Document_Id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 24);
+            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 19);
             this.lbl_Document_Id.TabIndex = 132;
             this.lbl_Document_Id.Text = "سند :";
             // 
@@ -113,18 +113,19 @@ namespace PamirAccounting.Forms.Transaction
             // 
             // cmbRemainType
             // 
+            this.cmbRemainType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbRemainType.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbRemainType.FormattingEnabled = true;
             this.cmbRemainType.Location = new System.Drawing.Point(223, 104);
             this.cmbRemainType.Name = "cmbRemainType";
-            this.cmbRemainType.Size = new System.Drawing.Size(130, 32);
+            this.cmbRemainType.Size = new System.Drawing.Size(130, 27);
             this.cmbRemainType.TabIndex = 4;
             // 
             // txtDate
             // 
             this.txtDate.Location = new System.Drawing.Point(359, 58);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtDate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDate.Properties.Appearance.Options.UseFont = true;
             this.txtDate.Properties.AutoHeight = false;
             this.txtDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
@@ -159,17 +160,6 @@ namespace PamirAccounting.Forms.Transaction
             this.txtdesc.Size = new System.Drawing.Size(292, 32);
             this.txtdesc.TabIndex = 2;
             // 
-            // cmbCurrencies
-            // 
-            this.cmbCurrencies.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(17, 103);
-            this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(140, 32);
-            this.cmbCurrencies.TabIndex = 5;
-            this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -177,7 +167,7 @@ namespace PamirAccounting.Forms.Transaction
             this.label3.Location = new System.Drawing.Point(159, 108);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(57, 24);
+            this.label3.Size = new System.Drawing.Size(58, 19);
             this.label3.TabIndex = 103;
             this.label3.Text = "نوع ارز :";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -189,7 +179,7 @@ namespace PamirAccounting.Forms.Transaction
             this.label2.Location = new System.Drawing.Point(309, 64);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(46, 24);
+            this.label2.Size = new System.Drawing.Size(46, 19);
             this.label2.TabIndex = 106;
             this.label2.Text = "شرح :";
             // 
@@ -200,7 +190,7 @@ namespace PamirAccounting.Forms.Transaction
             this.label1.Location = new System.Drawing.Point(488, 62);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(49, 24);
+            this.label1.Size = new System.Drawing.Size(49, 19);
             this.label1.TabIndex = 102;
             this.label1.Text = "تاریخ :";
             // 
@@ -211,7 +201,7 @@ namespace PamirAccounting.Forms.Transaction
             this.label6.Location = new System.Drawing.Point(487, 108);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(86, 24);
+            this.label6.Size = new System.Drawing.Size(88, 19);
             this.label6.TabIndex = 109;
             this.label6.Text = "مانده از قبل :";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -257,6 +247,17 @@ namespace PamirAccounting.Forms.Transaction
             this.btnClose.Text = "بازگشت";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // cmbCurrencies
+            // 
+            this.cmbCurrencies.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCurrencies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbCurrencies.FormattingEnabled = true;
+            this.cmbCurrencies.Location = new System.Drawing.Point(17, 105);
+            this.cmbCurrencies.Name = "cmbCurrencies";
+            this.cmbCurrencies.Size = new System.Drawing.Size(143, 27);
+            this.cmbCurrencies.TabIndex = 134;
+            // 
             // CreateNewCustomerAccount
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -295,7 +296,6 @@ namespace PamirAccounting.Forms.Transaction
         private DevExpress.XtraEditors.TextEdit txtAmount;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit txtdesc;
-        private System.Windows.Forms.ComboBox cmbCurrencies;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnsavebank;
@@ -304,5 +304,6 @@ namespace PamirAccounting.Forms.Transaction
         private System.Windows.Forms.Label lblNumberString;
         private System.Windows.Forms.Label lbl_Document_Id_value;
         private System.Windows.Forms.Label lbl_Document_Id;
+        private System.Windows.Forms.ComboBox cmbCurrencies;
     }
 }

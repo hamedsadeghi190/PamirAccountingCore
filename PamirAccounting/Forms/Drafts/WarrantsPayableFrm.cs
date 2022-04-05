@@ -55,7 +55,8 @@ namespace PamirAccounting.Forms.Drafts
             cmbDepositCurreny.Refresh();
             SetComboBoxHeight(cmbDraftCurrency.Handle, 25);
             cmbDraftCurrency.Refresh();
-
+            SetComboBoxHeight(cmbStatus.Handle, 25);
+            cmbStatus.Refresh();
             PersianCalendar pc = new PersianCalendar();
             string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + (pc.GetMonth(DateTime.Now) < 10 ? "0" + pc.GetMonth(DateTime.Now).ToString() : pc.GetMonth(DateTime.Now).ToString()) + "/" + (pc.GetDayOfMonth(DateTime.Now) < 10 ? "0" + pc.GetDayOfMonth(DateTime.Now).ToString() : pc.GetDayOfMonth(DateTime.Now).ToString());
             txtDate.Text = PDate;
@@ -71,6 +72,12 @@ namespace PamirAccounting.Forms.Drafts
 
             // this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
             cmbAgency.DataSource = _agencies;
+            AutoCompleteStringCollection autoagencies = new AutoCompleteStringCollection();
+            foreach (var item in _agencies)
+            {
+                autoagencies.Add(item.Title);
+            }
+            cmbAgency.AutoCompleteCustomSource = autoagencies;
             cmbAgency.ValueMember = "Id";
             cmbAgency.DisplayMember = "Title";
 
@@ -83,15 +90,33 @@ namespace PamirAccounting.Forms.Drafts
             _Customers.AddRange(_agencies);
 
             cmbCustomer.DataSource = _Customers;
+            AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _Customers)
+            {
+                autoCustomers.Add(item.Title);
+            }
+            cmbCustomer.AutoCompleteCustomSource = autoCustomers;
             cmbCustomer.ValueMember = "Id";
             cmbCustomer.DisplayMember = "Title";
 
             cmbDraftCurrency.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbDraftCurrency.AutoCompleteCustomSource = autoCurrencies;
             cmbDraftCurrency.ValueMember = "Id";
             cmbDraftCurrency.DisplayMember = "Title";
 
             _DestCurrencies.AddRange(_Currencies);
             cmbDepositCurreny.DataSource = _DestCurrencies;
+            AutoCompleteStringCollection autoDestCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _DestCurrencies)
+            {
+                autoDestCurrencies.Add(item.Title);
+            }
+            cmbDepositCurreny.AutoCompleteCustomSource = autoDestCurrencies;
             cmbDepositCurreny.ValueMember = "Id";
             cmbDepositCurreny.DisplayMember = "Title";
 

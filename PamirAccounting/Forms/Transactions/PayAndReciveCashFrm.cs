@@ -46,12 +46,24 @@ namespace PamirAccounting.Forms.Transactions
            
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbCurrencies.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbCurrencies.AutoCompleteCustomSource = autoCurrencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
 
             _Customers = unitOfWork.CustomerServices.GetAllNotDefaults();
 
             cmbCustomers.DataSource = _Customers;
+            AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _Customers)
+            {
+                autoCustomers.Add(item.Title);
+            }
+            cmbCustomers.AutoCompleteCustomSource = autoCustomers;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
 

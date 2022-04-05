@@ -96,7 +96,7 @@ namespace PamirAccounting.Forms.Transactions
             this.lbl_Document_Id.Location = new System.Drawing.Point(521, 34);
             this.lbl_Document_Id.Name = "lbl_Document_Id";
             this.lbl_Document_Id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 24);
+            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 19);
             this.lbl_Document_Id.TabIndex = 130;
             this.lbl_Document_Id.Text = "سند :";
             // 
@@ -107,7 +107,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label2.Location = new System.Drawing.Point(519, 151);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(46, 24);
+            this.label2.Size = new System.Drawing.Size(46, 19);
             this.label2.TabIndex = 121;
             this.label2.Text = "شرح :";
             // 
@@ -151,13 +151,15 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // cmbCustomers
             // 
+            this.cmbCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCustomers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomers.FormattingEnabled = true;
-            this.cmbCustomers.ItemHeight = 24;
+            this.cmbCustomers.ItemHeight = 19;
             this.cmbCustomers.Location = new System.Drawing.Point(22, 68);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbCustomers.Size = new System.Drawing.Size(252, 32);
+            this.cmbCustomers.Size = new System.Drawing.Size(252, 27);
             this.cmbCustomers.TabIndex = 2;
             this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
             // 
@@ -181,10 +183,10 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbRemainType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRemainType.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbRemainType.FormattingEnabled = true;
-            this.cmbRemainType.ItemHeight = 24;
+            this.cmbRemainType.ItemHeight = 19;
             this.cmbRemainType.Location = new System.Drawing.Point(22, 107);
             this.cmbRemainType.Name = "cmbRemainType";
-            this.cmbRemainType.Size = new System.Drawing.Size(123, 32);
+            this.cmbRemainType.Size = new System.Drawing.Size(123, 27);
             this.cmbRemainType.TabIndex = 5;
             this.cmbRemainType.SelectedIndexChanged += new System.EventHandler(this.cmbRemainType_SelectedIndexChanged);
             // 
@@ -195,18 +197,20 @@ namespace PamirAccounting.Forms.Transactions
             this.label6.Location = new System.Drawing.Point(278, 72);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(62, 24);
+            this.label6.Size = new System.Drawing.Size(62, 19);
             this.label6.TabIndex = 123;
             this.label6.Text = "مشتری :";
             // 
             // cmbCurrencies
             // 
+            this.cmbCurrencies.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCurrencies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.ItemHeight = 24;
+            this.cmbCurrencies.ItemHeight = 19;
             this.cmbCurrencies.Location = new System.Drawing.Point(350, 108);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(167, 32);
+            this.cmbCurrencies.Size = new System.Drawing.Size(167, 27);
             this.cmbCurrencies.TabIndex = 3;
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             // 
@@ -217,7 +221,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label7.Location = new System.Drawing.Point(277, 112);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(44, 24);
+            this.label7.Size = new System.Drawing.Size(44, 19);
             this.label7.TabIndex = 127;
             this.label7.Text = "مبلغ :";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -243,7 +247,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label3.Location = new System.Drawing.Point(532, 120);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(57, 24);
+            this.label3.Size = new System.Drawing.Size(58, 19);
             this.label3.TabIndex = 118;
             this.label3.Text = "نوع ارز :";
             // 
@@ -254,7 +258,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label1.Location = new System.Drawing.Point(532, 81);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(49, 24);
+            this.label1.Size = new System.Drawing.Size(49, 19);
             this.label1.TabIndex = 117;
             this.label1.Text = "تاریخ :";
             // 

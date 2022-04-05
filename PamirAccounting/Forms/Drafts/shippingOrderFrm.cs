@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,32 +40,76 @@ namespace PamirAccounting.Forms.Drafts
             string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + (pc.GetMonth(DateTime.Now) < 10 ? "0" + pc.GetMonth(DateTime.Now).ToString() : pc.GetMonth(DateTime.Now).ToString()) + "/" + (pc.GetDayOfMonth(DateTime.Now) < 10 ? "0" + pc.GetDayOfMonth(DateTime.Now).ToString() : pc.GetDayOfMonth(DateTime.Now).ToString());
             txtDate.Text = PDate;
         }
+
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
+
         private void initData()
         {
+            SetComboBoxHeight(cmbAgency.Handle, 25);
+            cmbAgency.Refresh();
+            SetComboBoxHeight(cmbCustomer.Handle, 25);
+            cmbCustomer.Refresh();
+            SetComboBoxHeight(cmbDepositCurreny.Handle, 25);
+            cmbDepositCurreny.Refresh();
+            SetComboBoxHeight(cmbDraftCurrency.Handle, 25);
+            cmbDraftCurrency.Refresh();
+            SetComboBoxHeight(cmbStatus.Handle, 25);
+            cmbStatus.Refresh();
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
 
             this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
             cmbAgency.DataSource = _agencies;
+            AutoCompleteStringCollection autoagencies = new AutoCompleteStringCollection();
+            foreach (var item in _agencies)
+            {
+                autoagencies.Add(item.Title);
+            }
+            cmbAgency.AutoCompleteCustomSource = autoagencies;
             cmbAgency.ValueMember = "Id";
             cmbAgency.DisplayMember = "Title";
             this.cmbAgency.SelectedIndexChanged += new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
             cmbAgency.SelectedIndex = 0;
-
+            /////////////////////////////
             _Customers = unitOfWork.Customers.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomer.DataSource = _Customers;
+            AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _Customers)
+            {
+                autoCustomers.Add(item.Title);
+            }
+            cmbCustomer.AutoCompleteCustomSource = autoCustomers;
             cmbCustomer.ValueMember = "Id";
             cmbCustomer.DisplayMember = "Title";
-
+            ////////////////////////////////////
             cmbDraftCurrency.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbDraftCurrency.AutoCompleteCustomSource = autoCurrencies;
             cmbDraftCurrency.ValueMember = "Id";
             cmbDraftCurrency.DisplayMember = "Title";
-
+            ///////////////////////////////////////
             _DestCurrencies.AddRange(_Currencies);
             cmbDepositCurreny.DataSource = _DestCurrencies;
+            AutoCompleteStringCollection autoDestCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _DestCurrencies)
+            {
+                autoDestCurrencies.Add(item.Title);
+            }
+            cmbDepositCurreny.AutoCompleteCustomSource = autoDestCurrencies;
             cmbDepositCurreny.ValueMember = "Id";
             cmbDepositCurreny.DisplayMember = "Title";
-
+            /////////////////////////////////////////
 
             _status.Add(new ComboBoxBoolModel() { value = true, Title = "اجرا شود" });
             _status.Add(new ComboBoxBoolModel() { value = false, Title = "اجرا نشود" });
@@ -145,6 +190,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void cmbAgency_SelectedIndexChanged(object sender, EventArgs e)
         {
+          
             if (cmbAgency.SelectedIndex >= 0)
             {
                 calcNumber((int)cmbAgency.SelectedValue);
