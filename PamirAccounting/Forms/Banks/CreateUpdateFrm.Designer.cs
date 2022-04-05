@@ -127,6 +127,8 @@ namespace PamirAccounting.UI.Forms.Banks
             // cmbCountries
             // 
             this.cmbCountries.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbCountries.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCountries.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCountries.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCountries.FormattingEnabled = true;
             this.cmbCountries.Location = new System.Drawing.Point(17, 44);
@@ -148,6 +150,8 @@ namespace PamirAccounting.UI.Forms.Banks
             // cmbCurrencies
             // 
             this.cmbCurrencies.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbCurrencies.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCurrencies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(17, 80);

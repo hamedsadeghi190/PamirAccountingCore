@@ -93,16 +93,34 @@ namespace PamirAccounting.UI.Forms.Users
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
 
             cmbCurrency.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbCurrency.AutoCompleteCustomSource = autoCurrencies;
             cmbCurrency.ValueMember = "Id";
             cmbCurrency.DisplayMember = "Title";
 
             _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbAgency.DataSource = _agencies;
+            AutoCompleteStringCollection autoAgencies = new AutoCompleteStringCollection();
+            foreach (var item in _agencies)
+            {
+                autoAgencies.Add(item.Title);
+            }
+            cmbAgency.AutoCompleteCustomSource = autoAgencies;
             cmbAgency.ValueMember = "Id";
             cmbAgency.DisplayMember = "Title";
 
             _Customers = unitOfWork.Customers.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName} " }).ToList();
             CmbSandogh.DataSource = _Customers;
+            AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _Customers)
+            {
+                autoCustomers.Add(item.Title);
+            }
+            CmbSandogh.AutoCompleteCustomSource = autoCustomers;
             CmbSandogh.ValueMember = "Id";
             CmbSandogh.DisplayMember = "Title";
         }

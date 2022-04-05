@@ -62,6 +62,12 @@ namespace PamirAccounting.UI.Forms.Customers
             }).ToList();
 
             cmbCurrencies.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbCurrencies.AutoCompleteCustomSource = autoCurrencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
 
@@ -72,6 +78,12 @@ namespace PamirAccounting.UI.Forms.Customers
             }).ToList();
 
             cmbGroups.DataSource = _Groups;
+            AutoCompleteStringCollection autoGroups = new AutoCompleteStringCollection();
+            foreach (var item in _Groups)
+            {
+                autoGroups.Add(item.Title);
+            }
+            cmbGroups.AutoCompleteCustomSource = autoGroups;
             cmbGroups.ValueMember = "Id";
             cmbGroups.DisplayMember = "Title";
         }

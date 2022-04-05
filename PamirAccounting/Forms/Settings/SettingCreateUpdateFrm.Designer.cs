@@ -87,6 +87,8 @@ namespace PamirAccounting.UI.Forms.Settings
             // 
             // comboBox4
             // 
+            this.comboBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(418, 104);
@@ -96,6 +98,8 @@ namespace PamirAccounting.UI.Forms.Settings
             // 
             // CmbCalenderType
             // 
+            this.CmbCalenderType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CmbCalenderType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CmbCalenderType.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CmbCalenderType.FormattingEnabled = true;
             this.CmbCalenderType.Location = new System.Drawing.Point(418, 141);
@@ -105,6 +109,8 @@ namespace PamirAccounting.UI.Forms.Settings
             // 
             // cmbConstsAccount
             // 
+            this.cmbConstsAccount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbConstsAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbConstsAccount.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbConstsAccount.FormattingEnabled = true;
             this.cmbConstsAccount.Location = new System.Drawing.Point(36, 62);
@@ -114,6 +120,8 @@ namespace PamirAccounting.UI.Forms.Settings
             // 
             // CmbRemittanceAccount
             // 
+            this.CmbRemittanceAccount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CmbRemittanceAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CmbRemittanceAccount.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CmbRemittanceAccount.FormattingEnabled = true;
             this.CmbRemittanceAccount.Location = new System.Drawing.Point(36, 99);
@@ -123,6 +131,8 @@ namespace PamirAccounting.UI.Forms.Settings
             // 
             // cmbBaseCurenccy
             // 
+            this.cmbBaseCurenccy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbBaseCurenccy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbBaseCurenccy.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbBaseCurenccy.FormattingEnabled = true;
             this.cmbBaseCurenccy.Location = new System.Drawing.Point(418, 67);

@@ -55,19 +55,37 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         {
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbSourceCurreny.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbSourceCurreny.AutoCompleteCustomSource = autoCurrencies;
             cmbSourceCurreny.ValueMember = "Id";
             cmbSourceCurreny.DisplayMember = "Title";
-
+            ///////////////////////////////
             _DestCurrencies.AddRange(_Currencies);
             cmbDescCurenccy.DataSource = _DestCurrencies;
+            AutoCompleteStringCollection autoDestCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoDestCurrencies.Add(item.Title);
+            }
+            cmbDescCurenccy.AutoCompleteCustomSource = autoDestCurrencies;
             cmbDescCurenccy.ValueMember = "Id";
             cmbDescCurenccy.DisplayMember = "Title";
-
+            ///////////////////////////////////
    
 
             _exchangeRate.Add(new ComboBoxModel() { Id = 1, Title = "عادی" });
             _exchangeRate.Add(new ComboBoxModel() { Id = 10, Title = "10 عدد" });
             cmbExchangeRate.DataSource = _exchangeRate;
+            AutoCompleteStringCollection autoExchangeRate = new AutoCompleteStringCollection();
+            foreach (var item in _exchangeRate)
+            {
+                autoExchangeRate.Add(item.Title);
+            }
+            cmbExchangeRate.AutoCompleteCustomSource = autoExchangeRate;
             cmbExchangeRate.ValueMember = "Id";
             cmbExchangeRate.DisplayMember = "Title";
 
@@ -78,6 +96,12 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             _Actions.Add(new ComboBoxModel() { Id = 3, Title = "جمع" });
 
             cmbAction.DataSource = _Actions;
+            AutoCompleteStringCollection autoActions = new AutoCompleteStringCollection();
+            foreach (var item in _Actions)
+            {
+                autoActions.Add(item.Title);
+            }
+            cmbAction.AutoCompleteCustomSource = autoActions;
             cmbAction.ValueMember = "Id";
             cmbAction.DisplayMember = "Title";
 
@@ -89,6 +113,12 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             _RoundLimit.Add(new ComboBoxModel() { Id = 10000, Title = "رند به تغریب 10000" });
 
             cmbroundLimit.DataSource = _RoundLimit;
+            AutoCompleteStringCollection autoRoundLimit = new AutoCompleteStringCollection();
+            foreach (var item in _RoundLimit)
+            {
+                autoRoundLimit.Add(item.Title);
+            }
+            cmbroundLimit.AutoCompleteCustomSource = autoRoundLimit;
             cmbroundLimit.ValueMember = "Id";
             cmbroundLimit.DisplayMember = "Title";
         }

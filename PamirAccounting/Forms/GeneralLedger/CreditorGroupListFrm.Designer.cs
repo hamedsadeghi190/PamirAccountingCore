@@ -212,6 +212,8 @@ namespace PamirAccounting.Forms.GeneralLedger
             // 
             // cmbCurrencies
             // 
+            this.cmbCurrencies.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCurrencies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(31, 29);
@@ -223,6 +225,8 @@ namespace PamirAccounting.Forms.GeneralLedger
             // 
             // cmbGroup
             // 
+            this.cmbGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbGroup.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbGroup.FormattingEnabled = true;
             this.cmbGroup.Location = new System.Drawing.Point(316, 28);

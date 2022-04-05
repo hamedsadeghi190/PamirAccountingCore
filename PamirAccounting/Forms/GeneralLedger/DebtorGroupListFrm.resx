@@ -180,148 +180,6 @@
   <data name="&gt;&gt;gridCreditor.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;cmbCurrencies.Name" xml:space="preserve">
-    <value>cmbCurrencies</value>
-  </data>
-  <data name="&gt;&gt;cmbCurrencies.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbCurrencies.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cmbCurrencies.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cmbGroup.Name" xml:space="preserve">
-    <value>cmbGroup</value>
-  </data>
-  <data name="&gt;&gt;cmbGroup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbGroup.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;cmbGroup.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>IRANSansMobile(FaNum), 11.25pt</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 11</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>567, 80</value>
-  </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>122</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>جستجو</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <assembly alias="DevExpress.Data.v21.2" name="DevExpress.Data.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="btnprint.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjIxLjIsIFZlcnNpb249MjEuMi4z
-        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
-        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAABIDAAAC77u/
-        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgeD0iMHB4IiB5PSIwcHgi
-        IHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
-        MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWw6c3Bh
-        Y2U9InByZXNlcnZlIiBpZD0iUHJpbnRMYXlvdXRWaWV3XzFfIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91
-        bmQ6bmV3IDAgMCAzMiAzMiI+DQogIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+CgkuQmx1ZXtmaWxsOiMx
-        MTc3RDc7fQoJLkJsYWNre2ZpbGw6IzcyNzI3Mjt9Cjwvc3R5bGU+DQogIDxwYXRoIGQ9Ik02LDZoMTR2
-        Mkg2VjZ6IE0xMiwyNEgyVjJoMjJ2MTBoMlYxYzAtMC41LTAuNS0xLTEtMUgxQzAuNSwwLDAsMC41LDAs
-        MXYyNGMwLDAuNSwwLjUsMSwxLDFoMTFWMjR6IE02LDEyaDEwICBoNHYtMkg2VjEyeiBNNiwyMGg2YzAt
-        MC43LDAuMi0xLjQsMC42LTJINlYyMHogTTYsMTZoMTB2LTJINlYxNnoiIGNsYXNzPSJCbGFjayIgLz4N
-        CiAgPHBhdGggZD0iTTI4LDIwdi02SDE4djZoMnYtNGg2djRIMjh6IE0zMCwxOEwzMCwxOHYzYzAsMC42
-        LTAuNCwxLTEsMUgxN2MtMC42LDAtMS0wLjQtMS0xdi0zbDAsMCAgYy0xLjEsMC0yLDAuOS0yLDJ2OGMw
-        LDEuMSwwLjksMiwyLDJoMnYyaDEwdi0yaDJjMS4xLDAsMi0wLjksMi0ydi04QzMyLDE4LjksMzEuMSwx
-        OCwzMCwxOHogTTI2LDMwaC02di00aDZWMzB6IiBpZD0iUHJpbnQiIGNsYXNzPSJCbHVlIiAvPg0KPC9z
-        dmc+Cw==
-</value>
-  </data>
-  <data name="btnprint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 31</value>
-  </data>
-  <data name="btnprint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 41</value>
-  </data>
-  <data name="btnprint.TabIndex" type="System.Int32, mscorlib">
-    <value>123</value>
-  </data>
-  <data name="btnprint.Text" xml:space="preserve">
-    <value>چاپ</value>
-  </data>
-  <data name="&gt;&gt;btnprint.Name" xml:space="preserve">
-    <value>btnprint</value>
-  </data>
-  <data name="&gt;&gt;btnprint.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnprint.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btnprint.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, -1</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>735, 112</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>112</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="cmbCurrencies.Font" type="System.Drawing.Font, System.Drawing">
     <value>IRANSansMobile(FaNum), 11.25pt</value>
   </data>
@@ -432,6 +290,100 @@
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>IRANSansMobile(FaNum), 11.25pt</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 11</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>567, 80</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>122</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="DevExpress.Data.v21.2" name="DevExpress.Data.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="btnprint.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjIxLjIsIFZlcnNpb249MjEuMi4z
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAABIDAAAC77u/
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgeD0iMHB4IiB5PSIwcHgi
+        IHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
+        MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWw6c3Bh
+        Y2U9InByZXNlcnZlIiBpZD0iUHJpbnRMYXlvdXRWaWV3XzFfIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91
+        bmQ6bmV3IDAgMCAzMiAzMiI+DQogIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+CgkuQmx1ZXtmaWxsOiMx
+        MTc3RDc7fQoJLkJsYWNre2ZpbGw6IzcyNzI3Mjt9Cjwvc3R5bGU+DQogIDxwYXRoIGQ9Ik02LDZoMTR2
+        Mkg2VjZ6IE0xMiwyNEgyVjJoMjJ2MTBoMlYxYzAtMC41LTAuNS0xLTEtMUgxQzAuNSwwLDAsMC41LDAs
+        MXYyNGMwLDAuNSwwLjUsMSwxLDFoMTFWMjR6IE02LDEyaDEwICBoNHYtMkg2VjEyeiBNNiwyMGg2YzAt
+        MC43LDAuMi0xLjQsMC42LTJINlYyMHogTTYsMTZoMTB2LTJINlYxNnoiIGNsYXNzPSJCbGFjayIgLz4N
+        CiAgPHBhdGggZD0iTTI4LDIwdi02SDE4djZoMnYtNGg2djRIMjh6IE0zMCwxOEwzMCwxOHYzYzAsMC42
+        LTAuNCwxLTEsMUgxN2MtMC42LDAtMS0wLjQtMS0xdi0zbDAsMCAgYy0xLjEsMC0yLDAuOS0yLDJ2OGMw
+        LDEuMSwwLjksMiwyLDJoMnYyaDEwdi0yaDJjMS4xLDAsMi0wLjksMi0ydi04QzMyLDE4LjksMzEuMSwx
+        OCwzMCwxOHogTTI2LDMwaC02di00aDZWMzB6IiBpZD0iUHJpbnQiIGNsYXNzPSJCbHVlIiAvPg0KPC9z
+        dmc+Cw==
+</value>
+  </data>
+  <data name="btnprint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 31</value>
+  </data>
+  <data name="btnprint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 41</value>
+  </data>
+  <data name="btnprint.TabIndex" type="System.Int32, mscorlib">
+    <value>123</value>
+  </data>
+  <data name="btnprint.Text" xml:space="preserve">
+    <value>چاپ</value>
+  </data>
+  <data name="&gt;&gt;btnprint.Name" xml:space="preserve">
+    <value>btnprint</value>
+  </data>
+  <data name="&gt;&gt;btnprint.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnprint.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btnprint.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, -1</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>735, 112</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>112</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

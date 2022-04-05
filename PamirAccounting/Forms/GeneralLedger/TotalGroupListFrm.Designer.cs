@@ -34,13 +34,6 @@ namespace PamirAccounting.Forms.GeneralLedger
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TotalGroupListFrm));
             this.gridCreditor = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbCurrencies = new System.Windows.Forms.ComboBox();
-            this.cmbGroup = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CurrenyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +43,13 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRowShow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbCurrencies = new System.Windows.Forms.ComboBox();
+            this.cmbGroup = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridCreditor)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -103,84 +103,6 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.gridCreditor.Size = new System.Drawing.Size(735, 399);
             this.gridCreditor.TabIndex = 111;
             this.gridCreditor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCreditor_CellClick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.btnprint);
-            this.groupBox1.Location = new System.Drawing.Point(0, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(735, 112);
-            this.groupBox1.TabIndex = 112;
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cmbCurrencies);
-            this.groupBox2.Controls.Add(this.cmbGroup);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(162, 11);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(567, 80);
-            this.groupBox2.TabIndex = 122;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "جستجو";
-            // 
-            // cmbCurrencies
-            // 
-            this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(31, 29);
-            this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(178, 27);
-            this.cmbCurrencies.TabIndex = 122;
-            this.cmbCurrencies.SelectedValueChanged += new System.EventHandler(this.cmbCurrencies_SelectedValueChanged);
-            this.cmbCurrencies.TextChanged += new System.EventHandler(this.cmbCurrencies_TextChanged);
-            // 
-            // cmbGroup
-            // 
-            this.cmbGroup.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbGroup.FormattingEnabled = true;
-            this.cmbGroup.Location = new System.Drawing.Point(316, 28);
-            this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(178, 27);
-            this.cmbGroup.TabIndex = 121;
-            this.cmbGroup.SelectedValueChanged += new System.EventHandler(this.cmbGroup_SelectedValueChanged);
-            this.cmbGroup.TextChanged += new System.EventHandler(this.cmbGroup_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(215, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 19);
-            this.label1.TabIndex = 119;
-            this.label1.Text = "نوع ارز :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(500, 31);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(43, 19);
-            this.label4.TabIndex = 116;
-            this.label4.Text = "گروه :";
-            // 
-            // btnprint
-            // 
-            this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
-            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
-            this.btnprint.Location = new System.Drawing.Point(13, 31);
-            this.btnprint.Name = "btnprint";
-            this.btnprint.Size = new System.Drawing.Size(39, 41);
-            this.btnprint.TabIndex = 123;
-            this.btnprint.Text = "چاپ";
-            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -272,6 +194,88 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.btnRowShow.Text = "نمایش";
             this.btnRowShow.UseColumnTextForButtonValue = true;
             this.btnRowShow.Width = 80;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.btnprint);
+            this.groupBox1.Location = new System.Drawing.Point(0, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(735, 112);
+            this.groupBox1.TabIndex = 112;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cmbCurrencies);
+            this.groupBox2.Controls.Add(this.cmbGroup);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(162, 11);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(567, 80);
+            this.groupBox2.TabIndex = 122;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "جستجو";
+            // 
+            // cmbCurrencies
+            // 
+            this.cmbCurrencies.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCurrencies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbCurrencies.FormattingEnabled = true;
+            this.cmbCurrencies.Location = new System.Drawing.Point(31, 29);
+            this.cmbCurrencies.Name = "cmbCurrencies";
+            this.cmbCurrencies.Size = new System.Drawing.Size(178, 27);
+            this.cmbCurrencies.TabIndex = 122;
+            this.cmbCurrencies.SelectedValueChanged += new System.EventHandler(this.cmbCurrencies_SelectedValueChanged);
+            this.cmbCurrencies.TextChanged += new System.EventHandler(this.cmbCurrencies_TextChanged);
+            // 
+            // cmbGroup
+            // 
+            this.cmbGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbGroup.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbGroup.FormattingEnabled = true;
+            this.cmbGroup.Location = new System.Drawing.Point(316, 28);
+            this.cmbGroup.Name = "cmbGroup";
+            this.cmbGroup.Size = new System.Drawing.Size(178, 27);
+            this.cmbGroup.TabIndex = 121;
+            this.cmbGroup.SelectedValueChanged += new System.EventHandler(this.cmbGroup_SelectedValueChanged);
+            this.cmbGroup.TextChanged += new System.EventHandler(this.cmbGroup_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(215, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 19);
+            this.label1.TabIndex = 119;
+            this.label1.Text = "نوع ارز :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(500, 31);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(43, 19);
+            this.label4.TabIndex = 116;
+            this.label4.Text = "گروه :";
+            // 
+            // btnprint
+            // 
+            this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
+            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
+            this.btnprint.Location = new System.Drawing.Point(13, 31);
+            this.btnprint.Name = "btnprint";
+            this.btnprint.Size = new System.Drawing.Size(39, 41);
+            this.btnprint.TabIndex = 123;
+            this.btnprint.Text = "چاپ";
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // TotalGroupListFrm
             // 

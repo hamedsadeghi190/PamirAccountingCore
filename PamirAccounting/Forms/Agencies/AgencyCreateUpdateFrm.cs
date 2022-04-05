@@ -66,6 +66,12 @@ namespace PamirAccounting.UI.Forms.Agencies
         {
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbCurrencies.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbCurrencies.AutoCompleteCustomSource = autoCurrencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
 

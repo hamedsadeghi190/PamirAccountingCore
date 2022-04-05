@@ -80,10 +80,22 @@ namespace PamirAccounting.UI.Forms.Banks
             _Countries = unitOfWork.Countries.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.NameFa }).ToList();
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbCountries.DataSource = _Countries;
+            AutoCompleteStringCollection autoCountries = new AutoCompleteStringCollection();
+            foreach (var item in _Countries)
+            {
+                autoCountries.Add(item.Title);
+            }
+            cmbCountries.AutoCompleteCustomSource = autoCountries;
             cmbCountries.ValueMember = "Id";
             cmbCountries.DisplayMember = "Title";
            
             cmbCurrencies.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbCurrencies.AutoCompleteCustomSource = autoCurrencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
 

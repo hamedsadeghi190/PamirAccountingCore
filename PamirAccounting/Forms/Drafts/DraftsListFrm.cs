@@ -68,6 +68,12 @@ namespace PamirAccounting.Forms.Drafts
             _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
             cmbAgency.DataSource = _agencies;
+            AutoCompleteStringCollection autoAgencies = new AutoCompleteStringCollection();
+            foreach (var item in _agencies)
+            {
+                autoAgencies.Add(item.Title);
+            }
+            cmbAgency.AutoCompleteCustomSource = autoAgencies;
             cmbAgency.ValueMember = "Id";
             cmbAgency.DisplayMember = "Title";
             this.cmbAgency.SelectedIndexChanged += new System.EventHandler(this.cmbAgency_SelectedIndexChanged);

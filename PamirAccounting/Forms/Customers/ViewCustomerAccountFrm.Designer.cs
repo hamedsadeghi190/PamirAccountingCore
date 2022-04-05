@@ -132,7 +132,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbActions.FormattingEnabled = true;
             this.cmbActions.Location = new System.Drawing.Point(6, 35);
             this.cmbActions.Name = "cmbActions";
-            this.cmbActions.Size = new System.Drawing.Size(192, 32);
+            this.cmbActions.Size = new System.Drawing.Size(192, 27);
             this.cmbActions.TabIndex = 1;
             // 
             // groupBox1
@@ -172,7 +172,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label2.Location = new System.Drawing.Point(190, 39);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(62, 24);
+            this.label2.Size = new System.Drawing.Size(63, 19);
             this.label2.TabIndex = 119;
             this.label2.Text = "تا تاریخ :";
             // 
@@ -193,7 +193,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label3.Location = new System.Drawing.Point(396, 39);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(61, 24);
+            this.label3.Size = new System.Drawing.Size(62, 19);
             this.label3.TabIndex = 117;
             this.label3.Text = "از تاریخ :";
             // 
@@ -227,17 +227,19 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label4.Location = new System.Drawing.Point(784, 38);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(52, 24);
+            this.label4.Size = new System.Drawing.Size(52, 19);
             this.label4.TabIndex = 110;
             this.label4.Text = "شماره :";
             // 
             // cmbCurrencies
             // 
+            this.cmbCurrencies.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCurrencies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(478, 35);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(114, 32);
+            this.cmbCurrencies.Size = new System.Drawing.Size(114, 27);
             this.cmbCurrencies.TabIndex = 3;
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             this.cmbCurrencies.TextChanged += new System.EventHandler(this.cmbCurrencies_TextChanged);
@@ -248,7 +250,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(598, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 24);
+            this.label1.Size = new System.Drawing.Size(58, 19);
             this.label1.TabIndex = 111;
             this.label1.Text = "نوع ارز :";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -615,7 +617,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label7.Location = new System.Drawing.Point(92, 587);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(90, 24);
+            this.label7.Size = new System.Drawing.Size(86, 19);
             this.label7.TabIndex = 103;
             this.label7.Text = "ویرایش (F4)";
             // 
@@ -626,7 +628,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label6.Location = new System.Drawing.Point(15, 587);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(72, 24);
+            this.label6.Size = new System.Drawing.Size(70, 19);
             this.label6.TabIndex = 102;
             this.label6.Text = "چاپ (F3)";
             // 

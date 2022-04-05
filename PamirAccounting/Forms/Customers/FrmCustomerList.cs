@@ -56,6 +56,12 @@ namespace PamirAccounting.Forms.Customers
             cmbGroupsSearch.ValueMember = "Id";
             cmbGroupsSearch.DisplayMember = "Name";
             cmbGroupsSearch.DataSource = _Groups;
+            AutoCompleteStringCollection autoGroups = new AutoCompleteStringCollection();
+            foreach (var item in _Groups)
+            {
+                autoGroups.Add(item.Name);
+            }
+            cmbGroupsSearch.AutoCompleteCustomSource = autoGroups;
             this.cmbGroupsSearch.SelectedValueChanged += new System.EventHandler(this.cmbGroupsSearch_SelectedValueChanged);
 
             dataGridView1.AutoGenerateColumns = false;

@@ -54,6 +54,12 @@ namespace PamirAccounting.Forms.GeneralLedger
             cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
             cmbCurrencies.TextChanged -= new EventHandler(cmbCurrencies_TextChanged);
             cmbCurrencies.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbCurrencies.AutoCompleteCustomSource = autoCurrencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
             cmbCurrencies.SelectedValueChanged += new EventHandler(cmbCurrencies_SelectedValueChanged);
@@ -64,6 +70,12 @@ namespace PamirAccounting.Forms.GeneralLedger
             cmbGroup.SelectedValueChanged -= new EventHandler(cmbGroup_SelectedValueChanged);
             cmbGroup.TextChanged -= new EventHandler(cmbGroup_TextChanged);
             cmbGroup.DataSource = _Groups;
+            AutoCompleteStringCollection autoGroups = new AutoCompleteStringCollection();
+            foreach (var item in _Groups)
+            {
+                autoGroups.Add(item.Title);
+            }
+            cmbGroup.AutoCompleteCustomSource = autoGroups;
             cmbGroup.ValueMember = "Id";
             cmbGroup.DisplayMember = "Title";
             cmbGroup.SelectedValueChanged += new EventHandler(cmbGroup_SelectedValueChanged);

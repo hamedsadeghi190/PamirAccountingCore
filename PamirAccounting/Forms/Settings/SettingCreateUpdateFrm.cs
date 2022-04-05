@@ -56,21 +56,37 @@ namespace PamirAccounting.UI.Forms.Settings
         {
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbBaseCurenccy.DataSource = _Currencies;
+            AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
+            foreach (var item in _Currencies)
+            {
+                autoCurrencies.Add(item.Title);
+            }
+            cmbBaseCurenccy.AutoCompleteCustomSource = autoCurrencies;
             cmbBaseCurenccy.ValueMember = "Id";
             cmbBaseCurenccy.DisplayMember = "Title";
-
+            ////////////////////////////////////////////////
             _CustomersCosts = unitOfWork.Customers.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
-
-
             cmbConstsAccount.DataSource = _CustomersCosts;
+            AutoCompleteStringCollection autoCustomersCosts = new AutoCompleteStringCollection();
+            foreach (var item in _CustomersCosts)
+            {
+                autoCustomersCosts.Add(item.Title);
+            }
+            cmbConstsAccount.AutoCompleteCustomSource = autoCustomersCosts;
             cmbConstsAccount.ValueMember = "Id";
             cmbConstsAccount.DisplayMember = "Title";
-
+            ///////////////////////////////////////////////
             _CustomersHavaleha.AddRange(_CustomersCosts);
             CmbRemittanceAccount.DataSource = _CustomersHavaleha;
+            AutoCompleteStringCollection auto_CustomersCosts = new AutoCompleteStringCollection();
+            foreach (var item in _CustomersCosts)
+            {
+                auto_CustomersCosts.Add(item.Title);
+            }
+            CmbRemittanceAccount.AutoCompleteCustomSource = auto_CustomersCosts;
             CmbRemittanceAccount.ValueMember = "Id";
             CmbRemittanceAccount.DisplayMember = "Title";
-
+            //////////////////////////////////////////////////
 
             _CalenderType.Add(new ComboBoxModel() { Id = 1, Title = "شمسی" });
             _CalenderType.Add(new ComboBoxModel() { Id = 2, Title = "میلادی" });

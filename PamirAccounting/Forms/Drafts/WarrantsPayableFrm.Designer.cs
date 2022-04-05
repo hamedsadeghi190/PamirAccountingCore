@@ -379,7 +379,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(246, 274);
+            this.label16.Location = new System.Drawing.Point(243, 275);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(85, 19);
             this.label16.TabIndex = 30;
@@ -389,7 +389,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(245, 240);
+            this.label14.Location = new System.Drawing.Point(242, 241);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(94, 19);
             this.label14.TabIndex = 28;
@@ -409,7 +409,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(244, 204);
+            this.label10.Location = new System.Drawing.Point(241, 205);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 19);
             this.label10.TabIndex = 24;
@@ -526,7 +526,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.lbl_forosh_ext_number.AutoSize = true;
             this.lbl_forosh_ext_number.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_forosh_ext_number.Location = new System.Drawing.Point(244, 344);
+            this.lbl_forosh_ext_number.Location = new System.Drawing.Point(241, 345);
             this.lbl_forosh_ext_number.Name = "lbl_forosh_ext_number";
             this.lbl_forosh_ext_number.Size = new System.Drawing.Size(91, 19);
             this.lbl_forosh_ext_number.TabIndex = 36;
@@ -537,7 +537,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.lbl_forosh_number.AutoSize = true;
             this.lbl_forosh_number.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_forosh_number.Location = new System.Drawing.Point(244, 310);
+            this.lbl_forosh_number.Location = new System.Drawing.Point(241, 311);
             this.lbl_forosh_number.Name = "lbl_forosh_number";
             this.lbl_forosh_number.Size = new System.Drawing.Size(52, 19);
             this.lbl_forosh_number.TabIndex = 35;
