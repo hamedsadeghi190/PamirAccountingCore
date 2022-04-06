@@ -193,49 +193,34 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         private void cmbGroup_SelectedValueChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void cmbGroup_TextChanged(object sender, EventArgs e)
-        {
-            _Groups.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Groups.AddRange(unitOfWork.CustomerGroups.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-            cmbGroup.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbGroup.DataSource = _Groups;
-            cmbGroup.ValueMember = "Id";
-            cmbGroup.DisplayMember = "Title";
-            cmbGroup.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            if ((int)cmbGroup.SelectedValue == 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAllWGroupList(null, null);
-            }
-
             if ((int)cmbGroup.SelectedValue > 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllWGroupList(null,(int)cmbGroup.SelectedValue);
+                _dataList = unitOfWork.TransactionServices.GetAllWGroupList(null, (int)cmbGroup.SelectedValue);
                 GellAll(_dataList);
             }
             else
             {
                 LoadData();
             }
+        }
+
+        private void cmbGroup_TextChanged(object sender, EventArgs e)
+        {
+       
+
+      
 
         }
 
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
-            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbCurrencies.DataSource = _Currencies;
-            cmbCurrencies.ValueMember = "Id";
-            cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            if ((int)cmbCurrencies.SelectedValue == 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAllWGroupList(null, null);
-            }
+        
 
+        
+        }
+
+        private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
+        {
             if ((int)cmbCurrencies.SelectedValue > 0)
             {
                 _dataList = unitOfWork.TransactionServices.GetAllWGroupList((int)cmbCurrencies.SelectedValue, null);
@@ -245,11 +230,6 @@ namespace PamirAccounting.Forms.GeneralLedger
             {
                 LoadData();
             }
-        }
-
-        private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnprint_Click(object sender, EventArgs e)

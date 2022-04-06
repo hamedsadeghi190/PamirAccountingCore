@@ -324,6 +324,7 @@ namespace PamirAccounting.Forms
             this.عملیاتروزToolStripMenuItem.Name = "عملیاتروزToolStripMenuItem";
             this.عملیاتروزToolStripMenuItem.Size = new System.Drawing.Size(291, 38);
             this.عملیاتروزToolStripMenuItem.Text = "عملیات روز";
+            this.عملیاتروزToolStripMenuItem.Visible = false;
             // 
             // BuyAndSellCurrencyList
             // 

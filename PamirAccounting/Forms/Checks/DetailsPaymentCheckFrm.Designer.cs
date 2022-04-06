@@ -229,6 +229,7 @@ namespace PamirAccounting.Forms.Checks
             // cmbCustomers
             // 
             this.cmbCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCustomers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomers.FormattingEnabled = true;
             this.cmbCustomers.Location = new System.Drawing.Point(331, 280);
@@ -306,6 +307,7 @@ namespace PamirAccounting.Forms.Checks
             // cmbRealBankId
             // 
             this.cmbRealBankId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbRealBankId.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbRealBankId.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbRealBankId.FormattingEnabled = true;
             this.cmbRealBankId.Location = new System.Drawing.Point(331, 83);

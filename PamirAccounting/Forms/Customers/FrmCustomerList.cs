@@ -259,6 +259,38 @@ namespace PamirAccounting.Forms.Customers
             {
                 CreatBankBtn_Click(null, null);
             }
+            if (e.KeyCode == Keys.F6)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    if (dataList.ElementAt(rowIndex).IsPrimery)
+                    {
+                        MessageBox.Show($"از حساب های اصلی است حذف امکانپذیر نمیباشد ", "حذف مشتری", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            var customer = unitOfWork.Customers.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
+                            customer.IsDeleted = true;
+                            unitOfWork.CustomerServices.Update(customer);
+                            unitOfWork.SaveChanges();
+                            loadData(selectedGroupId);
+                        }
+                        catch
+                        {
+                            MessageBox.Show($" بدلیل موجود بودن تراکنش امکان حذف وجود ندارد", "حذف مشتری", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+                }
+            }
             if (e.KeyCode == Keys.F5)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
@@ -269,6 +301,16 @@ namespace PamirAccounting.Forms.Customers
                 }
             }
 
+            if (e.KeyCode == Keys.F7)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frmCurrencies = new CustomerCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
+                    frmCurrencies.ShowDialog();
+                    loadData(selectedGroupId);
+                }
+            }
         }
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
