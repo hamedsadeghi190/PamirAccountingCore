@@ -111,6 +111,7 @@ namespace PamirAccounting.Forms.Transactions
             }
 
             bedehkarTransAction.DoubleTransactionId = talabkarTransaction.Id;
+            bedehkarTransAction.OriginalTransactionId = talabkarTransaction.Id;
             bedehkarTransAction.DocumentId = documentId;
 
             bedehkarTransAction.WithdrawAmount = (String.IsNullOrEmpty(txtbuyerprice.Text.Trim())) ? 0 : buyerPrice;
@@ -140,6 +141,7 @@ namespace PamirAccounting.Forms.Transactions
             // end trakonesh sandogh///
 
             talabkarTransaction.DoubleTransactionId = bedehkarTransAction.Id;
+            talabkarTransaction.OriginalTransactionId = talabkarTransaction.Id;
             unitOfWork.TransactionServices.Update(talabkarTransaction);
             unitOfWork.SaveChanges();
             if (_TransActionId.HasValue)
@@ -292,16 +294,21 @@ namespace PamirAccounting.Forms.Transactions
             {
                 loadTransactionInfo();
             }
+            else
+            {
+                lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString() ;
+            }
             handleEvents(true);
         }
 
         private void loadTransactionInfo()
         {
-            talabkarTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == _TransActionId.Value);
+            var OriginalTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == _TransActionId.Value);
+
+            talabkarTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == OriginalTransaction.OriginalTransactionId);
             bedehkarTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == talabkarTransaction.DoubleTransactionId);
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(talabkarTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(talabkarTransaction.TransactionDateTime).ToString() + "/" + pc.GetDayOfMonth(talabkarTransaction.TransactionDateTime).ToString();
-            txtDate.Text = PDate;
+           
+            txtDate.Text = talabkarTransaction.TransactionDateTime.ToFarsiFormat();
 
             cmbCustomers.SelectedValue = talabkarTransaction.SourceCustomerId;
             txtsellerprice.Text = talabkarTransaction.DepositAmount.ToString();
@@ -374,9 +381,7 @@ namespace PamirAccounting.Forms.Transactions
             cmbDestCustomers.ValueMember = "Id";
             cmbDestCustomers.DisplayMember = "Title";
 
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            txtDate.Text = PDate;
+            txtDate.Text = DateTime.Now.ToFarsiFormat();
         }
 
         private void cmbCustomers_SelectedValueChanged(object sender, EventArgs e)
