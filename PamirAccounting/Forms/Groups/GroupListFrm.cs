@@ -23,6 +23,7 @@ namespace PamirAccounting.UI.Forms.Groups
 
         private void GroupListFrm_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoGenerateColumns = false;
             loadData();
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
@@ -36,7 +37,16 @@ namespace PamirAccounting.UI.Forms.Groups
         private void loadData()
         {
             dataList = unitOfWork.CustomerGroups.FindAll().Select(x => new CustomerGroupModel { Id = x.Id, Name = x.Name }).ToList();
-            dataGridView1.DataSource = dataList;
+            int row = 1;
+            var tmpdataList = dataList.Select(x => new CustomerGroupModel
+            {
+                rowId = row++,
+                Id = x.Id,
+                Name = x.Name
+
+
+            }).ToList();
+            dataGridView1.DataSource = tmpdataList;
         }
 
         private void BtnCreateNew_Click(object sender, EventArgs e)
@@ -69,11 +79,13 @@ namespace PamirAccounting.UI.Forms.Groups
                 {
                     try
                     {
-                        unitOfWork.CustomerGroups.Delete(new CustomerGroup() { Id = dataList.ElementAt(e.RowIndex).Id.Value });
+                        var id=unitOfWork.CustomerGroups.Find(dataList.ElementAt(e.RowIndex).Id.Value);
+                        
+                        unitOfWork.CustomerGroups.Delete(id);
                         unitOfWork.SaveChanges();
                         loadData();
                     }
-                    catch 
+                    catch (Exception ex)
                     {
                         MessageBox.Show("حذف امکانپذیر نمیباشد");
                     }
@@ -85,15 +97,7 @@ namespace PamirAccounting.UI.Forms.Groups
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
 
-            if (txtSearch.Text.Length > 0)
-            {
-                dataList = unitOfWork.CustomerGroups.FindAll(y => y.Name.Contains(txtSearch.Text)).Select(x => new CustomerGroupModel { Id = x.Id, Name = x.Name }).ToList();
-                dataGridView1.DataSource = dataList;
-            }
-            else
-            {
-                loadData();
-            }
+           
         }
 
         private void groupBoxSearch_Enter(object sender, EventArgs e)
@@ -116,6 +120,66 @@ namespace PamirAccounting.UI.Forms.Groups
             }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+
+            if (e.KeyCode == Keys.F7)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frmCurrencies = new GroupCreateUpdateFrm(dataList.ElementAt(rowIndex).Id.Value);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف گروه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+               MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            var id = unitOfWork.CustomerGroups.Find(dataList.ElementAt(rowIndex).Id.Value);
+                            unitOfWork.CustomerGroups.Delete(id);
+                            unitOfWork.SaveChanges();
+                            loadData();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("حذف امکانپذیر نمیباشد");
+                        }
+
+                    }
+
+                }
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                var frmGroups = new GroupCreateUpdateFrm();
+                frmGroups.ShowDialog();
+                loadData();
+            }
+        }
+
+        private void txtSearch_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            if (txtSearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.CustomerGroups.FindAll(y => y.Name.Contains(txtSearch.Text)).Select(x => new CustomerGroupModel { Id = x.Id, Name = x.Name }).ToList();
+                dataGridView1.DataSource = dataList;
+            }
+            else
+            {
+                loadData();
+            }
         }
     }
 }
