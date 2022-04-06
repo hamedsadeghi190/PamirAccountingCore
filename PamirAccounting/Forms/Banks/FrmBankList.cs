@@ -119,6 +119,54 @@ namespace PamirAccounting.UI.Forms.Banks
             }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+
+
+            if (e.KeyCode == Keys.F7)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frmCurrencies = new CreateUpdateFrm(dataList.ElementAt(rowIndex).Id.Value);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف بانک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            var bank = unitOfWork.BankServices.FindFirst(x => x.Id == dataList.ElementAt(rowIndex).Id.Value);
+                            unitOfWork.BankServices.Delete(bank);
+                            unitOfWork.SaveChanges();
+                            loadData();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("حذف امکانپذیر نمیباشد");
+                        }
+
+                    }
+
+                }
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                var frmCurrencies = new CreateUpdateFrm();
+                frmCurrencies.ShowDialog();
+                loadData();
+            }
         }
     }
 }
