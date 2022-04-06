@@ -48,10 +48,23 @@ namespace PamirAccounting.Forms.Checks
         {
             _RealBank = unitOfWork.RealBankServices.FindAll(x => x.Id > 0).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.Name}" }).ToList();
             cmbRealBankId.DataSource = _RealBank;
+            AutoCompleteStringCollection autoBanks = new AutoCompleteStringCollection();
+            foreach (var item in _RealBank)
+            {
+                autoBanks.Add(item.Title);
+            }
+            cmbRealBankId.AutoCompleteCustomSource = autoBanks;
             cmbRealBankId.ValueMember = "Id";
             cmbRealBankId.DisplayMember = "Title";
+            ///////////////////////////////////////////////////
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomers.DataSource = _Customers;
+            AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _Customers)
+            {
+                autoCustomers.Add(item.Title);
+            }
+            cmbCustomers.AutoCompleteCustomSource = autoCustomers;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
 

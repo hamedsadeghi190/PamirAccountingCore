@@ -45,6 +45,7 @@ namespace PamirAccounting.UI.Forms.Currencies
                 {
                     currency.Name = txtName.Text;
                     unitOfWork.CurrencyServices.Update(currency);
+
                 }
                 else
                 {

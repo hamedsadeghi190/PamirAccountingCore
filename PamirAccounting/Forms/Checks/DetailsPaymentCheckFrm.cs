@@ -84,11 +84,23 @@ namespace PamirAccounting.Forms.Checks
             cmbRealBankId.ValueMember = "Id";
             cmbRealBankId.DisplayMember = "Title";
             cmbRealBankId.DataSource = _Banks;
+            AutoCompleteStringCollection autoBanks = new AutoCompleteStringCollection();
+            foreach (var item in _Banks)
+            {
+                autoBanks.Add(item.Title);
+            }
+            cmbRealBankId.AutoCompleteCustomSource = autoBanks;
             this.cmbRealBankId.SelectedValueChanged += new System.EventHandler(this.cmbRealBankId_SelectedValueChanged);
 
             txtBankAccountNumber.Text = unitOfWork.BankServices.GetAccountNumber((int)cmbRealBankId.SelectedValue);
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomers.DataSource = _Customers;
+            AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            foreach (var item in _Customers)
+            {
+                autoCustomers.Add(item.Title);
+            }
+            cmbCustomers.AutoCompleteCustomSource = autoCustomers;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title"; 
 

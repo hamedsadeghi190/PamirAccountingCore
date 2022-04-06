@@ -19,13 +19,13 @@ namespace PamirAccounting.UI.Forms.Currencies
             unitOfWork = new UnitOfWork();
         }
 
-         
+
 
         private void CurrencyListFrm_Load(object sender, EventArgs e)
         {
 
             loadData();
-         
+
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -63,9 +63,9 @@ namespace PamirAccounting.UI.Forms.Currencies
                         unitOfWork.SaveChanges();
                         loadData();
                     }
-                    catch 
+                    catch
                     {
-                        MessageBox.Show("حذف امکانپذیر نمیباشد");
+                        MessageBox.Show("ارز انتخابی در نرم افزار استفاده شده است ، حذف امکانپذیر نمیباشد");
                     }
 
                 }
@@ -76,7 +76,16 @@ namespace PamirAccounting.UI.Forms.Currencies
         {
             dataGridView1.AutoGenerateColumns = false;
             dataList = unitOfWork.Currencies.FindAll().Select(x => new CurrenciesViewModel { Id = x.Id, Name = x.Name }).ToList();
-            dataGridView1.DataSource = dataList;
+            int row = 1;
+            var tmpdataList = dataList.Select(x => new CurrenciesViewModel
+            {
+                rowId = row++,
+                Id = x.Id,
+                Name = x.Name
+
+
+            }).ToList();
+            dataGridView1.DataSource = tmpdataList;
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -85,7 +94,7 @@ namespace PamirAccounting.UI.Forms.Currencies
 
         }
 
-      
+
         private void CreateNewCurrencyBtn_Click(object sender, EventArgs e)
         {
             var frmCurrencies = new CurrencyCreateUpdateFrm();
@@ -120,6 +129,52 @@ namespace PamirAccounting.UI.Forms.Currencies
             }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frmCurrencies = new CurrencyCreateUpdateFrm(dataList.ElementAt(rowIndex).Id.Value);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            unitOfWork.CurrencyServices.Delete(new Currency() { Id = dataList.ElementAt(rowIndex).Id.Value });
+                            unitOfWork.SaveChanges();
+                            loadData();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("ارز انتخابی در نرم افزار استفاده شده است ، حذف امکانپذیر نمیباشد");
+                        }
+
+                    }
+                }
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                var frmCurrencies = new CurrencyCreateUpdateFrm();
+                frmCurrencies.ShowDialog();
+                loadData();
+
+            }
         }
     }
 }

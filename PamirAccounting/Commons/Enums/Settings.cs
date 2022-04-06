@@ -90,6 +90,8 @@ namespace PamirAccounting.Commons.Enums
             BargashtPayment = 10,
             [Description("جدید پرداختی")]
             NewPayment = 12,
+            [Description("عودت واگذاری")]
+            OdatVagozari = 13,
         }
     }
 }
