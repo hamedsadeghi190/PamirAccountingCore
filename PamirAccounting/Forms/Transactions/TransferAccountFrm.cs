@@ -35,8 +35,18 @@ namespace PamirAccounting.UI.Forms.Transaction
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-
         }
+
+
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
+        private const Int32 CB_SETITEMHEIGHT = 0x153;
+
+        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
+        {
+            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
+        }
+
         private void TransferAccountFrm_Load(object sender, EventArgs e)
         {
             this.cmbCurrencies.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
@@ -56,6 +66,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             }
             else
             {
+                lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
                 PersianCalendar pc = new PersianCalendar();
                 string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtDate.Text = PDate;
@@ -64,17 +75,12 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.cmbDestiniation.SelectedIndexChanged += new System.EventHandler(this.cmbDestiniation_SelectedIndexChanged);
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
         }
-        [DllImport("user32.dll")]
-        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
-        private const Int32 CB_SETITEMHEIGHT = 0x153;
 
-        private void SetComboBoxHeight(IntPtr comboBoxHandle, Int32 comboBoxDesiredHeight)
-        {
-            SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
-        }
+
         private void loadTransferInfo()
         {
-            sourceTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == _TransActionId.Value);
+            var orginalTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == _TransActionId.Value);
+            sourceTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == orginalTransaction.OriginalTransactionId);
             destinationTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == sourceTransaction.DoubleTransactionId);
 
             if (sourceTransaction.WithdrawAmount.Value != 0)
@@ -335,10 +341,12 @@ namespace PamirAccounting.UI.Forms.Transaction
             destinationTransaction.Date = DateTime.Now;
             destinationTransaction.TransactionDateTime = TransactionDateTime;
             destinationTransaction.UserId = CurrentUser.UserID;
+            destinationTransaction.OriginalTransactionId = sourceTransaction.Id;
 
             unitOfWork.TransactionServices.Insert(destinationTransaction);
             unitOfWork.SaveChanges();
 
+            sourceTransaction.OriginalTransactionId = sourceTransaction.Id;
             sourceTransaction.DoubleTransactionId = destinationTransaction.Id;
             unitOfWork.TransactionServices.Update(sourceTransaction);
             unitOfWork.SaveChanges();
