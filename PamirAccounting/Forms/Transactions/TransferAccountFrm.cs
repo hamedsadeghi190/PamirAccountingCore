@@ -67,9 +67,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             else
             {
                 lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
-                PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtDate.Text = PDate;
+                txtDate.Text = DateTime.Now.ToFarsiFormat();
             }
             this.CmbSource.SelectedIndexChanged += new System.EventHandler(this.CmbSource_SelectedIndexChanged);
             this.cmbDestiniation.SelectedIndexChanged += new System.EventHandler(this.cmbDestiniation_SelectedIndexChanged);
@@ -97,12 +95,10 @@ namespace PamirAccounting.UI.Forms.Transaction
             cmbCurrencies.SelectedValue = sourceTransaction.CurrenyId;
 
             CmbSource.SelectedValue = sourceTransaction.SourceCustomerId;
-
+            _Id = sourceTransaction.SourceCustomerId;
             cmbDestiniation.SelectedValue = sourceTransaction.DestinitionCustomerId;
 
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(sourceTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            txtDate.Text = PDate;
+            txtDate.Text = sourceTransaction.TransactionDateTime.ToFarsiFormat();
         }
 
         private void LoadData()
