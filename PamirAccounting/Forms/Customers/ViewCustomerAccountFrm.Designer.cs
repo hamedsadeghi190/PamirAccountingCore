@@ -36,15 +36,15 @@ namespace PamirAccounting.UI.Forms.Customers
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxViewAccountCustomer = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmbActions = new System.Windows.Forms.ComboBox();
@@ -63,6 +63,15 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnprintResid = new DevExpress.XtraEditors.SimpleButton();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.grdTransactions = new System.Windows.Forms.DataGridView();
+            this.grdTotals = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.RowId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocumentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransactionDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,15 +85,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.grdTotals = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxViewAccountCustomer.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -132,7 +132,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbActions.FormattingEnabled = true;
             this.cmbActions.Location = new System.Drawing.Point(6, 35);
             this.cmbActions.Name = "cmbActions";
-            this.cmbActions.Size = new System.Drawing.Size(192, 27);
+            this.cmbActions.Size = new System.Drawing.Size(192, 32);
             this.cmbActions.TabIndex = 1;
             // 
             // groupBox1
@@ -172,7 +172,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label2.Location = new System.Drawing.Point(190, 39);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(63, 19);
+            this.label2.Size = new System.Drawing.Size(62, 24);
             this.label2.TabIndex = 119;
             this.label2.Text = "تا تاریخ :";
             // 
@@ -193,7 +193,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label3.Location = new System.Drawing.Point(396, 39);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(62, 19);
+            this.label3.Size = new System.Drawing.Size(61, 24);
             this.label3.TabIndex = 117;
             this.label3.Text = "از تاریخ :";
             // 
@@ -227,7 +227,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label4.Location = new System.Drawing.Point(784, 38);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(52, 19);
+            this.label4.Size = new System.Drawing.Size(52, 24);
             this.label4.TabIndex = 110;
             this.label4.Text = "شماره :";
             // 
@@ -239,7 +239,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(478, 35);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(114, 27);
+            this.cmbCurrencies.Size = new System.Drawing.Size(114, 32);
             this.cmbCurrencies.TabIndex = 3;
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             this.cmbCurrencies.TextChanged += new System.EventHandler(this.cmbCurrencies_TextChanged);
@@ -250,7 +250,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(598, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 19);
+            this.label1.Size = new System.Drawing.Size(57, 24);
             this.label1.TabIndex = 111;
             this.label1.Text = "نوع ارز :";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -355,6 +355,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grdTransactions.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.grdTransactions.RowTemplate.Height = 32;
             this.grdTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdTransactions.ShowEditingIcon = false;
             this.grdTransactions.Size = new System.Drawing.Size(1185, 331);
@@ -363,146 +364,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.grdTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellContentClick);
             this.grdTransactions.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellValueChanged);
             this.grdTransactions.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.grdTransactions_KeyPress);
-            // 
-            // RowId
-            // 
-            this.RowId.DataPropertyName = "RowId";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RowId.DefaultCellStyle = dataGridViewCellStyle3;
-            this.RowId.FillWeight = 70F;
-            this.RowId.HeaderText = "ردیف";
-            this.RowId.MinimumWidth = 6;
-            this.RowId.Name = "RowId";
-            this.RowId.ReadOnly = true;
-            this.RowId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.RowId.Width = 70;
-            // 
-            // DocumentId
-            // 
-            this.DocumentId.DataPropertyName = "DocumentId";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DocumentId.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DocumentId.FillWeight = 70F;
-            this.DocumentId.HeaderText = "سند";
-            this.DocumentId.MinimumWidth = 6;
-            this.DocumentId.Name = "DocumentId";
-            this.DocumentId.ReadOnly = true;
-            this.DocumentId.Width = 70;
-            // 
-            // TransactionDateTime
-            // 
-            this.TransactionDateTime.DataPropertyName = "TransactionDateTime";
-            this.TransactionDateTime.FillWeight = 75F;
-            this.TransactionDateTime.HeaderText = "تاریخ";
-            this.TransactionDateTime.MinimumWidth = 6;
-            this.TransactionDateTime.Name = "TransactionDateTime";
-            this.TransactionDateTime.ReadOnly = true;
-            this.TransactionDateTime.Width = 75;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Description";
-            this.Column2.FillWeight = 250F;
-            this.Column2.HeaderText = "شرح";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 313;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "WithdrawAmount";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column4.HeaderText = "بدهکار";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
-            // 
-            // DepositAmount
-            // 
-            this.DepositAmount.DataPropertyName = "DepositAmount";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DepositAmount.DefaultCellStyle = dataGridViewCellStyle6;
-            this.DepositAmount.HeaderText = "طلبکار";
-            this.DepositAmount.MinimumWidth = 6;
-            this.DepositAmount.Name = "DepositAmount";
-            this.DepositAmount.ReadOnly = true;
-            this.DepositAmount.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "CurrenyName";
-            this.Column5.FillWeight = 85F;
-            this.Column5.HeaderText = "نوع ارز";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 85;
-            // 
-            // RemainigAmount
-            // 
-            this.RemainigAmount.DataPropertyName = "RemainigAmount";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RemainigAmount.DefaultCellStyle = dataGridViewCellStyle7;
-            this.RemainigAmount.HeaderText = "باقیمانده";
-            this.RemainigAmount.MinimumWidth = 6;
-            this.RemainigAmount.Name = "RemainigAmount";
-            this.RemainigAmount.ReadOnly = true;
-            this.RemainigAmount.Width = 110;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.FillWeight = 90F;
-            this.Status.HeaderText = "وضعیت";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 90;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "UserName";
-            this.Column8.FillWeight = 80F;
-            this.Column8.HeaderText = "کابر عامل";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 120;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "Date";
-            this.Column9.FillWeight = 85F;
-            this.Column9.HeaderText = "زمان";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 85;
-            // 
-            // btnRowEdit
-            // 
-            this.btnRowEdit.FillWeight = 70F;
-            this.btnRowEdit.HeaderText = "ویرایش";
-            this.btnRowEdit.MinimumWidth = 6;
-            this.btnRowEdit.Name = "btnRowEdit";
-            this.btnRowEdit.ReadOnly = true;
-            this.btnRowEdit.Text = "ویرایش";
-            this.btnRowEdit.UseColumnTextForButtonValue = true;
-            this.btnRowEdit.Width = 70;
-            // 
-            // btnRowDelete
-            // 
-            this.btnRowDelete.FillWeight = 70F;
-            this.btnRowDelete.HeaderText = "حذف";
-            this.btnRowDelete.MinimumWidth = 6;
-            this.btnRowDelete.Name = "btnRowDelete";
-            this.btnRowDelete.ReadOnly = true;
-            this.btnRowDelete.Text = "حذف";
-            this.btnRowDelete.UseColumnTextForButtonValue = true;
-            this.btnRowDelete.Width = 70;
+            this.grdTransactions.KeyUp += new System.Windows.Forms.KeyEventHandler(this.grdTransactions_KeyUp);
             // 
             // grdTotals
             // 
@@ -617,7 +479,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label7.Location = new System.Drawing.Point(92, 587);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(86, 19);
+            this.label7.Size = new System.Drawing.Size(90, 24);
             this.label7.TabIndex = 103;
             this.label7.Text = "ویرایش (F4)";
             // 
@@ -628,9 +490,149 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label6.Location = new System.Drawing.Point(15, 587);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(70, 19);
+            this.label6.Size = new System.Drawing.Size(72, 24);
             this.label6.TabIndex = 102;
             this.label6.Text = "چاپ (F3)";
+            // 
+            // RowId
+            // 
+            this.RowId.DataPropertyName = "RowId";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RowId.DefaultCellStyle = dataGridViewCellStyle3;
+            this.RowId.FillWeight = 70F;
+            this.RowId.HeaderText = "ردیف";
+            this.RowId.MinimumWidth = 6;
+            this.RowId.Name = "RowId";
+            this.RowId.ReadOnly = true;
+            this.RowId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.RowId.Width = 70;
+            // 
+            // DocumentId
+            // 
+            this.DocumentId.DataPropertyName = "DocumentId";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DocumentId.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DocumentId.FillWeight = 70F;
+            this.DocumentId.HeaderText = "سند";
+            this.DocumentId.MinimumWidth = 6;
+            this.DocumentId.Name = "DocumentId";
+            this.DocumentId.ReadOnly = true;
+            this.DocumentId.Width = 70;
+            // 
+            // TransactionDateTime
+            // 
+            this.TransactionDateTime.DataPropertyName = "TransactionDateTime";
+            this.TransactionDateTime.FillWeight = 85F;
+            this.TransactionDateTime.HeaderText = "تاریخ";
+            this.TransactionDateTime.MinimumWidth = 6;
+            this.TransactionDateTime.Name = "TransactionDateTime";
+            this.TransactionDateTime.ReadOnly = true;
+            this.TransactionDateTime.Width = 85;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Description";
+            this.Column2.FillWeight = 250F;
+            this.Column2.HeaderText = "شرح";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 300;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "WithdrawAmount";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column4.HeaderText = "بدهکار";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 125;
+            // 
+            // DepositAmount
+            // 
+            this.DepositAmount.DataPropertyName = "DepositAmount";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DepositAmount.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DepositAmount.HeaderText = "طلبکار";
+            this.DepositAmount.MinimumWidth = 6;
+            this.DepositAmount.Name = "DepositAmount";
+            this.DepositAmount.ReadOnly = true;
+            this.DepositAmount.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "CurrenyName";
+            this.Column5.FillWeight = 85F;
+            this.Column5.HeaderText = "نوع ارز";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 85;
+            // 
+            // RemainigAmount
+            // 
+            this.RemainigAmount.DataPropertyName = "RemainigAmount";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RemainigAmount.DefaultCellStyle = dataGridViewCellStyle7;
+            this.RemainigAmount.HeaderText = "باقیمانده";
+            this.RemainigAmount.MinimumWidth = 6;
+            this.RemainigAmount.Name = "RemainigAmount";
+            this.RemainigAmount.ReadOnly = true;
+            this.RemainigAmount.Width = 110;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.FillWeight = 90F;
+            this.Status.HeaderText = "وضعیت";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 90;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "UserName";
+            this.Column8.FillWeight = 80F;
+            this.Column8.HeaderText = "کابر عامل";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 120;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "Date";
+            this.Column9.FillWeight = 85F;
+            this.Column9.HeaderText = "زمان";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 85;
+            // 
+            // btnRowEdit
+            // 
+            this.btnRowEdit.FillWeight = 70F;
+            this.btnRowEdit.HeaderText = "ویرایش";
+            this.btnRowEdit.MinimumWidth = 6;
+            this.btnRowEdit.Name = "btnRowEdit";
+            this.btnRowEdit.ReadOnly = true;
+            this.btnRowEdit.Text = "ویرایش";
+            this.btnRowEdit.UseColumnTextForButtonValue = true;
+            this.btnRowEdit.Width = 70;
+            // 
+            // btnRowDelete
+            // 
+            this.btnRowDelete.FillWeight = 70F;
+            this.btnRowDelete.HeaderText = "حذف";
+            this.btnRowDelete.MinimumWidth = 6;
+            this.btnRowDelete.Name = "btnRowDelete";
+            this.btnRowDelete.ReadOnly = true;
+            this.btnRowDelete.Text = "حذف";
+            this.btnRowDelete.UseColumnTextForButtonValue = true;
+            this.btnRowDelete.Width = 70;
             // 
             // ViewCustomerAccountFrm
             // 

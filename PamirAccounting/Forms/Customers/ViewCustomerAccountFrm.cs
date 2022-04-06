@@ -54,6 +54,7 @@ namespace PamirAccounting.UI.Forms.Customers
             LoadData();
             initGrid();
         }
+
         [DllImport("user32.dll")]
         static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
         private const Int32 CB_SETITEMHEIGHT = 0x153;
@@ -83,46 +84,12 @@ namespace PamirAccounting.UI.Forms.Customers
                 {
                     if (RemainigAmount > 0)
                     {
-
                         row.Cells["RemainigAmount"].Style.ForeColor = System.Drawing.Color.Red;
                         row.Cells["Status"].Style.ForeColor = System.Drawing.Color.Red;
                         row.Cells["DepositAmount"].Style.ForeColor = System.Drawing.Color.Red;
-
-
                     }
                 }
-                //if (int.TryParse(row.Cells[5].Value.ToString(), out quantity))
-                //{
-                //    if (quantity > 0)
-                //    {
-                //        for (int i = 0; i < 10; i++)
-                //        {
-                //            row.Cells[i].Style.BackColor = System.Drawing.Color.LightSteelBlue;
-                //        }
-                //    }
-                //}
             }
-
-            foreach (DataGridViewRow row in grdTotals.Rows)
-            {
-
-                int quantity1;
-                if (int.TryParse(row.Cells[1].Value.ToString(), out quantity1))
-                {
-                    //if (quantity1 > 0)
-                    //    row.Cells[1].Style.BackColor = System.Drawing.Color.Lavender;
-
-                }
-                if (int.TryParse(row.Cells[2].Value.ToString(), out quantity1))
-                {
-                    //(quantity1 > 0)
-                    // row.Cells[2].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-
-                }
-            }
-
-
-
         }
 
         private void InitForm()
@@ -391,38 +358,43 @@ namespace PamirAccounting.UI.Forms.Customers
             {
                 var tranaction = _dataList.ElementAt(e.RowIndex);
 
-                switch (tranaction.TransactionType)
-                {
-                    case (int)TransaActionType.NewAccount:
-                        var FrmBalance = new CreateNewCustomerAccount(_Id.Value, tranaction.Id);
-                        FrmBalance.ShowDialog();
-                        LoadData();
-                        break;
-                    case (int)TransaActionType.PayAndReciveCash:
-                        var frmCash = new PayAndReciveCashFrm(_Id.Value, tranaction.Id);
-                        frmCash.ShowDialog();
-                        LoadData();
-                        break;
+                openEditForm(tranaction);
+            }
+        }
 
-                    case (int)TransaActionType.PayAndReciveBank:
-                        var frmbank = new PayAndReciveBankFrm(_Id.Value, tranaction.Id);
-                        frmbank.ShowDialog();
-                        LoadData();
-                        break;
+        private void openEditForm(TransactionModel tranaction)
+        {
+            switch (tranaction.TransactionType)
+            {
+                case (int)TransaActionType.NewAccount:
+                    var FrmBalance = new CreateNewCustomerAccount(_Id.Value, tranaction.Id);
+                    FrmBalance.ShowDialog();
+                    LoadData();
+                    break;
+                case (int)TransaActionType.PayAndReciveCash:
+                    var frmCash = new PayAndReciveCashFrm(_Id.Value, tranaction.Id);
+                    frmCash.ShowDialog();
+                    LoadData();
+                    break;
 
-                    case (int)TransaActionType.Transfer:
-                        var transferFrm = new TransferAccountFrm(_Id.Value, tranaction.Id);
-                        transferFrm.ShowDialog();
-                        LoadData();
-                        break;
-                    case (int)TransaActionType.SellAndBuy:
-                        var frmCellAndBuy = new BuyAndSellCurrencyFrm(_Id.Value, tranaction.Id);
-                        frmCellAndBuy.ShowDialog();
-                        LoadData();
-                        break;
-                    default:
-                        break;
-                }
+                case (int)TransaActionType.PayAndReciveBank:
+                    var frmbank = new PayAndReciveBankFrm(_Id.Value, tranaction.Id);
+                    frmbank.ShowDialog();
+                    LoadData();
+                    break;
+
+                case (int)TransaActionType.Transfer:
+                    var transferFrm = new TransferAccountFrm(_Id.Value, tranaction.Id);
+                    transferFrm.ShowDialog();
+                    LoadData();
+                    break;
+                case (int)TransaActionType.SellAndBuy:
+                    var frmCellAndBuy = new BuyAndSellCurrencyFrm(_Id.Value, tranaction.Id);
+                    frmCellAndBuy.ShowDialog();
+                    LoadData();
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -453,11 +425,11 @@ namespace PamirAccounting.UI.Forms.Customers
                 report.Render();
                 report.Show();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("خطا در پرینت");
             }
-        
+
         }
 
 
@@ -605,11 +577,11 @@ namespace PamirAccounting.UI.Forms.Customers
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.F3)
             {
                 btnprint_Click(null, null);
@@ -726,6 +698,22 @@ namespace PamirAccounting.UI.Forms.Customers
             _dataList = _dataList.OrderBy(x => x.RowId).ToList();
             grdTransactions.AutoGenerateColumns = false;
             return _dataList;
+        }
+
+        private void grdTransactions_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F4)
+            {
+                if (this.grdTransactions.SelectedRows.Count > 0)
+                {
+                    this.grdTransactions.CurrentRow.Selected = true;
+                    e.Handled = true;
+
+                    var rowIndex = grdTransactions.SelectedRows[0].Index;
+                    var tranaction = _dataList.ElementAt(rowIndex);
+                    openEditForm(tranaction);
+                }
+            }
         }
     }
 }
