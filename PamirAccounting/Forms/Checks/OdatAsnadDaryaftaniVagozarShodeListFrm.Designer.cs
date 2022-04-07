@@ -47,7 +47,6 @@ namespace PamirAccounting.Forms.Checks
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RealBankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnhelp = new DevExpress.XtraEditors.SimpleButton();
             this.btnOdatVagozari = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -227,22 +226,12 @@ namespace PamirAccounting.Forms.Checks
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnhelp);
             this.groupBox1.Controls.Add(this.btnOdatVagozari);
             this.groupBox1.Location = new System.Drawing.Point(5, 8);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1179, 87);
             this.groupBox1.TabIndex = 111;
             this.groupBox1.TabStop = false;
-            // 
-            // btnhelp
-            // 
-            this.btnhelp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhelp.ImageOptions.SvgImage")));
-            this.btnhelp.Location = new System.Drawing.Point(7, 20);
-            this.btnhelp.Name = "btnhelp";
-            this.btnhelp.Size = new System.Drawing.Size(39, 41);
-            this.btnhelp.TabIndex = 2;
-            this.btnhelp.Text = "راهنما";
             // 
             // btnOdatVagozari
             // 
@@ -254,7 +243,7 @@ namespace PamirAccounting.Forms.Checks
             this.btnOdatVagozari.AppearanceHovered.Options.UseFont = true;
             this.btnOdatVagozari.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOdatVagozari.AppearancePressed.Options.UseFont = true;
-            this.btnOdatVagozari.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnvosool_daryaftani.ImageOptions.SvgImage")));
+            this.btnOdatVagozari.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnOdatVagozari.ImageOptions.SvgImage")));
             this.btnOdatVagozari.Location = new System.Drawing.Point(941, 20);
             this.btnOdatVagozari.Name = "btnOdatVagozari";
             this.btnOdatVagozari.Size = new System.Drawing.Size(219, 42);
@@ -307,7 +296,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn RealBankName;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.SimpleButton btnhelp;
         private DevExpress.XtraEditors.SimpleButton btnOdatVagozari;
     }
 }

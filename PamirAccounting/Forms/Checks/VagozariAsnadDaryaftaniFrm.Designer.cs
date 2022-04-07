@@ -116,6 +116,8 @@ namespace PamirAccounting.Forms.Checks
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(220, 27);
             this.cmbCustomers.TabIndex = 108;
+            this.cmbCustomers.TextChanged += new System.EventHandler(this.cmbCustomers_TextChanged);
+            this.cmbCustomers.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbCustomers_KeyUp);
             // 
             // btnshowcustomer
             // 
@@ -159,6 +161,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtAssignmentDate.Name = "txtAssignmentDate";
             this.txtAssignmentDate.Size = new System.Drawing.Size(220, 31);
             this.txtAssignmentDate.TabIndex = 107;
+            this.txtAssignmentDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAssignmentDate_KeyUp);
             // 
             // label3
             // 
@@ -195,6 +198,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Size = new System.Drawing.Size(724, 92);
             this.groupBox1.TabIndex = 112;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtDate
             // 

@@ -323,8 +323,6 @@ namespace PamirAccounting.Forms.Checks
         }
 
         private void CreateDescription()
-        
-        
         {
             txtDesc.Text = $"{Messages.Bargasht } چک به شماره {Cheque.ChequeNumber} تاریخ برگشت {txtBargashtDate.Text} ";
         }

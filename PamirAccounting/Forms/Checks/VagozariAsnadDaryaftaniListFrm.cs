@@ -1,4 +1,4 @@
-﻿using DevExpress.XtraEditors;
+﻿ using DevExpress.XtraEditors;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -8,7 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
+using System.Text; 
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,7 +27,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void LoadData()
         {
-            dataList = unitOfWork.ChequeServices.GetAllDaryaftani();
+            dataList = unitOfWork.ChequeServices.GetAllVagozarAndOdat();
             dataGridView1.DataSource = dataList.Select(x => new
             {
                 x.Id,

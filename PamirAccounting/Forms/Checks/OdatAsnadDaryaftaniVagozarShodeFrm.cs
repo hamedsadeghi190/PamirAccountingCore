@@ -112,12 +112,12 @@ namespace PamirAccounting.Forms.Checks
 
         private void txtDesc_KeyUp(object sender, KeyEventArgs e)
         {
-            CreateDescription();
+           
         }
 
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.Odat } چک به شماره   {Cheque.ChequeNumber} تاریخ عودت  {txtOdatDate.Text} ";
+            txtDesc.Text = $"{Messages.Odat } چک به شماره {Cheque.ChequeNumber} تاریخ عودت{txtOdatDate.Text} ";
         }
 
         private void SaveNew()
@@ -153,8 +153,8 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.SourceCustomerId = (int)prevCustomerId;
             customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
-            customerTransaction.WithdrawAmount = Cheque.Amount;
-            customerTransaction.DepositAmount = 0;
+            customerTransaction.WithdrawAmount = 0;
+            customerTransaction.DepositAmount = Cheque.Amount;
             customerTransaction.Description = txtDesc.Text;
             customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
             customerTransaction.Date = DateTime.Now;
@@ -169,8 +169,8 @@ namespace PamirAccounting.Forms.Checks
             var receivedDocuments = new Domains.Transaction();
             receivedDocuments.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
-            receivedDocuments.WithdrawAmount = 0;
-            receivedDocuments.DepositAmount = Cheque.Amount;
+            receivedDocuments.WithdrawAmount = Cheque.Amount;
+            receivedDocuments.DepositAmount = 0;
             receivedDocuments.Description = txtDesc.Text;
             receivedDocuments.DestinitionCustomerId = AppSetting.AsnadDarJaryanVoslId;
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
@@ -220,7 +220,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
             customerTransaction.WithdrawAmount = customerTransaction.WithdrawAmount;
             customerTransaction.DepositAmount = customerTransaction.DepositAmount;
-            customerTransaction.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.DepostitCheck + " به شماره چک -" + customerTransaction.DocumentId;
+            customerTransaction.Description = txtDesc.Text;
             customerTransaction.CurrenyId = customerTransaction.CurrenyId;
             customerTransaction.Date = DateTime.Now;
             customerTransaction.TransactionDateTime = DateTime.Now;
@@ -235,7 +235,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.DoubleTransactionId = customerTransaction.Id;
             receivedDocuments.WithdrawAmount = receivedDocuments.WithdrawAmount;
             receivedDocuments.DepositAmount = receivedDocuments.DepositAmount;
-            receivedDocuments.Description = (txtDesc.Text.Length > 0) ? txtDesc.Text : Messages.WithdrawCheck + " به شماره چک -" + receivedDocuments.DocumentId;
+            receivedDocuments.Description = txtDesc.Text;
             receivedDocuments.DestinitionCustomerId = receivedDocuments.DestinitionCustomerId;
             receivedDocuments.SourceCustomerId = receivedDocuments.SourceCustomerId;
             receivedDocuments.TransactionType = receivedDocuments.TransactionType;
