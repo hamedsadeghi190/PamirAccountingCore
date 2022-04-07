@@ -31,6 +31,7 @@ namespace PamirAccounting.Forms.Transaction
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateNewCustomerAccount));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.lbl_Document_Id_value = new System.Windows.Forms.Label();
             this.lbl_Document_Id = new System.Windows.Forms.Label();
             this.lblNumberString = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@ namespace PamirAccounting.Forms.Transaction
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
@@ -76,6 +76,17 @@ namespace PamirAccounting.Forms.Transaction
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ثبت حساب جدید";
             // 
+            // cmbCurrencies
+            // 
+            this.cmbCurrencies.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCurrencies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbCurrencies.FormattingEnabled = true;
+            this.cmbCurrencies.Location = new System.Drawing.Point(17, 105);
+            this.cmbCurrencies.Name = "cmbCurrencies";
+            this.cmbCurrencies.Size = new System.Drawing.Size(143, 32);
+            this.cmbCurrencies.TabIndex = 134;
+            // 
             // lbl_Document_Id_value
             // 
             this.lbl_Document_Id_value.AccessibleName = "";
@@ -95,7 +106,7 @@ namespace PamirAccounting.Forms.Transaction
             this.lbl_Document_Id.Location = new System.Drawing.Point(488, 27);
             this.lbl_Document_Id.Name = "lbl_Document_Id";
             this.lbl_Document_Id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 19);
+            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 24);
             this.lbl_Document_Id.TabIndex = 132;
             this.lbl_Document_Id.Text = "سند :";
             // 
@@ -118,7 +129,7 @@ namespace PamirAccounting.Forms.Transaction
             this.cmbRemainType.FormattingEnabled = true;
             this.cmbRemainType.Location = new System.Drawing.Point(223, 104);
             this.cmbRemainType.Name = "cmbRemainType";
-            this.cmbRemainType.Size = new System.Drawing.Size(130, 27);
+            this.cmbRemainType.Size = new System.Drawing.Size(130, 32);
             this.cmbRemainType.TabIndex = 4;
             // 
             // txtDate
@@ -167,7 +178,7 @@ namespace PamirAccounting.Forms.Transaction
             this.label3.Location = new System.Drawing.Point(159, 108);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(58, 19);
+            this.label3.Size = new System.Drawing.Size(57, 24);
             this.label3.TabIndex = 103;
             this.label3.Text = "نوع ارز :";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -179,7 +190,7 @@ namespace PamirAccounting.Forms.Transaction
             this.label2.Location = new System.Drawing.Point(309, 64);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(46, 19);
+            this.label2.Size = new System.Drawing.Size(46, 24);
             this.label2.TabIndex = 106;
             this.label2.Text = "شرح :";
             // 
@@ -190,7 +201,7 @@ namespace PamirAccounting.Forms.Transaction
             this.label1.Location = new System.Drawing.Point(488, 62);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(49, 19);
+            this.label1.Size = new System.Drawing.Size(49, 24);
             this.label1.TabIndex = 102;
             this.label1.Text = "تاریخ :";
             // 
@@ -201,7 +212,7 @@ namespace PamirAccounting.Forms.Transaction
             this.label6.Location = new System.Drawing.Point(487, 108);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(88, 19);
+            this.label6.Size = new System.Drawing.Size(86, 24);
             this.label6.TabIndex = 109;
             this.label6.Text = "مانده از قبل :";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,17 +257,6 @@ namespace PamirAccounting.Forms.Transaction
             this.btnClose.TabIndex = 7;
             this.btnClose.Text = "بازگشت";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // cmbCurrencies
-            // 
-            this.cmbCurrencies.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbCurrencies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(17, 105);
-            this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(143, 27);
-            this.cmbCurrencies.TabIndex = 134;
             // 
             // CreateNewCustomerAccount
             // 

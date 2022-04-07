@@ -89,7 +89,7 @@ namespace PamirAccounting.Forms.Transactions
             _Banks = unitOfWork.CustomerServices.FindAll(x => x.GroupId == 2).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
 
             cmbBanks.DataSource = _Banks;
-            
+
             AutoCompleteStringCollection autoBanks = new AutoCompleteStringCollection();
             foreach (var item in _Banks)
             {
@@ -143,9 +143,8 @@ namespace PamirAccounting.Forms.Transactions
             }
             else
             {
-                PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtDate.Text = PDate;
+               
+                txtDate.Text = DateTime.Now.ToFarsiFormat();
                 lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             }
 
@@ -153,9 +152,10 @@ namespace PamirAccounting.Forms.Transactions
 
         private void loadTransActionInfo(long? transActionId)
         {
-
-            customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
+            var orginalTranacion = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
+            customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == orginalTranacion.OriginalTransactionId);
             lbl_Document_Id_value.Text = customerTransaction.DocumentId.ToString();
+
             if (customerTransaction.WithdrawAmount.Value != 0)
             {
                 txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
@@ -166,6 +166,7 @@ namespace PamirAccounting.Forms.Transactions
                 txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
                 cmbAction.SelectedValue = 1;
             }
+
             lblCustomers.Visible = true;
             cmbVarizType.SelectedValue = 2;
             cmbVarizType.Enabled = false;
@@ -178,9 +179,7 @@ namespace PamirAccounting.Forms.Transactions
             txtReceiptNumber.Text = customerTransaction.ReceiptNumber;
             txtBranchCode.Text = customerTransaction.BranchCode;
 
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetMonth(customerTransaction.TransactionDateTime).ToString() + "/" + pc.GetDayOfMonth(customerTransaction.TransactionDateTime).ToString();
-            txtDate.Text = PDate;
+            txtDate.Text = customerTransaction.TransactionDateTime.ToFarsiFormat();
 
             if (customerTransaction.DoubleTransactionId != null)
             {
@@ -256,7 +255,7 @@ namespace PamirAccounting.Forms.Transactions
                 else
                 {
                     MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
-             MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                     txtDate.Focus();
                 }
 
@@ -436,7 +435,6 @@ namespace PamirAccounting.Forms.Transactions
 
         private void CreateWithDraw()
         {
-
             amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
             var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             bankTransaction = new Domains.Transaction();
@@ -469,6 +467,7 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.DepositAmount = 0;
             customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+            customerTransaction.OriginalTransactionId = bankTransaction.Id;
             var cDate = txtDate.Text.Split('/');
 
             PersianCalendar pc = new PersianCalendar();
@@ -484,6 +483,7 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.SaveChanges();
 
             //sabt sande double
+            bankTransaction.OriginalTransactionId = bankTransaction.Id;
             bankTransaction.DoubleTransactionId = customerTransaction.Id;
             unitOfWork.TransactionServices.Update(bankTransaction);
             unitOfWork.SaveChanges();
@@ -525,6 +525,10 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.Description = createDescription(txtdesc.Text);
             unitOfWork.TransactionServices.Insert(bankTransaction);
             unitOfWork.SaveChanges();
+            //save original id
+            bankTransaction.OriginalTransactionId = bankTransaction.Id;
+            unitOfWork.TransactionServices.Update(bankTransaction);
+            unitOfWork.SaveChanges();
 
             //ثبت واریز برای مشتری
             if ((int)cmbVarizType.SelectedValue == (int)DepostType.known)
@@ -551,7 +555,7 @@ namespace PamirAccounting.Forms.Transactions
                 customerTransaction.Date = DateTime.Now;
                 customerTransaction.TransactionDateTime = TransactionDateTime;
                 customerTransaction.UserId = CurrentUser.UserID;
-
+                customerTransaction.OriginalTransactionId = bankTransaction.Id;
                 unitOfWork.TransactionServices.Insert(customerTransaction);
                 unitOfWork.SaveChanges();
 
