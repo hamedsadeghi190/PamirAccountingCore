@@ -28,7 +28,7 @@ namespace PamirAccounting.Forms.Checks
         private void LoadData()
         {
             PersianCalendar pc = new PersianCalendar();
-            dataList = unitOfWork.ChequeServices.GetAllDaryaftani();
+            dataList = unitOfWork.ChequeServices.GetAllSareHesabAndOdat();
             dataGridView1.DataSource = dataList.Select(x => new
             {
                 x.Id,
@@ -102,7 +102,7 @@ namespace PamirAccounting.Forms.Checks
             if (txtsearch.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
-                dataList = unitOfWork.ChequeServices.GetAllDaryaftani();
+                dataList = unitOfWork.ChequeServices.GetAllSareHesabAndOdat();
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,

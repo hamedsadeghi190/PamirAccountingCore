@@ -48,8 +48,8 @@ namespace PamirAccounting.Forms
             {
                 //AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
                 //AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
-                AppSetting.ReportPath = "E:\\Projects\\PamirAccounting\\PamirAccounting\\Reports\\";
-                //AppSetting.ReportPath = "D:\\fixed\\PamirAccountingCore\\PamirAccounting\\Reports\\";
+              //  AppSetting.ReportPath = "E:\\Projects\\PamirAccounting\\PamirAccounting\\Reports\\";
+                AppSetting.ReportPath = "D:\\fixed\\PamirAccountingCore\\PamirAccounting\\Reports\\";
             }
 
         }
@@ -526,6 +526,12 @@ namespace PamirAccounting.Forms
         private void BuyAndSellCurrencyList_Click(object sender, EventArgs e)
         {
             var frm = new BuyAndSellCurrencyListFrm();
+            frm.ShowDialog();
+        }
+
+        private void OdatVagozariList_Click(object sender, EventArgs e)
+        {
+            var frm = new OdatAsnadDaryaftaniVagozarShodeReportFrm();
             frm.ShowDialog();
         }
     }

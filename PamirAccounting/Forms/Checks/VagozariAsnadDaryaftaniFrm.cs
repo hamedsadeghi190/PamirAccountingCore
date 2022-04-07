@@ -84,6 +84,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void VagozariAsnadDaryaftaniFrm_Load(object sender, EventArgs e)
         {
+            cmbCustomers.TextChanged -= new EventHandler(cmbCustomers_TextChanged);
             SetComboBoxHeight(cmbCustomers.Handle, 25);
             cmbCustomers.Refresh();
 
@@ -106,7 +107,7 @@ namespace PamirAccounting.Forms.Checks
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
                 txtAssignmentDate.Text = PDate2;
             }
-
+            cmbCustomers.TextChanged += new EventHandler(cmbCustomers_TextChanged);
         }
 
         private void ChequeActionInfo(long? _ChequeNumberEdit)
@@ -127,7 +128,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
-            customerName = cmbCustomers.Text;
+      
             if (txtDesc.Text == "")
             {
                 CreateDescription();
@@ -196,7 +197,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveEdit()
         {
-            customerName = cmbCustomers.Text;
+           
             PersianCalendar p = new PersianCalendar();
             var Date = txtDate.Text.Split('/');
             var DateDateTime = p.ToDateTime(int.Parse(Date[0]), int.Parse(Date[1]), int.Parse(Date[2]), 0, 0, 0, 0);
@@ -227,14 +228,14 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
-            customerTransaction.WithdrawAmount = Cheque.Amount;
-            customerTransaction.DepositAmount = 0;
+            customerTransaction.WithdrawAmount =customerTransaction.WithdrawAmount;
+            customerTransaction.DepositAmount = customerTransaction.DepositAmount;
             customerTransaction.Description = txtDesc.Text;
-            customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
+            customerTransaction.CurrenyId = customerTransaction.CurrenyId;
             customerTransaction.Date = DateTime.Now;
             customerTransaction.TransactionDateTime = DateTime.Now;
             customerTransaction.UserId = CurrentUser.UserID;
-            customerTransaction.DocumentId = Cheque.DocumentId;
+            customerTransaction.DocumentId = customerTransaction.DocumentId;
             unitOfWork.TransactionServices.Update(customerTransaction);
             unitOfWork.SaveChanges();
             //Customer transaction end///
@@ -242,17 +243,17 @@ namespace PamirAccounting.Forms.Checks
             //ReceivedDocuments transaction
             var receivedDocuments = unitOfWork.Transactions.FindFirst(x => x.DocumentId == Cheque.DocumentId && x.SourceCustomerId == AppSetting.RecivedDocumentCustomerId);
             receivedDocuments.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;
-            receivedDocuments.DoubleTransactionId = customerTransaction.Id;
-            receivedDocuments.WithdrawAmount = 0;
-            receivedDocuments.DepositAmount = Cheque.Amount;
+            receivedDocuments.DoubleTransactionId = customerTransaction.Id; ;
+            receivedDocuments.WithdrawAmount = receivedDocuments.WithdrawAmount;
+            receivedDocuments.DepositAmount = receivedDocuments.DepositAmount;
             receivedDocuments.Description = txtDesc.Text;
             receivedDocuments.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
-            receivedDocuments.CurrenyId = AppSetting.TomanCurrencyID;
+            receivedDocuments.CurrenyId = receivedDocuments.CurrenyId;
             receivedDocuments.Date = DateTime.Now;
             receivedDocuments.TransactionDateTime = DateTime.Now;
             receivedDocuments.UserId = CurrentUser.UserID;
-            receivedDocuments.DocumentId = Cheque.DocumentId;
+            receivedDocuments.DocumentId = receivedDocuments.DocumentId;
             unitOfWork.TransactionServices.Update(receivedDocuments);
             unitOfWork.SaveChanges();
             //ReceivedDocuments transaction End
@@ -267,9 +268,29 @@ namespace PamirAccounting.Forms.Checks
             frm.ShowDialog();
         }
 
+        private void txtAssignmentDate_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void cmbCustomers_KeyUp(object sender, KeyEventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void cmbCustomers_TextChanged(object sender, EventArgs e)
+        {
+            CreateDescription();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.Vagozari}چک به شماره {Cheque.ChequeNumber} به {customerName} تاریخ واگذاری {txtAssignmentDate.Text} ";
+            txtDesc.Text = $"{Messages.Vagozari} چک به شماره {Cheque.ChequeNumber} به {cmbCustomers.Text} تاریخ واگذاری {txtAssignmentDate.Text} ";
         }
 
     }
