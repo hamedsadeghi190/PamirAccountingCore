@@ -89,13 +89,60 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         private void TotalGroupListFrm_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
+            if (e.KeyCode == Keys.F2)
+            {
+                cmbGroup.Select();
+                cmbGroup.Focus();
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.Enter)
+            {
+              
+                if (gridCreditor.SelectedRows.Count > 0)
+                {
+                    // gridCreditor.CurrentCell.OwningRow.Index
+                    var rowCount = _dataListTotal.Count();
+                    var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
+                    if (rowIndex < rowCount-1)
+                    {
+                        var frmCurrencies = new TotalListFrm(_dataListTotal.ElementAt(rowIndex-1).CurrenyId, _dataListTotal.ElementAt(rowIndex-1).GroupId);
+                        frmCurrencies.ShowDialog();
+                    }
+                   else
+                    {
+                        var frmCurrencies = new TotalListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
+                        frmCurrencies.ShowDialog();
+                    }
+                 
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+                PersianCalendar pc = new PersianCalendar();
+                DateTime dt = DateTime.Now;
+                string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                var data = TotalPrint();
+                var basedata = new reportbaseDAta() { Date = PersianDate };
+                var report = StiReport.CreateNewReport();
+                report.Load(AppSetting.ReportPath + "CreditorGroupList.mrt");
+                report.RegData("myData", data);
+                report.RegData("basedata", basedata);
+                //   report.Design();
+                report.Render();
+                report.Show();
+
+            }
+
+         
         }
 
         private void GellAll(List<TransactionModel> _list)
@@ -251,6 +298,7 @@ namespace PamirAccounting.Forms.GeneralLedger
         }
         private List<TransactionsGroupModel> TotalPrint()
         {
+
             var tmpDataList = unitOfWork.TransactionServices.GetAllWGroupList(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, ((int)cmbGroup.SelectedValue != 0) ? (int)cmbGroup.SelectedValue : null);
             var grouped = tmpDataList.GroupBy(x => new { x.GroupId, x.CurrenyId });
             _GroupedDataList = new List<TransactionsGroupModel>();
@@ -277,14 +325,23 @@ namespace PamirAccounting.Forms.GeneralLedger
                 }
 
                 remaining = totalDeposit - totalWithDraw;
-                if (remaining < 0)
+                if (remaining > 0)
                 {
-                    curenncySummery.RemainigAmount = remaining;
-                    _GroupedDataList.Add(curenncySummery);
-
+                    curenncySummery.Status = "طلبکار";
                 }
 
+                else if (remaining < 0)
+                {
+                    curenncySummery.Status = "بدهکار";
+                }
 
+                else
+                {
+                    curenncySummery.Status = "";
+                }
+                curenncySummery.Status = curenncySummery.Status;
+                curenncySummery.RemainigAmount = remaining;
+                _GroupedDataList.Add(curenncySummery);
             }
 
             _GroupedDataList = _GroupedDataList.OrderBy(x => x.FullName).ToList();
@@ -311,7 +368,7 @@ namespace PamirAccounting.Forms.GeneralLedger
                     curenncySummery.CurrenyId = item.CurrenyId;
                     curenncySummery.GroupId = item.GroupId;
                     curenncySummery.SourceCustomerId = item.SourceCustomerId;
-
+                    curenncySummery.Status = item.Status;
                 }
 
                 curenncySummery.RemainigAmount = remaining;
@@ -319,7 +376,7 @@ namespace PamirAccounting.Forms.GeneralLedger
                 _dataListTotal.Add(curenncySummery);
 
             }
-
+            gridCreditor.AutoGenerateColumns = false;
             return _dataListTotal;
 
         }
