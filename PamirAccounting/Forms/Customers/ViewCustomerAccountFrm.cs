@@ -381,6 +381,12 @@ namespace PamirAccounting.UI.Forms.Customers
                     var frmbank = new PayAndReciveBankFrm(_Id.Value, tranaction.Id);
                     frmbank.ShowDialog();
                     LoadData();
+                    break;  
+                
+                case (int)TransaActionType.UnkwonReciveBank:
+                    var frmbankunkown = new PayAndReciveBankFrm(_Id.Value, tranaction.Id);
+                    frmbankunkown.ShowDialog();
+                    LoadData();
                     break;
 
                 case (int)TransaActionType.Transfer:

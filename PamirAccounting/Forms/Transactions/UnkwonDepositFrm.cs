@@ -22,7 +22,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-           
+
         }
         public void LoadData()
         {
@@ -42,7 +42,7 @@ namespace PamirAccounting.Forms.Transactions
             d.FlatStyle = FlatStyle.Standard;
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
-            DataGridViewButtonColumn f= (DataGridViewButtonColumn)dataGridView1.Columns["btnAction"];
+            DataGridViewButtonColumn f = (DataGridViewButtonColumn)dataGridView1.Columns["btnAction"];
             f.FlatStyle = FlatStyle.Standard;
             f.DefaultCellStyle.ForeColor = Color.SteelBlue;
             f.DefaultCellStyle.BackColor = Color.Lavender;
@@ -60,9 +60,9 @@ namespace PamirAccounting.Forms.Transactions
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                //var frmCurrencies = new CustomerCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
-                //frmCurrencies.ShowDialog();
-                //loadData();
+                var frmbankunkown = new PayAndReciveBankFrm(0, _dataList.ElementAt(e.RowIndex).Id);
+                frmbankunkown.ShowDialog();
+                LoadData();
             }
 
 
