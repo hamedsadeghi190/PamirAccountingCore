@@ -302,12 +302,13 @@ namespace PamirAccounting.Forms.Transactions
             this.label6.Location = new System.Drawing.Point(461, 45);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(46, 24);
+            this.label6.Size = new System.Drawing.Size(42, 24);
             this.label6.TabIndex = 277;
-            this.label6.Text = "ردیف ";
+            this.label6.Text = "سند :";
             // 
             // txtradif
             // 
+            this.txtradif.Enabled = false;
             this.txtradif.Location = new System.Drawing.Point(305, 38);
             this.txtradif.Name = "txtradif";
             this.txtradif.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -321,6 +322,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // txtAmount
             // 
+            this.txtAmount.Enabled = false;
             this.txtAmount.EnterMoveNextControl = true;
             this.txtAmount.Location = new System.Drawing.Point(305, 80);
             this.txtAmount.Name = "txtAmount";

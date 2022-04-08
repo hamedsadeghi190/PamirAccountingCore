@@ -69,24 +69,23 @@ namespace PamirAccounting.Forms.Transactions
             if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
 
-                //DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
-                //    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
 
-                //if (dialogResult == DialogResult.Yes)
-                //{
-                //    try
-                //    {
-                //        //var customer = unitOfWork.Customers.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
-                //        //customer.IsDeleted = true;
-                //        //unitOfWork.CustomerServices.Update(customer);
-                //        //unitOfWork.SaveChanges();
-                //        LoadData();
-                //    }
-                //    catch
-                //    {
-                //        MessageBox.Show("حذف امکانپذیر نمیباشد");
-                //    }
-                //}
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var transaction = unitOfWork.TransactionServices.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
+                        unitOfWork.CustomerServices.Delete(transaction);
+                        unitOfWork.SaveChanges();
+                        LoadData();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("حذف امکانپذیر نمیباشد");
+                    }
+                }
             }
         }
 

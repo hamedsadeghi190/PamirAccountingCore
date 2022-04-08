@@ -42,6 +42,8 @@ namespace PamirAccounting.Models
     public class UnKownTransactionModel
     {
         public long Id { get; set; }
+        public long RowId { get; set; }
+        public long DocumentId { get; set; }
         public string Date { get; set; }
         public string BankName { get; set; }
         public string ReceiptNumber { get; set; }

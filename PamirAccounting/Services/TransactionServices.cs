@@ -116,7 +116,7 @@ namespace PamirAccounting.Services
                     DepositAmount = x.DepositAmount,
                     WithdrawAmount = x.WithdrawAmount,
                     RemainigAmount = x.RemainigAmount,
-                    Date =x.Date2.ToShortPersianDateString(true),
+                    Date = x.Date2.ToShortPersianDateString(true),
                     TransactionDateTime = x.TransactionDateTime2.ToShortPersianDateString(),
                     CurrenyId = x.CurrenyId,
                     CurrenyName = x.CurrenyName,
@@ -166,20 +166,22 @@ namespace PamirAccounting.Services
                                  Amount = x.WithdrawAmount.Value,
                                  CurrenyName = x.Curreny.Name,
                                  Description = x.Description,
+                                 DocumentId = x.DocumentId
 
                              }).ToList();
-
+                int row = 1;
                 dataList = dataList.Select(x => new UnKownTransactionModel
                 {
+                    RowId = row++,
                     Id = x.Id,
-                    Date = (DateTime.Parse(x.Date.ToString())).ToShortPersianDateString(),
+                    Date = (DateTime.Parse(x.Date.ToString())).ToFarsiFormat(),
                     BankName = x.BankName,
                     BranchCode = x.BranchCode,
                     ReceiptNumber = x.ReceiptNumber,
                     Amount = x.Amount,
                     CurrenyName = x.CurrenyName,
                     Description = x.Description,
-
+                    DocumentId = x.DocumentId
                 }).ToList();
                 return dataList;
             }
@@ -552,7 +554,7 @@ namespace PamirAccounting.Services
 
         }
 
-        public List<TransactionModel> GetAllWithdrawCustomers(string search,int? CurrenyId, int? GroupId)
+        public List<TransactionModel> GetAllWithdrawCustomers(string search, int? CurrenyId, int? GroupId)
         {
             try
             {
@@ -896,7 +898,7 @@ namespace PamirAccounting.Services
 
         }
 
-        public List<TransactionModel> GetAllWGroupList( int? currencyId,int? groupId)
+        public List<TransactionModel> GetAllWGroupList(int? currencyId, int? groupId)
         {
             try
             {
@@ -919,7 +921,7 @@ namespace PamirAccounting.Services
                 GroupId = x.SourceCustomer.GroupId,
                 GroupName = x.SourceCustomer.Group.Name,
             }).ToList();
-                  
+
                 }
                 if (groupId != null)
                 {
@@ -938,8 +940,8 @@ namespace PamirAccounting.Services
                                SourceCustomerId = x.SourceCustomerId,
                                GroupId = x.SourceCustomer.GroupId,
                                GroupName = x.SourceCustomer.Group.Name,
-                           }).Where(x=>x.GroupId==groupId).ToList();
-               
+                           }).Where(x => x.GroupId == groupId).ToList();
+
                 }
                 if (currencyId != null)
                 {
@@ -959,7 +961,7 @@ namespace PamirAccounting.Services
                                GroupId = x.SourceCustomer.GroupId,
                                GroupName = x.SourceCustomer.Group.Name,
                            }).Where(x => x.CurrenyId == currencyId).ToList();
-             
+
                 }
                 int row = 1;
                 var tmpdataList = dataList.Select(x => new TransactionModel

@@ -42,6 +42,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.gridPayAndReciveBank = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocumentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,7 +103,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.cmbBank.FormattingEnabled = true;
             this.cmbBank.Location = new System.Drawing.Point(712, 40);
             this.cmbBank.Name = "cmbBank";
-            this.cmbBank.Size = new System.Drawing.Size(178, 27);
+            this.cmbBank.Size = new System.Drawing.Size(178, 32);
             this.cmbBank.TabIndex = 118;
             this.cmbBank.SelectedValueChanged += new System.EventHandler(this.cmbBank_SelectedValueChanged);
             this.cmbBank.TextChanged += new System.EventHandler(this.cmbBank_TextChanged);
@@ -114,7 +115,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.label4.Location = new System.Drawing.Point(615, 43);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(49, 19);
+            this.label4.Size = new System.Drawing.Size(49, 24);
             this.label4.TabIndex = 116;
             this.label4.Text = "تاریخ :";
             // 
@@ -124,7 +125,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(896, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 19);
+            this.label1.Size = new System.Drawing.Size(47, 24);
             this.label1.TabIndex = 111;
             this.label1.Text = "بانک :";
             // 
@@ -148,6 +149,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.gridPayAndReciveBank.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn7,
+            this.DocumentId,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn9,
@@ -164,7 +166,7 @@ namespace PamirAccounting.Forms.NewsPaper
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridPayAndReciveBank.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridPayAndReciveBank.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gridPayAndReciveBank.Location = new System.Drawing.Point(0, 124);
+            this.gridPayAndReciveBank.Location = new System.Drawing.Point(5, 124);
             this.gridPayAndReciveBank.MultiSelect = false;
             this.gridPayAndReciveBank.Name = "gridPayAndReciveBank";
             this.gridPayAndReciveBank.ReadOnly = true;
@@ -173,9 +175,10 @@ namespace PamirAccounting.Forms.NewsPaper
             this.gridPayAndReciveBank.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gridPayAndReciveBank.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.gridPayAndReciveBank.RowTemplate.Height = 32;
             this.gridPayAndReciveBank.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPayAndReciveBank.ShowEditingIcon = false;
-            this.gridPayAndReciveBank.Size = new System.Drawing.Size(1005, 387);
+            this.gridPayAndReciveBank.Size = new System.Drawing.Size(993, 379);
             this.gridPayAndReciveBank.TabIndex = 132;
             // 
             // dataGridViewTextBoxColumn5
@@ -192,14 +195,22 @@ namespace PamirAccounting.Forms.NewsPaper
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "RowId";
-            this.dataGridViewTextBoxColumn7.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn7.FillWeight = 70F;
             this.dataGridViewTextBoxColumn7.Frozen = true;
             this.dataGridViewTextBoxColumn7.HeaderText = "ردیف";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn7.Width = 60;
+            this.dataGridViewTextBoxColumn7.Width = 70;
+            // 
+            // DocumentId
+            // 
+            this.DocumentId.FillWeight = 70F;
+            this.DocumentId.HeaderText = "سند";
+            this.DocumentId.Name = "DocumentId";
+            this.DocumentId.ReadOnly = true;
+            this.DocumentId.Width = 70;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -302,6 +313,7 @@ namespace PamirAccounting.Forms.NewsPaper
         private System.Windows.Forms.DataGridView gridPayAndReciveBank;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocumentId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
