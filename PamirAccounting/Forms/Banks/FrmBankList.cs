@@ -47,7 +47,8 @@ namespace PamirAccounting.UI.Forms.Banks
         private void loadData()
         {
             dataList = unitOfWork.BankServices.GetAll();
-            dataGridView1.DataSource = dataList.Select(x=>new { x.Id,x.Name,x.BaseCurrencyName,x.CountryName}).ToList();
+            dataGridView1.DataSource = dataList.Select(x=>new {x.RowId, x.Id,x.Name,x.BaseCurrencyName,x.CountryName}).ToList();
+         
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -99,8 +100,8 @@ namespace PamirAccounting.UI.Forms.Banks
         {
             if (txtSearch.Text.Length > 0)
             {
-                dataList = unitOfWork.Banks.FindAll(y => y.Name.Contains(txtSearch.Text)).Select(x => new BanksModel { Id = x.Id, Name = x.Name }).ToList();
-                dataGridView1.DataSource = dataList;
+                dataList = unitOfWork.BankServices.Search(txtSearch.Text);
+                dataGridView1.DataSource = dataList.Select(x => new { x.RowId, x.Id, x.Name, x.BaseCurrencyName, x.CountryName }).ToList();
             }
             else
             {

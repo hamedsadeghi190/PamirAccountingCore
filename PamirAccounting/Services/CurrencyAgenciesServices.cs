@@ -47,9 +47,23 @@ namespace PamirAccounting.Services.Services
                         RoundLimit = x.RoundLimit
 
                     }).ToList();
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new AgencyCurencyModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    SourceCurrenyName = x.SourceCurrenyName,
+                    DestiniationCurrenyName = x.DestiniationCurrenyName,
+                    ActionId = x.ActionId,
+                    ActionName =x.ActionName,
+                    RoundLimitShow = x.RoundLimitShow,
+                    ExchangeRate = x.ExchangeRate,
+                    RoundLimit = x.RoundLimit
 
+                }).ToList();
+               
 
-                return dataList;
+                return tmpdataList;
             }
             catch (Exception ex)
             {
@@ -78,9 +92,25 @@ namespace PamirAccounting.Services.Services
                         RoundLimit = x.RoundLimit
 
                     }).Where(x=>x.SourceCurrenyName.Contains(name)).ToList();
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new AgencyCurencyModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    SourceCurrenyName = x.SourceCurrenyName,
+                    DestiniationCurrenyName = x.DestiniationCurrenyName,
+                    ActionId = x.ActionId,
+                    ActionName = x.ActionName,
+                    RoundLimitShow = x.RoundLimitShow,
+                    ExchangeRate = x.ExchangeRate,
+                    RoundLimit = x.RoundLimit
+
+                }).ToList();
 
 
-                return dataList;
+                return tmpdataList;
+
+         
             }
             catch (Exception ex)
             {

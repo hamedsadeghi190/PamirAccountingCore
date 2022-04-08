@@ -24,8 +24,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
         private void FrmCurrencyAgenciesList_Load(object sender, EventArgs e)
         {
-              loadData();
-           
+            dataGridView1.AutoGenerateColumns = false;
+            loadData();
+
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
@@ -47,14 +48,14 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         private void loadData()
         {
             dataList = unitOfWork.CurrenciesMappingServices.GetAll();
-            dataGridView1.DataSource = dataList.Select(x => new { x.Id, x.SourceCurrenyName, x.DestiniationCurrenyName,x.ActionName , x.ExchangeRateShow, x.RoundLimitShow }).ToList();
+            dataGridView1.DataSource = dataList;
         }
 
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
 
-      
+
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
@@ -92,7 +93,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             if (txtSearch.Text.Length > 0)
             {
                 dataList = unitOfWork.CurrenciesMappingServices.Search(txtSearch.Text);
-                dataGridView1.DataSource = dataList.Select(x => new { x.Id, x.SourceCurrenyName, x.DestiniationCurrenyName, x.ActionName, x.ExchangeRateShow, x.RoundLimitShow }).ToList();
+            dataGridView1.DataSource = dataList;
             }
             else
             {
@@ -107,7 +108,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
                 txtSearch.Select();
                 txtSearch.Focus();
             }
-        
+
             if (e.KeyCode == Keys.Enter)
             {
                 SendKeys.Send("{TAB}");
