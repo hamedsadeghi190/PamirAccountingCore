@@ -57,6 +57,38 @@ namespace PamirAccounting.Services.Services
             }
 
         }
+        public List<AgencyCurencyModel> Search(string name)
+        {
+            try
+            {
+
+                var dataList = FindAllReadonly()
+                    .Include(x => x.SourceCurreny)
+                    .Include(x => x.DestiniationCurreny)
+
+                    .Select(x => new AgencyCurencyModel
+                    {
+                        Id = x.Id,
+                        SourceCurrenyName = x.SourceCurreny.Name,
+                        DestiniationCurrenyName = x.DestiniationCurreny.Name,
+                        ActionId = x.Action,
+                        ActionName = (x.Action == (int)Settings.MappingActions.Division) ? "تقسیم" : (x.Action == (int)Settings.MappingActions.Multiplication) ? "ضرب" : "جمع",
+                        RoundLimitShow = (x.RoundLimit == 10) ? "رند به تغریب 10" : (x.RoundLimit == 100) ? "رند به تغریب 100" : (x.RoundLimit == 1000) ? "رند به تغریب 1000" : (x.RoundLimit == 10000) ? "رند به تغریب 10000" : "رند عادی",
+                        ExchangeRate = x.ExchangeRate,
+                        RoundLimit = x.RoundLimit
+
+                    }).Where(x=>x.SourceCurrenyName.Contains(name)).ToList();
+
+
+                return dataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
 
     }
-}
+    }
+

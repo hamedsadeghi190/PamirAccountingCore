@@ -89,7 +89,15 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
-           
+            if (txtSearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.CurrenciesMappingServices.Search(txtSearch.Text);
+                dataGridView1.DataSource = dataList.Select(x => new { x.Id, x.SourceCurrenyName, x.DestiniationCurrenyName, x.ActionName, x.ExchangeRateShow, x.RoundLimitShow }).ToList();
+            }
+            else
+            {
+                loadData();
+            }
         }
 
         private void FrmCurrencyAgenciesList_KeyUp(object sender, KeyEventArgs e)
@@ -99,6 +107,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
                 txtSearch.Select();
                 txtSearch.Focus();
             }
+        
             if (e.KeyCode == Keys.Enter)
             {
                 SendKeys.Send("{TAB}");
@@ -106,6 +115,52 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.F7)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frmCurrencies = new CurrencyAgenciesCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف عملیات ارز نمایندگی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                     MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            unitOfWork.CurrenciesMappingServices.Delete(new CurrenciesMapping() { Id = dataList.ElementAt(rowIndex).Id });
+                            unitOfWork.SaveChanges();
+                            loadData();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("حذف امکانپذیر نمیباشد");
+                        }
+
+                    }
+
+                }
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                var frmCurrencie = new CurrencyAgenciesCreateUpdateFrm();
+                frmCurrencie.ShowDialog();
+                loadData();
+
+            }
         }
 
         private void label7_Click(object sender, EventArgs e)

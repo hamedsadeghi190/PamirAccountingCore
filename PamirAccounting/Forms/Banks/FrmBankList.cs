@@ -78,6 +78,9 @@ namespace PamirAccounting.UI.Forms.Banks
                 {
                     try
                     {
+                        var customer = unitOfWork.Customers.FindFirst(x => x.BankId == dataList.ElementAt(e.RowIndex).Id.Value);
+                        unitOfWork.CustomerServices.Delete(customer);
+                        unitOfWork.SaveChanges();
                         var bank = unitOfWork.BankServices.FindFirst(x => x.Id == dataList.ElementAt(e.RowIndex).Id.Value);
                         unitOfWork.BankServices.Delete(bank);
                         unitOfWork.SaveChanges();

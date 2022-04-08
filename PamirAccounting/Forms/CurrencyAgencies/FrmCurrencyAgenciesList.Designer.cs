@@ -108,7 +108,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(891, 398);
+            this.dataGridView1.Size = new System.Drawing.Size(892, 398);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -201,9 +201,9 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.BtnCreateNew);
             this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(0, 11);
+            this.groupBox1.Location = new System.Drawing.Point(1, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(892, 82);
+            this.groupBox1.Size = new System.Drawing.Size(891, 82);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "مدیریت عملیات رمز ارز نمایندگی";
@@ -238,7 +238,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             this.BtnCreateNew.Appearance.Options.UseFont = true;
             this.BtnCreateNew.Appearance.Options.UseForeColor = true;
             this.BtnCreateNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnCreateNew.ImageOptions.SvgImage")));
-            this.BtnCreateNew.Location = new System.Drawing.Point(7, 23);
+            this.BtnCreateNew.Location = new System.Drawing.Point(17, 30);
             this.BtnCreateNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnCreateNew.Name = "BtnCreateNew";
             this.BtnCreateNew.Size = new System.Drawing.Size(39, 41);
