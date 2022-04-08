@@ -27,7 +27,7 @@ namespace PamirAccounting.Services
         {
             try
             {
-                var bank = FindAllReadonly(x => x.IsDeleted == false).Select(x => new UserModel
+                var user = FindAllReadonly(x => x.IsDeleted == false).Select(x => new UserModel
                 {
                     Id = x.Id,
                     FirstName = x.FirstName,
@@ -36,8 +36,18 @@ namespace PamirAccounting.Services
                     Password = x.Password
 
                 }).ToList();
+                int row = 1;
+                var list = user.Select(x => new UserModel
+                {
+                    RowId=row++,
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    UserName = x.UserName,
+                    Password = x.Password
 
-                return bank;
+                }).ToList();
+                return list;
             }
             catch
             {
@@ -45,6 +55,37 @@ namespace PamirAccounting.Services
             }
 
         }
+        public List<UserModel> Search(string name)
+        {
+            try
+            {
+                var user = FindAllReadonly(x => x.IsDeleted == false).Select(x => new UserModel
+                {
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    UserName = x.UserName,
+                    Password = x.Password
 
+                }).Where(x=>x.FirstName.Contains(name)).ToList();
+                int row = 1;
+                var list = user.Select(x => new UserModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    UserName = x.UserName,
+                    Password = x.Password
+
+                }).ToList();
+                return list;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
     }
 }

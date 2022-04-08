@@ -18,5 +18,6 @@ namespace PamirAccounting.Models
         public string ExchangeRateShow { get; set; }
         public int RoundLimit { get; set; }
         public string RoundLimitShow { get; set; }
+        public int? RowId { get; set; }
     }
 }

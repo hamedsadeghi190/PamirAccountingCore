@@ -24,7 +24,7 @@ namespace PamirAccounting.Forms.Users
         private void loadData()
         {
             dataList = unitOfWork.UserServices.GetAll();
-            dataGridView1.DataSource = dataList.Select(x => new { x.Id,x.FirstName, x.LastName, x.UserName }).ToList();
+            dataGridView1.DataSource = dataList;
         }
     
 
@@ -40,6 +40,7 @@ namespace PamirAccounting.Forms.Users
 
         private void UsersListFrm_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoGenerateColumns = false;
             loadData();
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
@@ -103,7 +104,7 @@ namespace PamirAccounting.Forms.Users
         {
             if (txtsearch.Text.Length > 0)
             {
-                dataList = unitOfWork.Users.FindAll(y => y.FirstName.Contains(txtsearch.Text)).Select(x => new UserModel { Id = x.Id, FirstName = x.FirstName }).ToList();
+                dataList = unitOfWork.UserServices.Search(txtsearch.Text);
                 dataGridView1.DataSource = dataList;
             }
             else
@@ -126,6 +127,55 @@ namespace PamirAccounting.Forms.Users
             }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+            if (e.KeyCode == Keys.F7)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frmCurrencies = new UsersCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            var user = unitOfWork.Users.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
+                            user.IsDeleted = true;
+                            unitOfWork.UserServices.Update(user);
+                            unitOfWork.SaveChanges();
+                            loadData();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("حذف امکانپذیر نمیباشد");
+                        }
+
+                    }
+
+                }
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                var frmCurrencies = new UsersCreateUpdateFrm();
+                frmCurrencies.ShowDialog();
+                loadData();
+
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

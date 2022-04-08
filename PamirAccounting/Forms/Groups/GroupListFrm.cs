@@ -174,7 +174,16 @@ namespace PamirAccounting.UI.Forms.Groups
             if (txtSearch.Text.Length > 0)
             {
                 dataList = unitOfWork.CustomerGroups.FindAll(y => y.Name.Contains(txtSearch.Text)).Select(x => new CustomerGroupModel { Id = x.Id, Name = x.Name }).ToList();
-                dataGridView1.DataSource = dataList;
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new CustomerGroupModel
+                {
+                    rowId = row++,
+                    Id = x.Id,
+                    Name = x.Name
+
+
+                }).ToList();
+                dataGridView1.DataSource = tmpdataList;
             }
             else
             {

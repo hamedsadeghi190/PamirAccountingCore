@@ -107,7 +107,16 @@ namespace PamirAccounting.UI.Forms.Currencies
             if (txtsearch.Text.Length > 0)
             {
                 dataList = unitOfWork.Currencies.FindAll(y => y.Name.Contains(txtsearch.Text)).Select(x => new CurrenciesViewModel { Id = x.Id, Name = x.Name }).ToList();
-                dataGridView1.DataSource = dataList;
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new CurrenciesViewModel
+                {
+                    rowId = row++,
+                    Id = x.Id,
+                    Name = x.Name
+
+
+                }).ToList();
+                dataGridView1.DataSource = tmpdataList;
             }
             else
             {
@@ -129,7 +138,7 @@ namespace PamirAccounting.UI.Forms.Currencies
             }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.F7)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {

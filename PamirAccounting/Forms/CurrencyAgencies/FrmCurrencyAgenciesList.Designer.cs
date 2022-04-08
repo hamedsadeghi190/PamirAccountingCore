@@ -114,7 +114,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "Id";
+            this.Column1.DataPropertyName = "RowId";
             this.Column1.FillWeight = 70F;
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "ردیف";
@@ -343,6 +343,11 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         private DevExpress.XtraEditors.SimpleButton BtnCreateNew;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -351,10 +356,5 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label11;
     }
 }

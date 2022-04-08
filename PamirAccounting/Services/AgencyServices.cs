@@ -38,10 +38,53 @@ namespace PamirAccounting.Services
                     Phone = x.Phone
 
                 }).ToList();
+                int row = 1;
+                var tempList = dataList.Select(x => new AgencyModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Name = x.Name,
+                    CurrenyName = x.CurrenyName,
+                    CurrenyId = x.CurrenyId,
+                    Phone = x.Phone
 
-                return dataList;
+                }).ToList();
+                return tempList;
             }
             catch 
+            {
+                return null;
+            }
+
+        }
+
+        public List<AgencyModel> Search(string name)
+        {
+            try
+            {
+                var dataList = FindAllReadonly().Include(x => x.Curreny).Select(x => new AgencyModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    CurrenyName = x.Curreny.Name,
+                    CurrenyId = x.CurrenyId,
+                    Phone = x.Phone
+
+                }).Where(x=>x.Name.Contains(name)).ToList();
+                int row = 1;
+                var tempList = dataList.Select(x => new AgencyModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Name = x.Name,
+                    CurrenyName = x.CurrenyName,
+                    CurrenyId = x.CurrenyId,
+                    Phone = x.Phone
+
+                }).ToList();
+                return tempList;
+            }
+            catch
             {
                 return null;
             }

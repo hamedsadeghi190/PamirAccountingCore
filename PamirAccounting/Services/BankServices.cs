@@ -83,8 +83,20 @@ namespace PamirAccounting.Services.Services
                     CountryName = x.Country.NameFa
 
                 }).ToList();
+                int row = 1;
+                var tmpdataList = bank.Select(x => new BanksModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Name = x.Name,
+                    CountryId = x.CountryId,
+                    BaseCurrencyId = x.BaseCurrencyId,
+                    BaseCurrencyName = x.BaseCurrencyName,
+                    CountryName = x.CountryName
 
-                return bank;
+                }).ToList();
+           
+                return tmpdataList;
             }
             catch (Exception ex)
             {
@@ -92,7 +104,42 @@ namespace PamirAccounting.Services.Services
             }
 
         }
+        public List<BanksModel> Search(string name)
+        {
+            try
+            {
+                var banks = _context.Banks.ToList();
+                var bank = FindAllReadonly().Include(x => x.BaseCurrency).Include(x => x.Country).Select(x => new BanksModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    CountryId = x.CountryId,
+                    BaseCurrencyId = x.BaseCurrencyId,
+                    BaseCurrencyName = x.BaseCurrency.Name,
+                    CountryName = x.Country.NameFa
 
+                }).Where(x=>x.Name.Contains(name)).ToList();
+                int row = 1;
+                var tmpdataList = bank.Select(x => new BanksModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Name = x.Name,
+                    CountryId = x.CountryId,
+                    BaseCurrencyId = x.BaseCurrencyId,
+                    BaseCurrencyName = x.BaseCurrencyName,
+                    CountryName = x.CountryName
+
+                }).ToList();
+
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
         public bool Delete(int? id)
         {
             try

@@ -43,7 +43,7 @@ namespace PamirAccounting.UI.Forms.Agencies
         private void loadData()
         {
             dataList = unitOfWork.AgencyServices.GetAll();
-            dataGridView1.DataSource = dataList.Select(x => new { x.Id, x.Name, x.CurrenyName, x.Phone }).ToList();
+            dataGridView1.DataSource = dataList;
         }
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
@@ -90,7 +90,7 @@ namespace PamirAccounting.UI.Forms.Agencies
         {
             if (txtSearch.Text.Length > 0)
             {
-                dataList = unitOfWork.Agencies.FindAll(y => y.Name.Contains(txtSearch.Text)).Select(x => new AgencyModel { Id = x.Id, Name = x.Name }).ToList();
+                dataList = unitOfWork.AgencyServices.Search(txtSearch.Text);
                 dataGridView1.DataSource = dataList;
             }
             else
@@ -113,6 +113,52 @@ namespace PamirAccounting.UI.Forms.Agencies
             }
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+
+            if (e.KeyCode == Keys.F7)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frmCurrencies = new AgencyCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                 MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            unitOfWork.AgencyServices.Delete(new Agency() { Id = dataList.ElementAt(rowIndex).Id });
+                            unitOfWork.SaveChanges();
+                            loadData();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("حذف امکانپذیر نمیباشد");
+                        }
+
+                    }
+                }
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                var frmCurrencies = new AgencyCreateUpdateFrm();
+                frmCurrencies.ShowDialog();
+                loadData();
+
+            }
         }
     }
 }
