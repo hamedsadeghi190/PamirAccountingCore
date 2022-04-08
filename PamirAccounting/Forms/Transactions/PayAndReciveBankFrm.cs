@@ -61,6 +61,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 autoCustomers.Add(item.Title);
             }
+
             cmbCustomers.AutoCompleteCustomSource = autoCustomers;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
@@ -143,7 +144,7 @@ namespace PamirAccounting.Forms.Transactions
             }
             else
             {
-               
+
                 txtDate.Text = DateTime.Now.ToFarsiFormat();
                 lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             }
@@ -152,18 +153,20 @@ namespace PamirAccounting.Forms.Transactions
 
         private void loadTransActionInfo(long? transActionId)
         {
-            var orginalTranacion = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
-            customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == orginalTranacion.OriginalTransactionId);
+            var tempTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
+
+            var orginalTranacion = unitOfWork.TransactionServices.FindFirst(x => x.Id == tempTransaction.OriginalTransactionId);
+
             lbl_Document_Id_value.Text = customerTransaction.DocumentId.ToString();
 
-            if (customerTransaction.WithdrawAmount.Value != 0)
+            if (orginalTranacion.WithdrawAmount.Value != 0)
             {
-                txtAmount.Text = customerTransaction.WithdrawAmount.Value.ToString();
+                txtAmount.Text = orginalTranacion.WithdrawAmount.Value.ToString();
                 cmbAction.SelectedValue = 2;
             }
             else
             {
-                txtAmount.Text = customerTransaction.DepositAmount.Value.ToString();
+                txtAmount.Text = orginalTranacion.DepositAmount.Value.ToString();
                 cmbAction.SelectedValue = 1;
             }
 
@@ -468,6 +471,7 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
             customerTransaction.OriginalTransactionId = bankTransaction.Id;
+            customerTransaction.DoubleTransactionId = bankTransaction.Id;
             var cDate = txtDate.Text.Split('/');
 
             PersianCalendar pc = new PersianCalendar();
@@ -475,7 +479,6 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.Date = DateTime.Now;
             customerTransaction.TransactionDateTime = TransactionDateTime;
             customerTransaction.UserId = CurrentUser.UserID;
-            customerTransaction.DoubleTransactionId = bankTransaction.Id;
             customerTransaction.DocumentId = documentId;
             customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
             customerTransaction.BranchCode = txtBranchCode.Text;
