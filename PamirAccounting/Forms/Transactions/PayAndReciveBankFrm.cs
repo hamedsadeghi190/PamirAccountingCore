@@ -135,7 +135,7 @@ namespace PamirAccounting.Forms.Transactions
 
             if (_TransActionId.HasValue)
             {
-                cmbCustomers.SelectedValue = _Id;
+
                 cmbCustomers.Enabled = false;
                 cmbCustomers.Visible = true;
                 cmbAction.Enabled = false;
@@ -155,44 +155,59 @@ namespace PamirAccounting.Forms.Transactions
         {
             var tempTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
 
-            var orginalTranacion = unitOfWork.TransactionServices.FindFirst(x => x.Id == tempTransaction.OriginalTransactionId);
+            bankTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == tempTransaction.OriginalTransactionId);
 
-            lbl_Document_Id_value.Text = customerTransaction.DocumentId.ToString();
-
-            if (orginalTranacion.WithdrawAmount.Value != 0)
+            if (bankTransaction.DoubleTransactionId != null)
             {
-                txtAmount.Text = orginalTranacion.WithdrawAmount.Value.ToString();
+                customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == bankTransaction.DoubleTransactionId);
+
+            }
+
+            lbl_Document_Id_value.Text = bankTransaction.DocumentId.ToString();
+
+            if (bankTransaction.DepositAmount.Value != 0)
+            {
+                txtAmount.Text = bankTransaction.DepositAmount.Value.ToString();
                 cmbAction.SelectedValue = 2;
-            }
-            else
-            {
-                txtAmount.Text = orginalTranacion.DepositAmount.Value.ToString();
-                cmbAction.SelectedValue = 1;
-            }
-
-            lblCustomers.Visible = true;
-            cmbVarizType.SelectedValue = 2;
-            cmbVarizType.Enabled = false;
-            txtdesc.Text = customerTransaction.Description;
-            cmbCurrencies.SelectedValue = customerTransaction.CurrenyId;
-            cmbCurrencies.Enabled = true;
-            cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
-            cmbCustomers.Enabled = false;
-
-            txtReceiptNumber.Text = customerTransaction.ReceiptNumber;
-            txtBranchCode.Text = customerTransaction.BranchCode;
-
-            txtDate.Text = customerTransaction.TransactionDateTime.ToFarsiFormat();
-
-            if (customerTransaction.DoubleTransactionId != null)
-            {
-                bankTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
+                lblCustomers.Visible = true;
+                cmbVarizType.Visible = false;
+                lbl_variz_type.Visible = false;
+                txtdesc.Text = bankTransaction.Description;
+                cmbCurrencies.SelectedValue = bankTransaction.CurrenyId;
+                cmbCurrencies.Enabled = true;
                 cmbBanks.SelectedValue = bankTransaction.SourceCustomerId;
+                cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
+                cmbCustomers.Enabled = true;
             }
             else
             {
+                if (bankTransaction.TransactionType == (int)TransaActionType.UnkwonReciveBank)
+                {
+                    cmbVarizType.Visible = true;
+                    cmbCustomers.Visible = false;
+                    lblCustomers.Visible = false;
+                    cmbCustomers.Enabled = true;
+                    cmbVarizType.SelectedValue = (int)DepostType.Unkown;
+                }
+                else
+                {
+                    cmbVarizType.SelectedValue = (int)DepostType.known;
+                    cmbCustomers.Visible = true;
+                    lblCustomers.Visible = true;
+                    cmbCustomers.SelectedValue = customerTransaction.SourceCustomerId;
+                    cmbCustomers.Enabled = true;
+                }
 
+                cmbAction.SelectedValue = 1;
+                txtAmount.Text = bankTransaction.WithdrawAmount.Value.ToString();
             }
+
+            cmbCurrencies.SelectedValue = bankTransaction.CurrenyId;
+            txtReceiptNumber.Text = bankTransaction.ReceiptNumber;
+            txtBranchCode.Text = bankTransaction.BranchCode;
+            txtDate.Text = bankTransaction.TransactionDateTime.ToFarsiFormat();
+            ShowChars();
+
         }
 
         private void cmbAction_SelectedValueChanged(object sender, EventArgs e)
@@ -280,7 +295,6 @@ namespace PamirAccounting.Forms.Transactions
                 }
             }
 
-
         }
 
         private bool CheckEntries()
@@ -357,7 +371,7 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.SaveChanges();
 
             //ثبت واریز برای مشتری
-            if ((int)cmbVarizType.SelectedValue == (int)DepostType.known)
+            if ((int)cmbVarizType.SelectedValue == (int)DepostType.known && customerTransaction !=null)
             {
 
 
@@ -384,6 +398,39 @@ namespace PamirAccounting.Forms.Transactions
                 unitOfWork.TransactionServices.Update(customerTransaction);
                 unitOfWork.SaveChanges();
 
+            }
+            //ثبت واریز برای مشتری
+           else if ((int)cmbVarizType.SelectedValue == (int)DepostType.known && customerTransaction == null)
+            {
+                customerTransaction = new Domains.Transaction();
+                customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
+                customerTransaction.DoubleTransactionId = bankTransaction.Id;
+                customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+                customerTransaction.DestinitionCustomerId = (int)cmbBanks.SelectedValue;
+                customerTransaction.Description = txtdesc.Text;
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
+                customerTransaction.WithdrawAmount = 0;
+                customerTransaction.DocumentId = bankTransaction.DocumentId;
+                customerTransaction.ReceiptNumber = txtReceiptNumber.Text;
+                customerTransaction.BranchCode = txtBranchCode.Text;
+                customerTransaction.Description = createDescription(txtdesc.Text);
+
+                customerTransaction.CurrenyId = (int)cmbCurrencies.SelectedValue;
+                var cDate = txtDate.Text.Split('/');
+
+                PersianCalendar pc = new PersianCalendar();
+                TransactionDateTime = p.ToDateTime(int.Parse(cDate[0]), int.Parse(cDate[1]), int.Parse(cDate[2]), 0, 0, 0, 0);
+                customerTransaction.Date = DateTime.Now;
+                customerTransaction.TransactionDateTime = TransactionDateTime;
+                customerTransaction.UserId = CurrentUser.UserID;
+                customerTransaction.OriginalTransactionId = bankTransaction.Id;
+                unitOfWork.TransactionServices.Insert(customerTransaction);
+                unitOfWork.SaveChanges();
+
+                //sabt sande double
+                bankTransaction.DoubleTransactionId = customerTransaction.Id;
+                unitOfWork.TransactionServices.Update(bankTransaction);
+                unitOfWork.SaveChanges();
             }
 
         }
@@ -645,12 +692,19 @@ namespace PamirAccounting.Forms.Transactions
         {
             txtAmount.Text = "0";
             txtdesc.Text = "";
+            txtDate.Text = DateTime.Now.ToFarsiFormat();
             txtBranchCode.Text = "";
             txtReceiptNumber.Text = "";
             lblNumberString.Text = "";
-            cmbAction.Select();
-            cmbAction.Focus();
-
+            cmbAction.SelectedIndex = 0;
+            cmbBanks.SelectedIndex = 0;
+            cmbCurrencies.SelectedIndex = 0;
+            cmbVarizType.SelectedIndex = 0;
+            cmbCustomers.SelectedIndex = 0;
+            cmbCustomers.Visible = false;
+            lblCustomers.Visible = false;
+            cmbVarizType.Visible = true;
+            lbl_variz_type.Visible = true;
         }
     }
 }

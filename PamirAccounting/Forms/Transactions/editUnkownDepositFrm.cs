@@ -55,6 +55,7 @@ namespace PamirAccounting.Forms.Transactions
             txtBankName.Text = transaction.SourceCustomer.FirstName;
             txtDate.Text = (DateTime.Parse(transaction.Date.ToString())).ToShortPersianDateString();
             txtdesc.Text = transaction.Description;
+            txtradif.Text = transaction.DocumentId.ToString();
             dataGridView1.Focus();
         }
 

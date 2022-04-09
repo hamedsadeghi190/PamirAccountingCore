@@ -22,7 +22,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-           
+
         }
         public void LoadData()
         {
@@ -42,7 +42,7 @@ namespace PamirAccounting.Forms.Transactions
             d.FlatStyle = FlatStyle.Standard;
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
-            DataGridViewButtonColumn f= (DataGridViewButtonColumn)dataGridView1.Columns["btnAction"];
+            DataGridViewButtonColumn f = (DataGridViewButtonColumn)dataGridView1.Columns["btnAction"];
             f.FlatStyle = FlatStyle.Standard;
             f.DefaultCellStyle.ForeColor = Color.SteelBlue;
             f.DefaultCellStyle.BackColor = Color.Lavender;
@@ -60,33 +60,32 @@ namespace PamirAccounting.Forms.Transactions
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                //var frmCurrencies = new CustomerCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
-                //frmCurrencies.ShowDialog();
-                //loadData();
+                var frmbankunkown = new PayAndReciveBankFrm(0, _dataList.ElementAt(e.RowIndex).Id);
+                frmbankunkown.ShowDialog();
+                LoadData();
             }
 
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
 
-                //DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
-                //    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
 
-                //if (dialogResult == DialogResult.Yes)
-                //{
-                //    try
-                //    {
-                //        //var customer = unitOfWork.Customers.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
-                //        //customer.IsDeleted = true;
-                //        //unitOfWork.CustomerServices.Update(customer);
-                //        //unitOfWork.SaveChanges();
-                //        LoadData();
-                //    }
-                //    catch
-                //    {
-                //        MessageBox.Show("حذف امکانپذیر نمیباشد");
-                //    }
-                //}
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var transaction = unitOfWork.TransactionServices.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
+                        unitOfWork.CustomerServices.Delete(transaction);
+                        unitOfWork.SaveChanges();
+                        LoadData();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("حذف امکانپذیر نمیباشد");
+                    }
+                }
             }
         }
 

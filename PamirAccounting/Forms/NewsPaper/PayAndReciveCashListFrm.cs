@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -17,7 +18,7 @@ namespace PamirAccounting.Forms.NewsPaper
 {
     public partial class PayAndReciveCashListFrm : DevExpress.XtraEditors.XtraForm
     {
-     
+
         private UnitOfWork unitOfWork;
         private int? _Id;
         private Domains.Customer _Customer;
@@ -30,10 +31,8 @@ namespace PamirAccounting.Forms.NewsPaper
 
         public PayAndReciveCashListFrm()
         {
-
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-
         }
 
         [DllImport("user32.dll")]
@@ -136,7 +135,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         }
 
- 
+
 
         private void PayAndReciveCashListFrm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -169,10 +168,24 @@ namespace PamirAccounting.Forms.NewsPaper
             if (txtDate.Text.Length > 0)
             {
                 _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCashDate(txtDate.Text);
-        
+
             }
             else
                 LoadData();
         }
+
+        private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        {
+
+
+            if (e.ColumnIndex == gridPayAndReciveCash.Columns["BtnEdit"].Index && e.RowIndex >= 0)
+            {
+                var frmCash = new PayAndReciveCashFrm(0, _dataList.ElementAt(e.RowIndex).Id);
+                frmCash.ShowDialog();
+                LoadData();
+            }
+
+        }
+
     }
 }

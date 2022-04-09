@@ -45,7 +45,8 @@ namespace PamirAccounting.Forms.Transactions
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocumentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -208,7 +209,8 @@ namespace PamirAccounting.Forms.Transactions
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.RowId,
+            this.DocumentId,
             this.Column3,
             this.Column2,
             this.Column4,
@@ -232,29 +234,36 @@ namespace PamirAccounting.Forms.Transactions
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(1155, 514);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // Column1
+            // RowId
             // 
-            this.Column1.DataPropertyName = "Id";
-            this.Column1.FillWeight = 70F;
-            this.Column1.Frozen = true;
-            this.Column1.HeaderText = "ردیف";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 70;
+            this.RowId.DataPropertyName = "RowId";
+            this.RowId.FillWeight = 70F;
+            this.RowId.HeaderText = "ردیف";
+            this.RowId.MinimumWidth = 6;
+            this.RowId.Name = "RowId";
+            this.RowId.ReadOnly = true;
+            this.RowId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.RowId.Width = 70;
+            // 
+            // DocumentId
+            // 
+            this.DocumentId.DataPropertyName = "DocumentId";
+            this.DocumentId.HeaderText = "سند";
+            this.DocumentId.Name = "DocumentId";
+            this.DocumentId.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "Date";
-            this.Column3.Frozen = true;
             this.Column3.HeaderText = "تاریخ";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -390,7 +399,8 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocumentId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
