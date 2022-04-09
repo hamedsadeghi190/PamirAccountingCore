@@ -59,6 +59,9 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBoxViewAccountCustomer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
@@ -127,7 +130,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.groupBoxViewAccountCustomer.Controls.Add(this.groupBox1);
             this.groupBoxViewAccountCustomer.Controls.Add(this.btnprint);
             this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(4, 5);
+            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(4, 8);
             this.groupBoxViewAccountCustomer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.Name = "groupBoxViewAccountCustomer";
             this.groupBoxViewAccountCustomer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -215,12 +218,14 @@ namespace PamirAccounting.Forms.GeneralLedger
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdTotals.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(1, 467);
+            this.grdTotals.Location = new System.Drawing.Point(1, 443);
             this.grdTotals.Name = "grdTotals";
             this.grdTotals.ReadOnly = true;
             this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdTotals.RowHeadersVisible = false;
             this.grdTotals.RowHeadersWidth = 51;
+            this.grdTotals.RowTemplate.Height = 32;
+            this.grdTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdTotals.ShowEditingIcon = false;
             this.grdTotals.Size = new System.Drawing.Size(916, 146);
             this.grdTotals.TabIndex = 109;
@@ -296,9 +301,10 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.gridCreditor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.gridCreditor.RowHeadersVisible = false;
             this.gridCreditor.RowHeadersWidth = 51;
+            this.gridCreditor.RowTemplate.Height = 32;
             this.gridCreditor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCreditor.ShowEditingIcon = false;
-            this.gridCreditor.Size = new System.Drawing.Size(916, 333);
+            this.gridCreditor.Size = new System.Drawing.Size(916, 309);
             this.gridCreditor.TabIndex = 108;
             // 
             // dataGridViewTextBoxColumn5
@@ -373,13 +379,52 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
             this.dataGridViewTextBoxColumn12.Width = 130;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label2.Location = new System.Drawing.Point(104, 594);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(65, 19);
+            this.label2.TabIndex = 138;
+            this.label2.Text = "چاپ(F5)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label3.Location = new System.Drawing.Point(4, 593);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.TabIndex = 137;
+            this.label3.Text = "جستجو (F2) ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label5.Location = new System.Drawing.Point(180, 594);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(84, 19);
+            this.label5.TabIndex = 136;
+            this.label5.Text = "خروج (Esc)";
+            // 
             // CreditorListFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 614);
+            this.ClientSize = new System.Drawing.Size(917, 621);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBoxViewAccountCustomer);
             this.Controls.Add(this.grdTotals);
             this.Controls.Add(this.gridCreditor);
@@ -399,6 +444,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             ((System.ComponentModel.ISupportInitialize)(this.grdTotals)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCreditor)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -426,5 +472,8 @@ namespace PamirAccounting.Forms.GeneralLedger
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
     }
 }

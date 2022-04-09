@@ -53,6 +53,9 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.btnprint = new DevExpress.XtraEditors.SimpleButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdTotals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCreditor)).BeginInit();
             this.groupBoxViewAccountCustomer.SuspendLayout();
@@ -90,12 +93,13 @@ namespace PamirAccounting.Forms.GeneralLedger
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdTotals.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(0, 478);
+            this.grdTotals.Location = new System.Drawing.Point(0, 445);
             this.grdTotals.Name = "grdTotals";
             this.grdTotals.ReadOnly = true;
             this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdTotals.RowHeadersVisible = false;
             this.grdTotals.RowHeadersWidth = 51;
+            this.grdTotals.RowTemplate.Height = 32;
             this.grdTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdTotals.ShowEditingIcon = false;
             this.grdTotals.Size = new System.Drawing.Size(892, 136);
@@ -172,9 +176,10 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.gridCreditor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.gridCreditor.RowHeadersVisible = false;
             this.gridCreditor.RowHeadersWidth = 51;
+            this.gridCreditor.RowTemplate.Height = 32;
             this.gridCreditor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCreditor.ShowEditingIcon = false;
-            this.gridCreditor.Size = new System.Drawing.Size(892, 342);
+            this.gridCreditor.Size = new System.Drawing.Size(892, 307);
             this.gridCreditor.TabIndex = 108;
             // 
             // dataGridViewTextBoxColumn5
@@ -312,6 +317,42 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.btnprint.Text = "چاپ";
             this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label2.Location = new System.Drawing.Point(102, 587);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(65, 19);
+            this.label2.TabIndex = 135;
+            this.label2.Text = "چاپ(F5)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label3.Location = new System.Drawing.Point(2, 586);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.TabIndex = 134;
+            this.label3.Text = "جستجو (F2) ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label5.Location = new System.Drawing.Point(178, 587);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(84, 19);
+            this.label5.TabIndex = 133;
+            this.label5.Text = "خروج (Esc)";
+            // 
             // DebtorListFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -319,6 +360,9 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 614);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBoxViewAccountCustomer);
             this.Controls.Add(this.grdTotals);
             this.Controls.Add(this.gridCreditor);
@@ -338,6 +382,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -359,5 +404,8 @@ namespace PamirAccounting.Forms.GeneralLedger
         private DevExpress.XtraEditors.TextEdit txtSearch;
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.SimpleButton btnprint;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
     }
 }
