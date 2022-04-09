@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
+using DNTPersianUtils.Core;
 using Microsoft.EntityFrameworkCore;
 using PamirAccounting.Domains;
 using PamirAccounting.Infrastructures;
 using PamirAccounting.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using DNTPersianUtils.Core;
-using static PamirAccounting.Commons.Enums.Settings;
 using System.Globalization;
+using System.Linq;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Services
 {
@@ -831,7 +831,7 @@ namespace PamirAccounting.Services
                 if (bankId == null)
                 {
                     dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.SourceCustomer.GroupId != 2)
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank )
                    .Select(x => new TransactionModel
                    {
 
@@ -846,14 +846,13 @@ namespace PamirAccounting.Services
                        SourceCustomerId = x.SourceCustomerId,
                        BranchCode = x.BranchCode,
                        ReceiptNumber = x.ReceiptNumber,
-
-
+                       DocumentId = x.DocumentId
 
                    }).ToList();
                 }
                 else
                 {
-                    dataList = FindAllReadonly(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.SourceCustomer.GroupId != 2)
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank )
                                  .Include(x => x.Curreny)
 
                                  .Select(x => new TransactionModel
@@ -869,6 +868,7 @@ namespace PamirAccounting.Services
                                      SourceCustomerId = x.SourceCustomerId,
                                      BranchCode = x.BranchCode,
                                      ReceiptNumber = x.ReceiptNumber,
+                                     DocumentId = x.DocumentId
                                  }).ToList();
                 }
                 int row = 1;
@@ -886,7 +886,7 @@ namespace PamirAccounting.Services
                     SourceCustomerId = x.SourceCustomerId,
                     BranchCode = x.BranchCode,
                     ReceiptNumber = x.ReceiptNumber,
-
+                    DocumentId = x.DocumentId
 
                 }).ToList();
                 return tmpdataList;
@@ -988,5 +988,80 @@ namespace PamirAccounting.Services
             }
 
         }
+
+
+        public List<TransactionModel> GetAllSellAndBuyCurrency(int? currencyId)
+        {
+            try
+            {
+                PersianCalendar pc = new PersianCalendar();
+                var dataList = new List<TransactionModel>();
+                if (currencyId == null)
+                {
+                    dataList = FindAllReadonly()
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.SellAndBuy )
+                   .Select(x => new TransactionModel
+                   {
+
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       TransactionDateTime = pc.GetYear(x.TransactionDateTime).ToString() + "/" + pc.GetMonth(x.TransactionDateTime).ToString() + "/" + pc.GetDayOfMonth(x.TransactionDateTime).ToString(),
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                       SourceCustomerId = x.SourceCustomerId,
+                       DocumentId = x.DocumentId
+
+
+                   }).ToList();
+                }
+                else
+                {
+                    dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.SellAndBuy && x.CurrenyId == currencyId)
+                                 .Include(x => x.Curreny)
+
+                                 .Select(x => new TransactionModel
+                                 {
+                                     Id = x.Id,
+                                     Description = x.Description,
+                                     DepositAmount = x.DepositAmount,
+                                     WithdrawAmount = x.WithdrawAmount,
+                                     CurrenyId = x.CurrenyId,
+                                     CurrenyName = x.Curreny.Name,
+                                     FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                                     TransactionDateTime = pc.GetYear(x.TransactionDateTime).ToString() + "/" + pc.GetMonth(x.TransactionDateTime).ToString() + "/" + pc.GetDayOfMonth(x.TransactionDateTime).ToString(),
+                                     SourceCustomerId = x.SourceCustomerId,
+                                     DocumentId = x.DocumentId
+                                 }).ToList();
+                }
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    TransactionDateTime = x.TransactionDateTime.ToString(),
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    FullName = x.FullName,
+                    SourceCustomerId = x.SourceCustomerId,
+                    DocumentId = x.DocumentId
+
+
+
+                }).ToList();
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
     }
 }

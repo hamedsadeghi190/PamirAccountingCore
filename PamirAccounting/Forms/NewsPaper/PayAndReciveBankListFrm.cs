@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -70,23 +71,17 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void LoadData()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null);
-            GellAll(tmpDataList);
+             _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null);
+            GellAll(_dataList);
         }
 
         private void cmbBank_TextChanged(object sender, EventArgs e)
         {
-            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Customers.FindAll().Where(x=>x.GroupId==2).Select(x => new ComboBoxModel() { Id = x.Id, Title = x.FirstName }).ToList());
-            cmbBank.SelectedValueChanged -= new EventHandler(cmbBank_SelectedValueChanged);
-            cmbBank.DataSource = _Currencies;
-            cmbBank.ValueMember = "Id";
-            cmbBank.DisplayMember = "Title";
-            cmbBank.SelectedValueChanged -= new EventHandler(cmbBank_SelectedValueChanged);
-            if ((int)cmbBank.SelectedValue == 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(null);
-            }
+
+        }
+
+        private void cmbBank_SelectedValueChanged(object sender, EventArgs e)
+        {
 
             if ((int)cmbBank.SelectedValue > 0)
             {
@@ -97,11 +92,6 @@ namespace PamirAccounting.Forms.NewsPaper
             {
                 LoadData();
             }
-        }
-
-        private void cmbBank_SelectedValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void PayAndReciveBankListFrm_KeyUp(object sender, KeyEventArgs e)
@@ -152,8 +142,20 @@ namespace PamirAccounting.Forms.NewsPaper
                 item.RowId = row++;
             }
             gridPayAndReciveBank.AutoGenerateColumns = false;
-            gridPayAndReciveBank.DataSource = _GroupedDataList;
+            gridPayAndReciveBank.DataSource = tmpDataList;
 
         }
+
+        private void grdTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == gridPayAndReciveBank.Columns["BtnEdit"].Index && e.RowIndex >= 0)
+            {
+                var tranactionId = _dataList.ElementAt(e.RowIndex).Id;
+                var frmbankunkown = new PayAndReciveBankFrm(0, tranactionId);
+                frmbankunkown.ShowDialog();
+
+            }
+        }
+
     }
 }

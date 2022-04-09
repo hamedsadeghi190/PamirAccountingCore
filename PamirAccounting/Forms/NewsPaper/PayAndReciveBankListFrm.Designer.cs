@@ -49,7 +49,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBoxViewAccountCustomer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
@@ -156,7 +156,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.dataGridViewTextBoxColumn10,
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.BtnEdit});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Info;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -180,6 +180,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.gridPayAndReciveBank.ShowEditingIcon = false;
             this.gridPayAndReciveBank.Size = new System.Drawing.Size(993, 379);
             this.gridPayAndReciveBank.TabIndex = 132;
+            this.gridPayAndReciveBank.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -206,6 +207,7 @@ namespace PamirAccounting.Forms.NewsPaper
             // 
             // DocumentId
             // 
+            this.DocumentId.DataPropertyName = "DocumentId";
             this.DocumentId.FillWeight = 70F;
             this.DocumentId.HeaderText = "سند";
             this.DocumentId.Name = "DocumentId";
@@ -215,10 +217,12 @@ namespace PamirAccounting.Forms.NewsPaper
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "TransactionDateTime";
+            this.dataGridViewTextBoxColumn8.FillWeight = 80F;
             this.dataGridViewTextBoxColumn8.HeaderText = "تاریخ";
             this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 80;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -241,18 +245,18 @@ namespace PamirAccounting.Forms.NewsPaper
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "ReceiptNumber";
-            this.dataGridViewTextBoxColumn10.FillWeight = 150F;
+            this.dataGridViewTextBoxColumn10.FillWeight = 110F;
             this.dataGridViewTextBoxColumn10.HeaderText = "شماره فیش";
             this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 150;
+            this.dataGridViewTextBoxColumn10.Width = 110;
             // 
             // Column1
             // 
             this.Column1.DataPropertyName = "DepositAmount";
             this.Column1.FillWeight = 150F;
-            this.Column1.HeaderText = "مبلغ";
+            this.Column1.HeaderText = "واریز";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -260,6 +264,7 @@ namespace PamirAccounting.Forms.NewsPaper
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "WithdrawAmount";
             this.Column2.FillWeight = 150F;
             this.Column2.HeaderText = "برداشت";
             this.Column2.MinimumWidth = 6;
@@ -267,14 +272,15 @@ namespace PamirAccounting.Forms.NewsPaper
             this.Column2.ReadOnly = true;
             this.Column2.Width = 150;
             // 
-            // Column3
+            // BtnEdit
             // 
-            this.Column3.FillWeight = 135F;
-            this.Column3.HeaderText = "موجودی";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 135;
+            this.BtnEdit.HeaderText = "ویرایش";
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.ReadOnly = true;
+            this.BtnEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BtnEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.BtnEdit.Text = "ویرایش";
+            this.BtnEdit.UseColumnTextForButtonValue = true;
             // 
             // PayAndReciveBankListFrm
             // 
@@ -320,6 +326,6 @@ namespace PamirAccounting.Forms.NewsPaper
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewButtonColumn BtnEdit;
     }
 }

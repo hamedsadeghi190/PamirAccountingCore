@@ -101,7 +101,7 @@ namespace PamirAccounting.Forms.Transactions
                 unitOfWork.TransactionServices.Insert(talabkarTransaction);
             }
 
-            unitOfWork.SaveChanges();
+                unitOfWork.SaveChanges();
             //end talabkarTransaction ///
 
             //tarakonesh sandogh//
@@ -307,7 +307,7 @@ namespace PamirAccounting.Forms.Transactions
 
             talabkarTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == OriginalTransaction.OriginalTransactionId);
             bedehkarTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == talabkarTransaction.DoubleTransactionId);
-           
+            lbl_Document_Id_value.Text = talabkarTransaction.DocumentId.ToString();
             txtDate.Text = talabkarTransaction.TransactionDateTime.ToFarsiFormat();
 
             cmbCustomers.SelectedValue = talabkarTransaction.SourceCustomerId;
@@ -528,7 +528,7 @@ namespace PamirAccounting.Forms.Transactions
         {
             try
             {
-                txtDesc.Text = $"فروش {txtsellerprice.Text} {cmbSellCurrencies.Text} به {cmbCustomers.Text} به نرخ {txtrate.Text} معادل {txtbuyerprice.Text} {cmbCurrencybuyer.Text} ";
+                txtDesc.Text = $"فروش {txtsellerprice.Text} {cmbSellCurrencies.Text} به {cmbCustomers.Text} به نرخ {txtrate.Text} معادل {txtbuyerprice.Text} {cmbCurrencybuyer.Text}";
             }
             catch (Exception ex)
             {

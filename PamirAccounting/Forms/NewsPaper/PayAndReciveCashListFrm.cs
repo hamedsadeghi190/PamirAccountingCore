@@ -31,10 +31,8 @@ namespace PamirAccounting.Forms.NewsPaper
 
         public PayAndReciveCashListFrm()
         {
-
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-
         }
 
         [DllImport("user32.dll")]
