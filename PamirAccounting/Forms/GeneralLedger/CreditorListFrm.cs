@@ -152,12 +152,37 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         private void CreditorListFrm_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
+            if (e.KeyCode == Keys.F2)
+            {
+                txtSearch.Select();
+                txtSearch.Focus();
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+                PersianCalendar pc = new PersianCalendar();
+                DateTime dt = DateTime.Now;
+                string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                var data = TotalPrint();
+                var data2 = TotalSummeryPrint();
+                var basedata = new reportbaseDAta() { Date = PersianDate };
+                var report = StiReport.CreateNewReport();
+                report.Load(AppSetting.ReportPath + "CreditorList.mrt");
+                report.RegData("myData", data);
+                report.RegData("myData2", data2);
+                report.RegData("basedata", basedata);
+                // report.Design();
+                report.Render();
+                report.Show();
+
             }
         }
 

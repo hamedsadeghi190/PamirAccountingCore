@@ -64,6 +64,7 @@ namespace PamirAccounting.Forms
             this.ChequePaymentList = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_SareHesabList = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_VosoolShode = new System.Windows.Forms.ToolStripMenuItem();
+            this.OdatVagozariList = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_Vagozari = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_ReceveOdat = new System.Windows.Forms.ToolStripMenuItem();
             this.ChequeMenu_OdatSare = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,7 +112,6 @@ namespace PamirAccounting.Forms
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.lblTimee = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.OdatVagozariList = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -536,6 +536,15 @@ namespace PamirAccounting.Forms
             this.ChequeMenu_VosoolShode.Text = "لیست چک های وصول شده";
             this.ChequeMenu_VosoolShode.Click += new System.EventHandler(this.ChequeMenu_VosoolShode_Click);
             // 
+            // OdatVagozariList
+            // 
+            this.OdatVagozariList.AutoSize = false;
+            this.OdatVagozariList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.OdatVagozariList.Name = "OdatVagozariList";
+            this.OdatVagozariList.Size = new System.Drawing.Size(326, 38);
+            this.OdatVagozariList.Text = "لیست چک های عودت  شده واگذاری";
+            this.OdatVagozariList.Click += new System.EventHandler(this.OdatVagozariList_Click);
+            // 
             // ChequeMenu_Vagozari
             // 
             this.ChequeMenu_Vagozari.AutoSize = false;
@@ -744,7 +753,7 @@ namespace PamirAccounting.Forms
             this.TotalBlance.Image = ((System.Drawing.Image)(resources.GetObject("TotalBlance.Image")));
             this.TotalBlance.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TotalBlance.Name = "TotalBlance";
-            this.TotalBlance.Size = new System.Drawing.Size(195, 38);
+            this.TotalBlance.Size = new System.Drawing.Size(196, 38);
             this.TotalBlance.Text = "مفاد و زیان";
             this.TotalBlance.Click += new System.EventHandler(this.TotalBlance_Click);
             // 
@@ -1122,14 +1131,6 @@ namespace PamirAccounting.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1332, 20);
             this.panel1.TabIndex = 11;
-            // 
-            // OdatVagozariList
-            // 
-            this.OdatVagozariList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.OdatVagozariList.Name = "OdatVagozariList";
-            this.OdatVagozariList.Size = new System.Drawing.Size(326, 24);
-            this.OdatVagozariList.Text = "لیست چک های عودت  شده واگذاری";
-            this.OdatVagozariList.Click += new System.EventHandler(this.OdatVagozariList_Click);
             // 
             // LandingPageFrm
             // 

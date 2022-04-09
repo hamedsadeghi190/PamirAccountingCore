@@ -113,12 +113,63 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
 
         private void ContactsListFrm_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
             if (e.KeyCode == Keys.F2)
             {
                 txtsearch.Select();
                 txtsearch.Focus();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.F7)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frmContact = new ContactsCreateUpdateFrm(dataList.ElementAt(rowIndex).Id.Value);
+                    frmContact.ShowDialog();
+                    loadData();
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف مخاطب", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                 MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            unitOfWork.Contacts.Delete(new Contact() { Id = dataList.ElementAt(rowIndex).Id.Value });
+                            unitOfWork.SaveChanges();
+                            loadData();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("حذف امکانپذیر نمیباشد");
+                        }
+
+                    }
+                }
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                var FrmContacts = new ContactsCreateUpdateFrm();
+                FrmContacts.ShowDialog();
+                loadData();
+
             }
         }
     }

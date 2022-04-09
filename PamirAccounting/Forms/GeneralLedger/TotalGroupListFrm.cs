@@ -28,7 +28,7 @@ namespace PamirAccounting.Forms.GeneralLedger
         private List<ComboBoxModel> _Groups = new List<ComboBoxModel>();
         public TotalGroupListFrm()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             unitOfWork = new UnitOfWork();
         }
         [DllImport("user32.dll")]
@@ -81,7 +81,7 @@ namespace PamirAccounting.Forms.GeneralLedger
         private void TotalGroupListFrm_Load(object sender, EventArgs e)
         {
             SetComboBoxHeight(cmbCurrencies.Handle, 25);
-            SetComboBoxHeight(cmbGroup.Handle, 25); 
+            SetComboBoxHeight(cmbGroup.Handle, 25);
             InitForm();
             LoadData();
 
@@ -102,25 +102,29 @@ namespace PamirAccounting.Forms.GeneralLedger
             if (e.KeyCode == Keys.Escape)
                 this.Close();
 
+            
             if (e.KeyCode == Keys.Enter)
             {
-              
+
                 if (gridCreditor.SelectedRows.Count > 0)
                 {
-                    // gridCreditor.CurrentCell.OwningRow.Index
+       
+                    var size = _dataListTotal.ElementAt(_dataListTotal.Count() - 1);
                     var rowCount = _dataListTotal.Count();
-                    var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
-                    if (rowIndex < rowCount-1)
+                    var rowIndex = gridCreditor.CurrentCell.OwningRow.Index-1;
+                    if (rowIndex == rowCount - 1)
                     {
-                        var frmCurrencies = new TotalListFrm(_dataListTotal.ElementAt(rowIndex-1).CurrenyId, _dataListTotal.ElementAt(rowIndex-1).GroupId);
+                        var frmCurrencies = new TotalListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
                         frmCurrencies.ShowDialog();
+                        return;
                     }
-                   else
+                    if (rowIndex< rowCount - 1)
                     {
                         var frmCurrencies = new TotalListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
                         frmCurrencies.ShowDialog();
                     }
-                 
+                    
+
                 }
             }
 
@@ -142,7 +146,7 @@ namespace PamirAccounting.Forms.GeneralLedger
 
             }
 
-         
+
         }
 
         private void GellAll(List<TransactionModel> _list)
@@ -183,7 +187,7 @@ namespace PamirAccounting.Forms.GeneralLedger
                     curenncySummery.Status = "بدهکار";
                 }
 
-                else 
+                else
                 {
                     curenncySummery.Status = "";
                 }
@@ -241,8 +245,8 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         private void cmbGroup_SelectedValueChanged(object sender, EventArgs e)
         {
-          
-        
+
+
 
             if ((int)cmbGroup.SelectedValue > 0)
             {
@@ -270,14 +274,14 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
-            
-       
+
+
         }
 
         private void cmbGroup_TextChanged(object sender, EventArgs e)
 
         {
-           
+
 
         }
 

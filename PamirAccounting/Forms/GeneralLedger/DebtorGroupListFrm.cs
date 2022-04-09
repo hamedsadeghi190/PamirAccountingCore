@@ -90,12 +90,57 @@ namespace PamirAccounting.Forms.GeneralLedger
         private void DebtorGroupListFrm_KeyUp(object sender, KeyEventArgs e)
         {
 
-            if (e.KeyCode == Keys.Escape)
-                this.Close();
+            if (e.KeyCode == Keys.F2)
+            {
+                cmbGroup.Select();
+                cmbGroup.Focus();
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (gridCreditor.SelectedRows.Count > 0)
+                {
+                    
+                    var rowCount = _dataListTotal.Count();
+                    var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
+                    if (rowIndex <= rowCount - 1)
+                    {
+                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex-1).CurrenyId, _dataListTotal.ElementAt(rowIndex - 1).GroupId);
+                        frmCurrencies.ShowDialog();
+                    }
+                    else
+                    {
+                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex ).CurrenyId, _dataListTotal.ElementAt(rowIndex ).GroupId);
+                        frmCurrencies.ShowDialog();
+                    }
+
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+                PersianCalendar pc = new PersianCalendar();
+                DateTime dt = DateTime.Now;
+                string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                var data = TotalPrint();
+                var basedata = new reportbaseDAta() { Date = PersianDate };
+                var report = StiReport.CreateNewReport();
+                report.Load(AppSetting.ReportPath + "DebtorGroupListFrm.mrt");
+                report.RegData("myData", data);
+                report.RegData("basedata", basedata);
+                //report.Design();
+                report.Render();
+                report.Show();
+
             }
         }
 
