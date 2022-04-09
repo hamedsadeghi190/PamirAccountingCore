@@ -108,6 +108,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.gridCreditor.Size = new System.Drawing.Size(735, 372);
             this.gridCreditor.TabIndex = 111;
             this.gridCreditor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCreditor_CellClick);
+            this.gridCreditor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridCreditor_KeyDown);
             // 
             // dataGridViewTextBoxColumn5
             // 

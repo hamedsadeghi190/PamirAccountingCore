@@ -100,11 +100,13 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.gridCreditor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.gridCreditor.RowHeadersVisible = false;
             this.gridCreditor.RowHeadersWidth = 51;
+            this.gridCreditor.RowTemplate.Height = 32;
             this.gridCreditor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCreditor.ShowEditingIcon = false;
             this.gridCreditor.Size = new System.Drawing.Size(735, 394);
             this.gridCreditor.TabIndex = 109;
             this.gridCreditor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCreditor_CellClick);
+            this.gridCreditor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridCreditor_KeyDown);
             // 
             // dataGridViewTextBoxColumn5
             // 

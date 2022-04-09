@@ -224,6 +224,8 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdTotals.RowHeadersVisible = false;
             this.grdTotals.RowHeadersWidth = 51;
+            this.grdTotals.RowTemplate.Height = 32;
+            this.grdTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdTotals.ShowEditingIcon = false;
             this.grdTotals.Size = new System.Drawing.Size(916, 146);
             this.grdTotals.TabIndex = 109;
@@ -299,6 +301,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.gridCreditor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.gridCreditor.RowHeadersVisible = false;
             this.gridCreditor.RowHeadersWidth = 51;
+            this.gridCreditor.RowTemplate.Height = 32;
             this.gridCreditor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCreditor.ShowEditingIcon = false;
             this.gridCreditor.Size = new System.Drawing.Size(916, 309);

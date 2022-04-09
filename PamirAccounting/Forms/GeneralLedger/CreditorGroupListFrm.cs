@@ -113,9 +113,9 @@ namespace PamirAccounting.Forms.GeneralLedger
                 if (gridCreditor.SelectedRows.Count > 0)
                 {
 
-                    var size = _dataListTotal.ElementAt(_dataListTotal.Count() - 1);
+              
                     var rowCount = _dataListTotal.Count();
-                    var rowIndex = gridCreditor.CurrentCell.OwningRow.Index - 1;
+                    var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
                     if (rowIndex == rowCount - 1)
                     {
                         var frmCurrencies = new CreditorListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
@@ -373,7 +373,12 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         }
 
-
-    
+        private void gridCreditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -113,14 +113,10 @@ namespace PamirAccounting.Forms.GeneralLedger
                     var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
                     if (rowIndex <= rowCount - 1)
                     {
-                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex-1).CurrenyId, _dataListTotal.ElementAt(rowIndex - 1).GroupId);
+                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
                         frmCurrencies.ShowDialog();
                     }
-                    else
-                    {
-                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex ).CurrenyId, _dataListTotal.ElementAt(rowIndex ).GroupId);
-                        frmCurrencies.ShowDialog();
-                    }
+                
 
                 }
             }
@@ -357,6 +353,14 @@ namespace PamirAccounting.Forms.GeneralLedger
 
             return _dataListTotal;
 
+        }
+
+        private void gridCreditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
