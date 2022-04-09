@@ -84,7 +84,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave.Appearance.Options.UseFont = true;
             this.BtnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnSave.ImageOptions.SvgImage")));
             this.BtnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnSave.Location = new System.Drawing.Point(142, 46);
+            this.BtnSave.Location = new System.Drawing.Point(7, 32);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -99,7 +99,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose.Appearance.Options.UseFont = true;
             this.BtnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnClose.ImageOptions.SvgImage")));
             this.BtnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnClose.Location = new System.Drawing.Point(24, 46);
+            this.BtnClose.Location = new System.Drawing.Point(125, 32);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -150,7 +150,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtDocumentId.Properties.Appearance.Options.UseFont = true;
             this.txtDocumentId.Properties.AutoHeight = false;
             this.txtDocumentId.Size = new System.Drawing.Size(140, 32);
-            this.txtDocumentId.TabIndex = 138;
+            this.txtDocumentId.TabIndex = 79;
             // 
             // label1
             // 

@@ -102,7 +102,7 @@ namespace PamirAccounting.Forms.Checks
             }
             cmbCustomers.AutoCompleteCustomSource = autoCustomers;
             cmbCustomers.ValueMember = "Id";
-            cmbCustomers.DisplayMember = "Title"; 
+            cmbCustomers.DisplayMember = "Title";
 
 
         }
@@ -112,9 +112,9 @@ namespace PamirAccounting.Forms.Checks
 
         }
 
-      
 
-      
+
+
 
 
         private void ChequeActionInfo(long? _ChequeNumber)
@@ -139,7 +139,7 @@ namespace PamirAccounting.Forms.Checks
 
         }
 
-       
+
         private void ShowChars()
         {
             if (txtAmount.Text.Length > 0)
@@ -254,7 +254,7 @@ namespace PamirAccounting.Forms.Checks
             unitOfWork.SaveChanges();
             //customer transaction end///
 
-        
+
 
             //PaymentDocuments transaction
             var receivedDocuments = new Domains.Transaction();
@@ -281,7 +281,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveEdit()
         {
-            
+
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
@@ -310,7 +310,7 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             customerTransaction.DestinitionCustomerId = AppSetting.SendDocumentCustomerId;
             customerTransaction.TransactionType = (int)TransaActionType.RecivedDocument;
-            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount; 
+            customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
             customerTransaction.DepositAmount = 0;
             customerTransaction.Description = txtDescription.Text;
             customerTransaction.CurrenyId = 2;
@@ -366,7 +366,7 @@ namespace PamirAccounting.Forms.Checks
             Close();
         }
 
-       
+
         private void cmbCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateDescription();
@@ -396,7 +396,7 @@ namespace PamirAccounting.Forms.Checks
             CreateDescription();
         }
 
-      
+
 
         private void btnshowcustomer_Click(object sender, EventArgs e)
         {
@@ -405,10 +405,13 @@ namespace PamirAccounting.Forms.Checks
             if (AllCustomersFrm.CustomerId.HasValue)
             {
                 cmbCustomers.SelectedValue = AllCustomersFrm.CustomerId;
+                txtDueDate.Select();
+                txtDueDate.Focus();
+
             }
         }
 
-       
+
 
         private void DetailsPaymentCheckFrm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -447,15 +450,18 @@ namespace PamirAccounting.Forms.Checks
                 if (AllCustomersFrm.CustomerId.HasValue)
                 {
                     cmbCustomers.SelectedValue = AllCustomersFrm.CustomerId;
-                    cmbRealBankId.Select();
-                    cmbRealBankId.Focus();
+                    {
+                        cmbCustomers.SelectedValue = AllCustomersFrm.CustomerId;
+                        txtDueDate.Select();
+                        txtDueDate.Focus();
+                    }
+
                 }
-
             }
+
+
+
+
         }
-
-     
-
-   
     }
 }
