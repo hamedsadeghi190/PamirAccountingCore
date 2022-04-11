@@ -44,11 +44,14 @@ namespace PamirAccounting.UI.Forms.Banks
             this.txtbalance = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtbranch = new DevExpress.XtraEditors.TextEdit();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbalance.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbranch.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnexitbank
@@ -83,6 +86,8 @@ namespace PamirAccounting.UI.Forms.Banks
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtbranch);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtAccountNumber);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbCountries);
@@ -131,7 +136,7 @@ namespace PamirAccounting.UI.Forms.Banks
             this.cmbCountries.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCountries.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCountries.FormattingEnabled = true;
-            this.cmbCountries.Location = new System.Drawing.Point(17, 44);
+            this.cmbCountries.Location = new System.Drawing.Point(18, 112);
             this.cmbCountries.Name = "cmbCountries";
             this.cmbCountries.Size = new System.Drawing.Size(147, 27);
             this.cmbCountries.TabIndex = 62;
@@ -154,7 +159,7 @@ namespace PamirAccounting.UI.Forms.Banks
             this.cmbCurrencies.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCurrencies.FormattingEnabled = true;
-            this.cmbCurrencies.Location = new System.Drawing.Point(17, 80);
+            this.cmbCurrencies.Location = new System.Drawing.Point(18, 77);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(147, 27);
             this.cmbCurrencies.TabIndex = 64;
@@ -175,7 +180,7 @@ namespace PamirAccounting.UI.Forms.Banks
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(170, 52);
+            this.label2.Location = new System.Drawing.Point(171, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 19);
             this.label2.TabIndex = 66;
@@ -186,7 +191,7 @@ namespace PamirAccounting.UI.Forms.Banks
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(170, 84);
+            this.label3.Location = new System.Drawing.Point(171, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 19);
             this.label3.TabIndex = 63;
@@ -226,6 +231,29 @@ namespace PamirAccounting.UI.Forms.Banks
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // txtbranch
+            // 
+            this.txtbranch.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtbranch.EditValue = "";
+            this.txtbranch.Location = new System.Drawing.Point(18, 44);
+            this.txtbranch.Name = "txtbranch";
+            this.txtbranch.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtbranch.Properties.Appearance.Options.UseFont = true;
+            this.txtbranch.Properties.AutoHeight = false;
+            this.txtbranch.Size = new System.Drawing.Size(147, 27);
+            this.txtbranch.TabIndex = 69;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(171, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 19);
+            this.label6.TabIndex = 70;
+            this.label6.Text = "شعبه :";
+            // 
             // CreateUpdateFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -253,6 +281,7 @@ namespace PamirAccounting.UI.Forms.Banks
             ((System.ComponentModel.ISupportInitialize)(this.txtBankName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbalance.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtbranch.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,5 +301,7 @@ namespace PamirAccounting.UI.Forms.Banks
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.TextEdit txtAccountNumber;
         private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.TextEdit txtbranch;
+        private System.Windows.Forms.Label label6;
     }
 }

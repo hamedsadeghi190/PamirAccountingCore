@@ -63,6 +63,7 @@ namespace PamirAccounting.UI.Forms.Banks
             txtbalance.Text = _bank.Balance.ToString();
             txtBankName.Text = _bank.Name;
             txtAccountNumber.Text = _bank.AccountNumber;
+            txtbranch.Text = _bank.BranchName;
             if (_bank.CountryId != null)
             {
 
@@ -117,6 +118,7 @@ namespace PamirAccounting.UI.Forms.Banks
                     _bank.BaseCurrencyId = (int)cmbCurrencies.SelectedValue;
                     _bank.CountryId = (int)cmbCountries.SelectedValue;
                     _bank.AccountNumber = txtAccountNumber.Text;
+                    _bank.BranchName = txtbranch.Text;
 
 
                     var customer = unitOfWork.Customers.FindFirstOrDefault(x => x.BankId == _bank.Id);
@@ -159,6 +161,7 @@ namespace PamirAccounting.UI.Forms.Banks
                         BaseCurrencyId = (int)cmbCurrencies.SelectedValue,
                         CountryId = (int)cmbCountries.SelectedValue,
                         AccountNumber = txtAccountNumber.Text,
+                        BranchName = txtbranch.Text,
                     };
 
                     unitOfWork.BankServices.Insert(newBank);

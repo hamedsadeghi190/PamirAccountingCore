@@ -190,7 +190,13 @@ namespace PamirAccounting.Services.Services
             return accountNumber;
 
         }
+        public string GetAccountBranch(int id)
+        {
+            var bank = _unitOfWork.Banks.FindFirstOrDefault(x => x.Id == id);
+            string branchName = bank.BranchName;
+            return branchName;
 
+        }
         public long FindBalance(int? bankId)
         {
             var bank = _unitOfWork.BankServices.Find(bankId);

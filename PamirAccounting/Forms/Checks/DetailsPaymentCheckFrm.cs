@@ -95,6 +95,7 @@ namespace PamirAccounting.Forms.Checks
             this.cmbRealBankId.SelectedValueChanged += new System.EventHandler(this.cmbRealBankId_SelectedValueChanged);
 
             txtBankAccountNumber.Text = unitOfWork.BankServices.GetAccountNumber((int)cmbRealBankId.SelectedValue);
+            txtBranchName.Text = unitOfWork.BankServices.GetAccountBranch((int)cmbRealBankId.SelectedValue);
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomers.DataSource = _Customers;
             AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
@@ -437,6 +438,7 @@ namespace PamirAccounting.Forms.Checks
         private void cmbRealBankId_SelectedValueChanged(object sender, EventArgs e)
         {
             txtBankAccountNumber.Text = unitOfWork.BankServices.GetAccountNumber((int)cmbRealBankId.SelectedValue);
+            txtBranchName.Text= unitOfWork.BankServices.GetAccountBranch((int)cmbRealBankId.SelectedValue);
 
         }
 
@@ -444,6 +446,11 @@ namespace PamirAccounting.Forms.Checks
         {
             var frm = new SearchAllCustomersFrm();
             frm.ShowDialog();
+        }
+
+        private void txtIssueDate_KeyUp(object sender, KeyEventArgs e)
+        {
+
         }
 
         private void btnshowcustomer_KeyUp(object sender, KeyEventArgs e)

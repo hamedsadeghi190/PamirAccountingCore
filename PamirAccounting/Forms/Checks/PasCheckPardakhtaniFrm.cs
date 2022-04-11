@@ -85,8 +85,8 @@ namespace PamirAccounting.Forms.Checks
                 PersianCalendar pc = new PersianCalendar();
                 string PDate = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
                 txtDate.Text = PDate;
-                string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtPassDate.Text = PDate2;
+                txtPassDate.Text = DateTime.Now.ToFarsiFormat();
+                CreateDescription();
               
             }
         }
@@ -113,7 +113,7 @@ namespace PamirAccounting.Forms.Checks
             }
 
             long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
-            var balance = unitOfWork.BankServices.FindBalance(currentCheque.BankId);
+            //var balance = unitOfWork.BankServices.FindBalance(currentCheque.BankId);
             var tmpDataList = unitOfWork.TransactionServices.GetBalance(currentCheque.BankId);
             _dataList = new List<TransactionModel>();
             _GroupedDataList = new List<TransactionsGroupModel>();
@@ -123,7 +123,8 @@ namespace PamirAccounting.Forms.Checks
                 totalDeposit += item.DepositAmount.Value;
             }
             remaining = totalDeposit - totalWithDraw;
-            if (balance > remaining && currentCheque.Amount<balance)
+
+            if ( currentCheque.Amount< (remaining*(-1)))
             {    
                 PersianCalendar p = new PersianCalendar();
                 var PassDate1 = txtPassDate.Text.Split('/');
