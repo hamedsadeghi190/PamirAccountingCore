@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DNTPersianUtils.Core;
+using LinqKit;
 using Microsoft.EntityFrameworkCore;
 using PamirAccounting.Domains;
 using PamirAccounting.Infrastructures;
@@ -136,6 +137,86 @@ namespace PamirAccounting.Services
 
         }
 
+        [Obsolete]
+        public List<TransactionModel> Filterd(int userId, int? currencyId, long? DocumentId, DateTime? startDate, DateTime? endDate)
+        {
+            try
+            {
+
+                var predicate = PredicateBuilder.New<Transaction>(true);
+
+                predicate.And(x => x.SourceCustomerId == userId);
+
+                if (currencyId != null)
+                {
+                    predicate = predicate.And(x => x.CurrenyId == currencyId);
+                }
+                if (DocumentId != null)
+                {
+                    predicate = predicate.And(x => x.DocumentId == DocumentId);
+                }
+                if (startDate != null)
+                {
+                    predicate= predicate.And(x => x.TransactionDateTime >= startDate);
+                }
+                if (endDate != null)
+                {
+                    predicate= predicate.And(x => x.TransactionDateTime<= endDate);
+                }
+
+         
+
+
+                var dataList = _context.Transactions.Where(predicate)
+                  .Include(x => x.Curreny)
+                  .Include(x => x.User)
+                 .Select(x => new TransactionModel
+                 {
+                     Id = x.Id,
+                     Description = x.Description,
+                     DepositAmount = x.DepositAmount,
+                     WithdrawAmount = x.WithdrawAmount,
+                     Date = x.Date.ToString(),
+                     Date2 = x.Date,
+                     TransactionDateTime2 = x.TransactionDateTime,
+                     TransactionDateTime = x.TransactionDateTime.ToString(),
+                     CurrenyId = x.CurrenyId,
+                     CurrenyName = x.Curreny.Name,
+                     UserId = x.UserId,
+                     UserName = x.User.UserName,
+                     TransactionType = x.TransactionType,
+                     DocumentId = x.DocumentId
+
+                 }).ToList();
+
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    RemainigAmount = x.RemainigAmount,
+                    Date = x.Date2.ToShortPersianDateString(true),
+                    TransactionDateTime = x.TransactionDateTime2.ToShortPersianDateString(),
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    UserId = x.UserId,
+                    UserName = x.UserName,
+                    DocumentId = x.DocumentId,
+                    TransactionType = x.TransactionType,
+                    Status = (x.WithdrawAmount.Value == 0 && x.DepositAmount.Value == 0) ? "" : (x.WithdrawAmount.Value > 0) ? "بدهکار" : "طلبکار"
+
+                }).ToList();
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
         public Transaction FindLastTransaction(int SourceCustomerId, int TransactionType, int CurrenyId)
         {
             var transaction = _context.Transactions.OrderBy(x => x.Id).LastOrDefault(x => x.SourceCustomerId == SourceCustomerId && x.TransactionType == TransactionType && x.CurrenyId == CurrenyId);
@@ -831,7 +912,7 @@ namespace PamirAccounting.Services
                 if (bankId == null)
                 {
                     dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank )
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank)
                    .Select(x => new TransactionModel
                    {
 
@@ -852,7 +933,7 @@ namespace PamirAccounting.Services
                 }
                 else
                 {
-                    dataList = FindAllReadonly(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank )
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank)
                                  .Include(x => x.Curreny)
 
                                  .Select(x => new TransactionModel
@@ -999,7 +1080,7 @@ namespace PamirAccounting.Services
                 if (currencyId == null)
                 {
                     dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.SellAndBuy )
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.SellAndBuy)
                    .Select(x => new TransactionModel
                    {
 
@@ -1071,7 +1152,7 @@ namespace PamirAccounting.Services
                 var customer = _unitOfWork.Customers.FindFirstOrDefault(x => x.BankId == CustomerId).Id;
                 if (CustomerId != null)
                 {
-                    dataList = FindAllReadonly(x => x.SourceCustomerId == customer && x.CurrenyId==2)
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == customer && x.CurrenyId == 2)
                     .Include(x => x.Curreny)
                     .Include(x => x.User)
                    .Select(x => new TransactionModel

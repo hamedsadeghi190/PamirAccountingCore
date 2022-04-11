@@ -92,8 +92,15 @@ namespace PamirAccounting.UI.Forms.Customers
             }
         }
 
+
         private void InitForm()
         {
+            txtDate1.TextChanged -= new EventHandler(txtDate1_TextChanged);
+            txtDate2.TextChanged -= new EventHandler(txtDate2_TextChanged);
+            txtDate1.Text = DateTime.Parse("1401/01/01").ToFarsiFormat();
+            txtDate2.Text = DateTime.Now.ToFarsiFormat();
+            txtDate1.TextChanged += new EventHandler(txtDate1_TextChanged);
+            txtDate2.TextChanged += new EventHandler(txtDate2_TextChanged);
 
             _Actions.Add(new ComboBoxModel() { Id = 1, Title = "ثبت حساب جدید " });
             _Actions.Add(new ComboBoxModel() { Id = 2, Title = "دریافت و پرداخت نقدی " });
@@ -215,7 +222,8 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void LoadData()
         {
-
+            FilterData();
+            return;
             var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
             var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
             _dataList = new List<TransactionModel>();
@@ -254,7 +262,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 _GroupedDataList.Add(curenncySummery);
 
             }
-           // _GroupedDataList = _GroupedDataList.OrderBy(x => x.TransactionDateTime).ToList();
+            // _GroupedDataList = _GroupedDataList.OrderBy(x => x.TransactionDateTime).ToList();
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _GroupedDataList;
             _dataList = _dataList.OrderByDescending(x => x.TransactionDateTime).ToList();
@@ -269,7 +277,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
         {
-            LoadData();
+            FilterData();
         }
 
         private void grdTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -382,8 +390,8 @@ namespace PamirAccounting.UI.Forms.Customers
                     var frmbank = new PayAndReciveBankFrm(_Id.Value, tranaction.Id);
                     frmbank.ShowDialog();
                     LoadData();
-                    break;  
-                
+                    break;
+
                 case (int)TransaActionType.UnkwonReciveBank:
                     var frmbankunkown = new PayAndReciveBankFrm(_Id.Value, tranaction.Id);
                     frmbankunkown.ShowDialog();
@@ -614,6 +622,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void cmbCurrencies_SelectedIndexChanged(object sender, EventArgs e)
         {
+
         }
 
         private List<TransactionsGroupModel> TotalSummeryPrint()
@@ -721,6 +730,124 @@ namespace PamirAccounting.UI.Forms.Customers
                     openEditForm(tranaction);
                 }
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            FilterData();
+        }
+
+
+        private void txtDate1_TextChanged(object sender, EventArgs e)
+        {
+            FilterData();
+        }
+
+        private void txtDate2_TextChanged(object sender, EventArgs e)
+        {
+            FilterData();
+        }
+
+        [Obsolete]
+        private void FilterData()
+        {
+            DateTime startDate, endDate;
+            List<TransactionModel> tmpDataList;
+
+            try
+            {
+                PersianCalendar p = new PersianCalendar();
+                var dDate1 = txtDate1.Text.Replace("_","").Split('/');
+                startDate = p.ToDateTime(int.Parse(dDate1[0]), int.Parse(dDate1[1]), int.Parse(dDate1[2]), 0, 0, 0, 0);
+
+                var dDate2 = txtDate2.Text.Replace("_", "").Split('/');
+                endDate = p.ToDateTime(int.Parse(dDate2[0]), int.Parse(dDate2[1]), int.Parse(dDate2[2]), 0, 0, 0, 0);
+
+                    tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
+               !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null, startDate, endDate);
+            }
+            catch(Exception ex)
+            {
+                    tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
+                !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null,
+                null, null);
+
+            }
+
+
+
+
+
+            var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
+            _dataList = new List<TransactionModel>();
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in grouped)
+            {
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
+                foreach (var item in currency.OrderBy(x => x.TransactionDateTime).ToList())
+                {
+                    totalWithDraw += item.WithdrawAmount.Value;
+                    totalDeposit += item.DepositAmount.Value;
+                    curenncySummery.CurrenyName = item.CurrenyName;
+                    item.RemainigAmount = totalDeposit - totalWithDraw;
+                    if (item.RemainigAmount > 0)
+                    {
+                        item.Status = "طلبکار";
+                    }
+                    else if (item.RemainigAmount < 0)
+                    {
+                        item.Status = "بدهکار";
+                    }
+                    else
+                    {
+                        item.Status = "";
+                    }
+
+                    _dataList.Add(item);
+                }
+                curenncySummery.TotalDepositAmount = totalDeposit;
+                curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                remaining = totalDeposit - totalWithDraw;
+                curenncySummery.RemainigAmount = remaining;
+                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "طلبکار" : "بدهکار";
+                _GroupedDataList.Add(curenncySummery);
+
+            }
+            // _GroupedDataList = _GroupedDataList.OrderBy(x => x.TransactionDateTime).ToList();
+            grdTotals.AutoGenerateColumns = false;
+            grdTotals.DataSource = _GroupedDataList;
+            _dataList = _dataList.OrderByDescending(x => x.TransactionDateTime).ToList();
+            grdTransactions.AutoGenerateColumns = false;
+            grdTransactions.DataSource = _dataList;
+        }
+
+
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            //// only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtDate1_Leave(object sender, EventArgs e)
+        {
+            Tools.CheckDate(txtDate1);
+        }
+
+        private void txtDate2_Leave(object sender, EventArgs e)
+        {
+            Tools.CheckDate(txtDate2);
         }
     }
 }
