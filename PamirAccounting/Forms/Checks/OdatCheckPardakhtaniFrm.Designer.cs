@@ -115,6 +115,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtOdatDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtOdatDate.Size = new System.Drawing.Size(218, 32);
             this.txtOdatDate.TabIndex = 1;
+            this.txtOdatDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOdatDate_KeyPress);
             this.txtOdatDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtOdatDate_KeyUp);
             // 
             // txtDesc

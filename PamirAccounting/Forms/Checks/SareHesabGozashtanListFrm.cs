@@ -43,7 +43,8 @@ namespace PamirAccounting.Forms.Checks
                 x.RealBankName,
                 x.DueDate,
                 IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
-                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
+                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString(),
+                x.RowId,
 
 
 
@@ -76,6 +77,34 @@ namespace PamirAccounting.Forms.Checks
             {
                 txtsearch.Select();
                 txtsearch.Focus();
+            }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+
+                   
+                    var rowCount = dataList.Count();
+                    var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
+                    if (rowIndex == rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var SareHesabGozashtan = new SareHesabGozashtanFrm(ChequeNumber, 0);
+                        SareHesabGozashtan.ShowDialog();
+                        LoadData();
+                    }
+                    if (rowIndex < rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var SareHesabGozashtan = new SareHesabGozashtanFrm(ChequeNumber, 0);
+                        SareHesabGozashtan.ShowDialog();
+                        LoadData();
+                    }
+
+
+                }
             }
         }
 
@@ -130,14 +159,22 @@ namespace PamirAccounting.Forms.Checks
 
         private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
-                var SareHesabGozashtan = new SareHesabGozashtanFrm(ChequeNumber, 0);
-                SareHesabGozashtan.ShowDialog();
-                LoadData();
-            }
+            //if (e.KeyChar == 13)
+            //{
+            //    long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+            //    var SareHesabGozashtan = new SareHesabGozashtanFrm(ChequeNumber, 0);
+            //    SareHesabGozashtan.ShowDialog();
+            //    LoadData();
+            //}
 
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -170,6 +170,7 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -200,6 +201,76 @@ namespace PamirAccounting.Forms.Checks
             {
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
+            }
+
+            if (e.KeyCode == Keys.F7)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frm = new PasCheckPardakhtaniFrm(0, dataList.ElementAt(rowIndex).Id);
+                    frm.ShowDialog();
+                    LoadData();
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف چک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            var cheque = unitOfWork.Cheque.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
+                            unitOfWork.ChequeServices.Delete(cheque);
+                            var transactions = unitOfWork.Transactions.FindAll(x => x.DocumentId == cheque.DocumentId).ToList();
+                            foreach (var item in transactions)
+                            {
+                                item.DoubleTransactionId = null;
+                                unitOfWork.TransactionServices.Update(item);
+                                unitOfWork.SaveChanges();
+                            }
+
+                            foreach (var item in transactions)
+                            {
+                                unitOfWork.TransactionServices.Delete(item);
+                                unitOfWork.SaveChanges();
+                            }
+
+                            LoadData();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("حذف امکانپذیر نمیباشد");
+                        }
+
+                    }
+                }
+
+            }
+
+            if (e.KeyCode == Keys.F8)
+
+            {
+                PersianCalendar pc = new PersianCalendar();
+                DateTime dt = DateTime.Now;
+                string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                var data = new UnitOfWork().ChequeServices.GetAllPasPayment();
+                var basedata = new reportbaseDAta() { Date = PersianDate };
+                var report = StiReport.CreateNewReport();
+                report.Load(AppSetting.ReportPath + "PaymentPasList.mrt");
+                report.RegData("myData", data);
+                report.RegData("basedata", basedata);
+                report.Design();
+                //report.Render();
+                //report.Show();
             }
         }
     }

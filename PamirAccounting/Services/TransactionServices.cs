@@ -1063,5 +1063,64 @@ namespace PamirAccounting.Services
 
         }
 
+        public List<TransactionModel> GetBalance(int? CustomerId)
+        {
+            try
+            {
+                var dataList = new List<TransactionModel>();
+                var customer = _unitOfWork.Customers.FindFirstOrDefault(x => x.BankId == CustomerId).Id;
+                if (CustomerId != null)
+                {
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == customer && x.CurrenyId==2)
+                    .Include(x => x.Curreny)
+                    .Include(x => x.User)
+                   .Select(x => new TransactionModel
+                   {
+
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       Date = x.Date.ToString(),
+                       Date2 = x.Date,
+                       TransactionDateTime2 = x.TransactionDateTime,
+                       TransactionDateTime = x.TransactionDateTime.ToString(),
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       UserId = x.UserId,
+                       UserName = x.User.UserName,
+                       TransactionType = x.TransactionType,
+                       DocumentId = x.DocumentId
+
+                   }).ToList();
+                }
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    RemainigAmount = x.RemainigAmount,
+                    Date = x.Date2.ToShortPersianDateString(true),
+                    TransactionDateTime = x.TransactionDateTime2.ToShortPersianDateString(),
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    UserId = x.UserId,
+                    UserName = x.UserName,
+                    DocumentId = x.DocumentId,
+                    TransactionType = x.TransactionType,
+                    Status = (x.WithdrawAmount.Value == 0 && x.DepositAmount.Value == 0) ? "" : (x.WithdrawAmount.Value > 0) ? "بدهکار" : "طلبکار"
+
+                }).ToList();
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
     }
 }

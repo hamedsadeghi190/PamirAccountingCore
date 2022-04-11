@@ -81,6 +81,35 @@ namespace PamirAccounting.Forms.Checks
                 txtsearch.Select();
                 txtsearch.Focus();
             }
+         
+
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+
+
+                    var rowCount = dataList.Count();
+                    var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
+                    if (rowIndex == rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var Pass = new PasCheckPardakhtaniFrm(ChequeNumber, 0);
+                        Pass.ShowDialog();
+                        LoadData();
+                    }
+                    if (rowIndex < rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var Pass = new PasCheckPardakhtaniFrm(ChequeNumber, 0);
+                        Pass.ShowDialog();
+                        LoadData();
+                    }
+
+
+                }
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -129,6 +158,14 @@ namespace PamirAccounting.Forms.Checks
                 LoadData();
             }
 
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

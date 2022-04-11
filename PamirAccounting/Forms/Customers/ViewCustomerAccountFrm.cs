@@ -225,7 +225,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 var curenncySummery = new TransactionsGroupModel();
                 curenncySummery.Description = "جمع";
                 long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
-                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                foreach (var item in currency.OrderBy(x => x.TransactionDateTime).ToList())
                 {
                     totalWithDraw += item.WithdrawAmount.Value;
                     totalDeposit += item.DepositAmount.Value;
@@ -254,9 +254,10 @@ namespace PamirAccounting.UI.Forms.Customers
                 _GroupedDataList.Add(curenncySummery);
 
             }
+           // _GroupedDataList = _GroupedDataList.OrderBy(x => x.TransactionDateTime).ToList();
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _GroupedDataList;
-            _dataList = _dataList.OrderBy(x => x.RowId).ToList();
+            _dataList = _dataList.OrderByDescending(x => x.TransactionDateTime).ToList();
             grdTransactions.AutoGenerateColumns = false;
             grdTransactions.DataSource = _dataList;
         }

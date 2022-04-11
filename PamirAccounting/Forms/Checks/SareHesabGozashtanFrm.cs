@@ -257,12 +257,12 @@ namespace PamirAccounting.Forms.Checks
 
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.SareHesab } -چک به شماره {Cheque.ChequeNumber} -تاریخ واگذاری {txtAssignmentDate.Text} ";
+            txtDesc.Text = $"{Messages.SareHesab} چک به شماره {Cheque.ChequeNumber} تاریخ واگذاری {txtAssignmentDate.Text} ";
         }
 
         private void txtAssignmentDate_KeyUp(object sender, KeyEventArgs e)
         {
-            CreateDescription();
+     
         }
 
         private void SareHesabGozashtanFrm_Layout(object sender, LayoutEventArgs e)
@@ -271,6 +271,11 @@ namespace PamirAccounting.Forms.Checks
         }
 
         private void txtDesc_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void txtAssignmentDate_KeyPress(object sender, KeyPressEventArgs e)
         {
             CreateDescription();
         }

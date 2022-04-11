@@ -821,7 +821,7 @@ namespace PamirAccounting.Services
                 int row = 1;
                 var cheque = new List<ChequeModel>();
                 PersianCalendar pc = new PersianCalendar();
-                cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.NewPayment || x.Status==(int)Settings.ChequeStatus.OdatPayment).Select(x => new ChequeModel
+                cheque = FindAllReadonly().Where(x => x.Status == (int)Settings.ChequeStatus.NewPayment).Select(x => new ChequeModel
                 {
                     Id = x.Id,
                     Amount = x.Amount,

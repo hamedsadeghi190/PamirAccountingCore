@@ -216,7 +216,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtAmount.EditValue = "0";
             this.txtAmount.Location = new System.Drawing.Point(331, 238);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
             this.txtAmount.Properties.AutoHeight = false;
             this.txtAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
@@ -245,11 +245,11 @@ namespace PamirAccounting.Forms.Checks
             this.btnshowcustomer.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnshowcustomer.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnshowcustomer.ImageOptions.SvgImage")));
             this.btnshowcustomer.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnshowcustomer.Location = new System.Drawing.Point(286, 278);
+            this.btnshowcustomer.Location = new System.Drawing.Point(286, 280);
             this.btnshowcustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnshowcustomer.Name = "btnshowcustomer";
             this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnshowcustomer.Size = new System.Drawing.Size(38, 32);
+            this.btnshowcustomer.Size = new System.Drawing.Size(38, 27);
             this.btnshowcustomer.TabIndex = 86;
             this.btnshowcustomer.Click += new System.EventHandler(this.btnshowcustomer_Click_1);
             this.btnshowcustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnshowcustomer_KeyUp);

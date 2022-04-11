@@ -163,6 +163,10 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveEdit()
         {
+            if (txtDesc.Text == "")
+            {
+                CreateDescription();
+            }
             PersianCalendar p = new PersianCalendar();
             var PasDate1 = txtOdatDate.Text.Split('/');
             var PasDate = p.ToDateTime(int.Parse(PasDate1[0]), int.Parse(PasDate1[1]), int.Parse(PasDate1[2]), 0, 0, 0, 0);
@@ -188,7 +192,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.OdatPayment } شماره  {currentCheque.ChequeNumber}- تاریخ عودت  {txtOdatDate.Text} ";
+            txtDesc.Text = $"{Messages.OdatPayment}شماره {currentCheque.ChequeNumber} تاریخ عودت {txtOdatDate.Text}";
         }
         private void OdatCheckPardakhtaniFrm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -208,10 +212,14 @@ namespace PamirAccounting.Forms.Checks
 
         private void txtOdatDate_KeyUp(object sender, KeyEventArgs e)
         {
-            CreateDescription();
         }
 
         private void txtDesc_KeyUp(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void txtOdatDate_KeyPress(object sender, KeyPressEventArgs e)
         {
             CreateDescription();
         }

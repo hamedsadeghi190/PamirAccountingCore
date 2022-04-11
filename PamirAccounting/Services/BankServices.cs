@@ -190,5 +190,12 @@ namespace PamirAccounting.Services.Services
             return accountNumber;
 
         }
+
+        public long FindBalance(int? bankId)
+        {
+            var bank = _unitOfWork.BankServices.Find(bankId);
+            var balance = bank.Balance;
+            return (long)balance;
+        }
     }
 }
