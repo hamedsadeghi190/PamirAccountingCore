@@ -38,6 +38,9 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnpascheck = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,9 +51,6 @@ namespace PamirAccounting.Forms.Checks
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@ namespace PamirAccounting.Forms.Checks
             // txtsearch
             // 
             this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtsearch.Location = new System.Drawing.Point(647, 23);
+            this.txtsearch.Location = new System.Drawing.Point(574, 20);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(258, 31);
             this.txtsearch.TabIndex = 5;
@@ -69,7 +69,7 @@ namespace PamirAccounting.Forms.Checks
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(911, 29);
+            this.label1.Location = new System.Drawing.Point(838, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 19);
@@ -83,7 +83,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.btnpascheck);
             this.groupBox1.Location = new System.Drawing.Point(3, -3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(994, 68);
+            this.groupBox1.Size = new System.Drawing.Size(905, 68);
             this.groupBox1.TabIndex = 106;
             this.groupBox1.TabStop = false;
             // 
@@ -151,110 +151,11 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(997, 376);
+            this.dataGridView1.Size = new System.Drawing.Size(908, 376);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id";
-            this.id.Frozen = true;
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "RowId";
-            this.Column1.FillWeight = 60F;
-            this.Column1.Frozen = true;
-            this.Column1.HeaderText = "ردیف";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 60;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "ChequeNumber";
-            this.Column3.FillWeight = 150F;
-            this.Column3.Frozen = true;
-            this.Column3.HeaderText = "شماره چک";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "IssueDatePersian";
-            this.Column2.FillWeight = 75F;
-            this.Column2.HeaderText = "صدور";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 75;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "DueDatePersian";
-            this.Column4.FillWeight = 75F;
-            this.Column4.HeaderText = "سررسید";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 75;
-            // 
-            // GroupName
-            // 
-            this.GroupName.DataPropertyName = "Amount";
-            this.GroupName.FillWeight = 130F;
-            this.GroupName.HeaderText = "مبلغ";
-            this.GroupName.MinimumWidth = 6;
-            this.GroupName.Name = "GroupName";
-            this.GroupName.ReadOnly = true;
-            this.GroupName.Width = 130;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "CustomerName";
-            this.Column5.FillWeight = 150F;
-            this.Column5.HeaderText = "صاحب چک";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 150;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "DocumentID";
-            this.Column6.HeaderText = "سند";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "BankAccountNumber";
-            this.Column10.HeaderText = "شماره حساب";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 150;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "RealBankName";
-            this.Column9.HeaderText = "بانک";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
             // 
             // label3
             // 
@@ -292,13 +193,111 @@ namespace PamirAccounting.Forms.Checks
             this.label6.TabIndex = 127;
             this.label6.Text = "  پاس چک (Enter)";
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "RowId";
+            this.Column1.FillWeight = 60F;
+            this.Column1.Frozen = true;
+            this.Column1.HeaderText = "ردیف";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.Width = 60;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ChequeNumber";
+            this.Column3.Frozen = true;
+            this.Column3.HeaderText = "شماره چک";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "IssueDatePersian";
+            this.Column2.FillWeight = 75F;
+            this.Column2.HeaderText = "صدور";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 75;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "DueDatePersian";
+            this.Column4.FillWeight = 75F;
+            this.Column4.HeaderText = "سررسید";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 75;
+            // 
+            // GroupName
+            // 
+            this.GroupName.DataPropertyName = "Amount";
+            this.GroupName.FillWeight = 130F;
+            this.GroupName.HeaderText = "مبلغ";
+            this.GroupName.MinimumWidth = 6;
+            this.GroupName.Name = "GroupName";
+            this.GroupName.ReadOnly = true;
+            this.GroupName.Width = 130;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "CustomerName";
+            this.Column5.FillWeight = 130F;
+            this.Column5.HeaderText = "صاحب چک";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 130;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "DocumentID";
+            this.Column6.HeaderText = "سند";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "BankAccountNumber";
+            this.Column10.FillWeight = 130F;
+            this.Column10.HeaderText = "شماره حساب";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 130;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "RealBankName";
+            this.Column9.HeaderText = "بانک";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
             // PasCheckPardakhtaniListFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 478);
+            this.ClientSize = new System.Drawing.Size(909, 478);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -328,6 +327,9 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton btnpascheck;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -338,8 +340,5 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
     }
 }

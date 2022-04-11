@@ -210,6 +210,7 @@ namespace PamirAccounting.Forms.Checks
             this.txtIssueDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtIssueDate.Size = new System.Drawing.Size(140, 32);
             this.txtIssueDate.TabIndex = 82;
+            this.txtIssueDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIssueDate_KeyUp);
             // 
             // txtAmount
             // 

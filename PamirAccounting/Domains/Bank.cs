@@ -18,6 +18,7 @@ namespace PamirAccounting.Domains
         public int? BaseCurrencyId { get; set; }
         public long? Balance { get; set; }
         public string AccountNumber { get; set; }
+        public string BranchName { get; set; }
 
         public virtual Currency BaseCurrency { get; set; }
         public virtual Country Country { get; set; }
