@@ -89,10 +89,11 @@ namespace PamirAccounting.Forms.Checks
                 txtDocumentId.Text = Cheque.DocumentId.ToString();
                 orginalCustomerId = Cheque.OrginalCustomerIde;
                 PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
-                txtDate.Text = PDate;
-                string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtAssignmentDate.Text = PDate2;
+               // string PDate = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
+                txtDate.Text = Cheque.RegisterDateTime.ToFarsiFormat();
+               // string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+                txtAssignmentDate.Text = DateTime.Now.ToFarsiFormat();
+                CreateDescription();
              
                
             }
@@ -107,12 +108,14 @@ namespace PamirAccounting.Forms.Checks
             prevCustomerId = Cheque.CustomerId;
             orginalCustomerId = Cheque.OrginalCustomerIde;
             PersianCalendar pc = new PersianCalendar();
-            string AssignmentDateTime = pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
-            string DateTime = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
-            txtAssignmentDate.Text = AssignmentDateTime;
-            txtDate.Text = DateTime;
+            DateTime AssignmentDateTime = (DateTime)Cheque.AssignmentDate;
+                // pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
+           // string DateTime = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
+            txtAssignmentDate.Text = AssignmentDateTime.ToFarsiFormat();
+            txtDate.Text = Cheque.RegisterDateTime.ToFarsiFormat();
             txtDesc.Text = Cheque.Description;
             txtDocumentId.Text = Cheque.DocumentId.ToString();
+            CreateDescription();
             
         }
 
@@ -257,7 +260,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.SareHesab} چک به شماره {Cheque.ChequeNumber} تاریخ واگذاری {txtAssignmentDate.Text} ";
+            txtDesc.Text = $"{Messages.SareHesab} چک به شماره {Cheque.ChequeNumber} تاریخ واگذاری {(DateTime.Parse(txtAssignmentDate.Text)).ToFarsiFormat()} ";
         }
 
         private void txtAssignmentDate_KeyUp(object sender, KeyEventArgs e)

@@ -72,7 +72,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.Location = new System.Drawing.Point(2, 5);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1013, 115);
+            this.groupBox4.Size = new System.Drawing.Size(1013, 113);
             this.groupBox4.TabIndex = 128;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "لیست چک ها ی برگشتی پرداختی";
@@ -84,7 +84,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(257, 26);
+            this.groupBox1.Location = new System.Drawing.Point(257, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(742, 73);
             this.groupBox1.TabIndex = 113;
@@ -185,7 +185,7 @@ namespace PamirAccounting.Forms.Checks
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(-1, 124);
+            this.dataGridView1.Location = new System.Drawing.Point(-1, 120);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;

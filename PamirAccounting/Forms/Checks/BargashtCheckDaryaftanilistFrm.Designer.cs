@@ -41,8 +41,8 @@ namespace PamirAccounting.Forms.Checks
             this.label1 = new System.Windows.Forms.Label();
             this.txtsearch = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,8 +73,8 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.dataGridViewTextBoxColumn1,
-            this.select,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
@@ -99,9 +99,10 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(976, 375);
+            this.dataGridView1.Size = new System.Drawing.Size(875, 375);
             this.dataGridView1.TabIndex = 103;
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
@@ -166,7 +167,7 @@ namespace PamirAccounting.Forms.Checks
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(828, 30);
+            this.label1.Location = new System.Drawing.Point(800, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 19);
@@ -176,9 +177,9 @@ namespace PamirAccounting.Forms.Checks
             // txtsearch
             // 
             this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtsearch.Location = new System.Drawing.Point(547, 24);
+            this.txtsearch.Location = new System.Drawing.Point(585, 20);
             this.txtsearch.Name = "txtsearch";
-            this.txtsearch.Size = new System.Drawing.Size(278, 31);
+            this.txtsearch.Size = new System.Drawing.Size(212, 31);
             this.txtsearch.TabIndex = 105;
             this.txtsearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyUp);
             // 
@@ -189,15 +190,22 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox4.Controls.Add(this.btnbargasht);
             this.groupBox4.Location = new System.Drawing.Point(1, -6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(983, 76);
+            this.groupBox4.Size = new System.Drawing.Size(874, 76);
             this.groupBox4.TabIndex = 111;
             this.groupBox4.TabStop = false;
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RowId";
             this.dataGridViewTextBoxColumn1.FillWeight = 60F;
-            this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "ردیف";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -205,19 +213,9 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn1.Width = 60;
             // 
-            // select
-            // 
-            this.select.Frozen = true;
-            this.select.HeaderText = "انتخاب";
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.select.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "ChequeNumber";
-            this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "شماره چک";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -293,7 +291,7 @@ namespace PamirAccounting.Forms.Checks
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 480);
+            this.ClientSize = new System.Drawing.Size(876, 480);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -319,8 +317,14 @@ namespace PamirAccounting.Forms.Checks
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.SimpleButton btnbargasht;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtsearch;
+        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -329,12 +333,6 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private DevExpress.XtraEditors.SimpleButton btnbargasht;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtsearch;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

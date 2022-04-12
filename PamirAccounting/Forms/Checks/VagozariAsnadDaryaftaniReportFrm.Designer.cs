@@ -64,6 +64,11 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRowEdit1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRowDelete1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).BeginInit();
@@ -76,9 +81,9 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox4.Controls.Add(this.groupBox1);
             this.groupBox4.Controls.Add(this.btnPrint);
             this.groupBox4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(6, 11);
+            this.groupBox4.Location = new System.Drawing.Point(-1, 11);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1172, 138);
+            this.groupBox4.Size = new System.Drawing.Size(1014, 113);
             this.groupBox4.TabIndex = 122;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "لیست چک ها واگذاری اسناد دریافتنی";
@@ -90,16 +95,16 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.txtChequeNumber);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(388, 26);
+            this.groupBox1.Location = new System.Drawing.Point(245, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(742, 96);
+            this.groupBox1.Size = new System.Drawing.Size(742, 74);
             this.groupBox1.TabIndex = 113;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "جستجو";
             // 
             // txtAccountNumber
             // 
-            this.txtAccountNumber.Location = new System.Drawing.Point(90, 38);
+            this.txtAccountNumber.Location = new System.Drawing.Point(98, 26);
             this.txtAccountNumber.Name = "txtAccountNumber";
             this.txtAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtAccountNumber.Properties.Appearance.Options.UseFont = true;
@@ -112,7 +117,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(283, 44);
+            this.label1.Location = new System.Drawing.Point(291, 32);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(96, 19);
@@ -121,7 +126,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtChequeNumber
             // 
-            this.txtChequeNumber.Location = new System.Drawing.Point(405, 37);
+            this.txtChequeNumber.Location = new System.Drawing.Point(413, 25);
             this.txtChequeNumber.Name = "txtChequeNumber";
             this.txtChequeNumber.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtChequeNumber.Properties.Appearance.Options.UseFont = true;
@@ -134,7 +139,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(592, 44);
+            this.label4.Location = new System.Drawing.Point(600, 32);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(82, 19);
@@ -145,7 +150,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.btnPrint.AppearanceHovered.Options.UseTextOptions = true;
             this.btnPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPrint.ImageOptions.SvgImage")));
-            this.btnPrint.Location = new System.Drawing.Point(6, 39);
+            this.btnPrint.Location = new System.Drawing.Point(6, 43);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(39, 41);
             this.btnPrint.TabIndex = 98;
@@ -289,16 +294,17 @@ namespace PamirAccounting.Forms.Checks
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.Location = new System.Drawing.Point(-1, 155);
+            this.dataGridView1.Location = new System.Drawing.Point(-1, 125);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1182, 357);
+            this.dataGridView1.Size = new System.Drawing.Size(1014, 357);
             this.dataGridView1.TabIndex = 118;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -328,52 +334,49 @@ namespace PamirAccounting.Forms.Checks
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "ChequeNumber";
-            this.dataGridViewTextBoxColumn7.FillWeight = 450F;
             this.dataGridViewTextBoxColumn7.Frozen = true;
             this.dataGridViewTextBoxColumn7.HeaderText = "شماره چک";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 250;
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "IssueDatePersian";
-            this.dataGridViewTextBoxColumn9.FillWeight = 130F;
+            this.dataGridViewTextBoxColumn9.FillWeight = 75F;
             this.dataGridViewTextBoxColumn9.HeaderText = "صدور";
             this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 130;
+            this.dataGridViewTextBoxColumn9.Width = 75;
             // 
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "DueDatePersian";
-            this.dataGridViewTextBoxColumn10.FillWeight = 130F;
+            this.dataGridViewTextBoxColumn10.FillWeight = 75F;
             this.dataGridViewTextBoxColumn10.HeaderText = "سررسید";
             this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 130;
+            this.dataGridViewTextBoxColumn10.Width = 75;
             // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "Amount";
-            this.dataGridViewTextBoxColumn11.FillWeight = 130F;
             this.dataGridViewTextBoxColumn11.HeaderText = "مبلغ";
             this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 130;
             // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "CustomerName";
+            this.dataGridViewTextBoxColumn12.FillWeight = 130F;
             this.dataGridViewTextBoxColumn12.HeaderText = "صاحب چک";
             this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 150;
+            this.dataGridViewTextBoxColumn12.Width = 130;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -382,16 +385,16 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 150;
             // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "BankAccountNumber";
+            this.dataGridViewTextBoxColumn14.FillWeight = 130F;
             this.dataGridViewTextBoxColumn14.HeaderText = "شماره حساب";
             this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 150;
+            this.dataGridViewTextBoxColumn14.Width = 130;
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -400,7 +403,6 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 125;
             // 
             // btnRowEdit1
             // 
@@ -430,13 +432,78 @@ namespace PamirAccounting.Forms.Checks
             this.btnRowDelete1.UseColumnTextForButtonValue = true;
             this.btnRowDelete1.Width = 70;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label2.Location = new System.Drawing.Point(286, 489);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(70, 19);
+            this.label2.TabIndex = 133;
+            this.label2.Text = "چاپ (F8)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label3.Location = new System.Drawing.Point(5, 488);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.TabIndex = 132;
+            this.label3.Text = "جستجو (F2) ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label5.Location = new System.Drawing.Point(367, 489);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(84, 19);
+            this.label5.TabIndex = 131;
+            this.label5.Text = "خروج (Esc)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label6.Location = new System.Drawing.Point(184, 489);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(86, 19);
+            this.label6.TabIndex = 130;
+            this.label6.Text = "ویرایش (F7)";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label11.Location = new System.Drawing.Point(104, 489);
+            this.label11.Name = "label11";
+            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label11.Size = new System.Drawing.Size(74, 19);
+            this.label11.TabIndex = 129;
+            this.label11.Text = "حذف (F5)";
+            // 
             // VagozariAsnadDaryaftaniReportFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1181, 513);
+            this.ClientSize = new System.Drawing.Size(1013, 518);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -455,6 +522,7 @@ namespace PamirAccounting.Forms.Checks
             ((System.ComponentModel.ISupportInitialize)(this.txtChequeNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -491,5 +559,10 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit1;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label11;
     }
 }

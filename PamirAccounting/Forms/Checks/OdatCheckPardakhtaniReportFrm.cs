@@ -141,6 +141,8 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
+                    x.BankName,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -172,6 +174,8 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
+                    x.BankName,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -271,9 +275,9 @@ namespace PamirAccounting.Forms.Checks
                 report.Load(AppSetting.ReportPath + "PaymentOdatList.mrt");
                 report.RegData("myData", data);
                 report.RegData("basedata", basedata);
-                 report.Design();
-                //report.Render();
-                //report.Show();
+                 //report.Design();
+                report.Render();
+                report.Show();
 
             }
         }

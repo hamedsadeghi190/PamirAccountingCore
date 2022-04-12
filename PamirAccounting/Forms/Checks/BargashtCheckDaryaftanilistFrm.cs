@@ -41,6 +41,7 @@ namespace PamirAccounting.Forms.Checks
                 x.CustomerName,
                 x.RealBankName,
                 x.DueDate,
+                x.RowId,
                 IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                 DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
@@ -118,6 +119,7 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -148,13 +150,7 @@ namespace PamirAccounting.Forms.Checks
             //    this.txtsearch.Focus();
             //    LoadData();
             //}
-            if (e.KeyChar == 13)
-                {
-                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
-                var frm = new BargashtCheckDaryaftaniFrm(ChequeNumber, 0);
-                frm.ShowDialog();
-                LoadData();
-            }
+        
        
            
         }

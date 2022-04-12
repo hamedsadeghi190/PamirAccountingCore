@@ -61,6 +61,34 @@ namespace PamirAccounting.Forms.Checks
                 txtsearch.Select();
                 txtsearch.Focus();
             }
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+
+
+                    var rowCount = dataList.Count();
+                    var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
+                    if (rowIndex == rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var vosool = new VosoolCheckDaryaftaniFrm(ChequeNumber, 0);
+                        vosool.ShowDialog();
+                        LoadData();
+                    }
+                    if (rowIndex < rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var vosool = new VosoolCheckDaryaftaniFrm(ChequeNumber, 0);
+                        vosool.ShowDialog();
+                        LoadData();
+                        LoadData();
+                    }
+
+
+                }
+            }
         }
 
         private void btnvosool_daryaftani_Click(object sender, EventArgs e)
@@ -92,6 +120,8 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
+                    x.BankName,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -116,14 +146,17 @@ namespace PamirAccounting.Forms.Checks
 
         private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
-                var vosool = new VosoolCheckDaryaftaniFrm(ChequeNumber, 0);
-                vosool.ShowDialog();
-                LoadData();
-            }
+         
 
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

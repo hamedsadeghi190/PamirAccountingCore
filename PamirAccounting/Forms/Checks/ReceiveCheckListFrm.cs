@@ -128,9 +128,9 @@ namespace PamirAccounting.Forms.Checks
             report.Load(AppSetting.ReportPath + "ReceiveCheckList.mrt");
             report.RegData("myData", data);
             report.RegData("basedata", basedata);
-            report.Design();
-            //report.Render();
-            //report.Show();
+            //report.Design();
+            report.Render();
+            report.Show();
         }
 
         private void txtChequeNumber_KeyUp(object sender, KeyEventArgs e)
@@ -142,6 +142,7 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -174,6 +175,7 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -228,7 +230,7 @@ namespace PamirAccounting.Forms.Checks
                 var rowIndex = dataGridView1.SelectedRows[0].Index;
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف چک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
                   MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
 
                     if (dialogResult == DialogResult.Yes)
@@ -267,19 +269,20 @@ namespace PamirAccounting.Forms.Checks
             if (e.KeyCode == Keys.F8)
             {
 
-                    PersianCalendar pc = new PersianCalendar();
-                    DateTime dt = DateTime.Now;
-                    string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-                    var data = new UnitOfWork().ChequeServices.GetAllDaryaftani();
-                    var basedata = new reportbaseDAta() { Date = PersianDate };
-                    var report = StiReport.CreateNewReport();
-                    report.Load(AppSetting.ReportPath + "ReceiveCheckList.mrt");
-                    report.RegData("myData", data);
-                    report.RegData("basedata", basedata);
-                    ////report.Design();
-                    report.Render();
-                    report.Show();
-                
+
+                PersianCalendar pc = new PersianCalendar();
+                DateTime dt = DateTime.Now;
+                string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                var data = new UnitOfWork().ChequeServices.GetAllDaryaftani();
+                var basedata = new reportbaseDAta() { Date = PersianDate };
+                var report = StiReport.CreateNewReport();
+                report.Load(AppSetting.ReportPath + "ReceiveCheckList.mrt");
+                report.RegData("myData", data);
+                report.RegData("basedata", basedata);
+                //report.Design();
+                report.Render();
+                report.Show();
+
 
             }
         }

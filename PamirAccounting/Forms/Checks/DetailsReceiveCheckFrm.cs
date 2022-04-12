@@ -111,10 +111,10 @@ namespace PamirAccounting.Forms.Checks
                 DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
                 txtDocumentId.Text = DocumentId.ToString();
                 PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtIssueDate.Text = PDate;
-                string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtDueDate.Text = PDate2;
+                //string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+                txtIssueDate.Text = DateTime.Now.ToFarsiFormat();
+                //string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+                txtDueDate.Text = DateTime.Now.ToFarsiFormat();
 
             }
         }
@@ -125,10 +125,10 @@ namespace PamirAccounting.Forms.Checks
             //receiveTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
             prevCustomerId = Cheque.CustomerId;
             PersianCalendar pc = new PersianCalendar();
-            string IssueDateDateTime = pc.GetYear(Cheque.IssueDate).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            string DueDateDateTime = pc.GetYear(Cheque.DueDate).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            txtIssueDate.Text = IssueDateDateTime;
-            txtDueDate.Text = DueDateDateTime;
+           // string IssueDateDateTime = pc.GetYear(Cheque.IssueDate).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+           // string DueDateDateTime = pc.GetYear(Cheque.DueDate).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+            txtIssueDate.Text = Cheque.IssueDate.ToFarsiFormat();
+            txtDueDate.Text = Cheque.DueDate.ToFarsiFormat();
             txtBranchName.Text = Cheque.BranchName;
             txtChequeNumber.Text = Cheque.ChequeNumber;
             txtDocumentId.Text = Cheque.DocumentId.ToString();
@@ -394,7 +394,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void CreateDescription()
         {
-            txtDescription.Text = $"{Messages.DepostitCheck }از{cmbCustomers.Text} تاریخ سر رسید{txtDueDate.Text} ";
+            txtDescription.Text = $"{Messages.DepostitCheck } از{cmbCustomers.Text} تاریخ سر رسید{txtDueDate.Text} ";
         }
 
         private void btnshowcustomer_KeyUp(object sender, KeyEventArgs e)

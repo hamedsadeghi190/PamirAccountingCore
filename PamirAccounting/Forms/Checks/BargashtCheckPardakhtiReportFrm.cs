@@ -126,9 +126,9 @@ namespace PamirAccounting.Forms.Checks
             report.Load(AppSetting.ReportPath + "PaymentCheckBargashtList.mrt");
             report.RegData("myData", data);
             report.RegData("basedata", basedata);
-            //report.Design();
-            report.Render();
-           report.Show();
+            report.Design();
+           // report.Render();
+           //report.Show();
         }
 
         private void txtChequeNumber_KeyUp(object sender, KeyEventArgs e)
@@ -140,6 +140,8 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.BankName,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -172,6 +174,8 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.BankName,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -274,9 +278,9 @@ namespace PamirAccounting.Forms.Checks
                 report.Load(AppSetting.ReportPath + "PaymentCheckBargashtList.mrt");
                 report.RegData("myData", data);
                 report.RegData("basedata", basedata);
-                report.Design();
-                //report.Render();
-                //report.Show();
+               // report.Design();
+                report.Render();
+                report.Show();
             }
         }
     }

@@ -57,9 +57,9 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox3.Controls.Add(this.BtnSave);
             this.groupBox3.Controls.Add(this.BtnClose);
             this.groupBox3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(8, 302);
+            this.groupBox3.Location = new System.Drawing.Point(0, 237);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(704, 102);
+            this.groupBox3.Size = new System.Drawing.Size(731, 72);
             this.groupBox3.TabIndex = 114;
             this.groupBox3.TabStop = false;
             // 
@@ -69,7 +69,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnSave.Appearance.Options.UseFont = true;
             this.BtnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnSave.ImageOptions.SvgImage")));
             this.BtnSave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnSave.Location = new System.Drawing.Point(9, 32);
+            this.BtnSave.Location = new System.Drawing.Point(29, 22);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -84,7 +84,7 @@ namespace PamirAccounting.Forms.Checks
             this.BtnClose.Appearance.Options.UseFont = true;
             this.BtnClose.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnClose.ImageOptions.SvgImage")));
             this.BtnClose.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.BtnClose.Location = new System.Drawing.Point(122, 32);
+            this.BtnClose.Location = new System.Drawing.Point(142, 22);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -103,15 +103,15 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(6, 81);
+            this.groupBox2.Location = new System.Drawing.Point(2, 77);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(704, 214);
+            this.groupBox2.Size = new System.Drawing.Size(718, 171);
             this.groupBox2.TabIndex = 113;
             this.groupBox2.TabStop = false;
             // 
             // txtVosoolDate
             // 
-            this.txtVosoolDate.Location = new System.Drawing.Point(358, 33);
+            this.txtVosoolDate.Location = new System.Drawing.Point(370, 33);
             this.txtVosoolDate.Name = "txtVosoolDate";
             this.txtVosoolDate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtVosoolDate.Properties.Appearance.Options.UseFont = true;
@@ -125,9 +125,11 @@ namespace PamirAccounting.Forms.Checks
             // 
             // cmbCustomers
             // 
+            this.cmbCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCustomers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomers.FormattingEnabled = true;
-            this.cmbCustomers.Location = new System.Drawing.Point(358, 76);
+            this.cmbCustomers.Location = new System.Drawing.Point(370, 76);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(220, 27);
             this.cmbCustomers.TabIndex = 133;
@@ -152,9 +154,9 @@ namespace PamirAccounting.Forms.Checks
             // txtDesc
             // 
             this.txtDesc.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDesc.Location = new System.Drawing.Point(130, 117);
+            this.txtDesc.Location = new System.Drawing.Point(27, 117);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(448, 32);
+            this.txtDesc.Size = new System.Drawing.Size(563, 32);
             this.txtDesc.TabIndex = 135;
             this.txtDesc.Text = "";
             this.txtDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDesc_KeyUp);
@@ -164,7 +166,7 @@ namespace PamirAccounting.Forms.Checks
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(578, 120);
+            this.label8.Location = new System.Drawing.Point(590, 120);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 19);
             this.label8.TabIndex = 114;
@@ -175,7 +177,7 @@ namespace PamirAccounting.Forms.Checks
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(578, 82);
+            this.label2.Location = new System.Drawing.Point(590, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 19);
             this.label2.TabIndex = 108;
@@ -186,7 +188,7 @@ namespace PamirAccounting.Forms.Checks
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(578, 38);
+            this.label3.Location = new System.Drawing.Point(590, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 19);
             this.label3.TabIndex = 101;
@@ -200,7 +202,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.txtDocumentId);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(0, -11);
+            this.groupBox1.Location = new System.Drawing.Point(0, -19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(724, 92);
             this.groupBox1.TabIndex = 112;
@@ -211,7 +213,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.txtDate.Enabled = false;
             this.txtDate.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDate.Location = new System.Drawing.Point(11, 35);
+            this.txtDate.Location = new System.Drawing.Point(29, 38);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(220, 31);
             this.txtDate.TabIndex = 109;
@@ -222,7 +224,7 @@ namespace PamirAccounting.Forms.Checks
             this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(231, 41);
+            this.label1.Location = new System.Drawing.Point(249, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 19);
             this.label1.TabIndex = 108;
@@ -232,7 +234,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.txtDocumentId.Enabled = false;
             this.txtDocumentId.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDocumentId.Location = new System.Drawing.Point(364, 35);
+            this.txtDocumentId.Location = new System.Drawing.Point(372, 35);
             this.txtDocumentId.Name = "txtDocumentId";
             this.txtDocumentId.Size = new System.Drawing.Size(220, 31);
             this.txtDocumentId.TabIndex = 107;
@@ -243,7 +245,7 @@ namespace PamirAccounting.Forms.Checks
             this.label7.Enabled = false;
             this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(585, 41);
+            this.label7.Location = new System.Drawing.Point(593, 41);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 19);
             this.label7.TabIndex = 101;
@@ -255,7 +257,7 @@ namespace PamirAccounting.Forms.Checks
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 411);
+            this.ClientSize = new System.Drawing.Size(720, 320);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
