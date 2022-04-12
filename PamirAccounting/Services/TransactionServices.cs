@@ -155,14 +155,14 @@ namespace PamirAccounting.Services
                 {
                     predicate = predicate.And(x => x.DocumentId == DocumentId);
                 }
-                if (startDate != null)
-                {
-                    predicate= predicate.And(x => x.TransactionDateTime >= startDate);
-                }
-                if (endDate != null)
-                {
-                    predicate= predicate.And(x => x.TransactionDateTime<= endDate);
-                }
+                //if (startDate != null)
+                //{
+                //    predicate= predicate.And(x => x.TransactionDateTime >= startDate);
+                //}
+                //if (endDate != null)
+                //{
+                //    predicate= predicate.And(x => x.TransactionDateTime<= endDate);
+                //}
 
          
 

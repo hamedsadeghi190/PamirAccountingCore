@@ -126,7 +126,7 @@ namespace PamirAccounting.Forms.Checks
             report.Load(AppSetting.ReportPath + "ReceiveSareHesabList.mrt");
             report.RegData("myData", data);
             report.RegData("basedata", basedata);
-           // report.Design();
+          // report.Design();
             report.Render();
             report.Show();
         }
@@ -226,6 +226,7 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -257,6 +258,7 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,

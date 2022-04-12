@@ -40,7 +40,8 @@ namespace PamirAccounting.Forms.Checks
                 x.BankAccountNumber,
                 x.CustomerName,
                 x.RealBankName,
-                x.DueDate
+                x.DueDate,
+                x.RowId
             }).ToList();
 
         }
@@ -81,6 +82,33 @@ namespace PamirAccounting.Forms.Checks
                 txtsearch.Select();
                 txtsearch.Focus();
             }
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+
+
+                    var rowCount = dataList.Count();
+                    var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
+                    if (rowIndex == rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var vagozari = new VagozariAsnadDaryaftaniFrm(ChequeNumber, 0);
+                        vagozari.ShowDialog();
+                        LoadData();
+                    }
+                    if (rowIndex < rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var vagozari = new VagozariAsnadDaryaftaniFrm(ChequeNumber, 0);
+                        vagozari.ShowDialog();
+                        LoadData();
+                    }
+
+
+                }
+            }
         }
 
         private void txtsearch_KeyUp(object sender, KeyEventArgs e)
@@ -92,6 +120,7 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -116,12 +145,14 @@ namespace PamirAccounting.Forms.Checks
 
         private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
-                var vagozari = new VagozariAsnadDaryaftaniFrm(ChequeNumber, 0);
-                vagozari.ShowDialog();
-                LoadData();
+                e.Handled = true;
             }
         }
     }

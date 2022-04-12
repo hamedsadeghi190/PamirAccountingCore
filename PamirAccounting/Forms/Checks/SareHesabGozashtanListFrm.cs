@@ -176,5 +176,10 @@ namespace PamirAccounting.Forms.Checks
                 e.Handled = true;
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

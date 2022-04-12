@@ -75,11 +75,11 @@ namespace PamirAccounting.Forms.Checks
                 orginalCustomerId = currentCheque.OrginalCustomerIde;
                 txtDocumentId.Text = currentCheque.DocumentId.ToString();
                 PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
-                txtDate.Text = PDate;
-                string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtBargashtDate.Text = PDate2;
-             
+               // string PDate = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
+                txtDate.Text = currentCheque.RegisterDateTime.ToFarsiFormat();
+                //string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+                txtBargashtDate.Text = DateTime.Now.ToFarsiFormat();
+                CreateDescription();
             }
         }
         private void ChequeActionInfo(long? _ChequeNumberEdit)
@@ -88,13 +88,13 @@ namespace PamirAccounting.Forms.Checks
             prevCustomerId = currentCheque.CustomerId;
             orginalCustomerId = currentCheque.OrginalCustomerIde;
             PersianCalendar pc = new PersianCalendar();
-            string BargashtDateTime = pc.GetYear((DateTime)currentCheque.BargashtDate).ToString() + "/" + pc.GetMonth((DateTime)currentCheque.BargashtDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)currentCheque.BargashtDate).ToString();
-            string DateTime = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
-            txtBargashtDate.Text = BargashtDateTime;
-            txtDate.Text = DateTime;
+            //string BargashtDateTime = pc.GetYear((DateTime)currentCheque.BargashtDate).ToString() + "/" + pc.GetMonth((DateTime)currentCheque.BargashtDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)currentCheque.BargashtDate).ToString();
+            //string DateTime = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
+            txtBargashtDate.Text = ((DateTime)currentCheque.BargashtDate).ToFarsiFormat();
+            txtDate.Text = currentCheque.RegisterDateTime.ToFarsiFormat();
             txtDesc.Text = currentCheque.Description;
             txtDocumentId.Text = currentCheque.DocumentId.ToString();
-
+            CreateDescription();
         }
 
         private void SaveNew()

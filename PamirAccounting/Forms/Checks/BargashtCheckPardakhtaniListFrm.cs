@@ -53,7 +53,7 @@ namespace PamirAccounting.Forms.Checks
         {
             dataGridView1.AutoGenerateColumns = false;
             LoadData();
-      
+
         }
 
         private void BargashtCheckPardakhtaniListFrm_KeyUp(object sender, KeyEventArgs e)
@@ -104,7 +104,7 @@ namespace PamirAccounting.Forms.Checks
                 Pass.ShowDialog();
                 LoadData();
             }
-          
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -121,6 +121,7 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -132,9 +133,9 @@ namespace PamirAccounting.Forms.Checks
                     x.RealBankName,
                     x.DueDate,
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
-                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
-
-                }).Where(x => x.ChequeNumber .Contains( txtsearch.Text)).ToList();
+                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString(),
+                    x.BankName,
+                }).Where(x => x.ChequeNumber.Contains(txtsearch.Text)).ToList();
 
             }
             else
@@ -145,14 +146,21 @@ namespace PamirAccounting.Forms.Checks
 
         private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
-                var Pass = new BargashtCheckPardakhtaniFrm(ChequeNumber, 0);
-                Pass.ShowDialog();
-                LoadData();
-            }
+     
 
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

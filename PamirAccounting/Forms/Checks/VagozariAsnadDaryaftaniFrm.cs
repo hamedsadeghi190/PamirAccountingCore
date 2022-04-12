@@ -90,6 +90,12 @@ namespace PamirAccounting.Forms.Checks
 
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
             cmbCustomers.DataSource = _Customers;
+            AutoCompleteStringCollection autoCustomer = new AutoCompleteStringCollection();
+            foreach (var item in _Customers)
+            {
+                autoCustomer.Add(item.Title);
+            }
+            cmbCustomers.AutoCompleteCustomSource = autoCustomer;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
             if (_ChequeNumberEdit > 0)
@@ -102,10 +108,11 @@ namespace PamirAccounting.Forms.Checks
                 orginalCustomerId = Cheque.OrginalCustomerIde;
                 txtDocumentId.Text = Cheque.DocumentId.ToString();
                 PersianCalendar pc = new PersianCalendar();
-                string PDate = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
-                txtDate.Text = PDate;
-                string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtAssignmentDate.Text = PDate2;
+                //string PDate = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
+                txtDate.Text = Cheque.RegisterDateTime.ToFarsiFormat();
+               // string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
+                txtAssignmentDate.Text = DateTime.Now.ToFarsiFormat();
+                CreateDescription();
             }
             cmbCustomers.TextChanged += new EventHandler(cmbCustomers_TextChanged);
         }
@@ -116,13 +123,14 @@ namespace PamirAccounting.Forms.Checks
             orginalCustomerId = Cheque.OrginalCustomerIde;
             prevCustomerId = Cheque.CustomerId;
             PersianCalendar pc = new PersianCalendar();
-            string AssignmentDateTime = pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
-            string DateTime = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
-            txtAssignmentDate.Text = AssignmentDateTime;
-            txtDate.Text = DateTime;
+            // string AssignmentDateTime = pc.GetYear((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetMonth((DateTime)Cheque.AssignmentDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)Cheque.AssignmentDate).ToString();
+            // string DateTime = pc.GetYear(Cheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(Cheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(Cheque.RegisterDateTime).ToString();
+            txtAssignmentDate.Text = ((DateTime)Cheque.AssignmentDate).ToFarsiFormat();
+            txtDate.Text = Cheque.RegisterDateTime.ToFarsiFormat();
             txtDesc.Text = Cheque.Description;
             txtDocumentId.Text = Cheque.DocumentId.ToString();
             cmbCustomers.SelectedValue = Cheque.CustomerId;
+            CreateDescription();
         }
 
 

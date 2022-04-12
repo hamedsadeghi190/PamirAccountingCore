@@ -93,7 +93,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtAccountNumber
             // 
-            this.txtAccountNumber.Location = new System.Drawing.Point(113, 27);
+            this.txtAccountNumber.Location = new System.Drawing.Point(113, 21);
             this.txtAccountNumber.Name = "txtAccountNumber";
             this.txtAccountNumber.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtAccountNumber.Properties.Appearance.Options.UseFont = true;
@@ -104,7 +104,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // txtChequeNumber
             // 
-            this.txtChequeNumber.Location = new System.Drawing.Point(427, 27);
+            this.txtChequeNumber.Location = new System.Drawing.Point(427, 21);
             this.txtChequeNumber.Name = "txtChequeNumber";
             this.txtChequeNumber.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtChequeNumber.Properties.Appearance.Options.UseFont = true;
@@ -117,7 +117,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(300, 32);
+            this.label1.Location = new System.Drawing.Point(300, 26);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(96, 19);
@@ -128,7 +128,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(617, 35);
+            this.label4.Location = new System.Drawing.Point(617, 29);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(82, 19);

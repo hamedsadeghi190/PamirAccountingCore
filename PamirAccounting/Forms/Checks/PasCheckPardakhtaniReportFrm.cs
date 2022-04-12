@@ -150,8 +150,9 @@ namespace PamirAccounting.Forms.Checks
                     x.RealBankName,
                     x.DueDate,
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
-                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
-
+                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString(),
+                    x.RowId,
+                    x.BankName,
                 }).Where(x => x.ChequeNumber.Contains(txtChequeNumber.Text)).ToList();
 
             }
@@ -171,6 +172,7 @@ namespace PamirAccounting.Forms.Checks
                 {
                     x.Id,
                     x.RowId,
+                    x.BankName,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
