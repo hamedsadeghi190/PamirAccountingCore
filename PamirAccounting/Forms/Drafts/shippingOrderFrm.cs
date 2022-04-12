@@ -62,6 +62,8 @@ namespace PamirAccounting.Forms.Drafts
             cmbDraftCurrency.Refresh();
             SetComboBoxHeight(cmbStatus.Handle, 25);
             cmbStatus.Refresh();
+
+
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
 
@@ -124,10 +126,17 @@ namespace PamirAccounting.Forms.Drafts
         {
             try
             {
+                if (!ValidateForms())
+                {
+                    MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید");
+                    return;
+                }
+
                 var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
 
                 var draft = new Domains.Draft();
 
+            
                 var dDate = txtDate.Text.Split('/');
                 PersianCalendar p = new PersianCalendar();
                 var draftDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
@@ -143,8 +152,8 @@ namespace PamirAccounting.Forms.Drafts
                 draft.PayPlace = txtPayPlace.Text;
                 draft.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
                 draft.DraftAmount = long.Parse(txtDraftAmount.Text);
-                draft.Rate = double.Parse(txtRate.Text);
-                draft.Rent = double.Parse(txtRent.Text);
+                draft.Rate = double.Parse(txtRate.Text, System.Globalization.CultureInfo.InvariantCulture);
+                draft.Rent = double.Parse(txtRent.Text, System.Globalization.CultureInfo.InvariantCulture);
                 draft.DepositAmount = double.Parse(txtDepositAmount.Text);
                 draft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                 draft.CustomerId = (int)cmbCustomer.SelectedValue;
@@ -176,11 +185,44 @@ namespace PamirAccounting.Forms.Drafts
                 //end moshtari ///
 
                 MessageBox.Show(" حواله با موفقیت ثبت شد");
+                ResetForm();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Data not Saved !" + ex.Message);
             }
+        }
+
+        private void ResetForm()
+        {
+            txtDate.Text = DateTime.Now.ToFarsiFormat();
+            txtNumber.Clear();
+            txtOtherNumber.Clear();
+            txtSender.Clear();
+            txtReciver.Clear();
+            txtFatherName.Clear();
+            txtPayPlace.Clear();
+            txtDesc.Clear();
+            cmbDraftCurrency.SelectedIndex = 0;
+            cmbDepositCurreny.SelectedIndex = 0;
+            txtDraftAmount.Text = "0";
+            txtRate.Text = "0";
+            txtRent.Text = "0";
+            txtDepositAmount.Text = "0";
+            cmbCustomer.SelectedIndex = 0;
+            cmbStatus.SelectedIndex = 0;
+
+            calcNumber((int)cmbAgency.SelectedValue);
+        }
+
+        private bool ValidateForms()
+        {
+            if (!(txtDraftAmount.Text.Length > 0 && long.Parse(txtDraftAmount.Text) > 0))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void txtRent_TextChanged(object sender, EventArgs e)
@@ -190,7 +232,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void cmbAgency_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
             if (cmbAgency.SelectedIndex >= 0)
             {
                 calcNumber((int)cmbAgency.SelectedValue);
