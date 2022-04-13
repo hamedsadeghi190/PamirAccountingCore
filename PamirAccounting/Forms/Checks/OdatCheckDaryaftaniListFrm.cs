@@ -27,10 +27,11 @@ namespace PamirAccounting.Forms.Checks
         private void LoadData()
         {
             PersianCalendar pc = new PersianCalendar();
-            dataList = unitOfWork.ChequeServices.GetAllDaryaftani();
+            dataList = unitOfWork.ChequeServices.GetAllOdatDaryaftani();
             dataGridView1.DataSource = dataList.Select(x => new
             {
                 x.Id,
+                x.RowId,
                 x.IssueDate,
                 x.Description,
                 x.DocumentId,
@@ -82,6 +83,33 @@ namespace PamirAccounting.Forms.Checks
                 txtsearch.Select();
                 txtsearch.Focus();
             }
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+
+
+                    var rowCount = dataList.Count();
+                    var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
+                    if (rowIndex == rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var OdatCheckDaryaftani = new OdatCheckDaryaftaniFrm(ChequeNumber, 0);
+                        OdatCheckDaryaftani.ShowDialog();
+                        LoadData();
+                    }
+                    if (rowIndex < rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var OdatCheckDaryaftani = new OdatCheckDaryaftaniFrm(ChequeNumber, 0);
+                        OdatCheckDaryaftani.ShowDialog();
+                        LoadData();
+                    }
+
+
+                }
+            }
         }
 
         private void btnodat_daryaftani_KeyUp(object sender, KeyEventArgs e)
@@ -92,10 +120,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void btnprint_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnhelp.Focus();
-            }
+        
         }
 
         private void btnhelp_KeyUp(object sender, KeyEventArgs e)
@@ -111,10 +136,11 @@ namespace PamirAccounting.Forms.Checks
             if (txtsearch.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
-                dataList = unitOfWork.ChequeServices.GetAllDaryaftani();
+                dataList = unitOfWork.ChequeServices.GetAllOdatDaryaftani();
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -148,15 +174,16 @@ namespace PamirAccounting.Forms.Checks
 
         private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
-                var OdatCheckDaryaftani = new OdatCheckDaryaftaniFrm(ChequeNumber, 0);
-                OdatCheckDaryaftani.ShowDialog();
-                LoadData();
-               
-            }
+         
 
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

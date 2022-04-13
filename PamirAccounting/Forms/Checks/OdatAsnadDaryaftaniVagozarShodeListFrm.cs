@@ -30,6 +30,7 @@ namespace PamirAccounting.Forms.Checks
             dataGridView1.DataSource = dataList.Select(x => new
             {
                 x.Id,
+                x.RowId,
                 x.IssueDate,
                 x.Description,
                 x.DocumentId,
@@ -42,7 +43,7 @@ namespace PamirAccounting.Forms.Checks
                 x.DueDate,
                 IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                 DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString(),
-                x.RowId
+               
 
             }).ToList();
 
@@ -67,6 +68,33 @@ namespace PamirAccounting.Forms.Checks
             {
                 txtsearch.Select();
                 txtsearch.Focus();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+
+
+                    var rowCount = dataList.Count();
+                    var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
+                    if (rowIndex == rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var odat = new OdatAsnadDaryaftaniVagozarShodeFrm(ChequeNumber, 0);
+                        odat.ShowDialog();
+                        LoadData();
+                    }
+                    if (rowIndex < rowCount - 1)
+                    {
+                        long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
+                        var odat = new OdatAsnadDaryaftaniVagozarShodeFrm(ChequeNumber, 0);
+                        odat.ShowDialog();
+                        LoadData();
+                    }
+
+
+                }
             }
         }
 
@@ -102,6 +130,7 @@ namespace PamirAccounting.Forms.Checks
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
+                    x.RowId,
                     x.IssueDate,
                     x.Description,
                     x.DocumentId,
@@ -126,12 +155,14 @@ namespace PamirAccounting.Forms.Checks
 
         private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+           
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                long ChequeNumber = (long)dataGridView1.SelectedRows[0].Cells[0].Value;
-                var odat = new OdatAsnadDaryaftaniVagozarShodeFrm(ChequeNumber, 0);
-                odat.ShowDialog();
-                LoadData();
+                e.Handled = true;
             }
         }
     }
