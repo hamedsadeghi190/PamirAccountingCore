@@ -1,7 +1,9 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -114,21 +116,18 @@ namespace PamirAccounting.Forms.NewsPaper
 
             if (e.KeyCode == Keys.F8)
             {
-                //PersianCalendar pc = new PersianCalendar();
-                //DateTime dt = DateTime.Now;
-                //string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-                //var data = TotalPrint();
-                //var data2 = TotalSummeryPrint();
-                //var basedata = new reportbaseDAta() { Date = PersianDate };
-                //var report = StiReport.CreateNewReport();
-                //report.Load(AppSetting.ReportPath + "CreditorList.mrt");
-                //report.RegData("myData", data);
-                //report.RegData("myData2", data2);
-                //report.RegData("basedata", basedata);
-                //// report.Design();
-                //report.Render();
-                //report.Show();
-
+                PersianCalendar pc = new PersianCalendar();
+                DateTime dt = DateTime.Now;
+                string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                var data = TotalPrint();
+                var basedata = new reportbaseDAta() { Date = PersianDate };
+                var report = StiReport.CreateNewReport();
+                report.Load(AppSetting.ReportPath + "PayAndReciveBankList.mrt");
+                report.RegData("myData", data);
+                report.RegData("basedata", basedata);
+                //report.Design();
+                report.Render();
+                report.Show();
             }
         }
 
@@ -201,6 +200,51 @@ namespace PamirAccounting.Forms.NewsPaper
             }
             else
                 LoadData();
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var data = TotalPrint();
+            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "PayAndReciveBankList.mrt");
+            report.RegData("myData", data);
+            report.RegData("basedata", basedata);
+            //report.Design();
+            report.Render();
+            report.Show();
+        }
+
+        private List<TransactionModel> TotalPrint()
+        {
+            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null, txtDate.Text);
+            //  var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
+            //_dataList = new List<TransactionModel>();
+            _GroupedDataList = new List<TransactionModel>();
+            foreach (var item in tmpDataList)
+            {
+                var curenncySummery = new TransactionModel();
+
+                curenncySummery.FullName = item.FullName;
+                curenncySummery.BranchCode = item.BranchCode;
+                curenncySummery.ReceiptNumber = item.ReceiptNumber;
+                curenncySummery.TransactionDateTime = item.TransactionDateTime;
+                curenncySummery.DepositAmount = item.DepositAmount;
+                _GroupedDataList.Add(curenncySummery);
+
+            }
+
+            _GroupedDataList = _GroupedDataList.OrderBy(x => x.FullName).ToList();
+            int row = 1;
+            foreach (var item in _GroupedDataList)
+            {
+                item.RowId = row++;
+            }
+            gridPayAndReciveBank.AutoGenerateColumns = false;
+           return tmpDataList;
         }
     }
 }

@@ -98,6 +98,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.btnprint.Size = new System.Drawing.Size(39, 41);
             this.btnprint.TabIndex = 142;
             this.btnprint.Text = "چاپ";
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // groupBox1
             // 

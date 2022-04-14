@@ -106,28 +106,27 @@ namespace PamirAccounting.Forms.NewsPaper
                 cmbCurrencies.Select();
                 cmbCurrencies.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
+        
        
 
 
             if (e.KeyCode == Keys.F8)
             {
-                //PersianCalendar pc = new PersianCalendar();
-                //DateTime dt = DateTime.Now;
-                //string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-                //var data = TotalPrint();
-                //var data2 = TotalSummeryPrint();
-                //var basedata = new reportbaseDAta() { Date = PersianDate };
-                //var report = StiReport.CreateNewReport();
-                //report.Load(AppSetting.ReportPath + "CreditorList.mrt");
-                //report.RegData("myData", data);
-                //report.RegData("myData2", data2);
-                //report.RegData("basedata", basedata);
-                //// report.Design();
-                //report.Render();
-                //report.Show();
-
-            }
+                    PersianCalendar pc = new PersianCalendar();
+                    DateTime dt = DateTime.Now;
+                    string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                    var data = TotalPrint();
+                    var data2 = TotalSummeryPrint();
+                    var basedata = new reportbaseDAta() { Date = PersianDate };
+                    var report = StiReport.CreateNewReport();
+                    report.Load(AppSetting.ReportPath + "BuyAndSellCurrencyList.mrt");
+                    report.RegData("myData", data);
+                    report.RegData("myData2", data2);
+                    report.RegData("basedata", basedata);
+                    //report.Design();
+                    report.Render();
+                    report.Show();
+                }
         }
 
         private void LoadData()
@@ -206,6 +205,92 @@ namespace PamirAccounting.Forms.NewsPaper
             }
             else
                 LoadData();
+        }
+
+        private void btnprint_Click(object sender, EventArgs e)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var data = TotalPrint();
+            var data2 = TotalSummeryPrint();
+            var basedata = new reportbaseDAta() { Date = PersianDate };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "BuyAndSellCurrencyList.mrt");
+            report.RegData("myData", data);
+            report.RegData("myData2", data2);
+            report.RegData("basedata", basedata);
+            //report.Design();
+            report.Render();
+            report.Show();
+        }
+
+        private List<TransactionModel> TotalPrint()
+        {
+            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
+            var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
+            _dataList = new List<TransactionModel>();
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in grouped)
+            {
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw += item.WithdrawAmount.Value;
+                    totalDeposit += item.DepositAmount.Value;
+                    curenncySummery.CurrenyName = item.CurrenyName;
+                    item.RemainigAmount = totalDeposit - totalWithDraw;
+                    _dataList.Add(item);
+                }
+                curenncySummery.TotalDepositAmount = totalDeposit;
+                curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                remaining = totalDeposit - totalWithDraw;
+                curenncySummery.RemainigAmount = remaining;
+                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
+                _GroupedDataList.Add(curenncySummery);
+
+            }
+          
+            _dataList = _dataList.OrderBy(x => x.RowId).ToList();
+            gridPayAndReciveCash.AutoGenerateColumns = false;
+            return _dataList;
+
+
+        }
+
+        private List<TransactionsGroupModel> TotalSummeryPrint()
+        {
+            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
+            var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
+            _dataList = new List<TransactionModel>();
+            _GroupedDataList = new List<TransactionsGroupModel>();
+            foreach (var currency in grouped)
+            {
+                var curenncySummery = new TransactionsGroupModel();
+                curenncySummery.Description = "جمع";
+                long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
+                foreach (var item in currency.OrderBy(x => x.Id).ToList())
+                {
+                    totalWithDraw += item.WithdrawAmount.Value;
+                    totalDeposit += item.DepositAmount.Value;
+                    curenncySummery.CurrenyName = item.CurrenyName;
+                    item.RemainigAmount = totalDeposit - totalWithDraw;
+                    _dataList.Add(item);
+                }
+                curenncySummery.TotalDepositAmount = totalDeposit;
+                curenncySummery.TotalWithdrawAmount = totalWithDraw;
+                remaining = totalDeposit - totalWithDraw;
+                curenncySummery.RemainigAmount = remaining;
+                curenncySummery.Status = (remaining == 0) ? "" : (remaining > 0) ? "بستانگار" : "بدهکار";
+                _GroupedDataList.Add(curenncySummery);
+
+            }
+            grdTotals.AutoGenerateColumns = false;
+            return _GroupedDataList;
+         
+
         }
     }
 }
