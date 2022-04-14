@@ -137,9 +137,7 @@ namespace PamirAccounting.Forms.NewsPaper
             InitForm();
             LoadData();
             initGrid();
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            txtDate.Text = PDate;
+            txtDate.Text = DateTime.Now.ToFarsiFormat();
         }
 
         private void GellAll(List<TransactionModel> _list)
@@ -195,7 +193,7 @@ namespace PamirAccounting.Forms.NewsPaper
                 var dDate = txtDate.Text.Split('_');
                 if (dDate[0].Length == 10)
                 {
-                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(txtDate.Text);
+                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBankSearch(txtDate.Text);
                     GellAll(_dataList);
                 }
                 else
