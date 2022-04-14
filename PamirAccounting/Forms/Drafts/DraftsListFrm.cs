@@ -102,13 +102,16 @@ namespace PamirAccounting.Forms.Drafts
         {
             var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
                                                             && x.Type == (int)(cmbType.SelectedValue))
+                .OrderBy(x=>x.Date)
                 .Include(x => x.DepositCurrency)
                 .Include(x => x.TypeCurrency)
                 .Include(x => x.Customer)
                 .ToList();
 
+            var rowId = 0;
             _data = tmpData.Select(q => new DraftViewModels()
             {
+                Radif = rowId++,
                 Id = q.Id,
                 Number = q.Number,
                 OtherNumber = q.OtherNumber,
@@ -130,24 +133,6 @@ namespace PamirAccounting.Forms.Drafts
             }).ToList();
 
 
-
-            gridDrafts.RowsDefaultCellStyle.BackColor = Color.White;
-
-            gridDrafts.AlternatingRowsDefaultCellStyle.BackColor = Color.Silver;
-            gridDrafts.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-
-            //gridDrafts.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
-            //gridDrafts.DefaultCellStyle.SelectionForeColor = Color.White;
-
-            gridDrafts.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            gridDrafts.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-            gridDrafts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //gridDrafts.AllowUserToResizeColumns = false;
-
-
-
-
             gridDrafts.DataSource = null;
             gridDrafts.DataSource = _data;
             gridDrafts.Refresh();
@@ -160,17 +145,6 @@ namespace PamirAccounting.Forms.Drafts
                 cdata.Total += (item.DepositAmount.HasValue) ? item.DepositAmount.Value : 0;
                 cdata.TotalRent += item.Rent;
             }
-
-            grdTotals.RowsDefaultCellStyle.BackColor = Color.White;
-
-            grdTotals.AlternatingRowsDefaultCellStyle.BackColor = Color.Silver;
-            grdTotals.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-
-            //grdTotals.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
-            //grdTotals.DefaultCellStyle.SelectionForeColor = Color.White;
-
-            grdTotals.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            grdTotals.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             grdTotals.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
@@ -201,7 +175,7 @@ namespace PamirAccounting.Forms.Drafts
                 }
                 else
                 {
-                   // MessageBox.Show("حواله قبلا اجرا شده است.");
+                    // MessageBox.Show("حواله قبلا اجرا شده است.");
                 }
             }
 
