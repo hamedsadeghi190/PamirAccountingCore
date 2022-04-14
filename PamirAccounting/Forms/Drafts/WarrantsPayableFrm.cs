@@ -1,16 +1,11 @@
-﻿using DevExpress.XtraEditors;
-using PamirAccounting.Models;
+﻿using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -18,19 +13,28 @@ namespace PamirAccounting.Forms.Drafts
 {
     public partial class WarrantsPayableFrm : DevExpress.XtraEditors.XtraForm
     {
+        #region Properties
         private List<ComboBoxBoolModel> _status = new List<ComboBoxBoolModel>();
         private List<ComboBoxModel> _Customers;
         private List<ComboBoxModel> _agencies;
         private List<ComboBoxModel> _Currencies;
         private List<ComboBoxModel> _DestCurrencies = new List<ComboBoxModel>();
         private UnitOfWork unitOfWork;
+        private int? _draftID;
+        #endregion
 
+        #region constructor
+        public WarrantsPayableFrm(int draftId)
+        {
+            InitializeComponent();
+            unitOfWork = new UnitOfWork();
+            _draftID = draftId;
+        }
         public WarrantsPayableFrm()
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
         }
-
 
         [DllImport("user32.dll")]
         static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
@@ -40,7 +44,7 @@ namespace PamirAccounting.Forms.Drafts
         {
             SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
         }
-
+        #endregion
 
         private void WarrantsPayableFrm_Load(object sender, EventArgs e)
         {
@@ -57,16 +61,29 @@ namespace PamirAccounting.Forms.Drafts
             cmbDraftCurrency.Refresh();
             SetComboBoxHeight(cmbStatus.Handle, 25);
             cmbStatus.Refresh();
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + (pc.GetMonth(DateTime.Now) < 10 ? "0" + pc.GetMonth(DateTime.Now).ToString() : pc.GetMonth(DateTime.Now).ToString()) + "/" + (pc.GetDayOfMonth(DateTime.Now) < 10 ? "0" + pc.GetDayOfMonth(DateTime.Now).ToString() : pc.GetDayOfMonth(DateTime.Now).ToString());
-            txtDate.Text = PDate;
-            initData();
-            cmbCustomer.SelectedValue = AppSetting.NotRunnedDraftsId;
 
+            initData();
+            loadData();
+
+        }
+
+        private void loadData()
+        {
+            if (_draftID.HasValue)
+            {
+
+            }
+            else
+            {
+                txtDate.Text = DateTime.Now.ToFarsiFormat();
+                cmbCustomer.SelectedValue = AppSetting.NotRunnedDraftsId;
+            }
         }
 
         private void initData()
         {
+            this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
+
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = "نمایندگی " + x.Name, Type = 2 }).ToList();
 
@@ -127,6 +144,7 @@ namespace PamirAccounting.Forms.Drafts
             cmbStatus.ValueMember = "value";
             cmbStatus.DisplayMember = "Title";
             calcNumber((int)cmbAgency.SelectedValue);
+            this.cmbAgency.SelectedIndexChanged += new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
         }
         private void calcNumber(int agenyId)
         {
@@ -137,7 +155,7 @@ namespace PamirAccounting.Forms.Drafts
             }
             else
             {
-                txtNumber.Text = ((int)cmbAgency.SelectedValue + 100 * 30 + 1).ToString();
+                txtNumber.Text = ((int)cmbAgency.SelectedValue * 10000).ToString();
             }
         }
         private void calcNumberforosh(int agenyId)
@@ -152,7 +170,6 @@ namespace PamirAccounting.Forms.Drafts
                 txt_forosh_number.Text = (agenyId + 100 * 20 + 1).ToString();
             }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -212,12 +229,12 @@ namespace PamirAccounting.Forms.Drafts
                     unitOfWork.SaveChanges();
                     //end moshtari ///
 
-                  
+
                 }
                 else
 
                 {
-                  
+
                     var draftForosh = new Domains.Draft();
 
                     draftForosh.Date = draftDateTime;
@@ -252,7 +269,6 @@ namespace PamirAccounting.Forms.Drafts
                 MessageBox.Show("Data not Saved !" + ex.Message);
             }
         }
-
         private void CalculateDeposit()
         {
             try
@@ -321,27 +337,22 @@ namespace PamirAccounting.Forms.Drafts
             }
 
         }
-
         private void txtDraftAmount_TextChanged(object sender, EventArgs e)
         {
             CalculateDeposit();
         }
-
         private void txtRate_TextChanged(object sender, EventArgs e)
         {
             CalculateDeposit();
         }
-
         private void txtRent_TextChanged(object sender, EventArgs e)
         {
             CalculateDeposit();
         }
-
         private void cmbDepositCurreny_SelectedValueChanged(object sender, EventArgs e)
         {
             CalculateDeposit();
         }
-
         private void WarrantsPayableFrm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -352,17 +363,13 @@ namespace PamirAccounting.Forms.Drafts
                 e.Handled = true;
             }
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
-
         private void cmbCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedIndex = (int)cmbCustomer.SelectedIndex;
@@ -382,12 +389,13 @@ namespace PamirAccounting.Forms.Drafts
                 lbl_forosh_number.Visible = false;
                 lbl_forosh_ext_number.Visible = false;
 
-          
+
             }
         }
+        private void cmbAgency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calcNumber((int)cmbAgency.SelectedValue);
 
-
-
-       
+        }
     }
 }

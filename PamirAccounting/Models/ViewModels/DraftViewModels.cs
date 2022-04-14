@@ -11,6 +11,8 @@ namespace PamirAccounting.Models.ViewModels
         public int Index { get; set; }
         public int Type { get; set; }
         public long Id { get; set; }
+        public int DocumentID { get; set; }
+        public int Radif { get; set; }
         public long Number { get; set; }
         public string OtherNumber { get; set; }
         public string Sender { get; set; }
