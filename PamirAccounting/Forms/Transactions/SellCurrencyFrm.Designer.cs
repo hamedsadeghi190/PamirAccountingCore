@@ -1,7 +1,7 @@
 ﻿
 namespace PamirAccounting.Forms.Transactions
 {
-    partial class BuyAndSellCurrencyFrm
+    partial class SellCurrencyFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace PamirAccounting.Forms.Transactions
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyAndSellCurrencyFrm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SellCurrencyFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbl_Document_Id_value = new System.Windows.Forms.Label();
             this.lbl_Document_Id = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox1.Size = new System.Drawing.Size(701, 418);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ثبت / ویرایش خرید و فروش ارز";
+            this.groupBox1.Text = "فروش ارز";
             // 
             // lbl_Document_Id_value
             // 
@@ -442,19 +442,19 @@ namespace PamirAccounting.Forms.Transactions
             this.label9.TabIndex = 106;
             this.label9.Text = "مبلغ ارز:";
             // 
-            // BuyAndSellCurrencyFrm
+            // SellCurrencyFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 435);
+            this.ClientSize = new System.Drawing.Size(713, 435);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.Name = "BuyAndSellCurrencyFrm";
+            this.Name = "SellCurrencyFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

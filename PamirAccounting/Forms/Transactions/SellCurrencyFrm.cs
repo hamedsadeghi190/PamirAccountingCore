@@ -14,7 +14,7 @@ using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Transactions
 {
-    public partial class BuyAndSellCurrencyFrm : DevExpress.XtraEditors.XtraForm
+    public partial class SellCurrencyFrm : DevExpress.XtraEditors.XtraForm
     {
         private UnitOfWork unitOfWork;
         private int? _Id;
@@ -29,7 +29,7 @@ namespace PamirAccounting.Forms.Transactions
         private Currency destiniationCurrency, sourceCurrency;
         long buyerPrice;
         long sellerPrice1;
-        public BuyAndSellCurrencyFrm(int Id, long? transActionId)
+        public SellCurrencyFrm(int Id, long? transActionId)
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
@@ -38,7 +38,7 @@ namespace PamirAccounting.Forms.Transactions
         }
 
 
-        public BuyAndSellCurrencyFrm()
+        public SellCurrencyFrm()
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();

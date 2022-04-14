@@ -385,7 +385,7 @@ namespace PamirAccounting.UI
 
         private void btnBuyAndSellCurrency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var BuyAndSellCurrency = new BuyAndSellCurrencyFrm();
+            var BuyAndSellCurrency = new SellCurrencyFrm();
             BuyAndSellCurrency.ShowDialog();
         }
 

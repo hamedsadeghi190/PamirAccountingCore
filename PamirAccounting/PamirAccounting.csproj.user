@@ -224,7 +224,7 @@
     <Compile Update="Forms\Transactions\addDepositCustomerFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Transactions\BuyAndSellCurrencyFrm.cs">
+    <Compile Update="Forms\Transactions\SellCurrencyFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Transactions\editUnkownDepositFrm.cs">

@@ -136,7 +136,7 @@ namespace PamirAccounting.Forms.NewsPaper
             if (e.ColumnIndex == gridPayAndReciveCash.Columns["btnEdit"].Index && e.RowIndex >= 0)
             {
                 var tranactionId = _dataList.ElementAt(e.RowIndex).Id;
-                var frmbankunkown = new BuyAndSellCurrencyFrm(0, tranactionId);
+                var frmbankunkown = new SellCurrencyFrm(0, tranactionId);
                 frmbankunkown.ShowDialog();
 
             }

@@ -99,7 +99,7 @@ namespace PamirAccounting.Forms
 
         private void AccountActionMnu_BuyAndSellCurrency_Click(object sender, EventArgs e)
         {
-            var BuyAndSellCurrency = new BuyAndSellCurrencyFrm();
+            var BuyAndSellCurrency = new SellCurrencyFrm();
             BuyAndSellCurrency.ShowDialog();
         }
 
@@ -533,6 +533,12 @@ namespace PamirAccounting.Forms
         {
             var frm = new OdatAsnadDaryaftaniVagozarShodeReportFrm();
             frm.ShowDialog();
+        }
+
+        private void BuyCurrencyMenuItem_Click(object sender, EventArgs e)
+        {
+            var BuyCurrency = new BuyCurrencyFrm();
+            BuyCurrency.ShowDialog();
         }
     }
 }

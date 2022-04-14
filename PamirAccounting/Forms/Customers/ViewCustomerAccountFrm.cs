@@ -168,7 +168,7 @@ namespace PamirAccounting.UI.Forms.Customers
                     LoadData();
                     break;
                 case 10:
-                    var frmCellAndBuy = new BuyAndSellCurrencyFrm(_Id.Value, null);
+                    var frmCellAndBuy = new SellCurrencyFrm(_Id.Value, null);
                     frmCellAndBuy.ShowDialog();
                     LoadData();
                     break;
@@ -404,7 +404,7 @@ namespace PamirAccounting.UI.Forms.Customers
                     LoadData();
                     break;
                 case (int)TransaActionType.SellAndBuy:
-                    var frmCellAndBuy = new BuyAndSellCurrencyFrm(_Id.Value, tranaction.Id);
+                    var frmCellAndBuy = new SellCurrencyFrm(_Id.Value, tranaction.Id);
                     frmCellAndBuy.ShowDialog();
                     LoadData();
                     break;
