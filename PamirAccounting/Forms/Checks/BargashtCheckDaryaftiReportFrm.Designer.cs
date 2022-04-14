@@ -75,7 +75,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox4.Size = new System.Drawing.Size(1022, 117);
             this.groupBox4.TabIndex = 126;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "لیست چک ها ی برگشتی دریافتی";
+            this.groupBox4.Text = "لیست چک های برگشتی دریافتی";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // groupBox1

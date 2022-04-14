@@ -116,7 +116,7 @@ namespace PamirAccounting.Forms.Checks
             if (txtsearch.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
-                dataList = unitOfWork.ChequeServices.GetAllDaryaftani();
+                dataList = unitOfWork.ChequeServices.GetAllVagozarAndOdat();
                 dataGridView1.DataSource = dataList.Select(x => new
                 {
                     x.Id,
