@@ -147,6 +147,32 @@ namespace PamirAccounting.Forms.NewsPaper
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+
+            if (e.KeyCode == Keys.F2)
+            {
+                cmbCurrencies.Select();
+                cmbCurrencies.Focus();
+            }
+         
+
+            if (e.KeyCode == Keys.F8)
+            {
+                //PersianCalendar pc = new PersianCalendar();
+                //DateTime dt = DateTime.Now;
+                //string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                //var data = TotalPrint();
+                //var data2 = TotalSummeryPrint();
+                //var basedata = new reportbaseDAta() { Date = PersianDate };
+                //var report = StiReport.CreateNewReport();
+                //report.Load(AppSetting.ReportPath + "CreditorList.mrt");
+                //report.RegData("myData", data);
+                //report.RegData("myData2", data2);
+                //report.RegData("basedata", basedata);
+                //// report.Design();
+                //report.Render();
+                //report.Show();
+
+            }
         }
 
         private void PayAndReciveCashListFrm_Load(object sender, EventArgs e)
@@ -154,8 +180,7 @@ namespace PamirAccounting.Forms.NewsPaper
             InitForm();
             LoadData();
             PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            txtDate.Text = PDate;
+            txtDate.Text = DateTime.Now.ToFarsiFormat();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -167,8 +192,14 @@ namespace PamirAccounting.Forms.NewsPaper
         {
             if (txtDate.Text.Length > 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCashDate(txtDate.Text);
-
+                var dDate = txtDate.Text.Split('_');
+                if (dDate[0].Length ==10)
+                {
+                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCashDate(txtDate.Text);
+                    GellAll(_dataList);
+                }
+                else
+                    return;
             }
             else
                 LoadData();
@@ -187,5 +218,9 @@ namespace PamirAccounting.Forms.NewsPaper
 
         }
 
+        private void groupBoxViewAccountCustomer_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
