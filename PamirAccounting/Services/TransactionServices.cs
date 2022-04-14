@@ -1080,7 +1080,7 @@ namespace PamirAccounting.Services
                 if (currencyId == null)
                 {
                     dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.SellAndBuy)
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency)
                    .Select(x => new TransactionModel
                    {
 
@@ -1100,7 +1100,7 @@ namespace PamirAccounting.Services
                 }
                 else
                 {
-                    dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.SellAndBuy && x.CurrenyId == currencyId)
+                    dataList = FindAllReadonly(x =>( x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency) && x.CurrenyId == currencyId)
                                  .Include(x => x.Curreny)
 
                                  .Select(x => new TransactionModel

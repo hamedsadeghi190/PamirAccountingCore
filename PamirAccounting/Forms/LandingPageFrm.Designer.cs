@@ -41,6 +41,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_ReceiveCheque = new System.Windows.Forms.ToolStripMenuItem();
             this.AccountActionMnu_PaymentCheque = new System.Windows.Forms.ToolStripMenuItem();
             this.AccountActionMnu_BuyAndSellCurrency = new System.Windows.Forms.ToolStripMenuItem();
+            this.BuyCurrencyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.روزنامهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PayAndReciveBank = new System.Windows.Forms.ToolStripMenuItem();
             this.PayAndReciveCash = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,7 +113,6 @@ namespace PamirAccounting.Forms
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.lblTimee = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BuyCurrencyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -254,6 +254,17 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_BuyAndSellCurrency.Size = new System.Drawing.Size(286, 38);
             this.AccountActionMnu_BuyAndSellCurrency.Text = "خرید ارز";
             this.AccountActionMnu_BuyAndSellCurrency.Click += new System.EventHandler(this.AccountActionMnu_BuyAndSellCurrency_Click);
+            // 
+            // BuyCurrencyMenuItem
+            // 
+            this.BuyCurrencyMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.BuyCurrencyMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("BuyCurrencyMenuItem.Image")));
+            this.BuyCurrencyMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BuyCurrencyMenuItem.Name = "BuyCurrencyMenuItem";
+            this.BuyCurrencyMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.BuyCurrencyMenuItem.Size = new System.Drawing.Size(286, 38);
+            this.BuyCurrencyMenuItem.Text = "فروش ارز";
+            this.BuyCurrencyMenuItem.Click += new System.EventHandler(this.BuyCurrencyMenuItem_Click);
             // 
             // روزنامهToolStripMenuItem
             // 
@@ -1133,15 +1144,6 @@ namespace PamirAccounting.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1332, 20);
             this.panel1.TabIndex = 11;
-            // 
-            // BuyCurrencyMenuItem
-            // 
-            this.BuyCurrencyMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.BuyCurrencyMenuItem.Name = "BuyCurrencyMenuItem";
-            this.BuyCurrencyMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.BuyCurrencyMenuItem.Size = new System.Drawing.Size(286, 38);
-            this.BuyCurrencyMenuItem.Text = "فروش ارز";
-            this.BuyCurrencyMenuItem.Click += new System.EventHandler(this.BuyCurrencyMenuItem_Click);
             // 
             // LandingPageFrm
             // 

@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.NewsPaper
 {
@@ -73,7 +74,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
-           
+
 
 
 
@@ -136,8 +137,17 @@ namespace PamirAccounting.Forms.NewsPaper
             if (e.ColumnIndex == gridPayAndReciveCash.Columns["btnEdit"].Index && e.RowIndex >= 0)
             {
                 var tranactionId = _dataList.ElementAt(e.RowIndex).Id;
-                var frmbankunkown = new SellCurrencyFrm(0, tranactionId);
-                frmbankunkown.ShowDialog();
+                var tranaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == tranactionId);
+                if (tranaction.TransactionType == (int)TransaActionType.SellCurrency)
+                {
+                    var frmbankunkown = new SellCurrencyFrm(0, tranactionId);
+                    frmbankunkown.ShowDialog();
+                }
+                else if (tranaction.TransactionType == (int)TransaActionType.BuyCurrency)
+                {
+                    var frmbankunkown = new BuyCurrencyFrm(0, tranactionId);
+                    frmbankunkown.ShowDialog();
+                }
 
             }
         }

@@ -106,7 +106,8 @@ namespace PamirAccounting.UI.Forms.Customers
             _Actions.Add(new ComboBoxModel() { Id = 2, Title = "دریافت و پرداخت نقدی " });
             _Actions.Add(new ComboBoxModel() { Id = 3, Title = "دریافت و پرداخت بانکی " });
             _Actions.Add(new ComboBoxModel() { Id = 5, Title = "انتقال حساب به حساب " });
-            _Actions.Add(new ComboBoxModel() { Id = 10, Title = "خرید و فروش ارز " });
+            _Actions.Add(new ComboBoxModel() { Id = 10, Title = "خرید ارز " });
+            _Actions.Add(new ComboBoxModel() { Id = 11, Title = "فروش ارز " });
 
             cmbActions.SelectedValueChanged -= new EventHandler(cmbActions_SelectedValueChanged);
             cmbActions.DataSource = _Actions;
@@ -170,6 +171,12 @@ namespace PamirAccounting.UI.Forms.Customers
                 case 10:
                     var frmCellAndBuy = new SellCurrencyFrm(_Id.Value, null);
                     frmCellAndBuy.ShowDialog();
+                    LoadData();
+                    break;   
+                
+                case 11:
+                    var buyCurrencyFrm = new BuyCurrencyFrm(_Id.Value, null);
+                    buyCurrencyFrm.ShowDialog();
                     LoadData();
                     break;
                 default:
@@ -403,11 +410,19 @@ namespace PamirAccounting.UI.Forms.Customers
                     transferFrm.ShowDialog();
                     LoadData();
                     break;
-                case (int)TransaActionType.SellAndBuy:
+
+                case (int)TransaActionType.SellCurrency:
                     var frmCellAndBuy = new SellCurrencyFrm(_Id.Value, tranaction.Id);
                     frmCellAndBuy.ShowDialog();
                     LoadData();
+                    break;   
+
+                case (int)TransaActionType.BuyCurrency:
+                    var currencyFrm = new BuyCurrencyFrm(_Id.Value, tranaction.Id);
+                    currencyFrm.ShowDialog();
+                    LoadData();
                     break;
+
                 default:
                     break;
             }
