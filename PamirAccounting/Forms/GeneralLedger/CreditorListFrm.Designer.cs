@@ -389,7 +389,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(65, 19);
             this.label2.TabIndex = 138;
-            this.label2.Text = "چاپ(F5)";
+            this.label2.Text = "چاپ(F8)";
             // 
             // label3
             // 

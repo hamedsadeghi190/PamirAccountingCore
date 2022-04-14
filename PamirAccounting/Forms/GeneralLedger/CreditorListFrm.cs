@@ -166,7 +166,7 @@ namespace PamirAccounting.Forms.GeneralLedger
                 this.Close();
 
 
-            if (e.KeyCode == Keys.F5)
+            if (e.KeyCode == Keys.F8)
             {
                 PersianCalendar pc = new PersianCalendar();
                 DateTime dt = DateTime.Now;

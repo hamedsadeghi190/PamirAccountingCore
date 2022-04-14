@@ -1,7 +1,9 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,6 +90,34 @@ namespace PamirAccounting.Forms.NewsPaper
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+
+            if (e.KeyCode == Keys.F2)
+            {
+                cmbCurrencies.Select();
+                cmbCurrencies.Focus();
+            }
+            if (e.KeyCode == Keys.Enter)
+       
+
+
+            if (e.KeyCode == Keys.F8)
+            {
+                //PersianCalendar pc = new PersianCalendar();
+                //DateTime dt = DateTime.Now;
+                //string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                //var data = TotalPrint();
+                //var data2 = TotalSummeryPrint();
+                //var basedata = new reportbaseDAta() { Date = PersianDate };
+                //var report = StiReport.CreateNewReport();
+                //report.Load(AppSetting.ReportPath + "CreditorList.mrt");
+                //report.RegData("myData", data);
+                //report.RegData("myData2", data2);
+                //report.RegData("basedata", basedata);
+                //// report.Design();
+                //report.Render();
+                //report.Show();
+
+            }
         }
 
         private void LoadData()
@@ -140,6 +170,23 @@ namespace PamirAccounting.Forms.NewsPaper
                 frmbankunkown.ShowDialog();
 
             }
+        }
+
+        private void txtDate_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtDate.Text.Length > 0)
+            {
+                var dDate = txtDate.Text.Split('_');
+                if (dDate[0].Length == 10)
+                {
+                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCashDate(txtDate.Text);
+                    GellAll(_dataList);
+                }
+                else
+                    return;
+            }
+            else
+                LoadData();
         }
     }
 }

@@ -164,7 +164,7 @@ namespace PamirAccounting.Services
                 //    predicate= predicate.And(x => x.TransactionDateTime<= endDate);
                 //}
 
-         
+
 
 
                 var dataList = _context.Transactions.Where(predicate)
@@ -859,7 +859,7 @@ namespace PamirAccounting.Services
                 var dataList = new List<TransactionModel>();
                 dataList = FindAllReadonly()
                 .Include(x => x.Curreny)
-                .Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.SourceCustomerId != 4)
+                .Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.SourceCustomerId != 4 && x.TransactionDateTime == TransactionDateTime)
                .Select(x => new TransactionModel
                {
 
@@ -872,6 +872,7 @@ namespace PamirAccounting.Services
                    CurrenyName = x.Curreny.Name,
                    FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
                    SourceCustomerId = x.SourceCustomerId,
+
 
 
 
@@ -903,7 +904,7 @@ namespace PamirAccounting.Services
         }
 
 
-        public List<TransactionModel> GetAllPayAndReciveBank(int? bankId)
+        public List<TransactionModel> GetAllPayAndReciveBank(int? bankId, string date)
         {
             try
             {
@@ -931,7 +932,7 @@ namespace PamirAccounting.Services
 
                    }).ToList();
                 }
-                else
+                if (bankId != null)
                 {
                     dataList = FindAllReadonly(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank)
                                  .Include(x => x.Curreny)
@@ -952,6 +953,7 @@ namespace PamirAccounting.Services
                                      DocumentId = x.DocumentId
                                  }).ToList();
                 }
+
                 int row = 1;
                 var tmpdataList = dataList.Select(x => new TransactionModel
                 {
