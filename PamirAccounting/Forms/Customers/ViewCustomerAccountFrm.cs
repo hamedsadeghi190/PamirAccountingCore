@@ -106,8 +106,9 @@ namespace PamirAccounting.UI.Forms.Customers
             _Actions.Add(new ComboBoxModel() { Id = 2, Title = "دریافت و پرداخت نقدی " });
             _Actions.Add(new ComboBoxModel() { Id = 3, Title = "دریافت و پرداخت بانکی " });
             _Actions.Add(new ComboBoxModel() { Id = 5, Title = "انتقال حساب به حساب " });
-            _Actions.Add(new ComboBoxModel() { Id = 10, Title = "خرید ارز " });
-            _Actions.Add(new ComboBoxModel() { Id = 11, Title = "فروش ارز " });
+            _Actions.Add(new ComboBoxModel() { Id = 10, Title = "فروش ارز " });
+            _Actions.Add(new ComboBoxModel() { Id = 11, Title = "خرید ارز " });
+           
 
             cmbActions.SelectedValueChanged -= new EventHandler(cmbActions_SelectedValueChanged);
             cmbActions.DataSource = _Actions;

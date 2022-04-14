@@ -252,7 +252,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_BuyAndSellCurrency.Name = "AccountActionMnu_BuyAndSellCurrency";
             this.AccountActionMnu_BuyAndSellCurrency.ShortcutKeys = System.Windows.Forms.Keys.F9;
             this.AccountActionMnu_BuyAndSellCurrency.Size = new System.Drawing.Size(286, 38);
-            this.AccountActionMnu_BuyAndSellCurrency.Text = "خرید ارز";
+            this.AccountActionMnu_BuyAndSellCurrency.Text = "فروش ارز";
             this.AccountActionMnu_BuyAndSellCurrency.Click += new System.EventHandler(this.AccountActionMnu_BuyAndSellCurrency_Click);
             // 
             // BuyCurrencyMenuItem
@@ -263,7 +263,7 @@ namespace PamirAccounting.Forms
             this.BuyCurrencyMenuItem.Name = "BuyCurrencyMenuItem";
             this.BuyCurrencyMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
             this.BuyCurrencyMenuItem.Size = new System.Drawing.Size(286, 38);
-            this.BuyCurrencyMenuItem.Text = "فروش ارز";
+            this.BuyCurrencyMenuItem.Text = "خرید ارز";
             this.BuyCurrencyMenuItem.Click += new System.EventHandler(this.BuyCurrencyMenuItem_Click);
             // 
             // روزنامهToolStripMenuItem
