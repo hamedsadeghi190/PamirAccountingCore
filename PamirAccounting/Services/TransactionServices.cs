@@ -990,29 +990,29 @@ namespace PamirAccounting.Services
                 var TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
                 var dataList = new List<TransactionModel>();
 
-                
-                    dataList = FindAllReadonly()
-                    .Include(x => x.Curreny)
-                   .Select(x => new TransactionModel
-                   {
 
-                       Id = x.Id,
-                       Description = x.Description,
-                       DepositAmount = x.DepositAmount,
-                       WithdrawAmount = x.WithdrawAmount,
-                       TransactionDateTime =x.TransactionDateTime.ToString(),
-                       TransactionDateTime2=x.TransactionDateTime,
-                       CurrenyId = x.CurrenyId,
-                       CurrenyName = x.Curreny.Name,
-                       FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-                       SourceCustomerId = x.SourceCustomerId,
-                       BranchCode = x.BranchCode,
-                       ReceiptNumber = x.ReceiptNumber,
-                       DocumentId = x.DocumentId,
-                       TransactionType=x.TransactionType
+                dataList = FindAllReadonly()
+                .Include(x => x.Curreny)
+               .Select(x => new TransactionModel
+               {
+
+                   Id = x.Id,
+                   Description = x.Description,
+                   DepositAmount = x.DepositAmount,
+                   WithdrawAmount = x.WithdrawAmount,
+                   TransactionDateTime = x.TransactionDateTime.ToString(),
+                   TransactionDateTime2 = x.TransactionDateTime,
+                   CurrenyId = x.CurrenyId,
+                   CurrenyName = x.Curreny.Name,
+                   FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                   SourceCustomerId = x.SourceCustomerId,
+                   BranchCode = x.BranchCode,
+                   ReceiptNumber = x.ReceiptNumber,
+                   DocumentId = x.DocumentId,
+                   TransactionType = x.TransactionType
 
 
-                   }).Where(x => x.TransactionDateTime2 == TransactionDateTime && x.TransactionType == (int)TransaActionType.PayAndReciveBank).ToList();
+               }).Where(x => x.TransactionDateTime2 == TransactionDateTime && x.TransactionType == (int)TransaActionType.PayAndReciveBank).ToList();
                 int row = 1;
                 var tmpdataList = dataList.Select(x => new TransactionModel
                 {
@@ -1033,104 +1033,104 @@ namespace PamirAccounting.Services
                 }).ToList();
                 return tmpdataList;
             }
-           
+
 
             catch (Exception ex)
             {
                 return null;
             }
 
-}
-public List<TransactionModel> GetAllWGroupList(int? currencyId, int? groupId)
-{
-    try
-    {
-        var dataList = new List<TransactionModel>();
-        if (groupId == null || currencyId == null)
+        }
+        public List<TransactionModel> GetAllWGroupList(int? currencyId, int? groupId)
         {
-            dataList = FindAllReadonly(x => x.Id > 0)
-     .Include(x => x.Curreny)
-    .Select(x => new TransactionModel
-    {
+            try
+            {
+                var dataList = new List<TransactionModel>();
+                if (groupId == null || currencyId == null)
+                {
+                    dataList = FindAllReadonly(x => x.Id > 0)
+             .Include(x => x.Curreny)
+            .Select(x => new TransactionModel
+            {
 
-        Id = x.Id,
-        Description = x.Description,
-        DepositAmount = x.DepositAmount,
-        WithdrawAmount = x.WithdrawAmount,
-        CurrenyId = x.CurrenyId,
-        CurrenyName = x.Curreny.Name,
-        FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-        SourceCustomerId = x.SourceCustomerId,
-        GroupId = x.SourceCustomer.GroupId,
-        GroupName = x.SourceCustomer.Group.Name,
-    }).ToList();
+                Id = x.Id,
+                Description = x.Description,
+                DepositAmount = x.DepositAmount,
+                WithdrawAmount = x.WithdrawAmount,
+                CurrenyId = x.CurrenyId,
+                CurrenyName = x.Curreny.Name,
+                FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                SourceCustomerId = x.SourceCustomerId,
+                GroupId = x.SourceCustomer.GroupId,
+                GroupName = x.SourceCustomer.Group.Name,
+            }).ToList();
+
+                }
+                if (groupId != null)
+                {
+                    dataList = FindAllReadonly(x => x.Id > 0)
+                            .Include(x => x.Curreny)
+                           .Select(x => new TransactionModel
+                           {
+
+                               Id = x.Id,
+                               Description = x.Description,
+                               DepositAmount = x.DepositAmount,
+                               WithdrawAmount = x.WithdrawAmount,
+                               CurrenyId = x.CurrenyId,
+                               CurrenyName = x.Curreny.Name,
+                               FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                               SourceCustomerId = x.SourceCustomerId,
+                               GroupId = x.SourceCustomer.GroupId,
+                               GroupName = x.SourceCustomer.Group.Name,
+                           }).Where(x => x.GroupId == groupId).ToList();
+
+                }
+                if (currencyId != null)
+                {
+                    dataList = FindAllReadonly(x => x.Id > 0)
+                            .Include(x => x.Curreny)
+                           .Select(x => new TransactionModel
+                           {
+
+                               Id = x.Id,
+                               Description = x.Description,
+                               DepositAmount = x.DepositAmount,
+                               WithdrawAmount = x.WithdrawAmount,
+                               CurrenyId = x.CurrenyId,
+                               CurrenyName = x.Curreny.Name,
+                               FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                               SourceCustomerId = x.SourceCustomerId,
+                               GroupId = x.SourceCustomer.GroupId,
+                               GroupName = x.SourceCustomer.Group.Name,
+                           }).Where(x => x.CurrenyId == currencyId).ToList();
+
+                }
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    FullName = x.FullName,
+                    SourceCustomerId = x.SourceCustomerId,
+                    GroupId = x.GroupId,
+                    GroupName = x.GroupName,
+
+
+                }).ToList();
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
 
         }
-        if (groupId != null)
-        {
-            dataList = FindAllReadonly(x => x.Id > 0)
-                    .Include(x => x.Curreny)
-                   .Select(x => new TransactionModel
-                   {
-
-                       Id = x.Id,
-                       Description = x.Description,
-                       DepositAmount = x.DepositAmount,
-                       WithdrawAmount = x.WithdrawAmount,
-                       CurrenyId = x.CurrenyId,
-                       CurrenyName = x.Curreny.Name,
-                       FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-                       SourceCustomerId = x.SourceCustomerId,
-                       GroupId = x.SourceCustomer.GroupId,
-                       GroupName = x.SourceCustomer.Group.Name,
-                   }).Where(x => x.GroupId == groupId).ToList();
-
-        }
-        if (currencyId != null)
-        {
-            dataList = FindAllReadonly(x => x.Id > 0)
-                    .Include(x => x.Curreny)
-                   .Select(x => new TransactionModel
-                   {
-
-                       Id = x.Id,
-                       Description = x.Description,
-                       DepositAmount = x.DepositAmount,
-                       WithdrawAmount = x.WithdrawAmount,
-                       CurrenyId = x.CurrenyId,
-                       CurrenyName = x.Curreny.Name,
-                       FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-                       SourceCustomerId = x.SourceCustomerId,
-                       GroupId = x.SourceCustomer.GroupId,
-                       GroupName = x.SourceCustomer.Group.Name,
-                   }).Where(x => x.CurrenyId == currencyId).ToList();
-
-        }
-        int row = 1;
-        var tmpdataList = dataList.Select(x => new TransactionModel
-        {
-            RowId = row++,
-            Id = x.Id,
-            Description = x.Description,
-            DepositAmount = x.DepositAmount,
-            WithdrawAmount = x.WithdrawAmount,
-            CurrenyId = x.CurrenyId,
-            CurrenyName = x.CurrenyName,
-            FullName = x.FullName,
-            SourceCustomerId = x.SourceCustomerId,
-            GroupId = x.GroupId,
-            GroupName = x.GroupName,
-
-
-        }).ToList();
-        return tmpdataList;
-    }
-    catch (Exception ex)
-    {
-        return null;
-    }
-
-}
 
 
         public List<TransactionModel> GetAllSellAndBuyCurrency(int? currencyId)
@@ -1146,23 +1146,23 @@ public List<TransactionModel> GetAllWGroupList(int? currencyId, int? groupId)
                    .Select(x => new TransactionModel
                    {
 
-               Id = x.Id,
-               Description = x.Description,
-               DepositAmount = x.DepositAmount,
-               WithdrawAmount = x.WithdrawAmount,
-               TransactionDateTime = pc.GetYear(x.TransactionDateTime).ToString() + "/" + pc.GetMonth(x.TransactionDateTime).ToString() + "/" + pc.GetDayOfMonth(x.TransactionDateTime).ToString(),
-               CurrenyId = x.CurrenyId,
-               CurrenyName = x.Curreny.Name,
-               FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-               SourceCustomerId = x.SourceCustomerId,
-               DocumentId = x.DocumentId
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       TransactionDateTime = pc.GetYear(x.TransactionDateTime).ToString() + "/" + pc.GetMonth(x.TransactionDateTime).ToString() + "/" + pc.GetDayOfMonth(x.TransactionDateTime).ToString(),
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                       SourceCustomerId = x.SourceCustomerId,
+                       DocumentId = x.DocumentId
 
 
                    }).ToList();
                 }
                 else
                 {
-                    dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.SellAndBuy && x.CurrenyId == currencyId)
+                    dataList = FindAllReadonly(x =>(x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency) && x.CurrenyId == currencyId)
                                  .Include(x => x.Curreny)
 
                          .Select(x => new TransactionModel
@@ -1178,92 +1178,92 @@ public List<TransactionModel> GetAllWGroupList(int? currencyId, int? groupId)
                              SourceCustomerId = x.SourceCustomerId,
                              DocumentId = x.DocumentId
                          }).ToList();
+                }
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    TransactionDateTime = x.TransactionDateTime.ToString(),
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    FullName = x.FullName,
+                    SourceCustomerId = x.SourceCustomerId,
+                    DocumentId = x.DocumentId
+
+
+
+                }).ToList();
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
         }
-        int row = 1;
-        var tmpdataList = dataList.Select(x => new TransactionModel
+
+        public List<TransactionModel> GetBalance(int? CustomerId)
         {
-            RowId = row++,
-            Id = x.Id,
-            Description = x.Description,
-            DepositAmount = x.DepositAmount,
-            WithdrawAmount = x.WithdrawAmount,
-            TransactionDateTime = x.TransactionDateTime.ToString(),
-            CurrenyId = x.CurrenyId,
-            CurrenyName = x.CurrenyName,
-            FullName = x.FullName,
-            SourceCustomerId = x.SourceCustomerId,
-            DocumentId = x.DocumentId
+            try
+            {
+                var dataList = new List<TransactionModel>();
+                var customer = _unitOfWork.Customers.FindFirstOrDefault(x => x.BankId == CustomerId).Id;
+                if (CustomerId != null)
+                {
+                    dataList = FindAllReadonly(x => x.SourceCustomerId == customer && x.CurrenyId == 2)
+                    .Include(x => x.Curreny)
+                    .Include(x => x.User)
+                   .Select(x => new TransactionModel
+                   {
 
+                       Id = x.Id,
+                       Description = x.Description,
+                       DepositAmount = x.DepositAmount,
+                       WithdrawAmount = x.WithdrawAmount,
+                       Date = x.Date.ToString(),
+                       Date2 = x.Date,
+                       TransactionDateTime2 = x.TransactionDateTime,
+                       TransactionDateTime = x.TransactionDateTime.ToString(),
+                       CurrenyId = x.CurrenyId,
+                       CurrenyName = x.Curreny.Name,
+                       UserId = x.UserId,
+                       UserName = x.User.UserName,
+                       TransactionType = x.TransactionType,
+                       DocumentId = x.DocumentId
 
+                   }).ToList();
+                }
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new TransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Description = x.Description,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                    RemainigAmount = x.RemainigAmount,
+                    Date = x.Date2.ToShortPersianDateString(true),
+                    TransactionDateTime = x.TransactionDateTime2.ToShortPersianDateString(),
+                    CurrenyId = x.CurrenyId,
+                    CurrenyName = x.CurrenyName,
+                    UserId = x.UserId,
+                    UserName = x.UserName,
+                    DocumentId = x.DocumentId,
+                    TransactionType = x.TransactionType,
+                    Status = (x.WithdrawAmount.Value == 0 && x.DepositAmount.Value == 0) ? "" : (x.WithdrawAmount.Value > 0) ? "بدهکار" : "طلبکار"
 
-        }).ToList();
-        return tmpdataList;
-    }
-    catch (Exception ex)
-    {
-        return null;
-    }
+                }).ToList();
+                return tmpdataList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
 
-}
-
-public List<TransactionModel> GetBalance(int? CustomerId)
-{
-    try
-    {
-        var dataList = new List<TransactionModel>();
-        var customer = _unitOfWork.Customers.FindFirstOrDefault(x => x.BankId == CustomerId).Id;
-        if (CustomerId != null)
-        {
-            dataList = FindAllReadonly(x => x.SourceCustomerId == customer && x.CurrenyId == 2)
-            .Include(x => x.Curreny)
-            .Include(x => x.User)
-           .Select(x => new TransactionModel
-           {
-
-               Id = x.Id,
-               Description = x.Description,
-               DepositAmount = x.DepositAmount,
-               WithdrawAmount = x.WithdrawAmount,
-               Date = x.Date.ToString(),
-               Date2 = x.Date,
-               TransactionDateTime2 = x.TransactionDateTime,
-               TransactionDateTime = x.TransactionDateTime.ToString(),
-               CurrenyId = x.CurrenyId,
-               CurrenyName = x.Curreny.Name,
-               UserId = x.UserId,
-               UserName = x.User.UserName,
-               TransactionType = x.TransactionType,
-               DocumentId = x.DocumentId
-
-           }).ToList();
         }
-        int row = 1;
-        var tmpdataList = dataList.Select(x => new TransactionModel
-        {
-            RowId = row++,
-            Id = x.Id,
-            Description = x.Description,
-            DepositAmount = x.DepositAmount,
-            WithdrawAmount = x.WithdrawAmount,
-            RemainigAmount = x.RemainigAmount,
-            Date = x.Date2.ToShortPersianDateString(true),
-            TransactionDateTime = x.TransactionDateTime2.ToShortPersianDateString(),
-            CurrenyId = x.CurrenyId,
-            CurrenyName = x.CurrenyName,
-            UserId = x.UserId,
-            UserName = x.UserName,
-            DocumentId = x.DocumentId,
-            TransactionType = x.TransactionType,
-            Status = (x.WithdrawAmount.Value == 0 && x.DepositAmount.Value == 0) ? "" : (x.WithdrawAmount.Value > 0) ? "بدهکار" : "طلبکار"
-
-        }).ToList();
-        return tmpdataList;
-    }
-    catch (Exception ex)
-    {
-        return null;
-    }
-
-}
     }
 }
