@@ -71,7 +71,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void LoadData()
         {
-             _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null);
+             _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null, txtDate.Text);
             GellAll(_dataList);
         }
 
@@ -85,7 +85,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
             if ((int)cmbBank.SelectedValue > 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank((int)cmbBank.SelectedValue);
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank((int)cmbBank.SelectedValue,txtDate.Text);
                 GellAll(_dataList);
             }
             else
@@ -193,7 +193,7 @@ namespace PamirAccounting.Forms.NewsPaper
                 var dDate = txtDate.Text.Split('_');
                 if (dDate[0].Length == 10)
                 {
-                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBankSearch(txtDate.Text);
+                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null, txtDate.Text);
                     GellAll(_dataList);
                 }
                 else

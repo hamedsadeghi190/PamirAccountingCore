@@ -63,7 +63,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void LoadData()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,txtDate.Text);
             GellAll(tmpDataList);
         }
         private void grdTotals_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -82,12 +82,12 @@ namespace PamirAccounting.Forms.NewsPaper
             cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
             if ((int)cmbCurrencies.SelectedValue == 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(null);
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(null,txtDate.Text);
             }
 
             if ((int)cmbCurrencies.SelectedValue > 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash((int)cmbCurrencies.SelectedValue);
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash((int)cmbCurrencies.SelectedValue,txtDate.Text);
                 GellAll(_dataList);
             }
             else
@@ -195,7 +195,7 @@ namespace PamirAccounting.Forms.NewsPaper
                 var dDate = txtDate.Text.Split('_');
                 if (dDate[0].Length ==10)
                 {
-                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCashDate(txtDate.Text);
+                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
                     GellAll(_dataList);
                 }
                 else

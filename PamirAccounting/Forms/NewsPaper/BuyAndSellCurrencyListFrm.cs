@@ -49,9 +49,7 @@ namespace PamirAccounting.Forms.NewsPaper
             SetComboBoxHeight(cmbCurrencies.Handle, 25);
             cmbCurrencies.Refresh();
             InitForm();
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            txtDate.Text = PDate;
+            txtDate.Text = DateTime.Now.ToFarsiFormat();
         }
 
         private void InitForm()
@@ -61,10 +59,13 @@ namespace PamirAccounting.Forms.NewsPaper
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
             _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
             cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.TextChanged -= new EventHandler(cmbCurrencies_TextChanged);
             cmbCurrencies.DataSource = _Currencies;
             cmbCurrencies.ValueMember = "Id";
             cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.SelectedValueChanged += new EventHandler(cmbCurrencies_SelectedValueChanged);
+            cmbCurrencies.TextChanged += new EventHandler(cmbCurrencies_TextChanged);
+
             LoadData();
 
         }
@@ -78,7 +79,15 @@ namespace PamirAccounting.Forms.NewsPaper
         {
 
 
-
+            if ((int)cmbCurrencies.SelectedValue > 0)
+            {
+                 var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,txtDate.Text);
+                GellAll(tmpDataList);
+            }
+            else
+            {
+                LoadData();
+            }
 
         }
 
@@ -123,7 +132,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void LoadData()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,txtDate.Text);
             GellAll(tmpDataList);
         }
 
@@ -189,7 +198,7 @@ namespace PamirAccounting.Forms.NewsPaper
                 var dDate = txtDate.Text.Split('_');
                 if (dDate[0].Length == 10)
                 {
-                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCashDate(txtDate.Text);
+                    _dataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
                     GellAll(_dataList);
                 }
                 else
