@@ -1,16 +1,11 @@
-﻿using DevExpress.XtraEditors;
-using PamirAccounting.Models;
+﻿using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -67,6 +62,8 @@ namespace PamirAccounting.Forms.Drafts
 
         private void initData()
         {
+            this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
+
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = "نمایندگی " + x.Name, Type = 2 }).ToList();
 
@@ -127,6 +124,7 @@ namespace PamirAccounting.Forms.Drafts
             cmbStatus.ValueMember = "value";
             cmbStatus.DisplayMember = "Title";
             calcNumber((int)cmbAgency.SelectedValue);
+            this.cmbAgency.SelectedIndexChanged += new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
         }
         private void calcNumber(int agenyId)
         {
@@ -212,12 +210,12 @@ namespace PamirAccounting.Forms.Drafts
                     unitOfWork.SaveChanges();
                     //end moshtari ///
 
-                  
+
                 }
                 else
 
                 {
-                  
+
                     var draftForosh = new Domains.Draft();
 
                     draftForosh.Date = draftDateTime;
@@ -382,12 +380,14 @@ namespace PamirAccounting.Forms.Drafts
                 lbl_forosh_number.Visible = false;
                 lbl_forosh_ext_number.Visible = false;
 
-          
+
             }
         }
 
+        private void cmbAgency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calcNumber((int)cmbAgency.SelectedValue);
 
-
-       
+        }
     }
 }
