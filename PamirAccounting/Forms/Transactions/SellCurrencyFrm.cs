@@ -80,7 +80,7 @@ namespace PamirAccounting.Forms.Transactions
             sellerPrice1 = Convert.ToInt64(txtsellerprice.Text.Replace(",", ""));
             talabkarTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
             talabkarTransaction.DestinitionCustomerId = (int)cmbDestCustomers.SelectedValue;
-            talabkarTransaction.TransactionType = (int)TransaActionType.SellAndBuy;
+            talabkarTransaction.TransactionType = (int)TransaActionType.SellCurrency;
             talabkarTransaction.DocumentId = documentId;
             talabkarTransaction.WithdrawAmount = 0;
             talabkarTransaction.DepositAmount = (String.IsNullOrEmpty(txtsellerprice.Text.Trim())) ? 0 : sellerPrice1;
@@ -122,7 +122,7 @@ namespace PamirAccounting.Forms.Transactions
 
             bedehkarTransAction.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
             bedehkarTransAction.SourceCustomerId = (int)cmbDestCustomers.SelectedValue;
-            bedehkarTransAction.TransactionType = (int)TransaActionType.SellAndBuy;
+            bedehkarTransAction.TransactionType = (int)TransaActionType.SellCurrency;
 
             bedehkarTransAction.CurrenyId = (int)cmbCurrencybuyer.SelectedValue;
             bedehkarTransAction.Date = DateTime.Now;

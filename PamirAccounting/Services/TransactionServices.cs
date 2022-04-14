@@ -1133,18 +1133,18 @@ public List<TransactionModel> GetAllWGroupList(int? currencyId, int? groupId)
 }
 
 
-public List<TransactionModel> GetAllSellAndBuyCurrency(int? currencyId)
-{
-    try
-    {
-        PersianCalendar pc = new PersianCalendar();
-        var dataList = new List<TransactionModel>();
-        if (currencyId == null)
+        public List<TransactionModel> GetAllSellAndBuyCurrency(int? currencyId)
         {
-            dataList = FindAllReadonly()
-            .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.SellAndBuy)
-           .Select(x => new TransactionModel
-           {
+            try
+            {
+                PersianCalendar pc = new PersianCalendar();
+                var dataList = new List<TransactionModel>();
+                if (currencyId == null)
+                {
+                    dataList = FindAllReadonly()
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency)
+                   .Select(x => new TransactionModel
+                   {
 
                Id = x.Id,
                Description = x.Description,
@@ -1158,12 +1158,12 @@ public List<TransactionModel> GetAllSellAndBuyCurrency(int? currencyId)
                DocumentId = x.DocumentId
 
 
-           }).ToList();
-        }
-        else
-        {
-            dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.SellAndBuy && x.CurrenyId == currencyId)
-                         .Include(x => x.Curreny)
+                   }).ToList();
+                }
+                else
+                {
+                    dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.SellAndBuy && x.CurrenyId == currencyId)
+                                 .Include(x => x.Curreny)
 
                          .Select(x => new TransactionModel
                          {

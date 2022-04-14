@@ -51,9 +51,11 @@ namespace PamirAccounting.Commons.Enums
             [Description("حواله رفت")]
             HavaleRaft = 8,
             [Description("حواله آمد")]
-            HavaleAmad =9,
-            [Description("خرید و فروش ارز")]
-            SellAndBuy = 10,
+            HavaleAmad = 9,
+            [Description(" فروش ارز")]
+            SellCurrency = 10,
+            [Description("خرید ارز")]
+            BuyCurrency = 11,
         }
 
         public enum DocumentType

@@ -54,7 +54,7 @@ namespace PamirAccounting.Forms.Transactions
             this.lbl_target_mablagh = new System.Windows.Forms.Label();
             this.txtTargetPrice = new DevExpress.XtraEditors.TextEdit();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbBedehkarCustomers = new System.Windows.Forms.ComboBox();
+            this.cmbTalabkarCustomers = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbBuyerCurrencies = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -159,7 +159,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // txtBuyRate
             // 
-            this.txtBuyRate.EditValue = "";
+            this.txtBuyRate.EditValue = "0";
             this.txtBuyRate.Location = new System.Drawing.Point(29, 142);
             this.txtBuyRate.Name = "txtBuyRate";
             this.txtBuyRate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -326,7 +326,7 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox2.Controls.Add(this.lbl_target_mablagh);
             this.groupBox2.Controls.Add(this.txtTargetPrice);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.cmbBedehkarCustomers);
+            this.groupBox2.Controls.Add(this.cmbTalabkarCustomers);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.cmbBuyerCurrencies);
             this.groupBox2.Controls.Add(this.label6);
@@ -365,6 +365,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // txtTargetPrice
             // 
+            this.txtTargetPrice.Enabled = false;
             this.txtTargetPrice.Location = new System.Drawing.Point(32, 147);
             this.txtTargetPrice.Name = "txtTargetPrice";
             this.txtTargetPrice.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -386,18 +387,18 @@ namespace PamirAccounting.Forms.Transactions
             this.label7.TabIndex = 119;
             this.label7.Text = "مبلغ معادل :";
             // 
-            // cmbBedehkarCustomers
+            // cmbTalabkarCustomers
             // 
-            this.cmbBedehkarCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbBedehkarCustomers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbBedehkarCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbBedehkarCustomers.FormattingEnabled = true;
-            this.cmbBedehkarCustomers.Location = new System.Drawing.Point(32, 68);
-            this.cmbBedehkarCustomers.Name = "cmbBedehkarCustomers";
-            this.cmbBedehkarCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbBedehkarCustomers.Size = new System.Drawing.Size(193, 32);
-            this.cmbBedehkarCustomers.TabIndex = 6;
-            this.cmbBedehkarCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
+            this.cmbTalabkarCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbTalabkarCustomers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbTalabkarCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbTalabkarCustomers.FormattingEnabled = true;
+            this.cmbTalabkarCustomers.Location = new System.Drawing.Point(32, 68);
+            this.cmbTalabkarCustomers.Name = "cmbTalabkarCustomers";
+            this.cmbTalabkarCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cmbTalabkarCustomers.Size = new System.Drawing.Size(193, 32);
+            this.cmbTalabkarCustomers.TabIndex = 6;
+            this.cmbTalabkarCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
             // 
             // label2
             // 
@@ -498,7 +499,7 @@ namespace PamirAccounting.Forms.Transactions
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbSrcCustomers;
-        private System.Windows.Forms.ComboBox cmbBedehkarCustomers;
+        private System.Windows.Forms.ComboBox cmbTalabkarCustomers;
         private DevExpress.XtraEditors.TextEdit txtDate;
         private System.Windows.Forms.GroupBox groupBox4;
         private DevExpress.XtraEditors.SimpleButton BtnSave;
