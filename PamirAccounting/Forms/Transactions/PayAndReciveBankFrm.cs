@@ -671,7 +671,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 txtAmount.Text += "000";
             }
-
+            txtAmount.Select(txtAmount.Text.Length, 0);
             ShowChars();
         }
 
