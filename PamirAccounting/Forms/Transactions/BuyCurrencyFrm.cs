@@ -197,7 +197,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 txtBuyAmount.Text += "000";
             }
-
+            txtBuyAmount.Select(txtBuyAmount.Text.Length, 0);
             ShowChars();
             if (e.KeyCode == Keys.Enter)
             {
@@ -263,6 +263,12 @@ namespace PamirAccounting.Forms.Transactions
 
         private void txtbuyerprice_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtTargetPrice.Text += "000";
+            }
+            txtTargetPrice.Select(txtTargetPrice.Text.Length, 0);
+            ShowChars();
             if (e.KeyCode == Keys.Enter)
             {
                 txtDesc.Focus();

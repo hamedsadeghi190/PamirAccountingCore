@@ -195,7 +195,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 txtsellerprice.Text += "000";
             }
-
+            txtsellerprice.Select(txtsellerprice.Text.Length, 0);
             ShowChars();
             if (e.KeyCode == Keys.Enter)
             {
@@ -210,6 +210,8 @@ namespace PamirAccounting.Forms.Transactions
                 var currencyName = cmbSellCurrencies.Text;
                 label1.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtsellerprice.Text.Replace(",", ""))) } {currencyName}";
             }
+
+         
         }
         private void txtsellercurrency_KeyUp(object sender, KeyEventArgs e)
         {
@@ -261,12 +263,9 @@ namespace PamirAccounting.Forms.Transactions
 
         private void txtbuyerprice_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtDesc.Focus();
-            }
+         
         }
-
+      
         private void BtnSave_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

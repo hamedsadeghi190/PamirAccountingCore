@@ -370,6 +370,7 @@ namespace PamirAccounting.Forms.Checks
             {
                 txtAmount.Text += "000";
             }
+            txtAmount.Select(txtAmount.Text.Length, 0);
             ShowChars();
             CreateDescription();
         }

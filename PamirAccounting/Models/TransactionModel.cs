@@ -51,5 +51,7 @@ namespace PamirAccounting.Models
         public long Amount { get; set; }
         public string CurrenyName { get; set; }
         public string Description { get; set; }
+        public DateTime TransactionDateTime2 { get; set; }
+        public string TransactionDateTime { get; set; }
     }
 }

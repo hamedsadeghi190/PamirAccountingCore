@@ -120,7 +120,7 @@ namespace PamirAccounting.Forms.Transactions
             this.lbl_Document_Id.Location = new System.Drawing.Point(529, 39);
             this.lbl_Document_Id.Name = "lbl_Document_Id";
             this.lbl_Document_Id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 24);
+            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 19);
             this.lbl_Document_Id.TabIndex = 214;
             this.lbl_Document_Id.Text = "سند :";
             // 
@@ -145,7 +145,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCustomers.Location = new System.Drawing.Point(107, 180);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbCustomers.Size = new System.Drawing.Size(166, 32);
+            this.cmbCustomers.Size = new System.Drawing.Size(166, 27);
             this.cmbCustomers.TabIndex = 9;
             this.cmbCustomers.Visible = false;
             // 
@@ -177,7 +177,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbVarizType.FormattingEnabled = true;
             this.cmbVarizType.Location = new System.Drawing.Point(107, 143);
             this.cmbVarizType.Name = "cmbVarizType";
-            this.cmbVarizType.Size = new System.Drawing.Size(166, 32);
+            this.cmbVarizType.Size = new System.Drawing.Size(166, 27);
             this.cmbVarizType.TabIndex = 8;
             // 
             // cmbAction
@@ -186,7 +186,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbAction.FormattingEnabled = true;
             this.cmbAction.Location = new System.Drawing.Point(356, 70);
             this.cmbAction.Name = "cmbAction";
-            this.cmbAction.Size = new System.Drawing.Size(166, 32);
+            this.cmbAction.Size = new System.Drawing.Size(166, 27);
             this.cmbAction.TabIndex = 1;
             this.cmbAction.SelectedIndexChanged += new System.EventHandler(this.cmbAction_SelectedIndexChanged);
             this.cmbAction.SelectedValueChanged += new System.EventHandler(this.cmbAction_SelectedValueChanged);
@@ -196,7 +196,7 @@ namespace PamirAccounting.Forms.Transactions
             this.txtAmount.EditValue = "0";
             this.txtAmount.Location = new System.Drawing.Point(356, 145);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
             this.txtAmount.Properties.AutoHeight = false;
             this.txtAmount.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
@@ -215,7 +215,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbBanks.Location = new System.Drawing.Point(106, 68);
             this.cmbBanks.Name = "cmbBanks";
             this.cmbBanks.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbBanks.Size = new System.Drawing.Size(167, 32);
+            this.cmbBanks.Size = new System.Drawing.Size(167, 27);
             this.cmbBanks.TabIndex = 6;
             // 
             // txtDate
@@ -251,7 +251,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(106, 106);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(166, 32);
+            this.cmbCurrencies.Size = new System.Drawing.Size(166, 27);
             this.cmbCurrencies.TabIndex = 7;
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             // 
@@ -262,7 +262,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label9.Location = new System.Drawing.Point(529, 223);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label9.Size = new System.Drawing.Size(87, 24);
+            this.label9.Size = new System.Drawing.Size(88, 19);
             this.label9.TabIndex = 211;
             this.label9.Text = "شماره فیش :";
             // 
@@ -273,7 +273,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label8.Location = new System.Drawing.Point(529, 188);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(67, 24);
+            this.label8.Size = new System.Drawing.Size(68, 19);
             this.label8.TabIndex = 209;
             this.label8.Text = "کد شعبه :";
             // 
@@ -284,7 +284,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label4.Location = new System.Drawing.Point(529, 74);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(86, 24);
+            this.label4.Size = new System.Drawing.Size(87, 19);
             this.label4.TabIndex = 205;
             this.label4.Text = "نوع عملیات :";
             // 
@@ -295,7 +295,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label7.Location = new System.Drawing.Point(529, 151);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(44, 24);
+            this.label7.Size = new System.Drawing.Size(44, 19);
             this.label7.TabIndex = 203;
             this.label7.Text = "مبلغ :";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -307,7 +307,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label1.Location = new System.Drawing.Point(529, 110);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(49, 24);
+            this.label1.Size = new System.Drawing.Size(49, 19);
             this.label1.TabIndex = 194;
             this.label1.Text = "تاریخ :";
             // 
@@ -318,7 +318,7 @@ namespace PamirAccounting.Forms.Transactions
             this.lblCustomers.Location = new System.Drawing.Point(275, 184);
             this.lblCustomers.Name = "lblCustomers";
             this.lblCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCustomers.Size = new System.Drawing.Size(66, 24);
+            this.lblCustomers.Size = new System.Drawing.Size(67, 19);
             this.lblCustomers.TabIndex = 212;
             this.lblCustomers.Text = " مشتری :";
             this.lblCustomers.Visible = false;
@@ -330,7 +330,7 @@ namespace PamirAccounting.Forms.Transactions
             this.lbl_variz_type.Location = new System.Drawing.Point(276, 148);
             this.lbl_variz_type.Name = "lbl_variz_type";
             this.lbl_variz_type.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_variz_type.Size = new System.Drawing.Size(70, 24);
+            this.lbl_variz_type.Size = new System.Drawing.Size(71, 19);
             this.lbl_variz_type.TabIndex = 206;
             this.lbl_variz_type.Text = "نوع واریز :";
             // 
@@ -341,7 +341,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label6.Location = new System.Drawing.Point(276, 72);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(47, 24);
+            this.label6.Size = new System.Drawing.Size(47, 19);
             this.label6.TabIndex = 200;
             this.label6.Text = "بانک :";
             // 
@@ -352,7 +352,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label2.Location = new System.Drawing.Point(277, 224);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(46, 24);
+            this.label2.Size = new System.Drawing.Size(46, 19);
             this.label2.TabIndex = 198;
             this.label2.Text = "شرح :";
             // 
@@ -363,7 +363,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label3.Location = new System.Drawing.Point(275, 111);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(57, 24);
+            this.label3.Size = new System.Drawing.Size(58, 19);
             this.label3.TabIndex = 195;
             this.label3.Text = "نوع ارز :";
             // 
