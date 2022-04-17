@@ -85,6 +85,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.btnprint.Size = new System.Drawing.Size(39, 41);
             this.btnprint.TabIndex = 143;
             this.btnprint.Text = "چاپ";
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // groupBox1
             // 
@@ -352,6 +353,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.Controls.Add(this.gridPayAndReciveBank);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "PayAndReciveBankListFrm";

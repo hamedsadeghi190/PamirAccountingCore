@@ -29,20 +29,20 @@ namespace PamirAccounting.Forms.NewsPaper
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayAndReciveCashListFrm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayAndReciveCashListFrm));
             this.groupBoxViewAccountCustomer = new System.Windows.Forms.GroupBox();
+            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gridPayAndReciveCash = new System.Windows.Forms.DataGridView();
-            this.grdTotals = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +51,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.grdTotals = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +61,6 @@ namespace PamirAccounting.Forms.NewsPaper
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnprint = new DevExpress.XtraEditors.SimpleButton();
             this.groupBoxViewAccountCustomer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
@@ -84,6 +84,17 @@ namespace PamirAccounting.Forms.NewsPaper
             this.groupBoxViewAccountCustomer.TabStop = false;
             this.groupBoxViewAccountCustomer.Text = "لیست دریافت و پرداخت های نقدی";
             this.groupBoxViewAccountCustomer.Enter += new System.EventHandler(this.groupBoxViewAccountCustomer_Enter);
+            // 
+            // btnprint
+            // 
+            this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
+            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
+            this.btnprint.Location = new System.Drawing.Point(7, 46);
+            this.btnprint.Name = "btnprint";
+            this.btnprint.Size = new System.Drawing.Size(39, 41);
+            this.btnprint.TabIndex = 143;
+            this.btnprint.Text = "چاپ";
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
             // 
             // groupBox1
             // 
@@ -205,37 +216,6 @@ namespace PamirAccounting.Forms.NewsPaper
             this.gridPayAndReciveCash.TabIndex = 129;
             this.gridPayAndReciveCash.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // grdTotals
-            // 
-            this.grdTotals.AllowUserToAddRows = false;
-            this.grdTotals.AllowUserToDeleteRows = false;
-            this.grdTotals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.grdTotals.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grdTotals.BackgroundColor = System.Drawing.Color.White;
-            this.grdTotals.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.grdTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdTotals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn1,
-            this.Column10,
-            this.Column11});
-            this.grdTotals.DefaultCellStyle = dataGridViewCellStyle3;
-            this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(1, 445);
-            this.grdTotals.Name = "grdTotals";
-            this.grdTotals.ReadOnly = true;
-            this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.grdTotals.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.grdTotals.RowHeadersVisible = false;
-            this.grdTotals.RowHeadersWidth = 51;
-            this.grdTotals.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.grdTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdTotals.ShowEditingIcon = false;
-            this.grdTotals.Size = new System.Drawing.Size(800, 125);
-            this.grdTotals.TabIndex = 122;
-            // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Id";
@@ -318,6 +298,37 @@ namespace PamirAccounting.Forms.NewsPaper
             this.BtnEdit.Text = "ویرایش";
             this.BtnEdit.UseColumnTextForButtonValue = true;
             this.BtnEdit.Width = 75;
+            // 
+            // grdTotals
+            // 
+            this.grdTotals.AllowUserToAddRows = false;
+            this.grdTotals.AllowUserToDeleteRows = false;
+            this.grdTotals.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdTotals.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grdTotals.BackgroundColor = System.Drawing.Color.White;
+            this.grdTotals.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.grdTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdTotals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn1,
+            this.Column10,
+            this.Column11});
+            this.grdTotals.DefaultCellStyle = dataGridViewCellStyle3;
+            this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grdTotals.Location = new System.Drawing.Point(1, 445);
+            this.grdTotals.Name = "grdTotals";
+            this.grdTotals.ReadOnly = true;
+            this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.grdTotals.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.grdTotals.RowHeadersVisible = false;
+            this.grdTotals.RowHeadersWidth = 51;
+            this.grdTotals.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.grdTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdTotals.ShowEditingIcon = false;
+            this.grdTotals.Size = new System.Drawing.Size(800, 125);
+            this.grdTotals.TabIndex = 122;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -413,16 +424,6 @@ namespace PamirAccounting.Forms.NewsPaper
             this.label5.Size = new System.Drawing.Size(84, 19);
             this.label5.TabIndex = 142;
             this.label5.Text = "خروج (Esc)";
-            // 
-            // btnprint
-            // 
-            this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
-            this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
-            this.btnprint.Location = new System.Drawing.Point(7, 46);
-            this.btnprint.Name = "btnprint";
-            this.btnprint.Size = new System.Drawing.Size(39, 41);
-            this.btnprint.TabIndex = 143;
-            this.btnprint.Text = "چاپ";
             // 
             // PayAndReciveCashListFrm
             // 
