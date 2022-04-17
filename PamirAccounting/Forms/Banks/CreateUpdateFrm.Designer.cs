@@ -33,6 +33,8 @@ namespace PamirAccounting.UI.Forms.Banks
             this.btnexitbank = new DevExpress.XtraEditors.SimpleButton();
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtbranch = new DevExpress.XtraEditors.TextEdit();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtAccountNumber = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCountries = new System.Windows.Forms.ComboBox();
@@ -44,14 +46,12 @@ namespace PamirAccounting.UI.Forms.Banks
             this.txtbalance = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtbranch = new DevExpress.XtraEditors.TextEdit();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbranch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbalance.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtbranch.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnexitbank
@@ -105,6 +105,29 @@ namespace PamirAccounting.UI.Forms.Banks
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ثبت / ویرایش حساب بانکی";
+            // 
+            // txtbranch
+            // 
+            this.txtbranch.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtbranch.EditValue = "";
+            this.txtbranch.Location = new System.Drawing.Point(18, 44);
+            this.txtbranch.Name = "txtbranch";
+            this.txtbranch.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtbranch.Properties.Appearance.Options.UseFont = true;
+            this.txtbranch.Properties.AutoHeight = false;
+            this.txtbranch.Size = new System.Drawing.Size(147, 27);
+            this.txtbranch.TabIndex = 69;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(171, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 19);
+            this.label6.TabIndex = 70;
+            this.label6.Text = "شعبه :";
             // 
             // txtAccountNumber
             // 
@@ -203,11 +226,12 @@ namespace PamirAccounting.UI.Forms.Banks
             this.txtbalance.EditValue = "0";
             this.txtbalance.Location = new System.Drawing.Point(248, 80);
             this.txtbalance.Name = "txtbalance";
-            this.txtbalance.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtbalance.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtbalance.Properties.Appearance.Options.UseFont = true;
             this.txtbalance.Properties.AutoHeight = false;
             this.txtbalance.Size = new System.Drawing.Size(147, 27);
             this.txtbalance.TabIndex = 63;
+            this.txtbalance.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtbalance_KeyUp);
             // 
             // label4
             // 
@@ -230,29 +254,6 @@ namespace PamirAccounting.UI.Forms.Banks
             this.groupBox2.Size = new System.Drawing.Size(526, 81);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            // 
-            // txtbranch
-            // 
-            this.txtbranch.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtbranch.EditValue = "";
-            this.txtbranch.Location = new System.Drawing.Point(18, 44);
-            this.txtbranch.Name = "txtbranch";
-            this.txtbranch.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtbranch.Properties.Appearance.Options.UseFont = true;
-            this.txtbranch.Properties.AutoHeight = false;
-            this.txtbranch.Size = new System.Drawing.Size(147, 27);
-            this.txtbranch.TabIndex = 69;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(171, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 19);
-            this.label6.TabIndex = 70;
-            this.label6.Text = "شعبه :";
             // 
             // CreateUpdateFrm
             // 
@@ -277,11 +278,11 @@ namespace PamirAccounting.UI.Forms.Banks
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CreateUpdateFrm_KeyUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbranch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBankName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbalance.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtbranch.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

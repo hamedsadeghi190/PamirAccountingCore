@@ -240,7 +240,7 @@ namespace PamirAccounting.Services
                              .Select(x => new UnKownTransactionModel
                              {
                                  Id = x.Id,
-                                 Date = x.Date.ToString(),
+                                 TransactionDateTime = x.TransactionDateTime.ToString(),
                                  BankName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
                                  BranchCode = x.BranchCode,
                                  ReceiptNumber = x.ReceiptNumber,
@@ -255,7 +255,7 @@ namespace PamirAccounting.Services
                 {
                     RowId = row++,
                     Id = x.Id,
-                    Date = (DateTime.Parse(x.Date.ToString())).ToFarsiFormat(),
+                    TransactionDateTime = (DateTime.Parse(x.TransactionDateTime.ToString())).ToFarsiFormat(),
                     BankName = x.BankName,
                     BranchCode = x.BranchCode,
                     ReceiptNumber = x.ReceiptNumber,
@@ -266,6 +266,121 @@ namespace PamirAccounting.Services
                 }).ToList();
                 return dataList;
             }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        public List<UnKownTransactionModel> GetAllUnkowns_Search(string date,string branchCode,String receiptNumber)
+        {
+            try
+            {
+                PersianCalendar pc = new PersianCalendar();
+                var dataList = new List<UnKownTransactionModel>();
+                string[] dDate;
+                DateTime TransactionDateTime;
+                if (date != "")
+                {
+                    dDate = date.Split('/');
+                    TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                }
+                if (date != null)
+                {
+                    if (date != null)
+                    {
+                        dDate = date.Split('/');
+                        TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                        dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.UnkwonReciveBank)
+                                     .Include(x => x.Curreny)
+                                     .Include(x => x.SourceCustomer)
+                                     .Select(x => new UnKownTransactionModel
+                                     {
+                                         Id = x.Id,
+                                         TransactionDateTime = x.TransactionDateTime.ToString(),
+                                         TransactionDateTime2 = x.TransactionDateTime,
+                                         BankName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                                         BranchCode = x.BranchCode,
+                                         ReceiptNumber = x.ReceiptNumber,
+                                         Amount = x.WithdrawAmount.Value,
+                                         CurrenyName = x.Curreny.Name,
+                                         Description = x.Description,
+                                         DocumentId = x.DocumentId
+
+                                     }).Where(x => x.TransactionDateTime2 == TransactionDateTime).ToList();
+                    }
+                }
+                if ( receiptNumber.Length > 0)
+                {
+                    if (date != null)
+                    {
+                        dDate = date.Split('/');
+                        TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                        dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.UnkwonReciveBank)
+                                     .Include(x => x.Curreny)
+                                     .Include(x => x.SourceCustomer)
+                                     .Select(x => new UnKownTransactionModel
+                                     {
+                                         Id = x.Id,
+                                         TransactionDateTime = x.TransactionDateTime.ToString(),
+                                         TransactionDateTime2 = x.TransactionDateTime,
+                                         BankName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                                         BranchCode = x.BranchCode,
+                                         ReceiptNumber = x.ReceiptNumber,
+                                         Amount = x.WithdrawAmount.Value,
+                                         CurrenyName = x.Curreny.Name,
+                                         Description = x.Description,
+                                         DocumentId = x.DocumentId
+
+                                     }).Where(x => x.ReceiptNumber == receiptNumber).ToList();
+                    }
+                }
+                if (branchCode.Length > 0)
+                {
+                    if (date != null)
+                    {
+                        dDate = date.Split('/');
+                        TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                        dataList = FindAllReadonly(x => x.TransactionType == (int)TransaActionType.UnkwonReciveBank)
+                                     .Include(x => x.Curreny)
+                                     .Include(x => x.SourceCustomer)
+                                     .Select(x => new UnKownTransactionModel
+                                     {
+                                         Id = x.Id,
+                                         TransactionDateTime = x.TransactionDateTime.ToString(),
+                                         TransactionDateTime2 = x.TransactionDateTime,
+                                         BankName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                                         BranchCode = x.BranchCode,
+                                         ReceiptNumber = x.ReceiptNumber,
+                                         Amount = x.WithdrawAmount.Value,
+                                         CurrenyName = x.Curreny.Name,
+                                         Description = x.Description,
+                                         DocumentId = x.DocumentId
+
+                                     }).Where(x => x.BranchCode == branchCode).ToList();
+                    }
+                }
+           
+                /////////////////////////////////////////////////////////
+                int row = 1;
+                    dataList = dataList.Select(x => new UnKownTransactionModel
+                    {
+                        RowId = row++,
+                        Id = x.Id,
+                        TransactionDateTime =x.TransactionDateTime2.ToFarsiFormat(),
+                        BankName = x.BankName,
+                        BranchCode = x.BranchCode,
+                        ReceiptNumber = x.ReceiptNumber,
+                        Amount = x.Amount,
+                        CurrenyName = x.CurrenyName,
+                        Description = x.Description,
+                        DocumentId = x.DocumentId
+                    }).ToList();
+                    return dataList;
+                }
+            
+            
             catch (Exception ex)
             {
                 return null;

@@ -57,6 +57,9 @@
     <None Update="Reports\Bank.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Reports\UnkwonDepositList.mrt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Reports\PayAndReciveBankList.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -95,5 +95,15 @@ namespace PamirAccounting.Forms.Transactions
                 e.Handled = true;
             }
         }
+
+        private void txtAmount_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtAmount.Text += "000";
+            }
+            txtAmount.Select(txtAmount.Text.Length, 0);
+           
+        }
     }
 }

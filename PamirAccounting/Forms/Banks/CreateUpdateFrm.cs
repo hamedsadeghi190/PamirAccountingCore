@@ -89,7 +89,7 @@ namespace PamirAccounting.UI.Forms.Banks
             cmbCountries.AutoCompleteCustomSource = autoCountries;
             cmbCountries.ValueMember = "Id";
             cmbCountries.DisplayMember = "Title";
-           
+
             cmbCurrencies.DataSource = _Currencies;
             AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
             foreach (var item in _Currencies)
@@ -134,8 +134,8 @@ namespace PamirAccounting.UI.Forms.Banks
                             GroupId = bankGroup.Id,
                             BankId = _bank.Id,
                             CreditLimit = 1,
-                            
-                            
+
+
                         };
 
                         unitOfWork.CustomerServices.Insert(newCustomer);
@@ -207,5 +207,16 @@ namespace PamirAccounting.UI.Forms.Banks
             if (e.KeyCode == Keys.Escape)
                 this.Close();
         }
+
+        private void txtbalance_KeyUp(object sender, KeyEventArgs e)
+        {
+           //if (e.KeyCode == Keys.Space)
+           // {
+           //     txtbalance.Text += "000";
+           // }
+            //txtbalance.Select(txtbalance.Text.Length, 0);
+
+        }
     }
-}
+
+    }

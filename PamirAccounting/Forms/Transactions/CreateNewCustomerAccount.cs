@@ -216,7 +216,7 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
             {
                 txtAmount.Text += "000";
             }
-
+            txtAmount.Select(txtAmount.Text.Length, 0);
             ShowChars();
         }
 
