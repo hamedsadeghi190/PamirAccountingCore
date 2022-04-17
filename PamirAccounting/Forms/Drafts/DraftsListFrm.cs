@@ -100,16 +100,15 @@ namespace PamirAccounting.Forms.Drafts
 
         private void LoadData()
         {
-            var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
-                                                            && x.Type == (int)(cmbType.SelectedValue))
-                .OrderBy(x=>x.Date)
+            var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue && x.Type == (int)(cmbType.SelectedValue))
+                .OrderBy(x => x.Date)
                 .Include(x => x.DepositCurrency)
                 .Include(x => x.TypeCurrency)
                 .Include(x => x.Customer)
                 .ToList();
 
-            var rowId = 0;
-            _data = tmpData.Select(q => new DraftViewModels()
+            var rowId = 1;
+            var _RowedData = tmpData.Select(q => new DraftViewModels()
             {
                 Radif = rowId++,
                 Id = q.Id,
@@ -127,28 +126,46 @@ namespace PamirAccounting.Forms.Drafts
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,
                 CustomerId = q.CustomerId,
-                Customer = q.Customer.FirstName + " " + q.Customer.LastName,
+                RemainAmount = 0,
+                Customer = q.Customer?.FirstName + " " + q.Customer?.LastName,
                 RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
                 Date = q.Date != null ? (DateTime.Parse(q.Date.ToString())).ToPersian() : "",
             }).ToList();
 
 
+            _data = new List<DraftViewModels>();
+            _dataSummery = new List<SummeryDraftViewModels>();
+
+            var groupedw = _RowedData.GroupBy(x => x.DepositCurrency);
+
+            foreach (var item in groupedw)
+            {
+                double totalRemainAmount = 0;
+                double TotalRent = 0;
+                string CurrenyName = "";
+                foreach (var havale in item)
+                {
+                    CurrenyName = havale.DepositCurrency;
+                    totalRemainAmount = (havale.DepositAmount.HasValue == true) ? havale.DepositAmount.Value : 0;
+                    TotalRent += havale.Rent;
+                    havale.RemainAmount = totalRemainAmount;
+                    _data.Add(havale);
+                }
+
+                var cdata = new SummeryDraftViewModels();
+                cdata.CurrenyName = CurrenyName;
+                cdata.Total = totalRemainAmount;
+                cdata.TotalRent = TotalRent;
+
+                _dataSummery.Add(cdata);
+            }
+
+
+            _data = _data.OrderBy(x => x.Radif).ToList();
             gridDrafts.DataSource = null;
             gridDrafts.DataSource = _data;
             gridDrafts.Refresh();
 
-            _dataSummery = new List<SummeryDraftViewModels>();
-            var cdata = new SummeryDraftViewModels();
-            foreach (var item in _data)
-            {
-                cdata.CurrenyName = item.DepositCurrency;
-                cdata.Total += (item.DepositAmount.HasValue) ? item.DepositAmount.Value : 0;
-                cdata.TotalRent += item.Rent;
-            }
-
-            grdTotals.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            _dataSummery.Add(cdata);
             grdTotals.DataSource = null;
             grdTotals.DataSource = _dataSummery;
 
@@ -176,6 +193,24 @@ namespace PamirAccounting.Forms.Drafts
                 else
                 {
                     // MessageBox.Show("حواله قبلا اجرا شده است.");
+                }
+            }
+            else if (e.ColumnIndex == gridDrafts.Columns["btnEdit"].Index && e.RowIndex >= 0)
+            {
+                var draft = _data.ElementAt(e.RowIndex);
+
+                if (draft.Type == 0)
+                {
+                    var targetFrm = new shippingOrderFrm(draft.Id);
+                    targetFrm.ShowDialog();
+                    LoadData();
+                }
+                else
+                {
+                    var targetFrm = new WarrantsPayableFrm(draft.Id);
+                    targetFrm.ShowDialog();
+                    LoadData();
+
                 }
             }
 

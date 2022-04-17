@@ -81,13 +81,14 @@ namespace PamirAccounting.Forms.Drafts
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RemainAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExecute = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdTotals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDrafts)).BeginInit();
             this.groupBoxSearch.SuspendLayout();
@@ -212,13 +213,14 @@ namespace PamirAccounting.Forms.Drafts
             this.Column11,
             this.Column12,
             this.Column13,
-            this.Column14,
+            this.RemainAmount,
             this.Column15,
             this.Column16,
             this.Column17,
             this.Column18,
             this.Column19,
-            this.btnExecute});
+            this.btnExecute,
+            this.btnEdit});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -244,7 +246,7 @@ namespace PamirAccounting.Forms.Drafts
             this.gridDrafts.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.gridDrafts.RowHeadersVisible = false;
             this.gridDrafts.RowHeadersWidth = 60;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Info;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gridDrafts.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.gridDrafts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -626,13 +628,14 @@ namespace PamirAccounting.Forms.Drafts
             this.Column13.ReadOnly = true;
             this.Column13.Width = 110;
             // 
-            // Column14
+            // RemainAmount
             // 
-            this.Column14.HeaderText = "باقیمانده";
-            this.Column14.MinimumWidth = 6;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 110;
+            this.RemainAmount.DataPropertyName = "RemainAmount";
+            this.RemainAmount.HeaderText = "باقیمانده";
+            this.RemainAmount.MinimumWidth = 6;
+            this.RemainAmount.Name = "RemainAmount";
+            this.RemainAmount.ReadOnly = true;
+            this.RemainAmount.Width = 110;
             // 
             // Column15
             // 
@@ -655,10 +658,14 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // Column17
             // 
+            this.Column17.FalseValue = "0";
             this.Column17.HeaderText = "تطبیق";
             this.Column17.MinimumWidth = 6;
             this.Column17.Name = "Column17";
             this.Column17.ReadOnly = true;
+            this.Column17.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column17.TrueValue = "1";
             this.Column17.Width = 125;
             // 
             // Column18
@@ -686,6 +693,14 @@ namespace PamirAccounting.Forms.Drafts
             this.btnExecute.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.btnExecute.Text = "اجرای حواله";
             this.btnExecute.UseColumnTextForButtonValue = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.HeaderText = "ویرایش";
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.ReadOnly = true;
+            this.btnEdit.Text = "ویرایش";
+            this.btnEdit.UseColumnTextForButtonValue = true;
             // 
             // DraftsListFrm
             // 
@@ -761,12 +776,13 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RemainAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewButtonColumn btnExecute;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEdit;
     }
 }

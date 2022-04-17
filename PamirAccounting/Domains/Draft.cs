@@ -7,6 +7,11 @@ namespace PamirAccounting.Domains
 {
     public partial class Draft
     {
+        public Draft()
+        {
+            InverseRelatedDraft = new HashSet<Draft>();
+        }
+
         public long Id { get; set; }
         public byte Type { get; set; }
         public int AgencyId { get; set; }
@@ -35,11 +40,17 @@ namespace PamirAccounting.Domains
         public string PhoneNumber { get; set; }
         public string RunningDesc { get; set; }
         public string Tazkare { get; set; }
+        public long? TransactionId { get; set; }
+        public long? RelatedDraftId { get; set; }
+        public long? DocumentId { get; set; }
 
         public virtual Agency Agency { get; set; }
         public virtual Currency ConvertedCurrency { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Currency DepositCurrency { get; set; }
+        public virtual Draft RelatedDraft { get; set; }
+        public virtual Transaction Transaction { get; set; }
         public virtual Currency TypeCurrency { get; set; }
+        public virtual ICollection<Draft> InverseRelatedDraft { get; set; }
     }
 }

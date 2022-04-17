@@ -37,13 +37,14 @@ namespace PamirAccounting.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AI");
+            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AS_SC_UTF8");
 
             modelBuilder.Entity<Agency>(entity =>
             {
@@ -247,6 +248,8 @@ namespace PamirAccounting.Domains
             {
                 entity.Property(e => e.Description).HasMaxLength(500);
 
+                entity.Property(e => e.DocumentId).HasColumnName("DocumentID");
+
                 entity.Property(e => e.ExtraDescription).HasMaxLength(500);
 
                 entity.Property(e => e.FatherName).HasMaxLength(250);
@@ -259,6 +262,8 @@ namespace PamirAccounting.Domains
 
                 entity.Property(e => e.Reciver).HasMaxLength(250);
 
+                entity.Property(e => e.RelatedDraftId).HasColumnName("RelatedDraftID");
+
                 entity.Property(e => e.RunningDesc).HasMaxLength(500);
 
                 entity.Property(e => e.Sender).HasMaxLength(250);
@@ -268,6 +273,8 @@ namespace PamirAccounting.Domains
                     .HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.Tazkare).HasMaxLength(50);
+
+                entity.Property(e => e.TransactionId).HasColumnName("TransactionID");
 
                 entity.HasOne(d => d.Agency)
                     .WithMany(p => p.Drafts)
@@ -289,6 +296,15 @@ namespace PamirAccounting.Domains
                     .WithMany(p => p.DraftDepositCurrencies)
                     .HasForeignKey(d => d.DepositCurrencyId)
                     .HasConstraintName("FK_Drafts_Currencies_DepositCurreny");
+
+                entity.HasOne(d => d.RelatedDraft)
+                    .WithMany(p => p.InverseRelatedDraft)
+                    .HasForeignKey(d => d.RelatedDraftId);
+
+                entity.HasOne(d => d.Transaction)
+                    .WithMany(p => p.Drafts)
+                    .HasForeignKey(d => d.TransactionId)
+                    .HasConstraintName("FK_Drafts_Transactions");
 
                 entity.HasOne(d => d.TypeCurrency)
                     .WithMany(p => p.DraftTypeCurrencies)

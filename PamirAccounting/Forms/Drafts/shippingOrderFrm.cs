@@ -1,16 +1,12 @@
-﻿using DevExpress.XtraEditors;
+﻿using PamirAccounting.Domains;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -24,20 +20,10 @@ namespace PamirAccounting.Forms.Drafts
         private List<ComboBoxModel> _Currencies;
         private List<ComboBoxModel> _DestCurrencies = new List<ComboBoxModel>();
         private UnitOfWork unitOfWork;
-
-
-
-        public shippingOrderFrm()
-        {
-            InitializeComponent();
-        }
-
-        private void shippingOrderFrm_Load(object sender, EventArgs e)
-        {
-            unitOfWork = new UnitOfWork();
-            initData();
-            txtDate.Text = DateTime.Now.ToFarsiFormat();
-        }
+        private long? DraftID;
+        private Draft draft;
+        private PamirAccounting.Domains.Transaction customerTransaction;
+        long documentId;
 
         [DllImport("user32.dll")]
         static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
@@ -47,6 +33,63 @@ namespace PamirAccounting.Forms.Drafts
         {
             SendMessage(comboBoxHandle, CB_SETITEMHEIGHT, -1, comboBoxDesiredHeight);
         }
+        public shippingOrderFrm()
+        {
+            InitializeComponent();
+        }
+
+        public shippingOrderFrm(long draftId)
+        {
+            InitializeComponent();
+            DraftID = draftId;
+        }
+
+        private void shippingOrderFrm_Load(object sender, EventArgs e)
+        {
+            unitOfWork = new UnitOfWork();
+            initData();
+
+            if (DraftID.HasValue)
+            {
+                loadDrafts();
+            }
+            else
+            {
+                txtDate.Text = DateTime.Now.ToFarsiFormat();
+                documentId = unitOfWork.TransactionServices.GetNewDocumentId();
+                grpHavale.Text = "حوال فروش - شماره سند " + documentId;
+            }
+
+        }
+
+        private void loadDrafts()
+        {
+            draft = unitOfWork.DraftsServices.FindFirstOrDefault(x => x.Id == DraftID, "Transaction");
+            customerTransaction = unitOfWork.TransactionServices.FindFirstOrDefault(x => x.Id == draft.TransactionId);
+
+            grpHavale.Text = "حوال فروش - شماره سند " + draft.DocumentId;
+            documentId = draft.DocumentId.Value;
+
+            txtDate.Text = draft.Date.Value.ToFarsiFormat();
+            cmbAgency.SelectedValue = draft.AgencyId;
+            txtNumber.Text = draft.Number.ToString();
+            txtOtherNumber.Text = draft.OtherNumber.ToString();
+            txtSender.Text = draft.Sender;
+            txtReciver.Text = draft.Reciver;
+            txtFatherName.Text = draft.FatherName;
+            txtDesc.Text = draft.Description;
+            txtPayPlace.Text = draft.PayPlace;
+
+            cmbDraftCurrency.SelectedValue = draft.TypeCurrencyId;
+            txtDraftAmount.Text = draft.DraftAmount.ToString();
+            txtRate.Text = draft.Rate.ToString();
+            txtRent.Text = draft.Rent.ToString();
+            txtDepositAmount.Text = draft.DepositAmount.ToString();
+            cmbDepositCurreny.SelectedValue = draft.DepositCurrencyId;
+            cmbCustomer.SelectedValue = draft.CustomerId;
+            cmbStatus.SelectedValue = draft.Status;
+        }
+
 
         private void initData()
         {
@@ -130,15 +173,16 @@ namespace PamirAccounting.Forms.Drafts
                     return;
                 }
 
-                var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
 
-                var draft = new Domains.Draft();
+                if (draft == null)
+                    draft = new Draft();
 
-            
+
                 var dDate = txtDate.Text.Split('/');
                 PersianCalendar p = new PersianCalendar();
                 var draftDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
                 draft.Date = draftDateTime;
+                draft.DocumentId = documentId;
                 draft.AgencyId = (int)cmbAgency.SelectedValue;
                 draft.Type = 0;
                 draft.Number = Int64.Parse(txtNumber.Text);
@@ -150,19 +194,30 @@ namespace PamirAccounting.Forms.Drafts
                 draft.PayPlace = txtPayPlace.Text;
                 draft.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
                 draft.DraftAmount = long.Parse(txtDraftAmount.Text);
-                draft.Rate = double.Parse(txtRate.Text, System.Globalization.CultureInfo.InvariantCulture);
-                draft.Rent = double.Parse(txtRent.Text, System.Globalization.CultureInfo.InvariantCulture);
+                draft.Rate = double.Parse(txtRate.Text, CultureInfo.InvariantCulture);
+                draft.Rent = double.Parse(txtRent.Text, CultureInfo.InvariantCulture);
                 draft.DepositAmount = double.Parse(txtDepositAmount.Text);
                 draft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                 draft.CustomerId = (int)cmbCustomer.SelectedValue;
                 draft.Status = (bool)cmbStatus.SelectedValue;
 
-                unitOfWork.DraftsServices.Insert(draft);
+                if (DraftID.HasValue)
+                {
+                    unitOfWork.DraftsServices.Update(draft);
+                }
+                else
+                {
+                    unitOfWork.DraftsServices.Insert(draft);
+                }
                 unitOfWork.SaveChanges();
 
 
                 // trakonesh moshtari //
-                var customerTransaction = new Domains.Transaction();
+                if (!DraftID.HasValue)
+                {
+                    customerTransaction = new Domains.Transaction();
+                }
+
                 customerTransaction.SourceCustomerId = (int)cmbCustomer.SelectedValue;
                 // customerTransaction.DestinitionCustomerId = AppSetting.SandoghCustomerId;
                 customerTransaction.TransactionType = (int)TransaActionType.HavaleRaft;
@@ -178,9 +233,22 @@ namespace PamirAccounting.Forms.Drafts
                 customerTransaction.TransactionDateTime = TransactionDateTime;
                 customerTransaction.UserId = CurrentUser.UserID;
 
-                unitOfWork.TransactionServices.Insert(customerTransaction);
+                if (DraftID.HasValue)
+                {
+                    unitOfWork.TransactionServices.Update(customerTransaction);
+                }
+                else
+                {
+                    unitOfWork.TransactionServices.Insert(customerTransaction);
+                }
+
                 unitOfWork.SaveChanges();
                 //end moshtari ///
+
+                draft.TransactionId = customerTransaction.Id;
+
+                unitOfWork.DraftsServices.Update(draft);
+                unitOfWork.SaveChanges();
 
                 MessageBox.Show(" حواله با موفقیت ثبت شد");
                 ResetForm();

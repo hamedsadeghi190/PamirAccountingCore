@@ -30,7 +30,7 @@ namespace PamirAccounting.Forms.Drafts
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(shippingOrderFrm));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpHavale = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtDepositAmount = new DevExpress.XtraEditors.TextEdit();
             this.txtDraftAmount = new DevExpress.XtraEditors.TextEdit();
@@ -69,7 +69,7 @@ namespace PamirAccounting.Forms.Drafts
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.grpHavale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepositAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDraftAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).BeginInit();
@@ -77,50 +77,50 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grpHavale
             // 
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.txtDepositAmount);
-            this.groupBox1.Controls.Add(this.txtDraftAmount);
-            this.groupBox1.Controls.Add(this.txtRate);
-            this.groupBox1.Controls.Add(this.txtDate);
-            this.groupBox1.Controls.Add(this.cmbCustomer);
-            this.groupBox1.Controls.Add(this.cmbDraftCurrency);
-            this.groupBox1.Controls.Add(this.cmbAgency);
-            this.groupBox1.Controls.Add(this.txtDesc);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.cmbDepositCurreny);
-            this.groupBox1.Controls.Add(this.txtRent);
-            this.groupBox1.Controls.Add(this.txtPayPlace);
-            this.groupBox1.Controls.Add(this.txtReciver);
-            this.groupBox1.Controls.Add(this.txtFatherName);
-            this.groupBox1.Controls.Add(this.txtSender);
-            this.groupBox1.Controls.Add(this.txtOtherNumber);
-            this.groupBox1.Controls.Add(this.cmbStatus);
-            this.groupBox1.Controls.Add(this.txtNumber);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(16, 8);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(698, 420);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "حواله فروش";
+            this.grpHavale.Controls.Add(this.groupBox2);
+            this.grpHavale.Controls.Add(this.txtDepositAmount);
+            this.grpHavale.Controls.Add(this.txtDraftAmount);
+            this.grpHavale.Controls.Add(this.txtRate);
+            this.grpHavale.Controls.Add(this.txtDate);
+            this.grpHavale.Controls.Add(this.cmbCustomer);
+            this.grpHavale.Controls.Add(this.cmbDraftCurrency);
+            this.grpHavale.Controls.Add(this.cmbAgency);
+            this.grpHavale.Controls.Add(this.txtDesc);
+            this.grpHavale.Controls.Add(this.label17);
+            this.grpHavale.Controls.Add(this.cmbDepositCurreny);
+            this.grpHavale.Controls.Add(this.txtRent);
+            this.grpHavale.Controls.Add(this.txtPayPlace);
+            this.grpHavale.Controls.Add(this.txtReciver);
+            this.grpHavale.Controls.Add(this.txtFatherName);
+            this.grpHavale.Controls.Add(this.txtSender);
+            this.grpHavale.Controls.Add(this.txtOtherNumber);
+            this.grpHavale.Controls.Add(this.cmbStatus);
+            this.grpHavale.Controls.Add(this.txtNumber);
+            this.grpHavale.Controls.Add(this.label9);
+            this.grpHavale.Controls.Add(this.label8);
+            this.grpHavale.Controls.Add(this.label7);
+            this.grpHavale.Controls.Add(this.label6);
+            this.grpHavale.Controls.Add(this.label5);
+            this.grpHavale.Controls.Add(this.label3);
+            this.grpHavale.Controls.Add(this.label2);
+            this.grpHavale.Controls.Add(this.label1);
+            this.grpHavale.Controls.Add(this.label16);
+            this.grpHavale.Controls.Add(this.label14);
+            this.grpHavale.Controls.Add(this.label15);
+            this.grpHavale.Controls.Add(this.label10);
+            this.grpHavale.Controls.Add(this.label11);
+            this.grpHavale.Controls.Add(this.label12);
+            this.grpHavale.Controls.Add(this.label13);
+            this.grpHavale.Controls.Add(this.label4);
+            this.grpHavale.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpHavale.Location = new System.Drawing.Point(16, 8);
+            this.grpHavale.Name = "grpHavale";
+            this.grpHavale.Size = new System.Drawing.Size(698, 420);
+            this.grpHavale.TabIndex = 0;
+            this.grpHavale.TabStop = false;
+            this.grpHavale.Text = "حواله فروش";
             // 
             // groupBox2
             // 
@@ -526,7 +526,7 @@ namespace PamirAccounting.Forms.Drafts
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 513);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpHavale);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
@@ -537,8 +537,8 @@ namespace PamirAccounting.Forms.Drafts
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.shippingOrderFrm_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.shippingOrderFrm_KeyUp);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpHavale.ResumeLayout(false);
+            this.grpHavale.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepositAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDraftAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).EndInit();
@@ -550,7 +550,7 @@ namespace PamirAccounting.Forms.Drafts
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpHavale;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbStatus;

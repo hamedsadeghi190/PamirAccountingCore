@@ -92,19 +92,8 @@ namespace PamirAccounting.Forms.Drafts
                 .ToList();
 
 
-            gridDrafts.RowsDefaultCellStyle.BackColor = Color.White;
-
-            gridDrafts.AlternatingRowsDefaultCellStyle.BackColor = Color.Silver;
-            gridDrafts.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-
-            gridDrafts.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
-            gridDrafts.DefaultCellStyle.SelectionForeColor = Color.White;
-
-            gridDrafts.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            gridDrafts.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             gridDrafts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
 
             gridDrafts.DataSource = null;
             gridDrafts.DataSource = _data;

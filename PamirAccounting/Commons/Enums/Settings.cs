@@ -8,6 +8,13 @@ namespace PamirAccounting.Commons.Enums
         {
         }
 
+        public enum DraftTypes
+        {
+            [Description("رفت")]
+            Raft = 0,
+            [Description("آمد")]
+            Amad = 1,
+        }
         public enum MappingActions
         {
             [Description("ضرب")]

@@ -25,6 +25,7 @@ namespace PamirAccounting.Models.ViewModels
         public double Rate { get; set; }
         public double Rent { get; set; }
         public double? DepositAmount { get; set; }
+        public double RemainAmount { get; set; }
         public string DepositCurrency { get; set; }
         public string Customer { get; set; }
         public int? CustomerId { get; set; }

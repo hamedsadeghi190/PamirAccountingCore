@@ -66,7 +66,7 @@ namespace PamirAccounting.Forms.Drafts
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpHavale = new System.Windows.Forms.GroupBox();
             this.txt_forosh_ext_number = new System.Windows.Forms.TextBox();
             this.txt_forosh_number = new System.Windows.Forms.TextBox();
             this.lbl_forosh_ext_number = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@ namespace PamirAccounting.Forms.Drafts
             ((System.ComponentModel.ISupportInitialize)(this.txtDraftAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpHavale.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -300,7 +300,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(570, 309);
+            this.label9.Location = new System.Drawing.Point(570, 308);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 24);
             this.label9.TabIndex = 16;
@@ -442,68 +442,68 @@ namespace PamirAccounting.Forms.Drafts
             this.label13.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label13.Location = new System.Drawing.Point(242, 41);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(62, 24);
+            this.label13.Size = new System.Drawing.Size(75, 24);
             this.label13.TabIndex = 18;
-            this.label13.Text = "ارز حواله:";
+            this.label13.Text = "نوع حواله :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(570, 345);
+            this.label4.Location = new System.Drawing.Point(570, 344);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 24);
             this.label4.TabIndex = 7;
             this.label4.Text = "وضعیت :";
             // 
-            // groupBox1
+            // grpHavale
             // 
-            this.groupBox1.Controls.Add(this.txt_forosh_ext_number);
-            this.groupBox1.Controls.Add(this.txt_forosh_number);
-            this.groupBox1.Controls.Add(this.lbl_forosh_ext_number);
-            this.groupBox1.Controls.Add(this.lbl_forosh_number);
-            this.groupBox1.Controls.Add(this.txtDepositAmount);
-            this.groupBox1.Controls.Add(this.txtDraftAmount);
-            this.groupBox1.Controls.Add(this.txtRate);
-            this.groupBox1.Controls.Add(this.txtDate);
-            this.groupBox1.Controls.Add(this.cmbCustomer);
-            this.groupBox1.Controls.Add(this.cmbDraftCurrency);
-            this.groupBox1.Controls.Add(this.cmbAgency);
-            this.groupBox1.Controls.Add(this.txtDesc);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.cmbDepositCurreny);
-            this.groupBox1.Controls.Add(this.txtRent);
-            this.groupBox1.Controls.Add(this.txtPayPlace);
-            this.groupBox1.Controls.Add(this.txtReciver);
-            this.groupBox1.Controls.Add(this.txtFatherName);
-            this.groupBox1.Controls.Add(this.txtSender);
-            this.groupBox1.Controls.Add(this.txtOtherNumber);
-            this.groupBox1.Controls.Add(this.cmbStatus);
-            this.groupBox1.Controls.Add(this.txtNumber);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(7, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(700, 450);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "حواله آمد";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.grpHavale.Controls.Add(this.txt_forosh_ext_number);
+            this.grpHavale.Controls.Add(this.txt_forosh_number);
+            this.grpHavale.Controls.Add(this.lbl_forosh_ext_number);
+            this.grpHavale.Controls.Add(this.lbl_forosh_number);
+            this.grpHavale.Controls.Add(this.txtDepositAmount);
+            this.grpHavale.Controls.Add(this.txtDraftAmount);
+            this.grpHavale.Controls.Add(this.txtRate);
+            this.grpHavale.Controls.Add(this.txtDate);
+            this.grpHavale.Controls.Add(this.cmbCustomer);
+            this.grpHavale.Controls.Add(this.cmbDraftCurrency);
+            this.grpHavale.Controls.Add(this.cmbAgency);
+            this.grpHavale.Controls.Add(this.txtDesc);
+            this.grpHavale.Controls.Add(this.label17);
+            this.grpHavale.Controls.Add(this.cmbDepositCurreny);
+            this.grpHavale.Controls.Add(this.txtRent);
+            this.grpHavale.Controls.Add(this.txtPayPlace);
+            this.grpHavale.Controls.Add(this.txtReciver);
+            this.grpHavale.Controls.Add(this.txtFatherName);
+            this.grpHavale.Controls.Add(this.txtSender);
+            this.grpHavale.Controls.Add(this.txtOtherNumber);
+            this.grpHavale.Controls.Add(this.cmbStatus);
+            this.grpHavale.Controls.Add(this.txtNumber);
+            this.grpHavale.Controls.Add(this.label9);
+            this.grpHavale.Controls.Add(this.label8);
+            this.grpHavale.Controls.Add(this.label7);
+            this.grpHavale.Controls.Add(this.label6);
+            this.grpHavale.Controls.Add(this.label5);
+            this.grpHavale.Controls.Add(this.label3);
+            this.grpHavale.Controls.Add(this.label2);
+            this.grpHavale.Controls.Add(this.label1);
+            this.grpHavale.Controls.Add(this.label16);
+            this.grpHavale.Controls.Add(this.label14);
+            this.grpHavale.Controls.Add(this.label15);
+            this.grpHavale.Controls.Add(this.label10);
+            this.grpHavale.Controls.Add(this.label11);
+            this.grpHavale.Controls.Add(this.label12);
+            this.grpHavale.Controls.Add(this.label13);
+            this.grpHavale.Controls.Add(this.label4);
+            this.grpHavale.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grpHavale.Location = new System.Drawing.Point(7, 7);
+            this.grpHavale.Name = "grpHavale";
+            this.grpHavale.Size = new System.Drawing.Size(700, 450);
+            this.grpHavale.TabIndex = 1;
+            this.grpHavale.TabStop = false;
+            this.grpHavale.Text = "حواله آمد";
+            this.grpHavale.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txt_forosh_ext_number
             // 
@@ -538,7 +538,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.lbl_forosh_number.AutoSize = true;
             this.lbl_forosh_number.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_forosh_number.Location = new System.Drawing.Point(241, 315);
+            this.lbl_forosh_number.Location = new System.Drawing.Point(241, 308);
             this.lbl_forosh_number.Name = "lbl_forosh_number";
             this.lbl_forosh_number.Size = new System.Drawing.Size(52, 24);
             this.lbl_forosh_number.TabIndex = 35;
@@ -563,7 +563,7 @@ namespace PamirAccounting.Forms.Drafts
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 531);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpHavale);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Glow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
@@ -578,8 +578,8 @@ namespace PamirAccounting.Forms.Drafts
             ((System.ComponentModel.ISupportInitialize)(this.txtDraftAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpHavale.ResumeLayout(false);
+            this.grpHavale.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -623,7 +623,7 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpHavale;
         private System.Windows.Forms.TextBox txt_forosh_ext_number;
         private System.Windows.Forms.TextBox txt_forosh_number;
         private System.Windows.Forms.Label lbl_forosh_ext_number;

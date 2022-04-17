@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Models;
+﻿using PamirAccounting.Domains;
+using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
 using System.Collections.Generic;
@@ -20,11 +21,16 @@ namespace PamirAccounting.Forms.Drafts
         private List<ComboBoxModel> _Currencies;
         private List<ComboBoxModel> _DestCurrencies = new List<ComboBoxModel>();
         private UnitOfWork unitOfWork;
-        private int? _draftID;
+        private long? _draftID, relatedDraftId;
+        private long? customerTransactionId;
+
+        private Draft draft, relatedDraft;
+        private PamirAccounting.Domains.Transaction customerTransaction;
+        long documentId;
         #endregion
 
         #region constructor
-        public WarrantsPayableFrm(int draftId)
+        public WarrantsPayableFrm(long draftId)
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
@@ -48,7 +54,13 @@ namespace PamirAccounting.Forms.Drafts
 
         private void WarrantsPayableFrm_Load(object sender, EventArgs e)
         {
+            initCombox();
+            initData();
+            loadData();
+        }
 
+        private void initCombox()
+        {
             SetComboBoxHeight(cmbStatus.Handle, 25);
             cmbStatus.Refresh();
             SetComboBoxHeight(cmbCustomer.Handle, 25);
@@ -61,23 +73,67 @@ namespace PamirAccounting.Forms.Drafts
             cmbDraftCurrency.Refresh();
             SetComboBoxHeight(cmbStatus.Handle, 25);
             cmbStatus.Refresh();
-
-            initData();
-            loadData();
-
         }
 
         private void loadData()
         {
             if (_draftID.HasValue)
             {
-
+                loadDrafts();
             }
             else
             {
                 txtDate.Text = DateTime.Now.ToFarsiFormat();
                 cmbCustomer.SelectedValue = AppSetting.NotRunnedDraftsId;
+                documentId = unitOfWork.TransactionServices.GetNewDocumentId();
+                grpHavale.Text = "حوال امد - شماره سند " + documentId;
             }
+        }
+        private void loadDrafts()
+        {
+            draft = unitOfWork.DraftsServices.FindFirstOrDefault(x => x.Id == _draftID, "Transaction");
+
+            if (draft.RelatedDraftId.HasValue)
+            {
+                relatedDraft = unitOfWork.DraftsServices.FindFirstOrDefault(x => x.Id == draft.RelatedDraftId.Value, "Transaction");
+                relatedDraftId = draft.RelatedDraftId.Value;
+            }
+            else
+            {
+                customerTransaction = unitOfWork.TransactionServices.FindFirstOrDefault(x => x.Id == draft.TransactionId);
+                customerTransactionId = draft.TransactionId;
+            }
+
+
+            documentId = unitOfWork.TransactionServices.GetNewDocumentId();
+            grpHavale.Text = "حوال امد - شماره سند " + customerTransaction.DocumentId;
+
+            txtDate.Text = draft.Date.Value.ToFarsiFormat();
+            cmbAgency.SelectedValue = draft.AgencyId;
+            txtNumber.Text = draft.Number.ToString();
+            txtOtherNumber.Text = draft.OtherNumber.ToString();
+            txtSender.Text = draft.Sender;
+            txtReciver.Text = draft.Reciver;
+            txtFatherName.Text = draft.FatherName;
+            txtDesc.Text = draft.Description;
+            txtPayPlace.Text = draft.PayPlace;
+
+            cmbDraftCurrency.SelectedValue = draft.TypeCurrencyId;
+            txtDraftAmount.Text = draft.DraftAmount.ToString();
+            txtRate.Text = draft.Rate.ToString();
+            txtRent.Text = draft.Rent.ToString();
+            txtDepositAmount.Text = draft.DepositAmount.ToString();
+            cmbDepositCurreny.SelectedValue = draft.DepositCurrencyId;
+
+            if (draft.CustomerId.HasValue)
+            {
+                cmbCustomer.SelectedValue = draft.CustomerId;
+            }
+            else
+            {
+                cmbCustomer.SelectedValue = relatedDraft.AgencyId;
+                          }
+            cmbStatus.SelectedValue = draft.Status;
         }
 
         private void initData()
@@ -174,16 +230,19 @@ namespace PamirAccounting.Forms.Drafts
         {
             try
             {
-                var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
 
-                var draft = new Domains.Draft();
+                if (!_draftID.HasValue)
+                {
+                    draft = new Draft();
+                }
 
                 var dDate = txtDate.Text.Split('/');
                 PersianCalendar p = new PersianCalendar();
                 var draftDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
                 draft.Date = draftDateTime;
                 draft.AgencyId = (int)cmbAgency.SelectedValue;
-                draft.Type = 1;
+                draft.Type = (int)DraftTypes.Amad;
+                draft.DocumentId = documentId;
                 draft.Number = Int64.Parse(txtNumber.Text);
                 draft.OtherNumber = txtOtherNumber.Text;
                 draft.Sender = txtSender.Text;
@@ -197,21 +256,39 @@ namespace PamirAccounting.Forms.Drafts
                 draft.Rent = double.Parse(txtRent.Text);
                 draft.DepositAmount = double.Parse(txtDepositAmount.Text);
                 draft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
+                
                 draft.CustomerId = (int)cmbCustomer.SelectedValue;
-                draft.Status = (bool)cmbStatus.SelectedValue;
-
-                unitOfWork.DraftsServices.Insert(draft);
-                unitOfWork.SaveChanges();
-
                 var selectedIndex = (int)cmbCustomer.SelectedIndex;
                 var customer = _Customers.ElementAt(selectedIndex);
+
+                // customer or agent (2)
                 if (customer.Type == 1)
                 {
+                    draft.CustomerId = (int)cmbCustomer.SelectedValue;
+                }
 
+                    draft.Status = (bool)cmbStatus.SelectedValue;
+
+                if (_draftID.HasValue)
+                {
+                    unitOfWork.DraftsServices.Update(draft);
+                }
+                else
+                {
+                    unitOfWork.DraftsServices.Insert(draft);
+                }
+                unitOfWork.SaveChanges();
+
+                // customer or agent (2)
+                if (customer.Type == 1)
+                {
                     // trakonesh moshtari //
-                    var customerTransaction = new Domains.Transaction();
+                    if (customerTransaction == null)
+                    {
+                        customerTransaction = new Domains.Transaction();
+                    }
+
                     customerTransaction.SourceCustomerId = (int)cmbCustomer.SelectedValue;
-                    // customerTransaction.DestinitionCustomerId = AppSetting.SandoghCustomerId;
                     customerTransaction.TransactionType = (int)TransaActionType.HavaleAmad;
                     customerTransaction.DocumentId = documentId;
                     customerTransaction.WithdrawAmount = 0;
@@ -224,41 +301,78 @@ namespace PamirAccounting.Forms.Drafts
                     customerTransaction.Date = DateTime.Now;
                     customerTransaction.TransactionDateTime = TransactionDateTime;
                     customerTransaction.UserId = CurrentUser.UserID;
-
-                    unitOfWork.TransactionServices.Insert(customerTransaction);
+                    if (customerTransactionId.HasValue)
+                    {
+                        unitOfWork.TransactionServices.Update(customerTransaction);
+                    }
+                    else
+                    {
+                        unitOfWork.TransactionServices.Insert(customerTransaction);
+                    }
                     unitOfWork.SaveChanges();
                     //end moshtari ///
+                    if (relatedDraftId.HasValue)
+                    {
+                        draft.RelatedDraftId = null;
+                        unitOfWork.DraftsServices.Update(draft);
+                        unitOfWork.SaveChanges();
 
+                        unitOfWork.DraftsServices.Delete(relatedDraft);
+                        unitOfWork.SaveChanges();
+                    }
 
                 }
                 else
 
                 {
+                    if (!relatedDraftId.HasValue)
+                    {
+                        relatedDraft = new Draft();
+                    }
+                    relatedDraft.DocumentId = documentId;
+                    relatedDraft.Date = draftDateTime;
+                    relatedDraft.AgencyId = customer.Id;
+                    relatedDraft.Type = (int)DraftTypes.Raft;
+                    relatedDraft.Number = Int64.Parse(txt_forosh_number.Text);
+                    relatedDraft.OtherNumber = txt_forosh_ext_number.Text;
+                    relatedDraft.Sender = txtSender.Text;
+                    relatedDraft.Reciver = txtReciver.Text;
+                    relatedDraft.FatherName = txtFatherName.Text;
+                    relatedDraft.Description = txtDesc.Text;
+                    relatedDraft.PayPlace = txtPayPlace.Text;
+                    relatedDraft.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
+                    relatedDraft.DraftAmount = long.Parse(txtDraftAmount.Text);
+                    relatedDraft.Rate = double.Parse(txtRate.Text);
+                    relatedDraft.Rent = double.Parse(txtRent.Text);
+                    relatedDraft.DepositAmount = double.Parse(txtDepositAmount.Text);
+                    relatedDraft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
+                    relatedDraft.CustomerId = AppSetting.NotRunnedDraftsId;
+                    relatedDraft.Status = (bool)cmbStatus.SelectedValue;
 
-                    var draftForosh = new Domains.Draft();
-
-                    draftForosh.Date = draftDateTime;
-                    draftForosh.AgencyId = customer.Id;
-                    draftForosh.Type = 0;
-                    draftForosh.Number = Int64.Parse(txt_forosh_number.Text);
-                    draftForosh.OtherNumber = txt_forosh_ext_number.Text;
-                    draftForosh.Sender = txtSender.Text;
-                    draftForosh.Reciver = txtReciver.Text;
-                    draftForosh.FatherName = txtFatherName.Text;
-                    draftForosh.Description = txtDesc.Text;
-                    draftForosh.PayPlace = txtPayPlace.Text;
-                    draftForosh.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
-                    draftForosh.DraftAmount = long.Parse(txtDraftAmount.Text);
-                    draftForosh.Rate = double.Parse(txtRate.Text);
-                    draftForosh.Rent = double.Parse(txtRent.Text);
-                    draftForosh.DepositAmount = double.Parse(txtDepositAmount.Text);
-                    draftForosh.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
-                    draftForosh.CustomerId = AppSetting.NotRunnedDraftsId;
-                    draftForosh.Status = (bool)cmbStatus.SelectedValue;
-
-                    unitOfWork.DraftsServices.Insert(draftForosh);
+                    if (relatedDraftId.HasValue)
+                    {
+                        unitOfWork.DraftsServices.Update(relatedDraft);
+                  
+                    }
+                    else
+                    {
+                        unitOfWork.DraftsServices.Insert(relatedDraft);
+                    }
                     unitOfWork.SaveChanges();
 
+                    draft.RelatedDraftId = relatedDraft.Id;
+                    unitOfWork.DraftsServices.Update(draft);
+                    unitOfWork.SaveChanges();
+
+                    if (customerTransactionId.HasValue)
+                    {
+                        draft.TransactionId = null;
+                        unitOfWork.DraftsServices.Update(draft);
+                        unitOfWork.SaveChanges();
+
+                        unitOfWork.TransactionServices.Delete(customerTransaction);
+                        unitOfWork.SaveChanges();
+                    }
                 }
 
 
