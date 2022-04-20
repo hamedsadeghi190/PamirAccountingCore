@@ -21,6 +21,7 @@ namespace PamirAccounting.Models.ViewModels
         public string PayPlace { get; set; }
         public string Description { get; set; }
         public string TypeCurrency { get; set; }
+        public string Status { get; set; }
         public long DraftAmount { get; set; }
         public double Rate { get; set; }
         public double Rent { get; set; }
@@ -32,6 +33,7 @@ namespace PamirAccounting.Models.ViewModels
         public string RunningDate { get; set; }
         public string Date { get; set; }
         public int? ConvertedCurrencyId { get; set; }
+        public int TypeCurrencyId { get; set; }
         public string ConvertedCurrency { get; set; }
         public double? ConvertedRate { get; set; }
         public long? ConvertedAmount { get; set; }
@@ -46,5 +48,16 @@ namespace PamirAccounting.Models.ViewModels
         public double TotalRent { get; set; }
         public double Total { get; set; }
         public string CurrenyName { get; set; }
+    }
+
+    public class SummeryDraftStatusViewModels
+    {
+   
+        public int CurrenyId { get; set; }
+        public string CurrenyName { get; set; }
+        public string Status { get; set; }
+        public double TotalDiposit { get; set; }
+        public double TotalWithdraw { get; set; }
+        public double RemainAmount { get; set; }
     }
 }

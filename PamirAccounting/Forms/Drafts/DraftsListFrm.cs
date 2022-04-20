@@ -161,7 +161,7 @@ namespace PamirAccounting.Forms.Drafts
 
             grdTotals.DataSource = null;
             grdTotals.DataSource = _dataSummery;
-
+            gridDrafts.Refresh();
         }
 
         private void DraftsListFrm_KeyUp(object sender, KeyEventArgs e)
@@ -241,7 +241,6 @@ namespace PamirAccounting.Forms.Drafts
             report.RegData("myData", data);
             report.RegData("myData2", data2);
             report.RegData("basedata", basedata);
-            report.Design();
             report.Render();
             report.Show();
         }

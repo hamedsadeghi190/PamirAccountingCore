@@ -383,7 +383,18 @@ namespace PamirAccounting.Forms.Drafts
 
 
                 MessageBox.Show(" حواله با موفقیت ثبت شد");
-                clearFrom();
+
+                if (_draftID.HasValue)
+                {
+                    Close();
+                }
+                else
+                {
+                    draft = null;
+                    customerTransaction = null;
+                    clearFrom();
+                }
+               
             }
             catch (Exception ex)
             {
@@ -409,7 +420,7 @@ namespace PamirAccounting.Forms.Drafts
             txtDepositAmount.Text = "0";
             cmbCustomer.SelectedIndex = 0;
             cmbStatus.SelectedIndex = 0;
-
+            cmbCustomer.SelectedValue = AppSetting.NotRunnedDraftsId;
             calcNumber((int)cmbAgency.SelectedValue);
         }
 

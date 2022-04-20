@@ -251,7 +251,14 @@ namespace PamirAccounting.Forms.Drafts
                 unitOfWork.SaveChanges();
 
                 MessageBox.Show(" حواله با موفقیت ثبت شد");
-                ResetForm();
+                if(DraftID.HasValue)
+                {
+                    Close();
+                }
+               else
+                {
+                    ResetForm();
+                }
             }
             catch (Exception ex)
             {
@@ -279,6 +286,8 @@ namespace PamirAccounting.Forms.Drafts
             cmbStatus.SelectedIndex = 0;
 
             calcNumber((int)cmbAgency.SelectedValue);
+            draft = null;
+            customerTransaction = null;
         }
 
         private bool ValidateForms()

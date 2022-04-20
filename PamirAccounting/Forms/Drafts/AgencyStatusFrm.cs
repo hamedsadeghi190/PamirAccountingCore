@@ -15,7 +15,7 @@ namespace PamirAccounting.Forms.Drafts
         private int AgencyID { get; set; }
         private UnitOfWork unitOfWork;
         private List<DraftViewModels> _data;
-        private List<SummeryDraftViewModels> _dataSummery;
+        private List<SummeryDraftStatusViewModels> _dataSummery;
 
 
         public AgencyStatusFrm()
@@ -37,6 +37,7 @@ namespace PamirAccounting.Forms.Drafts
         private void AgencyStatusFrm_Load(object sender, EventArgs e)
         {
             gridDrafts.AutoGenerateColumns = false;
+            grdTotals.AutoGenerateColumns = false;
 
             var agency = unitOfWork.Agencies.FindAll(x => x.Id == AgencyID).Include(x => x.Curreny).FirstOrDefault();
             LblAgencyName.Text = agency.Name;
@@ -48,70 +49,212 @@ namespace PamirAccounting.Forms.Drafts
         private void LoadData()
         {
 
-
             var tmpdata = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == AgencyID)
                                     .Include(y => y.TypeCurrency)
                                     .Include(f => f.DepositCurrency)
                                     .Include(f => f.ConvertedCurrency)
                                     .Include(f => f.Customer)
-
                                     .ToList();
 
-            int radif = 0;
-            _data = null;
-            _data = tmpdata
-                 .Select(q => new DraftViewModels()
-                 {
-                     Index = ++radif,
-                     Id = q.Id,
-                     Type = q.Type,
-                     Number = q.Number,
-                     OtherNumber = q.OtherNumber,
-                     Sender = q.Sender,
-                     Reciver = q.Reciver,
-                     FatherName = q.FatherName,
-                     PayPlace = q.PayPlace,
-                     Description = q.Description,
-                     ExtraDescription = q.ExtraDescription,
-                     TypeCurrency = q.TypeCurrency.Name,
-                     DraftAmount = q.DraftAmount,
-                     Rate = q.Rate,
-                     Rent = q.Rent,
-                     ConvertedRate = q.ConvertedRate,
-                     ConvertedAmount = q.ConvertedAmount,
-                     ConvertedCurrency = q.ConvertedCurrency != null ? q.ConvertedCurrency.Name : "",
-                     DepositAmount = q.DepositAmount,
-                     DepositCurrency = q.DepositCurrency.Name,
-                     CustomerId = q.CustomerId,
-                     Customer = q.Customer.FirstName + " " + q.Customer.LastName,
-                     RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
-                     ConvertedDate = q.ConvertedDate != null ? (DateTime.Parse(q.ConvertedDate.ToString())).ToPersian() : "",
-                     Date = (DateTime.Parse(q.Date.ToString())).ToPersian(),
+            var rowId = 1;
+            var _RowedData = tmpdata.Select(q => new DraftViewModels()
+            {
+                Index = rowId++,
+                Id = q.Id,
+                Type = q.Type,
+                Number = q.Number,
+                OtherNumber = q.OtherNumber,
+                Sender = q.Sender,
+                Reciver = q.Reciver,
+                FatherName = q.FatherName,
+                PayPlace = q.PayPlace,
+                Description = q.Description,
+                ExtraDescription = q.ExtraDescription,
+                TypeCurrency = q.TypeCurrency.Name,
+                DraftAmount = q.DraftAmount,
+                Rate = q.Rate,
+                Rent = q.Rent,
+                ConvertedRate = q.ConvertedRate,
+                ConvertedAmount = q.ConvertedAmount,
+                ConvertedCurrencyId = q.ConvertedCurrencyId,
+                TypeCurrencyId = q.TypeCurrencyId,
+                ConvertedCurrency = q.ConvertedCurrency != null ? q.ConvertedCurrency.Name : "",
+                DepositAmount = q.DepositAmount,
+                DepositCurrency = q.DepositCurrency.Name,
+                CustomerId = q.CustomerId,
+                Customer = q.Customer.FirstName + " " + q.Customer.LastName,
+                RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
+                ConvertedDate = q.ConvertedDate != null ? (DateTime.Parse(q.ConvertedDate.ToString())).ToPersian() : "",
+                Date = (DateTime.Parse(q.Date.ToString())).ToPersian(),
 
-                 })
-                .ToList();
-
+            }).ToList();
 
 
-            gridDrafts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            _data = new List<DraftViewModels>();
+            _dataSummery = new List<SummeryDraftStatusViewModels>();
 
+            var _dataConverted1 = _RowedData.Where(x => x.ConvertedAmount.HasValue == true).ToList();
+            var _dataNotConverted1 = _RowedData.Where(x => x.ConvertedAmount.HasValue == false).ToList();
+
+            var groupedw = _dataConverted1.GroupBy(x => x.ConvertedCurrencyId);
+
+            foreach (var item in groupedw)
+            {
+                double totalRemainAmount = 0;
+                double TotalRent = 0;
+                string CurrenyName = "";
+
+                foreach (var havale in item.OrderBy(x => x.Index).ToList())
+                {
+
+                    if (havale.ConvertedAmount.HasValue == true)
+                    {
+                        CurrenyName = havale.DepositCurrency;
+                        if (havale.Type == 0)
+                        {
+                            totalRemainAmount += havale.ConvertedAmount.Value;
+                        }
+                        else
+                        {
+                            totalRemainAmount -= havale.ConvertedAmount.Value;
+                        }
+                    }
+
+                    TotalRent += havale.Rent;
+                    havale.RemainAmount = totalRemainAmount;
+                    if (totalRemainAmount > 0)
+                    {
+                        havale.Status = "طلبکار";
+                    }
+                    else if (totalRemainAmount < 0)
+                    {
+                        havale.Status = "بدهکار";
+                    }
+
+                    _data.Add(havale);
+                }
+            }
+
+
+            foreach (var item in _dataNotConverted1)
+            {
+                _RowedData.Add(item);
+            }
+            _data = _data.OrderBy(x => x.Index).ToList();
             gridDrafts.DataSource = null;
             gridDrafts.DataSource = _data;
             gridDrafts.Refresh();
 
-            _dataSummery = new List<SummeryDraftViewModels>();
-            var cdata = new SummeryDraftViewModels();
-            foreach (var item in _data)
+            var _dataConverted = _data.Where(x => x.ConvertedAmount.HasValue == true).ToList();
+            var _dataNotConverted = _data.Where(x => x.ConvertedAmount.HasValue == false).ToList();
+
+            _dataSummery = new List<SummeryDraftStatusViewModels>();
+
+            var groupedConverted = _dataConverted.GroupBy(x => x.ConvertedCurrencyId);
+
+            foreach (var item in groupedConverted)
             {
-                cdata.CurrenyName = item.DepositCurrency;
-                cdata.Total += (item.DepositAmount.HasValue) ? item.DepositAmount.Value : 0;
-                cdata.TotalRent += item.Rent;
+                double TotalDiposit = 0;
+                double TotalWithdraw = 0;
+                string CurrenyName = "";
+
+                foreach (var currentDrafts in item)
+                {
+                    CurrenyName = currentDrafts.ConvertedCurrency;
+
+                    if (currentDrafts.Type == 0)
+                    {
+                        TotalDiposit += currentDrafts.ConvertedAmount.Value;
+                    }
+                    else
+                    {
+                        TotalWithdraw += currentDrafts.ConvertedAmount.Value;
+                    }
+                }
+
+                var cdata = new SummeryDraftStatusViewModels();
+                cdata.CurrenyName = CurrenyName;
+                cdata.TotalDiposit = TotalDiposit;
+                cdata.TotalWithdraw = TotalWithdraw;
+                cdata.RemainAmount = TotalDiposit - TotalWithdraw;
+
+                if (cdata.RemainAmount > 0)
+                {
+                    cdata.Status = "طلبکار";
+                }
+                else if (cdata.RemainAmount < 0)
+                {
+                    cdata.Status = "بدهکار";
+                }
+                _dataSummery.Add(cdata);
             }
-            _dataSummery.Add(cdata);
+
+            var groupedNotConverted = _dataNotConverted.GroupBy(x => x.TypeCurrencyId);
+
+            foreach (var item in groupedNotConverted)
+            {
+                double TotalDiposit = 0;
+                double TotalWithdraw = 0;
+                string CurrenyName = "";
+
+                foreach (var currentDrafts in item)
+                {
+                    CurrenyName = currentDrafts.TypeCurrency;
+
+                    if (currentDrafts.Type == 0)
+                    {
+                        TotalDiposit += currentDrafts.DraftAmount;
+                    }
+                    else
+                    {
+                        TotalWithdraw += currentDrafts.DraftAmount;
+                    }
+                }
+                SummeryDraftStatusViewModels cdata;
+
+                var tmpSummery = _dataSummery.FirstOrDefault(x => x.CurrenyId == item.Key);
+
+                if (tmpSummery == null)
+                {
+                    cdata = new SummeryDraftStatusViewModels();
+                    cdata.CurrenyName = CurrenyName;
+                    cdata.TotalDiposit = TotalDiposit;
+                    cdata.TotalWithdraw = TotalWithdraw;
+                    cdata.RemainAmount = TotalDiposit - TotalWithdraw;
+
+                    if (cdata.RemainAmount > 0)
+                    {
+                        cdata.Status = "طلبکار";
+                    }
+                    else if (cdata.RemainAmount < 0)
+                    {
+                        cdata.Status = "بدهکار";
+                    }
+                    _dataSummery.Add(cdata);
+                }
+                else
+                {
+
+                    tmpSummery.CurrenyName = CurrenyName;
+                    tmpSummery.TotalDiposit += TotalDiposit;
+                    tmpSummery.TotalWithdraw += TotalWithdraw;
+                    tmpSummery.RemainAmount = tmpSummery.TotalDiposit - tmpSummery.TotalWithdraw;
+
+                    if (tmpSummery.RemainAmount > 0)
+                    {
+                        tmpSummery.Status = "طلبکار";
+                    }
+                    else if (tmpSummery.RemainAmount < 0)
+                    {
+                        tmpSummery.Status = "بدهکار";
+                    }
+                }
+
+            }
 
             grdTotals.DataSource = null;
             grdTotals.DataSource = _dataSummery;
-            grdTotals.Refresh();
+            gridDrafts.Refresh();
         }
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
@@ -125,7 +268,7 @@ namespace PamirAccounting.Forms.Drafts
                 LoadData();
             }
 
-           
+
         }
 
         private void gridDrafts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -139,7 +282,7 @@ namespace PamirAccounting.Forms.Drafts
                 var data = _data.ElementAt(row.Index);
                 if (data.Type == 1)
                 {
-                    row.DefaultCellStyle.BackColor = Color.LightGreen;
+                    row.DefaultCellStyle.BackColor = Color.MediumSeaGreen;
                 }
             }
         }
