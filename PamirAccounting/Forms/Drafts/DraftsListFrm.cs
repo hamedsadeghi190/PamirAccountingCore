@@ -270,7 +270,7 @@ namespace PamirAccounting.Forms.Drafts
 
                 }
             }
-            else if (e.KeyCode == Keys.Shift)
+            else if (e.KeyCode == Keys.ShiftKey)
             {
                 this.gridDrafts.CurrentRow.Selected = true;
                 e.Handled = true;
