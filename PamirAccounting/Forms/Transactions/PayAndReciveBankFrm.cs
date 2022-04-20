@@ -207,7 +207,7 @@ namespace PamirAccounting.Forms.Transactions
             txtBranchCode.Text = bankTransaction.BranchCode;
             txtDate.Text = bankTransaction.TransactionDateTime.ToFarsiFormat();
             ShowChars();
-
+          
         }
 
         private void cmbAction_SelectedValueChanged(object sender, EventArgs e)

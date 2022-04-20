@@ -240,7 +240,7 @@ namespace PamirAccounting.UI.Forms.Transaction
 
         private void CreateDescription()
         {
-            txtDesc.Text = $"انتقال وجه از  {CmbSource.Text} به {cmbDestiniation.Text} به مبلغ {txtAmount.Text} {cmbCurrencies.Text}";
+            txtDesc.Text = $" انتقال وجه از{CmbSource.Text} به {cmbDestiniation.Text} به مبلغ {txtAmount.Text} {cmbCurrencies.Text}";
         }
 
         private void txtAmount_TextChanged(object sender, EventArgs e)
