@@ -383,12 +383,36 @@ namespace PamirAccounting.Forms.Drafts
 
 
                 MessageBox.Show(" حواله با موفقیت ثبت شد");
+                clearFrom();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Data not Saved !" + ex.Message);
             }
         }
+
+        private void clearFrom()
+        {
+            txtDate.Text = DateTime.Now.ToFarsiFormat();
+            txtNumber.Clear();
+            txtOtherNumber.Clear();
+            txtSender.Clear();
+            txtReciver.Clear();
+            txtFatherName.Clear();
+            txtPayPlace.Clear();
+            txtDesc.Clear();
+            cmbDraftCurrency.SelectedIndex = 0;
+            cmbDepositCurreny.SelectedIndex = 0;
+            txtDraftAmount.Text = "0";
+            txtRate.Text = "0";
+            txtRent.Text = "0";
+            txtDepositAmount.Text = "0";
+            cmbCustomer.SelectedIndex = 0;
+            cmbStatus.SelectedIndex = 0;
+
+            calcNumber((int)cmbAgency.SelectedValue);
+        }
+
         private void CalculateDeposit()
         {
             try

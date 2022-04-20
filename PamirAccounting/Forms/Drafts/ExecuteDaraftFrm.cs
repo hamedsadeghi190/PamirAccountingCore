@@ -110,6 +110,7 @@ namespace PamirAccounting.Forms.Drafts
                 unitOfWork.TransactionServices.Update(customerTransaction);
                 unitOfWork.SaveChanges();
 
+                Draft.CustomerId = (int)cmbCustomers.SelectedValue;
                 Draft.PhoneNumber = txtPhone.Text;
                 Draft.RunningDesc = txtdesc.Text;
                 Draft.Tazkare = txtTazkare.Text;
@@ -117,6 +118,7 @@ namespace PamirAccounting.Forms.Drafts
                 unitOfWork.SaveChanges();
 
                 MessageBox.Show(" تغییرات با موفقیت ثبت شد");
+                Close();
             }
             catch (Exception ex)
             {
