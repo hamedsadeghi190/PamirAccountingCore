@@ -118,7 +118,7 @@ namespace PamirAccounting.Services
         {
             try
             {
-                int r = 0;
+
                 var dataList = FindAllReadonly(x => x.IsDeleted == false).Include(x => x.Group).Select(x => new CustomerModel
                 {
                     Id = x.Id,
@@ -131,6 +131,7 @@ namespace PamirAccounting.Services
 
 
                 }).ToList();
+                int r = 1;
                 dataList = dataList.Select(x => new CustomerModel
                 {
                     Id = x.Id,
@@ -139,6 +140,8 @@ namespace PamirAccounting.Services
                     FullName = x.FirstName + " " + x.LastName,
                     Phone = x.Phone,
                     Mobile = x.Mobile,
+                    Radif=r++,
+                    GroupName=x.GroupName,
                 }).ToList();
 
                 return dataList;

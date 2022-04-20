@@ -452,7 +452,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 report.RegData("myData", data);
                 report.RegData("myData2", data2);
                 report.RegData("basedata", basedata);
-                // report.Design();
+                //report.Design();
                 report.Render();
                 report.Show();
             }
@@ -525,7 +525,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 report.Load(AppSetting.ReportPath + "RemainigAmount.mrt");
                 report.RegData("myData", data);
                 report.RegData("basedata", basedata);
-                //report.Design();
+               // report.Design();
                 report.Render();
                 report.Show();
             }

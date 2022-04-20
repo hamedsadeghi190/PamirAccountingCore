@@ -243,7 +243,7 @@ namespace PamirAccounting.Forms.Transactions
             report.Load(AppSetting.ReportPath + "UnkwonDepositList.mrt");
             report.RegData("myData", data);
             report.RegData("basedata", basedata);
-           // report.Design();
+            //report.Design();
             report.Render();
             report.Show();
         }
