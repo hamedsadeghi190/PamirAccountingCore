@@ -41,7 +41,7 @@ namespace PamirAccounting.Forms.Currencies
             dataGridView1.AutoGenerateColumns = false;
             SetComboBoxHeight(cmbAction.Handle, 25);
             cmbAction.Refresh();
-            this.dataGridView1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 11, FontStyle.Bold);
+    
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
             c.DefaultCellStyle.ForeColor = Color.SteelBlue;
