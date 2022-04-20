@@ -380,7 +380,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             report.RegData("myData", data);
             report.RegData("myData2", data2);
             report.RegData("basedata", basedata);
-           // report.Design();
+            //report.Design();
             report.Render();
             report.Show();
         }
