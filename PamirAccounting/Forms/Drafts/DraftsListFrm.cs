@@ -27,17 +27,6 @@ namespace PamirAccounting.Forms.Drafts
             InitializeComponent();
             gridDrafts.AutoGenerateColumns = false;
             grdTotals.AutoGenerateColumns = false;
-            //DataGridViewCellStyle HeaderStyle = new DataGridViewCellStyle();
-
-            //HeaderStyle.BackColor = Color.Red;
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    gridDrafts.Columns[i].HeaderCell.Style = HeaderStyle;
-            //}
-            //foreach (DataGridViewColumn DataGridViewColumn1 in gridDrafts.Columns)
-            //{
-            //    DataGridViewColumn1.DefaultCellStyle.Font = new Font("IRANSansMobile(FaNum)", 12);
-            //}
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -47,7 +36,6 @@ namespace PamirAccounting.Forms.Drafts
 
         private void simpleButton12_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnAgencystatus_Click(object sender, EventArgs e)
@@ -58,7 +46,6 @@ namespace PamirAccounting.Forms.Drafts
 
         private void label5_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnExecuteDaraft_Click(object sender, EventArgs e)
@@ -103,7 +90,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void LoadData()
         {
-  
+
             var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
                                                             && x.Type == (int)(cmbType.SelectedValue))
                 .OrderBy(x => x.Date)
@@ -128,6 +115,7 @@ namespace PamirAccounting.Forms.Drafts
                 DraftAmount = q.DraftAmount,
                 Rate = q.Rate,
                 Rent = q.Rent,
+                Type = q.Type,
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,
                 CustomerId = q.CustomerId,
@@ -186,38 +174,6 @@ namespace PamirAccounting.Forms.Drafts
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == gridDrafts.Columns["btnExecute"].Index && e.RowIndex >= 0)
-            {
-                var draft = _data.ElementAt(e.RowIndex);
-                if (draft.CustomerId == AppSetting.NotRunnedDraftsId)
-                {
-                    var FrmBalance = new ExecuteDaraftFrm(draft.Id);
-                    FrmBalance.ShowDialog();
-                    LoadData();
-                }
-                else
-                {
-                    // MessageBox.Show("حواله قبلا اجرا شده است.");
-                }
-            }
-            else if (e.ColumnIndex == gridDrafts.Columns["btnEdit"].Index && e.RowIndex >= 0)
-            {
-                var draft = _data.ElementAt(e.RowIndex);
-
-                if (draft.Type == 0)
-                {
-                    var targetFrm = new shippingOrderFrm(draft.Id);
-                    targetFrm.ShowDialog();
-                    LoadData();
-                }
-                else
-                {
-                    var targetFrm = new WarrantsPayableFrm(draft.Id);
-                    targetFrm.ShowDialog();
-                    LoadData();
-
-                }
-            }
 
 
         }
@@ -256,6 +212,7 @@ namespace PamirAccounting.Forms.Drafts
                 DraftAmount = q.DraftAmount,
                 Rate = q.Rate,
                 Rent = q.Rent,
+                Type = q.Type,
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,
                 CustomerId = q.CustomerId,
@@ -289,6 +246,44 @@ namespace PamirAccounting.Forms.Drafts
             report.Show();
         }
 
-      
+        private void gridDrafts_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.gridDrafts.CurrentRow.Selected = true;
+                e.Handled = true;
+
+                var rowIndex = gridDrafts.SelectedRows[0].Index;
+                var draft = _data.ElementAt(rowIndex);
+
+                if (draft.Type == 0)
+                {
+                    var targetFrm = new shippingOrderFrm(draft.Id);
+                    targetFrm.ShowDialog();
+                    LoadData();
+                }
+                else
+                {
+                    var targetFrm = new WarrantsPayableFrm(draft.Id);
+                    targetFrm.ShowDialog();
+                    LoadData();
+
+                }
+            }
+            else if (e.KeyCode == Keys.Shift)
+            {
+                this.gridDrafts.CurrentRow.Selected = true;
+                e.Handled = true;
+
+                var rowIndex = gridDrafts.SelectedRows[0].Index;
+                var draft = _data.ElementAt(rowIndex);
+                if (draft.CustomerId == AppSetting.NotRunnedDraftsId)
+                {
+                    var FrmBalance = new ExecuteDaraftFrm(draft.Id);
+                    FrmBalance.ShowDialog();
+                    LoadData();
+                }
+            }
+        }
     }
 }

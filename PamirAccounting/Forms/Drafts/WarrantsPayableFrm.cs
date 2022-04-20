@@ -106,7 +106,7 @@ namespace PamirAccounting.Forms.Drafts
 
 
             documentId = unitOfWork.TransactionServices.GetNewDocumentId();
-            grpHavale.Text = "حوال امد - شماره سند " + customerTransaction.DocumentId;
+            grpHavale.Text = "حوال امد - شماره سند " + draft.DocumentId;
 
             txtDate.Text = draft.Date.Value.ToFarsiFormat();
             cmbAgency.SelectedValue = draft.AgencyId;
