@@ -132,7 +132,7 @@ namespace PamirAccounting.Forms.Drafts
             else
             {
                 cmbCustomer.SelectedValue = relatedDraft.AgencyId;
-                          }
+            }
             cmbStatus.SelectedValue = draft.Status;
         }
 
@@ -140,7 +140,7 @@ namespace PamirAccounting.Forms.Drafts
         {
             this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
 
-            _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
+            _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name, Type = 1}).ToList();
             _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = "نمایندگی " + x.Name, Type = 2 }).ToList();
 
             // this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
@@ -256,7 +256,7 @@ namespace PamirAccounting.Forms.Drafts
                 draft.Rent = double.Parse(txtRent.Text);
                 draft.DepositAmount = double.Parse(txtDepositAmount.Text);
                 draft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
-                
+
                 draft.CustomerId = (int)cmbCustomer.SelectedValue;
                 var selectedIndex = (int)cmbCustomer.SelectedIndex;
                 var customer = _Customers.ElementAt(selectedIndex);
@@ -267,7 +267,7 @@ namespace PamirAccounting.Forms.Drafts
                     draft.CustomerId = (int)cmbCustomer.SelectedValue;
                 }
 
-                    draft.Status = (bool)cmbStatus.SelectedValue;
+                draft.Status = (bool)cmbStatus.SelectedValue;
 
                 if (_draftID.HasValue)
                 {
@@ -310,6 +310,12 @@ namespace PamirAccounting.Forms.Drafts
                         unitOfWork.TransactionServices.Insert(customerTransaction);
                     }
                     unitOfWork.SaveChanges();
+
+                    draft.TransactionId = customerTransaction.Id;
+                    unitOfWork.DraftsServices.Update(draft);
+                    unitOfWork.SaveChanges();
+
+
                     //end moshtari ///
                     if (relatedDraftId.HasValue)
                     {
@@ -352,7 +358,7 @@ namespace PamirAccounting.Forms.Drafts
                     if (relatedDraftId.HasValue)
                     {
                         unitOfWork.DraftsServices.Update(relatedDraft);
-                  
+
                     }
                     else
                     {

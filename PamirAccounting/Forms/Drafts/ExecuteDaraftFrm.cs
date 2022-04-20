@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Drafts
 {
@@ -22,6 +23,9 @@ namespace PamirAccounting.Forms.Drafts
         private List<ComboBoxModel> _Customers;
         private List<CurrencyViewModel> _Currencies;
         private UnitOfWork unitOfWork;
+        private Domains.Transaction customerTransaction;
+        private long documentId;
+
         public ExecuteDaraftFrm(long draftId)
         {
             InitializeComponent();
@@ -37,9 +41,13 @@ namespace PamirAccounting.Forms.Drafts
         private void ExecuteDaraftFrm_Load(object sender, EventArgs e)
         {
             Draft = unitOfWork.DraftsServices.FindAll(x => x.Id == _draftId)
-                .Include(x=>x.TypeCurrency)
-                .Include(x=>x.Agency)
+                .Include(x => x.TypeCurrency)
+                .Include(x => x.DepositCurrency)
+                .Include(x => x.Agency)
                 .FirstOrDefault();
+
+      
+
             groupBox1.Text += $" {_draftId} ";
             lbl_sender.Text = Draft.Sender;
             lbl_reciver.Text = Draft.Reciver;
@@ -47,6 +55,9 @@ namespace PamirAccounting.Forms.Drafts
             lbl_currency.Text = Draft.TypeCurrency.Name;
             lbl_amount.Text = Draft.DraftAmount.ToString();
             lbl_palce.Text = Draft.PayPlace;
+
+            txtsellerprice.Text = Draft.DraftAmount.ToString();
+            cmbSellCurrencies.SelectedValue = Draft.TypeCurrencyId;
 
 
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new CurrencyViewModel() { Id = x.Id, Title = x.Name, Action = x.Action, BaseRate = x.BaseRate }).ToList();
@@ -60,10 +71,12 @@ namespace PamirAccounting.Forms.Drafts
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
 
-            PersianCalendar pc = new PersianCalendar();
-            string PDate = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-            txtDate.Text = PDate;
+            txtDate.Text = DateTime.Now.ToFarsiFormat();
 
+            if (Draft.TransactionId.HasValue)
+            {
+                customerTransaction = unitOfWork.TransactionServices.FindFirstOrDefault(x => x.Id == Draft.TransactionId.Value);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -73,6 +86,42 @@ namespace PamirAccounting.Forms.Drafts
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+
+
+                var dDate = txtDate.Text.Split('/');
+                PersianCalendar p = new PersianCalendar();
+                var draftDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+
+                customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
+                customerTransaction.TransactionType = (int)TransaActionType.HavaleAmad;
+                customerTransaction.DocumentId = Draft.DocumentId.Value;
+                customerTransaction.WithdrawAmount = 0;
+                customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtsellerprice.Text.Trim())) ? 0 : long.Parse(txtsellerprice.Text);
+
+                customerTransaction.CurrenyId = (int)cmbSellCurrencies.SelectedValue;
+                var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                customerTransaction.Date = DateTime.Now;
+                customerTransaction.TransactionDateTime = TransactionDateTime;
+                customerTransaction.UserId = CurrentUser.UserID;
+                customerTransaction.Description = customerTransaction.Description + $"به شماره تذکره  {txtTazkare.Text} به شماره تلفن {txtPhone.Text} , {txtdesc.Text}";
+                unitOfWork.TransactionServices.Update(customerTransaction);
+                unitOfWork.SaveChanges();
+
+                Draft.PhoneNumber = txtPhone.Text;
+                Draft.RunningDesc = txtdesc.Text;
+                Draft.Tazkare = txtTazkare.Text;
+                unitOfWork.DraftsServices.Update(Draft);
+                unitOfWork.SaveChanges();
+
+                MessageBox.Show(" تغییرات با موفقیت ثبت شد");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Data not Saved !" + ex.Message);
+            }
 
         }
     }

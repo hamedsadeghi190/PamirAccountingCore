@@ -50,12 +50,12 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDate = new DevExpress.XtraEditors.TextEdit();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtdesc = new System.Windows.Forms.RichTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTazkare = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -210,12 +210,12 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBox2.Controls.Add(this.txtDate);
             this.groupBox2.Controls.Add(this.btnSave);
             this.groupBox2.Controls.Add(this.btnClose);
-            this.groupBox2.Controls.Add(this.richTextBox1);
+            this.groupBox2.Controls.Add(this.txtdesc);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtTazkare);
             this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtPhone);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label1);
@@ -232,6 +232,7 @@ namespace PamirAccounting.Forms.Drafts
             // txtsellerprice
             // 
             this.txtsellerprice.EditValue = "0";
+            this.txtsellerprice.Enabled = false;
             this.txtsellerprice.Location = new System.Drawing.Point(321, 68);
             this.txtsellerprice.Name = "txtsellerprice";
             this.txtsellerprice.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -255,6 +256,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // cmbSellCurrencies
             // 
+            this.cmbSellCurrencies.Enabled = false;
             this.cmbSellCurrencies.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbSellCurrencies.FormattingEnabled = true;
             this.cmbSellCurrencies.Location = new System.Drawing.Point(42, 66);
@@ -302,14 +304,14 @@ namespace PamirAccounting.Forms.Drafts
             this.btnClose.Text = "بازگشت";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // richTextBox1
+            // txtdesc
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBox1.Location = new System.Drawing.Point(45, 144);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(412, 53);
-            this.richTextBox1.TabIndex = 83;
-            this.richTextBox1.Text = "";
+            this.txtdesc.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtdesc.Location = new System.Drawing.Point(41, 144);
+            this.txtdesc.Name = "txtdesc";
+            this.txtdesc.Size = new System.Drawing.Size(416, 53);
+            this.txtdesc.TabIndex = 83;
+            this.txtdesc.Text = "";
             // 
             // label19
             // 
@@ -331,13 +333,13 @@ namespace PamirAccounting.Forms.Drafts
             this.label18.TabIndex = 81;
             this.label18.Text = "شماره تذکره :";
             // 
-            // textBox4
+            // txtTazkare
             // 
-            this.textBox4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(42, 107);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(175, 31);
-            this.textBox4.TabIndex = 80;
+            this.txtTazkare.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTazkare.Location = new System.Drawing.Point(42, 107);
+            this.txtTazkare.Name = "txtTazkare";
+            this.txtTazkare.Size = new System.Drawing.Size(175, 31);
+            this.txtTazkare.TabIndex = 80;
             // 
             // label17
             // 
@@ -349,13 +351,13 @@ namespace PamirAccounting.Forms.Drafts
             this.label17.TabIndex = 79;
             this.label17.Text = "شماره تماس :";
             // 
-            // textBox2
+            // txtPhone
             // 
-            this.textBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(321, 106);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(137, 31);
-            this.textBox2.TabIndex = 78;
+            this.txtPhone.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPhone.Location = new System.Drawing.Point(321, 106);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(137, 31);
+            this.txtPhone.TabIndex = 78;
             // 
             // label15
             // 
@@ -441,12 +443,12 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTazkare;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtdesc;
         private System.Windows.Forms.Label label19;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnClose;
