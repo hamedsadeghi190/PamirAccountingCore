@@ -293,10 +293,10 @@ namespace PamirAccounting.Forms.GeneralLedger
             var data = TotalPrint();
             var basedata = new reportbaseDAta() { Date = PersianDate };
             var report = StiReport.CreateNewReport();
-            report.Load(AppSetting.ReportPath + "CreditorGroupList.mrt");
+            report.Load(AppSetting.ReportPath + "TotalGroupList.mrt");
             report.RegData("myData", data);
             report.RegData("basedata", basedata);
-            //   report.Design();
+            //report.Design();
             report.Render();
             report.Show();
         }
