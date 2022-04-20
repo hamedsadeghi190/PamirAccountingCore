@@ -72,22 +72,27 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void cmbCurrencies_TextChanged(object sender, EventArgs e)
-        {
-
-
-            if ((int)cmbCurrencies.SelectedValue > 0)
+            if ((int)cmbCurrencies.SelectedValue == 0)
             {
-                 var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,txtDate.Text);
+                var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(0, txtDate.Text);
+                GellAll(tmpDataList);
+            }
+           else if ((int)cmbCurrencies.SelectedValue > 0)
+            {
+                var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
                 GellAll(tmpDataList);
             }
             else
             {
                 LoadData();
             }
+        }
+
+        private void cmbCurrencies_TextChanged(object sender, EventArgs e)
+        {
+
+
+           
 
         }
 

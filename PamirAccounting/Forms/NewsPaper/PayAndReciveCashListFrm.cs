@@ -58,9 +58,7 @@ namespace PamirAccounting.Forms.NewsPaper
             cmbCurrencies.DisplayMember = "Title";
             cmbCurrencies.SelectedValueChanged += new EventHandler(cmbCurrencies_SelectedValueChanged);
             cmbCurrencies.TextChanged += new EventHandler(cmbCurrencies_TextChanged);
-            _Groups.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Groups.AddRange(unitOfWork.CustomerGroups.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-
+  
         }
 
         private void LoadData()
@@ -75,28 +73,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void cmbCurrencies_TextChanged(object sender, EventArgs e)
         {
-            _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList());
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            cmbCurrencies.DataSource = _Currencies;
-            cmbCurrencies.ValueMember = "Id";
-            cmbCurrencies.DisplayMember = "Title";
-            cmbCurrencies.SelectedValueChanged -= new EventHandler(cmbCurrencies_SelectedValueChanged);
-            if ((int)cmbCurrencies.SelectedValue == 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(null,txtDate.Text);
-            }
-
-            if ((int)cmbCurrencies.SelectedValue > 0)
-            {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash((int)cmbCurrencies.SelectedValue,txtDate.Text);
-                GellAll(_dataList);
-            }
-            else
-            {
-                LoadData();
-            }
-
+         
         }
         private void GellAll(List<TransactionModel> _list)
         {
@@ -132,10 +109,7 @@ namespace PamirAccounting.Forms.NewsPaper
             gridPayAndReciveCash.DataSource = _dataList;
 
         }
-        private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
-        {
-
-        }
+     
 
 
 
@@ -170,9 +144,9 @@ namespace PamirAccounting.Forms.NewsPaper
                 report.RegData("myData", data);
                 report.RegData("myData2", data2);
                 report.RegData("basedata", basedata);
-                //report.Design();
-                report.Render();
-                report.Show();
+                report.Design();
+                //report.Render();
+                //report.Show();
 
             }
         }
@@ -238,9 +212,9 @@ namespace PamirAccounting.Forms.NewsPaper
             report.RegData("myData", data);
             report.RegData("myData2", data2);
             report.RegData("basedata", basedata);
-            //report.Design();
-            report.Render();
-            report.Show();
+            report.Design();
+            //report.Render();
+            //report.Show();
         }
 
         private List<TransactionModel> TotalPrint()
@@ -307,6 +281,25 @@ namespace PamirAccounting.Forms.NewsPaper
             grdTotals.AutoGenerateColumns = false;
             return _GroupedDataList;
          
+        }
+
+        private void cmbCurrencies_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if ((int)cmbCurrencies.SelectedValue == 0)
+            {
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(0, txtDate.Text);
+                GellAll(_dataList);
+            }
+
+            else if ((int)cmbCurrencies.SelectedValue > 0)
+            {
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash((int)cmbCurrencies.SelectedValue, txtDate.Text);
+                GellAll(_dataList);
+            }
+            else
+            {
+                LoadData();
+            }
         }
     }
 }

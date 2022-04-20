@@ -398,12 +398,12 @@ namespace PamirAccounting.Forms.Transactions
             if ((int)cmbRemainType.SelectedValue == 2)
             {
                 CustomerDesc = $"{Messages.WithdrawCash } به صندوق  به مبلغ {txtAmount.Text} {currencyName}";
-                txtdesc.Text = $"{Messages.DepostitCash } از  {cmbCustomers.Text} ({cmbCustomers.SelectedValue}) به مبلغ {txtAmount.Text} {currencyName}";
+                txtdesc.Text = $"{Messages.DepostitCash } از {cmbCustomers.Text} ({cmbCustomers.SelectedValue}) به مبلغ {txtAmount.Text} {currencyName}";
             }
             else
             {
                 CustomerDesc = $"{Messages.DepostitCash } از صندوق  به مبلغ {txtAmount.Text} {currencyName}";
-                txtdesc.Text = $"{Messages.WithdrawCash } به  {cmbCustomers.Text} ({cmbCustomers.SelectedValue}) به مبلغ {txtAmount.Text} {currencyName}";
+                txtdesc.Text = $"{Messages.WithdrawCash } به {cmbCustomers.Text} ({cmbCustomers.SelectedValue}) به مبلغ {txtAmount.Text} {currencyName}";
             }
         }
         private void CleanForm()

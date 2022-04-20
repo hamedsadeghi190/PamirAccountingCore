@@ -84,8 +84,12 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void cmbBank_SelectedValueChanged(object sender, EventArgs e)
         {
-
-            if ((int)cmbBank.SelectedValue > 0)
+            if ((int)cmbBank.SelectedValue == 0)
+            {
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(0, txtDate.Text);
+                GellAll(_dataList);
+            }
+            else if ((int)cmbBank.SelectedValue > 0)
             {
                 _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank((int)cmbBank.SelectedValue,txtDate.Text);
                 GellAll(_dataList);
