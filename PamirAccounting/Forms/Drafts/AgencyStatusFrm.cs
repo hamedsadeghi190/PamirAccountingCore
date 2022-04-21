@@ -16,7 +16,7 @@ namespace PamirAccounting.Forms.Drafts
         private UnitOfWork unitOfWork;
         private List<DraftViewModels> _data;
         private List<SummeryDraftStatusViewModels> _dataSummery;
-
+        private List<Domains.Draft> tmpdata;
 
         public AgencyStatusFrm()
         {
@@ -48,13 +48,17 @@ namespace PamirAccounting.Forms.Drafts
 
         private void LoadData()
         {
+            tmpdata = null;
+            unitOfWork = new UnitOfWork();
 
-            var tmpdata = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == AgencyID)
-                                    .Include(y => y.TypeCurrency)
-                                    .Include(f => f.DepositCurrency)
-                                    .Include(f => f.ConvertedCurrency)
-                                    .Include(f => f.Customer)
-                                    .ToList();
+            tmpdata = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == AgencyID)
+                                  .Include(y => y.TypeCurrency)
+                                  .Include(f => f.DepositCurrency)
+                                  .Include(f => f.ConvertedCurrency)
+                                  .Include(f => f.RelatedDraft)
+                                  .ThenInclude(x => x.Agency)
+                                  .Include(f => f.Customer)
+                                  .ToList();
 
             var rowId = 1;
             var _RowedData = tmpdata.Select(q => new DraftViewModels()
@@ -82,7 +86,7 @@ namespace PamirAccounting.Forms.Drafts
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency.Name,
                 CustomerId = q.CustomerId,
-                Customer = q.Customer.FirstName + " " + q.Customer.LastName,
+                Customer = (q.CustomerId != null) ? q.Customer.FirstName + " " + q.Customer.LastName : q.RelatedDraft.Agency.Name,
                 RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
                 ConvertedDate = q.ConvertedDate != null ? (DateTime.Parse(q.ConvertedDate.ToString())).ToPersian() : "",
                 Date = (DateTime.Parse(q.Date.ToString())).ToPersian(),
@@ -93,12 +97,12 @@ namespace PamirAccounting.Forms.Drafts
             _data = new List<DraftViewModels>();
             _dataSummery = new List<SummeryDraftStatusViewModels>();
 
-            var _dataConverted1 = _RowedData.Where(x => x.ConvertedAmount.HasValue == true).ToList();
-            var _dataNotConverted1 = _RowedData.Where(x => x.ConvertedAmount.HasValue == false).ToList();
+            var convertedDrafts = _RowedData.Where(x => x.ConvertedAmount.HasValue == true).ToList();
+            var notConvertedDrafts = _RowedData.Where(x => x.ConvertedAmount.HasValue == false).ToList();
 
-            var groupedw = _dataConverted1.GroupBy(x => x.ConvertedCurrencyId);
+            var groupedConvertedDrafts = convertedDrafts.GroupBy(x => x.ConvertedCurrencyId);
 
-            foreach (var item in groupedw)
+            foreach (var item in groupedConvertedDrafts)
             {
                 double totalRemainAmount = 0;
                 double TotalRent = 0;
@@ -122,6 +126,7 @@ namespace PamirAccounting.Forms.Drafts
 
                     TotalRent += havale.Rent;
                     havale.RemainAmount = totalRemainAmount;
+
                     if (totalRemainAmount > 0)
                     {
                         havale.Status = "طلبکار";
@@ -136,13 +141,19 @@ namespace PamirAccounting.Forms.Drafts
             }
 
 
-            foreach (var item in _dataNotConverted1)
+            foreach (var item in notConvertedDrafts)
             {
-                _RowedData.Add(item);
+                _data.Add(item);
             }
             _data = _data.OrderBy(x => x.Index).ToList();
+
+
             gridDrafts.DataSource = null;
+            gridDrafts.Update();
+            gridDrafts.Refresh();
+
             gridDrafts.DataSource = _data;
+            gridDrafts.Update();
             gridDrafts.Refresh();
 
             var _dataConverted = _data.Where(x => x.ConvertedAmount.HasValue == true).ToList();
@@ -254,7 +265,7 @@ namespace PamirAccounting.Forms.Drafts
 
             grdTotals.DataSource = null;
             grdTotals.DataSource = _dataSummery;
-            gridDrafts.Refresh();
+            grdTotals.Refresh();
         }
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)

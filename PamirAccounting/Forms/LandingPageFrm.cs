@@ -21,6 +21,7 @@ using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
+
 namespace PamirAccounting.Forms
 {
     public partial class LandingPageFrm : Form
@@ -539,6 +540,11 @@ namespace PamirAccounting.Forms
         {
             var BuyCurrency = new BuyCurrencyFrm();
             BuyCurrency.ShowDialog();
+        }
+
+        private void LandingPageFrm_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

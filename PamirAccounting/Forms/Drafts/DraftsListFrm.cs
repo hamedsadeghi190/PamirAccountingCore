@@ -90,7 +90,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void LoadData()
         {
-
+            unitOfWork = new UnitOfWork();
             var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
                                                             && x.Type == (int)(cmbType.SelectedValue))
                 .OrderBy(x => x.Date)

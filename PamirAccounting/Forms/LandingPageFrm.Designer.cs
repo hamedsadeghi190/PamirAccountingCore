@@ -1169,6 +1169,7 @@ namespace PamirAccounting.Forms
             this.Text = "نرم افزار حسابداری پامیر";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LandingPageFrm_Load);
+            this.Leave += new System.EventHandler(this.LandingPageFrm_Leave);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();

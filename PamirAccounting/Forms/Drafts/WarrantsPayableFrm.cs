@@ -257,7 +257,7 @@ namespace PamirAccounting.Forms.Drafts
                 draft.DepositAmount = double.Parse(txtDepositAmount.Text);
                 draft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
 
-                draft.CustomerId = (int)cmbCustomer.SelectedValue;
+                //draft.CustomerId = (int)cmbCustomer.SelectedValue;
                 var selectedIndex = (int)cmbCustomer.SelectedIndex;
                 var customer = _Customers.ElementAt(selectedIndex);
 

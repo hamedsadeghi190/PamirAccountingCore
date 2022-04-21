@@ -42,6 +42,8 @@ namespace PamirAccounting.Forms.Drafts
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRate = new DevExpress.XtraEditors.TextEdit();
+            this.txtRent = new System.Windows.Forms.TextBox();
             this.txtExteraDesc = new System.Windows.Forms.RichTextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -50,8 +52,6 @@ namespace PamirAccounting.Forms.Drafts
             this.label15 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtRate = new DevExpress.XtraEditors.TextEdit();
-            this.txtRent = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRate.Properties)).BeginInit();
@@ -200,6 +200,30 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تبدیل";
             // 
+            // txtRate
+            // 
+            this.txtRate.EditValue = "0";
+            this.txtRate.Location = new System.Drawing.Point(47, 82);
+            this.txtRate.Name = "txtRate";
+            this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRate.Properties.Appearance.Options.UseFont = true;
+            this.txtRate.Properties.AutoHeight = false;
+            this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtRate.Size = new System.Drawing.Size(265, 32);
+            this.txtRate.TabIndex = 64;
+            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
+            // 
+            // txtRent
+            // 
+            this.txtRent.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRent.Location = new System.Drawing.Point(47, 118);
+            this.txtRent.Name = "txtRent";
+            this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtRent.Size = new System.Drawing.Size(265, 31);
+            this.txtRent.TabIndex = 65;
+            this.txtRent.Text = "0";
+            this.txtRent.TextChanged += new System.EventHandler(this.txtRent_TextChanged);
+            // 
             // txtExteraDesc
             // 
             this.txtExteraDesc.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -283,28 +307,6 @@ namespace PamirAccounting.Forms.Drafts
             this.label9.Size = new System.Drawing.Size(71, 22);
             this.label9.TabIndex = 28;
             this.label9.Text = "نرخ تبدیل :";
-            // 
-            // txtRate
-            // 
-            this.txtRate.EditValue = "0";
-            this.txtRate.Location = new System.Drawing.Point(47, 82);
-            this.txtRate.Name = "txtRate";
-            this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtRate.Properties.Appearance.Options.UseFont = true;
-            this.txtRate.Properties.AutoHeight = false;
-            this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtRate.Size = new System.Drawing.Size(265, 32);
-            this.txtRate.TabIndex = 64;
-            // 
-            // txtRent
-            // 
-            this.txtRent.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtRent.Location = new System.Drawing.Point(47, 118);
-            this.txtRent.Name = "txtRent";
-            this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtRent.Size = new System.Drawing.Size(265, 31);
-            this.txtRent.TabIndex = 65;
-            this.txtRent.Text = "0";
             // 
             // CurrencyExchangeFrm
             // 
