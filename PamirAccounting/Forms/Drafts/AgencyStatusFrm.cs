@@ -254,7 +254,7 @@ namespace PamirAccounting.Forms.Drafts
 
             grdTotals.DataSource = null;
             grdTotals.DataSource = _dataSummery;
-            gridDrafts.Refresh();
+            grdTotals.Refresh();
         }
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)

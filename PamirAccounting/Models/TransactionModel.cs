@@ -17,6 +17,7 @@ namespace PamirAccounting.Models
         public string TransactionTypeName { get; set; }
         public string TransactionDateTime { get; set; }
         public string Date { get; set; }
+
         public DateTime TransactionDateTime2 { get; set; }
         public DateTime Date2 { get; set; }
         public long? WithdrawAmount { get; set; }
