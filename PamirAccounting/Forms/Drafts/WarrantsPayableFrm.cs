@@ -140,7 +140,7 @@ namespace PamirAccounting.Forms.Drafts
         {
             this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
 
-            _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name, Type = 1}).ToList();
+            _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name, Type = 1 }).ToList();
             _agencies = unitOfWork.Agencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = "نمایندگی " + x.Name, Type = 2 }).ToList();
 
             // this.cmbAgency.SelectedIndexChanged -= new System.EventHandler(this.cmbAgency_SelectedIndexChanged);
@@ -346,10 +346,10 @@ namespace PamirAccounting.Forms.Drafts
                     relatedDraft.FatherName = txtFatherName.Text;
                     relatedDraft.Description = txtDesc.Text;
                     relatedDraft.PayPlace = txtPayPlace.Text;
-                    relatedDraft.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
-                    relatedDraft.DraftAmount = long.Parse(txtDraftAmount.Text);
-                    relatedDraft.Rate = double.Parse(txtRate.Text);
-                    relatedDraft.Rent = double.Parse(txtRent.Text);
+                    relatedDraft.TypeCurrencyId = (int)cmbDepositCurreny.SelectedValue;
+                    relatedDraft.DraftAmount = long.Parse(txtDepositAmount.Text);
+                    relatedDraft.Rate = 1;
+                    relatedDraft.Rent = 0;
                     relatedDraft.DepositAmount = double.Parse(txtDepositAmount.Text);
                     relatedDraft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                     relatedDraft.CustomerId = AppSetting.NotRunnedDraftsId;
@@ -394,7 +394,7 @@ namespace PamirAccounting.Forms.Drafts
                     customerTransaction = null;
                     clearFrom();
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -426,6 +426,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void CalculateDeposit()
         {
+            this.txtDraftAmount.TextChanged -= new System.EventHandler(this.txtDraftAmount_TextChanged);
             try
             {
                 if (txtDraftAmount.Text.Length > 0 && txtRate.Text.Length > 0)
@@ -454,25 +455,22 @@ namespace PamirAccounting.Forms.Drafts
 
                             if (mappingsAction == (int)MappingActions.Division)
                             {
-                                var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) / rate, MidpointRounding.AwayFromZero);
-                                var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                                var depositAmount = Math.Round((double.Parse(txtDraftAmount.Text) ) / rate, MidpointRounding.AwayFromZero);
+                                txtDepositAmount.Text = (depositAmount).ToString();
+
                             }
                             else if (mappingsAction == (int)MappingActions.Multiplication)
                             {
-
-                                var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) * rate, MidpointRounding.AwayFromZero);
-                                var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
-
-                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                           
+                                var depositAmount = Math.Round((double.Parse(txtDraftAmount.Text) ) * rate, MidpointRounding.AwayFromZero);
+                                txtDepositAmount.Text = (depositAmount).ToString();
                             }
                             else
                             {
-                                var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) + rate, MidpointRounding.AwayFromZero);
-                                var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
-
-                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                             
+                                var depositAmount = Math.Round((double.Parse(txtDraftAmount.Text) ) + rate, MidpointRounding.AwayFromZero);
+                                txtDepositAmount.Text = (depositAmount).ToString();
                             }
 
                         }
@@ -490,7 +488,7 @@ namespace PamirAccounting.Forms.Drafts
 
 
             }
-
+            this.txtDraftAmount.TextChanged += new System.EventHandler(this.txtDraftAmount_TextChanged);
         }
         private void txtDraftAmount_TextChanged(object sender, EventArgs e)
         {

@@ -29,7 +29,7 @@ namespace PamirAccounting.Forms
         public LandingPageFrm()
         {
             InitializeComponent();
-            AppSetting.DebugMode = true;
+            AppSetting.DebugMode = false;
 
             AppSetting.NotRunnedDraftsId = 6;
             AppSetting.SandoghCustomerId = 4;
@@ -47,7 +47,7 @@ namespace PamirAccounting.Forms
             }
             else
             {
-                //AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
+                AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
                 //AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
                 AppSetting.ReportPath = "E:\\Projects\\PamirAccounting\\PamirAccounting\\Reports\\";
                 //AppSetting.ReportPath = "D:\\fixed\\PamirAccountingCore\\PamirAccounting\\Reports\\";
@@ -544,7 +544,7 @@ namespace PamirAccounting.Forms
 
         private void LandingPageFrm_Leave(object sender, EventArgs e)
         {
-
+            MessageBox.Show("asdas");
         }
     }
 }

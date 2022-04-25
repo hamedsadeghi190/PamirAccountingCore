@@ -112,6 +112,7 @@ namespace PamirAccounting.Forms.Drafts
                 PayPlace = q.PayPlace,
                 Description = q.Description,
                 TypeCurrency = q.TypeCurrency.Name,
+                TypeCurrencyId = q.TypeCurrencyId,
                 DraftAmount = q.DraftAmount,
                 Rate = q.Rate,
                 Rent = q.Rent,
@@ -129,17 +130,18 @@ namespace PamirAccounting.Forms.Drafts
             _data = new List<DraftViewModels>();
             _dataSummery = new List<SummeryDraftViewModels>();
 
-            var groupedw = _RowedData.GroupBy(x => x.DepositCurrency);
+            var groupedw = _RowedData.GroupBy(x => x.TypeCurrency);
 
             foreach (var item in groupedw)
             {
                 double totalRemainAmount = 0;
                 double TotalRent = 0;
                 string CurrenyName = "";
+
                 foreach (var havale in item)
                 {
-                    CurrenyName = havale.DepositCurrency;
-                    totalRemainAmount = (havale.DepositAmount.HasValue == true) ? havale.DepositAmount.Value : 0;
+                    CurrenyName = havale.TypeCurrency;
+                    totalRemainAmount += havale.DraftAmount;
                     TotalRent += havale.Rent;
                     havale.RemainAmount = totalRemainAmount;
                     _data.Add(havale);
@@ -283,6 +285,11 @@ namespace PamirAccounting.Forms.Drafts
                     LoadData();
                 }
             }
+        }
+
+        private void txtSearchName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
