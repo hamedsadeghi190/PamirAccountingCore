@@ -58,8 +58,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbCurrencies = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnprint = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnprintResid = new DevExpress.XtraEditors.SimpleButton();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.grdTransactions = new System.Windows.Forms.DataGridView();
             this.RowId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,8 +98,6 @@ namespace PamirAccounting.UI.Forms.Customers
             this.groupBoxViewAccountCustomer.Controls.Add(this.groupBox2);
             this.groupBoxViewAccountCustomer.Controls.Add(this.groupBox1);
             this.groupBoxViewAccountCustomer.Controls.Add(this.btnprint);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.simpleButton5);
-            this.groupBoxViewAccountCustomer.Controls.Add(this.btnprintResid);
             this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(3, 9);
             this.groupBoxViewAccountCustomer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -131,7 +127,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbActions.FormattingEnabled = true;
             this.cmbActions.Location = new System.Drawing.Point(6, 35);
             this.cmbActions.Name = "cmbActions";
-            this.cmbActions.Size = new System.Drawing.Size(192, 32);
+            this.cmbActions.Size = new System.Drawing.Size(192, 27);
             this.cmbActions.TabIndex = 1;
             // 
             // groupBox1
@@ -176,7 +172,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label2.Location = new System.Drawing.Point(190, 39);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(62, 24);
+            this.label2.Size = new System.Drawing.Size(63, 19);
             this.label2.TabIndex = 119;
             this.label2.Text = "تا تاریخ :";
             // 
@@ -203,7 +199,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label3.Location = new System.Drawing.Point(396, 39);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(61, 24);
+            this.label3.Size = new System.Drawing.Size(62, 19);
             this.label3.TabIndex = 117;
             this.label3.Text = "از تاریخ :";
             // 
@@ -227,7 +223,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label4.Location = new System.Drawing.Point(784, 38);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(52, 24);
+            this.label4.Size = new System.Drawing.Size(52, 19);
             this.label4.TabIndex = 110;
             this.label4.Text = "شماره :";
             // 
@@ -239,7 +235,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(478, 35);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(114, 32);
+            this.cmbCurrencies.Size = new System.Drawing.Size(114, 27);
             this.cmbCurrencies.TabIndex = 3;
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             this.cmbCurrencies.TextChanged += new System.EventHandler(this.cmbCurrencies_TextChanged);
@@ -250,7 +246,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(598, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 24);
+            this.label1.Size = new System.Drawing.Size(58, 19);
             this.label1.TabIndex = 111;
             this.label1.Text = "نوع ارز :";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -261,38 +257,12 @@ namespace PamirAccounting.UI.Forms.Customers
             this.btnprint.Appearance.Options.UseFont = true;
             this.btnprint.AppearanceHovered.Options.UseTextOptions = true;
             this.btnprint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprint.ImageOptions.SvgImage")));
-            this.btnprint.Location = new System.Drawing.Point(48, 41);
+            this.btnprint.Location = new System.Drawing.Point(12, 58);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(39, 41);
             this.btnprint.TabIndex = 7;
             this.btnprint.Text = "چاپ";
             this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
-            this.simpleButton5.Location = new System.Drawing.Point(6, 41);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(39, 41);
-            this.simpleButton5.TabIndex = 118;
-            this.simpleButton5.Text = "راهنما";
-            // 
-            // btnprintResid
-            // 
-            this.btnprintResid.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnprintResid.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.btnprintResid.Appearance.Options.UseFont = true;
-            this.btnprintResid.Appearance.Options.UseForeColor = true;
-            this.btnprintResid.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnprintResid.ImageOptions.SvgImage")));
-            this.btnprintResid.Location = new System.Drawing.Point(6, 84);
-            this.btnprintResid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnprintResid.Name = "btnprintResid";
-            this.btnprintResid.Size = new System.Drawing.Size(81, 40);
-            this.btnprintResid.TabIndex = 8;
-            this.btnprintResid.Text = "رسید";
-            this.btnprintResid.Click += new System.EventHandler(this.btnprintResid_Click);
             // 
             // galleryDropDown1
             // 
@@ -619,7 +589,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label7.Location = new System.Drawing.Point(92, 587);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(90, 24);
+            this.label7.Size = new System.Drawing.Size(86, 19);
             this.label7.TabIndex = 103;
             this.label7.Text = "ویرایش (F4)";
             // 
@@ -630,7 +600,7 @@ namespace PamirAccounting.UI.Forms.Customers
             this.label6.Location = new System.Drawing.Point(15, 587);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(72, 24);
+            this.label6.Size = new System.Drawing.Size(70, 19);
             this.label6.TabIndex = 102;
             this.label6.Text = "چاپ (F3)";
             // 
@@ -673,7 +643,6 @@ namespace PamirAccounting.UI.Forms.Customers
 
         #endregion
         private System.Windows.Forms.GroupBox groupBoxViewAccountCustomer;
-        private DevExpress.XtraEditors.SimpleButton btnprintResid;
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
         private System.Windows.Forms.DataGridView grdTransactions;
         private System.Windows.Forms.DataGridView grdTotals;
@@ -685,7 +654,6 @@ namespace PamirAccounting.UI.Forms.Customers
         private System.Windows.Forms.ComboBox cmbCurrencies;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnprint;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private DevExpress.XtraEditors.TextEdit txtDate2;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit txtDate1;
