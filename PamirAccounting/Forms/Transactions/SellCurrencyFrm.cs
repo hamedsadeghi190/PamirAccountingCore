@@ -461,7 +461,65 @@ namespace PamirAccounting.Forms.Transactions
 
         private void calculateBuyRate(double rate)
         {
-            txtbuyerprice.Text = (double.Parse(txtsellerprice.Text) * rate).ToString();
+
+
+            try
+            {
+                if (txtsellerprice.Text.Length > 0 && txtrate.Text.Length > 0)
+                {
+                    double convertRate;
+                    if (double.TryParse(txtrate.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out convertRate))
+                    {
+                        var sourceCurrenyId = (int)cmbSellCurrencies.SelectedValue;
+                        var destiniationCurrenyId = (int)cmbCurrencybuyer.SelectedValue;
+                        var currenciesMappings = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.SourceCurrenyId == sourceCurrenyId && x.DestiniationCurrenyId == destiniationCurrenyId);
+
+                        var mappingsAction = (int)MappingActions.Multiplication;
+
+                        if (currenciesMappings == null && (sourceCurrenyId != destiniationCurrenyId))
+                        {
+                            DialogResult dialogResult = MessageBox.Show("نحوه تبدیل ارز مورد نظر تعریف نشده است .", " ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                        }
+                        else
+                        {
+                            if (sourceCurrenyId != destiniationCurrenyId)
+                            {
+                                mappingsAction = currenciesMappings.Action;
+                            }
+
+
+                            if (mappingsAction == (int)MappingActions.Division)
+                            {
+                                var drafAmount = Math.Round(double.Parse(txtsellerprice.Text) / convertRate, MidpointRounding.AwayFromZero);
+                                txtbuyerprice.Text = (drafAmount).ToString();
+                            }
+                            else if (mappingsAction == (int)MappingActions.Multiplication)
+                            {
+
+                                var drafAmount = Math.Round(double.Parse(txtsellerprice.Text) * convertRate, MidpointRounding.AwayFromZero);
+                                txtbuyerprice.Text = (drafAmount).ToString();
+                            }
+                            else
+                            {
+                                var drafAmount = Math.Round(double.Parse(txtsellerprice.Text) + convertRate, MidpointRounding.AwayFromZero);
+                                txtbuyerprice.Text = (drafAmount).ToString();
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        // TODO: tell the user to enter a correct number
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+           
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

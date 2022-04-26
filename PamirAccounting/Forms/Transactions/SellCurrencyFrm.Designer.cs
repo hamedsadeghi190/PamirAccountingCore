@@ -263,7 +263,7 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // txtrate
             // 
-            this.txtrate.EditValue = "";
+            this.txtrate.EditValue = "0";
             this.txtrate.Location = new System.Drawing.Point(29, 104);
             this.txtrate.Name = "txtrate";
             this.txtrate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
