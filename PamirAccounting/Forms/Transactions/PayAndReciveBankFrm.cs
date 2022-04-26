@@ -690,7 +690,8 @@ namespace PamirAccounting.Forms.Transactions
         }
         private void CleanForm()
         {
-            txtAmount.Text = "0";
+            txtAmount.Text = "0"; 
+            lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             txtdesc.Text = "";
             txtDate.Text = DateTime.Now.ToFarsiFormat();
             txtBranchCode.Text = "";

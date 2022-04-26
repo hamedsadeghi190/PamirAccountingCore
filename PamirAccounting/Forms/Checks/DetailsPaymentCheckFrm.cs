@@ -252,7 +252,8 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.Description = txtDescription.Text;
                 customerTransaction.CurrenyId = 2;
                 customerTransaction.Date = DateTime.Now;
-                customerTransaction.TransactionDateTime = DateTime.Now;
+            var dDate = DateTime.Now.ToShortDateString();
+            customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
                 customerTransaction.UserId = CurrentUser.UserID;
                 customerTransaction.DocumentId = documentId;
                 unitOfWork.TransactionServices.Insert(customerTransaction);
@@ -272,7 +273,7 @@ namespace PamirAccounting.Forms.Checks
                 receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
                 receivedDocuments.CurrenyId = 2;
                 receivedDocuments.Date = DateTime.Now;
-                receivedDocuments.TransactionDateTime = DateTime.Now;
+            receivedDocuments.TransactionDateTime = DateTime.Parse(dDate);
                 receivedDocuments.UserId = CurrentUser.UserID;
                 receivedDocuments.DocumentId = documentId;
                 unitOfWork.TransactionServices.Insert(receivedDocuments);
@@ -321,7 +322,8 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.Description = txtDescription.Text;
             customerTransaction.CurrenyId = 2;
             customerTransaction.Date = DateTime.Now;
-            customerTransaction.TransactionDateTime = DateTime.Now;
+            var dDate = DateTime.Now.ToShortDateString();
+            customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
             customerTransaction.UserId = CurrentUser.UserID;
             customerTransaction.DocumentId = Cheque.DocumentId;
             unitOfWork.TransactionServices.Update(customerTransaction);
@@ -339,7 +341,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
             receivedDocuments.CurrenyId = 2;
             receivedDocuments.Date = DateTime.Now;
-            receivedDocuments.TransactionDateTime = DateTime.Now;
+            receivedDocuments.TransactionDateTime = DateTime.Parse(dDate);
             receivedDocuments.UserId = CurrentUser.UserID;
             receivedDocuments.DocumentId = Cheque.DocumentId;
             unitOfWork.TransactionServices.Update(receivedDocuments);
@@ -349,23 +351,7 @@ namespace PamirAccounting.Forms.Checks
 
 
         }
-        private void createAccount(int SourceCustomerId, int CurrenyId)
-        {
-            var newTransaction = new Domains.Transaction();
-            newTransaction.SourceCustomerId = SourceCustomerId;
-            newTransaction.TransactionType = 1;
-            newTransaction.Description = Messages.CreateNewAcount;
-            newTransaction.WithdrawAmount = 0;
-            newTransaction.DepositAmount = 0;
-            newTransaction.CurrenyId = CurrenyId;
-            newTransaction.Date = DateTime.Now;
-            newTransaction.TransactionDateTime = DateTime.Now;
-            newTransaction.UserId = CurrentUser.UserID;
-            newTransaction.DocumentId = unitOfWork.TransactionServices.GetNewDocumentId();
-            unitOfWork.TransactionServices.Insert(newTransaction);
-            unitOfWork.SaveChanges();
 
-        }
 
         private void BtnClose_Click(object sender, EventArgs e)
         {

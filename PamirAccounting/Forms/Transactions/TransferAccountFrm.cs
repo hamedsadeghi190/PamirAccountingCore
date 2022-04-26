@@ -352,6 +352,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             txtAmount.Text = "0";
             txtDesc.Text = "";
             lblNumberString.Text = "";
+            lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             txtDate.Select();
             txtDate.Focus();
 

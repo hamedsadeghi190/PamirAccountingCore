@@ -158,7 +158,7 @@ namespace PamirAccounting.Forms.Customers
 
         private void txtphoneSearch_TextChanged(object sender, EventArgs e)
         {
-
+         
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -172,6 +172,8 @@ namespace PamirAccounting.Forms.Customers
             {
                 dataList = unitOfWork.Customers.FindAll(y => y.FirstName.Contains(txtNameSearch.Text) || y.LastName.Contains(txtNameSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
                 dataGridView1.DataSource = dataList;
+                dataGridView1.Select();
+                dataGridView1.Focus();
             }
             else
             {
@@ -199,6 +201,8 @@ namespace PamirAccounting.Forms.Customers
             {
                 dataList = unitOfWork.Customers.FindAll(y => y.Id == int.Parse(txtNumberSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
                 dataGridView1.DataSource = dataList;
+                dataGridView1.Select();
+                dataGridView1.Focus();
             }
             else
             {
@@ -213,6 +217,8 @@ namespace PamirAccounting.Forms.Customers
             {
                 dataList = unitOfWork.Customers.FindAll(y => y.Phone.Contains(txtphoneSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
                 dataGridView1.DataSource = dataList;
+                dataGridView1.Select();
+                dataGridView1.Focus();
             }
             else
             {
@@ -351,6 +357,8 @@ namespace PamirAccounting.Forms.Customers
         {
             selectedGroupId = (int)cmbGroupsSearch.SelectedValue;
             loadData(selectedGroupId);
+            dataGridView1.Select();
+            dataGridView1.Focus();
         }
 
 

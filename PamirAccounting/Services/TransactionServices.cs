@@ -155,14 +155,14 @@ namespace PamirAccounting.Services
                 {
                     predicate = predicate.And(x => x.DocumentId == DocumentId);
                 }
-                //if (startDate != null)
-                //{
-                //    predicate= predicate.And(x => x.TransactionDateTime >= startDate);
-                //}
-                //if (endDate != null)
-                //{
-                //    predicate= predicate.And(x => x.TransactionDateTime<= endDate);
-                //}
+                if (startDate != null)
+                {
+                    predicate = predicate.And(x => x.TransactionDateTime >= startDate);
+                }
+                if (endDate != null)
+                {
+                    predicate = predicate.And(x => x.TransactionDateTime <= endDate);
+                }
 
 
 
@@ -1001,7 +1001,7 @@ namespace PamirAccounting.Services
                 if (bankId == null)
                 {
                     dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank)
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank && (x.Id == x.OriginalTransactionId))
                    .Select(x => new TransactionModel
                    {
 
@@ -1022,6 +1022,7 @@ namespace PamirAccounting.Services
 
                    }).ToList();
                 }
+
                 if (bankId != null && date != "")
                 {
                     PersianCalendar pc = new PersianCalendar();
@@ -1029,6 +1030,7 @@ namespace PamirAccounting.Services
                     var TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
                     dataList = FindAllReadonly()
                                  .Include(x => x.Curreny)
+                                 .Where(x => (x.Id == x.OriginalTransactionId) && x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.TransactionDateTime == TransactionDateTime)
                                  .Select(x => new TransactionModel
                                  {
                                      Id = x.Id,
@@ -1045,7 +1047,7 @@ namespace PamirAccounting.Services
                                      ReceiptNumber = x.ReceiptNumber,
                                      DocumentId = x.DocumentId,
                                      TransactionType = x.TransactionType
-                                 }).Where(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.TransactionDateTime2 == TransactionDateTime).ToList();
+                                 }).ToList();
                 }
                 if (bankId == 0 && date != "")
                 {
@@ -1054,6 +1056,7 @@ namespace PamirAccounting.Services
                     var TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
                     dataList = FindAllReadonly()
                                  .Include(x => x.Curreny)
+                                 .Where(x => (x.Id == x.OriginalTransactionId) && x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.TransactionDateTime == TransactionDateTime)
                                  .Select(x => new TransactionModel
                                  {
                                      Id = x.Id,
@@ -1070,7 +1073,7 @@ namespace PamirAccounting.Services
                                      ReceiptNumber = x.ReceiptNumber,
                                      DocumentId = x.DocumentId,
                                      TransactionType = x.TransactionType
-                                 }).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.TransactionDateTime2 == TransactionDateTime).ToList();
+                                 }).ToList();
                 }
                 int row = 1;
                 var tmpdataList = dataList.Select(x => new TransactionModel

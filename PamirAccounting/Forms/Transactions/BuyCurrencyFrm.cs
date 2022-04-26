@@ -480,48 +480,105 @@ namespace PamirAccounting.Forms.Transactions
 
         private void calculateAmount()
         {
-            sellCurrencyId = (int)cmbBuyerCurrencies.SelectedValue;
-            buyerCurrencyId = (int)cmbCurrencySeller.SelectedValue;
+            //sellCurrencyId = (int)cmbBuyerCurrencies.SelectedValue;
+            //buyerCurrencyId = (int)cmbCurrencySeller.SelectedValue;
 
-            if (sellCurrencyId == buyerCurrencyId)
+            //if (sellCurrencyId == buyerCurrencyId)
+            //{
+            //    txtBuyRate.Text = "1";
+            //    txtTargetPrice.Text = txtBuyAmount.Text;
+            //    return;
+            //}
+            //if (txtBuyAmount.Text.Length > 1)
+            //{
+            //    return;
+            //}
+
+            //sellerPrice = double.Parse(txtBuyAmount.Text);
+            //sellerRate = double.Parse(txtBuyRate.Text);
+
+            //var currenyMapping = unitOfWork.CurrenciesMappings.FindAll(x => x.SourceCurrenyId == sellCurrencyId
+            //                                                             && x.DestiniationCurrenyId == buyerCurrencyId)
+            //                                                             .FirstOrDefault();
+
+            //sourceCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == sellCurrencyId);
+            //destiniationCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == buyerCurrencyId);
+
+            //if (sourceCurrency.Id == 1)
+            //{
+            //    switch (destiniationCurrency.Action)
+            //    {
+            //        case 1:
+            //            txtBuyRate.Text = destiniationCurrency.BaseRate.ToString();
+            //            txtTargetPrice.Text = (double.Parse(txtBuyAmount.Text) * destiniationCurrency.BaseRate.Value).ToString();
+            //            break;
+
+            //        case 2:
+            //            txtBuyRate.Text = destiniationCurrency.BaseRate.ToString();
+            //            txtTargetPrice.Text = (double.Parse(txtBuyAmount.Text) / destiniationCurrency.BaseRate.Value).ToString();
+            //            break;
+
+            //        default:
+            //            break;
+
+            //    }
+            //}
+
+            try
             {
-                txtBuyRate.Text = "1";
-                txtTargetPrice.Text = txtBuyAmount.Text;
-                return;
-            }
-            if (txtBuyAmount.Text.Length > 1)
-            {
-                return;
-            }
-
-            sellerPrice = double.Parse(txtBuyAmount.Text);
-            sellerRate = double.Parse(txtBuyRate.Text);
-
-            var currenyMapping = unitOfWork.CurrenciesMappings.FindAll(x => x.SourceCurrenyId == sellCurrencyId
-                                                                         && x.DestiniationCurrenyId == buyerCurrencyId)
-                                                                         .FirstOrDefault();
-
-            sourceCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == sellCurrencyId);
-            destiniationCurrency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == buyerCurrencyId);
-
-            if (sourceCurrency.Id == 1)
-            {
-                switch (destiniationCurrency.Action)
+                if (txtBuyAmount.Text.Length > 0 && txtBuyRate.Text.Length > 0)
                 {
-                    case 1:
-                        txtBuyRate.Text = destiniationCurrency.BaseRate.ToString();
-                        txtTargetPrice.Text = (double.Parse(txtBuyAmount.Text) * destiniationCurrency.BaseRate.Value).ToString();
-                        break;
+                    double convertRate;
+                    if (double.TryParse(txtBuyRate.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out convertRate))
+                    {
+                        var sourceCurrenyId = (int)cmbCurrencySeller.SelectedValue;
+                        var destiniationCurrenyId = (int)cmbBuyerCurrencies.SelectedValue;
+                        var currenciesMappings = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.SourceCurrenyId == sourceCurrenyId && x.DestiniationCurrenyId == destiniationCurrenyId);
 
-                    case 2:
-                        txtBuyRate.Text = destiniationCurrency.BaseRate.ToString();
-                        txtTargetPrice.Text = (double.Parse(txtBuyAmount.Text) / destiniationCurrency.BaseRate.Value).ToString();
-                        break;
+                        var mappingsAction = (int)MappingActions.Multiplication;
 
-                    default:
-                        break;
+                        if (currenciesMappings == null && (sourceCurrenyId != destiniationCurrenyId))
+                        {
+                            DialogResult dialogResult = MessageBox.Show("نحوه تبدیل ارز مورد نظر تعریف نشده است .", " ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                        }
+                        else
+                        {
+                            if (sourceCurrenyId != destiniationCurrenyId)
+                            {
+                                mappingsAction = currenciesMappings.Action;
+                            }
 
+
+                            if (mappingsAction == (int)MappingActions.Division)
+                            {
+                                var drafAmount = Math.Round(double.Parse(txtBuyAmount.Text) / convertRate, MidpointRounding.AwayFromZero);
+                                txtTargetPrice.Text = (drafAmount).ToString();
+                            }
+                            else if (mappingsAction == (int)MappingActions.Multiplication)
+                            {
+
+                                var drafAmount = Math.Round(double.Parse(txtBuyAmount.Text) * convertRate, MidpointRounding.AwayFromZero);
+                                txtTargetPrice.Text = (drafAmount).ToString();
+                            }
+                            else
+                            {
+                                var drafAmount = Math.Round(double.Parse(txtBuyAmount.Text) + convertRate, MidpointRounding.AwayFromZero);
+                                txtTargetPrice.Text = (drafAmount).ToString();
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        // TODO: tell the user to enter a correct number
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
             }
         }
         private void txtbuyerprice_TextChanged(object sender, EventArgs e)
