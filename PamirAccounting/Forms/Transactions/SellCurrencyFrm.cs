@@ -469,6 +469,16 @@ namespace PamirAccounting.Forms.Transactions
 
         }
 
+        private void txtrate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtsellerprice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
         private void calculateAmount()
         {
             sellCurrencyId = (int)cmbSellCurrencies.SelectedValue;
@@ -564,10 +574,12 @@ namespace PamirAccounting.Forms.Transactions
 
         private void CleanForm()
         {
+
+            lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             txtDesc.Text = "";
             txtsellerprice.Text = "0";
             txtbuyerprice.Text = "0";
-            txtrate.Text = "";
+            txtrate.Text = "0";
             txtDate.Select();
             txtDate.Focus();
 

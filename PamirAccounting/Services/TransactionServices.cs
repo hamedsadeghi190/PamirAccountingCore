@@ -273,7 +273,7 @@ namespace PamirAccounting.Services
 
         }
 
-        public List<UnKownTransactionModel> GetAllUnkowns_Search(string date,string branchCode,String receiptNumber)
+        public List<UnKownTransactionModel> GetAllUnkowns_Search(string date, string branchCode, String receiptNumber)
         {
             try
             {
@@ -311,7 +311,7 @@ namespace PamirAccounting.Services
                                      }).Where(x => x.TransactionDateTime2 == TransactionDateTime).ToList();
                     }
                 }
-                if ( receiptNumber.Length > 0)
+                if (receiptNumber.Length > 0)
                 {
                     if (date != null)
                     {
@@ -361,26 +361,26 @@ namespace PamirAccounting.Services
                                      }).Where(x => x.BranchCode == branchCode).ToList();
                     }
                 }
-           
+
                 /////////////////////////////////////////////////////////
                 int row = 1;
-                    dataList = dataList.Select(x => new UnKownTransactionModel
-                    {
-                        RowId = row++,
-                        Id = x.Id,
-                        TransactionDateTime =x.TransactionDateTime2.ToFarsiFormat(),
-                        BankName = x.BankName,
-                        BranchCode = x.BranchCode,
-                        ReceiptNumber = x.ReceiptNumber,
-                        Amount = x.Amount,
-                        CurrenyName = x.CurrenyName,
-                        Description = x.Description,
-                        DocumentId = x.DocumentId
-                    }).ToList();
-                    return dataList;
-                }
-            
-            
+                dataList = dataList.Select(x => new UnKownTransactionModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    TransactionDateTime = x.TransactionDateTime2.ToFarsiFormat(),
+                    BankName = x.BankName,
+                    BranchCode = x.BranchCode,
+                    ReceiptNumber = x.ReceiptNumber,
+                    Amount = x.Amount,
+                    CurrenyName = x.CurrenyName,
+                    Description = x.Description,
+                    DocumentId = x.DocumentId
+                }).ToList();
+                return dataList;
+            }
+
+
             catch (Exception ex)
             {
                 return null;
@@ -893,7 +893,7 @@ namespace PamirAccounting.Services
         }
 
 
-        public List<TransactionModel> GetAllPayAndReciveCash(int? currencyId,string date)
+        public List<TransactionModel> GetAllPayAndReciveCash(int? currencyId, string date)
         {
             try
             {
@@ -902,7 +902,7 @@ namespace PamirAccounting.Services
                 if (currencyId == null)
                 {
                     dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.SourceCustomerId==(int)AppSetting.SandoghCustomerId )
+                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.SourceCustomerId == (int)AppSetting.SandoghCustomerId)
                    .Select(x => new TransactionModel
                    {
 
@@ -921,7 +921,7 @@ namespace PamirAccounting.Services
 
                    }).ToList();
                 }
-                if(currencyId>0 && date!="")
+                if (currencyId > 0 && date != "")
                 {
                     var dDate = date.Split('/');
                     var TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
@@ -940,7 +940,7 @@ namespace PamirAccounting.Services
                                      FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
                                      SourceCustomerId = x.SourceCustomerId,
 
-                                 }).Where(x =>x.CurrenyId == currencyId && x.TransactionDateTime2 == TransactionDateTime).ToList();
+                                 }).Where(x => x.CurrenyId == currencyId && x.TransactionDateTime2 == TransactionDateTime).ToList();
                 }
                 if (currencyId == 0 && date != "")
                 {
@@ -962,7 +962,7 @@ namespace PamirAccounting.Services
                                      CurrenyName = x.Curreny.Name,
                                      FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
                                      SourceCustomerId = x.SourceCustomerId,
-                                 }).Where(x =>x.TransactionDateTime2 == TransactionDateTime).ToList();
+                                 }).Where(x => x.TransactionDateTime2 == TransactionDateTime).ToList();
                 }
                 int row = 1;
                 var tmpdataList = dataList.Select(x => new TransactionModel
@@ -990,10 +990,10 @@ namespace PamirAccounting.Services
         }
 
 
-    
 
 
-        public List<TransactionModel> GetAllPayAndReciveBank(int? bankId,string date)
+
+        public List<TransactionModel> GetAllPayAndReciveBank(int? bankId, string date)
         {
             try
             {
@@ -1022,32 +1022,7 @@ namespace PamirAccounting.Services
 
                    }).ToList();
                 }
-                if(bankId!=null && date!="")
-                {
-                    PersianCalendar pc = new PersianCalendar();
-                    var dDate = date.Split('/');
-                    var TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
-                    dataList = FindAllReadonly()
-                                 .Include(x => x.Curreny)
-                                 .Select(x => new TransactionModel
-                                 {
-                                     Id = x.Id,
-                                     Description = x.Description,
-                                     DepositAmount = x.DepositAmount,
-                                     WithdrawAmount = x.WithdrawAmount,
-                                     CurrenyId = x.CurrenyId,
-                                     CurrenyName = x.Curreny.Name,
-                                     FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-                                     TransactionDateTime = x.TransactionDateTime.ToString(),
-                                     TransactionDateTime2 = x.TransactionDateTime,
-                                     SourceCustomerId = x.SourceCustomerId,
-                                     BranchCode = x.BranchCode,
-                                     ReceiptNumber = x.ReceiptNumber,
-                                     DocumentId = x.DocumentId ,
-                                     TransactionType = x.TransactionType
-                                 }).Where(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.TransactionDateTime2==TransactionDateTime).ToList();
-                }
-                if(bankId== 0 && date != "")
+                if (bankId != null && date != "")
                 {
                     PersianCalendar pc = new PersianCalendar();
                     var dDate = date.Split('/');
@@ -1070,7 +1045,32 @@ namespace PamirAccounting.Services
                                      ReceiptNumber = x.ReceiptNumber,
                                      DocumentId = x.DocumentId,
                                      TransactionType = x.TransactionType
-                                 }).Where(x =>x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.TransactionDateTime2 == TransactionDateTime).ToList();
+                                 }).Where(x => x.SourceCustomerId == bankId && x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.TransactionDateTime2 == TransactionDateTime).ToList();
+                }
+                if (bankId == 0 && date != "")
+                {
+                    PersianCalendar pc = new PersianCalendar();
+                    var dDate = date.Split('/');
+                    var TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                    dataList = FindAllReadonly()
+                                 .Include(x => x.Curreny)
+                                 .Select(x => new TransactionModel
+                                 {
+                                     Id = x.Id,
+                                     Description = x.Description,
+                                     DepositAmount = x.DepositAmount,
+                                     WithdrawAmount = x.WithdrawAmount,
+                                     CurrenyId = x.CurrenyId,
+                                     CurrenyName = x.Curreny.Name,
+                                     FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                                     TransactionDateTime = x.TransactionDateTime.ToString(),
+                                     TransactionDateTime2 = x.TransactionDateTime,
+                                     SourceCustomerId = x.SourceCustomerId,
+                                     BranchCode = x.BranchCode,
+                                     ReceiptNumber = x.ReceiptNumber,
+                                     DocumentId = x.DocumentId,
+                                     TransactionType = x.TransactionType
+                                 }).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveBank && x.TransactionDateTime2 == TransactionDateTime).ToList();
                 }
                 int row = 1;
                 var tmpdataList = dataList.Select(x => new TransactionModel
@@ -1251,25 +1251,27 @@ namespace PamirAccounting.Services
         }
 
 
-        public List<TransactionModel> GetAllSellAndBuyCurrency(int? currencyId,string date)
+        public List<TransactionModel> GetAllSellAndBuyCurrency(int? currencyId, string date)
         {
             try
             {
                 PersianCalendar pc = new PersianCalendar();
                 var dataList = new List<TransactionModel>();
                 string[] dDate;
+
                 DateTime TransactionDateTime;
+
                 if (date != "")
                 {
                     dDate = date.Split('/');
                     TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
 
                 }
-               
-                if (currencyId == null )
+
+                if (currencyId == null)
                 {
                     dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency)
+                    .Include(x => x.Curreny).Where(x => (x.OriginalTransactionId == x.Id) && x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency)
                    .Select(x => new TransactionModel
                    {
 
@@ -1284,15 +1286,13 @@ namespace PamirAccounting.Services
                        FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
                        SourceCustomerId = x.SourceCustomerId,
                        DocumentId = x.DocumentId
-
-
                    }).ToList();
                 }
-                if(currencyId!=null)
-                {
-                    dataList = FindAllReadonly(x =>(x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency) && x.CurrenyId == currencyId)
-                                 .Include(x => x.Curreny)
 
+                if (currencyId != null)
+                {
+                    dataList = FindAllReadonly(x => (x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency) && x.CurrenyId == currencyId && x.OriginalTransactionId == x.Id)
+                                 .Include(x => x.Curreny)
                          .Select(x => new TransactionModel
                          {
                              Id = x.Id,
@@ -1308,7 +1308,7 @@ namespace PamirAccounting.Services
                              DocumentId = x.DocumentId
                          }).ToList();
                 }
-                if (currencyId!=null && date!="")
+                if (currencyId != null && date != "")
                 {
                     dDate = date.Split('/');
                     TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
@@ -1331,11 +1331,11 @@ namespace PamirAccounting.Services
                    TransactionType = x.TransactionType
 
 
-               }).Where(x => (x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency) && x.TransactionDateTime2 == TransactionDateTime && x.CurrenyId==currencyId).ToList();
+               }).Where(x => (x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency) && x.TransactionDateTime2 == TransactionDateTime && x.CurrenyId == currencyId).ToList();
 
 
                 }
-                if (currencyId ==0 && date != "")
+                if (currencyId == 0 && date != "")
                 {
                     dDate = date.Split('/');
                     TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
@@ -1358,7 +1358,7 @@ namespace PamirAccounting.Services
                    TransactionType = x.TransactionType
 
 
-               }).Where(x => (x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency) && x.TransactionDateTime2 == TransactionDateTime ).ToList();
+               }).Where(x => (x.TransactionType == (int)TransaActionType.SellCurrency || x.TransactionType == (int)TransaActionType.BuyCurrency) && x.TransactionDateTime2 == TransactionDateTime).ToList();
 
 
                 }

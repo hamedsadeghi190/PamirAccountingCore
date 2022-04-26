@@ -571,10 +571,11 @@ namespace PamirAccounting.Forms.Transactions
 
         private void CleanForm()
         {
+            lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             txtDesc.Text = "";
             txtBuyAmount.Text = "0";
             txtTargetPrice.Text = "0";
-            txtBuyRate.Text = "";
+            txtBuyRate.Text = "0";
             txtDate.Select();
             txtDate.Focus();
 
