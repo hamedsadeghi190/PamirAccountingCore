@@ -2,6 +2,8 @@
 using PamirAccounting.Forms.Users;
 using PamirAccounting.UI;
 using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace PamirAccounting
@@ -14,6 +16,11 @@ namespace PamirAccounting
         [STAThread]
         static void Main()
         {
+
+            // Seteamos la cultura a Español Argentina
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var mainFrm = new SplashScreenFrm();

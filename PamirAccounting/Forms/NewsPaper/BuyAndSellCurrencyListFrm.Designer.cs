@@ -80,12 +80,12 @@ namespace PamirAccounting.Forms.NewsPaper
             this.groupBoxViewAccountCustomer.Controls.Add(this.btnprint);
             this.groupBoxViewAccountCustomer.Controls.Add(this.groupBox1);
             this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(23, 0);
+            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(11, -2);
             this.groupBoxViewAccountCustomer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.Name = "groupBoxViewAccountCustomer";
             this.groupBoxViewAccountCustomer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(883, 104);
+            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(901, 104);
             this.groupBoxViewAccountCustomer.TabIndex = 131;
             this.groupBoxViewAccountCustomer.TabStop = false;
             this.groupBoxViewAccountCustomer.Text = "لیست خرید و فروش ارز";
@@ -109,7 +109,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(227, 22);
+            this.groupBox1.Location = new System.Drawing.Point(242, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(647, 69);
             this.groupBox1.TabIndex = 112;
@@ -468,7 +468,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.label6.Location = new System.Drawing.Point(186, 520);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(105, 19);
+            this.label6.Size = new System.Drawing.Size(109, 24);
             this.label6.TabIndex = 143;
             this.label6.Text = "ویرایش (Enter)";
             // 

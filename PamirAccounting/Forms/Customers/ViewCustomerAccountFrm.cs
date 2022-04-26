@@ -99,7 +99,7 @@ namespace PamirAccounting.UI.Forms.Customers
             txtDate2.TextChanged -= new EventHandler(txtDate2_TextChanged);
             PersianCalendar p = new PersianCalendar();
             var year = DateTime.Now.Year;
-            var date1 = DateTime.Parse(year+"/03/21");
+            var date1 = DateTime.Parse(year + "/03/21");
             txtDate1.Text = (date1).ToFarsiFormat();
             txtDate2.Text = DateTime.Now.ToFarsiFormat();
             txtDate1.TextChanged += new EventHandler(txtDate1_TextChanged);
@@ -111,7 +111,7 @@ namespace PamirAccounting.UI.Forms.Customers
             _Actions.Add(new ComboBoxModel() { Id = 5, Title = "انتقال حساب به حساب " });
             _Actions.Add(new ComboBoxModel() { Id = 10, Title = "فروش ارز " });
             _Actions.Add(new ComboBoxModel() { Id = 11, Title = "خرید ارز " });
-           
+
 
             cmbActions.SelectedValueChanged -= new EventHandler(cmbActions_SelectedValueChanged);
             cmbActions.DataSource = _Actions;
@@ -176,8 +176,8 @@ namespace PamirAccounting.UI.Forms.Customers
                     var frmCellAndBuy = new SellCurrencyFrm(_Id.Value, null);
                     frmCellAndBuy.ShowDialog();
                     LoadData();
-                    break;   
-                
+                    break;
+
                 case 11:
                     var buyCurrencyFrm = new BuyCurrencyFrm(_Id.Value, null);
                     buyCurrencyFrm.ShowDialog();
@@ -276,7 +276,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // _GroupedDataList = _GroupedDataList.OrderBy(x => x.TransactionDateTime).ToList();
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _GroupedDataList;
-          //_dataList = _dataList.OrderBy(x => x.TransactionDateTime).ToList();
+            //_dataList = _dataList.OrderBy(x => x.TransactionDateTime).ToList();
             grdTransactions.AutoGenerateColumns = false;
             grdTransactions.DataSource = _dataList;
         }
@@ -419,7 +419,7 @@ namespace PamirAccounting.UI.Forms.Customers
                     var frmCellAndBuy = new SellCurrencyFrm(_Id.Value, tranaction.Id);
                     frmCellAndBuy.ShowDialog();
                     LoadData();
-                    break;   
+                    break;
 
                 case (int)TransaActionType.BuyCurrency:
                     var currencyFrm = new BuyCurrencyFrm(_Id.Value, tranaction.Id);
@@ -528,7 +528,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 report.Load(AppSetting.ReportPath + "RemainigAmount.mrt");
                 report.RegData("myData", data);
                 report.RegData("basedata", basedata);
-               // report.Design();
+                // report.Design();
                 report.Render();
                 report.Show();
             }
@@ -778,24 +778,24 @@ namespace PamirAccounting.UI.Forms.Customers
             try
             {
                 PersianCalendar p = new PersianCalendar();
-                var dDate1 = txtDate1.Text.Replace("_","").Split('/');
+                var dDate1 = txtDate1.Text.Replace("_", "").Split('/');
                 startDate = p.ToDateTime(int.Parse(dDate1[0]), int.Parse(dDate1[1]), int.Parse(dDate1[2]), 0, 0, 0, 0);
 
                 var dDate2 = txtDate2.Text.Replace("_", "").Split('/');
                 endDate = p.ToDateTime(int.Parse(dDate2[0]), int.Parse(dDate2[1]), int.Parse(dDate2[2]), 0, 0, 0, 0);
 
-                    tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
-               !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null, startDate, endDate);
+                tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
+           !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null, startDate, endDate);
 
                 grdTransactions.Select();
                 grdTransactions.Focus();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                    tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
-                !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null,
-                null, null);
-               
+                tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
+            !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null,
+            null, null);
+
             }
 
 
@@ -876,10 +876,8 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void grdTransactions_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            grdTransactions.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            grdTransactions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            grdTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                         
+          
+
         }
     }
 }
