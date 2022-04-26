@@ -74,7 +74,7 @@ namespace PamirAccounting.Services
                 if (groupId == null)
                 {
                     var dataList = FindAllReadonly(x => x.IsDeleted == false).Include(x => x.Group).Select(x => new CustomerModel
-                    {
+                    { 
                         Id = x.Id,
                         FirstName = x.FirstName,
                         LastName = x.LastName,

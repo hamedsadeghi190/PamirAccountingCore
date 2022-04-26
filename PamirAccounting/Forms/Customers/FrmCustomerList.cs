@@ -40,11 +40,12 @@ namespace PamirAccounting.Forms.Customers
 
         public void Sort(object sender, EventArgs e)
         {
-
+         
         }
 
         private void FrmCustomerList_Load(object sender, EventArgs e)
         {
+        
             dataGridView1.DataBindingComplete += Sort;
 
             var groups = unitOfWork.CustomerGroupServices.GetAll();
