@@ -66,6 +66,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxViewAccountCustomer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
@@ -221,6 +222,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.gridPayAndReciveCash.Size = new System.Drawing.Size(875, 257);
             this.gridPayAndReciveCash.TabIndex = 132;
             this.gridPayAndReciveCash.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
+            this.gridPayAndReciveCash.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridPayAndReciveCash_KeyDown);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -451,12 +453,24 @@ namespace PamirAccounting.Forms.NewsPaper
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.label5.Location = new System.Drawing.Point(173, 520);
+            this.label5.Location = new System.Drawing.Point(310, 520);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(84, 19);
             this.label5.TabIndex = 139;
             this.label5.Text = "خروج (Esc)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label6.Location = new System.Drawing.Point(186, 520);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(105, 19);
+            this.label6.TabIndex = 143;
+            this.label6.Text = "ویرایش (Enter)";
             // 
             // BuyAndSellCurrencyListFrm
             // 
@@ -465,6 +479,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 548);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
@@ -520,5 +535,6 @@ namespace PamirAccounting.Forms.NewsPaper
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.SimpleButton btnprint;
+        private System.Windows.Forms.Label label6;
     }
 }

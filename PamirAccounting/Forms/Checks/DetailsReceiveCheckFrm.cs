@@ -259,7 +259,8 @@ namespace PamirAccounting.Forms.Checks
 
             customerTransaction.CurrenyId = 2;
             customerTransaction.Date = DateTime.Now;
-            customerTransaction.TransactionDateTime = DateTime.Now;
+            var dDate = DateTime.Now.ToShortDateString();
+            customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
             customerTransaction.UserId = CurrentUser.UserID;
             customerTransaction.DocumentId = documentId;
             unitOfWork.TransactionServices.Insert(customerTransaction);
@@ -277,7 +278,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
             receivedDocuments.CurrenyId = 2;
             receivedDocuments.Date = DateTime.Now;
-            receivedDocuments.TransactionDateTime = DateTime.Now;
+            receivedDocuments.TransactionDateTime = DateTime.Parse(dDate);
             receivedDocuments.UserId = CurrentUser.UserID;
             receivedDocuments.DocumentId = documentId;
             unitOfWork.TransactionServices.Insert(receivedDocuments);
@@ -324,7 +325,9 @@ namespace PamirAccounting.Forms.Checks
             customerTransaction.Description = txtDescription.Text;
             customerTransaction.CurrenyId = 2;
             customerTransaction.Date = DateTime.Now;
-            customerTransaction.TransactionDateTime = DateTime.Now;
+
+            var dDate = DateTime.Now.ToShortDateString();
+            customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
             customerTransaction.UserId = CurrentUser.UserID;
             customerTransaction.DocumentId = Cheque.DocumentId;
             unitOfWork.TransactionServices.Update(customerTransaction);
@@ -342,7 +345,7 @@ namespace PamirAccounting.Forms.Checks
             receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
             receivedDocuments.CurrenyId = 2;
             receivedDocuments.Date = DateTime.Now;
-            receivedDocuments.TransactionDateTime = DateTime.Now;
+            receivedDocuments.TransactionDateTime = DateTime.Parse(dDate); ;
             receivedDocuments.UserId = CurrentUser.UserID;
             receivedDocuments.DocumentId = Cheque.DocumentId;
             unitOfWork.TransactionServices.Update(receivedDocuments);

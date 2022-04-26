@@ -129,7 +129,24 @@ namespace PamirAccounting.Forms.NewsPaper
                 cmbCurrencies.Select();
                 cmbCurrencies.Focus();
             }
-         
+            if (e.KeyCode == Keys.Enter)
+            {
+                var rowCount = _dataList.Count();
+                var rowIndex = gridPayAndReciveCash.CurrentCell.OwningRow.Index;
+                if (rowIndex == rowCount - 1)
+                {
+                    var frmCash = new PayAndReciveCashFrm(0, _dataList.ElementAt(rowIndex).Id);
+                    frmCash.ShowDialog();
+                    return;
+                }
+                if (rowIndex < rowCount - 1)
+                {
+                    var frmCash = new PayAndReciveCashFrm(0, _dataList.ElementAt(rowIndex).Id);
+                    frmCash.ShowDialog();
+                    LoadData();
+                }
+
+            }
 
             if (e.KeyCode == Keys.F8)
             {
@@ -173,6 +190,8 @@ namespace PamirAccounting.Forms.NewsPaper
                 {
                     _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
                     GellAll(_dataList);
+                    gridPayAndReciveCash.Select();
+                    gridPayAndReciveCash.Focus();
                 }
                 else
                     return;
@@ -289,16 +308,28 @@ namespace PamirAccounting.Forms.NewsPaper
             {
                 _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(0, txtDate.Text);
                 GellAll(_dataList);
+                gridPayAndReciveCash.Select();
+                gridPayAndReciveCash.Focus();
             }
 
             else if ((int)cmbCurrencies.SelectedValue > 0)
             {
                 _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash((int)cmbCurrencies.SelectedValue, txtDate.Text);
                 GellAll(_dataList);
+                gridPayAndReciveCash.Select();
+                gridPayAndReciveCash.Focus();
             }
             else
             {
                 LoadData();
+            }
+        }
+
+        private void gridPayAndReciveCash_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
             }
         }
     }

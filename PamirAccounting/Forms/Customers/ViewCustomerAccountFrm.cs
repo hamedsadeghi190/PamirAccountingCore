@@ -97,7 +97,10 @@ namespace PamirAccounting.UI.Forms.Customers
         {
             txtDate1.TextChanged -= new EventHandler(txtDate1_TextChanged);
             txtDate2.TextChanged -= new EventHandler(txtDate2_TextChanged);
-            txtDate1.Text = DateTime.Parse("1401/01/01").ToFarsiFormat();
+            PersianCalendar p = new PersianCalendar();
+            var year = DateTime.Now.Year;
+            var date1 = DateTime.Parse(year+"/03/21");
+            txtDate1.Text = (date1).ToFarsiFormat();
             txtDate2.Text = DateTime.Now.ToFarsiFormat();
             txtDate1.TextChanged += new EventHandler(txtDate1_TextChanged);
             txtDate2.TextChanged += new EventHandler(txtDate2_TextChanged);
@@ -241,7 +244,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 var curenncySummery = new TransactionsGroupModel();
                 curenncySummery.Description = "جمع";
                 long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
-                foreach (var item in currency.OrderBy(x => x.TransactionDateTime2).ToList())
+                foreach (var item in currency.OrderBy(x => x.TransactionDateTime).ToList())
                 {
                     totalWithDraw += item.WithdrawAmount.Value;
                     totalDeposit += item.DepositAmount.Value;
@@ -751,6 +754,8 @@ namespace PamirAccounting.UI.Forms.Customers
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             FilterData();
+            grdTransactions.Select();
+            grdTransactions.Focus();
         }
 
 
@@ -781,13 +786,16 @@ namespace PamirAccounting.UI.Forms.Customers
 
                     tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
                !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null, startDate, endDate);
+
+                grdTransactions.Select();
+                grdTransactions.Focus();
             }
             catch(Exception ex)
             {
                     tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
                 !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null,
                 null, null);
-
+               
             }
 
 
@@ -802,7 +810,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 var curenncySummery = new TransactionsGroupModel();
                 curenncySummery.Description = "جمع";
                 long totalWithDraw = 0, totalDeposit = 0, remaining = 0;
-                foreach (var item in currency.OrderBy(x => x.TransactionDateTime2).ToList())
+                foreach (var item in currency.OrderBy(x => x.TransactionDateTime).ToList())
                 {
                     totalWithDraw += item.WithdrawAmount.Value;
                     totalDeposit += item.DepositAmount.Value;
@@ -834,7 +842,7 @@ namespace PamirAccounting.UI.Forms.Customers
             // _GroupedDataList = _GroupedDataList.OrderBy(x => x.TransactionDateTime).ToList();
             grdTotals.AutoGenerateColumns = false;
             grdTotals.DataSource = _GroupedDataList;
-            //_dataList = _dataList.OrderBy(x => x.TransactionDateTime2).ToList();
+            _dataList = _dataList.OrderBy(x => x.TransactionDateTime).ToList();
             grdTransactions.AutoGenerateColumns = false;
             grdTransactions.DataSource = _dataList;
         }
@@ -864,6 +872,14 @@ namespace PamirAccounting.UI.Forms.Customers
         private void txtDate2_Leave(object sender, EventArgs e)
         {
             Tools.CheckDate(txtDate2);
+        }
+
+        private void grdTransactions_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            grdTransactions.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            grdTransactions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            grdTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                         
         }
     }
 }

@@ -42,7 +42,6 @@ namespace PamirAccounting.Forms.Checks
             this.txtIssueDate = new DevExpress.XtraEditors.TextEdit();
             this.txtAmount = new DevExpress.XtraEditors.TextEdit();
             this.cmbCustomers = new System.Windows.Forms.ComboBox();
-            this.btnshowcustomer = new DevExpress.XtraEditors.SimpleButton();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtBankAccountNumber = new DevExpress.XtraEditors.TextEdit();
@@ -118,7 +117,6 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Controls.Add(this.txtIssueDate);
             this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.cmbCustomers);
-            this.groupBox1.Controls.Add(this.btnshowcustomer);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtBankAccountNumber);
@@ -238,22 +236,6 @@ namespace PamirAccounting.Forms.Checks
             this.cmbCustomers.Size = new System.Drawing.Size(140, 27);
             this.cmbCustomers.TabIndex = 85;
             this.cmbCustomers.SelectedIndexChanged += new System.EventHandler(this.cmbCustomers_SelectedIndexChanged);
-            // 
-            // btnshowcustomer
-            // 
-            this.btnshowcustomer.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnshowcustomer.Appearance.Options.UseFont = true;
-            this.btnshowcustomer.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnshowcustomer.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnshowcustomer.ImageOptions.SvgImage")));
-            this.btnshowcustomer.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnshowcustomer.Location = new System.Drawing.Point(286, 280);
-            this.btnshowcustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnshowcustomer.Name = "btnshowcustomer";
-            this.btnshowcustomer.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnshowcustomer.Size = new System.Drawing.Size(38, 27);
-            this.btnshowcustomer.TabIndex = 86;
-            this.btnshowcustomer.Click += new System.EventHandler(this.btnshowcustomer_Click_1);
-            this.btnshowcustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnshowcustomer_KeyUp);
             // 
             // label12
             // 
@@ -426,7 +408,6 @@ namespace PamirAccounting.Forms.Checks
         private DevExpress.XtraEditors.SimpleButton BtnSave;
         private DevExpress.XtraEditors.SimpleButton BtnClose;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.SimpleButton btnshowcustomer;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private DevExpress.XtraEditors.TextEdit txtBankAccountNumber;

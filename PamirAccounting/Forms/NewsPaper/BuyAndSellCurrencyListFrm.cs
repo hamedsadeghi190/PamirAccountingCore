@@ -76,11 +76,15 @@ namespace PamirAccounting.Forms.NewsPaper
             {
                 var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(0, txtDate.Text);
                 GellAll(tmpDataList);
+                gridPayAndReciveCash.Select();
+                gridPayAndReciveCash.Focus();
             }
            else if ((int)cmbCurrencies.SelectedValue > 0)
             {
                 var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
                 GellAll(tmpDataList);
+                gridPayAndReciveCash.Select();
+                gridPayAndReciveCash.Focus();
             }
             else
             {
@@ -111,8 +115,30 @@ namespace PamirAccounting.Forms.NewsPaper
                 cmbCurrencies.Select();
                 cmbCurrencies.Focus();
             }
-        
-       
+
+            if (e.KeyCode == Keys.Enter)
+            {
+          
+                if (gridPayAndReciveCash.SelectedRows.Count > 0)
+                {
+                    var rowCount = _dataList.Count();
+                    var rowIndex = gridPayAndReciveCash.CurrentCell.OwningRow.Index;
+                   
+                    
+                    var tranactionId =( _dataList.ElementAt(rowIndex).Id);
+                    var tranaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == tranactionId);
+                    if (tranaction.TransactionType == (int)TransaActionType.SellCurrency && rowIndex <= rowCount - 1)
+                    {
+                        var frmbankunkown = new SellCurrencyFrm(0, tranactionId);
+                        frmbankunkown.ShowDialog();
+                    }
+                    else if (tranaction.TransactionType == (int)TransaActionType.BuyCurrency)
+                    {
+                        var frmbankunkown = new BuyCurrencyFrm(0, tranactionId);
+                        frmbankunkown.ShowDialog();
+                    }
+                }
+            }
 
 
             if (e.KeyCode == Keys.F8)
@@ -204,6 +230,8 @@ namespace PamirAccounting.Forms.NewsPaper
                 {
                     _dataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
                     GellAll(_dataList);
+                    gridPayAndReciveCash.Select();
+                    gridPayAndReciveCash.Focus();
                 }
                 else
                     return;
@@ -296,6 +324,14 @@ namespace PamirAccounting.Forms.NewsPaper
             return _GroupedDataList;
          
 
+        }
+
+        private void gridPayAndReciveCash_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
