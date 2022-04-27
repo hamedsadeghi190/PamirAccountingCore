@@ -45,6 +45,8 @@ namespace PamirAccounting.Forms.Customers
 
         private void FrmCustomerList_Load(object sender, EventArgs e)
         {
+            txtNameSearch.Select();
+            txtNameSearch.Focus();
         
             dataGridView1.DataBindingComplete += Sort;
 
@@ -169,12 +171,16 @@ namespace PamirAccounting.Forms.Customers
 
         private void txtNameSearch_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtNameSearch.Text.Length > 0)
             {
                 dataList = unitOfWork.Customers.FindAll(y => y.FirstName.Contains(txtNameSearch.Text) || y.LastName.Contains(txtNameSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
                 dataGridView1.DataSource = dataList;
-                dataGridView1.Select();
-                dataGridView1.Focus();
+               
             }
             else
             {
@@ -182,28 +188,20 @@ namespace PamirAccounting.Forms.Customers
             }
         }
 
-        private void cmbGroupsSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (cmbGroupsSearch.Text.Length > 0)
-            {
-                dataList = unitOfWork.Customers.FindAll(y => y.Group.Name.Contains(cmbGroupsSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
-                dataGridView1.DataSource = dataList;
-            }
-            else
-            {
-                loadData(selectedGroupId);
-            }
-        }
+      
 
         private void txtNumberSearch_KeyUp(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtNumberSearch.Text.Length > 0)
             {
                 dataList = unitOfWork.Customers.FindAll(y => y.Id == int.Parse(txtNumberSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
                 dataGridView1.DataSource = dataList;
-                dataGridView1.Select();
-                dataGridView1.Focus();
+          
             }
             else
             {
@@ -213,13 +211,16 @@ namespace PamirAccounting.Forms.Customers
 
         private void txtphoneSearch_KeyUp(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtphoneSearch.Text.Length > 0)
             {
                 dataList = unitOfWork.Customers.FindAll(y => y.Phone.Contains(txtphoneSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
                 dataGridView1.DataSource = dataList;
-                dataGridView1.Select();
-                dataGridView1.Focus();
+         
             }
             else
             {
@@ -253,18 +254,36 @@ namespace PamirAccounting.Forms.Customers
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.F2)
             {
-                btnprint_Click(null, null);
+                txtNameSearch.Select();
+                txtNameSearch.Focus();
+            }
+                if (e.KeyCode == Keys.F3)
+            {
+                PersianCalendar pc = new PersianCalendar();
+                DateTime dt = DateTime.Now;
+                string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                var data = new UnitOfWork().CustomerServices.GetAllReport();
+                var basedata = new reportbaseDAta() { Date = PersianDate };
+                var report = StiReport.CreateNewReport();
+                report.Load(AppSetting.ReportPath + "Customers.mrt");
+                report.RegData("myData", data);
+                report.RegData("basedata", basedata);
+                // report.Design();
+                report.Render();
+                report.Show();
             }
             if (e.KeyCode == Keys.F4)
             {
-                CreatBankBtn_Click(null, null);
+                var frmCurrencies = new CustomerCreateUpdateFrm();
+                frmCurrencies.ShowDialog();
+                loadData(selectedGroupId);
             }
             if (e.KeyCode == Keys.F6)
             {
@@ -358,11 +377,33 @@ namespace PamirAccounting.Forms.Customers
         {
             selectedGroupId = (int)cmbGroupsSearch.SelectedValue;
             loadData(selectedGroupId);
-            dataGridView1.Select();
-            dataGridView1.Focus();
+          
         }
 
+      
 
+        private void txtNumberSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbGroupsSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
+            if (cmbGroupsSearch.Text.Length > 0)
+            {
+                dataList = unitOfWork.Customers.FindAll(y => y.Group.Name.Contains(cmbGroupsSearch.Text)).Select(x => new CustomerModel { Id = x.Id, FullName = x.FirstName + " " + x.LastName, Phone = x.Phone, Mobile = x.Mobile, GroupName = x.Group.Name }).ToList();
+                dataGridView1.DataSource = dataList;
+            }
+            else
+            {
+                loadData(selectedGroupId);
+            }
+        }
     }
 
     public class reportbaseDAta

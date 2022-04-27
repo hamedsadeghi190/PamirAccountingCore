@@ -57,16 +57,16 @@ namespace PamirAccounting.Forms.NewsPaper
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.grdTotals = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxViewAccountCustomer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate.Properties)).BeginInit();
@@ -80,12 +80,12 @@ namespace PamirAccounting.Forms.NewsPaper
             this.groupBoxViewAccountCustomer.Controls.Add(this.btnprint);
             this.groupBoxViewAccountCustomer.Controls.Add(this.groupBox1);
             this.groupBoxViewAccountCustomer.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(11, -2);
+            this.groupBoxViewAccountCustomer.Location = new System.Drawing.Point(2, -2);
             this.groupBoxViewAccountCustomer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.Name = "groupBoxViewAccountCustomer";
             this.groupBoxViewAccountCustomer.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxViewAccountCustomer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(901, 104);
+            this.groupBoxViewAccountCustomer.Size = new System.Drawing.Size(890, 104);
             this.groupBoxViewAccountCustomer.TabIndex = 131;
             this.groupBoxViewAccountCustomer.TabStop = false;
             this.groupBoxViewAccountCustomer.Text = "لیست خرید و فروش ارز";
@@ -109,7 +109,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(242, 22);
+            this.groupBox1.Location = new System.Drawing.Point(203, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(647, 69);
             this.groupBox1.TabIndex = 112;
@@ -136,10 +136,11 @@ namespace PamirAccounting.Forms.NewsPaper
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(388, 27);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(178, 32);
+            this.cmbCurrencies.Size = new System.Drawing.Size(178, 27);
             this.cmbCurrencies.TabIndex = 118;
             this.cmbCurrencies.SelectedValueChanged += new System.EventHandler(this.cmbCurrencies_SelectedValueChanged);
             this.cmbCurrencies.TextChanged += new System.EventHandler(this.cmbCurrencies_TextChanged);
+            this.cmbCurrencies.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbCurrencies_KeyUp);
             // 
             // label4
             // 
@@ -148,7 +149,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.label4.Location = new System.Drawing.Point(298, 32);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(49, 24);
+            this.label4.Size = new System.Drawing.Size(49, 19);
             this.label4.TabIndex = 116;
             this.label4.Text = "تاریخ :";
             // 
@@ -158,7 +159,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(572, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 24);
+            this.label1.Size = new System.Drawing.Size(58, 19);
             this.label1.TabIndex = 111;
             this.label1.Text = "نوع ارز :";
             // 
@@ -199,7 +200,7 @@ namespace PamirAccounting.Forms.NewsPaper
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridPayAndReciveCash.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridPayAndReciveCash.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gridPayAndReciveCash.Location = new System.Drawing.Point(7, 106);
+            this.gridPayAndReciveCash.Location = new System.Drawing.Point(2, 106);
             this.gridPayAndReciveCash.MultiSelect = false;
             this.gridPayAndReciveCash.Name = "gridPayAndReciveCash";
             this.gridPayAndReciveCash.ReadOnly = true;
@@ -219,7 +220,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.gridPayAndReciveCash.RowTemplate.Height = 32;
             this.gridPayAndReciveCash.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPayAndReciveCash.ShowEditingIcon = false;
-            this.gridPayAndReciveCash.Size = new System.Drawing.Size(910, 257);
+            this.gridPayAndReciveCash.Size = new System.Drawing.Size(890, 257);
             this.gridPayAndReciveCash.TabIndex = 132;
             this.gridPayAndReciveCash.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTransactions_CellClick);
             this.gridPayAndReciveCash.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridPayAndReciveCash_KeyDown);
@@ -341,7 +342,7 @@ namespace PamirAccounting.Forms.NewsPaper
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdTotals.DefaultCellStyle = dataGridViewCellStyle7;
             this.grdTotals.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdTotals.Location = new System.Drawing.Point(9, 366);
+            this.grdTotals.Location = new System.Drawing.Point(2, 364);
             this.grdTotals.Name = "grdTotals";
             this.grdTotals.ReadOnly = true;
             this.grdTotals.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -360,19 +361,67 @@ namespace PamirAccounting.Forms.NewsPaper
             this.grdTotals.RowTemplate.Height = 32;
             this.grdTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdTotals.ShowEditingIcon = false;
-            this.grdTotals.Size = new System.Drawing.Size(907, 150);
+            this.grdTotals.Size = new System.Drawing.Size(890, 150);
             this.grdTotals.TabIndex = 133;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label2.Location = new System.Drawing.Point(100, 520);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(65, 19);
+            this.label2.TabIndex = 141;
+            this.label2.Text = "چاپ(F8)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label3.Location = new System.Drawing.Point(0, 519);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.TabIndex = 140;
+            this.label3.Text = "جستجو (F2) ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label5.Location = new System.Drawing.Point(310, 520);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(84, 19);
+            this.label5.TabIndex = 139;
+            this.label5.Text = "خروج (Esc)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label6.Location = new System.Drawing.Point(186, 520);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(86, 19);
+            this.label6.TabIndex = 143;
+            this.label6.Text = "ویرایش (F7)";
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn2.FillWeight = 210F;
+            this.dataGridViewTextBoxColumn2.FillWeight = 215F;
             this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "شرح";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 210;
+            this.dataGridViewTextBoxColumn2.Width = 215;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -424,61 +473,13 @@ namespace PamirAccounting.Forms.NewsPaper
             this.Column11.ReadOnly = true;
             this.Column11.Width = 119;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.label2.Location = new System.Drawing.Point(100, 520);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(68, 24);
-            this.label2.TabIndex = 141;
-            this.label2.Text = "چاپ(F8)";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.label3.Location = new System.Drawing.Point(0, 519);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(93, 24);
-            this.label3.TabIndex = 140;
-            this.label3.Text = "جستجو (F2) ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.label5.Location = new System.Drawing.Point(310, 520);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(84, 24);
-            this.label5.TabIndex = 139;
-            this.label5.Text = "خروج (Esc)";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.label6.Location = new System.Drawing.Point(186, 520);
-            this.label6.Name = "label6";
-            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(109, 24);
-            this.label6.TabIndex = 143;
-            this.label6.Text = "ویرایش (Enter)";
-            // 
             // BuyAndSellCurrencyListFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 548);
+            this.ClientSize = new System.Drawing.Size(893, 548);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -516,12 +517,6 @@ namespace PamirAccounting.Forms.NewsPaper
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView gridPayAndReciveCash;
         private System.Windows.Forms.DataGridView grdTotals;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
@@ -536,5 +531,11 @@ namespace PamirAccounting.Forms.NewsPaper
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewButtonColumn btnEdit;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }

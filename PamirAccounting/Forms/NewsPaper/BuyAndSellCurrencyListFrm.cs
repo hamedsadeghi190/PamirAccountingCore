@@ -46,6 +46,8 @@ namespace PamirAccounting.Forms.NewsPaper
         }
         private void BuyAndSellCurrencyListFrm_Load(object sender, EventArgs e)
         {
+            cmbCurrencies.Select();
+            cmbCurrencies.Focus();
             SetComboBoxHeight(cmbCurrencies.Handle, 25);
             cmbCurrencies.Refresh();
             InitForm();
@@ -74,17 +76,15 @@ namespace PamirAccounting.Forms.NewsPaper
         {
             if ((int)cmbCurrencies.SelectedValue == 0)
             {
-                var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(0, txtDate.Text);
+                var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency_Currency(0);
                 GellAll(tmpDataList);
-                gridPayAndReciveCash.Select();
-                gridPayAndReciveCash.Focus();
+          
             }
            else if ((int)cmbCurrencies.SelectedValue > 0)
             {
-                var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
+                var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency_Currency((int)cmbCurrencies.SelectedValue);
                 GellAll(tmpDataList);
-                gridPayAndReciveCash.Select();
-                gridPayAndReciveCash.Focus();
+        
             }
             else
             {
@@ -104,11 +104,11 @@ namespace PamirAccounting.Forms.NewsPaper
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
 
             if (e.KeyCode == Keys.F2)
             {
@@ -116,7 +116,7 @@ namespace PamirAccounting.Forms.NewsPaper
                 cmbCurrencies.Focus();
             }
 
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.F7)
             {
           
                 if (gridPayAndReciveCash.SelectedRows.Count > 0)
@@ -162,7 +162,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void LoadData()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,txtDate.Text);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency();
             GellAll(tmpDataList);
         }
 
@@ -223,15 +223,19 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void txtDate_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridPayAndReciveCash.Select();
+                gridPayAndReciveCash.Focus();
+            }
             if (txtDate.Text.Length > 0)
             {
                 var dDate = txtDate.Text.Split('_');
                 if (dDate[0].Length == 10)
                 {
-                    _dataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
+                    _dataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency_SearchDate(txtDate.Text);
                     GellAll(_dataList);
-                    gridPayAndReciveCash.Select();
-                    gridPayAndReciveCash.Focus();
+             
                 }
                 else
                     return;
@@ -260,7 +264,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private List<TransactionModel> TotalPrint()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency();
             var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
             _dataList = new List<TransactionModel>();
             _GroupedDataList = new List<TransactionsGroupModel>();
@@ -295,7 +299,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private List<TransactionsGroupModel> TotalSummeryPrint()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllSellAndBuyCurrency();
             var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
             _dataList = new List<TransactionModel>();
             _GroupedDataList = new List<TransactionsGroupModel>();
@@ -331,6 +335,15 @@ namespace PamirAccounting.Forms.NewsPaper
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void cmbCurrencies_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridPayAndReciveCash.Select();
+                gridPayAndReciveCash.Focus();
             }
         }
     }

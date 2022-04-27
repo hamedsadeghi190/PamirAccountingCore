@@ -63,7 +63,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void LoadData()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,txtDate.Text);
+            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash();
             GellAll(tmpDataList);
         }
         private void grdTotals_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -118,18 +118,18 @@ namespace PamirAccounting.Forms.NewsPaper
 
             if (e.KeyCode == Keys.Escape)
                 this.Close();
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
 
             if (e.KeyCode == Keys.F2)
             {
                 cmbCurrencies.Select();
                 cmbCurrencies.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.F7)
             {
                 var rowCount = _dataList.Count();
                 var rowIndex = gridPayAndReciveCash.CurrentCell.OwningRow.Index;
@@ -170,6 +170,8 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void PayAndReciveCashListFrm_Load(object sender, EventArgs e)
         {
+            cmbCurrencies.Select();
+            cmbCurrencies.Focus();
             InitForm();
             LoadData();
             PersianCalendar pc = new PersianCalendar();
@@ -185,13 +187,17 @@ namespace PamirAccounting.Forms.NewsPaper
         {
             if (txtDate.Text.Length > 0)
             {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    gridPayAndReciveCash.Select();
+                    gridPayAndReciveCash.Focus();
+                }
                 var dDate = txtDate.Text.Split('_');
                 if (dDate[0].Length ==10)
                 {
-                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text);
+                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash_SearchDate(txtDate.Text);
                     GellAll(_dataList);
-                    gridPayAndReciveCash.Select();
-                    gridPayAndReciveCash.Focus();
+                 
                 }
                 else
                     return;
@@ -238,7 +244,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private List<TransactionModel> TotalPrint()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text); ;
+            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(); ;
             var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
             _dataList = new List<TransactionModel>();
             _GroupedDataList = new List<TransactionsGroupModel>();
@@ -272,7 +278,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private List<TransactionsGroupModel> TotalSummeryPrint()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null, txtDate.Text); ;
+            var tmpDataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(); 
             var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
             _dataList = new List<TransactionModel>();
             _GroupedDataList = new List<TransactionsGroupModel>();
@@ -306,18 +312,15 @@ namespace PamirAccounting.Forms.NewsPaper
         {
             if ((int)cmbCurrencies.SelectedValue == 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash(0, txtDate.Text);
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash_CurrencyId(0);
                 GellAll(_dataList);
-                gridPayAndReciveCash.Select();
-                gridPayAndReciveCash.Focus();
+            
             }
 
             else if ((int)cmbCurrencies.SelectedValue > 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash((int)cmbCurrencies.SelectedValue, txtDate.Text);
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveCash_CurrencyId((int)cmbCurrencies.SelectedValue);
                 GellAll(_dataList);
-                gridPayAndReciveCash.Select();
-                gridPayAndReciveCash.Focus();
             }
             else
             {
@@ -330,6 +333,15 @@ namespace PamirAccounting.Forms.NewsPaper
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void cmbCurrencies_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridPayAndReciveCash.Select();
+                gridPayAndReciveCash.Focus();
             }
         }
     }
