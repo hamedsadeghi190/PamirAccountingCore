@@ -546,5 +546,12 @@ namespace PamirAccounting.Forms
         {
             MessageBox.Show("asdas");
         }
+
+        private void btnCustomerlist_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmCustomerList();
+            frm.ShowDialog();
+
+        }
     }
 }

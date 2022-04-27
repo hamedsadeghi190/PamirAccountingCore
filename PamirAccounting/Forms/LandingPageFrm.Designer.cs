@@ -113,6 +113,7 @@ namespace PamirAccounting.Forms
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.lblTimee = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCustomerlist = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -1145,11 +1146,33 @@ namespace PamirAccounting.Forms
             this.panel1.Size = new System.Drawing.Size(1332, 20);
             this.panel1.TabIndex = 11;
             // 
+            // btnCustomerlist
+            // 
+            this.btnCustomerlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
+            this.btnCustomerlist.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
+            this.btnCustomerlist.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
+            this.btnCustomerlist.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(156)))));
+            this.btnCustomerlist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomerlist.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCustomerlist.ForeColor = System.Drawing.Color.White;
+            this.btnCustomerlist.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomerlist.Image")));
+            this.btnCustomerlist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomerlist.Location = new System.Drawing.Point(16, 428);
+            this.btnCustomerlist.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCustomerlist.Name = "btnCustomerlist";
+            this.btnCustomerlist.Size = new System.Drawing.Size(152, 93);
+            this.btnCustomerlist.TabIndex = 12;
+            this.btnCustomerlist.Text = "لیست مشتریان";
+            this.btnCustomerlist.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCustomerlist.UseVisualStyleBackColor = false;
+            this.btnCustomerlist.Click += new System.EventHandler(this.btnCustomerlist_Click);
+            // 
             // LandingPageFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 691);
+            this.Controls.Add(this.btnCustomerlist);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Deposit);
             this.Controls.Add(this.btnBank);
@@ -1264,5 +1287,6 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.ToolStripMenuItem TotalBlance;
         private System.Windows.Forms.ToolStripMenuItem OdatVagozariList;
         private System.Windows.Forms.ToolStripMenuItem BuyCurrencyMenuItem;
+        private System.Windows.Forms.Button btnCustomerlist;
     }
 }
