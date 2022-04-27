@@ -191,15 +191,18 @@ namespace PamirAccounting.Forms.Drafts
             DateTime dt = DateTime.Now;
             string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
             /////////////////////////////////
+
+            unitOfWork = new UnitOfWork();
             var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
-              && x.Type == (int)(cmbType.SelectedValue))
-              .OrderBy(x => x.Date)
-              .Include(x => x.DepositCurrency)
-              .Include(x => x.TypeCurrency)
-              .Include(x => x.Customer)
-              .ToList();
-            var rowId = 0;
-            _data = tmpData.Select(q => new DraftViewModels()
+                                                            && x.Type == (int)(cmbType.SelectedValue))
+                .OrderBy(x => x.Date)
+                .Include(x => x.DepositCurrency)
+                .Include(x => x.TypeCurrency)
+                .Include(x => x.Customer)
+                .ToList();
+
+            var rowId = 1;
+            var _RowedData = tmpData.Select(q => new DraftViewModels()
             {
                 Radif = rowId++,
                 Id = q.Id,
@@ -211,6 +214,7 @@ namespace PamirAccounting.Forms.Drafts
                 PayPlace = q.PayPlace,
                 Description = q.Description,
                 TypeCurrency = q.TypeCurrency.Name,
+                TypeCurrencyId = q.TypeCurrencyId,
                 DraftAmount = q.DraftAmount,
                 Rate = q.Rate,
                 Rent = q.Rent,
@@ -218,24 +222,51 @@ namespace PamirAccounting.Forms.Drafts
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,
                 CustomerId = q.CustomerId,
-                Customer = q.Customer.FirstName + " " + q.Customer.LastName,
+                RemainAmount = 0,
+                Customer = q.Customer?.FirstName + " " + q.Customer?.LastName,
                 RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
                 Date = q.Date != null ? (DateTime.Parse(q.Date.ToString())).ToPersian() : "",
             }).ToList();
-            var data = _data;
 
-            /////////////////////////////////
+
+            _data = new List<DraftViewModels>();
             _dataSummery = new List<SummeryDraftViewModels>();
-            var cdata = new SummeryDraftViewModels();
-            foreach (var item in _data)
+
+            var groupedw = _RowedData.GroupBy(x => x.TypeCurrency);
+
+            foreach (var item in groupedw)
             {
-                cdata.CurrenyName = item.DepositCurrency;
-                cdata.Total += (item.DepositAmount.HasValue) ? item.DepositAmount.Value : 0;
-                cdata.TotalRent += item.Rent;
+                double totalRemainAmount = 0;
+                double TotalRent = 0;
+                string CurrenyName = "";
+
+                foreach (var havale in item)
+                {
+                    CurrenyName = havale.TypeCurrency;
+                    totalRemainAmount += havale.DraftAmount;
+                    TotalRent += havale.Rent;
+                    havale.RemainAmount = totalRemainAmount;
+                    _data.Add(havale);
+                }
+
+                var cdata = new SummeryDraftViewModels();
+                cdata.CurrenyName = CurrenyName;
+                cdata.Total = totalRemainAmount;
+                cdata.TotalRent = TotalRent;
+
+                _dataSummery.Add(cdata);
             }
-            grdTotals.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            _dataSummery.Add(cdata);
-            var data2 = _dataSummery;
+
+
+            _data = _data.OrderBy(x => x.Radif).ToList();
+      
+           var data = _data;
+    
+
+   
+          var  data2 = _dataSummery;
+         
+
             ////////////////////////////////////////////
             var basedata = new reportbaseDAta() { Date = PersianDate };
             var report = StiReport.CreateNewReport();
@@ -245,6 +276,7 @@ namespace PamirAccounting.Forms.Drafts
             report.RegData("basedata", basedata);
             report.Render();
             report.Show();
+
         }
 
         private void gridDrafts_KeyDown(object sender, KeyEventArgs e)

@@ -49,7 +49,7 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void initGrid()
         {
-          
+
         }
 
 
@@ -59,7 +59,8 @@ namespace PamirAccounting.Forms.NewsPaper
             SetComboBoxHeight(cmbBank.Handle, 25);
             cmbBank.Refresh();
             _Currencies.Add(new ComboBoxModel() { Id = 0, Title = "همه" });
-            _Currencies.AddRange(unitOfWork.Customers.FindAll().Where(x=>x.GroupId==2).Select(x => new ComboBoxModel() { Id = x.Id, Title = x.FirstName }).ToList());
+            _Currencies.AddRange(unitOfWork.CustomerServices.FindAll(x => !AppSetting.DocumnetAndDraftsGroupID.Contains(x.GroupId.Value))
+                .Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList());
             cmbBank.SelectedValueChanged -= new EventHandler(cmbBank_SelectedValueChanged);
             cmbBank.TextChanged -= new EventHandler(cmbBank_TextChanged);
             cmbBank.DataSource = _Currencies;
@@ -67,13 +68,13 @@ namespace PamirAccounting.Forms.NewsPaper
             cmbBank.DisplayMember = "Title";
             cmbBank.SelectedValueChanged += new EventHandler(cmbBank_SelectedValueChanged);
             cmbBank.TextChanged += new EventHandler(cmbBank_TextChanged);
-       
+
 
         }
 
         private void LoadData()
         {
-             _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null, txtDate.Text);
+            _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null, txtDate.Text);
             GellAll(_dataList);
         }
 
@@ -86,17 +87,17 @@ namespace PamirAccounting.Forms.NewsPaper
         {
             if ((int)cmbBank.SelectedValue == 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(0, txtDate.Text);
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(0, "");
                 GellAll(_dataList);
-                gridPayAndReciveBank.Select();
-                gridPayAndReciveBank.Focus();
+
             }
             else if ((int)cmbBank.SelectedValue > 0)
             {
-                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank((int)cmbBank.SelectedValue,txtDate.Text);
+                _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank((int)cmbBank.SelectedValue, "");
                 GellAll(_dataList);
-                gridPayAndReciveBank.Select();
-                gridPayAndReciveBank.Focus();
+
+
+
             }
             else
             {
@@ -120,7 +121,7 @@ namespace PamirAccounting.Forms.NewsPaper
                 cmbBank.Focus();
             }
 
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.F7)
             {
                 var rowCount = _dataList.Count();
                 var rowIndex = gridPayAndReciveBank.CurrentCell.OwningRow.Index;
@@ -135,7 +136,7 @@ namespace PamirAccounting.Forms.NewsPaper
                     var frmbankunkown = new PayAndReciveBankFrm(0, _dataList.ElementAt(rowIndex).Id);
                     frmbankunkown.ShowDialog();
                 }
-              
+
             }
 
             if (e.KeyCode == Keys.F8)
@@ -157,6 +158,8 @@ namespace PamirAccounting.Forms.NewsPaper
 
         private void PayAndReciveBankListFrm_Load(object sender, EventArgs e)
         {
+            cmbBank.Select();
+            cmbBank.Focus();
             InitForm();
             LoadData();
             initGrid();
@@ -166,7 +169,7 @@ namespace PamirAccounting.Forms.NewsPaper
         private void GellAll(List<TransactionModel> _list)
         {
             var tmpDataList = _list;
-          //  var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
+            //  var grouped = tmpDataList.GroupBy(x => x.CurrenyId);
             //_dataList = new List<TransactionModel>();
             _GroupedDataList = new List<TransactionModel>();
             foreach (var item in tmpDataList)
@@ -178,6 +181,7 @@ namespace PamirAccounting.Forms.NewsPaper
                 curenncySummery.ReceiptNumber = item.ReceiptNumber;
                 curenncySummery.TransactionDateTime = item.TransactionDateTime;
                 curenncySummery.DepositAmount = item.DepositAmount;
+                curenncySummery.Description = item.Description;
                 _GroupedDataList.Add(curenncySummery);
 
             }
@@ -213,14 +217,19 @@ namespace PamirAccounting.Forms.NewsPaper
         {
             if (txtDate.Text.Length > 0)
             {
-                var dDate = txtDate.Text.Split('_');
-                if (dDate[0].Length == 10)
+                if (e.KeyCode == Keys.Enter)
                 {
-                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(((int)cmbBank.SelectedValue != 0) ? (int)cmbBank.SelectedValue : null, txtDate.Text);
-                    GellAll(_dataList);
                     gridPayAndReciveBank.Select();
                     gridPayAndReciveBank.Focus();
                 }
+                var dDate = txtDate.Text.Split('_');
+                if (dDate[0].Length == 10)
+                {
+                    _dataList = unitOfWork.TransactionServices.GetAllPayAndReciveBank(0, txtDate.Text);
+                    GellAll(_dataList);
+                   
+                }
+                
                 else
                     return;
             }
@@ -270,7 +279,7 @@ namespace PamirAccounting.Forms.NewsPaper
                 item.RowId = row++;
             }
             gridPayAndReciveBank.AutoGenerateColumns = false;
-           return tmpDataList;
+            return tmpDataList;
         }
 
         private void gridPayAndReciveBank_KeyDown(object sender, KeyEventArgs e)
@@ -278,6 +287,15 @@ namespace PamirAccounting.Forms.NewsPaper
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void cmbBank_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridPayAndReciveBank.Select();
+                gridPayAndReciveBank.Focus();
             }
         }
     }
