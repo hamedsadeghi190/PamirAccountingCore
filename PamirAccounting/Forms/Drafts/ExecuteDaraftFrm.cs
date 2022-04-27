@@ -56,8 +56,6 @@ namespace PamirAccounting.Forms.Drafts
             lbl_amount.Text = Draft.DraftAmount.ToString();
             lbl_palce.Text = Draft.PayPlace;
 
-            txtsellerprice.Text = Draft.DraftAmount.ToString();
-            cmbSellCurrencies.SelectedValue = Draft.TypeCurrencyId;
 
 
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new CurrencyViewModel() { Id = x.Id, Title = x.Name, Action = x.Action, BaseRate = x.BaseRate }).ToList();
@@ -71,6 +69,8 @@ namespace PamirAccounting.Forms.Drafts
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
 
+            txtsellerprice.Text = Draft.DepositAmount.ToString();
+            cmbSellCurrencies.SelectedValue = Draft.DepositCurrencyId;
             txtDate.Text = DateTime.Now.ToFarsiFormat();
 
             if (Draft.TransactionId.HasValue)

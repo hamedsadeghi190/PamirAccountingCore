@@ -133,7 +133,8 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // txtDepositAmount
             // 
-            this.txtDepositAmount.EditValue = "0";
+            this.txtDepositAmount.EditValue = "";
+            this.txtDepositAmount.Enabled = false;
             this.txtDepositAmount.Location = new System.Drawing.Point(31, 223);
             this.txtDepositAmount.Name = "txtDepositAmount";
             this.txtDepositAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -147,7 +148,7 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // txtDraftAmount
             // 
-            this.txtDraftAmount.EditValue = "0";
+            this.txtDraftAmount.EditValue = "";
             this.txtDraftAmount.Location = new System.Drawing.Point(31, 110);
             this.txtDraftAmount.Name = "txtDraftAmount";
             this.txtDraftAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -158,11 +159,14 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDraftAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDraftAmount.Size = new System.Drawing.Size(188, 32);
             this.txtDraftAmount.TabIndex = 11;
+            this.txtDraftAmount.EditValueChanged += new System.EventHandler(this.txtDraftAmount_EditValueChanged);
             this.txtDraftAmount.TextChanged += new System.EventHandler(this.txtDraftAmount_TextChanged);
+            this.txtDraftAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDraftAmount_KeyPress);
+            this.txtDraftAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDraftAmount_KeyUp);
             // 
             // txtRate
             // 
-            this.txtRate.EditValue = "0";
+            this.txtRate.EditValue = "";
             this.txtRate.Location = new System.Drawing.Point(31, 148);
             this.txtRate.Name = "txtRate";
             this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -172,6 +176,8 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRate.Size = new System.Drawing.Size(188, 32);
             this.txtRate.TabIndex = 12;
             this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
+            this.txtRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRate_KeyPress);
+            this.txtRate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRate_KeyUp);
             // 
             // txtDate
             // 
@@ -260,8 +266,9 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRent.Size = new System.Drawing.Size(188, 31);
             this.txtRent.TabIndex = 13;
-            this.txtRent.Text = "0";
             this.txtRent.TextChanged += new System.EventHandler(this.txtRent_TextChanged);
+            this.txtRent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRent_KeyPress);
+            this.txtRent.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRent_KeyUp);
             // 
             // txtPayPlace
             // 

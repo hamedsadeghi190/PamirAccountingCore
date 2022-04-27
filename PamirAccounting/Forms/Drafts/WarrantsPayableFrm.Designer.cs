@@ -82,7 +82,8 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // txtDepositAmount
             // 
-            this.txtDepositAmount.EditValue = "0";
+            this.txtDepositAmount.EditValue = "";
+            this.txtDepositAmount.Enabled = false;
             this.txtDepositAmount.Location = new System.Drawing.Point(47, 187);
             this.txtDepositAmount.Name = "txtDepositAmount";
             this.txtDepositAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -92,11 +93,11 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDepositAmount.Properties.MaskSettings.Set("mask", "f");
             this.txtDepositAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDepositAmount.Size = new System.Drawing.Size(188, 32);
-            this.txtDepositAmount.TabIndex = 15;
+            this.txtDepositAmount.TabIndex = 14;
             // 
             // txtDraftAmount
             // 
-            this.txtDraftAmount.EditValue = "0";
+            this.txtDraftAmount.EditValue = "";
             this.txtDraftAmount.Location = new System.Drawing.Point(47, 74);
             this.txtDraftAmount.Name = "txtDraftAmount";
             this.txtDraftAmount.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -106,12 +107,14 @@ namespace PamirAccounting.Forms.Drafts
             this.txtDraftAmount.Properties.MaskSettings.Set("mask", "n0");
             this.txtDraftAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDraftAmount.Size = new System.Drawing.Size(188, 32);
-            this.txtDraftAmount.TabIndex = 12;
+            this.txtDraftAmount.TabIndex = 11;
             this.txtDraftAmount.TextChanged += new System.EventHandler(this.txtDraftAmount_TextChanged);
+            this.txtDraftAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDraftAmount_KeyPress);
+            this.txtDraftAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDraftAmount_KeyUp);
             // 
             // txtRate
             // 
-            this.txtRate.EditValue = "0";
+            this.txtRate.EditValue = "";
             this.txtRate.Location = new System.Drawing.Point(47, 112);
             this.txtRate.Name = "txtRate";
             this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -119,8 +122,10 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRate.Properties.AutoHeight = false;
             this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRate.Size = new System.Drawing.Size(188, 32);
-            this.txtRate.TabIndex = 13;
+            this.txtRate.TabIndex = 12;
             this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
+            this.txtRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRate_KeyPress);
+            this.txtRate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRate_KeyUp);
             // 
             // txtDate
             // 
@@ -183,6 +188,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbDraftCurrency.Name = "cmbDraftCurrency";
             this.cmbDraftCurrency.Size = new System.Drawing.Size(188, 32);
             this.cmbDraftCurrency.TabIndex = 10;
+            this.cmbDraftCurrency.SelectedIndexChanged += new System.EventHandler(this.cmbDraftCurrency_SelectedIndexChanged);
             // 
             // cmbAgency
             // 
@@ -225,7 +231,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbDepositCurreny.Location = new System.Drawing.Point(48, 225);
             this.cmbDepositCurreny.Name = "cmbDepositCurreny";
             this.cmbDepositCurreny.Size = new System.Drawing.Size(188, 32);
-            this.cmbDepositCurreny.TabIndex = 11;
+            this.cmbDepositCurreny.TabIndex = 15;
             this.cmbDepositCurreny.SelectedValueChanged += new System.EventHandler(this.cmbDepositCurreny_SelectedValueChanged);
             // 
             // txtRent
@@ -235,9 +241,10 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRent.Name = "txtRent";
             this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRent.Size = new System.Drawing.Size(188, 31);
-            this.txtRent.TabIndex = 14;
-            this.txtRent.Text = "0";
+            this.txtRent.TabIndex = 13;
             this.txtRent.TextChanged += new System.EventHandler(this.txtRent_TextChanged);
+            this.txtRent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRent_KeyPress);
+            this.txtRent.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRent_KeyUp);
             // 
             // txtPayPlace
             // 

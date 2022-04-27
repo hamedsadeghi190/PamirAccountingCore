@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Domains;
+﻿using DevExpress.XtraEditors;
+using PamirAccounting.Domains;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -251,11 +252,11 @@ namespace PamirAccounting.Forms.Drafts
                 unitOfWork.SaveChanges();
 
                 MessageBox.Show(" حواله با موفقیت ثبت شد");
-                if(DraftID.HasValue)
+                if (DraftID.HasValue)
                 {
                     Close();
                 }
-               else
+                else
                 {
                     ResetForm();
                 }
@@ -284,10 +285,12 @@ namespace PamirAccounting.Forms.Drafts
             txtDepositAmount.Text = "0";
             cmbCustomer.SelectedIndex = 0;
             cmbStatus.SelectedIndex = 0;
-
+            txtNumber.Focus();
             calcNumber((int)cmbAgency.SelectedValue);
             draft = null;
             customerTransaction = null;
+            documentId = unitOfWork.TransactionServices.GetNewDocumentId();
+            grpHavale.Text = "حوال فروش - شماره سند " + documentId;
         }
 
         private bool ValidateForms()
@@ -425,6 +428,80 @@ namespace PamirAccounting.Forms.Drafts
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+        }
+
+        private void txtDraftAmount_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDraftAmount_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtDraftAmount.Text += "000";
+            }
+            txtDraftAmount.Select(txtDraftAmount.Text.Length, 0);
+        }
+
+        private void txtDraftAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            //// only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextEdit).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            //// only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtRate_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtRate.Text += "000";
+            }
+            txtRate.Select(txtRate.Text.Length, 0);
+        }
+
+        private void txtRent_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtRent.Text += "000";
+            }
+            txtRent.Select(txtRent.Text.Length, 0);
         }
     }
 }

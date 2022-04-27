@@ -1,4 +1,5 @@
-﻿using PamirAccounting.Domains;
+﻿using DevExpress.XtraEditors;
+using PamirAccounting.Domains;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -292,11 +293,11 @@ namespace PamirAccounting.Forms.Drafts
                     customerTransaction.TransactionType = (int)TransaActionType.HavaleAmad;
                     customerTransaction.DocumentId = documentId;
                     customerTransaction.WithdrawAmount = 0;
-                    customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtDraftAmount.Text.Trim())) ? 0 : long.Parse(txtDraftAmount.Text);
+                    customerTransaction.DepositAmount = (String.IsNullOrEmpty(txtDepositAmount.Text.Trim())) ? 0 : long.Parse(txtDepositAmount.Text);
                     customerTransaction.Description = $"شماره  {txtNumber.Text} {cmbAgency.Text} , {txtSender.Text} برای " +
-                        $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDepositCurreny.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text}  **{txtDesc.Text}";
+                        $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDraftCurrency.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text} و دریافت {txtDepositAmount.Text}{cmbDepositCurreny.Text} **{txtDesc.Text}";
 
-                    customerTransaction.CurrenyId = (int)cmbDraftCurrency.SelectedValue;
+                    customerTransaction.CurrenyId = (int)cmbDepositCurreny.SelectedValue;
                     var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
                     customerTransaction.Date = DateTime.Now;
                     customerTransaction.TransactionDateTime = TransactionDateTime;
@@ -422,6 +423,9 @@ namespace PamirAccounting.Forms.Drafts
             cmbStatus.SelectedIndex = 0;
             cmbCustomer.SelectedValue = AppSetting.NotRunnedDraftsId;
             calcNumber((int)cmbAgency.SelectedValue);
+            documentId = unitOfWork.TransactionServices.GetNewDocumentId();
+            grpHavale.Text = "حوال امد - شماره سند " + documentId;
+            txtNumber.Focus();
         }
 
         private void CalculateDeposit()
@@ -523,6 +527,75 @@ namespace PamirAccounting.Forms.Drafts
         private void groupBox1_Enter(object sender, EventArgs e)
         {
         }
+
+        private void cmbDraftCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbDepositCurreny.SelectedValue = cmbDraftCurrency.SelectedValue;
+        }
+
+        private void txtDraftAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDraftAmount_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtDraftAmount.Text += "000";
+            }
+            txtDraftAmount.Select(txtDraftAmount.Text.Length, 0);
+        }
+
+        private void txtRate_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtRate.Text += "000";
+            }
+            txtRate.Select(txtRate.Text.Length, 0);
+        }
+
+        private void txtRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextEdit).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            //// only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextEdit).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtRent_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                txtRent.Text += "000";
+            }
+            txtRent.Select(txtRent.Text.Length, 0);
+        }
+
         private void cmbCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedIndex = (int)cmbCustomer.SelectedIndex;
