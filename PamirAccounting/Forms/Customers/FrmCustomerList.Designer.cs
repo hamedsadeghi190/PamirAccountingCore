@@ -126,6 +126,7 @@ namespace PamirAccounting.Forms.Customers
             this.txtNumberSearch.Name = "txtNumberSearch";
             this.txtNumberSearch.Size = new System.Drawing.Size(143, 31);
             this.txtNumberSearch.TabIndex = 3;
+            this.txtNumberSearch.TextChanged += new System.EventHandler(this.txtNumberSearch_TextChanged);
             this.txtNumberSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNumberSearch_KeyUp);
             // 
             // txtNameSearch
@@ -148,6 +149,7 @@ namespace PamirAccounting.Forms.Customers
             this.cmbGroupsSearch.Size = new System.Drawing.Size(143, 27);
             this.cmbGroupsSearch.TabIndex = 2;
             this.cmbGroupsSearch.SelectedValueChanged += new System.EventHandler(this.cmbGroupsSearch_SelectedValueChanged);
+            this.cmbGroupsSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbGroupsSearch_KeyUp);
             // 
             // label5
             // 
