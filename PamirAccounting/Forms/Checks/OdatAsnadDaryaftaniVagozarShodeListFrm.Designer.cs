@@ -283,9 +283,9 @@ namespace PamirAccounting.Forms.Checks
             this.label6.Location = new System.Drawing.Point(102, 452);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(135, 19);
+            this.label6.Size = new System.Drawing.Size(141, 19);
             this.label6.TabIndex = 133;
-            this.label6.Text = "  عودت چک (Enter)";
+            this.label6.Text = "  عودت چک (Space)";
             // 
             // OdatAsnadDaryaftaniVagozarShodeListFrm
             // 

@@ -23,7 +23,8 @@ namespace PamirAccounting.UI.Forms.Currencies
 
         private void CurrencyListFrm_Load(object sender, EventArgs e)
         {
-
+            txtsearch.Select();
+            txtsearch.Focus();
             loadData();
 
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
@@ -104,6 +105,11 @@ namespace PamirAccounting.UI.Forms.Currencies
 
         private void txtsearch_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtsearch.Text.Length > 0)
             {
                 dataList = unitOfWork.Currencies.FindAll(y => y.Name.Contains(txtsearch.Text)).Select(x => new CurrenciesViewModel { Id = x.Id, Name = x.Name }).ToList();
@@ -131,11 +137,11 @@ namespace PamirAccounting.UI.Forms.Currencies
                 txtsearch.Select();
                 txtsearch.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.Escape)
                 this.Close();
             if (e.KeyCode == Keys.F7)

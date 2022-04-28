@@ -46,6 +46,8 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void ViewCustomerAccountFrm_Load(object sender, EventArgs e)
         {
+            txtSearch.Select();
+            txtSearch.Focus();
             SetComboBoxHeight(cmbActions.Handle, 25);
             cmbActions.Refresh();
             grdTransactions.AutoGenerateColumns = false;
@@ -300,6 +302,11 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                grdTransactions.Select();
+                grdTransactions.Focus();
+            }
             if (txtSearch.Text.Length > 0)
             {
                 _dataList = unitOfWork.TransactionServices.FindAll(x => x.Id == int.Parse(txtSearch.Text))
@@ -618,7 +625,35 @@ namespace PamirAccounting.UI.Forms.Customers
             //}
             if (e.KeyCode == Keys.F3)
             {
-                btnprint_Click(null, null);
+                try
+                {
+                    _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+                    var name = _Customer.FirstName + " " + _Customer.LastName;
+                    PersianCalendar pc = new PersianCalendar();
+                    DateTime dt = DateTime.Now;
+                    string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+                    var data = TotalPrint();
+                    var data2 = TotalSummeryPrint();
+                    //  var name = new UnitOfWork().TransactionServices.FindUserName(_Id.Value);
+                    var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name };
+                    var report = StiReport.CreateNewReport();
+                    report.Load(AppSetting.ReportPath + "CustomerAccount2.mrt");
+                    report.RegData("myData", data);
+                    report.RegData("myData2", data2);
+                    report.RegData("basedata", basedata);
+                    //report.Design();
+                    report.Render();
+                    report.Show();
+                }
+                catch
+                {
+                    MessageBox.Show("خطا در پرینت");
+                }
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                txtSearch.Select();
+                txtSearch.Focus();
             }
             if (e.KeyCode == Keys.F4)
             {
@@ -754,8 +789,7 @@ namespace PamirAccounting.UI.Forms.Customers
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             FilterData();
-            grdTransactions.Select();
-            grdTransactions.Focus();
+   
         }
 
 
@@ -787,8 +821,7 @@ namespace PamirAccounting.UI.Forms.Customers
                 tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
            !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null, startDate, endDate);
 
-                grdTransactions.Select();
-                grdTransactions.Focus();
+               
             }
             catch (Exception ex)
             {
@@ -878,6 +911,35 @@ namespace PamirAccounting.UI.Forms.Customers
         {
           
 
+        }
+
+        private void cmbCurrencies_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                grdTransactions.Select();
+                grdTransactions.Focus();
+            }
+        }
+
+        private void txtDate1_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                grdTransactions.Select();
+                grdTransactions.Focus();
+            }
+        }
+
+        private void txtDate2_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                grdTransactions.Select();
+                grdTransactions.Focus();
+            }
         }
     }
 }

@@ -42,6 +42,8 @@ namespace PamirAccounting.Forms.GeneralLedger
         }
         private void DebtorGroupListFrm_Load(object sender, EventArgs e)
         {
+            cmbGroup.Select();
+            cmbGroup.Focus();
             SetComboBoxHeight(cmbCurrencies.Handle, 25);
             SetComboBoxHeight(cmbGroup.Handle, 25); 
             InitForm();
@@ -95,15 +97,15 @@ namespace PamirAccounting.Forms.GeneralLedger
                 cmbGroup.Select();
                 cmbGroup.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.Escape)
                 this.Close();
 
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.F4)
             {
 
                 if (gridCreditor.SelectedRows.Count > 0)
@@ -111,12 +113,18 @@ namespace PamirAccounting.Forms.GeneralLedger
                     
                     var rowCount = _dataListTotal.Count();
                     var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
-                    if (rowIndex <= rowCount - 1)
+                    if (rowIndex == rowCount - 1)
                     {
                         var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
                         frmCurrencies.ShowDialog();
+                        return;
                     }
-                
+                    if (rowIndex < rowCount - 1)
+                    {
+                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
+                        frmCurrencies.ShowDialog();
+
+                    }
 
                 }
             }
@@ -360,6 +368,24 @@ namespace PamirAccounting.Forms.GeneralLedger
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void cmbGroup_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridCreditor.Select();
+                gridCreditor.Focus();
+            }
+        }
+
+        private void cmbCurrencies_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridCreditor.Select();
+                gridCreditor.Focus();
             }
         }
     }
