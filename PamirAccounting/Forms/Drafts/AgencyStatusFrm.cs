@@ -1,12 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
+
 using PamirAccounting.Models.ViewModels;
 using PamirAccounting.Services;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.UI.Forms.Customers.ViewCustomerAccountFrm;
 
 namespace PamirAccounting.Forms.Drafts
 {
@@ -17,7 +21,8 @@ namespace PamirAccounting.Forms.Drafts
         private List<DraftViewModels> _data;
         private List<SummeryDraftStatusViewModels> _dataSummery;
         private List<Domains.Draft> tmpdata;
-
+        private List<DraftViewModels> data;
+        private List<SummeryDraftStatusViewModels> data2;
         public AgencyStatusFrm()
         {
             InitializeComponent();
@@ -153,6 +158,7 @@ namespace PamirAccounting.Forms.Drafts
             gridDrafts.Refresh();
 
             gridDrafts.DataSource = _data;
+            data = _data;
             gridDrafts.Update();
             gridDrafts.Refresh();
 
@@ -265,6 +271,7 @@ namespace PamirAccounting.Forms.Drafts
 
             grdTotals.DataSource = null;
             grdTotals.DataSource = _dataSummery;
+            data2 = _dataSummery;
             grdTotals.Refresh();
         }
 
@@ -296,6 +303,25 @@ namespace PamirAccounting.Forms.Drafts
                     row.DefaultCellStyle.BackColor = Color.MediumSeaGreen;
                 }
             }
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            LoadData(); var agency = unitOfWork.Agencies.FindAll(x => x.Id == AgencyID).Include(x => x.Curreny).FirstOrDefault();
+            LblAgencyName.Text = agency.Name;
+            LblCurrencyName.Text = agency.Curreny.Name;
+            PersianCalendar pc = new PersianCalendar();
+            DateTime dt = DateTime.Now;
+            string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            var basedata = new reportbaseDAta() { Date = PersianDate ,CurrencyName=agency.Curreny.Name,AgencyName=agency.Name };
+            var report = StiReport.CreateNewReport();
+            report.Load(AppSetting.ReportPath + "AgencyStatusList.mrt");
+            report.RegData("myData", data);
+            report.RegData("myData2", data2);
+            report.RegData("basedata", basedata);
+            //report.Render();
+            //report.Show();
+            report.Design();
         }
     }
 }

@@ -84,10 +84,15 @@
       </myData>
       <basedata Ref="3" type="Stimulsoft.Report.Dictionary.StiBusinessObjectSource" isKey="true">
         <Alias>basedata</Alias>
-        <Columns isList="true" count="3">
+        <Columns isList="true" count="8">
           <value>Date,System.String</value>
           <value>_ID,System.Int32</value>
           <value>_Current,System.Object</value>
+          <value>CustomerName,System.String</value>
+          <value>CurrencyName,System.String</value>
+          <value>AgencyName,System.String</value>
+          <value>Price,System.String</value>
+          <value>Status,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>ec66ffe430e546059f3ea6b7d6abea3c</Key>
@@ -96,7 +101,7 @@
       </basedata>
       <myData2 Ref="4" type="Stimulsoft.Report.Dictionary.StiBusinessObjectSource" isKey="true">
         <Alias>myData2</Alias>
-        <Columns isList="true" count="29">
+        <Columns isList="true" count="32">
           <value>Id,System.Int32</value>
           <value>TotalWithdrawAmount,System.Int64</value>
           <value>TotalDepositAmount,System.Int64</value>
@@ -126,6 +131,9 @@
           <value>GroupId,System.Int32</value>
           <value>TotalRent,System.Double</value>
           <value>Total,System.Double</value>
+          <value>TotalDiposit,System.Double</value>
+          <value>TotalWithdraw,System.Double</value>
+          <value>RemainAmount,System.Double</value>
         </Columns>
         <Dictionary isRef="1" />
         <Key>53164a82b49b49968611623d5cd6b6b0</Key>
@@ -240,7 +248,7 @@
             <Text2 Ref="13" type="Text" isKey="true">
               <Border>None;[255:255:255];1;Solid;False;4;Black</Border>
               <Brush>[219:229:241]</Brush>
-              <ClientRectangle>3.32,0.98,3.9,0.4</ClientRectangle>
+              <ClientRectangle>2.45,0.99,5.88,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),17</Font>
@@ -249,7 +257,7 @@
               <Name>Text2</Name>
               <Page isRef="5" />
               <Parent isRef="9" />
-              <Text>لیست حواله ها</Text>
+              <Text>نمایندگی {basedata.AgencyName}  ارز معیار : {basedata.CurrencyName} </Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -264,14 +272,14 @@
         <HeaderBand2 Ref="14" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,1.8,10.22,0.79</ClientRectangle>
-          <Components isList="true" count="16">
+          <Components isList="true" count="15">
             <Text6 Ref="15" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>9.81,0.39,0.4,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
@@ -288,7 +296,7 @@
               <ClientRectangle>9.13,0.39,0.66,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
@@ -305,7 +313,7 @@
               <ClientRectangle>8.54,0.39,0.59,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
@@ -322,7 +330,7 @@
               <ClientRectangle>7.92,0.39,0.62,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
@@ -340,7 +348,7 @@
               <ClientRectangle>7.26,0.39,0.64,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
@@ -357,7 +365,7 @@
               <ClientRectangle>6.62,0.39,0.64,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
@@ -368,64 +376,47 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text11>
-            <Text14 Ref="21" type="Text" isKey="true">
+            <Text15 Ref="21" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.97,0.39,0.64,0.4</ClientRectangle>
+              <ClientRectangle>5.7,0.39,0.9,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text14</Name>
-              <Page isRef="5" />
-              <Parent isRef="14" />
-              <Text>مشتری</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text14>
-            <Text15 Ref="22" type="Text" isKey="true">
-              <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>5.21,0.39,0.75,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
               <Page isRef="5" />
               <Parent isRef="14" />
-              <Text>مبلغ حواله</Text>
+              <Text>مبلغ اصلی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text16 Ref="23" type="Text" isKey="true">
+            <Text16 Ref="22" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.55,0.39,0.64,0.4</ClientRectangle>
+              <ClientRectangle>5.06,0.39,0.64,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
               <Page isRef="5" />
               <Parent isRef="14" />
-              <Text>ارز حواله</Text>
+              <Text>ارز اصلی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
-            <Text17 Ref="24" type="Text" isKey="true">
+            <Text17 Ref="23" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.13,0.39,0.41,0.4</ClientRectangle>
+              <ClientRectangle>4.64,0.39,0.41,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
@@ -436,13 +427,13 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text21 Ref="25" type="Text" isKey="true">
+            <Text21 Ref="24" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.56,0.39,0.58,0.4</ClientRectangle>
+              <ClientRectangle>3.8,0.39,0.82,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
@@ -453,47 +444,47 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text21>
-            <Text22 Ref="26" type="Text" isKey="true">
+            <Text22 Ref="25" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.65,0.39,0.91,0.4</ClientRectangle>
+              <ClientRectangle>2.75,0.39,1.03,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text22</Name>
               <Page isRef="5" />
               <Parent isRef="14" />
-              <Text>مبلغ دریافتی</Text>
+              <Text>مبلغ تبدیل شده</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text22>
-            <Text23 Ref="27" type="Text" isKey="true">
+            <Text23 Ref="26" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.91,0.39,0.73,0.4</ClientRectangle>
+              <ClientRectangle>1.84,0.39,0.89,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
               <Page isRef="5" />
               <Parent isRef="14" />
-              <Text>ارز دریافتی</Text>
+              <Text>ارز تبدیل شده</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text23>
-            <Text26 Ref="28" type="Text" isKey="true">
+            <Text26 Ref="27" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.29,0.39,0.62,0.4</ClientRectangle>
+              <ClientRectangle>1.26,0.39,0.58,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text26</Name>
@@ -504,14 +495,14 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text26>
-            <Text27 Ref="29" type="Text" isKey="true">
+            <Text27 Ref="28" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>0.74,0.39,0.56,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text27</Name>
@@ -523,14 +514,14 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text27>
-            <Text10 Ref="30" type="Text" isKey="true">
+            <Text10 Ref="29" type="Text" isKey="true">
               <Border>Top, Bottom;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>0.01,0.39,0.71,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),12</Font>
+              <Font>IRANSansMobile(FaNum),11</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
@@ -549,13 +540,13 @@
           <Page isRef="5" />
           <Parent isRef="5" />
         </HeaderBand2>
-        <Table1 Ref="31" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+        <Table1 Ref="30" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,2.59,10.22,0.3</ClientRectangle>
-          <ColumnCount>16</ColumnCount>
-          <Components isList="true" count="16">
-            <Table1_Cell1 Ref="32" type="TableCell" isKey="true">
+          <ColumnCount>15</ColumnCount>
+          <Components isList="true" count="15">
+            <Table1_Cell1 Ref="31" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
@@ -570,7 +561,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table1_Cell1</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.Description}</Text>
               <TextBrush>Black</TextBrush>
@@ -578,11 +569,11 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell1>
-            <Table1_Cell2 Ref="33" type="TableCell" isKey="true">
+            <Table1_Cell2 Ref="32" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>0.74,0,0.55,0.3</ClientRectangle>
+              <ClientRectangle>0.74,0,0.52,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -593,7 +584,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table1_Cell2</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.PayPlace}</Text>
               <TextBrush>Black</TextBrush>
@@ -601,11 +592,11 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell2>
-            <Table1_Cell3 Ref="34" type="TableCell" isKey="true">
+            <Table1_Cell3 Ref="33" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>1.29,0,0.62,0.3</ClientRectangle>
+              <ClientRectangle>1.26,0,0.58,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -616,7 +607,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table1_Cell3</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.RemainAmount}</Text>
               <TextBrush>Black</TextBrush>
@@ -624,11 +615,11 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell3>
-            <Table1_Cell4 Ref="35" type="TableCell" isKey="true">
+            <Table1_Cell4 Ref="34" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>1.91,0,0.74,0.3</ClientRectangle>
+              <ClientRectangle>1.84,0,0.91,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -639,19 +630,19 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table1_Cell4</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.DepositCurrency}</Text>
+              <Text>{myData.ConvertedCurrency}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>Expression</Type>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell4>
-            <Table1_Cell5 Ref="36" type="TableCell" isKey="true">
+            <Table1_Cell5 Ref="35" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>2.65,0,0.91,0.3</ClientRectangle>
+              <ClientRectangle>2.75,0,1.05,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -662,19 +653,19 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table1_Cell5</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.DepositAmount}</Text>
+              <Text>{myData.ConvertedAmount}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>Expression</Type>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell5>
-            <Table1_Cell6 Ref="37" type="TableCell" isKey="true">
+            <Table1_Cell6 Ref="36" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.56,0,0.57,0.3</ClientRectangle>
+              <ClientRectangle>3.8,0,0.84,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -685,7 +676,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table1_Cell6</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.Rent}</Text>
               <TextBrush>Black</TextBrush>
@@ -693,11 +684,11 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell6>
-            <Table1_Cell7 Ref="38" type="TableCell" isKey="true">
+            <Table1_Cell7 Ref="37" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.13,0,0.42,0.3</ClientRectangle>
+              <ClientRectangle>4.64,0,0.42,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -708,7 +699,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table1_Cell7</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.Rate}</Text>
               <TextBrush>Black</TextBrush>
@@ -716,11 +707,11 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell7>
-            <Table1_Cell8 Ref="39" type="TableCell" isKey="true">
+            <Table1_Cell8 Ref="38" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.55,0,0.66,0.3</ClientRectangle>
+              <ClientRectangle>5.06,0,0.64,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -731,7 +722,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table1_Cell8</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.TypeCurrency}</Text>
               <TextBrush>Black</TextBrush>
@@ -739,11 +730,11 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell8>
-            <Table1_Cell9 Ref="40" type="TableCell" isKey="true">
+            <Table1_Cell9 Ref="39" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.21,0,0.76,0.3</ClientRectangle>
+              <ClientRectangle>5.7,0,0.92,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -754,7 +745,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table1_Cell9</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.DraftAmount}</Text>
               <TextBrush>Black</TextBrush>
@@ -762,34 +753,11 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Table1_Cell9>
-            <Table1_Cell10 Ref="41" type="TableCell" isKey="true">
+            <Table1_Cell10 Ref="40" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.97,0,0.65,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>IRANSansMobile(FaNum),10</Font>
-              <GrowToHeight>True</GrowToHeight>
-              <HorAlignment>Center</HorAlignment>
-              <ID>47</ID>
-              <JoinCells isList="true" count="0" />
-              <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell10</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.Customer}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Table1_Cell10>
-            <Table1_Cell11 Ref="42" type="TableCell" isKey="true">
-              <Border>All;Black;2;Solid;False;4;Black</Border>
-              <Brush>White</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>6.62,0,0.64,0.3</ClientRectangle>
+              <ClientRectangle>6.62,0,0.65,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -798,21 +766,21 @@
               <ID>46</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell11</Name>
+              <Name>Table1_Cell10</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.Reciver}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Table1_Cell11>
-            <Table1_Cell12 Ref="43" type="TableCell" isKey="true">
+            </Table1_Cell10>
+            <Table1_Cell11 Ref="41" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>7.26,0,0.66,0.3</ClientRectangle>
+              <ClientRectangle>7.27,0,0.65,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -821,17 +789,17 @@
               <ID>37</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell12</Name>
+              <Name>Table1_Cell11</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.Sender}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Table1_Cell12>
-            <Table1_Cell13 Ref="44" type="TableCell" isKey="true">
+            </Table1_Cell11>
+            <Table1_Cell12 Ref="42" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
@@ -844,21 +812,21 @@
               <ID>43</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell13</Name>
+              <Name>Table1_Cell12</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.OtherNumber}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Table1_Cell13>
-            <Table1_Cell14 Ref="45" type="TableCell" isKey="true">
+            </Table1_Cell12>
+            <Table1_Cell13 Ref="43" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>8.54,0,0.59,0.3</ClientRectangle>
+              <ClientRectangle>8.54,0,0.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -867,21 +835,21 @@
               <ID>42</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell14</Name>
+              <Name>Table1_Cell13</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.Number}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Table1_Cell14>
-            <Table1_Cell15 Ref="46" type="TableCell" isKey="true">
+            </Table1_Cell13>
+            <Table1_Cell14 Ref="44" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>9.13,0,0.68,0.3</ClientRectangle>
+              <ClientRectangle>9.14,0,0.67,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -890,17 +858,17 @@
               <ID>39</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell15</Name>
+              <Name>Table1_Cell14</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
               <Text>{myData.Date}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Table1_Cell15>
-            <Table1_Cell16 Ref="47" type="TableCell" isKey="true">
+            </Table1_Cell14>
+            <Table1_Cell15 Ref="45" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
@@ -913,16 +881,16 @@
               <ID>44</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
-              <Name>Table1_Cell16</Name>
+              <Name>Table1_Cell15</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="30" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData.Radif}</Text>
+              <Text>{myData.Index}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Table1_Cell16>
+            </Table1_Cell15>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName isNull="true" />
@@ -936,7 +904,7 @@
           <RowCount>1</RowCount>
           <Sort isList="true" count="0" />
         </Table1>
-        <HeaderBand3 Ref="48" type="HeaderBand" isKey="true">
+        <HeaderBand3 Ref="46" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,2.89,10.22,0.09</ClientRectangle>
           <Components isList="true" count="0" />
@@ -946,11 +914,11 @@
           <Page isRef="5" />
           <Parent isRef="5" />
         </HeaderBand3>
-        <HeaderBand4 Ref="49" type="HeaderBand" isKey="true">
+        <HeaderBand4 Ref="47" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,2.98,10.22,0.79</ClientRectangle>
-          <Components isList="true" count="4">
-            <Text18 Ref="50" type="Text" isKey="true">
+          <Components isList="true" count="5">
+            <Text18 Ref="48" type="Text" isKey="true">
               <Border>Top, Left;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>8.42,0.36,1.78,0.41</ClientRectangle>
@@ -961,16 +929,16 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
               <Page isRef="5" />
-              <Parent isRef="49" />
-              <Text>جمع </Text>
+              <Parent isRef="47" />
+              <Text>ارز</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text18>
-            <Text19 Ref="51" type="Text" isKey="true">
+            <Text19 Ref="49" type="Text" isKey="true">
               <Border>Top, Left;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.23,0.36,3.24,0.41</ClientRectangle>
+              <ClientRectangle>3.97,0.36,2.33,0.41</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),12</Font>
@@ -978,16 +946,16 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
               <Page isRef="5" />
-              <Parent isRef="49" />
-              <Text>جمع کل</Text>
+              <Parent isRef="47" />
+              <Text>جمع طلبکار</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text19>
-            <Text20 Ref="52" type="Text" isKey="true">
+            <Text20 Ref="50" type="Text" isKey="true">
               <Border>Top, Left;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.49,0.36,2.93,0.41</ClientRectangle>
+              <ClientRectangle>6.3,0.36,2.12,0.41</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),12</Font>
@@ -995,16 +963,16 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
               <Page isRef="5" />
-              <Parent isRef="49" />
-              <Text>جمع کمیشن</Text>
+              <Parent isRef="47" />
+              <Text>جمع بدهکار</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text20>
-            <Text24 Ref="53" type="Text" isKey="true">
+            <Text24 Ref="51" type="Text" isKey="true">
               <Border>Top, Left;Black;2;Solid;False;2;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0.36,2.23,0.41</ClientRectangle>
+              <ClientRectangle>0,0.36,1.74,0.41</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),12</Font>
@@ -1012,12 +980,29 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
               <Page isRef="5" />
-              <Parent isRef="49" />
-              <Text>ارز</Text>
+              <Parent isRef="47" />
+              <Text>وضغیت</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text24>
+            <Text13 Ref="52" type="Text" isKey="true">
+              <Border>Top, Left;Black;2;Solid;False;2;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.75,0.36,2.2,0.41</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>IRANSansMobile(FaNum),12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="5" />
+              <Parent isRef="47" />
+              <Text>باقیمانده</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
           </Components>
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
@@ -1025,17 +1010,16 @@
           <Page isRef="5" />
           <Parent isRef="5" />
         </HeaderBand4>
-        <Table2 Ref="54" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+        <Table2 Ref="53" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,3.77,10.22,0.3</ClientRectangle>
-          <ColumnCount>4</ColumnCount>
-          <Components isList="true" count="4">
-            <Table2_Cell1 Ref="55" type="TableCell" isKey="true">
+          <Components isList="true" count="5">
+            <Table2_Cell1 Ref="54" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>0,0,2.23,0.3</ClientRectangle>
+              <ClientRectangle>0,0,1.75,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -1046,19 +1030,39 @@
               <Margins>0,0,0,0</Margins>
               <Name>Table2_Cell1</Name>
               <Page isRef="5" />
-              <Parent isRef="54" />
+              <Parent isRef="53" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData2.CurrenyName}</Text>
+              <Text>{myData2.Status}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Table2_Cell1>
-            <Table2_Cell2 Ref="56" type="TableCell" isKey="true">
+            <Table2_Cell2 Ref="55" type="TableCell" isKey="true">
+              <Border>All;Black;2;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>1.75,0,2.22,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>IRANSansMobile(FaNum),9</Font>
+              <HorAlignment>Center</HorAlignment>
+              <ID>30</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table2_Cell2</Name>
+              <Page isRef="5" />
+              <Parent isRef="53" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{myData2.RemainigAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Table2_Cell2>
+            <Table2_Cell3 Ref="56" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>2.23,0,3.26,0.3</ClientRectangle>
+              <ClientRectangle>3.97,0,2.33,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -1067,21 +1071,21 @@
               <ID>0</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
-              <Name>Table2_Cell2</Name>
+              <Name>Table2_Cell3</Name>
               <Page isRef="5" />
-              <Parent isRef="54" />
+              <Parent isRef="53" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData2.Total}</Text>
+              <Text>{myData2.TotalDiposit}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Table2_Cell2>
-            <Table2_Cell3 Ref="57" type="TableCell" isKey="true">
+            </Table2_Cell3>
+            <Table2_Cell4 Ref="57" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.49,0,2.93,0.3</ClientRectangle>
+              <ClientRectangle>6.3,0,2.12,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>IRANSansMobile(FaNum),10</Font>
@@ -1090,17 +1094,17 @@
               <ID>3</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
-              <Name>Table2_Cell3</Name>
+              <Name>Table2_Cell4</Name>
               <Page isRef="5" />
-              <Parent isRef="54" />
+              <Parent isRef="53" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
-              <Text>{myData2.TotalRent}</Text>
+              <Text>{myData2.TotalWithdraw}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Table2_Cell3>
-            <Table2_Cell4 Ref="58" type="TableCell" isKey="true">
+            </Table2_Cell4>
+            <Table2_Cell5 Ref="58" type="TableCell" isKey="true">
               <Border>All;Black;2;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <CanGrow>True</CanGrow>
@@ -1113,15 +1117,16 @@
               <ID>4</ID>
               <JoinCells isList="true" count="0" />
               <Margins>0,0,0,0</Margins>
-              <Name>Table2_Cell4</Name>
+              <Name>Table2_Cell5</Name>
               <Page isRef="5" />
-              <Parent isRef="54" />
+              <Parent isRef="53" />
               <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{myData2.CurrenyName}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Table2_Cell4>
+            </Table2_Cell5>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName isNull="true" />
@@ -1129,7 +1134,7 @@
           <Expressions isList="true" count="0" />
           <Filters isList="true" count="0" />
           <Name>Table2</Name>
-          <NumberID>30</NumberID>
+          <NumberID>31</NumberID>
           <Page isRef="5" />
           <Parent isRef="5" />
           <RowCount>1</RowCount>
@@ -1159,10 +1164,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>4/28/2022 3:51:02 PM</ReportChanged>
+  <ReportChanged>4/28/2022 3:42:00 PM</ReportChanged>
   <ReportCreated>1/23/2022 12:40:14 PM</ReportCreated>
-  <ReportFile>D:\fixed\PamirAccountingCore\PamirAccounting\Reports\DraftsListt.mrt</ReportFile>
-  <ReportGuid>6e2f2e668c3640e0ad7a6102fa25814d</ReportGuid>
+  <ReportFile>D:\fixed\PamirAccountingCore\PamirAccounting\Reports\AgencyStatusList.mrt</ReportFile>
+  <ReportGuid>32c3e3bcefe64cd6ad56eae880a57f12</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2022.1.4.0</ReportVersion>

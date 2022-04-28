@@ -609,6 +609,8 @@ namespace PamirAccounting.UI.Forms.Customers
         public class reportbaseDAta
         {
             public string CustomerName { get; set; }
+            public string CurrencyName { get; set; }
+            public string AgencyName { get; set; }
             public string Date { get; set; }
             public string Price { get; set; }
             public string Status { get; set; }
