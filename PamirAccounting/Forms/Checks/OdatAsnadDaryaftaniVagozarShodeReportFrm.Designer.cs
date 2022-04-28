@@ -31,21 +31,10 @@ namespace PamirAccounting.Forms.Checks
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OdatAsnadDaryaftaniVagozarShodeReportFrm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAccountNumber = new DevExpress.XtraEditors.TextEdit();
             this.txtChequeNumber = new DevExpress.XtraEditors.TextEdit();
@@ -58,6 +47,18 @@ namespace PamirAccounting.Forms.Checks
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRowEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnRowDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).BeginInit();
@@ -95,14 +96,14 @@ namespace PamirAccounting.Forms.Checks
             this.Column9,
             this.btnRowEdit,
             this.btnRowDelete});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(-2, 110);
             this.dataGridView1.MultiSelect = false;
@@ -117,130 +118,6 @@ namespace PamirAccounting.Forms.Checks
             this.dataGridView1.Size = new System.Drawing.Size(1015, 368);
             this.dataGridView1.TabIndex = 129;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id";
-            this.id.Frozen = true;
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "RowId";
-            this.dataGridViewTextBoxColumn1.FillWeight = 60F;
-            this.dataGridViewTextBoxColumn1.Frozen = true;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ردیف";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ChequeNumber";
-            this.dataGridViewTextBoxColumn2.Frozen = true;
-            this.dataGridViewTextBoxColumn2.HeaderText = "شماره چک";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "IssueDatePersian";
-            this.dataGridViewTextBoxColumn3.FillWeight = 75F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "صدور";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DueDatePersian";
-            this.dataGridViewTextBoxColumn4.FillWeight = 75F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "سررسید";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Amount";
-            this.dataGridViewTextBoxColumn6.HeaderText = "مبلغ";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "CustomerName";
-            this.dataGridViewTextBoxColumn8.FillWeight = 130F;
-            this.dataGridViewTextBoxColumn8.HeaderText = "صاحب چک";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 130;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "DocumentID";
-            this.Column6.HeaderText = "سند";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "BankAccountNumber";
-            this.Column10.FillWeight = 130F;
-            this.Column10.HeaderText = "شماره حساب";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 130;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "BankName";
-            this.Column9.HeaderText = "بانک";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // btnRowEdit
-            // 
-            this.btnRowEdit.FillWeight = 70F;
-            this.btnRowEdit.HeaderText = "ویرایش";
-            this.btnRowEdit.MinimumWidth = 6;
-            this.btnRowEdit.Name = "btnRowEdit";
-            this.btnRowEdit.ReadOnly = true;
-            this.btnRowEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnRowEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnRowEdit.Text = "ویرایش";
-            this.btnRowEdit.ToolTipText = "ویرایش";
-            this.btnRowEdit.UseColumnTextForButtonValue = true;
-            this.btnRowEdit.Width = 70;
-            // 
-            // btnRowDelete
-            // 
-            this.btnRowDelete.FillWeight = 70F;
-            this.btnRowDelete.HeaderText = "حذف";
-            this.btnRowDelete.MinimumWidth = 6;
-            this.btnRowDelete.Name = "btnRowDelete";
-            this.btnRowDelete.ReadOnly = true;
-            this.btnRowDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnRowDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnRowDelete.Text = "حذف";
-            this.btnRowDelete.ToolTipText = "حذف";
-            this.btnRowDelete.UseColumnTextForButtonValue = true;
-            this.btnRowDelete.Width = 70;
             // 
             // groupBox1
             // 
@@ -383,6 +260,133 @@ namespace PamirAccounting.Forms.Checks
             this.label11.TabIndex = 139;
             this.label11.Text = "حذف (F5)";
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RowId";
+            this.dataGridViewTextBoxColumn1.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn1.Frozen = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ردیف";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ChequeNumber";
+            this.dataGridViewTextBoxColumn2.Frozen = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "شماره چک";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "IssueDatePersian";
+            this.dataGridViewTextBoxColumn3.FillWeight = 75F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "صدور";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DueDatePersian";
+            this.dataGridViewTextBoxColumn4.FillWeight = 75F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "سررسید";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Amount";
+            dataGridViewCellStyle3.Format = "N1";
+            dataGridViewCellStyle3.NullValue = "1";
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn6.HeaderText = "مبلغ";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "CustomerName";
+            this.dataGridViewTextBoxColumn8.FillWeight = 130F;
+            this.dataGridViewTextBoxColumn8.HeaderText = "صاحب چک";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 130;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "DocumentID";
+            this.Column6.HeaderText = "سند";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "BankAccountNumber";
+            this.Column10.FillWeight = 130F;
+            this.Column10.HeaderText = "شماره حساب";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 130;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "BankName";
+            this.Column9.HeaderText = "بانک";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // btnRowEdit
+            // 
+            this.btnRowEdit.FillWeight = 70F;
+            this.btnRowEdit.HeaderText = "ویرایش";
+            this.btnRowEdit.MinimumWidth = 6;
+            this.btnRowEdit.Name = "btnRowEdit";
+            this.btnRowEdit.ReadOnly = true;
+            this.btnRowEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnRowEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnRowEdit.Text = "ویرایش";
+            this.btnRowEdit.ToolTipText = "ویرایش";
+            this.btnRowEdit.UseColumnTextForButtonValue = true;
+            this.btnRowEdit.Width = 70;
+            // 
+            // btnRowDelete
+            // 
+            this.btnRowDelete.FillWeight = 70F;
+            this.btnRowDelete.HeaderText = "حذف";
+            this.btnRowDelete.MinimumWidth = 6;
+            this.btnRowDelete.Name = "btnRowDelete";
+            this.btnRowDelete.ReadOnly = true;
+            this.btnRowDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnRowDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnRowDelete.Text = "حذف";
+            this.btnRowDelete.ToolTipText = "حذف";
+            this.btnRowDelete.UseColumnTextForButtonValue = true;
+            this.btnRowDelete.Width = 70;
+            // 
             // OdatAsnadDaryaftaniVagozarShodeReportFrm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Lavender;
@@ -427,6 +431,11 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox4;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -439,10 +448,5 @@ namespace PamirAccounting.Forms.Checks
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowEdit;
         private System.Windows.Forms.DataGridViewButtonColumn btnRowDelete;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label11;
     }
 }

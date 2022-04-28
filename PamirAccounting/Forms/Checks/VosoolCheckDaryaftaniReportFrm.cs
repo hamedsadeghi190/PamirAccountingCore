@@ -133,6 +133,11 @@ namespace PamirAccounting.Forms.Checks
 
         private void txtChequeNumber_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtChequeNumber.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
@@ -165,6 +170,11 @@ namespace PamirAccounting.Forms.Checks
 
         private void txtAccountNumber_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtAccountNumber.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
@@ -200,11 +210,11 @@ namespace PamirAccounting.Forms.Checks
 
             if (e.KeyCode == Keys.Escape)
                 this.Close();
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
 
 
             if (e.KeyCode == Keys.F7)

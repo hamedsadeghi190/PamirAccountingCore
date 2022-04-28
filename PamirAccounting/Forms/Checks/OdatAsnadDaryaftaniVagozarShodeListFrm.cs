@@ -51,6 +51,8 @@ namespace PamirAccounting.Forms.Checks
 
         private void OdatAsnadDaryaftaniVagozarShodeListFrm_Load(object sender, EventArgs e)
         {
+            txtsearch.Select();
+            txtsearch.Focus();
             dataGridView1.AutoGenerateColumns = false;
             LoadData();
         }
@@ -59,17 +61,17 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.F2)
             {
                 txtsearch.Select();
                 txtsearch.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Space)
             {
 
                 if (dataGridView1.SelectedRows.Count > 0)
@@ -123,6 +125,11 @@ namespace PamirAccounting.Forms.Checks
 
         private void txtsearch_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtsearch.Text.Length > 0)
             {
                 PersianCalendar pc = new PersianCalendar();
