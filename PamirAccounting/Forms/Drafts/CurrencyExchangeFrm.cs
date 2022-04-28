@@ -46,6 +46,8 @@ namespace PamirAccounting.Forms.Drafts
 
             if (_Draft != null)
             {
+                txtRent.Text = _Draft.Rent.ToString();
+                label3.Text = _Draft.Rent.ToString();
                 lblDraftAmount.Text = _Draft.DraftAmount.ToString();
                 lblDraftCurrency.Text = _Draft.TypeCurrency.Name;
 
@@ -89,28 +91,26 @@ namespace PamirAccounting.Forms.Drafts
                                 mappingsAction = currenciesMappings.Action;
                             }
 
-
                             if (mappingsAction == (int)MappingActions.Division)
                             {
-                                var drafAmount = Math.Round(_Draft.DraftAmount / rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+                                var drafAmount = Math.Round((_Draft.DraftAmount + rent) / rate, MidpointRounding.AwayFromZero);
 
-                                lblConvetedAmount.Text = (drafAmount + rent).ToString();
+                                lblConvetedAmount.Text = (drafAmount).ToString();
                             }
                             else if (mappingsAction == (int)MappingActions.Multiplication)
                             {
-
-                                var drafAmount = Math.Round(_Draft.DraftAmount * rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+                                var drafAmount = Math.Round((_Draft.DraftAmount + rent) * rate, MidpointRounding.AwayFromZero);
 
-                                lblConvetedAmount.Text = (drafAmount + rent).ToString();
+                                lblConvetedAmount.Text = (drafAmount).ToString();
                             }
                             else
                             {
-                                var drafAmount = Math.Round(_Draft.DraftAmount + rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
+                                var drafAmount = Math.Round((_Draft.DraftAmount + rent) + rate, MidpointRounding.AwayFromZero);
 
-                                lblConvetedAmount.Text = (drafAmount + rent).ToString();
+                                lblConvetedAmount.Text = (drafAmount).ToString();
                             }
 
                         }
@@ -151,7 +151,7 @@ namespace PamirAccounting.Forms.Drafts
             _Draft.ConvertedCurrencyId = (int)cmbConvertedCurrency.SelectedValue;
             _Draft.ConvertedAmount = long.Parse(lblConvetedAmount.Text);
             _Draft.ConvertedRate = double.Parse(txtRate.Text);
-            _Draft.Rent =  double.Parse(txtRent.Text);
+            _Draft.Rent = double.Parse(txtRent.Text);
             _Draft.ExtraDescription = txtExteraDesc.Text;
 
             unitOfWork.DraftsServices.Update(_Draft);
@@ -169,6 +169,11 @@ namespace PamirAccounting.Forms.Drafts
                 SendKeys.Send("{TAB}");
                 e.Handled = true;
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

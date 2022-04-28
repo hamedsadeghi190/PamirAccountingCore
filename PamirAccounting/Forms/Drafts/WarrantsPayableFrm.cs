@@ -341,7 +341,7 @@ namespace PamirAccounting.Forms.Drafts
                     relatedDraft.AgencyId = customer.Id;
                     relatedDraft.Type = (int)DraftTypes.Raft;
                     relatedDraft.Number = Int64.Parse(txt_forosh_number.Text);
-                    relatedDraft.OtherNumber = txt_forosh_ext_number.Text;
+                    relatedDraft.OtherNumber = "";
                     relatedDraft.Sender = txtSender.Text;
                     relatedDraft.Reciver = txtReciver.Text;
                     relatedDraft.FatherName = txtFatherName.Text;
@@ -350,7 +350,7 @@ namespace PamirAccounting.Forms.Drafts
                     relatedDraft.TypeCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                     relatedDraft.DraftAmount = long.Parse(txtDepositAmount.Text);
                     relatedDraft.Rate = 1;
-                    relatedDraft.Rent = 0;
+                    relatedDraft.Rent = txt_forosh_ext_number.Text.Length > 0 ? double.Parse(txt_forosh_ext_number.Text) : 0;
                     relatedDraft.DepositAmount = double.Parse(txtDepositAmount.Text);
                     relatedDraft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                     relatedDraft.CustomerId = AppSetting.NotRunnedDraftsId;
@@ -460,20 +460,20 @@ namespace PamirAccounting.Forms.Drafts
                             if (mappingsAction == (int)MappingActions.Division)
                             {
 
-                                var depositAmount = Math.Round((double.Parse(txtDraftAmount.Text) ) / rate, MidpointRounding.AwayFromZero);
+                                var depositAmount = Math.Round((double.Parse(txtDraftAmount.Text)) / rate, MidpointRounding.AwayFromZero);
                                 txtDepositAmount.Text = (depositAmount).ToString();
 
                             }
                             else if (mappingsAction == (int)MappingActions.Multiplication)
                             {
-                           
-                                var depositAmount = Math.Round((double.Parse(txtDraftAmount.Text) ) * rate, MidpointRounding.AwayFromZero);
+
+                                var depositAmount = Math.Round((double.Parse(txtDraftAmount.Text)) * rate, MidpointRounding.AwayFromZero);
                                 txtDepositAmount.Text = (depositAmount).ToString();
                             }
                             else
                             {
-                             
-                                var depositAmount = Math.Round((double.Parse(txtDraftAmount.Text) ) + rate, MidpointRounding.AwayFromZero);
+
+                                var depositAmount = Math.Round((double.Parse(txtDraftAmount.Text)) + rate, MidpointRounding.AwayFromZero);
                                 txtDepositAmount.Text = (depositAmount).ToString();
                             }
 

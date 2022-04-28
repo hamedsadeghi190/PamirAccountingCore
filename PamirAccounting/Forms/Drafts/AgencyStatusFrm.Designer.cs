@@ -92,9 +92,9 @@ namespace PamirAccounting.Forms.Drafts
             // LblAgencyName
             // 
             this.LblAgencyName.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblAgencyName.Location = new System.Drawing.Point(907, 25);
+            this.LblAgencyName.Location = new System.Drawing.Point(943, 24);
             this.LblAgencyName.Name = "LblAgencyName";
-            this.LblAgencyName.Size = new System.Drawing.Size(180, 24);
+            this.LblAgencyName.Size = new System.Drawing.Size(148, 24);
             this.LblAgencyName.TabIndex = 10;
             this.LblAgencyName.Text = "مزار";
             // 
@@ -104,17 +104,16 @@ namespace PamirAccounting.Forms.Drafts
             this.label4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(1093, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 16);
+            this.label4.Size = new System.Drawing.Size(82, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "نام نمایندگی :";
             // 
             // LblCurrencyName
             // 
-            this.LblCurrencyName.AutoSize = true;
             this.LblCurrencyName.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblCurrencyName.Location = new System.Drawing.Point(804, 27);
+            this.LblCurrencyName.Location = new System.Drawing.Point(755, 26);
             this.LblCurrencyName.Name = "LblCurrencyName";
-            this.LblCurrencyName.Size = new System.Drawing.Size(24, 16);
+            this.LblCurrencyName.Size = new System.Drawing.Size(84, 20);
             this.LblCurrencyName.TabIndex = 8;
             this.LblCurrencyName.Text = "دلار";
             // 
@@ -124,7 +123,7 @@ namespace PamirAccounting.Forms.Drafts
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(841, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 16);
+            this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "ارز معیار :";
             // 
