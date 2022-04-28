@@ -50,7 +50,7 @@ namespace PamirAccounting.Forms
             AppSetting.DocumnetAndDraftsGroupID = new int[] { 7, 8 };
 
 
-            if (AppSetting.DebugMode == false)
+            if (AppSetting.DebugMode == true)
             {
                 var currentDirectory = Directory.GetCurrentDirectory();
                 AppSetting.ReportPath = $"{currentDirectory}\\Reports\\";
