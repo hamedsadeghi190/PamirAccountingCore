@@ -40,6 +40,8 @@ namespace PamirAccounting.Forms.Users
 
         private void UsersListFrm_Load(object sender, EventArgs e)
         {
+            txtsearch.Select();
+            txtsearch.Focus();
             dataGridView1.AutoGenerateColumns = false;
             loadData();
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
@@ -102,6 +104,11 @@ namespace PamirAccounting.Forms.Users
 
         private void txtsearch_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtsearch.Text.Length > 0)
             {
                 dataList = unitOfWork.UserServices.Search(txtsearch.Text);
@@ -120,11 +127,11 @@ namespace PamirAccounting.Forms.Users
                 txtsearch.Select();
                 txtsearch.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.Escape)
                 this.Close();
             if (e.KeyCode == Keys.F7)

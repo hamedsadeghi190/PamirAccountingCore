@@ -54,7 +54,8 @@ namespace PamirAccounting.Forms.GeneralLedger
         }
         private void CreditorListFrm_Load(object sender, EventArgs e)
         {
-  
+            txtSearch.Select();
+            txtSearch.Focus();
             LoadData();
 
         }
@@ -188,6 +189,11 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridCreditor.Select();
+                gridCreditor.Focus();
+            }
             if (txtSearch.Text.Length > 0)
             {
                 var tmpDataList = unitOfWork.TransactionServices.GetAllWithdrawCustomers(txtSearch.Text, _CurrenyId, _GroupId);

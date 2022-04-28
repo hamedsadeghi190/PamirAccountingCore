@@ -31,15 +31,20 @@ namespace PamirAccounting.Forms.GeneralLedger
         private int? _GroupId;
         public DebtorListFrm()
         {
+            txtSearch.Select();
+            txtSearch.Focus();
             InitializeComponent();
             unitOfWork = new UnitOfWork();
 
         }
         public DebtorListFrm(int? CurrenyId, int? GroupId)
         {
+                    InitializeComponent();
+            txtSearch.Select();
+            txtSearch.Focus();
             _CurrenyId = CurrenyId;
             _GroupId = GroupId;
-            InitializeComponent();
+   
             unitOfWork = new UnitOfWork();
         }
 
@@ -63,11 +68,11 @@ namespace PamirAccounting.Forms.GeneralLedger
                 txtSearch.Select();
                 txtSearch.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.Escape)
                 this.Close();
 
@@ -315,6 +320,11 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridCreditor.Select();
+                gridCreditor.Focus();
+            }
             if (txtSearch.Text.Length > 0)
             {
                 var tmpDataList = unitOfWork.TransactionServices.GetAllWithdrawCustomers(txtSearch.Text, _CurrenyId, _GroupId);

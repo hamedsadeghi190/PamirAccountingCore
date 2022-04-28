@@ -30,6 +30,8 @@ namespace PamirAccounting.UI.Forms.Agencies
 
         private void AgencyListFrm_Load(object sender, EventArgs e)
         {
+            txtSearch.Select();
+            txtSearch.Focus();
             loadData();
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
             c.FlatStyle = FlatStyle.Standard;
@@ -88,6 +90,11 @@ namespace PamirAccounting.UI.Forms.Agencies
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtSearch.Text.Length > 0)
             {
                 dataList = unitOfWork.AgencyServices.Search(txtSearch.Text);
@@ -106,11 +113,11 @@ namespace PamirAccounting.UI.Forms.Agencies
                 txtSearch.Select();
                 txtSearch.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.Escape)
                 this.Close();
 

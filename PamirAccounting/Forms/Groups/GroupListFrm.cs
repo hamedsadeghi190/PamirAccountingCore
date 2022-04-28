@@ -23,6 +23,8 @@ namespace PamirAccounting.UI.Forms.Groups
 
         private void GroupListFrm_Load(object sender, EventArgs e)
         {
+            txtSearch.Select();
+            txtSearch.Focus();
             dataGridView1.AutoGenerateColumns = false;
             loadData();
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
@@ -113,11 +115,11 @@ namespace PamirAccounting.UI.Forms.Groups
                 txtSearch.Focus();
             }
 
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.Escape)
                 this.Close();
 
@@ -171,6 +173,11 @@ namespace PamirAccounting.UI.Forms.Groups
 
         private void txtSearch_KeyUp_1(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtSearch.Text.Length > 0)
             {
                 dataList = unitOfWork.CustomerGroups.FindAll(y => y.Name.Contains(txtSearch.Text)).Select(x => new CustomerGroupModel { Id = x.Id, Name = x.Name }).ToList();
