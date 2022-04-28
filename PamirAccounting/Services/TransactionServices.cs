@@ -333,7 +333,7 @@ namespace PamirAccounting.Services
                                          Description = x.Description,
                                          DocumentId = x.DocumentId
 
-                                     }).Where(x => x.ReceiptNumber == receiptNumber).ToList();
+                                     }).Where(x => x.ReceiptNumber .Contains( receiptNumber)).ToList();
                     }
                 }
                 if (branchCode.Length > 0)
@@ -358,7 +358,7 @@ namespace PamirAccounting.Services
                                          Description = x.Description,
                                          DocumentId = x.DocumentId
 
-                                     }).Where(x => x.BranchCode == branchCode).ToList();
+                                     }).Where(x => x.BranchCode.Contains(branchCode)).ToList();
                     }
                 }
 

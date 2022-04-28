@@ -424,8 +424,8 @@ namespace PamirAccounting.Forms.Checks
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "Amount";
-            dataGridViewCellStyle3.Format = "N1";
-            dataGridViewCellStyle3.NullValue = "1";
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
             this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn11.HeaderText = "مبلغ";
             this.dataGridViewTextBoxColumn11.MinimumWidth = 6;

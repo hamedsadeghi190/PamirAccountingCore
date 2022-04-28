@@ -36,6 +36,8 @@ namespace PamirAccounting.Forms.Transactions
 
         private void UnkwonDepositFrm_Load(object sender, EventArgs e)
         {
+            txtDate.Select();
+            txtDate.Focus();
             txtDate.Text = DateTime.Now.ToFarsiFormat();
             LoadData();
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
@@ -105,16 +107,16 @@ namespace PamirAccounting.Forms.Transactions
                 txtDate.Select();
                 txtDate.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-                e.Handled = true;
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    SendKeys.Send("{TAB}");
+            //    e.Handled = true;
+            //}
             if (e.KeyCode == Keys.Escape)
                 this.Close();
 
 
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Space)
             {
 
                 if (dataGridView1.SelectedRows.Count > 0)
@@ -186,12 +188,24 @@ namespace PamirAccounting.Forms.Transactions
                 report.Render();
                 report.Show();
             }
+            if (e.KeyCode == Keys.F6)
+            {
+                var rowIndex = dataGridView1.SelectedRows[0].Index;
+                var destForm = new editUnkownDepositFrm(_dataList.ElementAt(rowIndex).Id);
+                destForm.ShowDialog();
+                LoadData();
+            }
         }
 
       
 
         private void txtBranchCode_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtBranchCode.Text.Length > 0)
             {
                 _dataList = unitOfWork.TransactionServices.GetAllUnkowns_Search(txtDate.Text, txtBranchCode.Text, txtNumber.Text);
@@ -205,6 +219,11 @@ namespace PamirAccounting.Forms.Transactions
 
         private void txtNumber_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtNumber.Text.Length > 0)
             {
                 _dataList = unitOfWork.TransactionServices.GetAllUnkowns_Search(txtDate.Text, txtBranchCode.Text, txtNumber.Text);
@@ -218,6 +237,11 @@ namespace PamirAccounting.Forms.Transactions
 
         private void txtDate_KeyUp_1(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.Select();
+                dataGridView1.Focus();
+            }
             if (txtDate.Text.Length > 0)
             {
                 var dDate = txtDate.Text.Split('_');
