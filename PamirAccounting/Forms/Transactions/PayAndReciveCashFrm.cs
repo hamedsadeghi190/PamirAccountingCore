@@ -43,7 +43,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencies.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             this.cmbCustomers.SelectedValueChanged -= new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
             this.cmbRemainType.SelectedIndexChanged -= new System.EventHandler(this.cmbRemainType_SelectedIndexChanged);
-           
+
             _Currencies = unitOfWork.Currencies.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = x.Name }).ToList();
             cmbCurrencies.DataSource = _Currencies;
             AutoCompleteStringCollection autoCurrencies = new AutoCompleteStringCollection();
@@ -123,14 +123,14 @@ namespace PamirAccounting.Forms.Transactions
         private void loadTransActionInfo(long? transActionId)
         {
             var transaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transActionId.Value);
-            
+
             customerTransaction = unitOfWork.TransactionServices.FindFirst(x => x.Id == transaction.OriginalTransactionId);
             sandoghTransAction = unitOfWork.TransactionServices.FindFirst(x => x.Id == customerTransaction.DoubleTransactionId);
-            
+
             _CustomerId = customerTransaction.SourceCustomerId;
             cmbCustomers.SelectedValue = _CustomerId;
             cmbCustomers.Enabled = false;
-            
+
             lbl_Document_Id_value.Text = customerTransaction.DocumentId.ToString();
 
             if (customerTransaction.WithdrawAmount.Value != 0)
@@ -162,8 +162,25 @@ namespace PamirAccounting.Forms.Transactions
 
         private void btnsavebank_Click(object sender, EventArgs e)
         {
+
             if (checkEntryData())
             {
+
+                if ((int)cmbRemainType.SelectedValue == 1)
+                {
+                    var balance = unitOfWork.TransactionServices.GetCustomerBalace(AppSetting.SandoghCustomerId, (int)cmbCurrencies.SelectedValue);
+                    if (balance < 0 && (balance * -1) > long.Parse(txtAmount.Text))
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("مبلغ انتخابی از موجودی صندوق بیشتر است", "مقادیر ورودی", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtAmount.Focus();
+                        return;
+                    }
+                }
+
                 if (_TransActionId.HasValue)
                 {
                     SaveEdit();
@@ -411,7 +428,7 @@ namespace PamirAccounting.Forms.Transactions
             txtAmount.Text = "0";
             txtdesc.Text = "";
             lblNumberString.Text = "";
-            lbl_Document_Id_value.Text=unitOfWork.TransactionServices.GetNewDocumentId().ToString();
+            lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             txtDate.Select();
             txtDate.Focus();
 

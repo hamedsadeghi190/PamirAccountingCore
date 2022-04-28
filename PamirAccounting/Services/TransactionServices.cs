@@ -899,28 +899,28 @@ namespace PamirAccounting.Services
             {
                 PersianCalendar pc = new PersianCalendar();
                 var dataList = new List<TransactionModel>();
-               
-                    dataList = FindAllReadonly()
-                    .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.OriginalTransactionId==x.Id)
-                   .Select(x => new TransactionModel
-                   {
 
-                       Id = x.Id,
-                       Description = x.Description,
-                       DepositAmount = x.DepositAmount,
-                       WithdrawAmount = x.WithdrawAmount,
-                       TransactionDateTime = x.TransactionDateTime.ToString(),
-                       TransactionDateTime2 = x.TransactionDateTime,
-                       CurrenyId = x.CurrenyId,
-                       CurrenyName = x.Curreny.Name,
-                       FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
-                       SourceCustomerId = x.SourceCustomerId,
+                dataList = FindAllReadonly()
+                .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.OriginalTransactionId == x.Id)
+               .Select(x => new TransactionModel
+               {
+
+                   Id = x.Id,
+                   Description = x.Description,
+                   DepositAmount = x.DepositAmount,
+                   WithdrawAmount = x.WithdrawAmount,
+                   TransactionDateTime = x.TransactionDateTime.ToString(),
+                   TransactionDateTime2 = x.TransactionDateTime,
+                   CurrenyId = x.CurrenyId,
+                   CurrenyName = x.Curreny.Name,
+                   FullName = x.SourceCustomer.FirstName + " " + x.SourceCustomer.LastName,
+                   SourceCustomerId = x.SourceCustomerId,
 
 
 
-                   }).ToList();
-                
-              
+               }).ToList();
+
+
                 int row = 1;
                 var tmpdataList = dataList.Select(x => new TransactionModel
                 {
@@ -949,13 +949,13 @@ namespace PamirAccounting.Services
         {
             try
             {
-             
+
                 var dataList = new List<TransactionModel>();
                 PersianCalendar pc = new PersianCalendar();
                 string[] dDate;
                 DateTime TransactionDateTime;
-                    dDate = date.Split('/');
-                    TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
+                dDate = date.Split('/');
+                TransactionDateTime = pc.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
                 dataList = FindAllReadonly()
                 .Include(x => x.Curreny).Where(x => x.TransactionType == (int)TransaActionType.PayAndReciveCash && x.OriginalTransactionId == x.Id)
                .Select(x => new TransactionModel
@@ -974,7 +974,7 @@ namespace PamirAccounting.Services
 
 
 
-               }).Where(x=>x.TransactionDateTime2==TransactionDateTime).ToList();
+               }).Where(x => x.TransactionDateTime2 == TransactionDateTime).ToList();
 
 
                 int row = 1;
@@ -1052,7 +1052,7 @@ namespace PamirAccounting.Services
 
               }).Where(x => x.CurrenyId == currencyId).ToList();
                 }
-               
+
 
 
                 int row = 1;
@@ -1637,5 +1637,36 @@ namespace PamirAccounting.Services
             }
 
         }
+
+        public long GetCustomerBalace(int CustomerId, int CurrenyId)
+        {
+            try
+            {
+
+                var dataList = FindAllReadonly(x => x.SourceCustomerId == CustomerId && x.CurrenyId == CurrenyId)
+                 .Include(x => x.Curreny)
+                 .Include(x => x.User)
+                 .AsNoTracking()
+                .Select(x => new TransactionModel
+                {
+                    Id = x.Id,
+                    DepositAmount = x.DepositAmount,
+                    WithdrawAmount = x.WithdrawAmount,
+                }).ToList();
+
+                long TotalDipostit = 0, TotalWithdraw = 0;
+                foreach (var item in dataList)
+                {
+                    TotalDipostit += item.DepositAmount.HasValue ? item.DepositAmount.Value : 0;
+                    TotalWithdraw += item.WithdrawAmount.HasValue ? item.WithdrawAmount.Value : 0;
+                }
+                return TotalDipostit - TotalWithdraw;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
     }
 }

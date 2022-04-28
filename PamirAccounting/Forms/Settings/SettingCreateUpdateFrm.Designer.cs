@@ -195,7 +195,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.simpleButton1.Location = new System.Drawing.Point(22, 22);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(141, 38);
+            this.simpleButton1.Size = new System.Drawing.Size(141, 36);
             this.simpleButton1.TabIndex = 113;
             this.simpleButton1.Text = "انتخاب مسیر";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);

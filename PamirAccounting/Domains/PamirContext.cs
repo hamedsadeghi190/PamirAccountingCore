@@ -37,7 +37,7 @@ namespace PamirAccounting.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(AppSetting.ConnectionString);
             }
         }
 

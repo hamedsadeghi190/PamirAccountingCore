@@ -27,9 +27,18 @@ namespace PamirAccounting.Forms
 {
     public partial class LandingPageFrm : Form
     {
+        UnitOfWork unitOfWork;
         public LandingPageFrm()
         {
             InitializeComponent();
+            unitOfWork = new UnitOfWork();
+            var _Settings = unitOfWork.Setting.FindFirstOrDefault();
+            if (_Settings != null)
+            {
+                AppSetting.BackupPath = _Settings.BackupDirectory;
+            }
+
+         
             AppSetting.DebugMode = false;
 
             AppSetting.NotRunnedDraftsId = 6;
@@ -272,20 +281,7 @@ namespace PamirAccounting.Forms
             FrmUsers.ShowDialog();
         }
 
-        private void SettingsMenu_Recovery_Click(object sender, EventArgs e)
-        {
-            var backservice = new BackupService();
-            var result = backservice.Backup("PamirAccounting", "d:\\pamirbackup.bak");
 
-            if (result)
-            {
-                MessageBox.Show("ok");
-            }
-            else
-            {
-                MessageBox.Show("NoOk");
-            }
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -562,6 +558,53 @@ namespace PamirAccounting.Forms
         {
             var frm = new FrmCustomerList();
             frm.ShowDialog();
+
+        }
+
+        private void CreateBackupMenu_Click(object sender, EventArgs e)
+        {
+            var _Settings = unitOfWork.Setting.FindFirstOrDefault();
+            if (_Settings != null)
+            {
+                AppSetting.BackupPath = _Settings.BackupDirectory;
+            }
+
+            var backservice = new BackupService();
+            var dateTime = DateTime.Now.ToFarsiSerialFormat();
+            var backupFileName = $"pamirbackup{dateTime}.bak";
+
+            var result = backservice.Backup("PamirAccounting", $"{AppSetting.BackupPath}\\{backupFileName}");
+
+
+            if (result)
+            {
+                MessageBox.Show("فایل پشتیبان ذخبره شد");
+            }
+            else
+            {
+                MessageBox.Show("فایل پشتیبان ذخبره نشد");
+            }
+        }
+
+        private void SettingsMenu_Recovery_Click(object sender, EventArgs e)
+        {
+            var result = backupFileSelector.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+                var filename = backupFileSelector.FileName;
+                var recoveryReuslt = new BackupService().Restore(filename);
+
+
+                if (recoveryReuslt)
+                {
+                    MessageBox.Show("بازیابی اطلاعات با موفقیت انجام شد");
+                }
+                else
+                {
+                    MessageBox.Show("بازیابی اطلاعات با شکست مواجه شد");
+                }
+            }
 
         }
     }

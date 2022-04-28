@@ -99,7 +99,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.lbl_Document_Id.Location = new System.Drawing.Point(462, 27);
             this.lbl_Document_Id.Name = "lbl_Document_Id";
             this.lbl_Document_Id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 19);
+            this.lbl_Document_Id.Size = new System.Drawing.Size(42, 24);
             this.lbl_Document_Id.TabIndex = 344;
             this.lbl_Document_Id.Text = "سند :";
             // 
@@ -123,7 +123,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.cmbDestiniation.FormattingEnabled = true;
             this.cmbDestiniation.Location = new System.Drawing.Point(15, 95);
             this.cmbDestiniation.Name = "cmbDestiniation";
-            this.cmbDestiniation.Size = new System.Drawing.Size(177, 27);
+            this.cmbDestiniation.Size = new System.Drawing.Size(177, 32);
             this.cmbDestiniation.TabIndex = 5;
             this.cmbDestiniation.SelectedIndexChanged += new System.EventHandler(this.cmbDestiniation_SelectedIndexChanged);
             // 
@@ -135,7 +135,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.CmbSource.FormattingEnabled = true;
             this.CmbSource.Location = new System.Drawing.Point(276, 97);
             this.CmbSource.Name = "CmbSource";
-            this.CmbSource.Size = new System.Drawing.Size(181, 27);
+            this.CmbSource.Size = new System.Drawing.Size(181, 32);
             this.CmbSource.TabIndex = 2;
             this.CmbSource.SelectedIndexChanged += new System.EventHandler(this.CmbSource_SelectedIndexChanged);
             // 
@@ -177,7 +177,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.cmbCurrencies.FormattingEnabled = true;
             this.cmbCurrencies.Location = new System.Drawing.Point(276, 135);
             this.cmbCurrencies.Name = "cmbCurrencies";
-            this.cmbCurrencies.Size = new System.Drawing.Size(181, 27);
+            this.cmbCurrencies.Size = new System.Drawing.Size(181, 32);
             this.cmbCurrencies.TabIndex = 3;
             this.cmbCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencies_SelectedIndexChanged);
             // 
@@ -188,7 +188,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.label8.Location = new System.Drawing.Point(463, 60);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(49, 19);
+            this.label8.Size = new System.Drawing.Size(49, 24);
             this.label8.TabIndex = 338;
             this.label8.Text = "تاریخ :";
             // 
@@ -209,7 +209,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.label9.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.Location = new System.Drawing.Point(193, 97);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 19);
+            this.label9.Size = new System.Drawing.Size(56, 24);
             this.label9.TabIndex = 334;
             this.label9.Text = "واریز به:";
             // 
@@ -220,7 +220,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.label1.Location = new System.Drawing.Point(193, 57);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(44, 19);
+            this.label1.Size = new System.Drawing.Size(44, 24);
             this.label1.TabIndex = 342;
             this.label1.Text = "مبلغ :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -232,7 +232,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(461, 173);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 19);
+            this.label5.Size = new System.Drawing.Size(77, 24);
             this.label5.TabIndex = 337;
             this.label5.Text = "توضیحات :";
             // 
@@ -242,7 +242,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(462, 98);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 19);
+            this.label3.Size = new System.Drawing.Size(61, 24);
             this.label3.TabIndex = 335;
             this.label3.Text = "انتقال از:";
             // 
@@ -252,7 +252,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(461, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 19);
+            this.label2.Size = new System.Drawing.Size(57, 24);
             this.label2.TabIndex = 333;
             this.label2.Text = "نوع ارز :";
             // 
@@ -277,7 +277,7 @@ namespace PamirAccounting.UI.Forms.Transaction
             this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.btnsavebank);
             this.groupBox2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(6, 268);
+            this.groupBox2.Location = new System.Drawing.Point(6, 263);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox2.Size = new System.Drawing.Size(561, 67);

@@ -22,9 +22,11 @@ namespace PamirAccounting
         public static int  TomanCurrencyID { get; set; }
         public static int  SandoghCustomerId { get; set; }
         public static string  ReportPath { get; set; }
+        public static string  BackupPath { get; set; }
 
         public static int[] DocumnetAndDraftsGroupID { get; set; }
         public static int BankGroupCurrencyID { get; set; }
+        public static string ConnectionString { get; set; }
 
 
         public static void SaveLog(string fromName, string actionName, Exception ex)

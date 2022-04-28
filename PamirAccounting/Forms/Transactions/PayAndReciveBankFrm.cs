@@ -264,6 +264,19 @@ namespace PamirAccounting.Forms.Transactions
             {
                 if (CheckEntries() == true)
                 {
+                    if ((int)cmbAction.SelectedValue == 2)
+                    {
+                        var balance = unitOfWork.TransactionServices.GetCustomerBalace((int)cmbBanks.SelectedValue, (int)cmbCurrencies.SelectedValue);
+                        if (balance < 0 && (balance * -1) > long.Parse(txtAmount.Text))
+                        {
+                        }
+                        else
+                        {
+                            MessageBox.Show("مبلغ انتخابی از موجودی بانک بیشتر است", "مقادیر ورودی", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtAmount.Focus();
+                            return;
+                        }
+                    }
                     SaveEdit();
                     Close();
 
@@ -276,12 +289,25 @@ namespace PamirAccounting.Forms.Transactions
                 MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                     txtDate.Focus();
                 }
-
             }
             else
             {
                 if (CheckEntries() == true)
                 {
+                    if ((int)cmbAction.SelectedValue == 2)
+                    {
+                        var balance = unitOfWork.TransactionServices.GetCustomerBalace((int)cmbBanks.SelectedValue, (int)cmbCurrencies.SelectedValue);
+                        if (balance < 0 && (balance * -1) > long.Parse(txtAmount.Text))
+                        {
+                        }
+                        else
+                        {
+                            MessageBox.Show("مبلغ انتخابی از موجودی بانک بیشتر است", "مقادیر ورودی", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtAmount.Focus();
+                            return;
+                        }
+                    }
+
                     SaveNew();
                     CleanForm();
                     MessageBox.Show("اطلاعات با موفقیت ثبت شد.", " ذخیره اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1,

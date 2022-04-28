@@ -100,6 +100,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Setting = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsMenu_Users = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsMenu_Recovery = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreateBackupMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNewAccount = new System.Windows.Forms.Button();
             this.btnCurrencyAgency = new System.Windows.Forms.Button();
             this.btnWarrantsPayable = new System.Windows.Forms.Button();
@@ -114,6 +115,7 @@ namespace PamirAccounting.Forms
             this.lblTimee = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCustomerlist = new System.Windows.Forms.Button();
+            this.backupFileSelector = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -830,7 +832,8 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Header,
             this.SettingsMenu_Setting,
             this.SettingsMenu_Users,
-            this.SettingsMenu_Recovery});
+            this.SettingsMenu_Recovery,
+            this.CreateBackupMenu});
             this.تنظیماتToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.تنظیماتToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.تنظیماتToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("تنظیماتToolStripMenuItem.Image")));
@@ -847,7 +850,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_CurrencyLis.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_CurrencyLis.Image")));
             this.SettingsMenu_CurrencyLis.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_CurrencyLis.Name = "SettingsMenu_CurrencyLis";
-            this.SettingsMenu_CurrencyLis.Size = new System.Drawing.Size(211, 38);
+            this.SettingsMenu_CurrencyLis.Size = new System.Drawing.Size(216, 38);
             this.SettingsMenu_CurrencyLis.Text = "ارزها";
             this.SettingsMenu_CurrencyLis.Click += new System.EventHandler(this.SettingsMenu_CurrencyLis_Click);
             // 
@@ -858,7 +861,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_GroupList.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_GroupList.Image")));
             this.SettingsMenu_GroupList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_GroupList.Name = "SettingsMenu_GroupList";
-            this.SettingsMenu_GroupList.Size = new System.Drawing.Size(211, 38);
+            this.SettingsMenu_GroupList.Size = new System.Drawing.Size(216, 38);
             this.SettingsMenu_GroupList.Text = "گروه ها";
             this.SettingsMenu_GroupList.Click += new System.EventHandler(this.SettingsMenu_GroupList_Click);
             // 
@@ -869,7 +872,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_BankList.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_BankList.Image")));
             this.SettingsMenu_BankList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_BankList.Name = "SettingsMenu_BankList";
-            this.SettingsMenu_BankList.Size = new System.Drawing.Size(211, 38);
+            this.SettingsMenu_BankList.Size = new System.Drawing.Size(216, 38);
             this.SettingsMenu_BankList.Text = "بانک ها";
             this.SettingsMenu_BankList.Click += new System.EventHandler(this.SettingsMenu_BankList_Click);
             // 
@@ -880,7 +883,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Agency.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Agency.Image")));
             this.SettingsMenu_Agency.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Agency.Name = "SettingsMenu_Agency";
-            this.SettingsMenu_Agency.Size = new System.Drawing.Size(211, 38);
+            this.SettingsMenu_Agency.Size = new System.Drawing.Size(216, 38);
             this.SettingsMenu_Agency.Text = "نمایندگی ها ";
             this.SettingsMenu_Agency.Click += new System.EventHandler(this.SettingsMenu_Agency_Click);
             // 
@@ -891,7 +894,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_CurrencyAgency.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_CurrencyAgency.Image")));
             this.SettingsMenu_CurrencyAgency.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_CurrencyAgency.Name = "SettingsMenu_CurrencyAgency";
-            this.SettingsMenu_CurrencyAgency.Size = new System.Drawing.Size(211, 38);
+            this.SettingsMenu_CurrencyAgency.Size = new System.Drawing.Size(216, 38);
             this.SettingsMenu_CurrencyAgency.Text = "ارز نمایندگی ها";
             this.SettingsMenu_CurrencyAgency.Click += new System.EventHandler(this.SettingsMenu_CurrencyAgency_Click);
             // 
@@ -902,7 +905,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Header.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Header.Image")));
             this.SettingsMenu_Header.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Header.Name = "SettingsMenu_Header";
-            this.SettingsMenu_Header.Size = new System.Drawing.Size(211, 38);
+            this.SettingsMenu_Header.Size = new System.Drawing.Size(216, 38);
             this.SettingsMenu_Header.Text = "سربرگ";
             this.SettingsMenu_Header.Click += new System.EventHandler(this.SettingsMenu_Header_Click);
             // 
@@ -913,7 +916,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Setting.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Setting.Image")));
             this.SettingsMenu_Setting.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Setting.Name = "SettingsMenu_Setting";
-            this.SettingsMenu_Setting.Size = new System.Drawing.Size(211, 38);
+            this.SettingsMenu_Setting.Size = new System.Drawing.Size(216, 38);
             this.SettingsMenu_Setting.Text = "تنظیمات";
             this.SettingsMenu_Setting.Click += new System.EventHandler(this.SettingsMenu_Setting_Click);
             // 
@@ -924,7 +927,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Users.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Users.Image")));
             this.SettingsMenu_Users.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Users.Name = "SettingsMenu_Users";
-            this.SettingsMenu_Users.Size = new System.Drawing.Size(211, 38);
+            this.SettingsMenu_Users.Size = new System.Drawing.Size(216, 38);
             this.SettingsMenu_Users.Text = "کاربران";
             this.SettingsMenu_Users.Click += new System.EventHandler(this.SettingsMenu_Users_Click);
             // 
@@ -935,9 +938,17 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Recovery.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Recovery.Image")));
             this.SettingsMenu_Recovery.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Recovery.Name = "SettingsMenu_Recovery";
-            this.SettingsMenu_Recovery.Size = new System.Drawing.Size(211, 38);
+            this.SettingsMenu_Recovery.Size = new System.Drawing.Size(216, 38);
             this.SettingsMenu_Recovery.Text = "بازگردانی اطلاعات";
             this.SettingsMenu_Recovery.Click += new System.EventHandler(this.SettingsMenu_Recovery_Click);
+            // 
+            // CreateBackupMenu
+            // 
+            this.CreateBackupMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.CreateBackupMenu.Name = "CreateBackupMenu";
+            this.CreateBackupMenu.Size = new System.Drawing.Size(216, 38);
+            this.CreateBackupMenu.Text = "تهیه فایل پشتیبان";
+            this.CreateBackupMenu.Click += new System.EventHandler(this.CreateBackupMenu_Click);
             // 
             // btnNewAccount
             // 
@@ -1167,6 +1178,11 @@ namespace PamirAccounting.Forms
             this.btnCustomerlist.UseVisualStyleBackColor = false;
             this.btnCustomerlist.Click += new System.EventHandler(this.btnCustomerlist_Click);
             // 
+            // backupFileSelector
+            // 
+            this.backupFileSelector.DefaultExt = "bak";
+            this.backupFileSelector.FileName = "openFileDialog1";
+            // 
             // LandingPageFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
@@ -1288,5 +1304,7 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.ToolStripMenuItem OdatVagozariList;
         private System.Windows.Forms.ToolStripMenuItem BuyCurrencyMenuItem;
         private System.Windows.Forms.Button btnCustomerlist;
+        private System.Windows.Forms.ToolStripMenuItem CreateBackupMenu;
+        private System.Windows.Forms.OpenFileDialog backupFileSelector;
     }
 }

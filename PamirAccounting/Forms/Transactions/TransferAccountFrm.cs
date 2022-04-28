@@ -1,4 +1,5 @@
 ﻿using JntNum2Text;
+using Microsoft.EntityFrameworkCore;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -151,6 +152,21 @@ namespace PamirAccounting.UI.Forms.Transaction
         {
             if (checkEntryData())
             {
+                var customer = unitOfWork.Customers.FindFirst(x => x.Id == (int)CmbSource.SelectedValue);
+                if (customer.Id == AppSetting.SandoghCustomerId || customer.GroupId == 2)
+                {
+                    var balance = unitOfWork.TransactionServices.GetCustomerBalace((int)CmbSource.SelectedValue, (int)cmbCurrencies.SelectedValue);
+                    if (balance < 0 && (balance * -1) > long.Parse(txtAmount.Text))
+                    {
+                    }
+                    else
+                    {
+                        MessageBox.Show("مبلغ انتخابی از موجودی حساب بیشتر است", "مقادیر ورودی", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtAmount.Focus();
+                        return;
+                    }
+                }
+
                 if (_TransActionId.HasValue)
                 {
                     SaveEdit();
