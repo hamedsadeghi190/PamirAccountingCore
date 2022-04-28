@@ -250,8 +250,8 @@ namespace PamirAccounting.Forms.Checks
             // GroupName
             // 
             this.GroupName.DataPropertyName = "Amount";
-            dataGridViewCellStyle3.Format = "N1";
-            dataGridViewCellStyle3.NullValue = "1";
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
             this.GroupName.DefaultCellStyle = dataGridViewCellStyle3;
             this.GroupName.HeaderText = "مبلغ";
             this.GroupName.MinimumWidth = 6;

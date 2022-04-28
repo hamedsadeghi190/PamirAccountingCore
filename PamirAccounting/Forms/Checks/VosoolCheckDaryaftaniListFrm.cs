@@ -61,7 +61,7 @@ namespace PamirAccounting.Forms.Checks
                 txtsearch.Select();
                 txtsearch.Focus();
             }
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Space)
             {
 
                 if (dataGridView1.SelectedRows.Count > 0)
