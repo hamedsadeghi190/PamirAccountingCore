@@ -126,7 +126,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.txtDate.Properties.MaskSettings.Set("mask", "1999/99/00");
             this.txtDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDate.Size = new System.Drawing.Size(165, 32);
-            this.txtDate.TabIndex = 119;
+            this.txtDate.TabIndex = 2;
             this.txtDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDate_KeyUp);
             // 
             // cmbCurrencies
@@ -136,7 +136,7 @@ namespace PamirAccounting.Forms.NewsPaper
             this.cmbCurrencies.Location = new System.Drawing.Point(310, 33);
             this.cmbCurrencies.Name = "cmbCurrencies";
             this.cmbCurrencies.Size = new System.Drawing.Size(178, 27);
-            this.cmbCurrencies.TabIndex = 118;
+            this.cmbCurrencies.TabIndex = 1;
             this.cmbCurrencies.SelectedValueChanged += new System.EventHandler(this.cmbCurrencies_SelectedValueChanged);
             this.cmbCurrencies.TextChanged += new System.EventHandler(this.cmbCurrencies_TextChanged);
             this.cmbCurrencies.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbCurrencies_KeyUp);
