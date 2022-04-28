@@ -477,6 +477,8 @@ namespace PamirAccounting.Forms.Drafts
                                 txtDepositAmount.Text = (depositAmount).ToString();
                             }
 
+                            //var rent = Math.Round((double.Parse(txtRent.Text)), MidpointRounding.AwayFromZero) * rate;
+                            //txtDepositAmount.Text = ((double.Parse(txtDepositAmount.Text)) + rent).ToString();
                         }
 
                     }

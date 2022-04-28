@@ -186,7 +186,7 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbDraftCurrency.FormattingEnabled = true;
             this.cmbDraftCurrency.Location = new System.Drawing.Point(48, 37);
             this.cmbDraftCurrency.Name = "cmbDraftCurrency";
-            this.cmbDraftCurrency.Size = new System.Drawing.Size(188, 32);
+            this.cmbDraftCurrency.Size = new System.Drawing.Size(186, 32);
             this.cmbDraftCurrency.TabIndex = 10;
             this.cmbDraftCurrency.SelectedIndexChanged += new System.EventHandler(this.cmbDraftCurrency_SelectedIndexChanged);
             // 
@@ -534,11 +534,11 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.lbl_forosh_ext_number.AutoSize = true;
             this.lbl_forosh_ext_number.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_forosh_ext_number.Location = new System.Drawing.Point(241, 345);
+            this.lbl_forosh_ext_number.Location = new System.Drawing.Point(240, 345);
             this.lbl_forosh_ext_number.Name = "lbl_forosh_ext_number";
-            this.lbl_forosh_ext_number.Size = new System.Drawing.Size(91, 24);
+            this.lbl_forosh_ext_number.Size = new System.Drawing.Size(133, 24);
             this.lbl_forosh_ext_number.TabIndex = 36;
-            this.lbl_forosh_ext_number.Text = "شماره متفرقه:";
+            this.lbl_forosh_ext_number.Text = "کمیسیون نمایندگی :";
             this.lbl_forosh_ext_number.Visible = false;
             // 
             // lbl_forosh_number
