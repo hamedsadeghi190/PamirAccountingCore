@@ -6,6 +6,7 @@ using PamirAccounting.Forms.GeneralLedger;
 using PamirAccounting.Forms.NewsPaper;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
+using PamirAccounting.Services;
 using PamirAccounting.UI.Forms.Agencies;
 using PamirAccounting.UI.Forms.Banks;
 using PamirAccounting.UI.Forms.Currencies;
@@ -273,7 +274,17 @@ namespace PamirAccounting.Forms
 
         private void SettingsMenu_Recovery_Click(object sender, EventArgs e)
         {
+            var backservice = new BackupService();
+            var result = backservice.Backup("PamirAccounting", "d:\\pamirbackup.bak");
 
+            if (result)
+            {
+                MessageBox.Show("ok");
+            }
+            else
+            {
+                MessageBox.Show("NoOk");
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
