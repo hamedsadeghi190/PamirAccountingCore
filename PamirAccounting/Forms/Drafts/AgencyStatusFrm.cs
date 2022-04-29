@@ -217,7 +217,7 @@ namespace PamirAccounting.Forms.Drafts
 
                 foreach (var currentDrafts in item)
                 {
-                    CurrenyName = currentDrafts.TypeCurrency;
+                    CurrenyName = currentDrafts.TypeCurrency + " - نرخ نشده";
 
                     if (currentDrafts.Type == 0)
                     {

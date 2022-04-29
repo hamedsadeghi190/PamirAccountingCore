@@ -228,7 +228,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRent.Name = "txtRent";
             this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRent.Size = new System.Drawing.Size(125, 31);
-            this.txtRent.TabIndex = 3;
+            this.txtRent.TabIndex = 2;
             this.txtRent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRent_KeyDown);
             this.txtRent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRent_KeyPress);
             // 
@@ -255,7 +255,7 @@ namespace PamirAccounting.Forms.Drafts
             this.txtExteraDesc.Location = new System.Drawing.Point(10, 99);
             this.txtExteraDesc.Name = "txtExteraDesc";
             this.txtExteraDesc.Size = new System.Drawing.Size(322, 69);
-            this.txtExteraDesc.TabIndex = 4;
+            this.txtExteraDesc.TabIndex = 3;
             this.txtExteraDesc.Text = "";
             this.txtExteraDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtExteraDesc_KeyUp);
             // 
@@ -319,7 +319,7 @@ namespace PamirAccounting.Forms.Drafts
             this.btnSave.Location = new System.Drawing.Point(12, 317);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 38);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "ثبت";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -332,8 +332,9 @@ namespace PamirAccounting.Forms.Drafts
             this.btnClose.Location = new System.Drawing.Point(128, 317);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(110, 38);
-            this.btnClose.TabIndex = 6;
+            this.btnClose.TabIndex = 5;
             this.btnClose.Text = "بازگشت";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // CurrencyExchangeFrm
             // 

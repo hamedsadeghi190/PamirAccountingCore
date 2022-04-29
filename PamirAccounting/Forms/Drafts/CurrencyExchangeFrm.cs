@@ -68,7 +68,8 @@ namespace PamirAccounting.Forms.Drafts
                 }
 
             }
-
+            txtRate.Select();
+            txtRate.Focus();
         }
 
         private void CalculateDeposit()
@@ -185,29 +186,16 @@ namespace PamirAccounting.Forms.Drafts
 
         private void cmbConvertedCurrency_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("TAB");
-                e.Handled = true;
-            }
+           
         }
 
         private void txtRate_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("TAB");
-                e.Handled = true;
-            }
+           
         }
 
         private void txtRent_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("TAB");
-                e.Handled = true;
-            }
         }
 
         private void txtExteraDesc_KeyUp(object sender, KeyEventArgs e)
@@ -246,6 +234,11 @@ namespace PamirAccounting.Forms.Drafts
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
