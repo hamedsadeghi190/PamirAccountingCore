@@ -162,6 +162,8 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCustomers.Size = new System.Drawing.Size(252, 27);
             this.cmbCustomers.TabIndex = 2;
             this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
+            this.cmbCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCustomers_KeyPress);
+            this.cmbCustomers.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbCustomers_KeyUp);
             // 
             // txtDate
             // 
