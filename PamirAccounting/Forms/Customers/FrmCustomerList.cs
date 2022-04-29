@@ -327,7 +327,12 @@ namespace PamirAccounting.Forms.Customers
                 }
             }
 
-            if (e.KeyCode == Keys.F7)
+           
+        }
+
+        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
@@ -337,10 +342,6 @@ namespace PamirAccounting.Forms.Customers
                     loadData(selectedGroupId);
                 }
             }
-        }
-
-        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
-        {
             //if (e.KeyCode == Keys.Enter)
             //{
             //    var rowIndex = dataGridView1.SelectedRows[0].Index;

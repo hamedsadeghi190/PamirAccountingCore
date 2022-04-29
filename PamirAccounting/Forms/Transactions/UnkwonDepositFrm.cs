@@ -118,29 +118,11 @@ namespace PamirAccounting.Forms.Transactions
 
             if (e.KeyCode == Keys.Space)
             {
-
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-
-                    var size = _dataList.ElementAt(_dataList.Count() - 1);
-                    var rowCount = _dataList.Count();
-                    var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
-                    if (rowIndex == rowCount - 1)
-                    {
-                        var destForm = new editUnkownDepositFrm(_dataList.ElementAt(rowIndex).Id);
-                        destForm.ShowDialog();
-              
-                        return;
-                    }
-                    if (rowIndex < rowCount - 1)
-                    {
-                        var destForm = new editUnkownDepositFrm(_dataList.ElementAt(rowIndex).Id);
-                        destForm.ShowDialog();
-                     
-                    }
-
-
-                }
+                var rowIndex = dataGridView1.SelectedRows[0].Index;
+                var frmbankunkown = new PayAndReciveBankFrm(0, _dataList.ElementAt(rowIndex).Id);
+                frmbankunkown.ShowDialog();
+                LoadData();
+               
             }
 
 
@@ -166,13 +148,7 @@ namespace PamirAccounting.Forms.Transactions
                 }
             }
 
-            if (e.KeyCode == Keys.F7)
-            {
-                var rowIndex = dataGridView1.SelectedRows[0].Index;
-                var frmbankunkown = new PayAndReciveBankFrm(0, _dataList.ElementAt(rowIndex).Id);
-                frmbankunkown.ShowDialog();
-                LoadData();
-            }
+        
             if (e.KeyCode == Keys.F5)
             {
                 PersianCalendar pc = new PersianCalendar();
@@ -277,6 +253,40 @@ namespace PamirAccounting.Forms.Transactions
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+
+                    var size = _dataList.ElementAt(_dataList.Count() - 1);
+                    var rowCount = _dataList.Count();
+                    var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
+                    if (rowIndex == rowCount - 1)
+                    {
+                        var destForm = new editUnkownDepositFrm(_dataList.ElementAt(rowIndex).Id);
+                        destForm.ShowDialog();
+
+                        return;
+                    }
+                    if (rowIndex < rowCount - 1)
+                    {
+                        var destForm = new editUnkownDepositFrm(_dataList.ElementAt(rowIndex).Id);
+                        destForm.ShowDialog();
+
+                    }
+
+
+                }
             }
         }
     }
