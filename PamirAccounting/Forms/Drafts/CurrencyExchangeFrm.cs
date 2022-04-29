@@ -184,29 +184,8 @@ namespace PamirAccounting.Forms.Drafts
 
         }
 
-        private void cmbConvertedCurrency_KeyUp(object sender, KeyEventArgs e)
-        {
-           
-        }
-
-        private void txtRate_KeyUp(object sender, KeyEventArgs e)
-        {
-           
-        }
-
-        private void txtRent_KeyUp(object sender, KeyEventArgs e)
-        {
-        }
-
-        private void txtExteraDesc_KeyUp(object sender, KeyEventArgs e)
-        {
-          
-        }
-
-        private void txtRent_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
+       
+        
 
         private void txtRent_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -229,7 +229,6 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRent.Size = new System.Drawing.Size(125, 31);
             this.txtRent.TabIndex = 2;
-            this.txtRent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRent_KeyDown);
             this.txtRent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRent_KeyPress);
             // 
             // txtRate
@@ -247,7 +246,6 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRate.TabIndex = 1;
             this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
             this.txtRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRate_KeyPress);
-            this.txtRate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRate_KeyUp);
             // 
             // txtExteraDesc
             // 
@@ -257,7 +255,6 @@ namespace PamirAccounting.Forms.Drafts
             this.txtExteraDesc.Size = new System.Drawing.Size(322, 69);
             this.txtExteraDesc.TabIndex = 3;
             this.txtExteraDesc.Text = "";
-            this.txtExteraDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtExteraDesc_KeyUp);
             // 
             // label17
             // 
@@ -278,7 +275,6 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbConvertedCurrency.Size = new System.Drawing.Size(125, 28);
             this.cmbConvertedCurrency.TabIndex = 0;
             this.cmbConvertedCurrency.SelectedIndexChanged += new System.EventHandler(this.cmbConvertedCurrency_SelectedIndexChanged);
-            this.cmbConvertedCurrency.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbConvertedCurrency_KeyUp);
             // 
             // label15
             // 
