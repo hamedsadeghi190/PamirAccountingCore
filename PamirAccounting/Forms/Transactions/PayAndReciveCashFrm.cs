@@ -59,11 +59,20 @@ namespace PamirAccounting.Forms.Transactions
 
             cmbCustomers.DataSource = _Customers;
             AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            AutoCompleteStringCollection autoCustomers2 = new AutoCompleteStringCollection();
             foreach (var item in _Customers)
             {
                 autoCustomers.Add(item.Title);
             }
-            cmbCustomers.AutoCompleteCustomSource = autoCustomers;
+            foreach (string s in autoCustomers)
+            {
+                if (s.Contains(cmbCustomers.SelectedText))
+
+                {
+                    autoCustomers2.Add(s);
+                }
+            }
+            cmbCustomers.AutoCompleteCustomSource = autoCustomers2;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
 
@@ -406,6 +415,17 @@ namespace PamirAccounting.Forms.Transactions
         private void txtDate_KeyUp(object sender, KeyEventArgs e)
         {
 
+
+        }
+
+        private void cmbCustomers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void cmbCustomers_KeyUp(object sender, KeyEventArgs e)
+        {
+         
 
         }
 

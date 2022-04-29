@@ -1164,10 +1164,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>4/28/2022 3:42:00 PM</ReportChanged>
+  <ReportChanged>4/29/2022 10:22:38 AM</ReportChanged>
   <ReportCreated>1/23/2022 12:40:14 PM</ReportCreated>
   <ReportFile>D:\fixed\PamirAccountingCore\PamirAccounting\Reports\AgencyStatusList.mrt</ReportFile>
-  <ReportGuid>32c3e3bcefe64cd6ad56eae880a57f12</ReportGuid>
+  <ReportGuid>bffaf005bede4ab8bbeda86c2d70be9d</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2022.1.4.0</ReportVersion>

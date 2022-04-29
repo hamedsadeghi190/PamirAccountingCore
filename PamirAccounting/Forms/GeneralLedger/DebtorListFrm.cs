@@ -2,6 +2,7 @@
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
+using PamirAccounting.UI.Forms.Customers;
 using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
@@ -122,6 +123,7 @@ namespace PamirAccounting.Forms.GeneralLedger
                     item.RemainigAmount = Deposit - WithDraw;
                     curenncySummery.WithdrawAmount = item.WithdrawAmount;
                     curenncySummery.DepositAmount = item.DepositAmount;
+                    curenncySummery.SourceCustomerId = item.SourceCustomerId;
 
 
                 }
@@ -384,6 +386,26 @@ namespace PamirAccounting.Forms.GeneralLedger
         private void txtSearch_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void gridCreditor_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var size = _GroupedDataList.ElementAt(_GroupedDataList.Count() - 1);
+                var rowCount = _GroupedDataList.Count();
+                var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
+                var destForm = new ViewCustomerAccountFrm((int)_GroupedDataList.ElementAt(rowIndex).SourceCustomerId);
+                destForm.ShowDialog();
+            }
+        }
+
+        private void gridCreditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

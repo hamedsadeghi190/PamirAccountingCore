@@ -105,29 +105,7 @@ namespace PamirAccounting.Forms.GeneralLedger
             if (e.KeyCode == Keys.Escape)
                 this.Close();
 
-            if (e.KeyCode == Keys.F4)
-            {
-
-                if (gridCreditor.SelectedRows.Count > 0)
-                {
-                    
-                    var rowCount = _dataListTotal.Count();
-                    var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
-                    if (rowIndex == rowCount - 1)
-                    {
-                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
-                        frmCurrencies.ShowDialog();
-                        return;
-                    }
-                    if (rowIndex < rowCount - 1)
-                    {
-                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
-                        frmCurrencies.ShowDialog();
-
-                    }
-
-                }
-            }
+          
 
 
             if (e.KeyCode == Keys.F5)
@@ -386,6 +364,33 @@ namespace PamirAccounting.Forms.GeneralLedger
             {
                 gridCreditor.Select();
                 gridCreditor.Focus();
+            }
+        }
+
+        private void gridCreditor_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (gridCreditor.SelectedRows.Count > 0)
+                {
+
+                    var rowCount = _dataListTotal.Count();
+                    var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
+                    if (rowIndex == rowCount - 1)
+                    {
+                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
+                        frmCurrencies.ShowDialog();
+                        return;
+                    }
+                    if (rowIndex < rowCount - 1)
+                    {
+                        var frmCurrencies = new DebtorListFrm(_dataListTotal.ElementAt(rowIndex).CurrenyId, _dataListTotal.ElementAt(rowIndex).GroupId);
+                        frmCurrencies.ShowDialog();
+
+                    }
+
+                }
             }
         }
     }

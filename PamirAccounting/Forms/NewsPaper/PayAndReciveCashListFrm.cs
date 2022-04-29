@@ -129,24 +129,7 @@ namespace PamirAccounting.Forms.NewsPaper
                 cmbCurrencies.Select();
                 cmbCurrencies.Focus();
             }
-            if (e.KeyCode == Keys.F7)
-            {
-                var rowCount = _dataList.Count();
-                var rowIndex = gridPayAndReciveCash.CurrentCell.OwningRow.Index;
-                if (rowIndex == rowCount - 1)
-                {
-                    var frmCash = new PayAndReciveCashFrm(0, _dataList.ElementAt(rowIndex).Id);
-                    frmCash.ShowDialog();
-                    return;
-                }
-                if (rowIndex < rowCount - 1)
-                {
-                    var frmCash = new PayAndReciveCashFrm(0, _dataList.ElementAt(rowIndex).Id);
-                    frmCash.ShowDialog();
-                    LoadData();
-                }
-
-            }
+         
 
             if (e.KeyCode == Keys.F8)
             {
@@ -343,6 +326,29 @@ namespace PamirAccounting.Forms.NewsPaper
                 gridPayAndReciveCash.Select();
                 gridPayAndReciveCash.Focus();
             }
+        }
+
+        private void gridPayAndReciveCash_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var rowCount = _dataList.Count();
+                var rowIndex = gridPayAndReciveCash.CurrentCell.OwningRow.Index;
+                if (rowIndex == rowCount - 1)
+                {
+                    var frmCash = new PayAndReciveCashFrm(0, _dataList.ElementAt(rowIndex).Id);
+                    frmCash.ShowDialog();
+                    return;
+                }
+                if (rowIndex < rowCount - 1)
+                {
+                    var frmCash = new PayAndReciveCashFrm(0, _dataList.ElementAt(rowIndex).Id);
+                    frmCash.ShowDialog();
+                    LoadData();
+                }
+
+            }
+
         }
     }
 }

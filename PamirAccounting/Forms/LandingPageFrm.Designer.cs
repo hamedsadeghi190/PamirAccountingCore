@@ -945,6 +945,8 @@ namespace PamirAccounting.Forms
             // CreateBackupMenu
             // 
             this.CreateBackupMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.CreateBackupMenu.Image = ((System.Drawing.Image)(resources.GetObject("CreateBackupMenu.Image")));
+            this.CreateBackupMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CreateBackupMenu.Name = "CreateBackupMenu";
             this.CreateBackupMenu.Size = new System.Drawing.Size(216, 38);
             this.CreateBackupMenu.Text = "تهیه فایل پشتیبان";

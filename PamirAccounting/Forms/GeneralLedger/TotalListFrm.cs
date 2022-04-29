@@ -2,6 +2,7 @@
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
+using PamirAccounting.UI.Forms.Customers;
 using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,8 @@ namespace PamirAccounting.Forms.GeneralLedger
         private List<ComboBoxModel> _Currencies = new List<ComboBoxModel>();
         private List<ComboBoxModel> _Groups = new List<ComboBoxModel>();
         private int? _CurrenyId;
-        private int? _GroupId;
+        private int? _GroupId; 
+        private List<TransactionModel> tmpDataList = new List<TransactionModel>();
 
         public TotalListFrm()
         {
@@ -49,7 +51,7 @@ namespace PamirAccounting.Forms.GeneralLedger
 
         private void LoadData()
         {
-            var tmpDataList = unitOfWork.TransactionServices.GetAllWithdraw(_CurrenyId, _GroupId);
+             tmpDataList = unitOfWork.TransactionServices.GetAllWithdraw(_CurrenyId, _GroupId);
             GellAll(tmpDataList);
         }
 
@@ -126,7 +128,7 @@ namespace PamirAccounting.Forms.GeneralLedger
                     item.RemainigAmount = Deposit - WithDraw;
                     curenncySummery.WithdrawAmount = item.WithdrawAmount;
                     curenncySummery.DepositAmount = item.DepositAmount;
-
+                    curenncySummery.SourceCustomerId = item.SourceCustomerId;
 
                 }
 
@@ -444,7 +446,7 @@ namespace PamirAccounting.Forms.GeneralLedger
                         item.RemainigAmount = Deposit - WithDraw;
                         curenncySummery.WithdrawAmount = item.WithdrawAmount;
                         curenncySummery.DepositAmount = item.DepositAmount;
-
+                        curenncySummery.SourceCustomerId = item.SourceCustomerId;
 
                     }
 
@@ -532,6 +534,33 @@ namespace PamirAccounting.Forms.GeneralLedger
             else
             {
                 LoadData();
+            }
+        }
+
+        private void gridCreditor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
+
+        private void gridCreditor_KeyUp(object sender, KeyEventArgs e)
+        {
+
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                var size = _GroupedDataList.ElementAt(_GroupedDataList.Count() - 1);
+                var rowCount = _GroupedDataList.Count();
+                var rowIndex = gridCreditor.CurrentCell.OwningRow.Index;
+                var destForm = new ViewCustomerAccountFrm((int)_GroupedDataList.ElementAt(rowIndex).SourceCustomerId);
+                 destForm.ShowDialog();            
+            }
+        }
+
+        private void gridCreditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
             }
         }
     }
