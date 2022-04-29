@@ -41,6 +41,7 @@ namespace PamirAccounting.Forms
          
             AppSetting.DebugMode = true;
 
+            AppSetting.TransferdDraftsId = 23;
             AppSetting.NotRunnedDraftsId = 6;
             AppSetting.SandoghCustomerId = 4;
             AppSetting.RecivedDocumentCustomerId = 16;

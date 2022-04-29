@@ -44,8 +44,8 @@ namespace PamirAccounting.Forms.Drafts
             this.lblCurrencyName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtRate = new DevExpress.XtraEditors.TextEdit();
             this.txtRent = new System.Windows.Forms.TextBox();
+            this.txtRate = new DevExpress.XtraEditors.TextEdit();
             this.txtExteraDesc = new System.Windows.Forms.RichTextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.cmbConvertedCurrency = new System.Windows.Forms.ComboBox();
@@ -203,8 +203,8 @@ namespace PamirAccounting.Forms.Drafts
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtRate);
             this.groupBox1.Controls.Add(this.txtRent);
+            this.groupBox1.Controls.Add(this.txtRate);
             this.groupBox1.Controls.Add(this.txtExteraDesc);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.cmbConvertedCurrency);
@@ -221,6 +221,17 @@ namespace PamirAccounting.Forms.Drafts
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تبدیل";
             // 
+            // txtRent
+            // 
+            this.txtRent.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRent.Location = new System.Drawing.Point(207, 62);
+            this.txtRent.Name = "txtRent";
+            this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtRent.Size = new System.Drawing.Size(125, 31);
+            this.txtRent.TabIndex = 3;
+            this.txtRent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRent_KeyDown);
+            this.txtRent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRent_KeyPress);
+            // 
             // txtRate
             // 
             this.txtRate.EditValue = "0";
@@ -229,21 +240,14 @@ namespace PamirAccounting.Forms.Drafts
             this.txtRate.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtRate.Properties.Appearance.Options.UseFont = true;
             this.txtRate.Properties.AutoHeight = false;
+            this.txtRate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtRate.Properties.MaskSettings.Set("mask", "f");
             this.txtRate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRate.Size = new System.Drawing.Size(110, 32);
-            this.txtRate.TabIndex = 64;
+            this.txtRate.TabIndex = 1;
             this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
-            // 
-            // txtRent
-            // 
-            this.txtRent.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtRent.Location = new System.Drawing.Point(206, 65);
-            this.txtRent.Name = "txtRent";
-            this.txtRent.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtRent.Size = new System.Drawing.Size(126, 28);
-            this.txtRent.TabIndex = 65;
-            this.txtRent.Text = "0";
-            this.txtRent.TextChanged += new System.EventHandler(this.txtRent_TextChanged);
+            this.txtRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRate_KeyPress);
+            this.txtRate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRate_KeyUp);
             // 
             // txtExteraDesc
             // 
@@ -251,8 +255,9 @@ namespace PamirAccounting.Forms.Drafts
             this.txtExteraDesc.Location = new System.Drawing.Point(10, 99);
             this.txtExteraDesc.Name = "txtExteraDesc";
             this.txtExteraDesc.Size = new System.Drawing.Size(322, 69);
-            this.txtExteraDesc.TabIndex = 35;
+            this.txtExteraDesc.TabIndex = 4;
             this.txtExteraDesc.Text = "";
+            this.txtExteraDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtExteraDesc_KeyUp);
             // 
             // label17
             // 
@@ -271,8 +276,9 @@ namespace PamirAccounting.Forms.Drafts
             this.cmbConvertedCurrency.Location = new System.Drawing.Point(207, 27);
             this.cmbConvertedCurrency.Name = "cmbConvertedCurrency";
             this.cmbConvertedCurrency.Size = new System.Drawing.Size(125, 28);
-            this.cmbConvertedCurrency.TabIndex = 32;
+            this.cmbConvertedCurrency.TabIndex = 0;
             this.cmbConvertedCurrency.SelectedIndexChanged += new System.EventHandler(this.cmbConvertedCurrency_SelectedIndexChanged);
+            this.cmbConvertedCurrency.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbConvertedCurrency_KeyUp);
             // 
             // label15
             // 
@@ -313,7 +319,7 @@ namespace PamirAccounting.Forms.Drafts
             this.btnSave.Location = new System.Drawing.Point(12, 317);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 38);
-            this.btnSave.TabIndex = 36;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "ثبت";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -326,7 +332,7 @@ namespace PamirAccounting.Forms.Drafts
             this.btnClose.Location = new System.Drawing.Point(128, 317);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(110, 38);
-            this.btnClose.TabIndex = 37;
+            this.btnClose.TabIndex = 6;
             this.btnClose.Text = "بازگشت";
             // 
             // CurrencyExchangeFrm
@@ -382,8 +388,8 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraEditors.TextEdit txtRate;
-        private System.Windows.Forms.TextBox txtRent;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtRent;
     }
 }

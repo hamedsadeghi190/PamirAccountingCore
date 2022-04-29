@@ -24,7 +24,7 @@ namespace PamirAccounting.Forms.Drafts
         private UnitOfWork unitOfWork;
         private long? _draftID, relatedDraftId;
         private long? customerTransactionId;
-
+        private Agency targetAgency;
         private Draft draft, relatedDraft;
         private PamirAccounting.Domains.Transaction customerTransaction;
         long documentId;
@@ -237,6 +237,11 @@ namespace PamirAccounting.Forms.Drafts
                     draft = new Draft();
                 }
 
+                if (txtRent.TextLength == 0)
+                {
+                    txtRate.Text = "0";
+                }
+
                 var dDate = txtDate.Text.Split('/');
                 PersianCalendar p = new PersianCalendar();
                 var draftDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
@@ -353,8 +358,19 @@ namespace PamirAccounting.Forms.Drafts
                     relatedDraft.Rent = txt_forosh_ext_number.Text.Length > 0 ? double.Parse(txt_forosh_ext_number.Text) : 0;
                     relatedDraft.DepositAmount = double.Parse(txtDepositAmount.Text);
                     relatedDraft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
-                    relatedDraft.CustomerId = AppSetting.NotRunnedDraftsId;
+                    relatedDraft.CustomerId = AppSetting.TransferdDraftsId;
                     relatedDraft.Status = (bool)cmbStatus.SelectedValue;
+
+
+
+                    if (targetAgency.CurrenyId == (int)cmbDraftCurrency.SelectedValue)
+                    {
+                        relatedDraft.ConvertedCurrencyId = targetAgency.CurrenyId;
+                        relatedDraft.ConvertedRate = 1;
+                        relatedDraft.ConvertedDate = relatedDraft.Date;
+                        relatedDraft.ConvertedAmount = relatedDraft.DraftAmount + (long)relatedDraft.Rent;
+                    }
+
 
                     if (relatedDraftId.HasValue)
                     {
@@ -425,6 +441,7 @@ namespace PamirAccounting.Forms.Drafts
             calcNumber((int)cmbAgency.SelectedValue);
             documentId = unitOfWork.TransactionServices.GetNewDocumentId();
             grpHavale.Text = "حوال امد - شماره سند " + documentId;
+            txt_forosh_ext_number.Text = "0";
             txtNumber.Focus();
         }
 
@@ -609,6 +626,7 @@ namespace PamirAccounting.Forms.Drafts
                 lbl_forosh_number.Visible = true;
                 lbl_forosh_ext_number.Visible = true;
                 calcNumberforosh(customer.Id);
+                targetAgency = unitOfWork.Agencies.FindFirst(x => x.Id == customer.Id);
             }
             else
             {

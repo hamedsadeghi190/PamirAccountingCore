@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DevExpress.XtraEditors;
+using Microsoft.EntityFrameworkCore;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -180,6 +181,71 @@ namespace PamirAccounting.Forms.Drafts
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbConvertedCurrency_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("TAB");
+                e.Handled = true;
+            }
+        }
+
+        private void txtRate_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("TAB");
+                e.Handled = true;
+            }
+        }
+
+        private void txtRent_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("TAB");
+                e.Handled = true;
+            }
+        }
+
+        private void txtExteraDesc_KeyUp(object sender, KeyEventArgs e)
+        {
+          
+        }
+
+        private void txtRent_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtRent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            //// only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextEdit).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextEdit).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

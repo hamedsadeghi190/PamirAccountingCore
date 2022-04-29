@@ -21,9 +21,10 @@ namespace PamirAccounting.Forms.Drafts
         private List<ComboBoxModel> _Currencies;
         private List<ComboBoxModel> _DestCurrencies = new List<ComboBoxModel>();
         private UnitOfWork unitOfWork;
+        private Agency CurrntAgency;
         private long? DraftID;
         private Draft draft;
-        private PamirAccounting.Domains.Transaction customerTransaction;
+        private Domains.Transaction customerTransaction;
         long documentId;
 
         [DllImport("user32.dll")]
@@ -60,7 +61,7 @@ namespace PamirAccounting.Forms.Drafts
                 documentId = unitOfWork.TransactionServices.GetNewDocumentId();
                 grpHavale.Text = "حوال فروش - شماره سند " + documentId;
             }
-
+            CurrntAgency = unitOfWork.Agencies.FindFirst(x => x.Id == (int)cmbAgency.SelectedValue);
         }
 
         private void loadDrafts()
@@ -195,12 +196,21 @@ namespace PamirAccounting.Forms.Drafts
                 draft.PayPlace = txtPayPlace.Text;
                 draft.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
                 draft.DraftAmount = long.Parse(txtDraftAmount.Text);
-                draft.Rate = double.Parse(txtRate.Text, CultureInfo.InvariantCulture);
-                draft.Rent = double.Parse(txtRent.Text, CultureInfo.InvariantCulture);
+                draft.Rate = txtRate.Text.Length > 0 == true ? double.Parse(txtRate.Text, CultureInfo.InvariantCulture) : 0;
+                draft.Rent = txtRent.Text.Length > 0 == true ? double.Parse(txtRent.Text, CultureInfo.InvariantCulture) : 0;
                 draft.DepositAmount = double.Parse(txtDepositAmount.Text);
                 draft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                 draft.CustomerId = (int)cmbCustomer.SelectedValue;
                 draft.Status = (bool)cmbStatus.SelectedValue;
+
+
+                if (CurrntAgency.CurrenyId == (int)cmbDraftCurrency.SelectedValue)
+                {
+                    draft.ConvertedCurrencyId = CurrntAgency.CurrenyId;
+                    draft.ConvertedRate = 1;
+                    draft.ConvertedDate = draft.Date;
+                    draft.ConvertedAmount = draft.DraftAmount + (long)draft.Rent;
+                }
 
                 if (DraftID.HasValue)
                 {
@@ -313,6 +323,7 @@ namespace PamirAccounting.Forms.Drafts
 
             if (cmbAgency.SelectedIndex >= 0)
             {
+                CurrntAgency = unitOfWork.Agencies.FindFirst(x => x.Id == (int)cmbAgency.SelectedValue);
                 calcNumber((int)cmbAgency.SelectedValue);
             }
         }
@@ -368,7 +379,7 @@ namespace PamirAccounting.Forms.Drafts
                                 var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) / rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                                txtDepositAmount.Text = (drafAmount).ToString();
                             }
                             else if (mappingsAction == (int)MappingActions.Multiplication)
                             {
@@ -376,14 +387,14 @@ namespace PamirAccounting.Forms.Drafts
                                 var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) * rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                                txtDepositAmount.Text = (drafAmount).ToString();
                             }
                             else
                             {
                                 var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) + rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount + rent).ToString();
+                                txtDepositAmount.Text = (drafAmount).ToString();
                             }
 
                         }

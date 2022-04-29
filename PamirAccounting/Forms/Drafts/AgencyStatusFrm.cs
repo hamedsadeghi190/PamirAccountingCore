@@ -49,6 +49,7 @@ namespace PamirAccounting.Forms.Drafts
             LblCurrencyName.Text = agency.Curreny.Name;
 
             LoadData();
+            gridDrafts.Focus();
         }
 
         private void LoadData()
@@ -277,14 +278,7 @@ namespace PamirAccounting.Forms.Drafts
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == gridDrafts.Columns["btnConvert"].Index && e.RowIndex >= 0)
-            {
-                var draft = _data.ElementAt(e.RowIndex);
 
-                var FrmBalance = new CurrencyExchangeFrm(draft.Id);
-                FrmBalance.ShowDialog();
-                LoadData();
-            }
 
 
         }
@@ -322,6 +316,22 @@ namespace PamirAccounting.Forms.Drafts
             //report.Render();
             //report.Show();
             report.Design();
+        }
+
+        private void gridDrafts_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.gridDrafts.CurrentRow.Selected = true;
+                e.Handled = true;
+
+                var rowIndex = gridDrafts.SelectedRows[0].Index;
+                var draft = _data.ElementAt(rowIndex);
+
+                var FrmBalance = new CurrencyExchangeFrm(draft.Id);
+                FrmBalance.ShowDialog();
+                LoadData();
+            }
         }
     }
 }
