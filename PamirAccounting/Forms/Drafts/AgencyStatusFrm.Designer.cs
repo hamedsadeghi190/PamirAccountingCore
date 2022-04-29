@@ -67,7 +67,7 @@ namespace PamirAccounting.Forms.Drafts
             this.PayPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExtraDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Verify = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grdTotals = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,7 +160,6 @@ namespace PamirAccounting.Forms.Drafts
             // 
             this.gridDrafts.AllowUserToAddRows = false;
             this.gridDrafts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -197,7 +196,7 @@ namespace PamirAccounting.Forms.Drafts
             this.PayPlace,
             this.Column18,
             this.ExtraDescription,
-            this.Column17});
+            this.Verify});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Info;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -391,13 +390,18 @@ namespace PamirAccounting.Forms.Drafts
             this.ExtraDescription.ReadOnly = true;
             this.ExtraDescription.Width = 130;
             // 
-            // Column17
+            // Verify
             // 
-            this.Column17.HeaderText = "تطبیق";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            this.Column17.Width = 90;
+            this.Verify.DataPropertyName = "Verify";
+            this.Verify.FalseValue = "false";
+            this.Verify.HeaderText = "تطبیق";
+            this.Verify.MinimumWidth = 6;
+            this.Verify.Name = "Verify";
+            this.Verify.ReadOnly = true;
+            this.Verify.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Verify.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Verify.TrueValue = "true";
+            this.Verify.Width = 90;
             // 
             // grdTotals
             // 
@@ -569,6 +573,6 @@ namespace PamirAccounting.Forms.Drafts
         private System.Windows.Forms.DataGridViewTextBoxColumn PayPlace;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExtraDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Verify;
     }
 }

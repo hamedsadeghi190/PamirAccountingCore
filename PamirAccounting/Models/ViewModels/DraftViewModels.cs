@@ -39,6 +39,7 @@ namespace PamirAccounting.Models.ViewModels
         public long? ConvertedAmount { get; set; }
         public string ConvertedDate { get; set; }
         public string ExtraDescription { get; set; }
+        public bool Verify { get; set; }
 
 
     }

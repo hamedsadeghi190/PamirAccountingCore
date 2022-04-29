@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LinqKit;
+using Microsoft.EntityFrameworkCore;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Models.ViewModels;
@@ -93,8 +94,31 @@ namespace PamirAccounting.Forms.Drafts
         private void LoadData()
         {
             unitOfWork = new UnitOfWork();
-            var tmpData = unitOfWork.DraftsServices.FindAll(x => x.AgencyId == (int)cmbAgency.SelectedValue
-                                                            && x.Type == (int)(cmbType.SelectedValue))
+
+            var predicate = PredicateBuilder.New<Domains.Draft>(true);
+
+            predicate.And(x => x.AgencyId == (int)cmbAgency.SelectedValue);
+            predicate = predicate.And(x => x.Type == (int)(cmbType.SelectedValue));
+
+
+            if (txtSearchName.Text.Length > 0)
+            {
+                predicate = predicate.And(x => x.Sender.Contains(txtSearchName.Text.ToString()));
+                predicate = predicate.Or(x => x.Reciver.Contains(txtSearchName.Text.ToString()));
+            }
+
+            if (txtStartNumber.Text.Length > 0)
+            {
+                predicate = predicate.And(x => x.Number>= long.Parse(txtStartNumber.Text));
+            }
+
+            if (txtEndNumber.Text.Length > 0)
+            {
+                predicate = predicate.And(x => x.Number <= long.Parse(txtEndNumber.Text));
+            }
+
+
+            var tmpData = unitOfWork.DraftsServices.FindAll(predicate)
                 .OrderBy(x => x.Date)
                 .Include(x => x.DepositCurrency)
                 .Include(x => x.TypeCurrency)
@@ -126,6 +150,7 @@ namespace PamirAccounting.Forms.Drafts
                 Customer = q.Customer?.FirstName + " " + q.Customer?.LastName,
                 RunningDate = q.RunningDate != null ? (DateTime.Parse(q.RunningDate.ToString())).ToPersian() : "",
                 Date = q.Date != null ? (DateTime.Parse(q.Date.ToString())).ToPersian() : "",
+                Verify = false
             }).ToList();
 
 
@@ -181,7 +206,10 @@ namespace PamirAccounting.Forms.Drafts
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-
+            if (e.ColumnIndex == gridDrafts.Columns["Verify"].Index && e.RowIndex >= 0)
+            {
+                _data.ElementAt(e.RowIndex).Verify = !_data.ElementAt(e.RowIndex).Verify;
+            }
 
         }
 
@@ -250,6 +278,16 @@ namespace PamirAccounting.Forms.Drafts
         }
 
         private void txtSearchName_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
         {
             LoadData();
         }

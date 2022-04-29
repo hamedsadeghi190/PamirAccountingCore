@@ -278,8 +278,10 @@ namespace PamirAccounting.Forms.Drafts
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-
-
+            if (e.ColumnIndex == gridDrafts.Columns["Verify"].Index && e.RowIndex >= 0)
+            {
+                _data.ElementAt(e.RowIndex).Verify = !_data.ElementAt(e.RowIndex).Verify;
+            }
 
         }
 
