@@ -41,11 +41,17 @@ namespace PamirAccounting.Forms.Drafts
             cmbConvertedCurrency.ValueMember = "Id";
             cmbConvertedCurrency.DisplayMember = "Title";
 
-            _Draft = unitOfWork.Drafts.FindAll(x => x.Id == DraftId).Include(x => x.TypeCurrency).FirstOrDefault();
-
+            _Draft = unitOfWork.Drafts.FindAll(x => x.Id == DraftId)
+                .Include(x => x.TypeCurrency)
+                .Include(x=>x.Agency)
+                .ThenInclude(x=>x.Curreny)
+                .FirstOrDefault();
 
             if (_Draft != null)
             {
+                grpAgency.Text +=" "+ _Draft.Agency.Name;
+                cmbConvertedCurrency.SelectedValue = _Draft.Agency.CurrenyId;
+                lblCurrencyName.Text = _Draft.Agency.Curreny.Name;
                 txtRent.Text = _Draft.Rent.ToString();
                 label3.Text = _Draft.Rent.ToString();
                 lblDraftAmount.Text = _Draft.DraftAmount.ToString();

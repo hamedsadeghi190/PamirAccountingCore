@@ -16,7 +16,7 @@ namespace PamirAccounting
         [STAThread]
         static void Main()
         {
-            AppSetting.ConnectionString = "Server=.\\SQL2019;Database=PamirAccounting;Trusted_Connection=True;";
+            AppSetting.ConnectionString = "Server=.;Database=PamirAccounting;Trusted_Connection=True;";
             // Seteamos la cultura a Español Argentina
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");

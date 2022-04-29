@@ -47,6 +47,7 @@ namespace PamirAccounting.Models.ViewModels
     {
         public double TotalRent { get; set; }
         public double Total { get; set; }
+        public double Summery { get; set; }
         public string CurrenyName { get; set; }
     }
 

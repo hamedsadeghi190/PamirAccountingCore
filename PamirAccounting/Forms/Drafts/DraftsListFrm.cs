@@ -153,6 +153,7 @@ namespace PamirAccounting.Forms.Drafts
                 cdata.CurrenyName = CurrenyName;
                 cdata.Total = totalRemainAmount;
                 cdata.TotalRent = TotalRent;
+                cdata.Summery = cdata.Total + cdata.TotalRent;
 
                 _dataSummery.Add(cdata);
             }

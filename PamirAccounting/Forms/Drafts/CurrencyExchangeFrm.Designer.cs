@@ -41,7 +41,7 @@ namespace PamirAccounting.Forms.Drafts
             this.label6 = new System.Windows.Forms.Label();
             this.lblDraftAmount = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCurrencyName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRate = new DevExpress.XtraEditors.TextEdit();
@@ -71,7 +71,7 @@ namespace PamirAccounting.Forms.Drafts
             this.grpAgency.Controls.Add(this.label6);
             this.grpAgency.Controls.Add(this.lblDraftAmount);
             this.grpAgency.Controls.Add(this.label4);
-            this.grpAgency.Controls.Add(this.label2);
+            this.grpAgency.Controls.Add(this.lblCurrencyName);
             this.grpAgency.Controls.Add(this.label1);
             this.grpAgency.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpAgency.Location = new System.Drawing.Point(12, 11);
@@ -182,15 +182,14 @@ namespace PamirAccounting.Forms.Drafts
             this.label4.TabIndex = 9;
             this.label4.Text = "مبلغ حواله :";
             // 
-            // label2
+            // lblCurrencyName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(148, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "دلار";
+            this.lblCurrencyName.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCurrencyName.Location = new System.Drawing.Point(106, 0);
+            this.lblCurrencyName.Name = "lblCurrencyName";
+            this.lblCurrencyName.Size = new System.Drawing.Size(68, 20);
+            this.lblCurrencyName.TabIndex = 8;
+            this.lblCurrencyName.Text = "دلار";
             // 
             // label1
             // 
@@ -363,7 +362,7 @@ namespace PamirAccounting.Forms.Drafts
         #endregion
 
         private System.Windows.Forms.GroupBox grpAgency;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCurrencyName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDraftCurrency;
         private System.Windows.Forms.Label label6;
