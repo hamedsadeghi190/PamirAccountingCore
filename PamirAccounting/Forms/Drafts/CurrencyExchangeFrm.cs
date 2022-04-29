@@ -32,6 +32,8 @@ namespace PamirAccounting.Forms.Drafts
 
         private void CurrencyExchangeFrm_Load(object sender, EventArgs e)
         {
+            cmbConvertedCurrency.Select();
+            cmbConvertedCurrency.Focus();
             LoadData();
         }
 
@@ -68,8 +70,7 @@ namespace PamirAccounting.Forms.Drafts
                 }
 
             }
-            txtRate.Select();
-            txtRate.Focus();
+          
         }
 
         private void CalculateDeposit()

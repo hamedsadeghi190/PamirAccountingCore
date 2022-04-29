@@ -300,40 +300,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
 
 
-        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                grdTransactions.Select();
-                grdTransactions.Focus();
-            }
-            if (txtSearch.Text.Length > 0)
-            {
-                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Id == int.Parse(txtSearch.Text))
-                       .Include(x => x.Curreny)
-                     .Include(x => x.User)
-                    .Select(x => new TransactionModel
-                    {
-                        Id = x.Id,
-                        Description = x.Description,
-                        DepositAmount = x.DepositAmount,
-                        WithdrawAmount = x.WithdrawAmount,
-                        Date = x.Date.ToString(),
-                        TransactionDateTime = x.TransactionDateTime.ToString(),
-                        CurrenyId = x.CurrenyId,
-                        CurrenyName = x.Curreny.Name,
-                        UserId = x.UserId,
-                        UserName = x.User.UserName,
-
-                    }).ToList();
-                grdTransactions.DataSource = _dataList;
-            }
-            else
-            {
-                LoadData();
-            }
-
-        }
+        
 
         private void grdTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -543,67 +510,67 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void grdTransactions_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (Char)Keys.Enter && grdTransactions.CurrentRow != null)
-            {
-                int i = grdTransactions.CurrentRow.Index;
-                var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
+            //if (e.KeyChar == (Char)Keys.Enter && grdTransactions.CurrentRow != null)
+            //{
+            //    int i = grdTransactions.CurrentRow.Index;
+            //    var tmpDataList = unitOfWork.TransactionServices.GetAll(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null);
 
-                tmpDataList = tmpDataList.Where(p => p.RowId == i).Select(x => new TransactionModel
-                {
-                    Id = x.Id,
-                    Description = x.Description,
-                    DepositAmount = x.DepositAmount,
-                    WithdrawAmount = x.WithdrawAmount,
-                    Date = x.Date.ToString(),
-                    TransactionDateTime = x.TransactionDateTime.ToString(),
-                    CurrenyId = x.CurrenyId,
-                    UserId = x.UserId,
-                    TransactionType = x.TransactionType,
-                    DocumentId = x.DocumentId,
-                    CurrenyName = x.CurrenyName
-                }).ToList();
-                var Deposit = 0;
-                var Withdraw = 0;
-                foreach (var item in tmpDataList)
-                {
-                    Deposit = (int)(long)item.DepositAmount;
-                    Withdraw = (int)(long)item.WithdrawAmount;
-                }
-                if (Deposit > 0)
-                {
-                    var data = tmpDataList;
-                    _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
-                    var name = _Customer.FirstName + " " + _Customer.LastName;
-                    PersianCalendar pc = new PersianCalendar();
-                    DateTime dt = DateTime.Now;
-                    string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-                    var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Deposit.ToString(), Status = "نزد برنامه طلبکار است" };
-                    var report = StiReport.CreateNewReport();
-                    report.Load(AppSetting.ReportPath + "Transaction.mrt");
-                    report.RegData("myData", data);
-                    report.RegData("basedata", basedata);
-                    report.Render();
-                    report.Show();
-                }
-                if (Withdraw > 0)
-                {
-                    var data = tmpDataList;
-                    _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
-                    var name = _Customer.FirstName + " " + _Customer.LastName;
-                    PersianCalendar pc = new PersianCalendar();
-                    DateTime dt = DateTime.Now;
-                    string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
-                    var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Withdraw.ToString(), Status = " نزد برنامه بدهکار است" };
-                    var report = StiReport.CreateNewReport();
-                    report.Load(AppSetting.ReportPath + "Transaction.mrt");
-                    report.RegData("myData", data);
-                    report.RegData("basedata", basedata);
-                    report.Render();
-                    report.Show();
-                }
+            //    tmpDataList = tmpDataList.Where(p => p.RowId == i).Select(x => new TransactionModel
+            //    {
+            //        Id = x.Id,
+            //        Description = x.Description,
+            //        DepositAmount = x.DepositAmount,
+            //        WithdrawAmount = x.WithdrawAmount,
+            //        Date = x.Date.ToString(),
+            //        TransactionDateTime = x.TransactionDateTime.ToString(),
+            //        CurrenyId = x.CurrenyId,
+            //        UserId = x.UserId,
+            //        TransactionType = x.TransactionType,
+            //        DocumentId = x.DocumentId,
+            //        CurrenyName = x.CurrenyName
+            //    }).ToList();
+            //    var Deposit = 0;
+            //    var Withdraw = 0;
+            //    foreach (var item in tmpDataList)
+            //    {
+            //        Deposit = (int)(long)item.DepositAmount;
+            //        Withdraw = (int)(long)item.WithdrawAmount;
+            //    }
+            //    if (Deposit > 0)
+            //    {
+            //        var data = tmpDataList;
+            //        _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+            //        var name = _Customer.FirstName + " " + _Customer.LastName;
+            //        PersianCalendar pc = new PersianCalendar();
+            //        DateTime dt = DateTime.Now;
+            //        string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            //        var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Deposit.ToString(), Status = "نزد برنامه طلبکار است" };
+            //        var report = StiReport.CreateNewReport();
+            //        report.Load(AppSetting.ReportPath + "Transaction.mrt");
+            //        report.RegData("myData", data);
+            //        report.RegData("basedata", basedata);
+            //        report.Render();
+            //        report.Show();
+            //    }
+            //    if (Withdraw > 0)
+            //    {
+            //        var data = tmpDataList;
+            //        _Customer = unitOfWork.Customers.FindFirst(x => x.Id == _Id);
+            //        var name = _Customer.FirstName + " " + _Customer.LastName;
+            //        PersianCalendar pc = new PersianCalendar();
+            //        DateTime dt = DateTime.Now;
+            //        string PersianDate = string.Format("{0}/{1}/{2}", pc.GetYear(dt), pc.GetMonth(dt), pc.GetDayOfMonth(dt));
+            //        var basedata = new reportbaseDAta() { Date = PersianDate, CustomerName = name, Price = Withdraw.ToString(), Status = " نزد برنامه بدهکار است" };
+            //        var report = StiReport.CreateNewReport();
+            //        report.Load(AppSetting.ReportPath + "Transaction.mrt");
+            //        report.RegData("myData", data);
+            //        report.RegData("basedata", basedata);
+            //        report.Render();
+            //        report.Show();
+            //    }
 
 
-            }
+            //}
         }
 
         public class reportbaseDAta
@@ -774,7 +741,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void grdTransactions_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F4)
+            if (e.KeyCode == Keys.Enter)
             {
                 if (this.grdTransactions.SelectedRows.Count > 0)
                 {
@@ -941,6 +908,48 @@ namespace PamirAccounting.UI.Forms.Customers
             {
                 grdTransactions.Select();
                 grdTransactions.Focus();
+            }
+        }
+
+        private void grdTransactions_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                grdTransactions.Select();
+                grdTransactions.Focus();
+            }
+            if (txtSearch.Text.Length > 0)
+            {
+                _dataList = unitOfWork.TransactionServices.FindAll(x => x.Id == int.Parse(txtSearch.Text))
+                       .Include(x => x.Curreny)
+                     .Include(x => x.User)
+                    .Select(x => new TransactionModel
+                    {
+                        Id = x.Id,
+                        Description = x.Description,
+                        DepositAmount = x.DepositAmount,
+                        WithdrawAmount = x.WithdrawAmount,
+                        Date = x.Date.ToString(),
+                        TransactionDateTime = x.TransactionDateTime.ToString(),
+                        CurrenyId = x.CurrenyId,
+                        CurrenyName = x.Curreny.Name,
+                        UserId = x.UserId,
+                        UserName = x.User.UserName,
+
+                    }).ToList();
+                grdTransactions.DataSource = _dataList;
+            }
+            else
+            {
+                LoadData();
             }
         }
     }

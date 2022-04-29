@@ -387,9 +387,9 @@ namespace PamirAccounting.Forms.Customers
             this.label8.Location = new System.Drawing.Point(180, 522);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(84, 19);
+            this.label8.Size = new System.Drawing.Size(102, 19);
             this.label8.TabIndex = 101;
-            this.label8.Text = "نمایش (F5)";
+            this.label8.Text = "نمایش (Enter)";
             // 
             // label10
             // 

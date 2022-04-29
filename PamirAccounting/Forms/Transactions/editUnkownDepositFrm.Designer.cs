@@ -204,7 +204,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label1.Location = new System.Drawing.Point(461, 129);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(45, 24);
+            this.label1.Size = new System.Drawing.Size(45, 19);
             this.label1.TabIndex = 275;
             this.label1.Text = "تاریخ ";
             // 
@@ -242,7 +242,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label4.Location = new System.Drawing.Point(427, 221);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(75, 24);
+            this.label4.Size = new System.Drawing.Size(76, 19);
             this.label4.TabIndex = 285;
             this.label4.Text = "واریز کننده ";
             // 
@@ -253,7 +253,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label2.Location = new System.Drawing.Point(463, 174);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(42, 24);
+            this.label2.Size = new System.Drawing.Size(42, 19);
             this.label2.TabIndex = 276;
             this.label2.Text = "شرح ";
             // 
@@ -264,7 +264,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label3.Location = new System.Drawing.Point(170, 129);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(64, 24);
+            this.label3.Size = new System.Drawing.Size(65, 19);
             this.label3.TabIndex = 283;
             this.label3.Text = "نام بانک ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -302,7 +302,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label6.Location = new System.Drawing.Point(461, 45);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(42, 24);
+            this.label6.Size = new System.Drawing.Size(42, 19);
             this.label6.TabIndex = 277;
             this.label6.Text = "سند :";
             // 
@@ -342,7 +342,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label9.Location = new System.Drawing.Point(170, 45);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label9.Size = new System.Drawing.Size(83, 24);
+            this.label9.Size = new System.Drawing.Size(84, 19);
             this.label9.TabIndex = 280;
             this.label9.Text = "شماره فیش ";
             // 
@@ -353,7 +353,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label7.Location = new System.Drawing.Point(461, 89);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(40, 24);
+            this.label7.Size = new System.Drawing.Size(40, 19);
             this.label7.TabIndex = 278;
             this.label7.Text = "مبلغ ";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -377,7 +377,7 @@ namespace PamirAccounting.Forms.Transactions
             this.label8.Location = new System.Drawing.Point(170, 87);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(63, 24);
+            this.label8.Size = new System.Drawing.Size(64, 19);
             this.label8.TabIndex = 279;
             this.label8.Text = "کد شعبه ";
             // 
@@ -433,6 +433,7 @@ namespace PamirAccounting.Forms.Transactions
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.IconOptions.ShowIcon = false;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "editUnkownDepositFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
