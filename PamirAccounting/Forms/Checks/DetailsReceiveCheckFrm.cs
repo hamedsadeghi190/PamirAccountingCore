@@ -14,6 +14,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -58,15 +59,30 @@ namespace PamirAccounting.Forms.Checks
             cmbRealBankId.DisplayMember = "Title";
             ///////////////////////////////////////////////////
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+           // _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+            //_Customers = _Customers.Where(x => x.Title.Contains(cmbCustomers.Text)).ToList();
             cmbCustomers.DataSource = _Customers;
-            AutoCompleteStringCollection autoCustomers = new AutoCompleteStringCollection();
+            AutoCompleteStringCollection autoCustomer = new AutoCompleteStringCollection();
             foreach (var item in _Customers)
             {
-                autoCustomers.Add(item.Title);
+               
+                autoCustomer.Add(item.Title);
             }
-            cmbCustomers.AutoCompleteCustomSource = autoCustomers;
+            cmbCustomers.AutoCompleteCustomSource = autoCustomer;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
+
+            //////////////////////////////
+            //AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+            //int i = 0;
+            //for (i = 0; i <= ds.Tables[0].Rows.Count - 1; i++)
+            //{
+            //    col.Add(ds.Tables[0].Rows[i][FieldsName].ToString());
+            //}
+            //cmb1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //cmb1.AutoCompleteCustomSource = col;
+            //cmb1.AutoCompleteMode = AutoCompleteMode.Suggest;
+            //con.Close();
 
         }
 
@@ -183,6 +199,14 @@ namespace PamirAccounting.Forms.Checks
             {
                 return false;
             }
+            if (cmbRealBankId.SelectedValue == null)
+            {
+                return false;
+            }
+            if(cmbCustomers.SelectedValue == null)
+            {
+                return false;
+            }
             return true;
         }
         private void CleanForm()
@@ -214,7 +238,6 @@ namespace PamirAccounting.Forms.Checks
             {
               var  realBank = new Domains.RealBank();
                 realBank.Name = cmbRealBankId.Text;
-                realBank.Id =5;
                 unitOfWork.RealBankServices.Insert(realBank);
                 unitOfWork.SaveChanges();
                 Cheque.RealBankId = realBank.Id;
@@ -229,7 +252,7 @@ namespace PamirAccounting.Forms.Checks
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
-            var dDueDate = txtIssueDate.Text.Split('/');
+            var dDueDate = txtDueDate.Text.Split('/');
             var DueDateDateTime = p.ToDateTime(int.Parse(dDueDate[0]), int.Parse(dDueDate[1]), int.Parse(dDueDate[2]), 0, 0, 0, 0);
             Cheque.UserId = CurrentUser.UserID;
             Cheque.IssueDate = IssueDateDateTime;
@@ -292,11 +315,22 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveEdit()
         {
-
+            if (cmbRealBankId.SelectedValue == null)
+            {
+                var realBank = new Domains.RealBank();
+                realBank.Name = cmbRealBankId.Text;
+                unitOfWork.RealBankServices.Insert(realBank);
+                unitOfWork.SaveChanges();
+                Cheque.RealBankId = realBank.Id;
+            }
+            else
+            {
+                Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
+            }
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
-            var dDueDate = txtIssueDate.Text.Split('/');
+            var dDueDate = txtDueDate.Text.Split('/');
             var DueDateDateTime = p.ToDateTime(int.Parse(dDueDate[0]), int.Parse(dDueDate[1]), int.Parse(dDueDate[2]), 0, 0, 0, 0);
             Cheque.UserId = CurrentUser.UserID;
             Cheque.IssueDate = IssueDateDateTime;
@@ -306,7 +340,7 @@ namespace PamirAccounting.Forms.Checks
             Cheque.DocumentId = Cheque.DocumentId;
             Cheque.Description = txtDescription.Text;
             Cheque.Amount = (String.IsNullOrEmpty(txtAmount.Text.Trim())) ? 0 : amount;
-            Cheque.RealBankId = (byte)(int)cmbRealBankId.SelectedValue;
+         
             Cheque.RegisterDateTime = DateTime.Now;
             Cheque.CustomerId = (int)cmbCustomers.SelectedValue;
             Cheque.BankAccountNumber = txtBankAccountNumber.Text;
@@ -432,6 +466,33 @@ namespace PamirAccounting.Forms.Checks
                 }
 
             }
+        }
+
+        private void cmbCustomers_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCustomers_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+         
+        }
+
+        private void cmbCustomers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+          
+            //_Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+            //_Customers = _Customers.Where(x => x.Title.Contains(cmbCustomers.Text)).ToList();
+            ////cmbCustomers.DataSource = _Customers;
+            //AutoCompleteStringCollection autoCustomer = new AutoCompleteStringCollection();
+            //foreach (var item in _Customers)
+            //{
+            //    autoCustomer.Add(item.Title);
+            //}
+            //cmbCustomers.AutoCompleteCustomSource = autoCustomer;
+            //cmbCustomers.ValueMember = "Id";
+            //cmbCustomers.DisplayMember = "Title";
         }
 
         private void createAccount(int SourceCustomerId, int CurrenyId)

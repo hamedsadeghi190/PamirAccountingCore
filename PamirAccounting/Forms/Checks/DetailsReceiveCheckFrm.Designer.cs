@@ -159,11 +159,15 @@ namespace PamirAccounting.Forms.Checks
             this.cmbCustomers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomers.FormattingEnabled = true;
+            this.cmbCustomers.ImeMode = System.Windows.Forms.ImeMode.Alpha;
             this.cmbCustomers.Location = new System.Drawing.Point(338, 262);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(140, 27);
             this.cmbCustomers.TabIndex = 85;
             this.cmbCustomers.SelectedIndexChanged += new System.EventHandler(this.cmbCustomers_SelectedIndexChanged);
+            this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
+            this.cmbCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCustomers_KeyPress);
+            this.cmbCustomers.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbCustomers_KeyUp);
             // 
             // label12
             // 

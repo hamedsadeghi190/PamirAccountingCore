@@ -115,6 +115,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
+            var dDate = DateTime.Now.ToShortDateString();
             if (txtDesc.Text == "")
             {
                 CreateDescription();
@@ -153,7 +154,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.Description =txtDesc.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction.Date = DateTime.Now;
-                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Parse(dDate); ;
                 customerTransaction.UserId = CurrentUser.UserID;
                 customerTransaction.DocumentId = DocumentId;
                 unitOfWork.TransactionServices.Insert(customerTransaction);
@@ -171,7 +172,7 @@ namespace PamirAccounting.Forms.Checks
                 receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
                 receivedDocuments.CurrenyId = AppSetting.TomanCurrencyID;
                 receivedDocuments.Date = DateTime.Now;
-                receivedDocuments.TransactionDateTime = DateTime.Now;
+                receivedDocuments.TransactionDateTime = DateTime.Parse(dDate);
                 receivedDocuments.UserId = CurrentUser.UserID;
                 receivedDocuments.DocumentId = DocumentId;
                 unitOfWork.TransactionServices.Insert(receivedDocuments);
@@ -215,7 +216,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.Description =txtDesc.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction.Date = DateTime.Now;
-                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
                 customerTransaction.UserId = CurrentUser.UserID;
                 customerTransaction.DocumentId = Cheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(customerTransaction);
@@ -233,7 +234,7 @@ namespace PamirAccounting.Forms.Checks
                 receivedDocuments.TransactionType = (int)TransaActionType.RecivedDocument;
                 receivedDocuments.CurrenyId = AppSetting.TomanCurrencyID;
                 receivedDocuments.Date = DateTime.Now;
-                receivedDocuments.TransactionDateTime = DateTime.Now;
+                receivedDocuments.TransactionDateTime = DateTime.Parse(dDate);
                 receivedDocuments.UserId = CurrentUser.UserID;
                 receivedDocuments.DocumentId = Cheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(receivedDocuments);
@@ -254,7 +255,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction2.Description =txtDesc.Text;
                 customerTransaction2.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction2.Date = DateTime.Now;
-                customerTransaction2.TransactionDateTime = DateTime.Now;
+                customerTransaction2.TransactionDateTime = DateTime.Parse(dDate);
                 customerTransaction2.UserId = CurrentUser.UserID;
                 customerTransaction2.DocumentId = Cheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(customerTransaction2);
@@ -272,7 +273,7 @@ namespace PamirAccounting.Forms.Checks
                 receivedDocuments2.TransactionType = (int)TransaActionType.RecivedDocument;
                 receivedDocuments2.CurrenyId = AppSetting.TomanCurrencyID;
                 receivedDocuments2.Date = DateTime.Now;
-                receivedDocuments2.TransactionDateTime = DateTime.Now;
+                receivedDocuments2.TransactionDateTime = DateTime.Parse(dDate);
                 receivedDocuments2.UserId = CurrentUser.UserID;
                 receivedDocuments2.DocumentId = Cheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(receivedDocuments2);
@@ -321,6 +322,11 @@ namespace PamirAccounting.Forms.Checks
         private void txtDesc_KeyUp(object sender, KeyEventArgs e)
         {
             CreateDescription();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void CreateDescription()
