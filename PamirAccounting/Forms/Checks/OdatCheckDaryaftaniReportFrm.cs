@@ -280,9 +280,9 @@ namespace PamirAccounting.Forms.Checks
                 report.Load(AppSetting.ReportPath + "ReceiveOdatList.mrt");
                 report.RegData("myData", data);
                 report.RegData("basedata", basedata);
-                report.Design();
-                //report.Render();
-                //report.Show();
+                //report.Design();
+                report.Render();
+                report.Show();
             }
         }
     }

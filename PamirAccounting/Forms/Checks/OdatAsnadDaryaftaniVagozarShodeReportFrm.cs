@@ -18,7 +18,7 @@ namespace PamirAccounting.Forms.Checks
 {
     public partial class OdatAsnadDaryaftaniVagozarShodeReportFrm : DevExpress.XtraEditors.XtraForm
     {
-      
+
         private UnitOfWork unitOfWork;
         private List<ChequeModel> dataList;
         public OdatAsnadDaryaftaniVagozarShodeReportFrm()
@@ -214,12 +214,12 @@ namespace PamirAccounting.Forms.Checks
                 report.Load(AppSetting.ReportPath + "OdatVagozariList.mrt");
                 report.RegData("myData", data);
                 report.RegData("basedata", basedata);
-                report.Design();
-                // report.Render();
-                //report.Show();
+                //report.Design();
+                report.Render();
+                report.Show();
             }
         }
-            private void btnPrint_Click(object sender, EventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e)
         {
             PersianCalendar pc = new PersianCalendar();
             DateTime dt = DateTime.Now;
@@ -283,4 +283,4 @@ namespace PamirAccounting.Forms.Checks
             }
         }
     }
-    }
+}
