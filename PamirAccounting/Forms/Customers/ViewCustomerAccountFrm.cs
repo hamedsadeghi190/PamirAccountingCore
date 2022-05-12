@@ -300,7 +300,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
 
 
-        
+
 
         private void grdTransactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -758,15 +758,16 @@ namespace PamirAccounting.UI.Forms.Customers
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             FilterData();
-   
+
         }
 
-
+        [Obsolete]
         private void txtDate1_TextChanged(object sender, EventArgs e)
         {
             FilterData();
         }
 
+        [Obsolete]
         private void txtDate2_TextChanged(object sender, EventArgs e)
         {
             FilterData();
@@ -788,15 +789,14 @@ namespace PamirAccounting.UI.Forms.Customers
                 endDate = p.ToDateTime(int.Parse(dDate2[0]), int.Parse(dDate2[1]), int.Parse(dDate2[2]), 0, 0, 0, 0);
 
                 tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
-           !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null, startDate, endDate);
+                                        !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null, startDate, endDate);
 
-               
+
             }
             catch (Exception ex)
             {
                 tmpDataList = unitOfWork.TransactionServices.Filterd(_Id.Value, ((int)cmbCurrencies.SelectedValue != 0) ? (int)cmbCurrencies.SelectedValue : null,
-            !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null,
-            null, null);
+                                        !string.IsNullOrEmpty(txtSearch.Text.Trim()) ? long.Parse(txtSearch.Text) : null, null, null);
 
             }
 
@@ -878,7 +878,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
         private void grdTransactions_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-          
+
 
         }
 

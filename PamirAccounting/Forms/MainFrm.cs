@@ -458,10 +458,10 @@ namespace PamirAccounting.UI
             report.Load(AppSetting.ReportPath +"Bank.mrt");
             report.RegData("myData", data);
            // report.Render();
-            report.Design();
+           // report.Design();
 
-            // report.Render();
-            //report.Show();
+            report.Render();
+            report.Show();
         }
 
         private void btnReceiveCheckList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

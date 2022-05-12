@@ -144,9 +144,9 @@ namespace PamirAccounting.Forms.NewsPaper
                 report.RegData("myData", data);
                 report.RegData("myData2", data2);
                 report.RegData("basedata", basedata);
-                report.Design();
-                //report.Render();
-                //report.Show();
+               // report.Design();
+                report.Render();
+                report.Show();
 
             }
         }
@@ -220,9 +220,9 @@ namespace PamirAccounting.Forms.NewsPaper
             report.RegData("myData", data);
             report.RegData("myData2", data2);
             report.RegData("basedata", basedata);
-            report.Design();
-            //report.Render();
-            //report.Show();
+            //report.Design();
+            report.Render();
+            report.Show();
         }
 
         private List<TransactionModel> TotalPrint()

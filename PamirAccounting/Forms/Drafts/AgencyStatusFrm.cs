@@ -315,9 +315,9 @@ namespace PamirAccounting.Forms.Drafts
             report.RegData("myData", data);
             report.RegData("myData2", data2);
             report.RegData("basedata", basedata);
-            //report.Render();
-            //report.Show();
-            report.Design();
+            report.Render();
+            report.Show();
+           // report.Design();
         }
 
         private void gridDrafts_KeyDown(object sender, KeyEventArgs e)

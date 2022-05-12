@@ -76,8 +76,12 @@ namespace PamirAccounting.Forms.Transactions
 
             customerTransaction.CurrenyId = currenyId;
             customerTransaction.Date = dateTime;
-            customerTransaction.TransactionDateTime = dateTime;
+           
             customerTransaction.UserId = CurrentUser.UserID;
+
+
+            var dateTime1 = DateTime.Parse($"{customerTransaction.Date.Year}/{customerTransaction.Date.Month}/{customerTransaction.Date.Day}");
+            customerTransaction.TransactionDateTime = dateTime1;
 
             unitOfWork.TransactionServices.Insert(customerTransaction);
             unitOfWork.SaveChanges();
@@ -177,7 +181,7 @@ namespace PamirAccounting.Forms.Transactions
                     bankDesc += $" {item.FullName} ";
 
                     createDeposit(item.CustomerId, transaction.CurrenyId.Value, transaction.SourceCustomerId, item.Amount.Value, desc, transaction.Date);
-                   // CreateWithDraw(transaction.SourceCustomerId, transaction.CurrenyId.Value, item.CustomerId, item.Amount.Value, desc, transaction.Date);
+                    //CreateWithDraw(transaction.SourceCustomerId, transaction.CurrenyId.Value, item.CustomerId, item.Amount.Value, desc, transaction.Date);
                 }
 
                

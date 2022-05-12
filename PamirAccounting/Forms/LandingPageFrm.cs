@@ -38,8 +38,8 @@ namespace PamirAccounting.Forms
                 AppSetting.BackupPath = _Settings.BackupDirectory;
             }
 
-         
-            AppSetting.DebugMode = true;
+
+            AppSetting.DebugMode = false;
 
             AppSetting.TransferdDraftsId = 23;
             AppSetting.NotRunnedDraftsId = 6;
@@ -51,7 +51,7 @@ namespace PamirAccounting.Forms
             AppSetting.DocumnetAndDraftsGroupID = new int[] { 7, 8 };
 
 
-            if (AppSetting.DebugMode == true)
+            if (AppSetting.DebugMode == false)
             {
                 var currentDirectory = Directory.GetCurrentDirectory();
                 AppSetting.ReportPath = $"{currentDirectory}\\Reports\\";
@@ -61,7 +61,7 @@ namespace PamirAccounting.Forms
                 AppSetting.ReportPath = "D:\\Pamirsoft\\Reports\\";
                 //AppSetting.ReportPath = "D:\\PamirAccountingCore\\PamirAccounting\\Reports\\";
                 //AppSetting.ReportPath = "E:\\Projects\\PamirAccounting\\PamirAccounting\\Reports\\";
-                AppSetting.ReportPath = "D:\\fixed\\PamirAccountingCore\\PamirAccounting\\Reports\\";
+                //AppSetting.ReportPath = "D:\\fixed\\PamirAccountingCore\\PamirAccounting\\Reports\\";
             }
 
         }
