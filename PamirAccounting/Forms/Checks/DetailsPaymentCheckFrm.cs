@@ -191,6 +191,14 @@ namespace PamirAccounting.Forms.Checks
             {
                 return false;
             }
+            if (cmbCustomers.SelectedValue == null)
+            {
+                return false;
+            }
+            if (cmbRealBankId.SelectedValue == null)
+            {
+                return false;
+            }
             return true;
         }
         private void CleanForm()
@@ -221,7 +229,7 @@ namespace PamirAccounting.Forms.Checks
                 var dIssueDate = txtIssueDate.Text.Split('/');
                 PersianCalendar p = new PersianCalendar();
                 var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
-                var dDueDate = txtIssueDate.Text.Split('/');
+                var dDueDate = txtDueDate.Text.Split('/');
                 var DueDateDateTime = p.ToDateTime(int.Parse(dDueDate[0]), int.Parse(dDueDate[1]), int.Parse(dDueDate[2]), 0, 0, 0, 0);
                 Cheque.UserId = CurrentUser.UserID;
                 Cheque.IssueDate = IssueDateDateTime;
@@ -292,7 +300,7 @@ namespace PamirAccounting.Forms.Checks
             var dIssueDate = txtIssueDate.Text.Split('/');
             PersianCalendar p = new PersianCalendar();
             var IssueDateDateTime = p.ToDateTime(int.Parse(dIssueDate[0]), int.Parse(dIssueDate[1]), int.Parse(dIssueDate[2]), 0, 0, 0, 0);
-            var dDueDate = txtIssueDate.Text.Split('/');
+            var dDueDate = txtDueDate.Text.Split('/');
             var DueDateDateTime = p.ToDateTime(int.Parse(dDueDate[0]), int.Parse(dDueDate[1]), int.Parse(dDueDate[2]), 0, 0, 0, 0);
             Cheque.UserId = CurrentUser.UserID;
             Cheque.IssueDate = IssueDateDateTime;

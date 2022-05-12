@@ -107,6 +107,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void SaveNew()
         {
+            var dDate = DateTime.Now.ToShortDateString();
             if (txtDesc.Text.Length<0)
             {
                 CreateDescription();
@@ -158,7 +159,7 @@ namespace PamirAccounting.Forms.Checks
                 bankTransaction.Description = txtDesc.Text;
                 bankTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 bankTransaction.Date = DateTime.Now;
-                bankTransaction.TransactionDateTime = DateTime.Now;
+                bankTransaction.TransactionDateTime = DateTime.Parse(dDate);
                 bankTransaction.UserId = CurrentUser.UserID;
                 bankTransaction.DocumentId = currentCheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(bankTransaction);
@@ -176,7 +177,7 @@ namespace PamirAccounting.Forms.Checks
                 receivedDocuments.TransactionType = (int)TransaActionType.DepositDocument;
                 receivedDocuments.CurrenyId = AppSetting.TomanCurrencyID;
                 receivedDocuments.Date = DateTime.Now;
-                receivedDocuments.TransactionDateTime = DateTime.Now;
+                receivedDocuments.TransactionDateTime = DateTime.Parse(dDate);
                 receivedDocuments.UserId = CurrentUser.UserID;
                 receivedDocuments.DocumentId = currentCheque.DocumentId;
                 unitOfWork.TransactionServices.Insert(receivedDocuments);

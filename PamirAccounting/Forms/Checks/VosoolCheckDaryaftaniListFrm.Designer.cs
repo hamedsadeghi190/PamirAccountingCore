@@ -286,6 +286,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // RealBankName
             // 
+            this.RealBankName.DataPropertyName = "RealBankName";
             this.RealBankName.HeaderText = "بانک";
             this.RealBankName.MinimumWidth = 6;
             this.RealBankName.Name = "RealBankName";

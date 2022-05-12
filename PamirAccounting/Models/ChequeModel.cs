@@ -30,6 +30,11 @@ namespace PamirAccounting.Models
         public int? RowId { get; set; }
         public int? BankId { get; set; }
         public string BankName { get; set; }
+        public int? OrginalCustomerId { get; set; }
+        public List<Customer> OrginalCustomer { get; set; }
+        public string OrginalCustomerName { get; set; }
+        public DateTime? VosoolDate { get; set; }
+        public string VosoolDatePersian { get; set; }
         //public List< Customer> Customers { get; set; }
         //public List<RealBank> RealBanks { get; set; }
         //public List<User> Users { get; set; }

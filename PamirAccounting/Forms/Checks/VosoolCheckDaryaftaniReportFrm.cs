@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Domains;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
@@ -18,13 +19,15 @@ namespace PamirAccounting.Forms.Checks
 {
     public partial class VosoolCheckDaryaftaniReportFrm : DevExpress.XtraEditors.XtraForm
     {
-        
+
         private UnitOfWork unitOfWork;
         private List<ChequeModel> dataList;
+        private PamirContext context;
         public VosoolCheckDaryaftaniReportFrm()
         {
             InitializeComponent();
             unitOfWork = new UnitOfWork();
+            context = new PamirContext();
         }
         private void LoadData()
         {
@@ -43,10 +46,11 @@ namespace PamirAccounting.Forms.Checks
                 x.CustomerName,
                 x.RealBankName,
                 x.DueDate,
-                IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
-                DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString(),
-                x.RowId
-
+                x.DueDatePersian,
+                x.IssueDatePersian,
+                x.RowId,
+                OrginalCustomerName = x.OrginalCustomer.Select(p => p.FirstName + " " + p.LastName).First().ToString(),
+                x.VosoolDatePersian,
 
             }).ToList();
 
@@ -126,7 +130,7 @@ namespace PamirAccounting.Forms.Checks
             report.Load(AppSetting.ReportPath + "ReceiveVosoolList.mrt");
             report.RegData("myData", data);
             report.RegData("basedata", basedata);
-           // report.Design();
+            // report.Design();
             report.Render();
             report.Show();
         }
@@ -159,7 +163,7 @@ namespace PamirAccounting.Forms.Checks
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
-                }).Where(x => x.ChequeNumber .Contains( txtChequeNumber.Text)).ToList();
+                }).Where(x => x.ChequeNumber.Contains(txtChequeNumber.Text)).ToList();
 
             }
             else
@@ -196,7 +200,7 @@ namespace PamirAccounting.Forms.Checks
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
-                }).Where(x => x.BankAccountNumber .Contains( txtAccountNumber.Text)).ToList();
+                }).Where(x => x.BankAccountNumber.Contains(txtAccountNumber.Text)).ToList();
 
             }
             else
@@ -281,7 +285,7 @@ namespace PamirAccounting.Forms.Checks
                 report.Load(AppSetting.ReportPath + "ReceiveVosoolList.mrt");
                 report.RegData("myData", data);
                 report.RegData("basedata", basedata);
-               // report.Design();
+                // report.Design();
                 report.Render();
                 report.Show();
             }

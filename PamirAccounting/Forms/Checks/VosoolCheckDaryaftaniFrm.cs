@@ -128,7 +128,8 @@ namespace PamirAccounting.Forms.Checks
 
         private void SaveNew()
         {
-           
+            var dDate = DateTime.Now.ToShortDateString();
+
             ///////////////// //Check Status New/////////////
             if (Status == (int)Settings.ChequeStatus.New)
             {
@@ -164,7 +165,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.Description = txtDesc.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction.Date = DateTime.Now;
-                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
                 customerTransaction.UserId = CurrentUser.UserID;
                 customerTransaction.DocumentId = DocumentId;
                 unitOfWork.TransactionServices.Insert(customerTransaction);
@@ -180,7 +181,7 @@ namespace PamirAccounting.Forms.Checks
                 DarJaryanVosool.TransactionType = (int)TransaActionType.RecivedDocument;
                 DarJaryanVosool.CurrenyId = AppSetting.TomanCurrencyID;
                 DarJaryanVosool.Date = DateTime.Now;
-                DarJaryanVosool.TransactionDateTime = DateTime.Now;
+                DarJaryanVosool.TransactionDateTime = DateTime.Parse(dDate);
                 DarJaryanVosool.UserId = CurrentUser.UserID;
                 DarJaryanVosool.DocumentId = DocumentId;
                 unitOfWork.TransactionServices.Insert(DarJaryanVosool);
@@ -227,7 +228,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.Description = txtDesc.Text;
                 customerTransaction.CurrenyId = AppSetting.TomanCurrencyID;
                 customerTransaction.Date = DateTime.Now;
-                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
                 customerTransaction.UserId = CurrentUser.UserID;
                 customerTransaction.DocumentId = DocumentId;
                 unitOfWork.TransactionServices.Insert(customerTransaction);
@@ -245,7 +246,7 @@ namespace PamirAccounting.Forms.Checks
                 DarJaryanVosool.TransactionType = (int)TransaActionType.RecivedDocument;
                 DarJaryanVosool.CurrenyId = AppSetting.TomanCurrencyID;
                 DarJaryanVosool.Date = DateTime.Now;
-                DarJaryanVosool.TransactionDateTime = DateTime.Now;
+                DarJaryanVosool.TransactionDateTime = DateTime.Parse(dDate);
                 DarJaryanVosool.UserId = CurrentUser.UserID;
                 DarJaryanVosool.DocumentId = DocumentId;
                 unitOfWork.TransactionServices.Insert(DarJaryanVosool);
@@ -259,6 +260,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void SaveEdit()
         {
+            var dDate = DateTime.Now.ToShortDateString();
             ///////////////// //Check Status New/////////////
             if (Status == (int)Settings.ChequeStatus.New)
             {
@@ -295,7 +297,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.Description = currentCheque.Description;
                 customerTransaction.CurrenyId = customerTransaction.CurrenyId;
                 customerTransaction.Date = DateTime.Now;
-                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
                 customerTransaction.UserId = CurrentUser.UserID;
                 customerTransaction.DocumentId = customerTransaction.DocumentId;
                 unitOfWork.TransactionServices.Update(customerTransaction);
@@ -313,7 +315,7 @@ namespace PamirAccounting.Forms.Checks
                 DarJaryanVosool.TransactionType = DarJaryanVosool.TransactionType;
                 DarJaryanVosool.CurrenyId = DarJaryanVosool.CurrenyId;
                 DarJaryanVosool.Date = DateTime.Now;
-                DarJaryanVosool.TransactionDateTime = DateTime.Now;
+                DarJaryanVosool.TransactionDateTime = DateTime.Parse(dDate);
                 DarJaryanVosool.UserId = CurrentUser.UserID;
                 DarJaryanVosool.DocumentId = DarJaryanVosool.DocumentId;
                 unitOfWork.TransactionServices.Update(DarJaryanVosool);
@@ -357,7 +359,7 @@ namespace PamirAccounting.Forms.Checks
                 customerTransaction.Description = currentCheque.Description;
                 customerTransaction.CurrenyId = customerTransaction.CurrenyId;
                 customerTransaction.Date = DateTime.Now;
-                customerTransaction.TransactionDateTime = DateTime.Now;
+                customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
                 customerTransaction.UserId = CurrentUser.UserID;
                 customerTransaction.DocumentId = customerTransaction.DocumentId;
                 unitOfWork.TransactionServices.Update(customerTransaction);
@@ -375,7 +377,7 @@ namespace PamirAccounting.Forms.Checks
                 DarJaryanVosool.TransactionType = DarJaryanVosool.TransactionType;
                 DarJaryanVosool.CurrenyId = DarJaryanVosool.CurrenyId;
                 DarJaryanVosool.Date = DateTime.Now;
-                DarJaryanVosool.TransactionDateTime = DateTime.Now;
+                DarJaryanVosool.TransactionDateTime = DateTime.Parse(dDate);
                 DarJaryanVosool.UserId = CurrentUser.UserID;
                 DarJaryanVosool.DocumentId = DarJaryanVosool.DocumentId;
                 unitOfWork.TransactionServices.Update(DarJaryanVosool);

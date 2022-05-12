@@ -390,6 +390,7 @@ namespace PamirAccounting.Services
                     BranchName = x.BranchName,
                     ChequeNumber = x.ChequeNumber,
                     CustomerId = x.CustomerId,
+                    OrginalCustomerId=x.OrginalCustomerIde,
                     DocumentId = x.DocumentId,
                     DueDate = x.DueDate,
                     IssueDate = x.IssueDate,
@@ -399,6 +400,8 @@ namespace PamirAccounting.Services
                     UserId = x.UserId,
                     RealBankName = x.RealBank.Name,
                     CustomerName = x.Customer.FirstName + " " + x.Customer.LastName,
+                    VosoolDate=x.VosoolDate,
+                    VosoolDatePersian = pc.GetYear((DateTime)x.VosoolDate).ToString() + "/" + pc.GetMonth((DateTime)x.VosoolDate).ToString() + "/" + pc.GetDayOfMonth((DateTime)x.VosoolDate).ToString(),
                     IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
                     DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
 
@@ -423,8 +426,10 @@ namespace PamirAccounting.Services
                     UserId = x.UserId,
                     RealBankName = x.RealBankName,
                     CustomerName = x.CustomerName,
-                    IssueDatePersian = pc.GetYear(x.IssueDate).ToString() + "/" + pc.GetMonth(x.IssueDate).ToString() + "/" + pc.GetDayOfMonth(x.IssueDate).ToString(),
-                    DueDatePersian = pc.GetYear(x.DueDate).ToString() + "/" + pc.GetMonth(x.DueDate).ToString() + "/" + pc.GetDayOfMonth(x.DueDate).ToString()
+                    VosoolDatePersian=x.VosoolDatePersian,
+                    OrginalCustomer= _context.Customers.Where(p => p.Id == x.OrginalCustomerId).ToList(),
+                    IssueDatePersian = x.IssueDatePersian,
+                    DueDatePersian =x.DueDatePersian,
 
                 }).ToList();
                 return cheque;
