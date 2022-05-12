@@ -174,7 +174,7 @@ namespace PamirAccounting.Forms.Drafts
                     MessageBox.Show("لطفا مقادیر ورودی را بررسی نمایید");
                     return;
                 }
-
+                txtRent.Text = txtRent.Text.Length > 0 == true ? txtRent.Text : "0";
 
                 if (draft == null)
                     draft = new Draft();

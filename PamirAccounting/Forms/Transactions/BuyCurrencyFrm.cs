@@ -304,6 +304,12 @@ namespace PamirAccounting.Forms.Transactions
             }
             else
             {
+                if (_Id.HasValue)
+                {
+                    cmbSrcCustomers.SelectedValue = _Id.Value;
+                    cmbTalabkarCustomers.SelectedValue = _Id.Value;
+                }
+
                 lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             }
             handleEvents(true);
@@ -442,6 +448,7 @@ namespace PamirAccounting.Forms.Transactions
             ShowSellerChars();
             createDesc();
             calculateAmount();
+            ShowChars();
         }
 
 

@@ -87,7 +87,7 @@ namespace PamirAccounting.Forms.Transactions
             cmbVarizType.ValueMember = "Id";
             cmbVarizType.DisplayMember = "Title";
 
-            _Banks = unitOfWork.CustomerServices.FindAll(x => x.GroupId == 2).Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
+            _Banks = unitOfWork.CustomerServices.FindAll(x => x.GroupId == 2, "Bank").Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}", Type = x.Bank.BaseCurrencyId.GetValueOrDefault() }).ToList();
 
             cmbBanks.DataSource = _Banks;
 
@@ -207,7 +207,7 @@ namespace PamirAccounting.Forms.Transactions
             txtBranchCode.Text = bankTransaction.BranchCode;
             txtDate.Text = bankTransaction.TransactionDateTime.ToFarsiFormat();
             ShowChars();
-          
+
         }
 
         private void cmbAction_SelectedValueChanged(object sender, EventArgs e)
@@ -397,7 +397,7 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.SaveChanges();
 
             //ثبت واریز برای مشتری
-            if ((int)cmbVarizType.SelectedValue == (int)DepostType.known && customerTransaction !=null)
+            if ((int)cmbVarizType.SelectedValue == (int)DepostType.known && customerTransaction != null)
             {
 
 
@@ -426,7 +426,7 @@ namespace PamirAccounting.Forms.Transactions
 
             }
             //ثبت واریز برای مشتری
-           else if ((int)cmbVarizType.SelectedValue == (int)DepostType.known && customerTransaction == null)
+            else if ((int)cmbVarizType.SelectedValue == (int)DepostType.known && customerTransaction == null)
             {
                 customerTransaction = new Domains.Transaction();
                 customerTransaction.TransactionType = (int)TransaActionType.PayAndReciveBank;
@@ -691,6 +691,21 @@ namespace PamirAccounting.Forms.Transactions
             Tools.CheckDate(txtDate);
         }
 
+        private void cmbBanks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedBank = _Banks.FirstOrDefault(x => x.Id == (int)cmbBanks.SelectedValue);
+                cmbCurrencies.SelectedValue = selectedBank.Type;
+            }
+            catch
+            {
+
+               
+            }
+     
+        }
+
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
@@ -716,7 +731,7 @@ namespace PamirAccounting.Forms.Transactions
         }
         private void CleanForm()
         {
-            txtAmount.Text = "0"; 
+            txtAmount.Text = "0";
             lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             txtdesc.Text = "";
             txtDate.Text = DateTime.Now.ToFarsiFormat();

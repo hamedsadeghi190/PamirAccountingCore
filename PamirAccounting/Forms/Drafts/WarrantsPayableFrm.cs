@@ -241,7 +241,7 @@ namespace PamirAccounting.Forms.Drafts
                 {
                     txtRate.Text = "0";
                 }
-
+                txtRent.Text = txtRent.Text.Length > 0 == true ? txtRent.Text : "0";
                 var dDate = txtDate.Text.Split('/');
                 PersianCalendar p = new PersianCalendar();
                 var draftDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
