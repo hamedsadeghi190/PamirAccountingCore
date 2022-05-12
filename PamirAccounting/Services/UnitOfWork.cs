@@ -211,5 +211,16 @@ namespace PamirAccounting.Services
         }
         public ChequeServices ChequeServices => (ChequeServices)Cheque;
         #endregion
+
+        #region DailyOperationServices
+        private IRepository<DailyOperation> _dailyOpration;
+
+        public IRepository<DailyOperation> DailyOperations
+        {
+            get { return _dailyOpration = _dailyOpration ?? new DailyOperationServices(_context, this, _mapper); }
+        }
+        public DailyOperationServices DailyOperationServices => (DailyOperationServices)DailyOperations;
+
+        #endregion
     }
 }

@@ -203,6 +203,9 @@
     <Compile Update="Forms\LandingPageFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Log\DailyOperationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>

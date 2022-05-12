@@ -3,6 +3,7 @@ using PamirAccounting.Forms.Currencies;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Forms.Drafts;
 using PamirAccounting.Forms.GeneralLedger;
+using PamirAccounting.Forms.Log;
 using PamirAccounting.Forms.NewsPaper;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Forms.Users;
@@ -607,6 +608,12 @@ namespace PamirAccounting.Forms
                 }
             }
 
+        }
+
+        private void DailyOperation_Click(object sender, EventArgs e)
+        {
+            var frm = new DailyOperationFrm();
+            frm.ShowDialog();
         }
     }
 }

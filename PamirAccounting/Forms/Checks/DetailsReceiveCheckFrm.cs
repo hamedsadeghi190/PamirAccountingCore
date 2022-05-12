@@ -59,8 +59,6 @@ namespace PamirAccounting.Forms.Checks
             cmbRealBankId.DisplayMember = "Title";
             ///////////////////////////////////////////////////
             _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
-           // _Customers = unitOfWork.CustomerServices.FindAll().Select(x => new ComboBoxModel() { Id = x.Id, Title = $"{x.FirstName} {x.LastName}" }).ToList();
-            //_Customers = _Customers.Where(x => x.Title.Contains(cmbCustomers.Text)).ToList();
             cmbCustomers.DataSource = _Customers;
             AutoCompleteStringCollection autoCustomer = new AutoCompleteStringCollection();
             foreach (var item in _Customers)
@@ -72,17 +70,7 @@ namespace PamirAccounting.Forms.Checks
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
 
-            //////////////////////////////
-            //AutoCompleteStringCollection col = new AutoCompleteStringCollection();
-            //int i = 0;
-            //for (i = 0; i <= ds.Tables[0].Rows.Count - 1; i++)
-            //{
-            //    col.Add(ds.Tables[0].Rows[i][FieldsName].ToString());
-            //}
-            //cmb1.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            //cmb1.AutoCompleteCustomSource = col;
-            //cmb1.AutoCompleteMode = AutoCompleteMode.Suggest;
-            //con.Close();
+      
 
         }
 

@@ -1,15 +1,20 @@
-﻿using System;
+﻿using PamirAccounting.Domains;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-#nullable disable
-
-namespace PamirAccounting.Domains
+namespace PamirAccounting.Models
 {
-    public partial class DailyOperation
+ public   class DailyOperationModel
     {
         public long Id { get; set; }
+        public int RowId { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan? Time { get; set; }
+        public string DatePersian { get; set; }
+        public string TimePersian { get; set; }
         public long TransactionId { get; set; }
         public long? DocumentId { get; set; }
         public int UserId { get; set; }
@@ -17,8 +22,7 @@ namespace PamirAccounting.Domains
         public string Description { get; set; }
         public string ActionText { get; set; }
         public byte? ActionType { get; set; }
-
-        public virtual Transaction Transaction { get; set; }
-        public virtual User User { get; set; }
+        public List <Transaction> Transactions { get; set; }
+        public List < User> Users { get; set; }
     }
 }

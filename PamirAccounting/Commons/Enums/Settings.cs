@@ -102,5 +102,17 @@ namespace PamirAccounting.Commons.Enums
             [Description("عودت واگذاری")]
             OdatVagozari = 13,
         }
+
+        public enum ActionType
+        {
+            [Description("ثبت")]
+            Insert = 1,
+            [Description("ویرایش")]
+            Update = 2,
+            [Description("حذف")]
+            Delete = 3,
+     
+          
+        }
     }
 }
