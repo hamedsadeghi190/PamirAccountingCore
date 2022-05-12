@@ -342,14 +342,7 @@ namespace PamirAccounting.Forms
             this.DailyOperation.Size = new System.Drawing.Size(291, 38);
             this.DailyOperation.Text = "عملیات روز";
             this.DailyOperation.Click += new System.EventHandler(this.DailyOperation_Click);
-            this.عملیاتروزToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.عملیاتروزToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.عملیاتروزToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("عملیاتروزToolStripMenuItem.Image")));
-            this.عملیاتروزToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.عملیاتروزToolStripMenuItem.Name = "عملیاتروزToolStripMenuItem";
-            this.عملیاتروزToolStripMenuItem.Size = new System.Drawing.Size(297, 38);
-            this.عملیاتروزToolStripMenuItem.Text = "عملیات روز";
-            this.عملیاتروزToolStripMenuItem.Visible = false;
+  
             // 
             // BuyAndSellCurrencyList
             // 

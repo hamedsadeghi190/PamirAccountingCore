@@ -40,7 +40,7 @@ namespace PamirAccounting.Services.Services
                     Description = x.Description,
                     Time = x.Time,
                     DocumentId = x.DocumentId,
-                    TransactionId = x.TransactionId,
+                    TransactionId = x.TransactionId.GetValueOrDefault(),
                     UserName = x.UserName,
                     UserId = x.UserId,
                     DatePersian = pc.GetYear(x.Date).ToString() + "/" + pc.GetMonth(x.Date).ToString() + "/" + pc.GetDayOfMonth(x.Date).ToString(),
