@@ -39,12 +39,14 @@ namespace PamirAccounting.Forms.Log
                 x.Time,
                 x.UserName,
                 x.ActionText,
+                x.TimePersian
             }).ToList();
 
         }
 
         private void DailyOperationFrm_Load(object sender, EventArgs e)
         {
+            gridLog.AutoGenerateColumns = false;
             LoadData();
         }
     }
