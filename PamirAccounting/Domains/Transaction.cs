@@ -9,6 +9,7 @@ namespace PamirAccounting.Domains
     {
         public Transaction()
         {
+            DailyOperations = new HashSet<DailyOperation>();
             Drafts = new HashSet<Draft>();
             InverseDoubleTransaction = new HashSet<Transaction>();
         }
@@ -38,6 +39,7 @@ namespace PamirAccounting.Domains
         public virtual Transaction DoubleTransaction { get; set; }
         public virtual Customer SourceCustomer { get; set; }
         public virtual User User { get; set; }
+        public virtual ICollection<DailyOperation> DailyOperations { get; set; }
         public virtual ICollection<Draft> Drafts { get; set; }
         public virtual ICollection<Transaction> InverseDoubleTransaction { get; set; }
     }

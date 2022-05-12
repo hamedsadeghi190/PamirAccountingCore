@@ -425,14 +425,29 @@ namespace PamirAccounting.Forms.Transactions
 
         private void cmbCustomers_KeyUp(object sender, KeyEventArgs e)
         {
-         
 
+
+        }
+
+        private void cmbCustomers_TextChanged(object sender, EventArgs e)
+        {
+            //this.cmbCustomers.SelectedValueChanged -= new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
+            //this.cmbCustomers.TextChanged -= new System.EventHandler(this.cmbCustomers_TextChanged);
+            //var tmpcustomers = _Customers.FindAll(x => x.Title.Contains(cmbCustomers.Text)).ToList();
+
+            //cmbCustomers.DataSource = tmpcustomers;
+            //cmbCustomers.ValueMember = "Id";
+            //cmbCustomers.DisplayMember = "Title";
+            //cmbCustomers.Refresh();
+
+            //this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
+            //this.cmbCustomers.TextChanged += new System.EventHandler(this.cmbCustomers_TextChanged);
         }
 
         private void CreateDescription()
         {
             var currencyName = cmbCurrencies.Text;
-            if ((int)cmbRemainType.SelectedValue == 2)
+            if (cmbRemainType.SelectedValue != null && (int)cmbRemainType.SelectedValue == 2)
             {
                 CustomerDesc = $"{Messages.WithdrawCash } به صندوق  به مبلغ {txtAmount.Text} {currencyName}";
                 txtdesc.Text = $"{Messages.DepostitCash } از {cmbCustomers.Text} ({cmbCustomers.SelectedValue}) به مبلغ {txtAmount.Text} {currencyName}";

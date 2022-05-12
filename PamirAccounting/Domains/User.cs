@@ -9,6 +9,7 @@ namespace PamirAccounting.Domains
     {
         public User()
         {
+            DailyOperations = new HashSet<DailyOperation>();
             Transactions = new HashSet<Transaction>();
         }
 
@@ -26,6 +27,7 @@ namespace PamirAccounting.Domains
         public virtual Agency Agent { get; set; }
         public virtual Currency Curreny { get; set; }
         public virtual Customer Customer { get; set; }
+        public virtual ICollection<DailyOperation> DailyOperations { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

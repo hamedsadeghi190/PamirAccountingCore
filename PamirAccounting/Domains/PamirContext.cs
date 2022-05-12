@@ -26,6 +26,7 @@ namespace PamirAccounting.Domains
         public virtual DbSet<Currency> Currencies { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerGroup> CustomerGroups { get; set; }
+        public virtual DbSet<DailyOperation> DailyOperations { get; set; }
         public virtual DbSet<Draft> Drafts { get; set; }
         public virtual DbSet<Header> Headers { get; set; }
         public virtual DbSet<RealBank> RealBanks { get; set; }
@@ -38,13 +39,13 @@ namespace PamirAccounting.Domains
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-DHSQIEN\\SQL2019;Database=PamirAccounting;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AI");
+            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AS_SC_UTF8");
 
             modelBuilder.Entity<Agency>(entity =>
             {
@@ -242,6 +243,33 @@ namespace PamirAccounting.Domains
             modelBuilder.Entity<CustomerGroup>(entity =>
             {
                 entity.Property(e => e.Name).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<DailyOperation>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(3000);
+
+                entity.Property(e => e.UserName)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.HasOne(d => d.Transaction)
+                    .WithMany(p => p.DailyOperations)
+                    .HasForeignKey(d => d.TransactionId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DailyOperations_Transactions");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.DailyOperations)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DailyOperations_Users");
             });
 
             modelBuilder.Entity<Draft>(entity =>

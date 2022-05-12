@@ -151,8 +151,6 @@ namespace PamirAccounting.Forms.Transactions
             // 
             // cmbCustomers
             // 
-            this.cmbCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbCustomers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbCustomers.FormattingEnabled = true;
             this.cmbCustomers.ItemHeight = 24;
@@ -162,6 +160,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCustomers.Size = new System.Drawing.Size(252, 32);
             this.cmbCustomers.TabIndex = 2;
             this.cmbCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
+            this.cmbCustomers.TextChanged += new System.EventHandler(this.cmbCustomers_TextChanged);
             this.cmbCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCustomers_KeyPress);
             this.cmbCustomers.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbCustomers_KeyUp);
             // 

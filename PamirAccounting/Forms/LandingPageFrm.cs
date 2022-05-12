@@ -39,7 +39,7 @@ namespace PamirAccounting.Forms
             }
 
 
-            AppSetting.DebugMode = false;
+            AppSetting.DebugMode = true;
 
             AppSetting.TransferdDraftsId = 23;
             AppSetting.NotRunnedDraftsId = 6;
