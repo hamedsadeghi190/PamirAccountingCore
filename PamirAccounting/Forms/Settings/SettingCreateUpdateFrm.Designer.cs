@@ -52,6 +52,10 @@ namespace PamirAccounting.UI.Forms.Settings
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnsave = new DevExpress.XtraEditors.SimpleButton();
             this.btnexit = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnSelectFlashBackupPath = new DevExpress.XtraEditors.SimpleButton();
+            this.txtFlashBackupPath = new DevExpress.XtraEditors.TextEdit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkPassRequerid.Properties)).BeginInit();
@@ -59,6 +63,7 @@ namespace PamirAccounting.UI.Forms.Settings
             ((System.ComponentModel.ISupportInitialize)(this.txtBackupPath.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfitPercent.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFlashBackupPath.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -80,7 +85,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.groupBox1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(13, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(709, 309);
+            this.groupBox1.Size = new System.Drawing.Size(709, 332);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تنظیمات";
@@ -144,11 +149,11 @@ namespace PamirAccounting.UI.Forms.Settings
             // 
             this.groupBox3.Controls.Add(this.chkPassRequerid);
             this.groupBox3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(10, 219);
+            this.groupBox3.Location = new System.Drawing.Point(8, 263);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(699, 71);
+            this.groupBox3.Size = new System.Drawing.Size(699, 60);
             this.groupBox3.TabIndex = 104;
             this.groupBox3.TabStop = false;
             // 
@@ -157,7 +162,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.chkPassRequerid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkPassRequerid.Location = new System.Drawing.Point(212, 30);
+            this.chkPassRequerid.Location = new System.Drawing.Point(212, 22);
             this.chkPassRequerid.Margin = new System.Windows.Forms.Padding(2);
             this.chkPassRequerid.Name = "chkPassRequerid";
             this.chkPassRequerid.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -169,17 +174,21 @@ namespace PamirAccounting.UI.Forms.Settings
             // groupBox4
             // 
             this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.BtnSelectFlashBackupPath);
+            this.groupBox4.Controls.Add(this.txtFlashBackupPath);
             this.groupBox4.Controls.Add(this.simpleButton1);
             this.groupBox4.Controls.Add(this.txtBackupPath);
             this.groupBox4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(13, 149);
+            this.groupBox4.Location = new System.Drawing.Point(11, 143);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(696, 71);
+            this.groupBox4.Size = new System.Drawing.Size(696, 125);
             this.groupBox4.TabIndex = 103;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "کپی فایل بکاپ ";
+            this.groupBox4.Text = "کپی فایل ";
             // 
             // simpleButton1
             // 
@@ -204,14 +213,14 @@ namespace PamirAccounting.UI.Forms.Settings
             // 
             this.txtBackupPath.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBackupPath.Enabled = false;
-            this.txtBackupPath.Location = new System.Drawing.Point(209, 24);
+            this.txtBackupPath.Location = new System.Drawing.Point(209, 26);
             this.txtBackupPath.Margin = new System.Windows.Forms.Padding(2);
             this.txtBackupPath.Name = "txtBackupPath";
             this.txtBackupPath.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBackupPath.Properties.Appearance.Options.UseFont = true;
             this.txtBackupPath.Properties.AutoHeight = false;
             this.txtBackupPath.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtBackupPath.Size = new System.Drawing.Size(475, 32);
+            this.txtBackupPath.Size = new System.Drawing.Size(375, 32);
             this.txtBackupPath.TabIndex = 112;
             // 
             // label1
@@ -295,9 +304,9 @@ namespace PamirAccounting.UI.Forms.Settings
             // 
             this.groupBox2.Controls.Add(this.btnsave);
             this.groupBox2.Controls.Add(this.btnexit);
-            this.groupBox2.Location = new System.Drawing.Point(13, 322);
+            this.groupBox2.Location = new System.Drawing.Point(13, 342);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(709, 78);
+            this.groupBox2.Size = new System.Drawing.Size(708, 65);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
@@ -308,7 +317,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.btnsave.Appearance.Options.UseFont = true;
             this.btnsave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsave.ImageOptions.SvgImage")));
             this.btnsave.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnsave.Location = new System.Drawing.Point(10, 24);
+            this.btnsave.Location = new System.Drawing.Point(10, 17);
             this.btnsave.Name = "btnsave";
             this.btnsave.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnsave.Size = new System.Drawing.Size(110, 38);
@@ -326,7 +335,7 @@ namespace PamirAccounting.UI.Forms.Settings
             this.btnexit.AppearanceHovered.Options.UseFont = true;
             this.btnexit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnexit.ImageOptions.SvgImage")));
             this.btnexit.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnexit.Location = new System.Drawing.Point(126, 24);
+            this.btnexit.Location = new System.Drawing.Point(126, 17);
             this.btnexit.Name = "btnexit";
             this.btnexit.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnexit.Size = new System.Drawing.Size(110, 38);
@@ -334,6 +343,61 @@ namespace PamirAccounting.UI.Forms.Settings
             this.btnexit.Text = "بازگشت";
             this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
             this.btnexit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnexit_KeyUp);
+            // 
+            // BtnSelectFlashBackupPath
+            // 
+            this.BtnSelectFlashBackupPath.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnSelectFlashBackupPath.Appearance.Options.UseFont = true;
+            this.BtnSelectFlashBackupPath.AppearanceDisabled.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnSelectFlashBackupPath.AppearanceDisabled.Options.UseFont = true;
+            this.BtnSelectFlashBackupPath.AppearanceHovered.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnSelectFlashBackupPath.AppearanceHovered.Options.UseFont = true;
+            this.BtnSelectFlashBackupPath.AppearancePressed.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnSelectFlashBackupPath.AppearancePressed.Options.UseFont = true;
+            this.BtnSelectFlashBackupPath.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.BtnSelectFlashBackupPath.Location = new System.Drawing.Point(22, 70);
+            this.BtnSelectFlashBackupPath.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSelectFlashBackupPath.Name = "BtnSelectFlashBackupPath";
+            this.BtnSelectFlashBackupPath.Size = new System.Drawing.Size(141, 36);
+            this.BtnSelectFlashBackupPath.TabIndex = 115;
+            this.BtnSelectFlashBackupPath.Text = "انتخاب مسیر";
+            this.BtnSelectFlashBackupPath.Click += new System.EventHandler(this.BtnSelectFlashBackupPath_Click);
+            // 
+            // txtFlashBackupPath
+            // 
+            this.txtFlashBackupPath.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtFlashBackupPath.Enabled = false;
+            this.txtFlashBackupPath.Location = new System.Drawing.Point(209, 74);
+            this.txtFlashBackupPath.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFlashBackupPath.Name = "txtFlashBackupPath";
+            this.txtFlashBackupPath.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFlashBackupPath.Properties.Appearance.Options.UseFont = true;
+            this.txtFlashBackupPath.Properties.AutoHeight = false;
+            this.txtFlashBackupPath.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtFlashBackupPath.Size = new System.Drawing.Size(375, 32);
+            this.txtFlashBackupPath.TabIndex = 114;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(588, 30);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 24);
+            this.label6.TabIndex = 116;
+            this.label6.Text = "مسیر هارد :";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(588, 78);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(82, 24);
+            this.label8.TabIndex = 117;
+            this.label8.Text = "مسیر فلش :";
             // 
             // SettingCreateUpdateFrm
             // 
@@ -358,9 +422,11 @@ namespace PamirAccounting.UI.Forms.Settings
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkPassRequerid.Properties)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBackupPath.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProfitPercent.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtFlashBackupPath.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,5 +455,9 @@ namespace PamirAccounting.UI.Forms.Settings
         private System.Windows.Forms.GroupBox groupBox2;
         private DevExpress.XtraEditors.SimpleButton btnsave;
         private DevExpress.XtraEditors.SimpleButton btnexit;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.SimpleButton BtnSelectFlashBackupPath;
+        private DevExpress.XtraEditors.TextEdit txtFlashBackupPath;
     }
 }

@@ -118,6 +118,7 @@ namespace PamirAccounting.UI.Forms.Settings
                 _Settings = new Domains.Setting()
                 {
                     BackupDirectory = txtBackupPath.Text,
+                    FlashBackupDirectory = txtFlashBackupPath.Text,
                     BaseCurencyId = (int)cmbBaseCurenccy.SelectedValue,
                     CostsAccountId = (int)cmbConstsAccount.SelectedValue,
                     NotRunnedRemittanceId = (int)CmbRemittanceAccount.SelectedValue,
@@ -132,6 +133,7 @@ namespace PamirAccounting.UI.Forms.Settings
             else
             {
 
+                _Settings.FlashBackupDirectory = txtFlashBackupPath.Text;
                 _Settings.BackupDirectory = txtBackupPath.Text;
                 _Settings.BaseCurencyId = (int)cmbBaseCurenccy.SelectedValue;
                 _Settings.CostsAccountId = (int)cmbConstsAccount.SelectedValue;
@@ -139,7 +141,6 @@ namespace PamirAccounting.UI.Forms.Settings
                 _Settings.DateCalenderType = byte.Parse(CmbCalenderType.SelectedValue.ToString());
                 _Settings.PasswordRequired = chkPassRequerid.Checked;
                 _Settings.ProfitPercent = String.IsNullOrEmpty(txtProfitPercent.Text) ? 0 : double.Parse(txtProfitPercent.Text);
-
                 unitOfWork.SettingServices.Update(_Settings);
             }
             unitOfWork.SaveChanges();
@@ -162,6 +163,15 @@ namespace PamirAccounting.UI.Forms.Settings
 
         }
 
+        private void BtnSelectFlashBackupPath_Click(object sender, EventArgs e)
+        {
+            var result = BackupFBD.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txtFlashBackupPath.Text = BackupFBD.SelectedPath;
+            }
+        }
+
         private void LoadData()
         {
              _Settings = unitOfWork.Setting.FindFirstOrDefault();
@@ -174,7 +184,7 @@ namespace PamirAccounting.UI.Forms.Settings
                 CmbCalenderType.SelectedValue = (int)_Settings.DateCalenderType;
                 chkPassRequerid.Checked = _Settings.PasswordRequired;
                 txtProfitPercent.Text = _Settings.ProfitPercent.ToString();
-
+                txtFlashBackupPath.Text = _Settings.FlashBackupDirectory;
             }
         }
     }
