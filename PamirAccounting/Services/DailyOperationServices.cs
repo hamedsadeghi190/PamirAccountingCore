@@ -44,21 +44,24 @@ namespace PamirAccounting.Services.Services
                     UserName = x.UserName,
                     UserId = x.UserId,
                     DatePersian = pc.GetYear(x.Date).ToString() + "/" + pc.GetMonth(x.Date).ToString() + "/" + pc.GetDayOfMonth(x.Date).ToString(),
-                    ActionText=x.ActionText,
+                    ActionText = x.ActionText,
+                    TimePersian = x.Time.HasValue == true ? x.Time.Value.ToString(@"hh\:mm\:ss") : "",
 
                 }).ToList();
-          
+
                 daily = daily.Select(x => new DailyOperationModel
                 {
                     RowId = row++,
                     Id = x.Id,
                     Time = x.Time,
+                    Description = x.Description,
                     DocumentId = x.DocumentId,
                     TransactionId = x.TransactionId,
                     UserName = x.UserName,
                     UserId = x.UserId,
-                    DatePersian =x.DatePersian,
+                    DatePersian = x.DatePersian,
                     ActionText = x.ActionText,
+                    TimePersian = x.TimePersian
                 }).ToList();
                 return daily;
             }
@@ -66,7 +69,7 @@ namespace PamirAccounting.Services.Services
             {
                 return null;
             }
-            
+
         }
     }
 }

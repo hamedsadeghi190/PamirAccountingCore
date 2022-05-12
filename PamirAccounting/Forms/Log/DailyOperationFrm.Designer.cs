@@ -91,7 +91,7 @@ namespace PamirAccounting.Forms.Log
             this.gridLog.RowTemplate.Height = 32;
             this.gridLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridLog.ShowEditingIcon = false;
-            this.gridLog.Size = new System.Drawing.Size(1284, 396);
+            this.gridLog.Size = new System.Drawing.Size(1247, 396);
             this.gridLog.TabIndex = 104;
             // 
             // label3
@@ -121,7 +121,7 @@ namespace PamirAccounting.Forms.Log
             // txtsearch
             // 
             this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtsearch.Location = new System.Drawing.Point(926, 12);
+            this.txtsearch.Location = new System.Drawing.Point(887, 18);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(265, 31);
             this.txtsearch.TabIndex = 143;
@@ -131,7 +131,7 @@ namespace PamirAccounting.Forms.Log
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(1199, 18);
+            this.label1.Location = new System.Drawing.Point(1158, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 19);
@@ -172,7 +172,7 @@ namespace PamirAccounting.Forms.Log
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "Time";
+            this.Column2.DataPropertyName = "TimePersian";
             this.Column2.Frozen = true;
             this.Column2.HeaderText = "زمان";
             this.Column2.MinimumWidth = 6;
@@ -195,12 +195,12 @@ namespace PamirAccounting.Forms.Log
             dataGridViewCellStyle3.Format = "N0";
             dataGridViewCellStyle3.NullValue = "0";
             this.GroupName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.GroupName.FillWeight = 770F;
+            this.GroupName.FillWeight = 730F;
             this.GroupName.HeaderText = "توضیحات";
             this.GroupName.MinimumWidth = 6;
             this.GroupName.Name = "GroupName";
             this.GroupName.ReadOnly = true;
-            this.GroupName.Width = 770;
+            this.GroupName.Width = 730;
             // 
             // Column4
             // 
@@ -218,7 +218,7 @@ namespace PamirAccounting.Forms.Log
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 493);
+            this.ClientSize = new System.Drawing.Size(1246, 493);
             this.Controls.Add(this.txtsearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -228,10 +228,10 @@ namespace PamirAccounting.Forms.Log
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.ShowIcon = false;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "DailyOperationFrm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.DailyOperationFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridLog)).EndInit();
             this.ResumeLayout(false);
