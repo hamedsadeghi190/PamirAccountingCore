@@ -608,5 +608,10 @@ namespace PamirAccounting.Forms
             }
 
         }
+
+        private void LandingPageFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

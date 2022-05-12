@@ -15,6 +15,8 @@ namespace PamirAccounting.Domains
         public int UserId { get; set; }
         public string UserName { get; set; }
         public string Description { get; set; }
+        public string ActionText { get; set; }
+        public byte? ActionType { get; set; }
 
         public virtual Transaction Transaction { get; set; }
         public virtual User User { get; set; }

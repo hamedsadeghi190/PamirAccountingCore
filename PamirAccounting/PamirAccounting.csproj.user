@@ -161,6 +161,9 @@
     <Compile Update="Forms\Drafts\WarrantsPayableFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\FrmConfirmExit.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\GeneralLedger\ContactsCreateUpdateFrm.cs">
       <SubType>Form</SubType>
     </Compile>

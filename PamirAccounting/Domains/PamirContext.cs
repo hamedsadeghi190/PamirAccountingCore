@@ -249,6 +249,8 @@ namespace PamirAccounting.Domains
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
+                entity.Property(e => e.ActionText).HasMaxLength(30);
+
                 entity.Property(e => e.Date).HasColumnType("date");
 
                 entity.Property(e => e.Description)
