@@ -615,5 +615,10 @@ namespace PamirAccounting.Forms
             var frm = new DailyOperationFrm();
             frm.ShowDialog();
         }
+
+        private void LandingPageFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

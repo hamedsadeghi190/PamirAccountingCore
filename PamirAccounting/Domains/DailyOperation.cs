@@ -10,7 +10,7 @@ namespace PamirAccounting.Domains
         public long Id { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan? Time { get; set; }
-        public long TransactionId { get; set; }
+        public long? TransactionId { get; set; }
         public long? DocumentId { get; set; }
         public int UserId { get; set; }
         public string UserName { get; set; }

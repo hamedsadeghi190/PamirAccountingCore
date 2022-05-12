@@ -101,7 +101,7 @@ namespace PamirAccounting.Forms.Transactions
                 unitOfWork.TransactionServices.Insert(talabkarTransaction);
             }
 
-                unitOfWork.SaveChanges();
+            unitOfWork.SaveChanges();
             //end talabkarTransaction ///
 
             //tarakonesh sandogh//
@@ -211,7 +211,7 @@ namespace PamirAccounting.Forms.Transactions
                 label1.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtsellerprice.Text.Replace(",", ""))) } {currencyName}";
             }
 
-         
+
         }
         private void txtsellercurrency_KeyUp(object sender, KeyEventArgs e)
         {
@@ -263,9 +263,9 @@ namespace PamirAccounting.Forms.Transactions
 
         private void txtbuyerprice_KeyUp(object sender, KeyEventArgs e)
         {
-         
+
         }
-      
+
         private void BtnSave_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -295,8 +295,18 @@ namespace PamirAccounting.Forms.Transactions
             }
             else
             {
-                lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString() ;
+                if (_Id.HasValue)
+                {
+                    
+
+
+                    cmbCustomers.SelectedValue = _Id.Value;
+                    cmbDestCustomers.SelectedValue = _Id.Value;
+                }
+
+                lbl_Document_Id_value.Text = unitOfWork.TransactionServices.GetNewDocumentId().ToString();
             }
+
             handleEvents(true);
         }
 
@@ -519,7 +529,7 @@ namespace PamirAccounting.Forms.Transactions
             {
 
             }
-           
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
