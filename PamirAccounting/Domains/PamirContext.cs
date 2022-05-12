@@ -264,7 +264,6 @@ namespace PamirAccounting.Domains
                 entity.HasOne(d => d.Transaction)
                     .WithMany(p => p.DailyOperations)
                     .HasForeignKey(d => d.TransactionId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DailyOperations_Transactions");
 
                 entity.HasOne(d => d.User)
