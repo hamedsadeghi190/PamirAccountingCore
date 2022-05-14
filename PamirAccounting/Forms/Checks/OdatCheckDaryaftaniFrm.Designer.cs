@@ -163,6 +163,7 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.Size = new System.Drawing.Size(724, 92);
             this.groupBox1.TabIndex = 115;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtDate
             // 

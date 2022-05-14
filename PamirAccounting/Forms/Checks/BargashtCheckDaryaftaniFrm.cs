@@ -297,7 +297,7 @@ namespace PamirAccounting.Forms.Checks
                 log.UserId = CurrentUser.UserID;
                 log.UserName = CurrentUser.UserName;
                 log.DocumentId = Cheque.DocumentId;
-                log.Description = CreateDescription();
+                log.Description = $"برگشت چک به شماره {Cheque.ChequeNumber} به مبلغ {Cheque.Amount}، شماره سند {Cheque.DocumentId} ";
                 log.ActionText = GetEnumDescription(Settings.ActionType.Insert);
                 log.ActionType = (int)Settings.ActionType.Insert;
                 unitOfWork.DailyOperationServices.Insert(log);
@@ -344,9 +344,9 @@ namespace PamirAccounting.Forms.Checks
                 log.UserId = CurrentUser.UserID;
                 log.UserName = CurrentUser.UserName;
                 log.DocumentId = Cheque.DocumentId;
-                log.Description = CreateDescription();
-                log.ActionText = GetEnumDescription(Settings.ActionType.Update);
+                log.Description = $"ویرایش چک برگشتی به شماره {Cheque.ChequeNumber} به مبلغ {Cheque.Amount}، شماره سند {Cheque.DocumentId} ";
                 log.ActionType = (int)Settings.ActionType.Update;
+                log.ActionText = GetEnumDescription(Settings.ActionType.Update);
                 unitOfWork.DailyOperationServices.Insert(log);
                 unitOfWork.SaveChanges();
                 #endregion

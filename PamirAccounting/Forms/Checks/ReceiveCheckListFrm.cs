@@ -13,6 +13,9 @@ using PamirAccounting.Services;
 using System.Globalization;
 using Stimulsoft.Report;
 using PamirAccounting.Forms.Customers;
+using PamirAccounting.Commons.Enums;
+using static PamirAccounting.Tools;
+
 
 namespace PamirAccounting.Forms.Checks
 {
@@ -103,7 +106,19 @@ namespace PamirAccounting.Forms.Checks
                             unitOfWork.TransactionServices.Delete(item);
                             unitOfWork.SaveChanges();
                         }
-
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.DocumentId = cheque.DocumentId;
+                        log.Description = $"حذف چک دریافتی به شماره {cheque.ChequeNumber} به مبلغ {cheque.Amount}، شماره سند {cheque.DocumentId} ";
+                        log.ActionType = (int)Settings.ActionType.Delete;
+                        log.ActionText = GetEnumDescription(Settings.ActionType.Delete);
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        unitOfWork.SaveChanges();
+                        #endregion
                         LoadData();
                     }
                     catch (Exception ex)
@@ -264,7 +279,19 @@ namespace PamirAccounting.Forms.Checks
                                 unitOfWork.TransactionServices.Delete(item);
                                 unitOfWork.SaveChanges();
                             }
-
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.DocumentId = cheque.DocumentId;
+                            log.Description = $"حذف چک دریافتی به شماره {cheque.ChequeNumber} به مبلغ {cheque.Amount}، شماره سند {cheque.DocumentId} ";
+                            log.ActionType = (int)Settings.ActionType.Delete;
+                            log.ActionText = GetEnumDescription(Settings.ActionType.Delete);
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
                             LoadData();
                         }
                         catch (Exception ex)
