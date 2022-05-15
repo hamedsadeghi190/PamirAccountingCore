@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
+
 
 namespace PamirAccounting.UI.Forms.CurrencyAgencies
 {
@@ -77,11 +79,26 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
                 {
                     try
                     {
-                        unitOfWork.CurrenciesMappingServices.Delete(new CurrenciesMapping() { Id = dataList.ElementAt(e.RowIndex).Id });
+                        var currency = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
+                        var sourceCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.SourceCurrenyId).Name;
+                        var destiniationCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.DestiniationCurrenyId).Name;
+                        unitOfWork.CurrenciesMappingServices.Delete(currency.Id);
                         unitOfWork.SaveChanges();
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"حذف عملیات رمز ارز حواله {sourceCurrenyName}، ارز دریافتی {destiniationCurrenyName}";
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        unitOfWork.SaveChanges();
+                        #endregion
                         loadData();
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         MessageBox.Show("حذف امکانپذیر نمیباشد");
                     }
@@ -146,13 +163,27 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        try
-                        {
-                            unitOfWork.CurrenciesMappingServices.Delete(new CurrenciesMapping() { Id = dataList.ElementAt(rowIndex).Id });
+                        try { 
+                        var currency = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
+                            var sourceCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.SourceCurrenyId).Name;
+                            var destiniationCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.DestiniationCurrenyId).Name;
+                            unitOfWork.CurrenciesMappingServices.Delete(currency.Id);
                             unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف عملیات رمز ارز حواله {sourceCurrenyName}، ارز دریافتی {destiniationCurrenyName}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
                             loadData();
                         }
-                        catch
+                        catch (Exception ex)
                         {
                             MessageBox.Show("حذف امکانپذیر نمیباشد");
                         }

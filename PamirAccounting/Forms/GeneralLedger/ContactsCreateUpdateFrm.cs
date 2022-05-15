@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
+
 
 namespace PamirAccounting.UI.Forms.GeneralLedger
 {
@@ -51,6 +53,18 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
                     contact.Phone = txtphone.Text;
                     contact.Mobile = txtMobile.Text;
                     unitOfWork.Contacts.Update(contact);
+                    #region Log
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = $"ویرایش مخاطب {contact.FirstName} {contact.LastName}";
+                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
                 }
                 else
                 {
@@ -64,9 +78,22 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
                     Mobile = txtMobile.Text,
                     
                 });
+                    #region Log
+                    var log1 = new Domains.DailyOperation();
+                    log1.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log1.Time = DateTime.Now.TimeOfDay;
+                    log1.UserId = CurrentUser.UserID;
+                    log1.UserName = CurrentUser.UserName;
+                    log1.Description = $"ثبت مخاطب {txtFirstName.Text} {txtLastName.Text}";
+                    log1.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
+                    log1.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                    unitOfWork.DailyOperationServices.Insert(log1);
+                    unitOfWork.SaveChanges();
+                    #endregion
                 }
 
-                unitOfWork.SaveChanges();
+             
+             
             }
             catch
             {

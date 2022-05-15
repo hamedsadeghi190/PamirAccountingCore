@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.Settings
 {
@@ -125,9 +126,20 @@ namespace PamirAccounting.UI.Forms.Settings
                     PasswordRequired = chkPassRequerid.Checked,
                     ProfitPercent = String.IsNullOrEmpty(txtProfitPercent.Text) ? 0 : double.Parse(txtProfitPercent.Text)
                 };
-
-
                 unitOfWork.SettingServices.Insert(_Settings);
+                unitOfWork.SaveChanges();
+                #region Log
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.Description = "ثبت تنظیمات اصلی برنامه";
+                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
+                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
             }
             else
             {
@@ -139,10 +151,22 @@ namespace PamirAccounting.UI.Forms.Settings
                 _Settings.DateCalenderType = byte.Parse(CmbCalenderType.SelectedValue.ToString());
                 _Settings.PasswordRequired = chkPassRequerid.Checked;
                 _Settings.ProfitPercent = String.IsNullOrEmpty(txtProfitPercent.Text) ? 0 : double.Parse(txtProfitPercent.Text);
-
                 unitOfWork.SettingServices.Update(_Settings);
+                unitOfWork.SaveChanges();
+                #region Log
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.Description = "ویرایش تنظیمات اصلی برنامه";
+                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
             }
-            unitOfWork.SaveChanges();
+
             Close();
         }
 

@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using PamirAccounting.Domains;
 using PamirAccounting.Services;
 using UnitOfWork = PamirAccounting.Services.UnitOfWork;
+using static PamirAccounting.Tools;
+
 
 namespace PamirAccounting.UI.Forms.GeneralLedger
 {
@@ -80,11 +82,24 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
                 {
                     try
                     {
-                        unitOfWork.Contacts.Delete(new Contact() { Id = dataList.ElementAt(e.RowIndex).Id.Value });
+                        var contact = unitOfWork.Contacts.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id.Value);
+                        unitOfWork.Contacts.Delete(contact.Id);
                         unitOfWork.SaveChanges();
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"حذف مخاطب {contact.FirstName} {contact.LastName}";
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        unitOfWork.SaveChanges();
+                        #endregion
                         loadData();
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         MessageBox.Show("حذف امکانپذیر نمیباشد");
                     }
@@ -151,8 +166,21 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
                     {
                         try
                         {
-                            unitOfWork.Contacts.Delete(new Contact() { Id = dataList.ElementAt(rowIndex).Id.Value });
+                            var contact = unitOfWork.Contacts.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id.Value);
+                            unitOfWork.Contacts.Delete(contact.Id );
                             unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف مخاطب {contact.FirstName} {contact.LastName}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
                             loadData();
                         }
                         catch

@@ -11,6 +11,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
+using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.Customers
 {
@@ -31,6 +33,7 @@ namespace PamirAccounting.UI.Forms.Customers
             _Id = id;
             InitializeComponent();
             unitOfWork = new UnitOfWork();
+          
         }
 
         private void CustomerCreateUpdateFrm_Load(object sender, EventArgs e)
@@ -120,7 +123,7 @@ namespace PamirAccounting.UI.Forms.Customers
 
                 if (_Customer != null)
                 {
-                        _Customer.FirstName = txtFirstname.Text;
+                    _Customer.FirstName = txtFirstname.Text;
                     _Customer.LastName = txtLastName.Text;
                     _Customer.CreditLimit = String.IsNullOrEmpty(txtCreditLimit.Text.Trim()) ? 0 : int.Parse(txtCreditLimit.Text);
                     _Customer.Dsc = txtDesc.Text;
@@ -128,9 +131,20 @@ namespace PamirAccounting.UI.Forms.Customers
                     _Customer.Mobile = txtMobile.Text;
                     _Customer.CreditCurrencyId = (int)cmbCurrencies.SelectedValue;
                     _Customer.GroupId = (int)cmbGroups.SelectedValue;
-
                     unitOfWork.CustomerServices.Update(_Customer);
                     unitOfWork.SaveChanges();
+                    #region Log
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = $"ویرایش مشتری {_Customer.FirstName} {_Customer.LastName}";
+                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
                 }
                 else
                 {
@@ -144,9 +158,20 @@ namespace PamirAccounting.UI.Forms.Customers
                     _Customer.Mobile = txtMobile.Text;
                     _Customer.CreditCurrencyId = (int)cmbCurrencies.SelectedValue;
                     _Customer.GroupId = (int)cmbGroups.SelectedValue;
-
                     unitOfWork.CustomerServices.Insert(_Customer);
                     unitOfWork.SaveChanges();
+                    #region Log
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = $"ثبت مشتری {_Customer.FirstName} {_Customer.LastName}";
+                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
+                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
                 }
                 Close();
             }

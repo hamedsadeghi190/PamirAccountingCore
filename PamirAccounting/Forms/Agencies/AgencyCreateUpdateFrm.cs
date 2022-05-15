@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.Agencies
 {
@@ -88,8 +89,18 @@ namespace PamirAccounting.UI.Forms.Agencies
                     _agency.Address = txtAddress.Text;
                     _agency.Dsc = txtDesc.Text;
                     _agency.CurrenyId = (int)cmbCurrencies.SelectedValue;
-
                     unitOfWork.AgencyServices.Update(_agency);
+                    #region Log
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = $"ویرایش نمایندگی {txtName.Text}";
+                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    #endregion
                 }
                 else
                 {
@@ -102,7 +113,18 @@ namespace PamirAccounting.UI.Forms.Agencies
                         CurrenyId = (int)cmbCurrencies.SelectedValue
                     };
                     unitOfWork.AgencyServices.Insert(newBank);
-
+                    #region Log
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = $"ثبت نمایندگی {txtName.Text}";
+                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
+                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                
+                    #endregion
                 }
                 unitOfWork.SaveChanges();
                 Close();

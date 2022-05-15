@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
+
 
 namespace PamirAccounting.UI.Forms.Currencies
 {
@@ -60,8 +62,20 @@ namespace PamirAccounting.UI.Forms.Currencies
                 {
                     try
                     {
-                        unitOfWork.CurrencyServices.Delete(new Currency() { Id = dataList.ElementAt(e.RowIndex).Id.Value });
+                       var Currency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id.Value);
+                        unitOfWork.CurrencyServices.Delete(Currency.Id);
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"حذف ارز {Currency.Name}";
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                        unitOfWork.DailyOperationServices.Insert(log);
                         unitOfWork.SaveChanges();
+                        #endregion
                         loadData();
                     }
                     catch
@@ -170,8 +184,20 @@ namespace PamirAccounting.UI.Forms.Currencies
                     {
                         try
                         {
-                            unitOfWork.CurrencyServices.Delete(new Currency() { Id = dataList.ElementAt(rowIndex).Id.Value });
+                            var Currency = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id.Value);
+                            unitOfWork.CurrencyServices.Delete(Currency.Id);
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف ارز {Currency.Name}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
                             unitOfWork.SaveChanges();
+                            #endregion
                             loadData();
                         }
                         catch (Exception ex)
