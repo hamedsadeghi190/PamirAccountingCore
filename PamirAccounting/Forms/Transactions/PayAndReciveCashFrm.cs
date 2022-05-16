@@ -1,4 +1,5 @@
 ﻿using JntNum2Text;
+using PamirAccounting.Commons.Enums;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -298,6 +299,24 @@ namespace PamirAccounting.Forms.Transactions
                 customerTransaction.DoubleTransactionId = sandoghTransAction.Id;
                 unitOfWork.TransactionServices.Update(customerTransaction);
                 unitOfWork.SaveChanges();
+
+
+                #region Log
+                var logDate = DateTime.Now.ToShortDateString();
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(logDate);
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.DocumentId = customerTransaction.DocumentId;
+                log.TransactionId = customerTransaction.OriginalTransactionId;
+                log.Description = $" {txtdesc.Text} به شماره سند { customerTransaction.DocumentId}";  
+                log.ActionType = (int)Settings.ActionType.Update;
+                log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Insert);
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
+
                 transaction.Commit();
             }
             catch
@@ -362,6 +381,23 @@ namespace PamirAccounting.Forms.Transactions
                 unitOfWork.TransactionServices.Update(sandoghTransAction);
                 unitOfWork.SaveChanges();
                 // end trakonesh sandogh///
+
+                #region Log
+                var logDate = DateTime.Now.ToShortDateString();
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(logDate);
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.DocumentId = customerTransaction.DocumentId;
+                log.TransactionId = customerTransaction.OriginalTransactionId;
+                log.Description = $" {txtdesc.Text} به شماره سند { customerTransaction.DocumentId}";
+                log.ActionType = (int)Settings.ActionType.Update;
+                log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Insert);
+                unitOfWork.DailyOperationServices.Update(log);
+                unitOfWork.SaveChanges();
+                #endregion
+
                 transaction.Commit();
 
             }
