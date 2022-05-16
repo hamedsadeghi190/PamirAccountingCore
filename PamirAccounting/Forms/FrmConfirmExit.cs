@@ -15,6 +15,7 @@ namespace PamirAccounting.Forms
 {
     public partial class FrmConfirmExit : DevExpress.XtraEditors.XtraForm
     {
+        public int ExitMode = 0;
         public FrmConfirmExit()
         {
             InitializeComponent();
@@ -26,5 +27,22 @@ namespace PamirAccounting.Forms
 
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            ExitMode = 0;
+            Close();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            ExitMode = 1;
+            Close();
+        }
+
+        private void btnsavebank_Click(object sender, EventArgs e)
+        {
+            ExitMode = 3;
+            Close();
+        }
     }
 }

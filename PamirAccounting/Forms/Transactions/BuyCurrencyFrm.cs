@@ -207,11 +207,20 @@ namespace PamirAccounting.Forms.Transactions
         }
         private void ShowChars()
         {
-            if (txtBuyAmount.Text.Length > 0)
+            try
             {
-                var currencyName = cmbBuyerCurrencies.Text;
-                lblSrcAmountText.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtBuyAmount.Text.Replace(",", ""))) } {currencyName}";
+                if (txtBuyAmount.Text.Length > 0)
+                {
+                    var currencyName = cmbBuyerCurrencies.Text;
+                    lblSrcAmountText.Text = $"{ Num2Text.ToFarsi(Convert.ToInt64(txtBuyAmount.Text.Replace(",", ""))) } {currencyName}";
+                }
             }
+            catch 
+            {
+
+               
+            }
+       
         }
         private void txtsellercurrency_KeyUp(object sender, KeyEventArgs e)
         {
@@ -443,13 +452,6 @@ namespace PamirAccounting.Forms.Transactions
             }
 
         }
-        private void cmbSellCurrencies_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ShowSellerChars();
-            createDesc();
-            calculateAmount();
-            ShowChars();
-        }
 
 
 
@@ -481,6 +483,11 @@ namespace PamirAccounting.Forms.Transactions
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCurrencySeller_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -614,9 +621,9 @@ namespace PamirAccounting.Forms.Transactions
                 this.cmbSrcCustomers.SelectedIndexChanged += new System.EventHandler(this.cmbDestCustomers_SelectedIndexChanged);
                 this.txtTargetPrice.TextChanged += new System.EventHandler(this.txtbuyerprice_TextChanged);
                 this.txtBuyRate.TextChanged += new System.EventHandler(this.txtrate_TextChanged);
-                this.cmbCurrencySeller.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencybuyer_SelectedIndexChanged);
+                this.cmbCurrencySeller.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencySeller_SelectedIndexChanged);
                 this.cmbTalabkarCustomers.SelectedValueChanged += new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
-                this.cmbBuyerCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbSellCurrencies_SelectedIndexChanged);
+                this.cmbBuyerCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencybuyer_SelectedIndexChanged);
                 this.txtBuyAmount.TextChanged += new System.EventHandler(this.txtsellerprice_TextChanged);
 
             }
@@ -627,8 +634,8 @@ namespace PamirAccounting.Forms.Transactions
                 this.txtTargetPrice.TextChanged -= new System.EventHandler(this.txtbuyerprice_TextChanged);
                 this.txtBuyRate.TextChanged -= new System.EventHandler(this.txtrate_TextChanged);
                 this.cmbTalabkarCustomers.SelectedValueChanged -= new System.EventHandler(this.cmbCustomers_SelectedValueChanged);
-                this.cmbBuyerCurrencies.SelectedIndexChanged -= new System.EventHandler(this.cmbSellCurrencies_SelectedIndexChanged);
-                this.cmbCurrencySeller.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencybuyer_SelectedIndexChanged);
+                this.cmbBuyerCurrencies.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencybuyer_SelectedIndexChanged);
+                this.cmbCurrencySeller.SelectedIndexChanged -= new System.EventHandler(this.cmbCurrencySeller_SelectedIndexChanged);
                 this.txtBuyAmount.TextChanged -= new System.EventHandler(this.txtsellerprice_TextChanged);
             }
         }

@@ -618,7 +618,43 @@ namespace PamirAccounting.Forms
 
         private void LandingPageFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            var frmDialog = new FrmConfirmExit();
+            frmDialog.ShowDialog();
+            if (frmDialog.ExitMode == 0)
+            {
+                e.Cancel = true;
+            }
+            else if (frmDialog.ExitMode == 3)
+            {
+                var _Settings = unitOfWork.Setting.FindFirstOrDefault();
+                if (_Settings == null)
+                {
+                    return;
+                }
+
+                AppSetting.BackupPath = _Settings.BackupDirectory;
+                var flashBackupDirectory = _Settings.FlashBackupDirectory;
+                var backservice = new BackupService();
+                var dateTime = DateTime.Now.ToFarsiSerialFormat();
+                var backupFileName = $"pamirbackup{dateTime}.bak";
+
+                var result = backservice.Backup("PamirAccounting", $"{AppSetting.BackupPath}\\{backupFileName}");
+
+                if(!string.IsNullOrEmpty(flashBackupDirectory.Trim()))
+                {
+                    var result2 = backservice.Backup("PamirAccounting", $"{flashBackupDirectory}\\{backupFileName}");
+                }
+
+
+                if (result)
+                {
+                    MessageBox.Show("فایل پشتیبان ذخیره شد");
+                }
+                else
+                {
+                    MessageBox.Show("فایل پشتیبان ذخیره نشد");
+                }
+            }
         }
     }
 }
