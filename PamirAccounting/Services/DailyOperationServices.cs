@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using DevExpress.Data.ODataLinq.Helpers;
+using LinqKit;
 using PamirAccounting.Domains;
 using PamirAccounting.Infrastructures;
 using PamirAccounting.Models;
@@ -36,6 +38,7 @@ namespace PamirAccounting.Services.Services
                 daily = FindAllReadonly().Select(x => new DailyOperationModel
                 {
                     Id = x.Id,
+                    
                     Date = x.Date,
                     Description = x.Description,
                     Time = x.Time,
@@ -64,6 +67,68 @@ namespace PamirAccounting.Services.Services
                     TimePersian = x.TimePersian
                 }).ToList();
                 return daily;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        [Obsolete]
+        public List<DailyOperationModel> Filterd( DateTime? startDate, DateTime? endDate)
+        {
+            try
+            {
+             
+
+                var predicate = PredicateBuilder.New<DailyOperation>(true);
+                PersianCalendar pc = new PersianCalendar();
+
+                if (startDate != null)
+                {
+                    predicate = predicate.And(x => x.Date >= startDate);
+                }
+                if (endDate != null)
+                {
+                    predicate = predicate.And(x => x.Date <= endDate);
+                }
+
+                var dataList = _context.DailyOperations.Where(predicate)
+                 .Select(x => new DailyOperationModel
+                 {
+                     Id = x.Id,
+                     Date = x.Date,
+                     Description = x.Description,
+                     Time = x.Time,
+                     DocumentId = x.DocumentId,
+                     TransactionId = x.TransactionId.GetValueOrDefault(),
+                     UserName = x.UserName,
+                     UserId = x.UserId,
+                     DatePersian = pc.GetYear(x.Date).ToString() + "/" + pc.GetMonth(x.Date).ToString() + "/" + pc.GetDayOfMonth(x.Date).ToString(),
+                     ActionText = x.ActionText,
+                     TimePersian = x.Time.HasValue == true ? x.Time.Value.ToString(@"hh\:mm\:ss") : "",
+
+
+                 }).ToList();
+
+                int row = 1;
+                var tmpdataList = dataList.Select(x => new DailyOperationModel
+                {
+                    RowId = row++,
+                    Id = x.Id,
+                    Time = x.Time,
+                    Description = x.Description,
+                    DocumentId = x.DocumentId,
+                    TransactionId = x.TransactionId,
+                    UserName = x.UserName,
+                    UserId = x.UserId,
+                    DatePersian = x.DatePersian,
+                    ActionText = x.ActionText,
+                    TimePersian = x.TimePersian
+
+                }).ToList();
+                return tmpdataList;
             }
             catch (Exception ex)
             {
