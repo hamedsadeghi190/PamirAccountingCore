@@ -193,15 +193,27 @@ namespace PamirAccounting.Forms.Transactions
 
                 if (_TransActionId.HasValue)
                 {
-                    SaveEdit();
-                    MessageBox.Show("عملیات با موفقیت ویزایش گردید", " ویرایش", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
+                    if (SaveEdit())
+                    {
+                        MessageBox.Show("عملیات با موفقیت ویزایش گردید", " ویرایش", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("عملیات با شکست مواجه شد", " ثبت", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    SaveNew();
-                    MessageBox.Show("عملیات با موفقیت ثبت گردید", " ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CleanForm();
+                    if (SaveNew())
+                    {
+                        MessageBox.Show("عملیات با موفقیت ثبت گردید", " ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CleanForm();
+                    }
+                    else
+                    {
+                        MessageBox.Show("عملیات با شکست مواجه شد", " ثبت", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
@@ -222,7 +234,7 @@ namespace PamirAccounting.Forms.Transactions
             return true;
         }
 
-        private void SaveNew()
+        private bool SaveNew()
         {
             var transaction = unitOfWork.GetContext().Database.BeginTransaction();
 
@@ -311,22 +323,25 @@ namespace PamirAccounting.Forms.Transactions
                 log.DocumentId = customerTransaction.DocumentId;
                 log.TransactionId = customerTransaction.OriginalTransactionId;
                 log.Description = $" {txtdesc.Text} به شماره سند { customerTransaction.DocumentId}";  
-                log.ActionType = (int)Settings.ActionType.Update;
+                log.ActionType = (int)Settings.ActionType.Insert;
                 log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Insert);
                 unitOfWork.DailyOperationServices.Insert(log);
                 unitOfWork.SaveChanges();
                 #endregion
 
                 transaction.Commit();
+
+                return true;
             }
-            catch
+            catch (Exception ex)
             {
                 transaction.Rollback();
+                return false;
             }
 
         }
 
-        private void SaveEdit()
+        private bool SaveEdit()
         {
             var transaction = unitOfWork.GetContext().Database.BeginTransaction();
             try
@@ -393,17 +408,18 @@ namespace PamirAccounting.Forms.Transactions
                 log.TransactionId = customerTransaction.OriginalTransactionId;
                 log.Description = $" {txtdesc.Text} به شماره سند { customerTransaction.DocumentId}";
                 log.ActionType = (int)Settings.ActionType.Update;
-                log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Insert);
-                unitOfWork.DailyOperationServices.Update(log);
+                log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Update);
+                unitOfWork.DailyOperationServices.Insert(log);
                 unitOfWork.SaveChanges();
                 #endregion
 
                 transaction.Commit();
-
+                return true;
             }
             catch
             {
                 transaction.Rollback();
+                return false;
             }
 
         }

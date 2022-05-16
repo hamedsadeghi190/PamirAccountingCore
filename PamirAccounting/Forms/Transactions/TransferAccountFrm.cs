@@ -1,5 +1,4 @@
 ﻿using JntNum2Text;
-using Microsoft.EntityFrameworkCore;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -225,6 +224,22 @@ namespace PamirAccounting.UI.Forms.Transaction
             unitOfWork.TransactionServices.Update(destinationTransaction);
             unitOfWork.SaveChanges();
 
+            #region Log
+            var logDate = DateTime.Now.ToShortDateString();
+            var log = new Domains.DailyOperation();
+            log.Date = DateTime.Parse(logDate);
+            log.Time = DateTime.Now.TimeOfDay;
+            log.UserId = CurrentUser.UserID;
+            log.UserName = CurrentUser.UserName;
+            log.DocumentId = sourceTransaction.DocumentId;
+            log.TransactionId = sourceTransaction.OriginalTransactionId;
+            log.Description = $" {  sourceTransaction.Description } به شماره سند { sourceTransaction.DocumentId}";
+            log.ActionType = (int)ActionType.Update;
+            log.ActionText = Tools.GetEnumDescription(ActionType.Update);
+            unitOfWork.DailyOperationServices.Insert(log);
+            unitOfWork.SaveChanges();
+            #endregion
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -362,6 +377,22 @@ namespace PamirAccounting.UI.Forms.Transaction
             sourceTransaction.DoubleTransactionId = destinationTransaction.Id;
             unitOfWork.TransactionServices.Update(sourceTransaction);
             unitOfWork.SaveChanges();
+
+            #region Log
+            var logDate = DateTime.Now.ToShortDateString();
+            var log = new Domains.DailyOperation();
+            log.Date = DateTime.Parse(logDate);
+            log.Time = DateTime.Now.TimeOfDay;
+            log.UserId = CurrentUser.UserID;
+            log.UserName = CurrentUser.UserName;
+            log.DocumentId = sourceTransaction.DocumentId;
+            log.TransactionId = sourceTransaction.OriginalTransactionId;
+            log.Description = $" {  sourceTransaction.Description } به شماره سند { sourceTransaction.DocumentId}";
+            log.ActionType = (int)ActionType.Insert;
+            log.ActionText = Tools.GetEnumDescription(ActionType.Insert);
+            unitOfWork.DailyOperationServices.Insert(log);
+            unitOfWork.SaveChanges();
+            #endregion
         }
         private void CleanForm()
         {
