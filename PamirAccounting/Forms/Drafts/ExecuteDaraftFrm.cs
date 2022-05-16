@@ -117,7 +117,25 @@ namespace PamirAccounting.Forms.Drafts
                 unitOfWork.DraftsServices.Update(Draft);
                 unitOfWork.SaveChanges();
 
+               
+                #region Log
+                var logDate = DateTime.Now.ToShortDateString();
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(logDate);
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.DocumentId = customerTransaction.DocumentId;
+                log.TransactionId = customerTransaction.OriginalTransactionId;
+                log.Description = $" اجرای حواله {   customerTransaction.Description  } به شماره سند { customerTransaction.DocumentId}";
+                log.ActionType = (int)ActionType.Insert;
+                log.ActionText = Tools.GetEnumDescription(ActionType.Insert);
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
+
                 MessageBox.Show(" تغییرات با موفقیت ثبت شد");
+
                 Close();
             }
             catch (Exception ex)
