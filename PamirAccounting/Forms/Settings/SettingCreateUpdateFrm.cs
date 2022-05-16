@@ -105,7 +105,7 @@ namespace PamirAccounting.UI.Forms.Settings
             }
         }
 
-      
+
 
         private void btnexit_Click(object sender, EventArgs e)
         {
@@ -119,6 +119,7 @@ namespace PamirAccounting.UI.Forms.Settings
                 _Settings = new Domains.Setting()
                 {
                     BackupDirectory = txtBackupPath.Text,
+                    FlashBackupDirectory = txtFlashBackupPath.Text,
                     BaseCurencyId = (int)cmbBaseCurenccy.SelectedValue,
                     CostsAccountId = (int)cmbConstsAccount.SelectedValue,
                     NotRunnedRemittanceId = (int)CmbRemittanceAccount.SelectedValue,
@@ -135,8 +136,8 @@ namespace PamirAccounting.UI.Forms.Settings
                 log.UserId = CurrentUser.UserID;
                 log.UserName = CurrentUser.UserName;
                 log.Description = "ثبت تنظیمات اصلی برنامه";
-                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
-                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                log.ActionText = GetEnumDescription(Commons.Enums.Settings.ActionType.Insert);
+                log.ActionType = (int)Commons.Enums.Settings.ActionType.Insert;
                 unitOfWork.DailyOperationServices.Insert(log);
                 unitOfWork.SaveChanges();
                 #endregion
@@ -144,6 +145,7 @@ namespace PamirAccounting.UI.Forms.Settings
             else
             {
 
+                _Settings.FlashBackupDirectory = txtFlashBackupPath.Text;
                 _Settings.BackupDirectory = txtBackupPath.Text;
                 _Settings.BaseCurencyId = (int)cmbBaseCurenccy.SelectedValue;
                 _Settings.CostsAccountId = (int)cmbConstsAccount.SelectedValue;
@@ -186,9 +188,18 @@ namespace PamirAccounting.UI.Forms.Settings
 
         }
 
+        private void BtnSelectFlashBackupPath_Click(object sender, EventArgs e)
+        {
+            var result = BackupFBD.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txtFlashBackupPath.Text = BackupFBD.SelectedPath;
+            }
+        }
+
         private void LoadData()
         {
-             _Settings = unitOfWork.Setting.FindFirstOrDefault();
+            _Settings = unitOfWork.Setting.FindFirstOrDefault();
             if (_Settings != null)
             {
                 txtBackupPath.Text = _Settings.BackupDirectory;
@@ -198,7 +209,7 @@ namespace PamirAccounting.UI.Forms.Settings
                 CmbCalenderType.SelectedValue = (int)_Settings.DateCalenderType;
                 chkPassRequerid.Checked = _Settings.PasswordRequired;
                 txtProfitPercent.Text = _Settings.ProfitPercent.ToString();
-
+                txtFlashBackupPath.Text = _Settings.FlashBackupDirectory;
             }
         }
     }

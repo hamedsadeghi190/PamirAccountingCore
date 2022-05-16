@@ -33,7 +33,7 @@ namespace PamirAccounting.Forms
             this.btnsavebank = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblExitFrm = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnsavebank
@@ -49,6 +49,7 @@ namespace PamirAccounting.Forms
             this.btnsavebank.Size = new System.Drawing.Size(172, 38);
             this.btnsavebank.TabIndex = 9;
             this.btnsavebank.Text = "پشتیبان گیری و خروج";
+            this.btnsavebank.Click += new System.EventHandler(this.btnsavebank_Click);
             // 
             // btnClose
             // 
@@ -62,6 +63,7 @@ namespace PamirAccounting.Forms
             this.btnClose.Size = new System.Drawing.Size(110, 38);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "انصراف";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // simpleButton1
             // 
@@ -76,22 +78,24 @@ namespace PamirAccounting.Forms
             this.simpleButton1.Size = new System.Drawing.Size(110, 38);
             this.simpleButton1.TabIndex = 11;
             this.simpleButton1.Text = "خروج";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // label1
+            // lblExitFrm
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
+            this.lblExitFrm.AutoSize = true;
+            this.lblExitFrm.Font = new System.Drawing.Font("B Nazanin", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblExitFrm.Location = new System.Drawing.Point(180, 27);
+            this.lblExitFrm.Name = "lblExitFrm";
+            this.lblExitFrm.Size = new System.Drawing.Size(236, 28);
+            this.lblExitFrm.TabIndex = 12;
+            this.lblExitFrm.Text = "آیا بدون پشتیبان گیری خارج میشوید؟";
             // 
             // FrmConfirmExit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 129);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblExitFrm);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnsavebank);
             this.Controls.Add(this.btnClose);
@@ -113,6 +117,6 @@ namespace PamirAccounting.Forms
         private DevExpress.XtraEditors.SimpleButton btnsavebank;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblExitFrm;
     }
 }

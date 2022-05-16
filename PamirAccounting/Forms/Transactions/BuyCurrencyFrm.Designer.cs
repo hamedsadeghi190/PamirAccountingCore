@@ -34,8 +34,8 @@ namespace PamirAccounting.Forms.Transactions
             this.lbl_Document_Id_value = new System.Windows.Forms.Label();
             this.lbl_Document_Id = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cmbSrcCustomers = new System.Windows.Forms.ComboBox();
             this.txtBuyAmount = new DevExpress.XtraEditors.TextEdit();
+            this.cmbSrcCustomers = new System.Windows.Forms.ComboBox();
             this.txtBuyRate = new DevExpress.XtraEditors.TextEdit();
             this.cmbCurrencySeller = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -128,19 +128,6 @@ namespace PamirAccounting.Forms.Transactions
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "خرید ارز";
             // 
-            // cmbSrcCustomers
-            // 
-            this.cmbSrcCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbSrcCustomers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbSrcCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbSrcCustomers.FormattingEnabled = true;
-            this.cmbSrcCustomers.Location = new System.Drawing.Point(29, 30);
-            this.cmbSrcCustomers.Name = "cmbSrcCustomers";
-            this.cmbSrcCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbSrcCustomers.Size = new System.Drawing.Size(193, 32);
-            this.cmbSrcCustomers.TabIndex = 1;
-            this.cmbSrcCustomers.SelectedIndexChanged += new System.EventHandler(this.cmbDestCustomers_SelectedIndexChanged);
-            // 
             // txtBuyAmount
             // 
             this.txtBuyAmount.EditValue = "0";
@@ -156,6 +143,19 @@ namespace PamirAccounting.Forms.Transactions
             this.txtBuyAmount.TabIndex = 3;
             this.txtBuyAmount.TextChanged += new System.EventHandler(this.txtsellerprice_TextChanged);
             this.txtBuyAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsellerprice_KeyUp);
+            // 
+            // cmbSrcCustomers
+            // 
+            this.cmbSrcCustomers.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbSrcCustomers.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbSrcCustomers.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbSrcCustomers.FormattingEnabled = true;
+            this.cmbSrcCustomers.Location = new System.Drawing.Point(29, 30);
+            this.cmbSrcCustomers.Name = "cmbSrcCustomers";
+            this.cmbSrcCustomers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cmbSrcCustomers.Size = new System.Drawing.Size(193, 32);
+            this.cmbSrcCustomers.TabIndex = 1;
+            this.cmbSrcCustomers.SelectedIndexChanged += new System.EventHandler(this.cmbDestCustomers_SelectedIndexChanged);
             // 
             // txtBuyRate
             // 
@@ -182,7 +182,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbCurrencySeller.Name = "cmbCurrencySeller";
             this.cmbCurrencySeller.Size = new System.Drawing.Size(193, 32);
             this.cmbCurrencySeller.TabIndex = 2;
-            this.cmbCurrencySeller.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencybuyer_SelectedIndexChanged);
+            this.cmbCurrencySeller.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencySeller_SelectedIndexChanged);
             this.cmbCurrencySeller.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcurrencybuyer_KeyUp);
             // 
             // label3
@@ -420,7 +420,7 @@ namespace PamirAccounting.Forms.Transactions
             this.cmbBuyerCurrencies.Name = "cmbBuyerCurrencies";
             this.cmbBuyerCurrencies.Size = new System.Drawing.Size(193, 32);
             this.cmbBuyerCurrencies.TabIndex = 7;
-            this.cmbBuyerCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbSellCurrencies_SelectedIndexChanged);
+            this.cmbBuyerCurrencies.SelectedIndexChanged += new System.EventHandler(this.cmbCurrencybuyer_SelectedIndexChanged);
             this.cmbBuyerCurrencies.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtsellercurrency_KeyUp);
             // 
             // label6

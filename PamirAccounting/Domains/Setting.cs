@@ -16,6 +16,7 @@ namespace PamirAccounting.Domains
         public string Language { get; set; }
         public int? CostsAccountId { get; set; }
         public int? NotRunnedRemittanceId { get; set; }
+        public string FlashBackupDirectory { get; set; }
 
         public virtual Currency BaseCurency { get; set; }
         public virtual Customer CostsAccount { get; set; }

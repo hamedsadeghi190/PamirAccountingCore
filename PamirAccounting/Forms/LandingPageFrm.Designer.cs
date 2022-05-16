@@ -339,10 +339,9 @@ namespace PamirAccounting.Forms
             this.DailyOperation.Image = ((System.Drawing.Image)(resources.GetObject("DailyOperation.Image")));
             this.DailyOperation.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DailyOperation.Name = "DailyOperation";
-            this.DailyOperation.Size = new System.Drawing.Size(291, 38);
+            this.DailyOperation.Size = new System.Drawing.Size(297, 38);
             this.DailyOperation.Text = "عملیات روز";
             this.DailyOperation.Click += new System.EventHandler(this.DailyOperation_Click);
-  
             // 
             // BuyAndSellCurrencyList
             // 

@@ -38,14 +38,13 @@ namespace PamirAccounting.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.\\SQL2019;Database=PamirAccounting;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AI");
+            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AS_SC_UTF8");
 
             modelBuilder.Entity<Agency>(entity =>
             {
@@ -365,6 +364,8 @@ namespace PamirAccounting.Domains
                 entity.Property(e => e.BackupDirectory).HasMaxLength(1000);
 
                 entity.Property(e => e.DateCalenderType).HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.FlashBackupDirectory).HasMaxLength(1000);
 
                 entity.Property(e => e.Language).HasMaxLength(5);
 
