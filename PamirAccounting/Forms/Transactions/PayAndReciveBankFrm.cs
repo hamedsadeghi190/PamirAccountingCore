@@ -1,4 +1,5 @@
 ﻿using JntNum2Text;
+using PamirAccounting.Commons.Enums;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -358,6 +359,7 @@ namespace PamirAccounting.Forms.Transactions
             {
                 EditWithDraw();
             }
+
         }
 
 
@@ -457,6 +459,23 @@ namespace PamirAccounting.Forms.Transactions
                 bankTransaction.DoubleTransactionId = customerTransaction.Id;
                 unitOfWork.TransactionServices.Update(bankTransaction);
                 unitOfWork.SaveChanges();
+
+
+                #region Log
+                var logDate = DateTime.Now.ToShortDateString();
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(logDate);
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.DocumentId = customerTransaction.DocumentId;
+                log.TransactionId = customerTransaction.OriginalTransactionId;
+                log.Description = $" {createDescription(txtdesc.Text)} به شماره سند { customerTransaction.DocumentId}";
+                log.ActionType = (int)Settings.ActionType.Update;
+                log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Update);
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
             }
 
         }
@@ -506,6 +525,22 @@ namespace PamirAccounting.Forms.Transactions
             customerTransaction.DoubleTransactionId = bankTransaction.Id;
             unitOfWork.TransactionServices.Update(customerTransaction);
             unitOfWork.SaveChanges();
+
+            #region Log
+            var logDate = DateTime.Now.ToShortDateString();
+            var log = new Domains.DailyOperation();
+            log.Date = DateTime.Parse(logDate);
+            log.Time = DateTime.Now.TimeOfDay;
+            log.UserId = CurrentUser.UserID;
+            log.UserName = CurrentUser.UserName;
+            log.DocumentId = customerTransaction.DocumentId;
+            log.TransactionId = customerTransaction.OriginalTransactionId;
+            log.Description = $" {createDescription(txtdesc.Text)} به شماره سند { customerTransaction.DocumentId}";
+            log.ActionType = (int)Settings.ActionType.Update;
+            log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Update);
+            unitOfWork.DailyOperationServices.Insert(log);
+            unitOfWork.SaveChanges();
+            #endregion
 
         }
 
@@ -563,6 +598,22 @@ namespace PamirAccounting.Forms.Transactions
             bankTransaction.DoubleTransactionId = customerTransaction.Id;
             unitOfWork.TransactionServices.Update(bankTransaction);
             unitOfWork.SaveChanges();
+
+            #region Log
+            var logDate = DateTime.Now.ToShortDateString();
+            var log = new Domains.DailyOperation();
+            log.Date = DateTime.Parse(logDate);
+            log.Time = DateTime.Now.TimeOfDay;
+            log.UserId = CurrentUser.UserID;
+            log.UserName = CurrentUser.UserName;
+            log.DocumentId = customerTransaction.DocumentId;
+            log.TransactionId = customerTransaction.OriginalTransactionId;
+            log.Description = $" {createDescription(txtdesc.Text)} به شماره سند { customerTransaction.DocumentId}";
+            log.ActionType = (int)Settings.ActionType.Insert;
+            log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Insert);
+            unitOfWork.DailyOperationServices.Insert(log);
+            unitOfWork.SaveChanges();
+            #endregion
         }
 
         private void CreateDeposit()
@@ -639,6 +690,22 @@ namespace PamirAccounting.Forms.Transactions
                 bankTransaction.DoubleTransactionId = customerTransaction.Id;
                 unitOfWork.TransactionServices.Update(bankTransaction);
                 unitOfWork.SaveChanges();
+
+                #region Log
+                var logDate = DateTime.Now.ToShortDateString();
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(logDate);
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.DocumentId = customerTransaction.DocumentId;
+                log.TransactionId = customerTransaction.OriginalTransactionId;
+                log.Description = $" {createDescription(txtdesc.Text)} به شماره سند { customerTransaction.DocumentId}";
+                log.ActionType = (int)Settings.ActionType.Insert;
+                log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Insert);
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
 
             }
 

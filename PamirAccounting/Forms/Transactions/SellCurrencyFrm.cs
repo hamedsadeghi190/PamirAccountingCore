@@ -145,10 +145,46 @@ namespace PamirAccounting.Forms.Transactions
             unitOfWork.TransactionServices.Update(talabkarTransaction);
             unitOfWork.SaveChanges();
             if (_TransActionId.HasValue)
-                this.Close();
-            else
+            {
 
+
+                #region Log
+                var logDate = DateTime.Now.ToShortDateString();
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(logDate);
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.DocumentId = bedehkarTransAction.DocumentId;
+                log.TransactionId = bedehkarTransAction.OriginalTransactionId;
+                log.Description = $" {  bedehkarTransAction.Description } به شماره سند { bedehkarTransAction.DocumentId}";
+                log.ActionType = (int)ActionType.Update;
+                log.ActionText = Tools.GetEnumDescription(ActionType.Update);
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
+                this.Close();
+            }
+            else
+            {
+
+                #region Log
+                var logDate = DateTime.Now.ToShortDateString();
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(logDate);
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.DocumentId = bedehkarTransAction.DocumentId;
+                log.TransactionId = bedehkarTransAction.OriginalTransactionId;
+                log.Description = $" {  bedehkarTransAction.Description } به شماره سند { bedehkarTransAction.DocumentId}";
+                log.ActionType = (int)ActionType.Insert;
+                log.ActionText = Tools.GetEnumDescription(ActionType.Insert);
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
                 CleanForm();
+            }
 
         }
 
