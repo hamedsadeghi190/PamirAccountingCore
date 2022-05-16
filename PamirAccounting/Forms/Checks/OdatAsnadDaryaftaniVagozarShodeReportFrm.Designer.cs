@@ -353,7 +353,7 @@ namespace PamirAccounting.Forms.Checks
             // 
             // Column9
             // 
-            this.Column9.DataPropertyName = "BankName";
+            this.Column9.DataPropertyName = "RealBankName";
             this.Column9.HeaderText = "بانک";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";

@@ -170,7 +170,7 @@ namespace PamirAccounting.Forms.Checks
                     customerTransaction.Date = DateTime.Now;
                     customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
                     customerTransaction.UserId = CurrentUser.UserID;
-                    customerTransaction.DocumentId = DocumentId;
+                    customerTransaction.DocumentId = currentCheque.DocumentId;
                     unitOfWork.TransactionServices.Insert(customerTransaction);
                     unitOfWork.SaveChanges();
                     //customer transaction end///
@@ -186,7 +186,7 @@ namespace PamirAccounting.Forms.Checks
                     DarJaryanVosool.Date = DateTime.Now;
                     DarJaryanVosool.TransactionDateTime = DateTime.Parse(dDate);
                     DarJaryanVosool.UserId = CurrentUser.UserID;
-                    DarJaryanVosool.DocumentId = DocumentId;
+                    DarJaryanVosool.DocumentId = currentCheque.DocumentId;
                     unitOfWork.TransactionServices.Insert(DarJaryanVosool);
                     unitOfWork.SaveChanges();
                     //ReceivedDocuments transaction End
@@ -233,7 +233,7 @@ namespace PamirAccounting.Forms.Checks
                     customerTransaction.Date = DateTime.Now;
                     customerTransaction.TransactionDateTime = DateTime.Parse(dDate);
                     customerTransaction.UserId = CurrentUser.UserID;
-                    customerTransaction.DocumentId = DocumentId;
+                    customerTransaction.DocumentId = currentCheque.DocumentId;
                     unitOfWork.TransactionServices.Insert(customerTransaction);
                     unitOfWork.SaveChanges();
                     //customer transaction end///
@@ -251,7 +251,7 @@ namespace PamirAccounting.Forms.Checks
                     DarJaryanVosool.Date = DateTime.Now;
                     DarJaryanVosool.TransactionDateTime = DateTime.Parse(dDate);
                     DarJaryanVosool.UserId = CurrentUser.UserID;
-                    DarJaryanVosool.DocumentId = DocumentId;
+                    DarJaryanVosool.DocumentId = currentCheque.DocumentId;
                     unitOfWork.TransactionServices.Insert(DarJaryanVosool);
                     unitOfWork.SaveChanges();
                     //ReceivedDocuments transaction End
@@ -316,8 +316,8 @@ namespace PamirAccounting.Forms.Checks
                     customerTransaction.SourceCustomerId = (int)cmbCustomers.SelectedValue;
                     customerTransaction.DestinitionCustomerId = AppSetting.RecivedDocumentCustomerId;
                     customerTransaction.TransactionType = customerTransaction.TransactionType;
-                    customerTransaction.WithdrawAmount = customerTransaction.WithdrawAmount;
-                    customerTransaction.DepositAmount = customerTransaction.DepositAmount;
+                    customerTransaction.WithdrawAmount = currentCheque.Amount;
+                    customerTransaction.DepositAmount = 0;
                     customerTransaction.Description = currentCheque.Description;
                     customerTransaction.CurrenyId = customerTransaction.CurrenyId;
                     customerTransaction.Date = DateTime.Now;
@@ -331,8 +331,8 @@ namespace PamirAccounting.Forms.Checks
                     //DarJaryanVosool transaction
                     var DarJaryanVosool = unitOfWork.Transactions.FindFirst(x => x.DocumentId == currentCheque.DocumentId && x.SourceCustomerId == AppSetting.AsnadDarJaryanVoslId);
                     DarJaryanVosool.DoubleTransactionId = customerTransaction.Id;
-                    DarJaryanVosool.WithdrawAmount = DarJaryanVosool.WithdrawAmount;
-                    DarJaryanVosool.DepositAmount = DarJaryanVosool.DepositAmount;
+                    DarJaryanVosool.WithdrawAmount = 0;
+                    DarJaryanVosool.DepositAmount =currentCheque.Amount;
                     DarJaryanVosool.Description = currentCheque.Description;
                     DarJaryanVosool.DestinitionCustomerId = (int)cmbCustomers.SelectedValue;
                     DarJaryanVosool.SourceCustomerId = AppSetting.RecivedDocumentCustomerId;

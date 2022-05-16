@@ -237,7 +237,7 @@ namespace PamirAccounting.Forms.Checks
         }
         private void CreateDescription()
         {
-            txtDesc.Text = $"{Messages.BargashtPayment } شماره  {currentCheque.ChequeNumber}- تاریخ برگشت  {txtBargashtDate.Text} ";
+            txtDesc.Text = $"{Messages.BargashtPayment} شماره {currentCheque.ChequeNumber} تاریخ برگشت {txtBargashtDate.Text} ";
         }
         private void txtBargashtDate_KeyUp(object sender, KeyEventArgs e)
         {
@@ -246,7 +246,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void txtDesc_KeyUp(object sender, KeyEventArgs e)
         {
-            CreateDescription();
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
