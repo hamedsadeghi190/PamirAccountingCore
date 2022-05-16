@@ -105,7 +105,7 @@ namespace PamirAccounting.UI.Forms.Settings
             }
         }
 
-      
+
 
         private void btnexit_Click(object sender, EventArgs e)
         {
@@ -136,8 +136,8 @@ namespace PamirAccounting.UI.Forms.Settings
                 log.UserId = CurrentUser.UserID;
                 log.UserName = CurrentUser.UserName;
                 log.Description = "ثبت تنظیمات اصلی برنامه";
-                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
-                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                log.ActionText = GetEnumDescription(Commons.Enums.Settings.ActionType.Insert);
+                log.ActionType = (int)Commons.Enums.Settings.ActionType.Insert;
                 unitOfWork.DailyOperationServices.Insert(log);
                 unitOfWork.SaveChanges();
                 #endregion
@@ -199,7 +199,7 @@ namespace PamirAccounting.UI.Forms.Settings
 
         private void LoadData()
         {
-             _Settings = unitOfWork.Setting.FindFirstOrDefault();
+            _Settings = unitOfWork.Setting.FindFirstOrDefault();
             if (_Settings != null)
             {
                 txtBackupPath.Text = _Settings.BackupDirectory;
