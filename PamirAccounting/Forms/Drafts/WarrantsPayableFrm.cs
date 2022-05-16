@@ -403,10 +403,45 @@ namespace PamirAccounting.Forms.Drafts
 
                 if (_draftID.HasValue)
                 {
+                    var Description = $"شماره  {txtNumber.Text} {cmbAgency.Text} , {txtSender.Text} برای " +
+      $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDraftCurrency.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text} و دریافت {txtDepositAmount.Text}{cmbDepositCurreny.Text} **{txtDesc.Text}";
+                    #region Log
+                    var logDate = DateTime.Now.ToShortDateString();
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(logDate);
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.DocumentId = customerTransaction.DocumentId;
+                    log.TransactionId = customerTransaction.OriginalTransactionId;
+                    log.Description = $" {  Description } به شماره سند { customerTransaction.DocumentId}";
+                    log.ActionType = (int)ActionType.Update;
+                    log.ActionText = Tools.GetEnumDescription(ActionType.Update);
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
                     Close();
                 }
                 else
                 {
+                    var Description = $"شماره  {txtNumber.Text} {cmbAgency.Text} , {txtSender.Text} برای " +
+                          $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDraftCurrency.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text} و دریافت {txtDepositAmount.Text}{cmbDepositCurreny.Text} **{txtDesc.Text}";
+                    #region Log
+                    var logDate = DateTime.Now.ToShortDateString();
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(logDate);
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.DocumentId = customerTransaction.DocumentId;
+                    log.TransactionId = customerTransaction.OriginalTransactionId;
+                    log.Description = $" {  Description } به شماره سند { customerTransaction.DocumentId}";
+                    log.ActionType = (int)ActionType.Insert;
+                    log.ActionText = Tools.GetEnumDescription(ActionType.Insert);
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
+
                     draft = null;
                     customerTransaction = null;
                     clearFrom();
