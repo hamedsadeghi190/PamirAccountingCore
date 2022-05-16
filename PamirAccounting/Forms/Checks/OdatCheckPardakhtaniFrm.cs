@@ -61,6 +61,7 @@ namespace PamirAccounting.Forms.Checks
 
         private void OdatCheckPardakhtaniFrm_Load(object sender, EventArgs e)
         {
+       
             if (_ChequeNumberEdit > 0)
             {
                 ChequeActionInfo(_ChequeNumberEdit);
@@ -75,7 +76,7 @@ namespace PamirAccounting.Forms.Checks
                 string PDate = pc.GetYear(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetMonth(currentCheque.RegisterDateTime).ToString() + "/" + pc.GetDayOfMonth(currentCheque.RegisterDateTime).ToString();
                 txtDate.Text = PDate;
                 string PDate2 = pc.GetYear(DateTime.Now).ToString() + "/" + pc.GetMonth(DateTime.Now).ToString() + "/" + pc.GetDayOfMonth(DateTime.Now).ToString();
-                txtOdatDate.Text = PDate2;
+                txtOdatDate.Text = DateTime.Now.ToFarsiFormat();
        
             }
         }
@@ -264,6 +265,11 @@ namespace PamirAccounting.Forms.Checks
         private void txtOdatDate_KeyPress(object sender, KeyPressEventArgs e)
         {
             CreateDescription();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

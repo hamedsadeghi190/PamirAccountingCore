@@ -24,5 +24,6 @@ namespace PamirAccounting
         public const string Bargasht = "برگشت";
         public const string Vagozari = "واگذاری";
         public const string OdatVagozari = "عودت اسناد واگذاری";
+      
     }
 }

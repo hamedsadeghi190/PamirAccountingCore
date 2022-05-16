@@ -161,7 +161,7 @@ namespace PamirAccounting.Forms.Checks
                     customerTransaction.Date = DateTime.Now;
                     customerTransaction.TransactionDateTime = DateTime.Parse(dDate); ;
                     customerTransaction.UserId = CurrentUser.UserID;
-                    customerTransaction.DocumentId = DocumentId;
+                    customerTransaction.DocumentId = Cheque.DocumentId;
                     unitOfWork.TransactionServices.Insert(customerTransaction);
                     unitOfWork.SaveChanges();
                     //customer transaction end///
@@ -179,7 +179,7 @@ namespace PamirAccounting.Forms.Checks
                     receivedDocuments.Date = DateTime.Now;
                     receivedDocuments.TransactionDateTime = DateTime.Parse(dDate);
                     receivedDocuments.UserId = CurrentUser.UserID;
-                    receivedDocuments.DocumentId = DocumentId;
+                    receivedDocuments.DocumentId = Cheque.DocumentId;
                     unitOfWork.TransactionServices.Insert(receivedDocuments);
                     unitOfWork.SaveChanges();
                     customerTransaction.DoubleTransactionId = receivedDocuments.Id;
