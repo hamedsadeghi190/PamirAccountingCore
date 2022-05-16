@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.Banks
 {
@@ -87,6 +88,18 @@ namespace PamirAccounting.UI.Forms.Banks
                         var bank = unitOfWork.BankServices.FindFirst(x => x.Id == dataList.ElementAt(e.RowIndex).Id.Value);
                         unitOfWork.BankServices.Delete(bank);
                         unitOfWork.SaveChanges();
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"حذف بانک {bank.Name}";
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        unitOfWork.SaveChanges();
+                        #endregion
                         loadData();
                     }
                     catch (Exception ex)
@@ -157,9 +170,24 @@ namespace PamirAccounting.UI.Forms.Banks
                     {
                         try
                         {
+                            var customer = unitOfWork.Customers.FindFirst(x => x.BankId == dataList.ElementAt(rowIndex).Id.Value);
+                            unitOfWork.CustomerServices.Delete(customer);
+                            unitOfWork.SaveChanges();
                             var bank = unitOfWork.BankServices.FindFirst(x => x.Id == dataList.ElementAt(rowIndex).Id.Value);
                             unitOfWork.BankServices.Delete(bank);
                             unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف بانک {bank.Name}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
                             loadData();
                         }
                         catch (Exception ex)

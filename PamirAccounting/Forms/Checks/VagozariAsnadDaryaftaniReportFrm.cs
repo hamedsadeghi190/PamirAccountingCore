@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Commons.Enums;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
@@ -12,7 +13,10 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static PamirAccounting.Tools;
+
 using System.Windows.Forms;
+
 
 namespace PamirAccounting.Forms.Checks
 {
@@ -199,7 +203,19 @@ namespace PamirAccounting.Forms.Checks
                                     unitOfWork.TransactionServices.Delete(item);
                                     unitOfWork.SaveChanges();
                                 }
-
+                                #region Log
+                                var log = new Domains.DailyOperation();
+                                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                                log.Time = DateTime.Now.TimeOfDay;
+                                log.UserId = CurrentUser.UserID;
+                                log.UserName = CurrentUser.UserName;
+                                log.DocumentId = cheque.DocumentId;
+                                log.Description = $"حذف چک به شماره {cheque.ChequeNumber}،به مبلغ {cheque.Amount}، شماره سند {cheque.DocumentId} ";
+                                log.ActionType = (int)Settings.ActionType.Delete;
+                                log.ActionText = GetEnumDescription(Settings.ActionType.Delete);
+                                unitOfWork.DailyOperationServices.Insert(log);
+                                unitOfWork.SaveChanges();
+                                #endregion
                                 LoadData();
                             }
                             catch (Exception ex)
@@ -286,7 +302,19 @@ namespace PamirAccounting.Forms.Checks
                             unitOfWork.TransactionServices.Delete(item);
                             unitOfWork.SaveChanges();
                         }
-
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.DocumentId = cheque.DocumentId;
+                        log.Description = $"حذف چک به شماره {cheque.ChequeNumber}،به مبلغ {cheque.Amount}، شماره سند {cheque.DocumentId} ";
+                        log.ActionType = (int)Settings.ActionType.Delete;
+                        log.ActionText = GetEnumDescription(Settings.ActionType.Delete);
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        unitOfWork.SaveChanges();
+                        #endregion
                         LoadData();
                     }
                     catch (Exception ex)

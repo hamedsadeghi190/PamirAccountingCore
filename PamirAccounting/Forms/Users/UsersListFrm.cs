@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
 
 namespace PamirAccounting.Forms.Users
 {
@@ -82,6 +83,18 @@ namespace PamirAccounting.Forms.Users
                         user.IsDeleted = true;
                         unitOfWork.UserServices.Update(user);
                         unitOfWork.SaveChanges();
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"حذف کاربر {user.FirstName} {user.LastName}";
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        unitOfWork.SaveChanges();
+                        #endregion
                         loadData();
                     }
                     catch
@@ -164,6 +177,18 @@ namespace PamirAccounting.Forms.Users
                             user.IsDeleted = true;
                             unitOfWork.UserServices.Update(user);
                             unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف کاربر {user.FirstName} {user.LastName}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
                             loadData();
                         }
                         catch

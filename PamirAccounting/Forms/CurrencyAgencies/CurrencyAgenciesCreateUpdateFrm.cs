@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.CurrencyAgencies
 {
@@ -164,8 +165,21 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
                     _CurrenciesMapping.DestiniationCurrenyId = (int)cmbDescCurenccy.SelectedValue;
                     _CurrenciesMapping.RoundLimit = (int)cmbroundLimit.SelectedValue;
                     _CurrenciesMapping.ExchangeRate = (int)cmbExchangeRate.SelectedValue;
-
                     unitOfWork.CurrenciesMappingServices.Update(_CurrenciesMapping);
+                    unitOfWork.SaveChanges();
+                    #region Log
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = $"ویرایش عملیات رمز ارز حواله {cmbSourceCurreny.Text}، ارز دریافتی {cmbDescCurenccy.Text}";
+                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
+
                 }
                 else
                 {
@@ -179,9 +193,21 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
                         ExchangeRate = (int)cmbExchangeRate.SelectedValue,
                     };
                     unitOfWork.CurrenciesMappingServices.Insert(newCurrencyMapping);
-
+                    unitOfWork.SaveChanges();
+                    #region Log
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = $"ثبت عملیات رمز ارز حواله {cmbSourceCurreny.Text}، ارز دریافتی {cmbDescCurenccy.Text}";
+                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
+                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
                 }
-                unitOfWork.SaveChanges();
+
                 Close();
             }
             catch

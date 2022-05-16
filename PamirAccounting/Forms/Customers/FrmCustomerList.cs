@@ -10,6 +10,8 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
+
 
 namespace PamirAccounting.Forms.Customers
 {
@@ -141,6 +143,18 @@ namespace PamirAccounting.Forms.Customers
                         customer.IsDeleted = true;
                         unitOfWork.CustomerServices.Update(customer);
                         unitOfWork.SaveChanges();
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"حذف مشتری {customer.FirstName} {customer.LastName}";
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        unitOfWork.SaveChanges();
+                        #endregion
                         loadData(selectedGroupId);
                     }
                     catch
@@ -307,6 +321,18 @@ namespace PamirAccounting.Forms.Customers
                             customer.IsDeleted = true;
                             unitOfWork.CustomerServices.Update(customer);
                             unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف مشتری {customer.FirstName} {customer.LastName}";
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
                             loadData(selectedGroupId);
                         }
                         catch

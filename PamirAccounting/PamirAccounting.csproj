@@ -164,6 +164,7 @@
 
   <ItemGroup>
     <Folder Include="Controls\" />
+    <Folder Include="UI\Forms\Settings\" />
   </ItemGroup>
 
   <ItemGroup>

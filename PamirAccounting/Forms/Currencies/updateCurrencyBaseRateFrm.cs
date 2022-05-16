@@ -12,6 +12,8 @@ using System.Windows;
 using System.Windows.Forms;
 using FontStyle = System.Drawing.FontStyle;
 using MessageBox = System.Windows.Forms.MessageBox;
+using static PamirAccounting.Tools;
+
 
 namespace PamirAccounting.Forms.Currencies
 {
@@ -106,6 +108,18 @@ namespace PamirAccounting.Forms.Currencies
                 selectedCurrency.BaseRate = Double.Parse(txtRate.Text.Replace(',', '.'), CultureInfo.InvariantCulture) ;
                 unitOfWork.CurrencyServices.Update(selectedCurrency);
                 unitOfWork.SaveChanges();
+                #region Log
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.Description = $"ویرایش نرخ معیار {selectedCurrency.Name}";
+                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
                 MessageBox.Show("نرخ بروز رسانی شد");
                 loadData();
             }

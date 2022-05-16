@@ -183,6 +183,8 @@ namespace PamirAccounting.UI.Forms.Banks
                         unitOfWork.CustomerServices.Insert(newCustomer);
                         unitOfWork.SaveChanges();
                     }
+
+                 
                 }
                 Close();
             }

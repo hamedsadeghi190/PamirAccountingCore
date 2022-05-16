@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.Users
 {
@@ -141,8 +142,20 @@ namespace PamirAccounting.UI.Forms.Users
                 _user.AgentId = (int)cmbAgency.SelectedValue;
                 _user.CurrenyId = (int)cmbCurrency.SelectedValue;
                 _user.CustomerId = (int)CmbSandogh.SelectedValue;
-
                 unitOfWork.UserServices.Update(_user);
+                unitOfWork.SaveChanges();
+                #region Log
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.Description = $"ویرایش اطلاعات کاربر {_user.FirstName} {_user.LastName}";
+                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
             }
             else
             {
@@ -155,11 +168,23 @@ namespace PamirAccounting.UI.Forms.Users
                 _user.AgentId = (int)cmbAgency.SelectedValue;
                 _user.CurrenyId = (int)cmbCurrency.SelectedValue;
                 _user.CustomerId = (int)CmbSandogh.SelectedValue;
-
                 unitOfWork.UserServices.Insert(_user);
+                unitOfWork.SaveChanges();
+                #region Log
+                var log = new Domains.DailyOperation();
+                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                log.Time = DateTime.Now.TimeOfDay;
+                log.UserId = CurrentUser.UserID;
+                log.UserName = CurrentUser.UserName;
+                log.Description = $"ثبت کاربر {_user.FirstName} {_user.LastName}";
+                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
+                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                unitOfWork.DailyOperationServices.Insert(log);
+                unitOfWork.SaveChanges();
+                #endregion
             }
 
-            unitOfWork.SaveChanges();
+
             Close();
 
         }
