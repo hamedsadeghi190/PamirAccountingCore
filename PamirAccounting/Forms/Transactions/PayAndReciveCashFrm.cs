@@ -393,8 +393,8 @@ namespace PamirAccounting.Forms.Transactions
                 log.TransactionId = customerTransaction.OriginalTransactionId;
                 log.Description = $" {txtdesc.Text} به شماره سند { customerTransaction.DocumentId}";
                 log.ActionType = (int)Settings.ActionType.Update;
-                log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Insert);
-                unitOfWork.DailyOperationServices.Update(log);
+                log.ActionText = Tools.GetEnumDescription(Settings.ActionType.Update);
+                unitOfWork.DailyOperationServices.Insert(log);
                 unitOfWork.SaveChanges();
                 #endregion
 
