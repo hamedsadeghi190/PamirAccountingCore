@@ -189,10 +189,7 @@ namespace PamirAccounting.Forms.Checks
             {
                 return false;
             }
-            if (cmbRealBankId.SelectedValue == null)
-            {
-                return false;
-            }
+     
             if (cmbCustomers.SelectedValue == null)
             {
                 return false;
