@@ -172,10 +172,15 @@ namespace PamirAccounting.Forms.Transactions
 
         private void btnsavebank_Click(object sender, EventArgs e)
         {
-
+            var role = unitOfWork.UserInRole.Find(CurrentUser.UserID);
+            var roleId = unitOfWork.Role.FindFirstOrDefault(x => x.Form == this.Name).Id;
+            if (role.RoleId != roleId)
+            {
+                MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
+                return;
+            }
             if (checkEntryData())
             {
-
                 if ((int)cmbRemainType.SelectedValue == 1)
                 {
                     var balance = unitOfWork.TransactionServices.GetCustomerBalace(AppSetting.SandoghCustomerId, (int)cmbCurrencies.SelectedValue);

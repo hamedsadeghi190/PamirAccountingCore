@@ -16,9 +16,11 @@ namespace PamirAccounting.UI.Forms.Users
         private UnitOfWork unitOfWork;
         private int? _Id;
         private User _user;
+        private UserInRole _userInRole;
         private List<ComboBoxModel> _agencies = new List<ComboBoxModel>();
         private List<ComboBoxModel> _Currencies = new List<ComboBoxModel>();
         private List<ComboBoxModel> _Customers = new List<ComboBoxModel>();
+        private List<Role> _role = new List<Role>();
 
         public UsersCreateUpdateFrm()
         {
@@ -47,6 +49,16 @@ namespace PamirAccounting.UI.Forms.Users
         }
         private void UsersCreateUpdateFrm_Load(object sender, EventArgs e)
         {
+            var _list = new List<RoleModel>();
+          //  var role = new List<RoleModel>();
+            var role = unitOfWork.RolesServices.GetAll();
+            foreach (var item in role)
+            {
+                chkAccessLevel.Items.Add(item.Name);
+
+            }
+        
+
             SetComboBoxHeight(cmbAgency.Handle, 25);
             cmbAgency.Refresh();
             SetComboBoxHeight(cmbCurrency.Handle, 25);
@@ -159,8 +171,9 @@ namespace PamirAccounting.UI.Forms.Users
             }
             else
             {
-                _user = new User();
 
+                _user = new User();
+                _userInRole = new UserInRole();
                 _user.FirstName = txtFirstName.Text;
                 _user.LastName = txtLastName.Text;
                 _user.UserName = txtUserName.Text;
@@ -170,6 +183,15 @@ namespace PamirAccounting.UI.Forms.Users
                 _user.CustomerId = (int)CmbSandogh.SelectedValue;
                 unitOfWork.UserServices.Insert(_user);
                 unitOfWork.SaveChanges();
+                for (int i = 0; i < chkAccessLevel.ItemCount; i++)
+                {
+                    _userInRole.UserId = _user.Id;
+                    _userInRole.RoleId = unitOfWork.Role.FindFirstOrDefault(x => x.Name == chkAccessLevel.CheckedItems[i].ToString()).Id;
+                    unitOfWork.UserInRole.Insert(_userInRole);
+                    unitOfWork.SaveChanges();
+                }
+
+              
                 #region Log
                 var log = new Domains.DailyOperation();
                 log.Date = DateTime.Parse(DateTime.Now.ToString());

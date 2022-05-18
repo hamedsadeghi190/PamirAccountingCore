@@ -135,7 +135,7 @@ namespace PamirAccounting.Forms
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 10, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1332, 92);
+            this.menuStrip1.Size = new System.Drawing.Size(1332, 87);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -157,7 +157,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu.Margin = new System.Windows.Forms.Padding(1);
             this.AccountActionMnu.Name = "AccountActionMnu";
-            this.AccountActionMnu.Size = new System.Drawing.Size(116, 77);
+            this.AccountActionMnu.Size = new System.Drawing.Size(113, 72);
             this.AccountActionMnu.Text = "عملیات حساب";
             this.AccountActionMnu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -169,7 +169,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_Cash.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_Cash.Name = "AccountActionMnu_Cash";
             this.AccountActionMnu_Cash.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.AccountActionMnu_Cash.Size = new System.Drawing.Size(286, 38);
+            this.AccountActionMnu_Cash.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_Cash.Text = "دریافت و پرداخت نقدی";
             this.AccountActionMnu_Cash.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.AccountActionMnu_Cash.Click += new System.EventHandler(this.AccountActionMnu_Cash_Click);
@@ -182,7 +182,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_Transfer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_Transfer.Name = "AccountActionMnu_Transfer";
             this.AccountActionMnu_Transfer.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.AccountActionMnu_Transfer.Size = new System.Drawing.Size(286, 38);
+            this.AccountActionMnu_Transfer.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_Transfer.Text = "انتقال حساب به حساب";
             this.AccountActionMnu_Transfer.Click += new System.EventHandler(this.AccountActionMnu_Transfer_Click);
             // 
@@ -194,7 +194,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_Bank.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_Bank.Name = "AccountActionMnu_Bank";
             this.AccountActionMnu_Bank.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.AccountActionMnu_Bank.Size = new System.Drawing.Size(286, 38);
+            this.AccountActionMnu_Bank.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_Bank.Text = "دریافت و پرداخت بانکی";
             this.AccountActionMnu_Bank.Click += new System.EventHandler(this.AccountActionMnu_Bank_Click);
             // 
@@ -206,7 +206,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_ShippingOrder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_ShippingOrder.Name = "AccountActionMnu_ShippingOrder";
             this.AccountActionMnu_ShippingOrder.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.AccountActionMnu_ShippingOrder.Size = new System.Drawing.Size(286, 38);
+            this.AccountActionMnu_ShippingOrder.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_ShippingOrder.Text = "حواله فروش";
             this.AccountActionMnu_ShippingOrder.Click += new System.EventHandler(this.AccountActionMnu_ShippingOrder_Click);
             // 
@@ -218,7 +218,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_WarrantsPayable.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_WarrantsPayable.Name = "AccountActionMnu_WarrantsPayable";
             this.AccountActionMnu_WarrantsPayable.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.AccountActionMnu_WarrantsPayable.Size = new System.Drawing.Size(286, 38);
+            this.AccountActionMnu_WarrantsPayable.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_WarrantsPayable.Text = "حواله آمد";
             this.AccountActionMnu_WarrantsPayable.Click += new System.EventHandler(this.AccountActionMnu_WarrantsPayable_Click);
             // 
@@ -230,7 +230,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_ReceiveCheque.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_ReceiveCheque.Name = "AccountActionMnu_ReceiveCheque";
             this.AccountActionMnu_ReceiveCheque.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.AccountActionMnu_ReceiveCheque.Size = new System.Drawing.Size(286, 38);
+            this.AccountActionMnu_ReceiveCheque.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_ReceiveCheque.Text = "دریافت چک";
             this.AccountActionMnu_ReceiveCheque.Click += new System.EventHandler(this.AccountActionMnu_ReceiveCheque_Click);
             // 
@@ -242,7 +242,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_PaymentCheque.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_PaymentCheque.Name = "AccountActionMnu_PaymentCheque";
             this.AccountActionMnu_PaymentCheque.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.AccountActionMnu_PaymentCheque.Size = new System.Drawing.Size(286, 38);
+            this.AccountActionMnu_PaymentCheque.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_PaymentCheque.Text = "پرداخت چک";
             this.AccountActionMnu_PaymentCheque.Click += new System.EventHandler(this.AccountActionMnu_PaymentCheque_Click);
             // 
@@ -254,7 +254,7 @@ namespace PamirAccounting.Forms
             this.AccountActionMnu_BuyAndSellCurrency.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AccountActionMnu_BuyAndSellCurrency.Name = "AccountActionMnu_BuyAndSellCurrency";
             this.AccountActionMnu_BuyAndSellCurrency.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.AccountActionMnu_BuyAndSellCurrency.Size = new System.Drawing.Size(286, 38);
+            this.AccountActionMnu_BuyAndSellCurrency.Size = new System.Drawing.Size(275, 38);
             this.AccountActionMnu_BuyAndSellCurrency.Text = "فروش ارز";
             this.AccountActionMnu_BuyAndSellCurrency.Click += new System.EventHandler(this.AccountActionMnu_BuyAndSellCurrency_Click);
             // 
@@ -265,7 +265,7 @@ namespace PamirAccounting.Forms
             this.BuyCurrencyMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.BuyCurrencyMenuItem.Name = "BuyCurrencyMenuItem";
             this.BuyCurrencyMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.BuyCurrencyMenuItem.Size = new System.Drawing.Size(286, 38);
+            this.BuyCurrencyMenuItem.Size = new System.Drawing.Size(275, 38);
             this.BuyCurrencyMenuItem.Text = "خرید ارز";
             this.BuyCurrencyMenuItem.Click += new System.EventHandler(this.BuyCurrencyMenuItem_Click);
             // 
@@ -284,7 +284,7 @@ namespace PamirAccounting.Forms
             this.روزنامهToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("روزنامهToolStripMenuItem.Image")));
             this.روزنامهToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.روزنامهToolStripMenuItem.Name = "روزنامهToolStripMenuItem";
-            this.روزنامهToolStripMenuItem.Size = new System.Drawing.Size(99, 79);
+            this.روزنامهToolStripMenuItem.Size = new System.Drawing.Size(95, 74);
             this.روزنامهToolStripMenuItem.Text = "دفتر روزنامه";
             this.روزنامهToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -295,7 +295,7 @@ namespace PamirAccounting.Forms
             this.PayAndReciveBank.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveBank.Image")));
             this.PayAndReciveBank.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.PayAndReciveBank.Name = "PayAndReciveBank";
-            this.PayAndReciveBank.Size = new System.Drawing.Size(297, 38);
+            this.PayAndReciveBank.Size = new System.Drawing.Size(291, 38);
             this.PayAndReciveBank.Text = "دفتر بانک";
             this.PayAndReciveBank.Click += new System.EventHandler(this.PayAndReciveBank_Click);
             // 
@@ -306,7 +306,7 @@ namespace PamirAccounting.Forms
             this.PayAndReciveCash.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveCash.Image")));
             this.PayAndReciveCash.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.PayAndReciveCash.Name = "PayAndReciveCash";
-            this.PayAndReciveCash.Size = new System.Drawing.Size(297, 38);
+            this.PayAndReciveCash.Size = new System.Drawing.Size(291, 38);
             this.PayAndReciveCash.Text = "دفتر نقدی";
             this.PayAndReciveCash.Click += new System.EventHandler(this.PayAndReciveCash_Click);
             // 
@@ -317,7 +317,7 @@ namespace PamirAccounting.Forms
             this.Transfer.Image = ((System.Drawing.Image)(resources.GetObject("Transfer.Image")));
             this.Transfer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.Transfer.Name = "Transfer";
-            this.Transfer.Size = new System.Drawing.Size(297, 38);
+            this.Transfer.Size = new System.Drawing.Size(291, 38);
             this.Transfer.Text = "انتقال بین حساب ";
             this.Transfer.Click += new System.EventHandler(this.Transfer_Click);
             // 
@@ -328,7 +328,7 @@ namespace PamirAccounting.Forms
             this.PayAndReciveBankList.Image = ((System.Drawing.Image)(resources.GetObject("PayAndReciveBankList.Image")));
             this.PayAndReciveBankList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.PayAndReciveBankList.Name = "PayAndReciveBankList";
-            this.PayAndReciveBankList.Size = new System.Drawing.Size(297, 38);
+            this.PayAndReciveBankList.Size = new System.Drawing.Size(291, 38);
             this.PayAndReciveBankList.Text = "لیست واریزهای بانکی";
             this.PayAndReciveBankList.Click += new System.EventHandler(this.PayAndReciveBankList_Click);
             // 
@@ -339,7 +339,7 @@ namespace PamirAccounting.Forms
             this.DailyOperation.Image = ((System.Drawing.Image)(resources.GetObject("DailyOperation.Image")));
             this.DailyOperation.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DailyOperation.Name = "DailyOperation";
-            this.DailyOperation.Size = new System.Drawing.Size(297, 38);
+            this.DailyOperation.Size = new System.Drawing.Size(291, 38);
             this.DailyOperation.Text = "عملیات روز";
             this.DailyOperation.Click += new System.EventHandler(this.DailyOperation_Click);
             // 
@@ -350,7 +350,7 @@ namespace PamirAccounting.Forms
             this.BuyAndSellCurrencyList.Image = ((System.Drawing.Image)(resources.GetObject("BuyAndSellCurrencyList.Image")));
             this.BuyAndSellCurrencyList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.BuyAndSellCurrencyList.Name = "BuyAndSellCurrencyList";
-            this.BuyAndSellCurrencyList.Size = new System.Drawing.Size(297, 38);
+            this.BuyAndSellCurrencyList.Size = new System.Drawing.Size(291, 38);
             this.BuyAndSellCurrencyList.Text = "لسیت خرید و فروش ارز";
             this.BuyAndSellCurrencyList.Click += new System.EventHandler(this.BuyAndSellCurrencyList_Click);
             // 
@@ -361,7 +361,7 @@ namespace PamirAccounting.Forms
             this.Newspaper.Image = ((System.Drawing.Image)(resources.GetObject("Newspaper.Image")));
             this.Newspaper.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.Newspaper.Name = "Newspaper";
-            this.Newspaper.Size = new System.Drawing.Size(297, 38);
+            this.Newspaper.Size = new System.Drawing.Size(291, 38);
             this.Newspaper.Text = "لیست دریافت و پرداخت نقدی";
             this.Newspaper.Click += new System.EventHandler(this.Newspaper_Click);
             // 
@@ -376,7 +376,7 @@ namespace PamirAccounting.Forms
             this.مشتریانToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("مشتریانToolStripMenuItem.Image")));
             this.مشتریانToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.مشتریانToolStripMenuItem.Name = "مشتریانToolStripMenuItem";
-            this.مشتریانToolStripMenuItem.Size = new System.Drawing.Size(78, 79);
+            this.مشتریانToolStripMenuItem.Size = new System.Drawing.Size(76, 74);
             this.مشتریانToolStripMenuItem.Text = "مشتریان";
             this.مشتریانToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -388,7 +388,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_Lis.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_Lis.Name = "CustomerMenu_Lis";
             this.CustomerMenu_Lis.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.CustomerMenu_Lis.Size = new System.Drawing.Size(258, 38);
+            this.CustomerMenu_Lis.Size = new System.Drawing.Size(245, 38);
             this.CustomerMenu_Lis.Text = "لیست مشتریان";
             this.CustomerMenu_Lis.Click += new System.EventHandler(this.CustomerMenu_Lis_Click);
             // 
@@ -399,7 +399,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_New.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_New.Image")));
             this.CustomerMenu_New.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_New.Name = "CustomerMenu_New";
-            this.CustomerMenu_New.Size = new System.Drawing.Size(258, 38);
+            this.CustomerMenu_New.Size = new System.Drawing.Size(245, 38);
             this.CustomerMenu_New.Text = "ثبت مشتری جدید";
             this.CustomerMenu_New.Click += new System.EventHandler(this.CustomerMenu_New_Click);
             // 
@@ -410,7 +410,7 @@ namespace PamirAccounting.Forms
             this.CustomerMenu_UnkwonDeposit.Image = ((System.Drawing.Image)(resources.GetObject("CustomerMenu_UnkwonDeposit.Image")));
             this.CustomerMenu_UnkwonDeposit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CustomerMenu_UnkwonDeposit.Name = "CustomerMenu_UnkwonDeposit";
-            this.CustomerMenu_UnkwonDeposit.Size = new System.Drawing.Size(258, 38);
+            this.CustomerMenu_UnkwonDeposit.Size = new System.Drawing.Size(245, 38);
             this.CustomerMenu_UnkwonDeposit.Text = "واریزهای نامعلوم";
             this.CustomerMenu_UnkwonDeposit.Click += new System.EventHandler(this.CustomerMenu_UnkwonDeposit_Click);
             // 
@@ -426,7 +426,7 @@ namespace PamirAccounting.Forms
             this.حوالهToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("حوالهToolStripMenuItem.Image")));
             this.حوالهToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.حوالهToolStripMenuItem.Name = "حوالهToolStripMenuItem";
-            this.حوالهToolStripMenuItem.Size = new System.Drawing.Size(63, 79);
+            this.حوالهToolStripMenuItem.Size = new System.Drawing.Size(60, 74);
             this.حوالهToolStripMenuItem.Text = "حواله ";
             this.حوالهToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -437,7 +437,7 @@ namespace PamirAccounting.Forms
             this.DraftMenu_ShippingOrder.Image = ((System.Drawing.Image)(resources.GetObject("DraftMenu_ShippingOrder.Image")));
             this.DraftMenu_ShippingOrder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DraftMenu_ShippingOrder.Name = "DraftMenu_ShippingOrder";
-            this.DraftMenu_ShippingOrder.Size = new System.Drawing.Size(224, 38);
+            this.DraftMenu_ShippingOrder.Size = new System.Drawing.Size(217, 38);
             this.DraftMenu_ShippingOrder.Text = "حواله فروش";
             this.DraftMenu_ShippingOrder.Click += new System.EventHandler(this.DraftMenu_ShippingOrder_Click);
             // 
@@ -448,7 +448,7 @@ namespace PamirAccounting.Forms
             this.DraftMenu_WarrantsPayable.Image = ((System.Drawing.Image)(resources.GetObject("DraftMenu_WarrantsPayable.Image")));
             this.DraftMenu_WarrantsPayable.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DraftMenu_WarrantsPayable.Name = "DraftMenu_WarrantsPayable";
-            this.DraftMenu_WarrantsPayable.Size = new System.Drawing.Size(224, 38);
+            this.DraftMenu_WarrantsPayable.Size = new System.Drawing.Size(217, 38);
             this.DraftMenu_WarrantsPayable.Text = "حواله آمد";
             this.DraftMenu_WarrantsPayable.Click += new System.EventHandler(this.DraftMenu_WarrantsPayable_Click);
             // 
@@ -459,7 +459,7 @@ namespace PamirAccounting.Forms
             this.DraftMenu_List.Image = ((System.Drawing.Image)(resources.GetObject("DraftMenu_List.Image")));
             this.DraftMenu_List.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DraftMenu_List.Name = "DraftMenu_List";
-            this.DraftMenu_List.Size = new System.Drawing.Size(224, 38);
+            this.DraftMenu_List.Size = new System.Drawing.Size(217, 38);
             this.DraftMenu_List.Text = "لیست حواله";
             this.DraftMenu_List.Click += new System.EventHandler(this.DraftMenu_List_Click);
             // 
@@ -470,7 +470,7 @@ namespace PamirAccounting.Forms
             this.DraftMenu_Rate.Image = ((System.Drawing.Image)(resources.GetObject("DraftMenu_Rate.Image")));
             this.DraftMenu_Rate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DraftMenu_Rate.Name = "DraftMenu_Rate";
-            this.DraftMenu_Rate.Size = new System.Drawing.Size(224, 38);
+            this.DraftMenu_Rate.Size = new System.Drawing.Size(217, 38);
             this.DraftMenu_Rate.Text = "ثبت نرخ های معیار";
             this.DraftMenu_Rate.Click += new System.EventHandler(this.DraftMenu_Rate_Click);
             // 
@@ -484,7 +484,7 @@ namespace PamirAccounting.Forms
             this.چکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("چکهاToolStripMenuItem.Image")));
             this.چکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.چکهاToolStripMenuItem.Name = "چکهاToolStripMenuItem";
-            this.چکهاToolStripMenuItem.Size = new System.Drawing.Size(60, 79);
+            this.چکهاToolStripMenuItem.Size = new System.Drawing.Size(60, 74);
             this.چکهاToolStripMenuItem.Text = "چکها";
             this.چکهاToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -508,7 +508,7 @@ namespace PamirAccounting.Forms
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("سرحسابگذاشتنچکهاToolStripMenuItem.Image")));
             this.سرحسابگذاشتنچکهاToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Name = "سرحسابگذاشتنچکهاToolStripMenuItem";
-            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
+            this.سرحسابگذاشتنچکهاToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
             this.سرحسابگذاشتنچکهاToolStripMenuItem.Text = "گزارشات چک";
             // 
             // ReceiveChequeList
@@ -650,7 +650,7 @@ namespace PamirAccounting.Forms
             this.عملیاتچکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.عملیاتچکToolStripMenuItem.Name = "عملیاتچکToolStripMenuItem";
             this.عملیاتچکToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(184, 48);
+            this.عملیاتچکToolStripMenuItem.Size = new System.Drawing.Size(178, 48);
             this.عملیاتچکToolStripMenuItem.Text = "عملیات چک";
             // 
             // ChequeMenu_SareHesabGozashtan
@@ -758,7 +758,7 @@ namespace PamirAccounting.Forms
             this.دفترکلToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("دفترکلToolStripMenuItem.Image")));
             this.دفترکلToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.دفترکلToolStripMenuItem.Name = "دفترکلToolStripMenuItem";
-            this.دفترکلToolStripMenuItem.Size = new System.Drawing.Size(74, 79);
+            this.دفترکلToolStripMenuItem.Size = new System.Drawing.Size(70, 74);
             this.دفترکلToolStripMenuItem.Text = "دفتر کل";
             this.دفترکلToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -769,7 +769,7 @@ namespace PamirAccounting.Forms
             this.TotalBlance.Image = ((System.Drawing.Image)(resources.GetObject("TotalBlance.Image")));
             this.TotalBlance.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.TotalBlance.Name = "TotalBlance";
-            this.TotalBlance.Size = new System.Drawing.Size(201, 38);
+            this.TotalBlance.Size = new System.Drawing.Size(195, 38);
             this.TotalBlance.Text = "مفاد و زیان";
             this.TotalBlance.Click += new System.EventHandler(this.TotalBlance_Click);
             // 
@@ -839,7 +839,7 @@ namespace PamirAccounting.Forms
             this.تنظیماتToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("تنظیماتToolStripMenuItem.Image")));
             this.تنظیماتToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.تنظیماتToolStripMenuItem.Name = "تنظیماتToolStripMenuItem";
-            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(78, 79);
+            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(75, 74);
             this.تنظیماتToolStripMenuItem.Text = "تنظیمات";
             this.تنظیماتToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -850,7 +850,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_CurrencyLis.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_CurrencyLis.Image")));
             this.SettingsMenu_CurrencyLis.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_CurrencyLis.Name = "SettingsMenu_CurrencyLis";
-            this.SettingsMenu_CurrencyLis.Size = new System.Drawing.Size(216, 38);
+            this.SettingsMenu_CurrencyLis.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_CurrencyLis.Text = "ارزها";
             this.SettingsMenu_CurrencyLis.Click += new System.EventHandler(this.SettingsMenu_CurrencyLis_Click);
             // 
@@ -861,7 +861,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_GroupList.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_GroupList.Image")));
             this.SettingsMenu_GroupList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_GroupList.Name = "SettingsMenu_GroupList";
-            this.SettingsMenu_GroupList.Size = new System.Drawing.Size(216, 38);
+            this.SettingsMenu_GroupList.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_GroupList.Text = "گروه ها";
             this.SettingsMenu_GroupList.Click += new System.EventHandler(this.SettingsMenu_GroupList_Click);
             // 
@@ -872,7 +872,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_BankList.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_BankList.Image")));
             this.SettingsMenu_BankList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_BankList.Name = "SettingsMenu_BankList";
-            this.SettingsMenu_BankList.Size = new System.Drawing.Size(216, 38);
+            this.SettingsMenu_BankList.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_BankList.Text = "بانک ها";
             this.SettingsMenu_BankList.Click += new System.EventHandler(this.SettingsMenu_BankList_Click);
             // 
@@ -883,7 +883,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Agency.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Agency.Image")));
             this.SettingsMenu_Agency.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Agency.Name = "SettingsMenu_Agency";
-            this.SettingsMenu_Agency.Size = new System.Drawing.Size(216, 38);
+            this.SettingsMenu_Agency.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_Agency.Text = "نمایندگی ها ";
             this.SettingsMenu_Agency.Click += new System.EventHandler(this.SettingsMenu_Agency_Click);
             // 
@@ -894,7 +894,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_CurrencyAgency.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_CurrencyAgency.Image")));
             this.SettingsMenu_CurrencyAgency.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_CurrencyAgency.Name = "SettingsMenu_CurrencyAgency";
-            this.SettingsMenu_CurrencyAgency.Size = new System.Drawing.Size(216, 38);
+            this.SettingsMenu_CurrencyAgency.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_CurrencyAgency.Text = "ارز نمایندگی ها";
             this.SettingsMenu_CurrencyAgency.Click += new System.EventHandler(this.SettingsMenu_CurrencyAgency_Click);
             // 
@@ -905,7 +905,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Header.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Header.Image")));
             this.SettingsMenu_Header.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Header.Name = "SettingsMenu_Header";
-            this.SettingsMenu_Header.Size = new System.Drawing.Size(216, 38);
+            this.SettingsMenu_Header.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_Header.Text = "سربرگ";
             this.SettingsMenu_Header.Click += new System.EventHandler(this.SettingsMenu_Header_Click);
             // 
@@ -916,7 +916,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Setting.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Setting.Image")));
             this.SettingsMenu_Setting.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Setting.Name = "SettingsMenu_Setting";
-            this.SettingsMenu_Setting.Size = new System.Drawing.Size(216, 38);
+            this.SettingsMenu_Setting.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_Setting.Text = "تنظیمات";
             this.SettingsMenu_Setting.Click += new System.EventHandler(this.SettingsMenu_Setting_Click);
             // 
@@ -927,7 +927,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Users.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Users.Image")));
             this.SettingsMenu_Users.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Users.Name = "SettingsMenu_Users";
-            this.SettingsMenu_Users.Size = new System.Drawing.Size(216, 38);
+            this.SettingsMenu_Users.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_Users.Text = "کاربران";
             this.SettingsMenu_Users.Click += new System.EventHandler(this.SettingsMenu_Users_Click);
             // 
@@ -938,7 +938,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Recovery.Image = ((System.Drawing.Image)(resources.GetObject("SettingsMenu_Recovery.Image")));
             this.SettingsMenu_Recovery.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SettingsMenu_Recovery.Name = "SettingsMenu_Recovery";
-            this.SettingsMenu_Recovery.Size = new System.Drawing.Size(216, 38);
+            this.SettingsMenu_Recovery.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_Recovery.Text = "بازگردانی اطلاعات";
             this.SettingsMenu_Recovery.Click += new System.EventHandler(this.SettingsMenu_Recovery_Click);
             // 
@@ -948,7 +948,7 @@ namespace PamirAccounting.Forms
             this.CreateBackupMenu.Image = ((System.Drawing.Image)(resources.GetObject("CreateBackupMenu.Image")));
             this.CreateBackupMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CreateBackupMenu.Name = "CreateBackupMenu";
-            this.CreateBackupMenu.Size = new System.Drawing.Size(216, 38);
+            this.CreateBackupMenu.Size = new System.Drawing.Size(209, 38);
             this.CreateBackupMenu.Text = "تهیه فایل پشتیبان";
             this.CreateBackupMenu.Click += new System.EventHandler(this.CreateBackupMenu_Click);
             // 
@@ -1110,9 +1110,9 @@ namespace PamirAccounting.Forms
             this.lblUser.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblUser.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.lblUser.Location = new System.Drawing.Point(1282, 0);
+            this.lblUser.Location = new System.Drawing.Point(1287, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(50, 24);
+            this.lblUser.Size = new System.Drawing.Size(45, 19);
             this.lblUser.TabIndex = 8;
             this.lblUser.Text = "label1";
             // 
@@ -1122,9 +1122,9 @@ namespace PamirAccounting.Forms
             this.lblTime.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTime.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.lblTime.Location = new System.Drawing.Point(50, 0);
+            this.lblTime.Location = new System.Drawing.Point(45, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(50, 24);
+            this.lblTime.Size = new System.Drawing.Size(45, 19);
             this.lblTime.TabIndex = 9;
             this.lblTime.Text = "label1";
             this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
@@ -1142,7 +1142,7 @@ namespace PamirAccounting.Forms
             this.lblTimee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
             this.lblTimee.Location = new System.Drawing.Point(0, 0);
             this.lblTimee.Name = "lblTimee";
-            this.lblTimee.Size = new System.Drawing.Size(50, 24);
+            this.lblTimee.Size = new System.Drawing.Size(45, 19);
             this.lblTimee.TabIndex = 10;
             this.lblTimee.Text = "label1";
             // 
@@ -1187,7 +1187,7 @@ namespace PamirAccounting.Forms
             // 
             // LandingPageFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 691);
             this.Controls.Add(this.btnCustomerlist);
