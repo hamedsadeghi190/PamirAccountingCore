@@ -12,7 +12,7 @@ namespace PamirAccounting.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public int RoleId { get; set; }
-
+        public string RoleName { get; set; }
         public List< Role> Role { get; set; }
         public List< User> User { get; set; }
     }

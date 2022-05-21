@@ -241,7 +241,7 @@ namespace PamirAccounting.Services
         {
             get { return _userInRole = _userInRole ?? new UserInRoleServices(_context, this, _mapper); }
         }
-        public UserInRoleServices   UserInRoleServices => (UserInRoleServices)Role;
+        public UserInRoleServices   UserInRoleServices => (UserInRoleServices)UserInRole;
 
         #endregion
     }

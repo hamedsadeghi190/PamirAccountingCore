@@ -24,6 +24,13 @@ namespace PamirAccounting.UI.Forms.Agencies
         }
         public AgencyCreateUpdateFrm(int id)
         {
+            var role = unitOfWork.UserInRole.Find(CurrentUser.UserID);
+            var roleId = unitOfWork.Role.FindFirstOrDefault(x => x.Code != 31).Id;
+            if (role.RoleId != roleId)
+            {
+                MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
+                return;
+            }
             _Id = id;
             InitializeComponent();
             unitOfWork = new UnitOfWork();
