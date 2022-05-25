@@ -14,7 +14,7 @@ using PamirAccounting.Domains;
 using PamirAccounting.Services;
 using UnitOfWork = PamirAccounting.Services.UnitOfWork;
 using static PamirAccounting.Tools;
-
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.UI.Forms.GeneralLedger
 {
@@ -56,8 +56,15 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
 
         private void ContactsListFrm_Load(object sender, EventArgs e)
         {
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Contact && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                CreateContactsBtn.Enabled = false;
+
+            }
             loadData();
-     
+
         }
 
       
@@ -67,9 +74,20 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frmContact = new ContactsCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id.Value);
-                frmContact.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Contact && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmContact = new ContactsCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id.Value);
+                    frmContact.ShowDialog();
+                    loadData();
+                }
             }
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
@@ -82,22 +100,33 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
                 {
                     try
                     {
-                        var contact = unitOfWork.Contacts.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id.Value);
-                        unitOfWork.Contacts.Delete(contact.Id);
-                        unitOfWork.SaveChanges();
-                        #region Log
-                        var log = new Domains.DailyOperation();
-                        log.Date = DateTime.Parse(DateTime.Now.ToString());
-                        log.Time = DateTime.Now.TimeOfDay;
-                        log.UserId = CurrentUser.UserID;
-                        log.UserName = CurrentUser.UserName;
-                        log.Description = $"حذف مخاطب {contact.FirstName} {contact.LastName}";
-                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                        unitOfWork.DailyOperationServices.Insert(log);
-                        unitOfWork.SaveChanges();
-                        #endregion
-                        loadData();
+                        var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                        var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteContact && x.UserId == CurrentUser.UserID);
+                        if (roleId == null && adminRole == null)
+                        {
+                            MessageBox.Show(Messages.PermissionMsg);
+                            return;
+
+                        }
+                        if (roleId != null || adminRole != null)
+                        {
+                            var contact = unitOfWork.Contacts.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id.Value);
+                            unitOfWork.Contacts.Delete(contact.Id);
+                            unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف مخاطب {contact.FirstName} {contact.LastName}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
+                            loadData();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -145,10 +174,21 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    var rowIndex = dataGridView1.SelectedRows[0].Index;
-                    var frmContact = new ContactsCreateUpdateFrm(dataList.ElementAt(rowIndex).Id.Value);
-                    frmContact.ShowDialog();
-                    loadData();
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Contact && x.UserId == CurrentUser.UserID);
+                    if (roleId == null && adminRole == null)
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
+
+                    }
+                    if (roleId != null || adminRole != null)
+                    {
+                        var rowIndex = dataGridView1.SelectedRows[0].Index;
+                        var frmContact = new ContactsCreateUpdateFrm(dataList.ElementAt(rowIndex).Id.Value);
+                        frmContact.ShowDialog();
+                        loadData();
+                    }
                 }
             }
 
@@ -166,22 +206,33 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
                     {
                         try
                         {
-                            var contact = unitOfWork.Contacts.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id.Value);
-                            unitOfWork.Contacts.Delete(contact.Id );
-                            unitOfWork.SaveChanges();
-                            #region Log
-                            var log = new Domains.DailyOperation();
-                            log.Date = DateTime.Parse(DateTime.Now.ToString());
-                            log.Time = DateTime.Now.TimeOfDay;
-                            log.UserId = CurrentUser.UserID;
-                            log.UserName = CurrentUser.UserName;
-                            log.Description = $"حذف مخاطب {contact.FirstName} {contact.LastName}";
-                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                            unitOfWork.DailyOperationServices.Insert(log);
-                            unitOfWork.SaveChanges();
-                            #endregion
-                            loadData();
+                            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteContact && x.UserId == CurrentUser.UserID);
+                            if (roleId == null && adminRole == null)
+                            {
+                                MessageBox.Show(Messages.PermissionMsg);
+                                return;
+
+                            }
+                            if (roleId != null || adminRole != null)
+                            {
+                                var contact = unitOfWork.Contacts.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id.Value);
+                                unitOfWork.Contacts.Delete(contact.Id);
+                                unitOfWork.SaveChanges();
+                                #region Log
+                                var log = new Domains.DailyOperation();
+                                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                                log.Time = DateTime.Now.TimeOfDay;
+                                log.UserId = CurrentUser.UserID;
+                                log.UserName = CurrentUser.UserName;
+                                log.Description = $"حذف مخاطب {contact.FirstName} {contact.LastName}";
+                                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                                unitOfWork.DailyOperationServices.Insert(log);
+                                unitOfWork.SaveChanges();
+                                #endregion
+                                loadData();
+                            }
                         }
                         catch
                         {
@@ -194,9 +245,20 @@ namespace PamirAccounting.UI.Forms.GeneralLedger
 
             if (e.KeyCode == Keys.F6)
             {
-                var FrmContacts = new ContactsCreateUpdateFrm();
-                FrmContacts.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Contact && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var FrmContacts = new ContactsCreateUpdateFrm();
+                    FrmContacts.ShowDialog();
+                    loadData();
+                }
 
             }
         }

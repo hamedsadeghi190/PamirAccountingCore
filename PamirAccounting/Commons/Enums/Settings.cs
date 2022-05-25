@@ -118,7 +118,7 @@ namespace PamirAccounting.Commons.Enums
 
         public enum Permission
         {
-            Admin=0,
+            Admin=100,
             NewAccount = 1,
             PayAndReciveCash = 2,
             DeletePayAndReciveCash = 3,
@@ -155,7 +155,7 @@ namespace PamirAccounting.Commons.Enums
             DeleteVagozariAsnad=34,
             OdatVagozarShode=35,
             DeleteOdatVogozarShode=36,
-            BrgashtDaryafti=37,
+            BargashtDaryafti=37,
             DeleteBargashtDaryafti=38,
             OdatSareHesab=39,
             DeleteOdatSareHesab=40,
@@ -182,6 +182,7 @@ namespace PamirAccounting.Commons.Enums
             Header=61,
             Settings=62,
             Users=63,
+            DeleteUsers=64,
          
 
 

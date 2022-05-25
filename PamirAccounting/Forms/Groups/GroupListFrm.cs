@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.Groups
@@ -24,7 +25,15 @@ namespace PamirAccounting.UI.Forms.Groups
 
         private void GroupListFrm_Load(object sender, EventArgs e)
         {
-            txtSearch.Select();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Group && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                BtnCreateNew.Enabled = false;
+
+            }
+          
+                txtSearch.Select();
             txtSearch.Focus();
             dataGridView1.AutoGenerateColumns = false;
             loadData();
@@ -66,9 +75,20 @@ namespace PamirAccounting.UI.Forms.Groups
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frmCurrencies = new GroupCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id.Value);
-                frmCurrencies.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Group && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmCurrencies = new GroupCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id.Value);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
             }
 
 
@@ -82,23 +102,34 @@ namespace PamirAccounting.UI.Forms.Groups
                 {
                     try
                     {
-                        var id=unitOfWork.CustomerGroups.Find(dataList.ElementAt(e.RowIndex).Id.Value);
-                        
-                        unitOfWork.CustomerGroups.Delete(id);
-                        unitOfWork.SaveChanges();
-                        #region Log
-                        var log = new Domains.DailyOperation();
-                        log.Date = DateTime.Parse(DateTime.Now.ToString());
-                        log.Time = DateTime.Now.TimeOfDay;
-                        log.UserId = CurrentUser.UserID;
-                        log.UserName = CurrentUser.UserName;
-                        log.Description = $"حذف گروه {id.Name}";
-                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                        unitOfWork.DailyOperationServices.Insert(log);
-                        unitOfWork.SaveChanges();
-                        #endregion
-                        loadData();
+                        var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                        var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteGroup && x.UserId == CurrentUser.UserID);
+                        if (roleId == null && adminRole == null)
+                        {
+                            MessageBox.Show(Messages.PermissionMsg);
+                            return;
+
+                        }
+                        if (roleId != null || adminRole != null)
+                        {
+                            var id = unitOfWork.CustomerGroups.Find(dataList.ElementAt(e.RowIndex).Id.Value);
+
+                            unitOfWork.CustomerGroups.Delete(id);
+                            unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف گروه {id.Name}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
+                            loadData();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -140,10 +171,21 @@ namespace PamirAccounting.UI.Forms.Groups
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    var rowIndex = dataGridView1.SelectedRows[0].Index;
-                    var frmCurrencies = new GroupCreateUpdateFrm(dataList.ElementAt(rowIndex).Id.Value);
-                    frmCurrencies.ShowDialog();
-                    loadData();
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Group && x.UserId == CurrentUser.UserID);
+                    if (roleId == null && adminRole == null)
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
+
+                    }
+                    if (roleId != null || adminRole != null)
+                    {
+                        var rowIndex = dataGridView1.SelectedRows[0].Index;
+                        var frmCurrencies = new GroupCreateUpdateFrm(dataList.ElementAt(rowIndex).Id.Value);
+                        frmCurrencies.ShowDialog();
+                        loadData();
+                    }
                 }
             }
 
@@ -161,22 +203,33 @@ namespace PamirAccounting.UI.Forms.Groups
                     {
                         try
                         {
-                            var id = unitOfWork.CustomerGroups.Find(dataList.ElementAt(rowIndex).Id.Value);
-                            unitOfWork.CustomerGroups.Delete(id);
-                            unitOfWork.SaveChanges();
-                            #region Log
-                            var log = new Domains.DailyOperation();
-                            log.Date = DateTime.Parse(DateTime.Now.ToString());
-                            log.Time = DateTime.Now.TimeOfDay;
-                            log.UserId = CurrentUser.UserID;
-                            log.UserName = CurrentUser.UserName;
-                            log.Description = $"حذف گروه {id.Name}";
-                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                            unitOfWork.DailyOperationServices.Insert(log);
-                            unitOfWork.SaveChanges();
-                            #endregion
-                            loadData();
+                            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteGroup && x.UserId == CurrentUser.UserID);
+                            if (roleId == null && adminRole == null)
+                            {
+                                MessageBox.Show(Messages.PermissionMsg);
+                                return;
+
+                            }
+                            if (roleId != null || adminRole != null)
+                            {
+                                var id = unitOfWork.CustomerGroups.Find(dataList.ElementAt(rowIndex).Id.Value);
+                                unitOfWork.CustomerGroups.Delete(id);
+                                unitOfWork.SaveChanges();
+                                #region Log
+                                var log = new Domains.DailyOperation();
+                                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                                log.Time = DateTime.Now.TimeOfDay;
+                                log.UserId = CurrentUser.UserID;
+                                log.UserName = CurrentUser.UserName;
+                                log.Description = $"حذف گروه {id.Name}";
+                                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                                unitOfWork.DailyOperationServices.Insert(log);
+                                unitOfWork.SaveChanges();
+                                #endregion
+                                loadData();
+                            }
                         }
                         catch
                         {
@@ -190,9 +243,20 @@ namespace PamirAccounting.UI.Forms.Groups
 
             if (e.KeyCode == Keys.F6)
             {
-                var frmGroups = new GroupCreateUpdateFrm();
-                frmGroups.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Group && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmGroups = new GroupCreateUpdateFrm();
+                    frmGroups.ShowDialog();
+                    loadData();
+                }
             }
         }
 

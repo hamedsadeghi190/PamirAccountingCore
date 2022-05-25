@@ -239,16 +239,7 @@ namespace PamirAccounting.Forms.Transactions
 
             try
             {
-                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Settings.Permission.Admin && x.UserId == CurrentUser.UserID);
-                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Settings.Permission.PayAndReciveCash && x.UserId == CurrentUser.UserID);
-                if (roleId == null)
-                {
-                    MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
-                    transaction.Rollback();
-                    return false;
-                }
-                if (roleId != null || adminRole == null)
-                {
+               
                     amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
                     var documentId = unitOfWork.TransactionServices.GetNewDocumentId();
                     // trakonesh moshtari //
@@ -337,7 +328,7 @@ namespace PamirAccounting.Forms.Transactions
                     unitOfWork.DailyOperationServices.Insert(log);
                     unitOfWork.SaveChanges();
                     #endregion
-                }
+                
                     transaction.Commit();
 
                     return true;
@@ -357,16 +348,7 @@ namespace PamirAccounting.Forms.Transactions
             var transaction = unitOfWork.GetContext().Database.BeginTransaction();
             try
             {
-                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.RoleId == (int)Settings.Permission.Admin && x.UserId == CurrentUser.UserID);
-                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.RoleId == (int)Settings.Permission.PayAndReciveCash && x.UserId == CurrentUser.UserID);
-                if (roleId == null)
-                {
-                    MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
-                    transaction.Rollback();
-                    return false;
-                }
-                if (roleId != null || adminRole == null)
-                {
+               
 
                     amount = Convert.ToInt64(txtAmount.Text.Replace(",", ""));
                     // trakonesh moshtari //
@@ -433,7 +415,7 @@ namespace PamirAccounting.Forms.Transactions
                     unitOfWork.DailyOperationServices.Insert(log);
                     unitOfWork.SaveChanges();
                     #endregion
-                }
+                
                 transaction.Commit();
                 return true;
             }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using PamirAccounting.Domains;
 using PamirAccounting.Models;
 using PamirAccounting.Services;
 using System;
@@ -23,6 +24,7 @@ namespace PamirAccounting.UI.Forms.Customers
         private List<ComboBoxModel> _Groups;
         private List<ComboBoxModel> _Currencies;
         private Domains.Customer _Customer;
+        private Domains.Contact _Contact;
         public CustomerCreateUpdateFrm()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace PamirAccounting.UI.Forms.Customers
             _Id = id;
             InitializeComponent();
             unitOfWork = new UnitOfWork();
-          
+
         }
 
         private void CustomerCreateUpdateFrm_Load(object sender, EventArgs e)
@@ -149,7 +151,6 @@ namespace PamirAccounting.UI.Forms.Customers
                 else
                 {
                     _Customer = new Domains.Customer();
-
                     _Customer.FirstName = txtFirstname.Text;
                     _Customer.LastName = txtLastName.Text;
                     _Customer.CreditLimit = String.IsNullOrEmpty(txtCreditLimit.Text.Trim()) ? 0 : int.Parse(txtCreditLimit.Text);
@@ -160,6 +161,32 @@ namespace PamirAccounting.UI.Forms.Customers
                     _Customer.GroupId = (int)cmbGroups.SelectedValue;
                     unitOfWork.CustomerServices.Insert(_Customer);
                     unitOfWork.SaveChanges();
+
+                    var contact = unitOfWork.Contacts.FindFirstOrDefault(x => x.Phone == _Customer.Phone || x.Mobile == _Customer.Mobile);
+           
+                    if (contact == null)
+                    {
+                        unitOfWork.Contacts.Insert(new Contact()
+                        {
+                            FirstName = txtFirstname.Text,
+                            LastName = txtLastName.Text,
+                            Dsc = txtDesc.Text,
+                            Phone = txtPhone.Text,
+                            Mobile = txtMobile.Text,
+
+                        });
+           
+                    }
+                    else
+                    {
+                        contact.FirstName = txtFirstname.Text;
+                        contact.LastName = txtLastName.Text;
+                        contact.Dsc = txtDesc.Text;
+                        contact.Phone = txtPhone.Text;
+                        contact.Mobile = txtMobile.Text;
+                        unitOfWork.Contacts.Update(contact);
+                    }
+
                     #region Log
                     var log = new Domains.DailyOperation();
                     log.Date = DateTime.Parse(DateTime.Now.ToString());

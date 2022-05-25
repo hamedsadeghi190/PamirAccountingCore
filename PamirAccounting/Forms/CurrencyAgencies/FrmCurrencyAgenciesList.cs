@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 using static PamirAccounting.Tools;
 
 
@@ -26,7 +27,15 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
         private void FrmCurrencyAgenciesList_Load(object sender, EventArgs e)
         {
-            txtSearch.Select();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.CurrencyAgencies && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                BtnCreateNew.Enabled = false;
+
+            }
+          
+                txtSearch.Select();
             txtSearch.Focus();
             dataGridView1.AutoGenerateColumns = false;
             loadData();
@@ -63,9 +72,20 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frmCurrencies = new CurrencyAgenciesCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
-                frmCurrencies.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.CurrencyAgencies && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmCurrencies = new CurrencyAgenciesCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
             }
 
 
@@ -79,24 +99,35 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
                 {
                     try
                     {
-                        var currency = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
-                        var sourceCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.SourceCurrenyId).Name;
-                        var destiniationCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.DestiniationCurrenyId).Name;
-                        unitOfWork.CurrenciesMappingServices.Delete(currency.Id);
-                        unitOfWork.SaveChanges();
-                        #region Log
-                        var log = new Domains.DailyOperation();
-                        log.Date = DateTime.Parse(DateTime.Now.ToString());
-                        log.Time = DateTime.Now.TimeOfDay;
-                        log.UserId = CurrentUser.UserID;
-                        log.UserName = CurrentUser.UserName;
-                        log.Description = $"حذف عملیات رمز ارز حواله {sourceCurrenyName}، ارز دریافتی {destiniationCurrenyName}";
-                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                        unitOfWork.DailyOperationServices.Insert(log);
-                        unitOfWork.SaveChanges();
-                        #endregion
-                        loadData();
+                        var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                        var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteCurrencyAgencies && x.UserId == CurrentUser.UserID);
+                        if (roleId == null && adminRole == null)
+                        {
+                            MessageBox.Show(Messages.PermissionMsg);
+                            return;
+
+                        }
+                        if (roleId != null || adminRole != null)
+                        {
+                            var currency = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
+                            var sourceCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.SourceCurrenyId).Name;
+                            var destiniationCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.DestiniationCurrenyId).Name;
+                            unitOfWork.CurrenciesMappingServices.Delete(currency.Id);
+                            unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف عملیات رمز ارز حواله {sourceCurrenyName}، ارز دریافتی {destiniationCurrenyName}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
+                            loadData();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -117,7 +148,7 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             if (txtSearch.Text.Length > 0)
             {
                 dataList = unitOfWork.CurrenciesMappingServices.Search(txtSearch.Text);
-            dataGridView1.DataSource = dataList;
+                dataGridView1.DataSource = dataList;
             }
             else
             {
@@ -144,10 +175,21 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    var rowIndex = dataGridView1.SelectedRows[0].Index;
-                    var frmCurrencies = new CurrencyAgenciesCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
-                    frmCurrencies.ShowDialog();
-                    loadData();
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.CurrencyAgencies && x.UserId == CurrentUser.UserID);
+                    if (roleId == null && adminRole == null)
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
+
+                    }
+                    if (roleId != null || adminRole != null)
+                    {
+                        var rowIndex = dataGridView1.SelectedRows[0].Index;
+                        var frmCurrencies = new CurrencyAgenciesCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
+                        frmCurrencies.ShowDialog();
+                        loadData();
+                    }
                 }
             }
 
@@ -163,25 +205,37 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        try { 
-                        var currency = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
-                            var sourceCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.SourceCurrenyId).Name;
-                            var destiniationCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.DestiniationCurrenyId).Name;
-                            unitOfWork.CurrenciesMappingServices.Delete(currency.Id);
-                            unitOfWork.SaveChanges();
-                            #region Log
-                            var log = new Domains.DailyOperation();
-                            log.Date = DateTime.Parse(DateTime.Now.ToString());
-                            log.Time = DateTime.Now.TimeOfDay;
-                            log.UserId = CurrentUser.UserID;
-                            log.UserName = CurrentUser.UserName;
-                            log.Description = $"حذف عملیات رمز ارز حواله {sourceCurrenyName}، ارز دریافتی {destiniationCurrenyName}";
-                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                            unitOfWork.DailyOperationServices.Insert(log);
-                            unitOfWork.SaveChanges();
-                            #endregion
-                            loadData();
+                        try
+                        {
+                            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteCurrencyAgencies && x.UserId == CurrentUser.UserID);
+                            if (roleId == null && adminRole == null)
+                            {
+                                MessageBox.Show(Messages.PermissionMsg);
+                                return;
+
+                            }
+                            if (roleId != null || adminRole != null)
+                            {
+                                var currency = unitOfWork.CurrenciesMappings.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
+                                var sourceCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.SourceCurrenyId).Name;
+                                var destiniationCurrenyName = unitOfWork.Currencies.FindFirstOrDefault(x => x.Id == currency.DestiniationCurrenyId).Name;
+                                unitOfWork.CurrenciesMappingServices.Delete(currency.Id);
+                                unitOfWork.SaveChanges();
+                                #region Log
+                                var log = new Domains.DailyOperation();
+                                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                                log.Time = DateTime.Now.TimeOfDay;
+                                log.UserId = CurrentUser.UserID;
+                                log.UserName = CurrentUser.UserName;
+                                log.Description = $"حذف عملیات رمز ارز حواله {sourceCurrenyName}، ارز دریافتی {destiniationCurrenyName}";
+                                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                                unitOfWork.DailyOperationServices.Insert(log);
+                                unitOfWork.SaveChanges();
+                                #endregion
+                                loadData();
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -195,10 +249,20 @@ namespace PamirAccounting.UI.Forms.CurrencyAgencies
 
             if (e.KeyCode == Keys.F6)
             {
-                var frmCurrencie = new CurrencyAgenciesCreateUpdateFrm();
-                frmCurrencie.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.CurrencyAgencies && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
 
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmCurrencie = new CurrencyAgenciesCreateUpdateFrm();
+                    frmCurrencie.ShowDialog();
+                    loadData();
+                }
             }
         }
 

@@ -310,7 +310,7 @@ namespace PamirAccounting.UI.Forms.Customers
             if (e.ColumnIndex == grdTransactions.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
 
-                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف تراکنش", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -324,11 +324,11 @@ namespace PamirAccounting.UI.Forms.Customers
                         var flag = 0;
                         if (roleList != null)
                         {
-                            if (transactions.TransactionType == (int)TransaActionType.PayAndReciveCash)
+                            if (transactions.TransactionType == (int)TransaActionType.PayAndReciveCash )
                             {
                                 foreach (var item in roleList)
                                 {
-                                    if (item.Code == (int)Permission.DeletePayAndReciveCash)
+                                    if (item.Code == (int)Permission.DeletePayAndReciveCash || item.Code==(int)Permission.Admin)
                                     {
                                         flag = 1;
                                     }
@@ -339,7 +339,7 @@ namespace PamirAccounting.UI.Forms.Customers
                             {
                                 foreach (var item in roleList)
                                 {
-                                    if (item.Code == (int)Permission.DeleteTransfer)
+                                    if (item.Code == (int)Permission.DeleteTransfer || item.Code == (int)Permission.Admin)
                                     {
                                         flag = 1;
                                     }
@@ -350,7 +350,7 @@ namespace PamirAccounting.UI.Forms.Customers
                             {
                                 foreach (var item in roleList)
                                 {
-                                    if (item.Code == (int)Permission.DeletePayAndReciveBank)
+                                    if (item.Code == (int)Permission.DeletePayAndReciveBank || item.Code == (int)Permission.Admin)
                                     {
                                         flag = 1;
                                     }
@@ -361,7 +361,7 @@ namespace PamirAccounting.UI.Forms.Customers
                             {
                                 foreach (var item in roleList)
                                 {
-                                    if (item.Code == (int)Permission.DeleteBuyCurrency)
+                                    if (item.Code == (int)Permission.DeleteBuyCurrency || item.Code == (int)Permission.Admin)
                                     {
                                         flag = 1;
                                     }
@@ -372,7 +372,7 @@ namespace PamirAccounting.UI.Forms.Customers
                             {
                                 foreach (var item in roleList)
                                 {
-                                    if (item.Code == (int)Permission.DeleteSellCurrency)
+                                    if (item.Code == (int)Permission.DeleteSellCurrency || item.Code == (int)Permission.Admin)
                                     {
                                         flag = 1;
                                     }
@@ -383,7 +383,7 @@ namespace PamirAccounting.UI.Forms.Customers
                             {
                                 foreach (var item in roleList)
                                 {
-                                    if (item.Code == (int)Permission.DeleteWarrantsPayable)
+                                    if (item.Code == (int)Permission.DeleteWarrantsPayable || item.Code == (int)Permission.Admin)
                                     {
                                         flag = 1;
                                     }
@@ -394,7 +394,7 @@ namespace PamirAccounting.UI.Forms.Customers
                             {
                                 foreach (var item in roleList)
                                 {
-                                    if (item.Code == (int)Permission.DeleteShippingOrder)
+                                    if (item.Code == (int)Permission.DeleteShippingOrder || item.Code == (int)Permission.Admin)
                                     {
                                         flag = 1;
                                     }
@@ -405,7 +405,7 @@ namespace PamirAccounting.UI.Forms.Customers
                             {
                                 foreach (var item in roleList)
                                 {
-                                    if (item.Code == (int)Permission.DeleteDepositDocument)
+                                    if (item.Code == (int)Permission.DeleteDepositDocument || item.Code == (int)Permission.Admin)
                                     {
                                         flag = 1;
                                     }
@@ -416,14 +416,18 @@ namespace PamirAccounting.UI.Forms.Customers
                             {
                                 foreach (var item in roleList)
                                 {
-                                    if (item.Code == (int)Permission.DeleteRecivedDocument)
+                                    if (item.Code == (int)Permission.DeleteRecivedDocument || item.Code == (int)Permission.Admin)
                                     {
                                         flag = 1;
                                     }
                                 }
                             }
                             /////////////////////////////////////////////////
-
+                            if (flag == 0)
+                            {
+                                MessageBox.Show(Messages.PermissionMsg);
+                                return;
+                            }
                             if (flag==1)
                             {
                                 #region delete
@@ -448,15 +452,12 @@ namespace PamirAccounting.UI.Forms.Customers
                                 }
                                 unitOfWork.TransactionServices.Delete(transaction);
                                 unitOfWork.SaveChanges();
+                                flag = 0;
                                 LoadData();
                                 #endregion
                             }
                         }
-                        else
-                        {
-                            MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
-                            return;
-                        }
+                     
                         //adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.RoleId == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
                         ////if (roleList == null)
                         ////{
@@ -506,9 +507,129 @@ namespace PamirAccounting.UI.Forms.Customers
 
             if (e.ColumnIndex == grdTransactions.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var tranaction = _dataList.ElementAt(e.RowIndex);
+                var adminRole = new UserInRole();
+                var roleList = unitOfWork.UserInRoleServices.GetUserInRolls(CurrentUser.UserID);
+                var transactions = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
 
-                openEditForm(tranaction);
+                var flag = 0;
+                if (roleList != null)
+                {
+                    if (transactions.TransactionType == (int)TransaActionType.PayAndReciveCash)
+                    {
+                        foreach (var item in roleList)
+                        {
+                            if (item.Code == (int)Permission.PayAndReciveCash || item.Code == (int)Permission.Admin)
+                            {
+                                flag = 1;
+                            }
+                        }
+                    }
+                    //////////////////////////////////////////////////
+                    if (transactions.TransactionType == (int)TransaActionType.Transfer)
+                    {
+                        foreach (var item in roleList)
+                        {
+                            if (item.Code == (int)Permission.Transfer || item.Code == (int)Permission.Admin)
+                            {
+                                MessageBox.Show(Messages.PermissionMsg);
+                                return;
+                            }
+                        }
+                    }
+                    /////////////////////////////////////////////////
+                    if (transactions.TransactionType == (int)TransaActionType.PayAndReciveBank)
+                    {
+                        foreach (var item in roleList)
+                        {
+                            if (item.Code == (int)Permission.PayAndReciveBank || item.Code == (int)Permission.Admin)
+                            {
+                                flag = 1;
+                            }
+                        }
+                    }
+                    /////////////////////////////////////////////////
+                    if (transactions.TransactionType == (int)TransaActionType.BuyCurrency)
+                    {
+                        foreach (var item in roleList)
+                        {
+                            if (item.Code == (int)Permission.BuyCurrency || item.Code == (int)Permission.Admin)
+                            {
+                                flag = 1;
+                            }
+                        }
+                    }
+                    /////////////////////////////////////////////////
+                    if (transactions.TransactionType == (int)TransaActionType.SellCurrency)
+                    {
+                        foreach (var item in roleList)
+                        {
+                            if (item.Code == (int)Permission.SellCurrency || item.Code == (int)Permission.Admin) 
+                            {
+                                flag = 1;
+                            }
+                        }
+                    }
+                    /////////////////////////////////////////////////
+                    if (transactions.TransactionType == (int)TransaActionType.HavaleAmad)
+                    {
+                        foreach (var item in roleList)
+                        {
+                            if (item.Code == (int)Permission.WarrantsPayable || item.Code == (int)Permission.Admin)
+                            {
+                                flag = 1;
+                            }
+                        }
+                    }
+                    /////////////////////////////////////////////////
+                    if (transactions.TransactionType == (int)TransaActionType.HavaleRaft)
+                    {
+                        foreach (var item in roleList)
+                        {
+                            if (item.Code == (int)Permission.ShippingOrder || item.Code == (int)Permission.Admin)
+                            {
+                                flag = 1;
+                            }
+                        }
+                    }
+                    /////////////////////////////////////////////////
+                    if (transactions.TransactionType == (int)TransaActionType.DepositDocument)
+                    {
+                        foreach (var item in roleList)
+                        {
+                            if (item.Code == (int)Permission.DepositDocument || item.Code == (int)Permission.Admin)
+                            {
+                                flag = 1;
+                            }
+                        }
+                    }
+                    /////////////////////////////////////////////////
+                    if (transactions.TransactionType == (int)TransaActionType.RecivedDocument)
+                    {
+                        foreach (var item in roleList)
+                        {
+                            if (item.Code == (int)Permission.RecivedDocument || item.Code == (int)Permission.Admin)
+                            {
+                                flag = 1;
+                            }
+                        }
+                    }
+                    /////////////////////////////////////////////////
+                    if(flag==0)
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
+                    }
+                    if (flag == 1)
+                    {
+                        #region Edit
+                        var tranaction = _dataList.ElementAt(e.RowIndex);
+                        flag = 0;
+                        openEditForm(tranaction);
+                        #endregion
+                    }
+                }
+               
+             
             }
         }
 
@@ -905,8 +1026,129 @@ namespace PamirAccounting.UI.Forms.Customers
                     e.Handled = true;
 
                     var rowIndex = grdTransactions.SelectedRows[0].Index;
-                    var tranaction = _dataList.ElementAt(rowIndex);
-                    openEditForm(tranaction);
+
+
+                    var adminRole = new UserInRole();
+                    var roleList = unitOfWork.UserInRoleServices.GetUserInRolls(CurrentUser.UserID);
+                    var transactions = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(rowIndex).Id);
+
+                    var flag = 0;
+                    if (roleList != null)
+                    {
+                        if (transactions.TransactionType == (int)TransaActionType.PayAndReciveCash)
+                        {
+                            foreach (var item in roleList)
+                            {
+                                if (item.Code == (int)Permission.PayAndReciveCash || item.Code == (int)Permission.Admin)
+                                {
+                                    flag = 1;
+                                }
+                            }
+                        }
+                        //////////////////////////////////////////////////
+                        if (transactions.TransactionType == (int)TransaActionType.Transfer)
+                        {
+                            foreach (var item in roleList)
+                            {
+                                if (item.Code == (int)Permission.Transfer || item.Code == (int)Permission.Admin)
+                                {
+                                    MessageBox.Show(Messages.PermissionMsg);
+                                    return;
+                                }
+                            }
+                        }
+                        /////////////////////////////////////////////////
+                        if (transactions.TransactionType == (int)TransaActionType.PayAndReciveBank)
+                        {
+                            foreach (var item in roleList)
+                            {
+                                if (item.Code == (int)Permission.PayAndReciveBank || item.Code == (int)Permission.Admin)
+                                {
+                                    flag = 1;
+                                }
+                            }
+                        }
+                        /////////////////////////////////////////////////
+                        if (transactions.TransactionType == (int)TransaActionType.BuyCurrency)
+                        {
+                            foreach (var item in roleList)
+                            {
+                                if (item.Code == (int)Permission.BuyCurrency || item.Code == (int)Permission.Admin)
+                                {
+                                    flag = 1;
+                                }
+                            }
+                        }
+                        /////////////////////////////////////////////////
+                        if (transactions.TransactionType == (int)TransaActionType.SellCurrency)
+                        {
+                            foreach (var item in roleList)
+                            {
+                                if (item.Code == (int)Permission.SellCurrency || item.Code == (int)Permission.Admin)
+                                {
+                                    flag = 1;
+                                }
+                            }
+                        }
+                        /////////////////////////////////////////////////
+                        if (transactions.TransactionType == (int)TransaActionType.HavaleAmad)
+                        {
+                            foreach (var item in roleList)
+                            {
+                                if (item.Code == (int)Permission.WarrantsPayable || item.Code == (int)Permission.Admin)
+                                {
+                                    flag = 1;
+                                }
+                            }
+                        }
+                        /////////////////////////////////////////////////
+                        if (transactions.TransactionType == (int)TransaActionType.HavaleRaft)
+                        {
+                            foreach (var item in roleList)
+                            {
+                                if (item.Code == (int)Permission.ShippingOrder || item.Code == (int)Permission.Admin)
+                                {
+                                    flag = 1;
+                                }
+                            }
+                        }
+                        /////////////////////////////////////////////////
+                        if (transactions.TransactionType == (int)TransaActionType.DepositDocument)
+                        {
+                            foreach (var item in roleList)
+                            {
+                                if (item.Code == (int)Permission.DepositDocument || item.Code == (int)Permission.Admin)
+                                {
+                                    flag = 1;
+                                }
+                            }
+                        }
+                        /////////////////////////////////////////////////
+                        if (transactions.TransactionType == (int)TransaActionType.RecivedDocument)
+                        {
+                            foreach (var item in roleList)
+                            {
+                                if (item.Code == (int)Permission.RecivedDocument || item.Code == (int)Permission.Admin)
+                                {
+                                    flag = 1;
+                                }
+                            }
+                        }
+                        /////////////////////////////////////////////////
+                        if (flag == 0)
+                        {
+                            MessageBox.Show(Messages.PermissionMsg);
+                            return;
+                        }
+                        if (flag == 1)
+                        {
+                            #region Edit
+                            var tranaction = _dataList.ElementAt(rowIndex);
+                            flag = 0;
+                            openEditForm(tranaction);
+                            #endregion
+                        }
+                    }
                 }
             }
         }

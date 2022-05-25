@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 using static PamirAccounting.Tools;
 
 namespace PamirAccounting.Forms.Users
@@ -41,7 +42,15 @@ namespace PamirAccounting.Forms.Users
 
         private void UsersListFrm_Load(object sender, EventArgs e)
         {
-            txtsearch.Select();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Users && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                BtnCreateNew.Enabled = false;
+
+            }
+           
+                txtsearch.Select();
             txtsearch.Focus();
             dataGridView1.AutoGenerateColumns = false;
             loadData();
@@ -63,39 +72,61 @@ namespace PamirAccounting.Forms.Users
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frmCurrencies = new UsersCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
-                frmCurrencies.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Users && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmCurrencies = new UsersCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
             }
 
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
 
-                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف کاربر", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
 
                 if (dialogResult == DialogResult.Yes)
                 {
                     try
                     {
-                        var user = unitOfWork.Users.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
-                        user.IsDeleted = true;
-                        unitOfWork.UserServices.Update(user);
-                        unitOfWork.SaveChanges();
-                        #region Log
-                        var log = new Domains.DailyOperation();
-                        log.Date = DateTime.Parse(DateTime.Now.ToString());
-                        log.Time = DateTime.Now.TimeOfDay;
-                        log.UserId = CurrentUser.UserID;
-                        log.UserName = CurrentUser.UserName;
-                        log.Description = $"حذف کاربر {user.FirstName} {user.LastName}";
-                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                        unitOfWork.DailyOperationServices.Insert(log);
-                        unitOfWork.SaveChanges();
-                        #endregion
-                        loadData();
+                        var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                        var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteUsers && x.UserId == CurrentUser.UserID);
+                        if (roleId == null && adminRole == null)
+                        {
+                            MessageBox.Show(Messages.PermissionMsg);
+                            return;
+
+                        }
+                        if (roleId != null || adminRole != null)
+                        {
+                            var user = unitOfWork.Users.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
+                            user.IsDeleted = true;
+                            unitOfWork.UserServices.Update(user);
+                            unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف کاربر {user.FirstName} {user.LastName}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
+                            loadData();
+                        }
                     }
                     catch
                     {
@@ -151,10 +182,21 @@ namespace PamirAccounting.Forms.Users
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    var rowIndex = dataGridView1.SelectedRows[0].Index;
-                    var frmCurrencies = new UsersCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
-                    frmCurrencies.ShowDialog();
-                    loadData();
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Users && x.UserId == CurrentUser.UserID);
+                    if (roleId == null && adminRole == null)
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
+
+                    }
+                    if (roleId != null || adminRole != null)
+                    {
+                        var rowIndex = dataGridView1.SelectedRows[0].Index;
+                        var frmCurrencies = new UsersCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
+                        frmCurrencies.ShowDialog();
+                        loadData();
+                    }
                 }
             }
 
@@ -166,30 +208,41 @@ namespace PamirAccounting.Forms.Users
                 {
                     var rowIndex = dataGridView1.SelectedRows[0].Index;
 
-                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف کاربر", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
                         MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
 
                     if (dialogResult == DialogResult.Yes)
                     {
                         try
                         {
-                            var user = unitOfWork.Users.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
-                            user.IsDeleted = true;
-                            unitOfWork.UserServices.Update(user);
-                            unitOfWork.SaveChanges();
-                            #region Log
-                            var log = new Domains.DailyOperation();
-                            log.Date = DateTime.Parse(DateTime.Now.ToString());
-                            log.Time = DateTime.Now.TimeOfDay;
-                            log.UserId = CurrentUser.UserID;
-                            log.UserName = CurrentUser.UserName;
-                            log.Description = $"حذف کاربر {user.FirstName} {user.LastName}";
-                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                            unitOfWork.DailyOperationServices.Insert(log);
-                            unitOfWork.SaveChanges();
-                            #endregion
-                            loadData();
+                            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteUsers && x.UserId == CurrentUser.UserID);
+                            if (roleId == null && adminRole == null)
+                            {
+                                MessageBox.Show(Messages.PermissionMsg);
+                                return;
+
+                            }
+                            if (roleId != null || adminRole != null)
+                            {
+                                var user = unitOfWork.Users.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
+                                user.IsDeleted = true;
+                                unitOfWork.UserServices.Update(user);
+                                unitOfWork.SaveChanges();
+                                #region Log
+                                var log = new Domains.DailyOperation();
+                                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                                log.Time = DateTime.Now.TimeOfDay;
+                                log.UserId = CurrentUser.UserID;
+                                log.UserName = CurrentUser.UserName;
+                                log.Description = $"حذف کاربر {user.FirstName} {user.LastName}";
+                                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                                unitOfWork.DailyOperationServices.Insert(log);
+                                unitOfWork.SaveChanges();
+                                #endregion
+                                loadData();
+                            }
                         }
                         catch
                         {
@@ -203,10 +256,20 @@ namespace PamirAccounting.Forms.Users
 
             if (e.KeyCode == Keys.F6)
             {
-                var frmCurrencies = new UsersCreateUpdateFrm();
-                frmCurrencies.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Users && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
 
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmCurrencies = new UsersCreateUpdateFrm();
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
             }
         }
 
