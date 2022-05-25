@@ -362,10 +362,6 @@ namespace PamirAccounting.Domains
 
             modelBuilder.Entity<Role>(entity =>
             {
-                entity.Property(e => e.Form)
-                    .IsRequired()
-                    .HasMaxLength(500);
-
                 entity.Property(e => e.Name).HasMaxLength(500);
             });
 

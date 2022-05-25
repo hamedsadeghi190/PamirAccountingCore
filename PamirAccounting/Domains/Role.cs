@@ -14,7 +14,6 @@ namespace PamirAccounting.Domains
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Form { get; set; }
         public int Code { get; set; }
 
         public virtual ICollection<UserInRole> UserInRoles { get; set; }

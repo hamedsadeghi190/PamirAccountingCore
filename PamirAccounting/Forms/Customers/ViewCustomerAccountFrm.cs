@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PamirAccounting.Domains;
 using PamirAccounting.Forms.Transaction;
 using PamirAccounting.Forms.Transactions;
 using PamirAccounting.Models;
@@ -12,6 +13,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Transactions;
 using System.Windows.Forms;
 using static PamirAccounting.Commons.Enums.Settings;
 
@@ -314,31 +316,185 @@ namespace PamirAccounting.UI.Forms.Customers
                 {
                     try
                     {
-                        var transaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
+                     
+                        var adminRole = new UserInRole();
+                        var roleList = unitOfWork.UserInRoleServices.GetUserInRolls(CurrentUser.UserID);
+                        var transactions = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
 
-                        if (transaction.DoubleTransactionId != null)
+                        var flag = 0;
+                        if (roleList != null)
                         {
+                            if (transactions.TransactionType == (int)TransaActionType.PayAndReciveCash)
+                            {
+                                foreach (var item in roleList)
+                                {
+                                    if (item.Code == (int)Permission.DeletePayAndReciveCash)
+                                    {
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                            //////////////////////////////////////////////////
+                            if (transactions.TransactionType == (int)TransaActionType.Transfer)
+                            {
+                                foreach (var item in roleList)
+                                {
+                                    if (item.Code == (int)Permission.DeleteTransfer)
+                                    {
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                            /////////////////////////////////////////////////
+                            if (transactions.TransactionType == (int)TransaActionType.PayAndReciveBank)
+                            {
+                                foreach (var item in roleList)
+                                {
+                                    if (item.Code == (int)Permission.DeletePayAndReciveBank)
+                                    {
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                            /////////////////////////////////////////////////
+                            if (transactions.TransactionType == (int)TransaActionType.BuyCurrency)
+                            {
+                                foreach (var item in roleList)
+                                {
+                                    if (item.Code == (int)Permission.DeleteBuyCurrency)
+                                    {
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                            /////////////////////////////////////////////////
+                            if (transactions.TransactionType == (int)TransaActionType.SellCurrency)
+                            {
+                                foreach (var item in roleList)
+                                {
+                                    if (item.Code == (int)Permission.DeleteSellCurrency)
+                                    {
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                            /////////////////////////////////////////////////
+                            if (transactions.TransactionType == (int)TransaActionType.HavaleAmad)
+                            {
+                                foreach (var item in roleList)
+                                {
+                                    if (item.Code == (int)Permission.DeleteWarrantsPayable)
+                                    {
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                            /////////////////////////////////////////////////
+                            if (transactions.TransactionType == (int)TransaActionType.HavaleRaft)
+                            {
+                                foreach (var item in roleList)
+                                {
+                                    if (item.Code == (int)Permission.DeleteShippingOrder)
+                                    {
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                            /////////////////////////////////////////////////
+                            if (transactions.TransactionType == (int)TransaActionType.DepositDocument)
+                            {
+                                foreach (var item in roleList)
+                                {
+                                    if (item.Code == (int)Permission.DeleteDepositDocument)
+                                    {
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                            /////////////////////////////////////////////////
+                            if (transactions.TransactionType == (int)TransaActionType.RecivedDocument)
+                            {
+                                foreach (var item in roleList)
+                                {
+                                    if (item.Code == (int)Permission.DeleteRecivedDocument)
+                                    {
+                                        flag = 1;
+                                    }
+                                }
+                            }
+                            /////////////////////////////////////////////////
 
-                            var doubleTransaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == transaction.DoubleTransactionId);
+                            if (flag==1)
+                            {
+                                #region delete
+                                var transaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
+                                if (transaction.DoubleTransactionId != null)
+                                {
+
+                                    var doubleTransaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == transaction.DoubleTransactionId);
 
 
-                            transaction.DoubleTransactionId = null;
-                            unitOfWork.TransactionServices.Update(transaction);
-                            unitOfWork.SaveChanges();
+                                    transaction.DoubleTransactionId = null;
+                                    unitOfWork.TransactionServices.Update(transaction);
+                                    unitOfWork.SaveChanges();
 
 
-                            doubleTransaction.DoubleTransactionId = null;
-                            unitOfWork.TransactionServices.Update(doubleTransaction);
-                            unitOfWork.SaveChanges();
+                                    doubleTransaction.DoubleTransactionId = null;
+                                    unitOfWork.TransactionServices.Update(doubleTransaction);
+                                    unitOfWork.SaveChanges();
 
-                            unitOfWork.TransactionServices.Delete(doubleTransaction);
-                            unitOfWork.SaveChanges();
+                                    unitOfWork.TransactionServices.Delete(doubleTransaction);
+                                    unitOfWork.SaveChanges();
+                                }
+                                unitOfWork.TransactionServices.Delete(transaction);
+                                unitOfWork.SaveChanges();
+                                LoadData();
+                                #endregion
+                            }
                         }
+                        else
+                        {
+                            MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
+                            return;
+                        }
+                        //adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.RoleId == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                        ////if (roleList == null)
+                        ////{
+                        ////    MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
+                        ////    return;
+                        ////}
+                        //if (roleList != null || adminRole != null)
+                        //{
 
-                        unitOfWork.TransactionServices.Delete(transaction);
-                        unitOfWork.SaveChanges();
+                        //    #region delete
+                        //    var transaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
+                        //    if (transaction.DoubleTransactionId != null)
+                        //    {
 
-                        LoadData();
+                        //        var doubleTransaction = unitOfWork.Transactions.FindFirstOrDefault(x => x.Id == transaction.DoubleTransactionId);
+
+
+                        //        transaction.DoubleTransactionId = null;
+                        //        unitOfWork.TransactionServices.Update(transaction);
+                        //        unitOfWork.SaveChanges();
+
+
+                        //        doubleTransaction.DoubleTransactionId = null;
+                        //        unitOfWork.TransactionServices.Update(doubleTransaction);
+                        //        unitOfWork.SaveChanges();
+
+                        //        unitOfWork.TransactionServices.Delete(doubleTransaction);
+                        //        unitOfWork.SaveChanges();
+                        //    }
+                        //    unitOfWork.TransactionServices.Delete(transaction);
+                        //    unitOfWork.SaveChanges();
+                        //    LoadData();
+                        //    #endregion
+                        //}
+
+
+
+
                     }
                     catch (Exception ex)
                     {

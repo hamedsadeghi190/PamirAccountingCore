@@ -40,6 +40,8 @@ namespace PamirAccounting.Services
                         RoleId = x.RoleId,
                         Id = x.Id,
                         RoleName=x.Role.Name,
+                        Code=x.Role.Code,
+
                     }).ToList();
                   
                 }

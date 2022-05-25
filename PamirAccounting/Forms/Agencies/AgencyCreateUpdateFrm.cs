@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.Agencies
@@ -24,13 +25,7 @@ namespace PamirAccounting.UI.Forms.Agencies
         }
         public AgencyCreateUpdateFrm(int id)
         {
-            var role = unitOfWork.UserInRole.Find(CurrentUser.UserID);
-            var roleId = unitOfWork.Role.FindFirstOrDefault(x => x.Code != 31).Id;
-            if (role.RoleId != roleId)
-            {
-                MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
-                return;
-            }
+        
             _Id = id;
             InitializeComponent();
             unitOfWork = new UnitOfWork();
@@ -91,51 +86,72 @@ namespace PamirAccounting.UI.Forms.Agencies
             {
                 if (_Id != null)
                 {
-                    _agency.Name = txtName.Text;
-                    _agency.Phone = txtPhone.Text;
-                    _agency.Address = txtAddress.Text;
-                    _agency.Dsc = txtDesc.Text;
-                    _agency.CurrenyId = (int)cmbCurrencies.SelectedValue;
-                    unitOfWork.AgencyServices.Update(_agency);
-                    #region Log
-                    var log = new Domains.DailyOperation();
-                    log.Date = DateTime.Parse(DateTime.Now.ToString());
-                    log.Time = DateTime.Now.TimeOfDay;
-                    log.UserId = CurrentUser.UserID;
-                    log.UserName = CurrentUser.UserName;
-                    log.Description = $"ویرایش نمایندگی {txtName.Text}";
-                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
-                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
-                    unitOfWork.DailyOperationServices.Insert(log);
-                    #endregion
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Agency && x.UserId == CurrentUser.UserID);
+                    if (roleId == null|| adminRole==null)
+                    {
+                        MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
+                        return;
+                   
+                    }
+                    if (roleId != null || adminRole == null)
+                    {
+                        _agency.Name = txtName.Text;
+                        _agency.Phone = txtPhone.Text;
+                        _agency.Address = txtAddress.Text;
+                        _agency.Dsc = txtDesc.Text;
+                        _agency.CurrenyId = (int)cmbCurrencies.SelectedValue;
+                        unitOfWork.AgencyServices.Update(_agency);
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"ویرایش نمایندگی {txtName.Text}";
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        #endregion}
+                    }
                 }
                 else
                 {
-                    var newBank = new Agency()
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Agency && x.UserId == CurrentUser.UserID);
+                    if (roleId == null || adminRole == null)
                     {
-                        Name = txtName.Text,
-                        Phone = txtPhone.Text,
-                        Address = txtAddress.Text,
-                        Dsc = txtDesc.Text,
-                        CurrenyId = (int)cmbCurrencies.SelectedValue
-                    };
-                    unitOfWork.AgencyServices.Insert(newBank);
-                    #region Log
-                    var log = new Domains.DailyOperation();
-                    log.Date = DateTime.Parse(DateTime.Now.ToString());
-                    log.Time = DateTime.Now.TimeOfDay;
-                    log.UserId = CurrentUser.UserID;
-                    log.UserName = CurrentUser.UserName;
-                    log.Description = $"ثبت نمایندگی {txtName.Text}";
-                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
-                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
-                    unitOfWork.DailyOperationServices.Insert(log);
-                
-                    #endregion
+                        MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
+                        return;
+                    }
+                    if (roleId != null || adminRole == null)
+                    {
+                        var newBank = new Agency()
+                        {
+                            Name = txtName.Text,
+                            Phone = txtPhone.Text,
+                            Address = txtAddress.Text,
+                            Dsc = txtDesc.Text,
+                            CurrenyId = (int)cmbCurrencies.SelectedValue
+                        };
+                        unitOfWork.AgencyServices.Insert(newBank);
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"ثبت نمایندگی {txtName.Text}";
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                        unitOfWork.DailyOperationServices.Insert(log);
+
+                        #endregion
+                    }
                 }
-                unitOfWork.SaveChanges();
-                Close();
-            }
+                    unitOfWork.SaveChanges();
+                    Close();
+                }
             catch (Exception ex)
             {
                 MessageBox.Show("ذخییره تغییرات با شکست مواجه شد");

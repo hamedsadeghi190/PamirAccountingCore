@@ -118,7 +118,7 @@ namespace PamirAccounting.Commons.Enums
 
         public enum Permission
         {
-
+            Admin=0,
             NewAccount = 1,
             PayAndReciveCash = 2,
             DeletePayAndReciveCash = 3,
