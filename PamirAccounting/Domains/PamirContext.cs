@@ -47,7 +47,7 @@ namespace PamirAccounting.Domains
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AI");
+            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AS_SC_UTF8");
 
             modelBuilder.Entity<Agency>(entity =>
             {
@@ -476,7 +476,7 @@ namespace PamirAccounting.Domains
                     .WithMany(p => p.UserInRoles)
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_UserInRole_UserInRole");
+                    .HasConstraintName("FK_UserInRole_Roles");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.UserInRoles)

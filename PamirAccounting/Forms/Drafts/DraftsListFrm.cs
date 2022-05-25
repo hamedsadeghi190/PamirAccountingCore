@@ -141,7 +141,7 @@ namespace PamirAccounting.Forms.Drafts
                 TypeCurrencyId = q.TypeCurrencyId,
                 DraftAmount = q.DraftAmount,
                 Rate = q.Rate,
-                Rent = q.Rent,
+                Rent = q.AgencyRent,
                 Type = q.Type,
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,

@@ -55,8 +55,8 @@ namespace PamirAccounting.Forms.Drafts
                 grpAgency.Text +=" "+ _Draft.Agency.Name;
                 cmbConvertedCurrency.SelectedValue = _Draft.Agency.CurrenyId;
                 lblCurrencyName.Text = _Draft.Agency.Curreny.Name;
-                txtRent.Text = _Draft.Rent.ToString();
-                label3.Text = _Draft.Rent.ToString();
+                txtRent.Text = _Draft.AgencyRent.ToString();
+                label3.Text = _Draft.AgencyRent.ToString();
                 lblDraftAmount.Text = _Draft.DraftAmount.ToString();
                 lblDraftCurrency.Text = _Draft.TypeCurrency.Name;
 
@@ -65,7 +65,7 @@ namespace PamirAccounting.Forms.Drafts
                     cmbConvertedCurrency.SelectedValue = _Draft.ConvertedCurrencyId;
                     lblConvetedAmount.Text = _Draft.ConvertedAmount.ToString();
                     txtRate.Text = _Draft.ConvertedRate.ToString();
-                    txtRent.Text = _Draft.Rent.ToString();
+                    txtRent.Text = _Draft.AgencyRent.ToString();
                     txtExteraDesc.Text = _Draft.ExtraDescription;
                 }
 
@@ -103,23 +103,23 @@ namespace PamirAccounting.Forms.Drafts
                             if (mappingsAction == (int)MappingActions.Division)
                             {
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
-                                var drafAmount = Math.Round((_Draft.DraftAmount + rent) / rate, MidpointRounding.AwayFromZero);
+                                var drafAmount = Math.Round((_Draft.DraftAmount) / rate, MidpointRounding.AwayFromZero);
 
-                                lblConvetedAmount.Text = (drafAmount).ToString();
+                                lblConvetedAmount.Text = (drafAmount + rent).ToString();
                             }
                             else if (mappingsAction == (int)MappingActions.Multiplication)
                             {
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
-                                var drafAmount = Math.Round((_Draft.DraftAmount + rent) * rate, MidpointRounding.AwayFromZero);
+                                var drafAmount = Math.Round((_Draft.DraftAmount) * rate, MidpointRounding.AwayFromZero);
 
-                                lblConvetedAmount.Text = (drafAmount).ToString();
+                                lblConvetedAmount.Text = (drafAmount + rent).ToString();
                             }
                             else
                             {
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
-                                var drafAmount = Math.Round((_Draft.DraftAmount + rent) + rate, MidpointRounding.AwayFromZero);
+                                var drafAmount = Math.Round((_Draft.DraftAmount) + rate, MidpointRounding.AwayFromZero);
 
-                                lblConvetedAmount.Text = (drafAmount).ToString();
+                                lblConvetedAmount.Text = (drafAmount + rent).ToString();
                             }
 
                         }
@@ -160,7 +160,7 @@ namespace PamirAccounting.Forms.Drafts
             _Draft.ConvertedCurrencyId = (int)cmbConvertedCurrency.SelectedValue;
             _Draft.ConvertedAmount = long.Parse(lblConvetedAmount.Text);
             _Draft.ConvertedRate = double.Parse(txtRate.Text);
-            _Draft.Rent = double.Parse(txtRent.Text);
+            _Draft.AgencyRent = double.Parse(txtRent.Text);
             _Draft.ExtraDescription = txtExteraDesc.Text;
 
             unitOfWork.DraftsServices.Update(_Draft);

@@ -259,7 +259,8 @@ namespace PamirAccounting.Forms.Drafts
                 draft.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
                 draft.DraftAmount = long.Parse(txtDraftAmount.Text);
                 draft.Rate = double.Parse(txtRate.Text);
-                draft.Rent = double.Parse(txtRent.Text);
+                draft.Rent =  txtRent.Text.Length > 0 == true ? double.Parse(txtRent.Text, CultureInfo.InvariantCulture) : 0;
+                draft.AgencyRent = draft.Rent;
                 draft.DepositAmount = double.Parse(txtDepositAmount.Text);
                 draft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
 
@@ -356,6 +357,7 @@ namespace PamirAccounting.Forms.Drafts
                     relatedDraft.DraftAmount = long.Parse(txtDepositAmount.Text);
                     relatedDraft.Rate = 1;
                     relatedDraft.Rent = txt_forosh_ext_number.Text.Length > 0 ? double.Parse(txt_forosh_ext_number.Text) : 0;
+                    relatedDraft.AgencyRent = 0;
                     relatedDraft.DepositAmount = double.Parse(txtDepositAmount.Text);
                     relatedDraft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                     relatedDraft.CustomerId = AppSetting.TransferdDraftsId;

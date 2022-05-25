@@ -198,7 +198,8 @@ namespace PamirAccounting.Forms.Drafts
                 draft.DraftAmount = long.Parse(txtDraftAmount.Text);
                 draft.Rate = txtRate.Text.Length > 0 == true ? double.Parse(txtRate.Text, CultureInfo.InvariantCulture) : 0;
                 draft.Rent = txtRent.Text.Length > 0 == true ? double.Parse(txtRent.Text, CultureInfo.InvariantCulture) : 0;
-                draft.DepositAmount = double.Parse(txtDepositAmount.Text);
+                draft.AgencyRent = 0;
+                draft.DepositAmount = double.Parse(txtDepositAmount.Text) - draft.Rent;
                 draft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                 draft.CustomerId = (int)cmbCustomer.SelectedValue;
                 draft.Status = (bool)cmbStatus.SelectedValue;
@@ -237,7 +238,7 @@ namespace PamirAccounting.Forms.Drafts
                 customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtDepositAmount.Text.Trim())) ? 0 : long.Parse(txtDepositAmount.Text);
                 customerTransaction.Description = $"شماره  {txtNumber.Text} {cmbAgency.Text} , {txtSender.Text} برای " +
                     $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDraftCurrency.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text}  **{txtDesc.Text}";
-               
+
                 customerTransaction.CurrenyId = (int)cmbDepositCurreny.SelectedValue;
                 var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
                 customerTransaction.Date = DateTime.Now;
@@ -409,7 +410,7 @@ namespace PamirAccounting.Forms.Drafts
                                 var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) / rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount+ rent).ToString();
+                                txtDepositAmount.Text = (drafAmount + rent).ToString();
                             }
                             else if (mappingsAction == (int)MappingActions.Multiplication)
                             {
@@ -417,14 +418,14 @@ namespace PamirAccounting.Forms.Drafts
                                 var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) * rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount+ rent).ToString();
+                                txtDepositAmount.Text = (drafAmount + rent).ToString();
                             }
                             else
                             {
                                 var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) + rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount+ rent).ToString();
+                                txtDepositAmount.Text = (drafAmount + rent).ToString();
                             }
 
                         }

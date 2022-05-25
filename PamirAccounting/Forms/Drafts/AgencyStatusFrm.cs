@@ -83,7 +83,7 @@ namespace PamirAccounting.Forms.Drafts
                 TypeCurrency = q.TypeCurrency.Name,
                 DraftAmount = q.DraftAmount,
                 Rate = q.Rate,
-                Rent = q.Rent,
+                Rent = q.AgencyRent,
                 ConvertedRate = q.ConvertedRate,
                 ConvertedAmount = q.ConvertedAmount,
                 ConvertedCurrencyId = q.ConvertedCurrencyId,
