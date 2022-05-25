@@ -1,6 +1,7 @@
 ﻿using PamirAccounting.Services;
 using System;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.Header
@@ -40,49 +41,69 @@ namespace PamirAccounting.UI.Forms.Header
             {
                 if (header != null)
                 {
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Header && x.UserId == CurrentUser.UserID);
+                    if (roleId == null && adminRole == null)
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
 
-                    header.Name = txtname.Text;
-                    header.Phone = txtphone.Text;
-                    header.Mobile = txtMobile.Text;
-                    header.Address = txtAddress.Text;
-                    unitOfWork.HeaderServices.Update(header);
-                    unitOfWork.SaveChanges();
-                    #region Log
-                    var log = new Domains.DailyOperation();
-                    log.Date = DateTime.Parse(DateTime.Now.ToString());
-                    log.Time = DateTime.Now.TimeOfDay;
-                    log.UserId = CurrentUser.UserID;
-                    log.UserName = CurrentUser.UserName;
-                    log.Description = $"ویرایش سربرگ";
-                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
-                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
-                    unitOfWork.DailyOperationServices.Insert(log);
-                    unitOfWork.SaveChanges();
-                    #endregion
+                    }
+                    if (roleId != null || adminRole != null)
+                    {
+                        header.Name = txtname.Text;
+                        header.Phone = txtphone.Text;
+                        header.Mobile = txtMobile.Text;
+                        header.Address = txtAddress.Text;
+                        unitOfWork.HeaderServices.Update(header);
+                        unitOfWork.SaveChanges();
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"ویرایش سربرگ";
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        unitOfWork.SaveChanges();
+                        #endregion
+                    }
                 }
                 else
                 {
-                    header = new Domains.Header();
-                    header.Name = txtname.Text;
-                    header.Phone = txtphone.Text;
-                    header.Mobile = txtMobile.Text;
-                    header.Address = txtAddress.Text;
-                    unitOfWork.HeaderServices.Insert(header);
-                    unitOfWork.SaveChanges();
-                    #region Log
-                    var log = new Domains.DailyOperation();
-                    log.Date = DateTime.Parse(DateTime.Now.ToString());
-                    log.Time = DateTime.Now.TimeOfDay;
-                    log.UserId = CurrentUser.UserID;
-                    log.UserName = CurrentUser.UserName;
-                    log.Description = $"ثبت سربرگ";
-                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
-                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
-                    unitOfWork.DailyOperationServices.Insert(log);
-                    unitOfWork.SaveChanges();
-                    #endregion
-                }
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Header && x.UserId == CurrentUser.UserID);
+                    if (roleId == null && adminRole == null)
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
 
+                    }
+                    if (roleId != null || adminRole != null)
+                    {
+                        header = new Domains.Header();
+                        header.Name = txtname.Text;
+                        header.Phone = txtphone.Text;
+                        header.Mobile = txtMobile.Text;
+                        header.Address = txtAddress.Text;
+                        unitOfWork.HeaderServices.Insert(header);
+                        unitOfWork.SaveChanges();
+                        #region Log
+                        var log = new Domains.DailyOperation();
+                        log.Date = DateTime.Parse(DateTime.Now.ToString());
+                        log.Time = DateTime.Now.TimeOfDay;
+                        log.UserId = CurrentUser.UserID;
+                        log.UserName = CurrentUser.UserName;
+                        log.Description = $"ثبت سربرگ";
+                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Insert);
+                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Insert;
+                        unitOfWork.DailyOperationServices.Insert(log);
+                        unitOfWork.SaveChanges();
+                        #endregion
+                    }
+                }
                 Close();
             }
             catch (Exception ex)

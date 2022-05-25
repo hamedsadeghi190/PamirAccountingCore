@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 using static PamirAccounting.Tools;
 
 
@@ -32,7 +33,19 @@ namespace PamirAccounting.UI.Forms.Agencies
 
         private void AgencyListFrm_Load(object sender, EventArgs e)
         {
-            txtSearch.Select();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Agency && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                BtnCreateNew.Enabled = false;
+            
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                BtnCreateNew.Enabled = true;
+            }
+                txtSearch.Select();
             txtSearch.Focus();
             loadData();
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowEdit"];
@@ -55,37 +68,59 @@ namespace PamirAccounting.UI.Forms.Agencies
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frmCurrencies = new AgencyCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
-                frmCurrencies.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Agency && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmCurrencies = new AgencyCreateUpdateFrm(dataList.ElementAt(e.RowIndex).Id);
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
             }
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowDelete"].Index && e.RowIndex >= 0)
             {
 
-                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف نمایندگی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
 
                 if (dialogResult == DialogResult.Yes)
                 {
                     try
                     {
-                        var agency = unitOfWork.Agencies.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
-                        unitOfWork.AgencyServices.Delete(agency.Id);
-                        unitOfWork.SaveChanges();
-                        #region Log
-                        var log = new Domains.DailyOperation();
-                        log.Date = DateTime.Parse(DateTime.Now.ToString());
-                        log.Time = DateTime.Now.TimeOfDay;
-                        log.UserId = CurrentUser.UserID;
-                        log.UserName = CurrentUser.UserName;
-                        log.Description = $"حذف نمایندگی {agency.Name}";
-                        log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                        log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                        unitOfWork.DailyOperationServices.Insert(log);
-                        unitOfWork.SaveChanges();
-                        #endregion
-                        loadData();
+                        var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                        var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteAgency && x.UserId == CurrentUser.UserID);
+                        if (roleId == null && adminRole == null)
+                        {
+                            MessageBox.Show(Messages.PermissionMsg);
+                            return;
+
+                        }
+                        if (roleId != null || adminRole != null)
+                        {
+                            var agency = unitOfWork.Agencies.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
+                            unitOfWork.AgencyServices.Delete(agency.Id);
+                            unitOfWork.SaveChanges();
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.Description = $"حذف نمایندگی {agency.Name}";
+                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
+                            loadData();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -140,10 +175,21 @@ namespace PamirAccounting.UI.Forms.Agencies
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    var rowIndex = dataGridView1.SelectedRows[0].Index;
-                    var frmCurrencies = new AgencyCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
-                    frmCurrencies.ShowDialog();
-                    loadData();
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Agency && x.UserId == CurrentUser.UserID);
+                    if (roleId == null && adminRole == null)
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
+
+                    }
+                    if (roleId != null || adminRole != null)
+                    {
+                        var rowIndex = dataGridView1.SelectedRows[0].Index;
+                        var frmCurrencies = new AgencyCreateUpdateFrm(dataList.ElementAt(rowIndex).Id);
+                        frmCurrencies.ShowDialog();
+                        loadData();
+                    }
                 }
             }
 
@@ -154,30 +200,40 @@ namespace PamirAccounting.UI.Forms.Agencies
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     var rowIndex = dataGridView1.SelectedRows[0].Index;
-                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف ارز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                    DialogResult dialogResult = MessageBox.Show("آیا مطمئن هستید", "حذف نمایندگی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
                  MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
 
                     if (dialogResult == DialogResult.Yes)
                     {
                         try
                         {
-                       
-                            var agency = unitOfWork.Agencies.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
-                            unitOfWork.AgencyServices.Delete(agency.Id);
-                            unitOfWork.SaveChanges();
-                            #region Log
-                            var log = new Domains.DailyOperation();
-                            log.Date = DateTime.Parse(DateTime.Now.ToString());
-                            log.Time = DateTime.Now.TimeOfDay;
-                            log.UserId = CurrentUser.UserID;
-                            log.UserName = CurrentUser.UserName;
-                            log.Description = $"حذف نمایندگی {agency.Name}";
-                            log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
-                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
-                            unitOfWork.DailyOperationServices.Insert(log);
-                            unitOfWork.SaveChanges();
-                            #endregion
-                            loadData();
+                            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteAgency && x.UserId == CurrentUser.UserID);
+                            if (roleId == null && adminRole == null)
+                            {
+                                MessageBox.Show(Messages.PermissionMsg);
+                                return;
+
+                            }
+                            if (roleId != null || adminRole != null)
+                            {
+                                var agency = unitOfWork.Agencies.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
+                                unitOfWork.AgencyServices.Delete(agency.Id);
+                                unitOfWork.SaveChanges();
+                                #region Log
+                                var log = new Domains.DailyOperation();
+                                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                                log.Time = DateTime.Now.TimeOfDay;
+                                log.UserId = CurrentUser.UserID;
+                                log.UserName = CurrentUser.UserName;
+                                log.Description = $"حذف نمایندگی {agency.Name}";
+                                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Delete);
+                                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Delete;
+                                unitOfWork.DailyOperationServices.Insert(log);
+                                unitOfWork.SaveChanges();
+                                #endregion
+                                loadData();
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -190,9 +246,20 @@ namespace PamirAccounting.UI.Forms.Agencies
 
             if (e.KeyCode == Keys.F6)
             {
-                var frmCurrencies = new AgencyCreateUpdateFrm();
-                frmCurrencies.ShowDialog();
-                loadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Agency && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmCurrencies = new AgencyCreateUpdateFrm();
+                    frmCurrencies.ShowDialog();
+                    loadData();
+                }
 
             }
         }

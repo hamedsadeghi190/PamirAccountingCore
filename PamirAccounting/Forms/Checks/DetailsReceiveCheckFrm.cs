@@ -194,6 +194,10 @@ namespace PamirAccounting.Forms.Checks
             {
                 return false;
             }
+            if (cmbRealBankId.Text == "" || cmbRealBankId.Text == " " || cmbRealBankId.Text == "  ")
+            {
+                return false;
+            }
             return true;
         }
         private void CleanForm()
@@ -223,6 +227,7 @@ namespace PamirAccounting.Forms.Checks
                 {
                     CreateDescription();
                 }
+               
                 if (cmbRealBankId.SelectedValue == null)
                 {
                     var realBank = new Domains.RealBank();

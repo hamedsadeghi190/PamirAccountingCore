@@ -22,7 +22,7 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
-
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms
 {
@@ -69,75 +69,207 @@ namespace PamirAccounting.Forms
 
         private void AccountActionMnu_Cash_Click(object sender, EventArgs e)
         {
-            var FrmeRceiveCash = new PayAndReciveCashFrm();
-            FrmeRceiveCash.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.PayAndReciveCash && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmeRceiveCash = new PayAndReciveCashFrm();
+                FrmeRceiveCash.ShowDialog();
+            }
         }
 
         private void AccountActionMnu_Transfer_Click(object sender, EventArgs e)
         {
-            var FrmTransferAccount = new TransferAccountFrm();
-            FrmTransferAccount.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Transfer && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmTransferAccount = new TransferAccountFrm();
+                FrmTransferAccount.ShowDialog();
+            }
         }
 
         private void AccountActionMnu_Bank_Click(object sender, EventArgs e)
         {
-            var FrmBankPayment = new PayAndReciveBankFrm();
-            FrmBankPayment.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.PayAndReciveBank && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmBankPayment = new PayAndReciveBankFrm();
+                FrmBankPayment.ShowDialog();
+            }
         }
 
         private void AccountActionMnu_ShippingOrder_Click(object sender, EventArgs e)
         {
-            var FrmshippingOrder = new shippingOrderFrm();
-            FrmshippingOrder.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.ShippingOrder && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmshippingOrder = new shippingOrderFrm();
+                FrmshippingOrder.ShowDialog();
+            }
         }
 
         private void AccountActionMnu_WarrantsPayable_Click(object sender, EventArgs e)
         {
-            var FrmWarrantsPayable = new WarrantsPayableFrm();
-            FrmWarrantsPayable.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.WarrantsPayable && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmWarrantsPayable = new WarrantsPayableFrm();
+                FrmWarrantsPayable.ShowDialog();
+            }
         }
 
         private void AccountActionMnu_ReceiveCheque_Click(object sender, EventArgs e)
         {
-            var ReceiveCheck = new DetailsReceiveCheckFrm();
-            ReceiveCheck.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.RecivedDocument && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var ReceiveCheck = new DetailsReceiveCheckFrm();
+                ReceiveCheck.ShowDialog();
+            }
         }
 
         private void AccountActionMnu_PaymentCheque_Click(object sender, EventArgs e)
         {
-            var checklist1 = new DetailsPaymentCheckFrm();
-            checklist1.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DepositDocument && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var checklist1 = new DetailsPaymentCheckFrm();
+                checklist1.ShowDialog();
+            }
 
         }
 
         private void AccountActionMnu_BuyAndSellCurrency_Click(object sender, EventArgs e)
         {
-            var BuyAndSellCurrency = new SellCurrencyFrm();
-            BuyAndSellCurrency.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.SellCurrency && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var BuyAndSellCurrency = new SellCurrencyFrm();
+                BuyAndSellCurrency.ShowDialog();
+            }
         }
 
         private void CustomerMenu_UnkwonDeposit_Click(object sender, EventArgs e)
         {
-            var targetForm = new UnkwonDepositFrm();
-            targetForm.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.UnkwonReciveBank && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var targetForm = new UnkwonDepositFrm();
+                targetForm.ShowDialog();
+            }
         }
 
         private void CustomerMenu_New_Click(object sender, EventArgs e)
         {
-            var FrmCustomers = new CustomerCreateUpdateFrm();
-            FrmCustomers.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Customers && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmCustomers = new CustomerCreateUpdateFrm();
+                FrmCustomers.ShowDialog();
+            }
         }
 
         private void DraftMenu_ShippingOrder_Click(object sender, EventArgs e)
         {
-            var FrmshippingOrder = new shippingOrderFrm();
-            FrmshippingOrder.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.ShippingOrder && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmshippingOrder = new shippingOrderFrm();
+                FrmshippingOrder.ShowDialog();
+            }
         }
 
         private void DraftMenu_WarrantsPayable_Click(object sender, EventArgs e)
         {
-            var FrmWarrantsPayable = new WarrantsPayableFrm();
-            FrmWarrantsPayable.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.WarrantsPayable && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmWarrantsPayable = new WarrantsPayableFrm();
+                FrmWarrantsPayable.ShowDialog();
+            }
         }
 
         private void DraftMenu_List_Click(object sender, EventArgs e)
@@ -148,8 +280,19 @@ namespace PamirAccounting.Forms
 
         private void DraftMenu_Rate_Click(object sender, EventArgs e)
         {
-            var RateListFrm = new updateCurrencyBaseRateFrm();
-            RateListFrm.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Rate && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var RateListFrm = new updateCurrencyBaseRateFrm();
+                RateListFrm.ShowDialog();
+            }
         }
 
         private void DraftMenu_Harm_Click(object sender, EventArgs e)
@@ -159,26 +302,70 @@ namespace PamirAccounting.Forms
 
         private void ChequeMenu_SareHesabGozashtan_Click(object sender, EventArgs e)
         {
-            var SareHesabGozashtan = new SareHesabGozashtanListFrm();
-            SareHesabGozashtan.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.SareHesab && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var SareHesabGozashtan = new SareHesabGozashtanListFrm();
+                SareHesabGozashtan.ShowDialog();
+            }
         }
 
         private void ChequeMenu_VosoolDaryaftani_Click(object sender, EventArgs e)
         {
-            var vosool = new VosoolCheckDaryaftaniListFrm();
-            vosool.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.VosolDaryafti && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var vosool = new VosoolCheckDaryaftaniListFrm();
+                vosool.ShowDialog();
+            }
         }
 
         private void ChequeMenu_VagozariAsnad_Click(object sender, EventArgs e)
         {
-            var VagozariAsnadDaryaftani = new VagozariAsnadDaryaftaniListFrm();
-            VagozariAsnadDaryaftani.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.VagozariAsnad && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var VagozariAsnadDaryaftani = new VagozariAsnadDaryaftaniListFrm();
+                VagozariAsnadDaryaftani.ShowDialog();
+            }
         }
 
         private void ChequeMenu_OdatVagozarShode_Click(object sender, EventArgs e)
         {
-            var Vagozari = new OdatAsnadDaryaftaniVagozarShodeListFrm();
-            Vagozari.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.OdatVagozarShode && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var Vagozari = new OdatAsnadDaryaftaniVagozarShodeListFrm();
+                Vagozari.ShowDialog();
+            }
         }
 
         private void ChequeMenu_BargashtDaryaftani_DisplayStyleChanged(object sender, EventArgs e)
@@ -188,39 +375,104 @@ namespace PamirAccounting.Forms
 
         private void ChequeMenu_BargashtDaryaftani_Click(object sender, EventArgs e)
         {
-            var bargasht = new BargashtCheckDaryaftanilistFrm();
-            bargasht.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.BargashtDaryafti && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var bargasht = new BargashtCheckDaryaftanilistFrm();
+                bargasht.ShowDialog();
+            }
         }
 
         private void ChequeMenu_OdatSareHesab_Click(object sender, EventArgs e)
         {
-            var odatsarehesab = new OdatCheckSareHesabListFrm();
-            odatsarehesab.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.OdatSareHesab && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var odatsarehesab = new OdatCheckSareHesabListFrm();
+                odatsarehesab.ShowDialog();
+            }
         }
 
         private void ChequeMenu_OdatDaryaftani9_Click(object sender, EventArgs e)
         {
-            var Odat = new OdatCheckDaryaftaniListFrm();
-            Odat.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.OdatDaryaft && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var Odat = new OdatCheckDaryaftaniListFrm();
+                Odat.ShowDialog();
+            }
         }
 
         private void ChequeMenu_PassPardakhtani_Click(object sender, EventArgs e)
         {
-            var pas1 = new PasCheckPardakhtaniListFrm();
-            pas1.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.PasPardakhti && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var pas1 = new PasCheckPardakhtaniListFrm();
+                pas1.ShowDialog();
+            }
         }
 
         private void ChequeMenu_BargashtPardakhti_Click(object sender, EventArgs e)
         {
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.BargashtPardakhti && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
 
-            var bargasht = new BargashtCheckPardakhtaniListFrm();
-            bargasht.ShowDialog();
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var bargasht = new BargashtCheckPardakhtaniListFrm();
+                bargasht.ShowDialog();
+            }
         }
 
         private void ChequeMenu_OdatPardakhti_Click(object sender, EventArgs e)
         {
-            var odat = new OdatCheckPardakhtaniListFrm();
-            odat.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.OdatPardakhti && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var odat = new OdatCheckPardakhtaniListFrm();
+                odat.ShowDialog();
+            }
         }
 
         private void ReceiveChequeList_Click(object sender, EventArgs e)
@@ -267,14 +519,36 @@ namespace PamirAccounting.Forms
 
         private void SettingsMenu_Header_Click(object sender, EventArgs e)
         {
-            var FrmHader = new HeaderCreateUpdateFrm();
-            FrmHader.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Header && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmHader = new HeaderCreateUpdateFrm();
+                FrmHader.ShowDialog();
+            }
         }
 
         private void SettingsMenu_Setting_Click(object sender, EventArgs e)
         {
-            var FrmSetting = new SettingCreateUpdateFrm();
-            FrmSetting.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Settings && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmSetting = new SettingCreateUpdateFrm();
+                FrmSetting.ShowDialog();
+            }
         }
 
         private void SettingsMenu_Users_Click(object sender, EventArgs e)
@@ -415,8 +689,19 @@ namespace PamirAccounting.Forms
 
         private void phone_Click(object sender, EventArgs e)
         {
-            var frm = new ContactsListFrm();
-            frm.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Contact && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var frm = new ContactsListFrm();
+                frm.ShowDialog();
+            }
         }
 
         private void TotalList_Click(object sender, EventArgs e)
@@ -434,20 +719,53 @@ namespace PamirAccounting.Forms
 
         private void PayAndReciveCash_Click(object sender, EventArgs e)
         {
-            var FrmeRceiveCash = new PayAndReciveCashFrm();
-            FrmeRceiveCash.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.PayAndReciveCash && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmeRceiveCash = new PayAndReciveCashFrm();
+                FrmeRceiveCash.ShowDialog();
+            }
         }
 
         private void PayAndReciveBank_Click(object sender, EventArgs e)
         {
-            var FrmBankPayment = new PayAndReciveBankFrm();
-            FrmBankPayment.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.PayAndReciveBank && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmBankPayment = new PayAndReciveBankFrm();
+                FrmBankPayment.ShowDialog();
+            }
         }
 
         private void Transfer_Click(object sender, EventArgs e)
         {
-            var FrmTransferAccount = new TransferAccountFrm();
-            FrmTransferAccount.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Transfer && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmTransferAccount = new TransferAccountFrm();
+                FrmTransferAccount.ShowDialog();
+            }
         }
 
         private void PayAndReciveBankList_Click(object sender, EventArgs e)
@@ -464,26 +782,70 @@ namespace PamirAccounting.Forms
 
         private void btnshippingOrder_Click(object sender, EventArgs e)
         {
-            var frm = new shippingOrderFrm();
-            frm.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.ShippingOrder && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var frm = new shippingOrderFrm();
+                frm.ShowDialog();
+            }
         }
 
         private void btnWarrantsPayableFrm_Click(object sender, EventArgs e)
         {
-            var frm = new WarrantsPayableFrm();
-            frm.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.WarrantsPayable && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var frm = new WarrantsPayableFrm();
+                frm.ShowDialog();
+            }
         }
 
         private void btnNewAccount_Click(object sender, EventArgs e)
         {
-            var frm = new CustomerCreateUpdateFrm();
-            frm.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.NewAccount && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var frm = new CustomerCreateUpdateFrm();
+                frm.ShowDialog();
+            }
         }
 
         private void btnbank_Click(object sender, EventArgs e)
         {
-            var FrmBankPayment = new PayAndReciveBankFrm();
-            FrmBankPayment.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.PayAndReciveBank && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmBankPayment = new PayAndReciveBankFrm();
+                FrmBankPayment.ShowDialog();
+            }
         }
 
         private void btnAgency_Click(object sender, EventArgs e)
@@ -500,26 +862,70 @@ namespace PamirAccounting.Forms
 
         private void btnNewAccount_Click_1(object sender, EventArgs e)
         {
-            var FrmCustomers = new CustomerCreateUpdateFrm();
-            FrmCustomers.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Customers && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmCustomers = new CustomerCreateUpdateFrm();
+                FrmCustomers.ShowDialog();
+            }
         }
 
         private void btnBank_Click_1(object sender, EventArgs e)
         {
-            var FrmBankPayment = new PayAndReciveBankFrm();
-            FrmBankPayment.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.PayAndReciveBank && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmBankPayment = new PayAndReciveBankFrm();
+                FrmBankPayment.ShowDialog();
+            }
         }
 
         private void btnWarrantsPayable_Click(object sender, EventArgs e)
         {
-            var FrmWarrantsPayable = new WarrantsPayableFrm();
-            FrmWarrantsPayable.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.WarrantsPayable && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmWarrantsPayable = new WarrantsPayableFrm();
+                FrmWarrantsPayable.ShowDialog();
+            }
         }
 
         private void btnShippingOrder_Click_1(object sender, EventArgs e)
         {
-            var FrmshippingOrder = new shippingOrderFrm();
-            FrmshippingOrder.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.ShippingOrder && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var FrmshippingOrder = new shippingOrderFrm();
+                FrmshippingOrder.ShowDialog();
+            }
         }
 
         private void btnCurrencyAgency_Click(object sender, EventArgs e)
@@ -547,8 +953,19 @@ namespace PamirAccounting.Forms
 
         private void BuyCurrencyMenuItem_Click(object sender, EventArgs e)
         {
-            var BuyCurrency = new BuyCurrencyFrm();
-            BuyCurrency.ShowDialog();
+            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.BuyCurrency && x.UserId == CurrentUser.UserID);
+            if (roleId == null && adminRole == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+
+            }
+            if (roleId != null || adminRole != null)
+            {
+                var BuyCurrency = new BuyCurrencyFrm();
+                BuyCurrency.ShowDialog();
+            }
         }
 
         private void LandingPageFrm_Leave(object sender, EventArgs e)

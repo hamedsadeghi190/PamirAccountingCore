@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 using static PamirAccounting.Tools;
 
 namespace PamirAccounting.UI.Forms.Settings
@@ -116,57 +117,78 @@ namespace PamirAccounting.UI.Forms.Settings
         {
             if (_Settings == null)
             {
-                _Settings = new Domains.Setting()
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Settings && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
                 {
-                    BackupDirectory = txtBackupPath.Text,
-                    FlashBackupDirectory = txtFlashBackupPath.Text,
-                    BaseCurencyId = (int)cmbBaseCurenccy.SelectedValue,
-                    CostsAccountId = (int)cmbConstsAccount.SelectedValue,
-                    NotRunnedRemittanceId = (int)CmbRemittanceAccount.SelectedValue,
-                    DateCalenderType = byte.Parse(CmbCalenderType.SelectedValue.ToString()),
-                    PasswordRequired = chkPassRequerid.Checked,
-                    ProfitPercent = String.IsNullOrEmpty(txtProfitPercent.Text) ? 0 : double.Parse(txtProfitPercent.Text)
-                };
-                unitOfWork.SettingServices.Insert(_Settings);
-                unitOfWork.SaveChanges();
-                #region Log
-                var log = new Domains.DailyOperation();
-                log.Date = DateTime.Parse(DateTime.Now.ToString());
-                log.Time = DateTime.Now.TimeOfDay;
-                log.UserId = CurrentUser.UserID;
-                log.UserName = CurrentUser.UserName;
-                log.Description = "ثبت تنظیمات اصلی برنامه";
-                log.ActionText = GetEnumDescription(Commons.Enums.Settings.ActionType.Insert);
-                log.ActionType = (int)Commons.Enums.Settings.ActionType.Insert;
-                unitOfWork.DailyOperationServices.Insert(log);
-                unitOfWork.SaveChanges();
-                #endregion
-            }
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    _Settings = new Domains.Setting()
+                    {
+                        BackupDirectory = txtBackupPath.Text,
+                        FlashBackupDirectory = txtFlashBackupPath.Text,
+                        BaseCurencyId = (int)cmbBaseCurenccy.SelectedValue,
+                        CostsAccountId = (int)cmbConstsAccount.SelectedValue,
+                        NotRunnedRemittanceId = (int)CmbRemittanceAccount.SelectedValue,
+                        DateCalenderType = byte.Parse(CmbCalenderType.SelectedValue.ToString()),
+                        PasswordRequired = chkPassRequerid.Checked,
+                        ProfitPercent = String.IsNullOrEmpty(txtProfitPercent.Text) ? 0 : double.Parse(txtProfitPercent.Text)
+                    };
+                    unitOfWork.SettingServices.Insert(_Settings);
+                    unitOfWork.SaveChanges();
+                    #region Log
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = "ثبت تنظیمات اصلی برنامه";
+                    log.ActionText = GetEnumDescription(Commons.Enums.Settings.ActionType.Insert);
+                    log.ActionType = (int)Commons.Enums.Settings.ActionType.Insert;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
+                }
+                }
             else
             {
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Settings && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
 
-                _Settings.FlashBackupDirectory = txtFlashBackupPath.Text;
-                _Settings.BackupDirectory = txtBackupPath.Text;
-                _Settings.BaseCurencyId = (int)cmbBaseCurenccy.SelectedValue;
-                _Settings.CostsAccountId = (int)cmbConstsAccount.SelectedValue;
-                _Settings.NotRunnedRemittanceId = (int)CmbRemittanceAccount.SelectedValue;
-                _Settings.DateCalenderType = byte.Parse(CmbCalenderType.SelectedValue.ToString());
-                _Settings.PasswordRequired = chkPassRequerid.Checked;
-                _Settings.ProfitPercent = String.IsNullOrEmpty(txtProfitPercent.Text) ? 0 : double.Parse(txtProfitPercent.Text);
-                unitOfWork.SettingServices.Update(_Settings);
-                unitOfWork.SaveChanges();
-                #region Log
-                var log = new Domains.DailyOperation();
-                log.Date = DateTime.Parse(DateTime.Now.ToString());
-                log.Time = DateTime.Now.TimeOfDay;
-                log.UserId = CurrentUser.UserID;
-                log.UserName = CurrentUser.UserName;
-                log.Description = "ویرایش تنظیمات اصلی برنامه";
-                log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
-                log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
-                unitOfWork.DailyOperationServices.Insert(log);
-                unitOfWork.SaveChanges();
-                #endregion
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    _Settings.FlashBackupDirectory = txtFlashBackupPath.Text;
+                    _Settings.BackupDirectory = txtBackupPath.Text;
+                    _Settings.BaseCurencyId = (int)cmbBaseCurenccy.SelectedValue;
+                    _Settings.CostsAccountId = (int)cmbConstsAccount.SelectedValue;
+                    _Settings.NotRunnedRemittanceId = (int)CmbRemittanceAccount.SelectedValue;
+                    _Settings.DateCalenderType = byte.Parse(CmbCalenderType.SelectedValue.ToString());
+                    _Settings.PasswordRequired = chkPassRequerid.Checked;
+                    _Settings.ProfitPercent = String.IsNullOrEmpty(txtProfitPercent.Text) ? 0 : double.Parse(txtProfitPercent.Text);
+                    unitOfWork.SettingServices.Update(_Settings);
+                    unitOfWork.SaveChanges();
+                    #region Log
+                    var log = new Domains.DailyOperation();
+                    log.Date = DateTime.Parse(DateTime.Now.ToString());
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = "ویرایش تنظیمات اصلی برنامه";
+                    log.ActionText = GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                    log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
+                }
             }
 
             Close();

@@ -15,7 +15,7 @@ using Stimulsoft.Report;
 using PamirAccounting.Forms.Customers;
 using PamirAccounting.Commons.Enums;
 using static PamirAccounting.Tools;
-
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Checks
 {
@@ -73,9 +73,20 @@ namespace PamirAccounting.Forms.Checks
         {
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frm = new DetailsReceiveCheckFrm(dataList.ElementAt(e.RowIndex).Id);
-                frm.ShowDialog();
-                LoadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.RecivedDocument && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frm = new DetailsReceiveCheckFrm(dataList.ElementAt(e.RowIndex).Id);
+                    frm.ShowDialog();
+                    LoadData();
+                }
             }
 
 
@@ -89,37 +100,48 @@ namespace PamirAccounting.Forms.Checks
                 {
                     try
                     {
-                        var cheque = unitOfWork.Cheque.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
-                        unitOfWork.ChequeServices.Delete(cheque);
-
-                        var transactions = unitOfWork.Transactions.FindAll(x => x.DocumentId == cheque.DocumentId).ToList();
-
-                        foreach (var item in transactions)
+                        var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                        var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteRecivedDocument && x.UserId == CurrentUser.UserID);
+                        if (roleId == null && adminRole == null)
                         {
-                            item.DoubleTransactionId = null;
-                            unitOfWork.TransactionServices.Update(item);
-                            unitOfWork.SaveChanges();
-                        }
+                            MessageBox.Show(Messages.PermissionMsg);
+                            return;
 
-                        foreach (var item in transactions)
-                        {
-                            unitOfWork.TransactionServices.Delete(item);
-                            unitOfWork.SaveChanges();
                         }
-                        #region Log
-                        var log = new Domains.DailyOperation();
-                        log.Date = DateTime.Parse(DateTime.Now.ToString());
-                        log.Time = DateTime.Now.TimeOfDay;
-                        log.UserId = CurrentUser.UserID;
-                        log.UserName = CurrentUser.UserName;
-                        log.DocumentId = cheque.DocumentId;
-                        log.Description = $"حذف چک دریافتی به شماره {cheque.ChequeNumber} به مبلغ {cheque.Amount}، شماره سند {cheque.DocumentId} ";
-                        log.ActionType = (int)Settings.ActionType.Delete;
-                        log.ActionText = GetEnumDescription(Settings.ActionType.Delete);
-                        unitOfWork.DailyOperationServices.Insert(log);
-                        unitOfWork.SaveChanges();
-                        #endregion
-                        LoadData();
+                        if (roleId != null || adminRole != null)
+                        {
+                            var cheque = unitOfWork.Cheque.FindFirstOrDefault(x => x.Id == dataList.ElementAt(e.RowIndex).Id);
+                            unitOfWork.ChequeServices.Delete(cheque);
+
+                            var transactions = unitOfWork.Transactions.FindAll(x => x.DocumentId == cheque.DocumentId).ToList();
+
+                            foreach (var item in transactions)
+                            {
+                                item.DoubleTransactionId = null;
+                                unitOfWork.TransactionServices.Update(item);
+                                unitOfWork.SaveChanges();
+                            }
+
+                            foreach (var item in transactions)
+                            {
+                                unitOfWork.TransactionServices.Delete(item);
+                                unitOfWork.SaveChanges();
+                            }
+                            #region Log
+                            var log = new Domains.DailyOperation();
+                            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                            log.Time = DateTime.Now.TimeOfDay;
+                            log.UserId = CurrentUser.UserID;
+                            log.UserName = CurrentUser.UserName;
+                            log.DocumentId = cheque.DocumentId;
+                            log.Description = $"حذف چک دریافتی به شماره {cheque.ChequeNumber} به مبلغ {cheque.Amount}، شماره سند {cheque.DocumentId} ";
+                            log.ActionType = (int)Settings.ActionType.Delete;
+                            log.ActionText = GetEnumDescription(Settings.ActionType.Delete);
+                            unitOfWork.DailyOperationServices.Insert(log);
+                            unitOfWork.SaveChanges();
+                            #endregion
+                            LoadData();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -242,10 +264,21 @@ namespace PamirAccounting.Forms.Checks
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    var rowIndex = dataGridView1.SelectedRows[0].Index;
-                    var frm = new DetailsReceiveCheckFrm(dataList.ElementAt(rowIndex).Id);
-                    frm.ShowDialog();
-                    LoadData();
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.RecivedDocument && x.UserId == CurrentUser.UserID);
+                    if (roleId == null && adminRole == null)
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
+
+                    }
+                    if (roleId != null || adminRole != null)
+                    {
+                        var rowIndex = dataGridView1.SelectedRows[0].Index;
+                        var frm = new DetailsReceiveCheckFrm(dataList.ElementAt(rowIndex).Id);
+                        frm.ShowDialog();
+                        LoadData();
+                    }
                 }
             }
 
@@ -262,37 +295,48 @@ namespace PamirAccounting.Forms.Checks
                     {
                         try
                         {
-                            var cheque = unitOfWork.Cheque.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
-                            unitOfWork.ChequeServices.Delete(cheque);
-
-                            var transactions = unitOfWork.Transactions.FindAll(x => x.DocumentId == cheque.DocumentId).ToList();
-
-                            foreach (var item in transactions)
+                            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteRecivedDocument && x.UserId == CurrentUser.UserID);
+                            if (roleId == null && adminRole == null)
                             {
-                                item.DoubleTransactionId = null;
-                                unitOfWork.TransactionServices.Update(item);
-                                unitOfWork.SaveChanges();
-                            }
+                                MessageBox.Show(Messages.PermissionMsg);
+                                return;
 
-                            foreach (var item in transactions)
-                            {
-                                unitOfWork.TransactionServices.Delete(item);
-                                unitOfWork.SaveChanges();
                             }
-                            #region Log
-                            var log = new Domains.DailyOperation();
-                            log.Date = DateTime.Parse(DateTime.Now.ToString());
-                            log.Time = DateTime.Now.TimeOfDay;
-                            log.UserId = CurrentUser.UserID;
-                            log.UserName = CurrentUser.UserName;
-                            log.DocumentId = cheque.DocumentId;
-                            log.Description = $"حذف چک دریافتی به شماره {cheque.ChequeNumber} به مبلغ {cheque.Amount}، شماره سند {cheque.DocumentId} ";
-                            log.ActionType = (int)Settings.ActionType.Delete;
-                            log.ActionText = GetEnumDescription(Settings.ActionType.Delete);
-                            unitOfWork.DailyOperationServices.Insert(log);
-                            unitOfWork.SaveChanges();
-                            #endregion
-                            LoadData();
+                            if (roleId != null || adminRole != null)
+                            {
+                                var cheque = unitOfWork.Cheque.FindFirstOrDefault(x => x.Id == dataList.ElementAt(rowIndex).Id);
+                                unitOfWork.ChequeServices.Delete(cheque);
+
+                                var transactions = unitOfWork.Transactions.FindAll(x => x.DocumentId == cheque.DocumentId).ToList();
+
+                                foreach (var item in transactions)
+                                {
+                                    item.DoubleTransactionId = null;
+                                    unitOfWork.TransactionServices.Update(item);
+                                    unitOfWork.SaveChanges();
+                                }
+
+                                foreach (var item in transactions)
+                                {
+                                    unitOfWork.TransactionServices.Delete(item);
+                                    unitOfWork.SaveChanges();
+                                }
+                                #region Log
+                                var log = new Domains.DailyOperation();
+                                log.Date = DateTime.Parse(DateTime.Now.ToString());
+                                log.Time = DateTime.Now.TimeOfDay;
+                                log.UserId = CurrentUser.UserID;
+                                log.UserName = CurrentUser.UserName;
+                                log.DocumentId = cheque.DocumentId;
+                                log.Description = $"حذف چک دریافتی به شماره {cheque.ChequeNumber} به مبلغ {cheque.Amount}، شماره سند {cheque.DocumentId} ";
+                                log.ActionType = (int)Settings.ActionType.Delete;
+                                log.ActionText = GetEnumDescription(Settings.ActionType.Delete);
+                                unitOfWork.DailyOperationServices.Insert(log);
+                                unitOfWork.SaveChanges();
+                                #endregion
+                                LoadData();
+                            }
                         }
                         catch (Exception ex)
                         {
