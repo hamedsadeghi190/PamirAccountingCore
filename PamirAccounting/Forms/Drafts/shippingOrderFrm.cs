@@ -237,7 +237,7 @@ namespace PamirAccounting.Forms.Drafts
                 customerTransaction.WithdrawAmount = (String.IsNullOrEmpty(txtDepositAmount.Text.Trim())) ? 0 : long.Parse(txtDepositAmount.Text);
                 customerTransaction.Description = $"شماره  {txtNumber.Text} {cmbAgency.Text} , {txtSender.Text} برای " +
                     $"{txtReciver.Text} {txtDraftAmount.Text} {cmbDraftCurrency.Text} به نرخ {txtRate.Text} و کرایه {txtRent.Text} {cmbStatus.Text}  **{txtDesc.Text}";
-
+               
                 customerTransaction.CurrenyId = (int)cmbDepositCurreny.SelectedValue;
                 var TransactionDateTime = p.ToDateTime(int.Parse(dDate[0]), int.Parse(dDate[1]), int.Parse(dDate[2]), 0, 0, 0, 0);
                 customerTransaction.Date = DateTime.Now;
@@ -409,7 +409,7 @@ namespace PamirAccounting.Forms.Drafts
                                 var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) / rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount).ToString();
+                                txtDepositAmount.Text = (drafAmount+ rent).ToString();
                             }
                             else if (mappingsAction == (int)MappingActions.Multiplication)
                             {
@@ -417,14 +417,14 @@ namespace PamirAccounting.Forms.Drafts
                                 var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) * rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount).ToString();
+                                txtDepositAmount.Text = (drafAmount+ rent).ToString();
                             }
                             else
                             {
                                 var drafAmount = Math.Round(double.Parse(txtDraftAmount.Text) + rate, MidpointRounding.AwayFromZero);
                                 var rent = txtRent.Text.Length > 0 ? double.Parse(txtRent.Text) : 0;
 
-                                txtDepositAmount.Text = (drafAmount).ToString();
+                                txtDepositAmount.Text = (drafAmount+ rent).ToString();
                             }
 
                         }
