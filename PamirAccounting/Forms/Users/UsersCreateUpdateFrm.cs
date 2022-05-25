@@ -16,10 +16,12 @@ namespace PamirAccounting.UI.Forms.Users
         private UnitOfWork unitOfWork;
         private int? _Id;
         private User _user;
+        private UserInRole _userInRole;
         private List<ComboBoxModel> _agencies = new List<ComboBoxModel>();
         private List<ComboBoxModel> _Currencies = new List<ComboBoxModel>();
         private List<ComboBoxModel> _Customers = new List<ComboBoxModel>();
-
+        private List<Role> _role = new List<Role>();
+        private List<RoleModel> _Roles;
         public UsersCreateUpdateFrm()
         {
             InitializeComponent();
@@ -47,6 +49,15 @@ namespace PamirAccounting.UI.Forms.Users
         }
         private void UsersCreateUpdateFrm_Load(object sender, EventArgs e)
         {
+            var _list = new List<RoleModel>();
+            // var role = new List<RoleModel>();
+            _Roles = unitOfWork.RolesServices.GetAll();
+            foreach (var item in _Roles)
+            {
+                chkAccessLevel.Items.Add(item.Name);
+            }
+
+
             SetComboBoxHeight(cmbAgency.Handle, 25);
             cmbAgency.Refresh();
             SetComboBoxHeight(cmbCurrency.Handle, 25);
@@ -64,9 +75,11 @@ namespace PamirAccounting.UI.Forms.Users
         private void loadEditData()
         {
             _user = unitOfWork.Users.FindFirstOrDefault(x => x.Id == _Id);
+            var userInRole = unitOfWork.UserInRoleServices.GetUserInRolls(_user.Id);
 
             if (_user != null)
             {
+
                 txtFirstName.Text = _user.FirstName;
                 txtLastName.Text = _user.LastName;
                 txtUserName.Text = _user.UserName;
@@ -75,6 +88,17 @@ namespace PamirAccounting.UI.Forms.Users
                 cmbAgency.SelectedValue = _user.AgentId;
                 cmbCurrency.SelectedValue = _user.CurrenyId;
                 CmbSandogh.SelectedValue = _user.CustomerId;
+                foreach (var item in userInRole)
+                {
+                    for (int i = 0; i < chkAccessLevel.ItemCount; i++)
+                    {
+                        if (chkAccessLevel.GetItemText(i) == item.RoleName)
+                        {
+                            chkAccessLevel.SetItemChecked(i, true);
+                        }
+                    }
+                }
+
             }
         }
         public static string Base64Encode(string plainText)
@@ -144,6 +168,36 @@ namespace PamirAccounting.UI.Forms.Users
                 _user.CustomerId = (int)CmbSandogh.SelectedValue;
                 unitOfWork.UserServices.Update(_user);
                 unitOfWork.SaveChanges();
+                var userInRole = unitOfWork.UserInRoleServices.GetUserInRolls(_user.Id);
+
+                foreach (var item in userInRole)
+                {
+                    unitOfWork.UserInRole.Delete(item.Id);
+                    unitOfWork.SaveChanges();
+                }
+                foreach (var item in chkAccessLevel.CheckedItems)
+                {
+                    var role = _Roles.FirstOrDefault(x => x.Name == item.ToString());
+                    var index = _userInRole = new UserInRole();
+                    _userInRole.UserId = _user.Id;
+                    _userInRole.RoleId = role.Id;
+                    unitOfWork.UserInRole.Insert(_userInRole);
+                    unitOfWork.SaveChanges();
+                }
+
+                //for (int i = 0; i < chkAccessLevel.ItemCount; i++)
+                //{
+                //    if (chkAccessLevel.GetItemChecked(i))
+                //    {
+                //        var index =
+                //        _userInRole = new UserInRole();
+                //        _userInRole.UserId = _user.Id;
+                //        _userInRole.RoleId = unitOfWork.Role.FindFirstOrDefault(x => x.Name == chkAccessLevel.CheckedItems[i].ToString()).Id;
+                //        unitOfWork.UserInRole.Insert(_userInRole);
+                //        unitOfWork.SaveChanges();
+                //    }
+                //}
+
                 #region Log
                 var log = new Domains.DailyOperation();
                 log.Date = DateTime.Parse(DateTime.Now.ToString());
@@ -159,8 +213,9 @@ namespace PamirAccounting.UI.Forms.Users
             }
             else
             {
-                _user = new User();
 
+                _user = new User();
+                _userInRole = new UserInRole();
                 _user.FirstName = txtFirstName.Text;
                 _user.LastName = txtLastName.Text;
                 _user.UserName = txtUserName.Text;
@@ -170,6 +225,21 @@ namespace PamirAccounting.UI.Forms.Users
                 _user.CustomerId = (int)CmbSandogh.SelectedValue;
                 unitOfWork.UserServices.Insert(_user);
                 unitOfWork.SaveChanges();
+                for (int i = 0; i < chkAccessLevel.ItemCount; i++)
+                {
+                    if (chkAccessLevel.GetItemChecked(i))
+                    {
+                        _userInRole = new UserInRole();
+                        _userInRole.UserId = _user.Id;
+                        _userInRole.RoleId = unitOfWork.Role.FindFirstOrDefault(x => x.Name == chkAccessLevel.CheckedItems[i].ToString()).Id;
+                        unitOfWork.UserInRole.Insert(_userInRole);
+                        unitOfWork.SaveChanges();
+                    }
+
+
+                }
+
+
                 #region Log
                 var log = new Domains.DailyOperation();
                 log.Date = DateTime.Parse(DateTime.Now.ToString());

@@ -30,21 +30,24 @@ namespace PamirAccounting.Domains
         public virtual DbSet<Draft> Drafts { get; set; }
         public virtual DbSet<Header> Headers { get; set; }
         public virtual DbSet<RealBank> RealBanks { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Setting> Settings { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserInRole> UserInRoles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\SQL2019;Database=PamirAccounting;Trusted_Connection=True;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=DESKTOP-DHSQIEN\\SQL2019;Database=PamirAccounting;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AS_SC_UTF8");
+            modelBuilder.HasAnnotation("Relational:Collation", "Persian_100_CI_AI");
 
             modelBuilder.Entity<Agency>(entity =>
             {
@@ -246,8 +249,6 @@ namespace PamirAccounting.Domains
 
             modelBuilder.Entity<DailyOperation>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedOnAdd();
-
                 entity.Property(e => e.ActionText).HasMaxLength(30);
 
                 entity.Property(e => e.Date).HasColumnType("date");
@@ -359,6 +360,11 @@ namespace PamirAccounting.Domains
                     .HasMaxLength(200);
             });
 
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.Property(e => e.Name).HasMaxLength(500);
+            });
+
             modelBuilder.Entity<Setting>(entity =>
             {
                 entity.Property(e => e.BackupDirectory).HasMaxLength(1000);
@@ -460,6 +466,23 @@ namespace PamirAccounting.Domains
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_Users_Customers");
+            });
+
+            modelBuilder.Entity<UserInRole>(entity =>
+            {
+                entity.ToTable("UserInRole");
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.UserInRoles)
+                    .HasForeignKey(d => d.RoleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_UserInRole_UserInRole");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserInRoles)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_UserInRole_Users");
             });
 
             OnModelCreatingPartial(modelBuilder);

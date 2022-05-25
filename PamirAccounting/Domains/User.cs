@@ -11,6 +11,7 @@ namespace PamirAccounting.Domains
         {
             DailyOperations = new HashSet<DailyOperation>();
             Transactions = new HashSet<Transaction>();
+            UserInRoles = new HashSet<UserInRole>();
         }
 
         public int Id { get; set; }
@@ -29,5 +30,6 @@ namespace PamirAccounting.Domains
         public virtual Customer Customer { get; set; }
         public virtual ICollection<DailyOperation> DailyOperations { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<UserInRole> UserInRoles { get; set; }
     }
 }

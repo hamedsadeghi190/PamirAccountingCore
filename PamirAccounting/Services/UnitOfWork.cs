@@ -222,5 +222,27 @@ namespace PamirAccounting.Services
         public DailyOperationServices DailyOperationServices => (DailyOperationServices)DailyOperations;
 
         #endregion
+
+        #region RoleServices
+        private IRepository<Role> _role;
+
+        public IRepository<Role> Role
+        {
+            get { return _role = _role ?? new RolesServices(_context, this, _mapper); }
+        }
+        public RolesServices RolesServices => (RolesServices)Role;
+
+        #endregion
+
+        #region UserInRoleServices
+        private IRepository<UserInRole> _userInRole;
+
+        public IRepository<UserInRole> UserInRole
+        {
+            get { return _userInRole = _userInRole ?? new UserInRoleServices(_context, this, _mapper); }
+        }
+        public UserInRoleServices   UserInRoleServices => (UserInRoleServices)UserInRole;
+
+        #endregion
     }
 }

@@ -95,6 +95,7 @@ namespace PamirAccounting.Forms.Log
             var daily = new DailyOperationModel();
             //var grouped = tmpDataList.GroupBy(x => x.Date);
             dataList.Clear();
+            int row = 0;
             foreach (var item in tmpDataList)
             {
                 daily.Id = item.Id;
@@ -102,14 +103,14 @@ namespace PamirAccounting.Forms.Log
                 daily.Date = item.Date;
                 daily.DatePersian = item.DatePersian;
                 daily.TimePersian = item.TimePersian;
-                daily.RowId = item.RowId;
+                daily.RowId =row++;
                 daily.UserName = item.UserName;
                 daily.Description = item.Description;
                 daily.ActionText = item.ActionText;
                 dataList.Add(daily);
             }
-            
-            
+
+          
             gridLog.DataSource = dataList.Select(x => new
             {
                 x.Id,
