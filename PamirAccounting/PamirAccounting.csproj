@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controls\**" />
+    <Compile Remove="UI\**" />
+    <EmbeddedResource Remove="Controls\**" />
+    <EmbeddedResource Remove="UI\**" />
+    <None Remove="Controls\**" />
+    <None Remove="UI\**" />
+    <Page Remove="Controls\**" />
+    <Page Remove="UI\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="DevExpress.Win.Design" Version="21.2.*-*" />
     <PackageReference Include="DNTPersianUtils.Core" Version="5.4.0" />
@@ -160,11 +171,6 @@
     <None Update="Reports\Transaction.mrt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controls\" />
-    <Folder Include="UI\Forms\Settings\" />
   </ItemGroup>
 
   <ItemGroup>

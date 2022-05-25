@@ -11,14 +11,13 @@ using System.Windows.Forms;
 
 namespace PamirAccounting.Forms.GeneralLedger
 {
-    public partial class TotalBalanceFrm : DevExpress.XtraEditors.XtraForm
+    public partial class TotalBalanceFrm : XtraForm
     {
         public TotalBalanceFrm()
         {
             InitializeComponent();
         }
 
-        
 
         private void TotalBalanceFrm_Load(object sender, EventArgs e)
         {
