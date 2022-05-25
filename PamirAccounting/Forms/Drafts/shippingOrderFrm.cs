@@ -273,7 +273,6 @@ namespace PamirAccounting.Forms.Drafts
                     log.UserId = CurrentUser.UserID;
                     log.UserName = CurrentUser.UserName;
                     log.DocumentId = customerTransaction.DocumentId;
-                    log.TransactionId = customerTransaction.OriginalTransactionId;
                     log.Description = $" {  customerTransaction.Description } به شماره سند { customerTransaction.DocumentId}";
                     log.ActionType = (int)ActionType.Update;
                     log.ActionText = Tools.GetEnumDescription(ActionType.Update);
@@ -292,7 +291,6 @@ namespace PamirAccounting.Forms.Drafts
                     log.UserId = CurrentUser.UserID;
                     log.UserName = CurrentUser.UserName;
                     log.DocumentId = customerTransaction.DocumentId;
-                    log.TransactionId = customerTransaction.OriginalTransactionId;
                     log.Description = $" {  customerTransaction.Description } به شماره سند { customerTransaction.DocumentId}";
                     log.ActionType = (int)ActionType.Insert;
                     log.ActionText = Tools.GetEnumDescription(ActionType.Insert);

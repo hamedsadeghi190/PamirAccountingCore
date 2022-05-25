@@ -39,8 +39,7 @@ namespace PamirAccounting.Forms
                 AppSetting.BackupPath = _Settings.BackupDirectory;
             }
 
-
-            AppSetting.DebugMode = true;
+            AppSetting.DebugMode = false;
 
             AppSetting.TransferdDraftsId = 23;
             AppSetting.NotRunnedDraftsId = 6;

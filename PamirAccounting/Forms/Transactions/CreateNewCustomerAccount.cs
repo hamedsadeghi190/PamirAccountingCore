@@ -153,7 +153,6 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
                     log.UserId = CurrentUser.UserID;
                     log.UserName = CurrentUser.UserName;
                     log.DocumentId = transaction.DocumentId;
-                    log.TransactionId = transaction.OriginalTransactionId;
                     log.Description = $" {  transaction.Description } به شماره سند { transaction.DocumentId}";
                     log.ActionType = (int)ActionType.Update;
                     log.ActionText = Tools.GetEnumDescription(ActionType.Update);
@@ -213,7 +212,6 @@ MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOption
                     log.UserId = CurrentUser.UserID;
                     log.UserName = CurrentUser.UserName;
                     log.DocumentId = newTransaction.DocumentId;
-                    log.TransactionId = newTransaction.OriginalTransactionId;
                     log.Description = $" {  newTransaction.Description } به شماره سند { newTransaction.DocumentId}";
                     log.ActionType = (int)ActionType.Insert;
                     log.ActionText = Tools.GetEnumDescription(ActionType.Insert);
