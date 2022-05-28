@@ -35,6 +35,7 @@ namespace PamirAccounting.Forms.Checks
         public Domains.Transaction receiveTransAction;
         public Domains.Transaction customerTransaction;
         long amount;
+        string[] collections;
         public DetailsReceiveCheckFrm(long? chequeNumber)
         {
             InitializeComponent();
@@ -71,9 +72,13 @@ namespace PamirAccounting.Forms.Checks
             cmbCustomers.AutoCompleteCustomSource = autoCustomer;
             cmbCustomers.ValueMember = "Id";
             cmbCustomers.DisplayMember = "Title";
+            //////////////////////////////////////////
 
-
-
+            foreach (var item in _Customers)
+            {
+                comboBox1.Items.Add(item.Title);
+            }
+            comboBox1.SelectedIndex = 0;
         }
 
         private void btnshowcustomer_Click(object sender, EventArgs e)
@@ -523,6 +528,33 @@ namespace PamirAccounting.Forms.Checks
             //cmbCustomers.AutoCompleteCustomSource = autoCustomer;
             //cmbCustomers.ValueMember = "Id";
             //cmbCustomers.DisplayMember = "Title";
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+         
+            string textToSearch = comboBox1.Text.ToLower();
+            listBox1.Visible = false; 
+            if (String.IsNullOrEmpty(textToSearch))
+                return; 
+          var  result = (from i in _Customers
+                               where i.Title.ToString().ToLower().Contains(textToSearch)
+                               select i).ToList();
+            if (result.Count() == 0)
+                return; 
+
+            listBox1.Items.Clear();
+            foreach (var item in result)
+            {
+                listBox1.Items.Add(item.Title);
+            }
+            listBox1.Visible = true;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.SelectedItem = listBox1.SelectedItem;
+            listBox1.Visible = false;
         }
 
         private void createAccount(int SourceCustomerId, int CurrenyId)

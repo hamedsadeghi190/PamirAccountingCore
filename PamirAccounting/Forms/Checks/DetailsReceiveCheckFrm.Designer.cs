@@ -34,6 +34,8 @@ namespace PamirAccounting.Forms.Checks
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailsReceiveCheckFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblNumberString = new System.Windows.Forms.Label();
             this.txtDueDate = new DevExpress.XtraEditors.TextEdit();
             this.txtIssueDate = new DevExpress.XtraEditors.TextEdit();
@@ -71,6 +73,8 @@ namespace PamirAccounting.Forms.Checks
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.lblNumberString);
             this.groupBox1.Controls.Add(this.txtDueDate);
             this.groupBox1.Controls.Add(this.txtIssueDate);
@@ -99,6 +103,25 @@ namespace PamirAccounting.Forms.Checks
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ثبت / ویرایش مشخصات چک دریافتی";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 19;
+            this.listBox1.Location = new System.Drawing.Point(78, 212);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(230, 80);
+            this.listBox1.TabIndex = 136;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(78, 185);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(230, 27);
+            this.comboBox1.TabIndex = 135;
+            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
             // lblNumberString
             // 
@@ -444,5 +467,7 @@ namespace PamirAccounting.Forms.Checks
         private DevExpress.XtraEditors.TextEdit txtDueDate;
         private DevExpress.XtraEditors.TextEdit txtIssueDate;
         private Label lblNumberString;
+        private ListBox listBox1;
+        private ComboBox comboBox1;
     }
 }
