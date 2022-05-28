@@ -239,7 +239,6 @@ namespace PamirAccounting.UI.Forms.Users
 
                 }
 
-
                 #region Log
                 var log = new Domains.DailyOperation();
                 log.Date = DateTime.Parse(DateTime.Now.ToString());

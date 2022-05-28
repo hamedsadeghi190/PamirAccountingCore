@@ -205,19 +205,19 @@ namespace PamirAccounting.Forms
 
         private void CustomerMenu_UnkwonDeposit_Click(object sender, EventArgs e)
         {
-            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
-            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.UnkwonReciveBank && x.UserId == CurrentUser.UserID);
-            if (roleId == null && adminRole == null)
-            {
-                MessageBox.Show(Messages.PermissionMsg);
-                return;
+            //var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            //var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.UnkwonReciveBank && x.UserId == CurrentUser.UserID);
+            //if (roleId == null && adminRole == null)
+            //{
+            //    MessageBox.Show(Messages.PermissionMsg);
+            //    return;
 
-            }
-            if (roleId != null || adminRole != null)
-            {
+            //}
+            //if (roleId != null || adminRole != null)
+            //{
                 var targetForm = new UnkwonDepositFrm();
                 targetForm.ShowDialog();
-            }
+            //}
         }
 
         private void CustomerMenu_New_Click(object sender, EventArgs e)

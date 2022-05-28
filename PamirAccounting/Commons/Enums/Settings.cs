@@ -183,6 +183,7 @@ namespace PamirAccounting.Commons.Enums
             Settings=62,
             Users=63,
             DeleteUsers=64,
+            ChangePassword=65,
          
 
 

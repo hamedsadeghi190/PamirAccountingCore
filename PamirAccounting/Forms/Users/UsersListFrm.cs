@@ -50,7 +50,7 @@ namespace PamirAccounting.Forms.Users
 
             }
            
-                txtsearch.Select();
+            txtsearch.Select();
             txtsearch.Focus();
             dataGridView1.AutoGenerateColumns = false;
             loadData();
@@ -62,15 +62,35 @@ namespace PamirAccounting.Forms.Users
             d.FlatStyle = FlatStyle.Standard;
             d.DefaultCellStyle.ForeColor = Color.SteelBlue;
             d.DefaultCellStyle.BackColor = Color.Lavender;
+            DataGridViewButtonColumn f = (DataGridViewButtonColumn)dataGridView1.Columns["btnRowPassword"];
+            f.FlatStyle = FlatStyle.Standard;
+            f.DefaultCellStyle.ForeColor = Color.SteelBlue;
+            f.DefaultCellStyle.BackColor = Color.Lavender;
         }
 
 
         private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
 
+            if (e.ColumnIndex == dataGridView1.Columns["btnRowPassword"].Index && e.RowIndex >= 0)
+            {
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.ChangePassword && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
 
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frm = new ForgetPasswordFrm(dataList.ElementAt(e.RowIndex).Id);
+                    frm.ShowDialog();
+                    loadData();
+                }
+            }
 
-            if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
+                if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
                 var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
                 var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Users && x.UserId == CurrentUser.UserID);

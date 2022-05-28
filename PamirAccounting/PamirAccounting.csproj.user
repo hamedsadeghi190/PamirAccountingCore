@@ -251,6 +251,9 @@
     <Compile Update="Forms\Transactions\TransferAccountFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Users\ForgetPasswordFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Users\LoginFrm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -86,16 +86,7 @@ namespace PamirAccounting.UI.Forms.Agencies
             {
                 if (_Id != null)
                 {
-                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
-                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Agency && x.UserId == CurrentUser.UserID);
-                    if (roleId == null|| adminRole==null)
-                    {
-                        MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
-                        return;
-                   
-                    }
-                    if (roleId != null || adminRole == null)
-                    {
+                    
                         _agency.Name = txtName.Text;
                         _agency.Phone = txtPhone.Text;
                         _agency.Address = txtAddress.Text;
@@ -114,18 +105,10 @@ namespace PamirAccounting.UI.Forms.Agencies
                         unitOfWork.DailyOperationServices.Insert(log);
                         #endregion}
                     }
-                }
+                
                 else
                 {
-                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
-                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Agency && x.UserId == CurrentUser.UserID);
-                    if (roleId == null || adminRole == null)
-                    {
-                        MessageBox.Show("کاربر گرامی شما دسترسی ندارید");
-                        return;
-                    }
-                    if (roleId != null || adminRole == null)
-                    {
+                  
                         var newBank = new Agency()
                         {
                             Name = txtName.Text,
@@ -148,13 +131,13 @@ namespace PamirAccounting.UI.Forms.Agencies
 
                         #endregion
                     }
-                }
+                
                     unitOfWork.SaveChanges();
                     Close();
                 }
             catch (Exception ex)
             {
-                MessageBox.Show("ذخییره تغییرات با شکست مواجه شد");
+                MessageBox.Show("ذخیره تغییرات با شکست مواجه شد");
             }
 
         }

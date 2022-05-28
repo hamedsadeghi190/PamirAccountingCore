@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.UI.Forms.Banks
 {
@@ -106,6 +107,8 @@ namespace PamirAccounting.UI.Forms.Banks
         {
             try
             {
+                var dDate = DateTime.Now.ToShortDateString();
+                var log = new Domains.DailyOperation();
                 if (txtbalance.Text.Length == 0)
                 {
                     txtbalance.Text = "0";
@@ -145,12 +148,22 @@ namespace PamirAccounting.UI.Forms.Banks
                         customer.FirstName = txtBankName.Text;
                         customer.CreditCurrencyId = (int)cmbCurrencies.SelectedValue;
                         customer.CountryId = (int)cmbCountries.SelectedValue;
-
                         unitOfWork.CustomerServices.Update(customer);
                     }
                     unitOfWork.BankServices.Update(_bank);
                     unitOfWork.SaveChanges();
-
+                    #region Log
+                 
+                    log.Date = DateTime.Parse(dDate);
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = $"ویرایش بانک {_bank.Name}";
+                    log.ActionText = Tools.GetEnumDescription(ActionType.Update);
+                    log.ActionType = (int)ActionType.Update;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
                 }
                 else
                 {
@@ -166,7 +179,17 @@ namespace PamirAccounting.UI.Forms.Banks
 
                     unitOfWork.BankServices.Insert(newBank);
                     unitOfWork.SaveChanges();
-
+                    #region Log
+                    log.Date = DateTime.Parse(dDate);
+                    log.Time = DateTime.Now.TimeOfDay;
+                    log.UserId = CurrentUser.UserID;
+                    log.UserName = CurrentUser.UserName;
+                    log.Description = $"ثبت بانک {txtBankName.Text}";
+                    log.ActionText = Tools.GetEnumDescription(ActionType.Insert);
+                    log.ActionType = (int)ActionType.Insert;
+                    unitOfWork.DailyOperationServices.Insert(log);
+                    unitOfWork.SaveChanges();
+                    #endregion
                     var bankGroup = unitOfWork.CustomerGroups.FindFirstOrDefault(x => x.Name.Contains("بانک"));
 
                     if (bankGroup != null)

@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Transactions
 {
@@ -36,7 +37,9 @@ namespace PamirAccounting.Forms.Transactions
 
         private void UnkwonDepositFrm_Load(object sender, EventArgs e)
         {
-            txtDate.Select();
+            
+        
+                txtDate.Select();
             txtDate.Focus();
             txtDate.Text = DateTime.Now.ToFarsiFormat();
             LoadData();
@@ -59,16 +62,38 @@ namespace PamirAccounting.Forms.Transactions
 
             if (e.ColumnIndex == dataGridView1.Columns["btnAction"].Index && e.RowIndex >= 0)
             {
-                var destForm = new editUnkownDepositFrm(_dataList.ElementAt(e.RowIndex).Id);
-                destForm.ShowDialog();
-                LoadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.OprationUnkwonReciveBank && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var destForm = new editUnkownDepositFrm(_dataList.ElementAt(e.RowIndex).Id);
+                    destForm.ShowDialog();
+                    LoadData();
+                }
             }
 
             if (e.ColumnIndex == dataGridView1.Columns["btnRowEdit"].Index && e.RowIndex >= 0)
             {
-                var frmbankunkown = new PayAndReciveBankFrm(0, _dataList.ElementAt(e.RowIndex).Id);
-                frmbankunkown.ShowDialog();
-                LoadData();
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.UnkwonReciveBank && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var frmbankunkown = new PayAndReciveBankFrm(0, _dataList.ElementAt(e.RowIndex).Id);
+                    frmbankunkown.ShowDialog();
+                    LoadData();
+                }
             }
 
 
@@ -82,10 +107,21 @@ namespace PamirAccounting.Forms.Transactions
                 {
                     try
                     {
-                        var transaction = unitOfWork.TransactionServices.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
-                        unitOfWork.CustomerServices.Delete(transaction);
-                        unitOfWork.SaveChanges();
-                        LoadData();
+                        var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                        var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteUnkwonReciveBank && x.UserId == CurrentUser.UserID);
+                        if (roleId == null && adminRole == null)
+                        {
+                            MessageBox.Show(Messages.PermissionMsg);
+                            return;
+
+                        }
+                        if (roleId != null || adminRole != null)
+                        {
+                            var transaction = unitOfWork.TransactionServices.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(e.RowIndex).Id);
+                            unitOfWork.CustomerServices.Delete(transaction);
+                            unitOfWork.SaveChanges();
+                            LoadData();
+                        }
                     }
                     catch
                     {
@@ -118,11 +154,21 @@ namespace PamirAccounting.Forms.Transactions
 
             if (e.KeyCode == Keys.Space)
             {
-                var rowIndex = dataGridView1.SelectedRows[0].Index;
-                var frmbankunkown = new PayAndReciveBankFrm(0, _dataList.ElementAt(rowIndex).Id);
-                frmbankunkown.ShowDialog();
-                LoadData();
-               
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.PayAndReciveBank && x.UserId == CurrentUser.UserID);
+                if (roleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+                if (roleId != null || adminRole != null)
+                {
+                    var rowIndex = dataGridView1.SelectedRows[0].Index;
+                    var frmbankunkown = new PayAndReciveBankFrm(0, _dataList.ElementAt(rowIndex).Id);
+                    frmbankunkown.ShowDialog();
+                    LoadData();
+                }
             }
 
 
@@ -136,10 +182,21 @@ namespace PamirAccounting.Forms.Transactions
                 {
                     try
                     {
-                        var transaction = unitOfWork.TransactionServices.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(rowIndex).Id);
-                        unitOfWork.CustomerServices.Delete(transaction);
-                        unitOfWork.SaveChanges();
-                        LoadData();
+                        var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                        var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.DeleteUnkwonReciveBank && x.UserId == CurrentUser.UserID);
+                        if (roleId == null && adminRole == null)
+                        {
+                            MessageBox.Show(Messages.PermissionMsg);
+                            return;
+
+                        }
+                        if (roleId != null || adminRole != null)
+                        {
+                            var transaction = unitOfWork.TransactionServices.FindFirstOrDefault(x => x.Id == _dataList.ElementAt(rowIndex).Id);
+                            unitOfWork.CustomerServices.Delete(transaction);
+                            unitOfWork.SaveChanges();
+                            LoadData();
+                        }
                     }
                     catch
                     {
@@ -267,24 +324,33 @@ namespace PamirAccounting.Forms.Transactions
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-
-                    var size = _dataList.ElementAt(_dataList.Count() - 1);
-                    var rowCount = _dataList.Count();
-                    var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
-                    if (rowIndex == rowCount - 1)
+                    var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                    var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.OprationUnkwonReciveBank && x.UserId == CurrentUser.UserID);
+                    if (roleId == null && adminRole == null)
                     {
-                        var destForm = new editUnkownDepositFrm(_dataList.ElementAt(rowIndex).Id);
-                        destForm.ShowDialog();
-
+                        MessageBox.Show(Messages.PermissionMsg);
                         return;
+
                     }
-                    if (rowIndex < rowCount - 1)
+                    if (roleId != null || adminRole != null)
                     {
-                        var destForm = new editUnkownDepositFrm(_dataList.ElementAt(rowIndex).Id);
-                        destForm.ShowDialog();
+                        var size = _dataList.ElementAt(_dataList.Count() - 1);
+                        var rowCount = _dataList.Count();
+                        var rowIndex = dataGridView1.CurrentCell.OwningRow.Index;
+                        if (rowIndex == rowCount - 1)
+                        {
+                            var destForm = new editUnkownDepositFrm(_dataList.ElementAt(rowIndex).Id);
+                            destForm.ShowDialog();
 
+                            return;
+                        }
+                        if (rowIndex < rowCount - 1)
+                        {
+                            var destForm = new editUnkownDepositFrm(_dataList.ElementAt(rowIndex).Id);
+                            destForm.ShowDialog();
+
+                        }
                     }
-
 
                 }
             }
