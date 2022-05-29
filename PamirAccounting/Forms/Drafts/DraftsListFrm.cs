@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 
 namespace PamirAccounting.Forms.Drafts
 {
@@ -109,7 +110,7 @@ namespace PamirAccounting.Forms.Drafts
 
             if (txtStartNumber.Text.Length > 0)
             {
-                predicate = predicate.And(x => x.Number>= long.Parse(txtStartNumber.Text));
+                predicate = predicate.And(x => x.Number >= long.Parse(txtStartNumber.Text));
             }
 
             if (txtEndNumber.Text.Length > 0)
@@ -141,7 +142,7 @@ namespace PamirAccounting.Forms.Drafts
                 TypeCurrencyId = q.TypeCurrencyId,
                 DraftAmount = q.DraftAmount,
                 Rate = q.Rate,
-                Rent = q.AgencyRent,
+                Rent = (double)q.AgencyRent,
                 Type = q.Type,
                 DepositAmount = q.DepositAmount,
                 DepositCurrency = q.DepositCurrency?.Name,
@@ -241,6 +242,17 @@ namespace PamirAccounting.Forms.Drafts
         {
             if (e.KeyCode == Keys.Enter)
             {
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var roleIdShippingOrder = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.ShippingOrder && x.UserId == CurrentUser.UserID);
+                var roleIdWarrantsPayable = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.WarrantsPayable && x.UserId == CurrentUser.UserID);
+                if (roleIdWarrantsPayable == null && roleIdShippingOrder == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+
+                }
+
+
                 this.gridDrafts.CurrentRow.Selected = true;
                 e.Handled = true;
 
@@ -249,30 +261,57 @@ namespace PamirAccounting.Forms.Drafts
 
                 if (draft.Type == 0)
                 {
-                    var targetFrm = new shippingOrderFrm(draft.Id);
-                    targetFrm.ShowDialog();
-                    LoadData();
+                    if (roleIdShippingOrder != null || adminRole != null)
+                    {
+                        var targetFrm = new shippingOrderFrm(draft.Id);
+                        targetFrm.ShowDialog();
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
+                    }
                 }
                 else
                 {
-                    var targetFrm = new WarrantsPayableFrm(draft.Id);
-                    targetFrm.ShowDialog();
-                    LoadData();
+                    if (roleIdWarrantsPayable != null || adminRole != null)
+                    {
+                        var targetFrm = new WarrantsPayableFrm(draft.Id);
+                        targetFrm.ShowDialog();
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show(Messages.PermissionMsg);
+                        return;
+                    }
 
                 }
+
             }
             else if (e.KeyCode == Keys.ShiftKey)
             {
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var RoleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.ExecuteDaraft && x.UserId == CurrentUser.UserID);
+                if (RoleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+                }
+
                 this.gridDrafts.CurrentRow.Selected = true;
                 e.Handled = true;
-
                 var rowIndex = gridDrafts.SelectedRows[0].Index;
                 var draft = _data.ElementAt(rowIndex);
-                if (draft.CustomerId == AppSetting.NotRunnedDraftsId)
+                if (RoleId != null || adminRole != null)
                 {
-                    var FrmBalance = new ExecuteDaraftFrm(draft.Id);
-                    FrmBalance.ShowDialog();
-                    LoadData();
+                    if (draft.CustomerId == AppSetting.NotRunnedDraftsId)
+                    {
+                        var FrmBalance = new ExecuteDaraftFrm(draft.Id);
+                        FrmBalance.ShowDialog();
+                        LoadData();
+                    }
                 }
             }
         }

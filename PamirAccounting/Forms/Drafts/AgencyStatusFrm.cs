@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using static PamirAccounting.Commons.Enums.Settings;
 using static PamirAccounting.UI.Forms.Customers.ViewCustomerAccountFrm;
 
 namespace PamirAccounting.Forms.Drafts
@@ -83,7 +84,7 @@ namespace PamirAccounting.Forms.Drafts
                 TypeCurrency = q.TypeCurrency.Name,
                 DraftAmount = q.DraftAmount,
                 Rate = q.Rate,
-                Rent = q.AgencyRent,
+                Rent = (double)q.AgencyRent,
                 ConvertedRate = q.ConvertedRate,
                 ConvertedAmount = q.ConvertedAmount,
                 ConvertedCurrencyId = q.ConvertedCurrencyId,
@@ -324,15 +325,24 @@ namespace PamirAccounting.Forms.Drafts
         {
             if (e.KeyCode == Keys.Enter)
             {
+                var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                var RoleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Balance && x.UserId == CurrentUser.UserID);
+                if (RoleId == null && adminRole == null)
+                {
+                    MessageBox.Show(Messages.PermissionMsg);
+                    return;
+                }
                 this.gridDrafts.CurrentRow.Selected = true;
                 e.Handled = true;
 
                 var rowIndex = gridDrafts.SelectedRows[0].Index;
                 var draft = _data.ElementAt(rowIndex);
-
-                var FrmBalance = new CurrencyExchangeFrm(draft.Id);
-                FrmBalance.ShowDialog();
-                LoadData();
+                if (RoleId != null || adminRole != null)
+                {
+                    var FrmBalance = new CurrencyExchangeFrm(draft.Id);
+                    FrmBalance.ShowDialog();
+                    LoadData();
+                }
             }
         }
     }

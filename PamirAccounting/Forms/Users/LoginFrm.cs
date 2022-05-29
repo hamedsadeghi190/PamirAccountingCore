@@ -89,7 +89,7 @@ namespace PamirAccounting.Forms.Users
             else
             {
                 var user = unitOfWork.Users.FindFirstOrDefault(x => x.UserName == txtusername.Text && x.Password == Base64Encode(txtPassword.Text));
-                if (user != null)
+                if (user != null && user.IsDeleted==false)
                 {
                     CurrentUser.UserID = user.Id;
                     CurrentUser.UserName = user.UserName;
@@ -99,7 +99,7 @@ namespace PamirAccounting.Forms.Users
                 else
                 {
                     MessageBox.Show("کلمه کاربری یا کلمه عبور اشتباه است", "ورود", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                 }
             }
         }

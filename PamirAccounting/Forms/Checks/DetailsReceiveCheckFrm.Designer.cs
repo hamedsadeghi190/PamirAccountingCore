@@ -113,6 +113,7 @@ namespace PamirAccounting.Forms.Checks
             this.listBox1.Size = new System.Drawing.Size(230, 80);
             this.listBox1.TabIndex = 136;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
             // 
             // comboBox1
             // 
@@ -121,6 +122,7 @@ namespace PamirAccounting.Forms.Checks
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(230, 27);
             this.comboBox1.TabIndex = 135;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
             // lblNumberString

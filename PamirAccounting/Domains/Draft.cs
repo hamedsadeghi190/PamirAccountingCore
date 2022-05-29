@@ -43,7 +43,7 @@ namespace PamirAccounting.Domains
         public long? TransactionId { get; set; }
         public long? RelatedDraftId { get; set; }
         public long? DocumentId { get; set; }
-        public double AgencyRent { get; set; }
+        public double? AgencyRent { get; set; }
 
         public virtual Agency Agency { get; set; }
         public virtual Currency ConvertedCurrency { get; set; }

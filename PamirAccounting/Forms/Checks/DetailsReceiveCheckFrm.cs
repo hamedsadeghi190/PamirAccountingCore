@@ -66,7 +66,6 @@ namespace PamirAccounting.Forms.Checks
             AutoCompleteStringCollection autoCustomer = new AutoCompleteStringCollection();
             foreach (var item in _Customers)
             {
-
                 autoCustomer.Add(item.Title);
             }
             cmbCustomers.AutoCompleteCustomSource = autoCustomer;
@@ -78,7 +77,7 @@ namespace PamirAccounting.Forms.Checks
             {
                 comboBox1.Items.Add(item.Title);
             }
-            comboBox1.SelectedIndex = 0;
+            //comboBox1.SelectedIndex = 0;
         }
 
         private void btnshowcustomer_Click(object sender, EventArgs e)
@@ -548,6 +547,7 @@ namespace PamirAccounting.Forms.Checks
             {
                 listBox1.Items.Add(item.Title);
             }
+           
             listBox1.Visible = true;
         }
 
@@ -555,6 +555,31 @@ namespace PamirAccounting.Forms.Checks
         {
             comboBox1.SelectedItem = listBox1.SelectedItem;
             listBox1.Visible = false;
+        }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string textToSearch = comboBox1.Text.ToLower();
+            listBox1.Visible = false;
+            if (String.IsNullOrEmpty(textToSearch))
+                return;
+            var result = (from i in _Customers
+                          where i.Title.ToString().ToLower().Contains(textToSearch)
+                          select i).ToList();
+            if (result.Count() == 0)
+                return;
+
+            //listBox1.Items.Clear();
+            foreach (var item in result)
+            {
+                listBox1.Items.Add(item.Title);
+            }
+
         }
 
         private void createAccount(int SourceCustomerId, int CurrenyId)
