@@ -99,6 +99,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Header = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsMenu_Setting = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsMenu_Users = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsMenu_Recovery = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateBackupMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNewAccount = new System.Windows.Forms.Button();
@@ -832,6 +833,7 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Header,
             this.SettingsMenu_Setting,
             this.SettingsMenu_Users,
+            this.changePassword,
             this.SettingsMenu_Recovery,
             this.CreateBackupMenu});
             this.تنظیماتToolStripMenuItem.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -930,6 +932,15 @@ namespace PamirAccounting.Forms
             this.SettingsMenu_Users.Size = new System.Drawing.Size(209, 38);
             this.SettingsMenu_Users.Text = "کاربران";
             this.SettingsMenu_Users.Click += new System.EventHandler(this.SettingsMenu_Users_Click);
+            // 
+            // changePassword
+            // 
+            this.changePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.changePassword.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.changePassword.Name = "changePassword";
+            this.changePassword.Size = new System.Drawing.Size(209, 38);
+            this.changePassword.Text = "تغییر رمز عبور";
+            this.changePassword.Click += new System.EventHandler(this.changePassword_Click);
             // 
             // SettingsMenu_Recovery
             // 
@@ -1309,5 +1320,6 @@ namespace PamirAccounting.Forms
         private System.Windows.Forms.Button btnCustomerlist;
         private System.Windows.Forms.ToolStripMenuItem CreateBackupMenu;
         private System.Windows.Forms.OpenFileDialog backupFileSelector;
+        private System.Windows.Forms.ToolStripMenuItem changePassword;
     }
 }

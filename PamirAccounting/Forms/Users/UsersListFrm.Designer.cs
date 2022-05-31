@@ -98,7 +98,7 @@ namespace PamirAccounting.Forms.Users
             this.dataGridView1.RowTemplate.Height = 32;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(870, 373);
+            this.dataGridView1.Size = new System.Drawing.Size(737, 373);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -111,7 +111,7 @@ namespace PamirAccounting.Forms.Users
             this.groupBox1.Location = new System.Drawing.Point(0, -1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(871, 75);
+            this.groupBox1.Size = new System.Drawing.Size(735, 75);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "مدیریت کاربران";
@@ -120,7 +120,7 @@ namespace PamirAccounting.Forms.Users
             // txtsearch
             // 
             this.txtsearch.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtsearch.Location = new System.Drawing.Point(589, 30);
+            this.txtsearch.Location = new System.Drawing.Point(466, 30);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(183, 31);
             this.txtsearch.TabIndex = 103;
@@ -130,7 +130,7 @@ namespace PamirAccounting.Forms.Users
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(777, 33);
+            this.label7.Location = new System.Drawing.Point(654, 33);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 19);
@@ -145,7 +145,7 @@ namespace PamirAccounting.Forms.Users
             this.BtnCreateNew.Appearance.Options.UseFont = true;
             this.BtnCreateNew.Appearance.Options.UseForeColor = true;
             this.BtnCreateNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnCreateNew.ImageOptions.SvgImage")));
-            this.BtnCreateNew.Location = new System.Drawing.Point(8, 19);
+            this.BtnCreateNew.Location = new System.Drawing.Point(8, 20);
             this.BtnCreateNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnCreateNew.Name = "BtnCreateNew";
             this.BtnCreateNew.Size = new System.Drawing.Size(39, 41);
@@ -287,6 +287,7 @@ namespace PamirAccounting.Forms.Users
             this.btnRowPassword.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.btnRowPassword.Text = "تغییر رمز عبور";
             this.btnRowPassword.UseColumnTextForButtonValue = true;
+            this.btnRowPassword.Visible = false;
             this.btnRowPassword.Width = 130;
             // 
             // UsersListFrm
@@ -295,7 +296,7 @@ namespace PamirAccounting.Forms.Users
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 486);
+            this.ClientSize = new System.Drawing.Size(738, 486);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

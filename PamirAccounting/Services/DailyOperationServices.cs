@@ -38,13 +38,12 @@ namespace PamirAccounting.Services.Services
                 daily = FindAllReadonly().Select(x => new DailyOperationModel
                 {
                     Id = x.Id,
-                    
                     Date = x.Date,
                     Description = x.Description,
                     Time = x.Time,
                     DocumentId = x.DocumentId,
                     TransactionId = x.TransactionId.GetValueOrDefault(),
-                    UserName = x.UserName,
+                    UserName = x.User.FirstName+" "+x.User.LastName,
                     UserId = x.UserId,
                     DatePersian = pc.GetYear(x.Date).ToString() + "/" + pc.GetMonth(x.Date).ToString() + "/" + pc.GetDayOfMonth(x.Date).ToString(),
                     ActionText = x.ActionText,

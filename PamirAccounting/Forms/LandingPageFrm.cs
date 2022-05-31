@@ -1072,5 +1072,21 @@ namespace PamirAccounting.Forms
                 }
             }
         }
+
+        private void changePassword_Click(object sender, EventArgs e)
+        {
+            var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.ChangePassword && x.UserId == CurrentUser.UserID);
+            if (roleId == null)
+            {
+                MessageBox.Show(Messages.PermissionMsg);
+                return;
+            }
+            else
+            {
+                var frm = new ForgetPasswordFrm();
+                frm.ShowDialog();
+            }
+      
+        }
     }
 }

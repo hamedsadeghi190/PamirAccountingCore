@@ -29,10 +29,11 @@ namespace PamirAccounting.Forms.Log
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridLog = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,12 +42,12 @@ namespace PamirAccounting.Forms.Log
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtDate2 = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDate1 = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate1.Properties)).BeginInit();
@@ -56,18 +57,18 @@ namespace PamirAccounting.Forms.Log
             // 
             this.gridLog.AllowUserToAddRows = false;
             this.gridLog.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.gridLog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gridLog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridLog.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridLog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridLog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -77,25 +78,33 @@ namespace PamirAccounting.Forms.Log
             this.Column5,
             this.GroupName,
             this.Column4});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridLog.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridLog.DefaultCellStyle = dataGridViewCellStyle4;
             this.gridLog.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gridLog.Location = new System.Drawing.Point(-1, 66);
+            this.gridLog.Location = new System.Drawing.Point(1, 69);
             this.gridLog.Name = "gridLog";
             this.gridLog.ReadOnly = true;
             this.gridLog.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridLog.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridLog.RowHeadersVisible = false;
             this.gridLog.RowHeadersWidth = 51;
             this.gridLog.RowTemplate.Height = 32;
             this.gridLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridLog.ShowEditingIcon = false;
-            this.gridLog.Size = new System.Drawing.Size(1247, 396);
+            this.gridLog.Size = new System.Drawing.Size(1266, 541);
             this.gridLog.TabIndex = 104;
             // 
             // id
@@ -152,9 +161,9 @@ namespace PamirAccounting.Forms.Log
             // GroupName
             // 
             this.GroupName.DataPropertyName = "Description";
-            dataGridViewCellStyle11.Format = "N0";
-            dataGridViewCellStyle11.NullValue = "0";
-            this.GroupName.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.GroupName.DefaultCellStyle = dataGridViewCellStyle3;
             this.GroupName.FillWeight = 730F;
             this.GroupName.HeaderText = "توضیحات";
             this.GroupName.MinimumWidth = 6;
@@ -172,33 +181,9 @@ namespace PamirAccounting.Forms.Log
             this.Column4.ReadOnly = true;
             this.Column4.Width = 120;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.label3.Location = new System.Drawing.Point(-1, 465);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(92, 19);
-            this.label3.TabIndex = 141;
-            this.label3.Text = "جستجو (F2) ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
-            this.label5.Location = new System.Drawing.Point(106, 465);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(84, 19);
-            this.label5.TabIndex = 140;
-            this.label5.Text = "خروج (Esc)";
-            // 
             // txtDate2
             // 
-            this.txtDate2.Location = new System.Drawing.Point(836, 17);
+            this.txtDate2.Location = new System.Drawing.Point(873, 15);
             this.txtDate2.Name = "txtDate2";
             this.txtDate2.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDate2.Properties.Appearance.Options.UseFont = true;
@@ -215,7 +200,7 @@ namespace PamirAccounting.Forms.Log
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(963, 21);
+            this.label2.Location = new System.Drawing.Point(1000, 19);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(63, 19);
@@ -224,7 +209,7 @@ namespace PamirAccounting.Forms.Log
             // 
             // txtDate1
             // 
-            this.txtDate1.Location = new System.Drawing.Point(1032, 17);
+            this.txtDate1.Location = new System.Drawing.Point(1069, 15);
             this.txtDate1.Name = "txtDate1";
             this.txtDate1.Properties.Appearance.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDate1.Properties.Appearance.Options.UseFont = true;
@@ -241,12 +226,36 @@ namespace PamirAccounting.Forms.Log
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1169, 21);
+            this.label1.Location = new System.Drawing.Point(1206, 19);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(62, 19);
             this.label1.TabIndex = 144;
             this.label1.Text = "از تاریخ :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label3.Location = new System.Drawing.Point(-1, 613);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.TabIndex = 147;
+            this.label3.Text = "جستجو (F2) ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("IRANSansMobile(FaNum)", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(25)))), ((int)(((byte)(135)))));
+            this.label5.Location = new System.Drawing.Point(100, 613);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(84, 19);
+            this.label5.TabIndex = 146;
+            this.label5.Text = "خروج (Esc)";
             // 
             // DailyOperationFrm
             // 
@@ -254,13 +263,13 @@ namespace PamirAccounting.Forms.Log
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1246, 493);
+            this.ClientSize = new System.Drawing.Size(1268, 639);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDate2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDate1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.gridLog);
             this.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -282,8 +291,6 @@ namespace PamirAccounting.Forms.Log
         #endregion
 
         private System.Windows.Forms.DataGridView gridLog;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -295,5 +302,7 @@ namespace PamirAccounting.Forms.Log
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit txtDate1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
     }
 }

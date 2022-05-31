@@ -38,73 +38,75 @@ namespace PamirAccounting.Forms.Users
 
         private void ForgetPassword_Load(object sender, EventArgs e)
         {
-            var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
-            if (adminRole != null)
-            {
-                //var currentPasswor = unitOfWork.UserServices.Find(_Id);
-                txtCurrentPassword.Visible = false;
-                label1.Visible = false;
-            }
-            else
-            {
-                txtCurrentPassword.Text = "";
-            }
-        
+            //var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+            //if (adminRole != null)
+            //{
+            //    //var currentPasswor = unitOfWork.UserServices.Find(_Id);
+            //    txtCurrentPassword.Visible = false;
+            //    label1.Visible = false;
+            //}
+            //else
+            //{
+            //    txtCurrentPassword.Text = "";
+            //}
+
         }
 
         private void btnsave_Click(object sender, EventArgs e)
         {
             try
             {
+                //var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
+                //if (adminRole != null)
+                //{
+
+                //    if (txtNewPassword.Text.Length == 0)
+                //    {
+                //        MessageBox.Show("رمز عبور جدید را وارد کنید");
+                //        return;
+                //    }
+                //    if (txtNewPassRepeat.Text.Length == 0)
+                //    {
+                //        MessageBox.Show("تکرار رمز عبور جدید را وارد کنید ");
+                //        return;
+                //    }
+                //    if (txtNewPassword.Text == txtNewPassRepeat.Text)
+                //    {
+                //        _user = unitOfWork.Users.FindFirstOrDefault(x => x.Id == CurrentUser.UserID);
+                //        if (_user != null)
+                //        {
+                //            _user.Password = Base64Encode(txtNewPassword.Text);
+                //            unitOfWork.Users.Update(_user);
+                //            unitOfWork.SaveChanges();
+                //            #region Log
+                //            var log = new Domains.DailyOperation();
+                //            log.Date = DateTime.Parse(DateTime.Now.ToString());
+                //            log.Time = DateTime.Now.TimeOfDay;
+                //            log.UserId = CurrentUser.UserID;
+                //            log.UserName = CurrentUser.UserName;
+                //            log.Description = $"تغییر رمز عبور کاربر {_user.FirstName} {_user.LastName}";
+                //            log.ActionText = Tools.GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
+                //            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
+                //            unitOfWork.DailyOperationServices.Insert(log);
+                //            unitOfWork.SaveChanges();
+                //            #endregion
+                //            MessageBox.Show("عملیات با موفقیت ثبت گردید");
+                //            Close();
+                //            return;
+                //        }
+                //    }
+                //    if (txtNewPassword.Text != txtNewPassRepeat.Text)
+                //    {
+                //        MessageBox.Show("رمز عبور وارد شده با تکرار رمز عبور یکسان نمی باشد");
+                //        return;
+                //    }
+
+                //}
                 var adminRole = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.Admin && x.UserId == CurrentUser.UserID);
-                if (adminRole != null)
+                _user = unitOfWork.Users.FindFirstOrDefault(x => x.Id ==CurrentUser.UserID );
+                var roleId = unitOfWork.UserInRoleServices.FindFirstOrDefault(x => x.Role.Code == (int)Permission.ChangePassword && x.UserId == CurrentUser.UserID);
+                if (roleId != null || adminRole!=null)
                 {
-                    if (txtNewPassword.Text.Length == 0)
-                    {
-                        MessageBox.Show("رمز عبور جدید را وارد کنید");
-                        return;
-                    }
-                    if (txtNewPassRepeat.Text.Length == 0)
-                    {
-                        MessageBox.Show("تکرار رمز عبور جدید را وارد کنید ");
-                        return;
-                    }
-                    if (txtNewPassword.Text == txtNewPassRepeat.Text)
-                    {
-                        _user = unitOfWork.Users.FindFirstOrDefault(x => x.Id == _Id);
-                        if (_user != null)
-                        {
-                            _user.Password = Base64Encode(txtNewPassword.Text);
-                            unitOfWork.Users.Update(_user);
-                            unitOfWork.SaveChanges();
-                            #region Log
-                            var log = new Domains.DailyOperation();
-                            log.Date = DateTime.Parse(DateTime.Now.ToString());
-                            log.Time = DateTime.Now.TimeOfDay;
-                            log.UserId = CurrentUser.UserID;
-                            log.UserName = CurrentUser.UserName;
-                            log.Description = $"تغییر رمز عبور کاربر {_user.FirstName} {_user.LastName}";
-                            log.ActionText = Tools.GetEnumDescription(PamirAccounting.Commons.Enums.Settings.ActionType.Update);
-                            log.ActionType = (int)PamirAccounting.Commons.Enums.Settings.ActionType.Update;
-                            unitOfWork.DailyOperationServices.Insert(log);
-                            unitOfWork.SaveChanges();
-                            #endregion
-                            MessageBox.Show("عملیات با موفقیت ثبت گردید");
-                            Close();
-
-                        }
-                    }
-                    if (txtNewPassword.Text != txtNewPassRepeat.Text)
-                    {
-                        MessageBox.Show("رمز عبور وارد شده با تکرار رمز عبور یکسان نمی باشد");
-                        return;
-                    }
-
-                }
-
-                if (adminRole == null)
-                {
-                    _user = unitOfWork.Users.FindFirstOrDefault(x => x.Id == _Id);
                     if (txtCurrentPassword.Text.Length == 0)
                     {
                         MessageBox.Show("رمز عبور فعلی را وارد کنید");
@@ -122,6 +124,11 @@ namespace PamirAccounting.Forms.Users
                     if (_user.Password != Base64Encode(txtCurrentPassword.Text))
                     {
                         MessageBox.Show("رمز عبور فعلی اشتباه است");
+                        return;
+                    }
+                    if (txtNewPassword.Text != txtNewPassRepeat.Text)
+                    {
+                        MessageBox.Show("رمز عبور وارد شده با تکرار رمز عبور یکسان نمی باشد");
                         return;
                     }
                     if (txtNewPassword.Text == txtNewPassRepeat.Text)
@@ -149,11 +156,7 @@ namespace PamirAccounting.Forms.Users
 
                         }
                     }
-                    if (txtNewPassword.Text != txtNewPassRepeat.Text)
-                    {
-                        MessageBox.Show("رمز عبور وارد شده با تکرار رمز عبور یکسان نمی باشد");
-                        return;
-                    }
+                
 
                 }
             }
@@ -174,6 +177,17 @@ namespace PamirAccounting.Forms.Users
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+
+        private void ForgetPasswordFrm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
         }
     }
 }

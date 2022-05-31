@@ -71,7 +71,7 @@ namespace PamirAccounting.Forms.Users
             this.txtCurrentPassword.Properties.Appearance.Options.UseFont = true;
             this.txtCurrentPassword.Properties.AutoHeight = false;
             this.txtCurrentPassword.Size = new System.Drawing.Size(226, 32);
-            this.txtCurrentPassword.TabIndex = 118;
+            this.txtCurrentPassword.TabIndex = 1;
             // 
             // txtNewPassRepeat
             // 
@@ -80,7 +80,7 @@ namespace PamirAccounting.Forms.Users
             this.txtNewPassRepeat.Name = "txtNewPassRepeat";
             this.txtNewPassRepeat.PasswordChar = '*';
             this.txtNewPassRepeat.Size = new System.Drawing.Size(226, 31);
-            this.txtNewPassRepeat.TabIndex = 113;
+            this.txtNewPassRepeat.TabIndex = 3;
             // 
             // txtNewPassword
             // 
@@ -89,7 +89,7 @@ namespace PamirAccounting.Forms.Users
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.Size = new System.Drawing.Size(226, 31);
-            this.txtNewPassword.TabIndex = 112;
+            this.txtNewPassword.TabIndex = 2;
             // 
             // label5
             // 
@@ -146,7 +146,7 @@ namespace PamirAccounting.Forms.Users
             this.btnsave.Name = "btnsave";
             this.btnsave.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnsave.Size = new System.Drawing.Size(110, 38);
-            this.btnsave.TabIndex = 118;
+            this.btnsave.TabIndex = 4;
             this.btnsave.Text = "ثبت";
             this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
@@ -162,7 +162,7 @@ namespace PamirAccounting.Forms.Users
             this.btnexit.Name = "btnexit";
             this.btnexit.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnexit.Size = new System.Drawing.Size(110, 38);
-            this.btnexit.TabIndex = 119;
+            this.btnexit.TabIndex = 5;
             this.btnexit.Text = "بازگشت";
             this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
             // 
@@ -183,6 +183,7 @@ namespace PamirAccounting.Forms.Users
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.ForgetPassword_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ForgetPasswordFrm_KeyUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCurrentPassword.Properties)).EndInit();
