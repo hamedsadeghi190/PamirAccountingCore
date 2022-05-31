@@ -86,7 +86,7 @@ namespace PamirAccounting.Forms.Drafts
             txtDraftAmount.Text = draft.DraftAmount.ToString();
             txtRate.Text = draft.Rate.ToString();
             txtRent.Text = draft.Rent.ToString();
-            txtDepositAmount.Text = draft.DepositAmount.ToString();
+            txtDepositAmount.Text = (draft.DepositAmount + draft.Rent).ToString();
             cmbDepositCurreny.SelectedValue = draft.DepositCurrencyId;
             cmbCustomer.SelectedValue = draft.CustomerId;
             cmbStatus.SelectedValue = draft.Status;

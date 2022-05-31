@@ -353,11 +353,11 @@ namespace PamirAccounting.Forms.Drafts
                     relatedDraft.FatherName = txtFatherName.Text;
                     relatedDraft.Description = txtDesc.Text;
                     relatedDraft.PayPlace = txtPayPlace.Text;
-                    relatedDraft.TypeCurrencyId = (int)cmbDepositCurreny.SelectedValue;
-                    relatedDraft.DraftAmount = long.Parse(txtDepositAmount.Text);
+                    relatedDraft.TypeCurrencyId = (int)cmbDraftCurrency.SelectedValue;
+                    relatedDraft.DraftAmount = long.Parse(txtDraftAmount.Text);
                     relatedDraft.Rate = 1;
                     relatedDraft.Rent = txt_forosh_ext_number.Text.Length > 0 ? double.Parse(txt_forosh_ext_number.Text) : 0;
-                    relatedDraft.AgencyRent = 0;
+                    relatedDraft.AgencyRent = txt_forosh_ext_number.Text.Length > 0 ? double.Parse(txt_forosh_ext_number.Text) : 0;
                     relatedDraft.DepositAmount = double.Parse(txtDepositAmount.Text);
                     relatedDraft.DepositCurrencyId = (int)cmbDepositCurreny.SelectedValue;
                     relatedDraft.CustomerId = AppSetting.TransferdDraftsId;
@@ -434,8 +434,8 @@ namespace PamirAccounting.Forms.Drafts
                     log.Time = DateTime.Now.TimeOfDay;
                     log.UserId = CurrentUser.UserID;
                     log.UserName = CurrentUser.UserName;
-                    log.DocumentId = customerTransaction.DocumentId;
-                    log.Description = $" {  Description } به شماره سند { customerTransaction.DocumentId}";
+                    log.DocumentId = draft.DocumentId;
+                    log.Description = $" {  Description } به شماره سند { draft.DocumentId}";
                     log.ActionType = (int)ActionType.Insert;
                     log.ActionText = Tools.GetEnumDescription(ActionType.Insert);
                     unitOfWork.DailyOperationServices.Insert(log);
