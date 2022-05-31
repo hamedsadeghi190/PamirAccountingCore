@@ -54,7 +54,7 @@ namespace PamirAccounting.Models.ViewModels
 
     public class SummeryDraftStatusViewModels
     {
-   
+
         public int CurrenyId { get; set; }
         public string CurrenyName { get; set; }
         public string Status { get; set; }
@@ -62,4 +62,57 @@ namespace PamirAccounting.Models.ViewModels
         public double TotalWithdraw { get; set; }
         public double RemainAmount { get; set; }
     }
+
+
+    public class DraftForBalanceViewModels
+    {
+        public int Index { get; set; }
+        public int Type { get; set; }
+        public long Id { get; set; }
+        public long AgencyId { get; set; }
+        public int DocumentID { get; set; }
+        public int Radif { get; set; }
+        public long Number { get; set; }
+        public string OtherNumber { get; set; }
+        public string AgencyName { get; set; }
+        public string Sender { get; set; }
+        public string Reciver { get; set; }
+        public string FatherName { get; set; }
+        public string PayPlace { get; set; }
+        public string Description { get; set; }
+        public string TypeCurrency { get; set; }
+        public string Status { get; set; }
+        public long DraftAmount { get; set; }
+        public double Rate { get; set; }
+        public double Rent { get; set; }
+        public double? DepositAmount { get; set; }
+        public double RemainAmount { get; set; }
+        public string DepositCurrency { get; set; }
+        public string Customer { get; set; }
+        public int? CustomerId { get; set; }
+        public string RunningDate { get; set; }
+        public string Date { get; set; }
+        public int? ConvertedCurrencyId { get; set; }
+        public int TypeCurrencyId { get; set; }
+        public string ConvertedCurrency { get; set; }
+        public double? ConvertedRate { get; set; }
+        public long? ConvertedAmount { get; set; }
+        public string ConvertedDate { get; set; }
+        public string ExtraDescription { get; set; }
+        public bool Verify { get; set; }
+
+
+    }
+
+    public class DraftSummeryForBalanceViewModels
+    {
+        public int CurrenyId { get; set; }
+        public string CurrenyName { get; set; }
+        public string Description { get; set; }
+        public double Talabkari { get; set; }
+        public double Bedehi { get; set; }
+        public double Remain { get; set; }
+        public double RemainConverted { get; set; }
+    }
+
 }
